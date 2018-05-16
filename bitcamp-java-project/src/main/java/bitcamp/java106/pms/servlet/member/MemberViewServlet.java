@@ -46,7 +46,7 @@ public class MemberViewServlet extends HttpServlet {
             Member member = memberDao.selectOne(id);
     
             if (member == null) {
-                out.println("해당 아이디의 회원이 없습니다.");
+                out.println("해당 아이디의 회원이 없습니다. ");
             } else {
                 out.println("<table border='1'>");
                 out.println("<tr><th>아이디</th><td>");
