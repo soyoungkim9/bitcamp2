@@ -12,9 +12,16 @@ public class Test {
         ServerRequest request = new ServerRequest(str);
         
         System.out.println(request.getServerPath());
+        System.out.println("박수현 천재");
         System.out.println(request.getParameter("title"));
+        System.out.println("문선민 천재");
         System.out.println(request.getParameter("content"));
+        System.out.println("오현주 천재");
         System.out.println(request.getParameter("age"));
+        System.out.println("차진호 천재");
+        System.out.println("홍정호 천재");
+        System.out.println("김소영 천재");
+        
         
 
     }
