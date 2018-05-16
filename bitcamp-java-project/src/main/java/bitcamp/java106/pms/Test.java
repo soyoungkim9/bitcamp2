@@ -21,7 +21,6 @@ public class Test {
         System.out.println("차진호 천재");
         System.out.println("부천청룡 홍정호 ");
         System.out.println("김소영 천재");
-        
         System.out.println("♡♡♡♡♡♡♡♡");
         System.out.println("오현주!!!!!!!!");
     }
