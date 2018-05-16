@@ -18,7 +18,7 @@ public class MemberDeleteServlet implements Controller {
     public MemberDeleteServlet(MemberDao memberDao) {
         this.memberDao = memberDao;
     }
-
+  
     @Override
     public void service(ServerRequest request, ServerResponse response) {
         PrintWriter out = response.getWriter();

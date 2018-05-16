@@ -36,10 +36,8 @@ public class Test {
         System.out.println("♡♡♡♡♡♡♡♡");
         System.out.println("오현주!!!!!!!!");
         
-<<<<<<< HEAD
         System.out.println("정호형 바보");
 
-=======
         
         System.out.println("♡♡♡♡♡♡♡♡");
         System.out.println("오현주!!!!!!!!");
@@ -49,7 +47,6 @@ public class Test {
         
         System.out.println("♡♡♡♡♡♡♡♡");
         System.out.println("김소영!!!!!!!!");
->>>>>>> branch 'master' of https://github.com/pparksuuu/bitcamp2.git
     }
 }
 
