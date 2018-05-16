@@ -55,23 +55,23 @@ public class TaskViewServlet extends HttpServlet  {
             }
             out.println("<table border='1'>");
             out.println("<tr><th>팀명</th><td>");
-            out.printf("    <input type='text' name='tmname' value='%s' readonly></td></tr>\n", 
+            out.printf("    <input type='text' name='teamName' value='%s' readonly></td></tr>\n", 
                     task.getTeam().getName());
             out.println("<tr><th>작업번호</th><td>");
-            out.printf("    <input type='text' name='???' value='%d' readonly></td></tr>\n",
+            out.printf("    <input type='text' name='no' value='%d' readonly></td></tr>\n",
                     no);
             out.println("<tr><th>작업명</th><td>");
-            out.printf("    <input type='text' name='???' value='%s'></td></tr>\n",
+            out.printf("    <input type='text' name='title' value='%s'></td></tr>\n",
                     task.getTitle());
             out.printf("<tr><th>작업 기간</th><td>"); // 시작일 + 종료일 출력
             out.printf("<td>%s ~ %s</td></tr>\n",
                     task.getStartDate(),
                     task.getEndDate());
             out.printf("<tr><th>작업자</th><td>"); 
-            out.printf("    <input type='text' name='???' value='%s'></td></tr>\n",
+            out.printf("    <input type='text' name='memberId' value='%s'></td></tr>\n",
                     task.getWorker()); // 작업자가 없으면 "-" 출력 
             out.println("<tr><th>작업상태</th><td>");
-            out.printf("    <input type='text' name='???' value='%d'></td></tr>\n",
+            out.printf("    <input type='text' name='state' value='%d'></td></tr>\n",
                     getStateLabel(task.getState()));
 
             out.println("</table>");
