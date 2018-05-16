@@ -72,8 +72,11 @@ public class TaskViewServlet extends HttpServlet  {
             out.printf("    <input type='text' name='memberId' value='%s'></td></tr>\n",
                     task.getWorker().getId()); // 작업자가 없으면 "-" 출력 
             out.println("<tr><th>작업상태</th><td>");
-            out.printf("    <input type='text' name='state' value='%s'></td></tr>\n",
-                    getStateLabel(task.getState()));
+            out.printf("    <input type='text' name='state' value='%s'>"
+                    + "<a href='state?no=%d&state=0'>작업대기 </a>"
+                    + "<a href='state?no=%d&state=1'>작업중 </a>"
+                    + "<a href='state?no=%d&state=9'>작업완료</a></td></tr>\n",
+                    getStateLabel(task.getState()), no,no,no);
 
             out.println("</table>");
 

@@ -30,7 +30,7 @@ public class TaskStateServlet extends HttpServlet {
     }
 
     @Override
-    protected void doPost(
+    protected void doGet(
             HttpServletRequest request, 
             HttpServletResponse response) throws ServletException, IOException {
         
@@ -45,7 +45,7 @@ public class TaskStateServlet extends HttpServlet {
         out.println("<html>");
         out.println("<head>");
         out.println("<meta charset='UTF-8'>");
-        out.println("<meta http-equiv='Refresh' content='1;url=list'>");
+        out.println("<meta http-equiv='Refresh' content='1;url=list.html'>");
         out.println("<title>작업 변경</title>");
         out.println("</head>");
         out.println("<body>");
