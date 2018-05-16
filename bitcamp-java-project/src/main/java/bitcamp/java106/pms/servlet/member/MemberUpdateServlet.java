@@ -39,7 +39,7 @@ public class MemberUpdateServlet extends HttpServlet {
         member.setPassword(request.getParameter("password"));
         
         response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
+        PrintWriter out = response.getWriter(); 
         
         out.println("<!DOCTYPE html>");
         out.println("<html>");
@@ -52,7 +52,7 @@ public class MemberUpdateServlet extends HttpServlet {
         out.println("<h1>회원 변경 결과</h1>");
         
         try {
-            int count = memberDao.update(member); 
+            int count = memberDao.update(member);
             if (count == 0) {
                 out.println("<p>해당 아이디의 회원을 찾을 수 없습니다.</p>");
             } else {
