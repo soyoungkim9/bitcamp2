@@ -16,17 +16,17 @@ import bitcamp.java106.pms.servlet.InitServlet;
 @SuppressWarnings("serial")
 @WebServlet("/classroom/delete")
 public class ClassroomDeleteServlet extends HttpServlet {
-   
+	
     ClassroomDao classroomDao;
     @Override
     public void init() throws ServletException {
-       classroomDao = InitServlet.getApplicationContext().getBean(ClassroomDao.class);
+    	classroomDao = InitServlet.getApplicationContext().getBean(ClassroomDao.class);
     }
     @Override
     protected void doGet(
-          HttpServletRequest request,
-          HttpServletResponse response) throws ServletException, IOException {
-       int no = Integer.parseInt(request.getParameter("no"));
+    		HttpServletRequest request,
+    		HttpServletResponse response) throws ServletException, IOException {
+    	int no = Integer.parseInt(request.getParameter("no"));
 
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
@@ -48,7 +48,7 @@ public class ClassroomDeleteServlet extends HttpServlet {
                 out.println("<p>유효하지 않은 게시물 번호입니다.</p>");
             } else {
                 out.println("<p>삭제하였습니다.</p>");
-            }
+            } 
         } catch (Exception e) {
             out.println("<p>삭제 실패!</p>");
             e.printStackTrace(out);
