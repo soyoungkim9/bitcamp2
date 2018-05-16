@@ -12,7 +12,6 @@ public class Test {
         
         ServerRequest request = new ServerRequest(str);
 
-
         System.out.println(request.getParameter("title"));
         System.out.println(request.getParameter("content"));
         System.out.println(request.getParameter("age"));
@@ -45,6 +44,7 @@ public class Test {
         System.out.println("♡♡♡♡♡♡♡♡");
         System.out.println("박수현!!!!!!!!");
         System.out.println("♡♡♡♡♡♡♡♡");
+        System.out.println("김소영23323223!!!!!!!!");
     }
 }
 
