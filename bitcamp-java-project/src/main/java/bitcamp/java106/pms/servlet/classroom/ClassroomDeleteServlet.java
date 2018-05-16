@@ -21,7 +21,7 @@ public class ClassroomDeleteServlet extends HttpServlet {
     ClassroomDao classroomDao;
     @Override
     public void init() throws ServletException {
-        boardDao = InitServlet.getApplicationContext().getBean(BoardDao.class);
+    	classroomDao = InitServlet.getApplicationContext().getBean(ClassroomDao.class);
     }
     
     @Override
