@@ -11,7 +11,7 @@ public class Test {
         
         System.out.println(request.getServerPath());
         System.out.println(request.getParameter("age"));
-        System.out.println("김소영");
+        System.out.println("김소영22");
         
 
     }
