@@ -73,10 +73,22 @@ public class TaskViewServlet extends HttpServlet  {
                     task.getWorker().getId()); // 작업자가 없으면 "-" 출력 
             out.println("<tr><th>작업상태</th><td>");
             out.printf("    <input type='text' name='state' value='%s'>"
-                    + "<a href='state?no=%d&state=0'>작업대기 </a>"
-                    + "<a href='state?no=%d&state=1'>작업중 </a>"
-                    + "<a href='state?no=%d&state=9'>작업완료</a></td></tr>\n",
-                    getStateLabel(task.getState()), no,no,no);
+//라디오버튼                    
+                  + "<input type='radio' value='작업대기'  onClick=\"location.href='state?no=%d&state=0'\">작업대기  "
+                  + "<input type='radio' value='작업중'  onClick=\"location.href='state?no=%d&state=1'\">작업중  "
+                  + "<input type='radio' value='작업완료'  onClick=\"location.href='state?no=%d&state=9'\">작업완료  "
+                    
+//버튼                    
+//                    + "<input type='button' value='작업대기'  onClick=\"location.href='state?no=%d&state=0'\">"
+//                    + "<input type='button' value='작업중'  onClick=\"location.href='state?no=%d&state=1'\">"
+//                    + "<input type='button' value='작업완료'  onClick=\"location.href='state?no=%d&state=9'\">"
+                    
+//링크                    
+//                    + "<a href='state?no=%d&state=0'>작업대기 </a>"
+//                    + "<a href='state?no=%d&state=1'>작업중 </a>"
+//                    + "<a href='state?no=%d&state=9'>작업완료</a>"
+                    + "</td></tr>\n",
+                    getStateLabel(task.getState()), no,no,no,no);
 
             out.println("</table>");
 
