@@ -55,17 +55,17 @@ public class TeamViewServlet extends HttpServlet {
             } else {
                 out.println("<table border='1'>");
                 out.println("<tr><th>팀명</th><td>");
-                out.printf("	<input type='text' name='name' value='%s' readonly></td></tr>\n",
+                out.printf("	<input type='text' name='name' value='%s'></td></tr>\n",
                 		team.getName());
                 out.println("<tr><th>설명</th><td>");
-                out.printf("	<input type='text' name='desc' value='%s' readonly></td></tr>\n",
+                out.printf("	<input type='text' name='dscrt' value='%s'></td></tr>\n",
                 		team.getDescription());
                 out.println("<tr><th>최대인원</th><td>");
-                out.printf("	<input type='text' name='maxQty' value='%d' readonly></td></tr>\n",
+                out.printf("	<input type='text' name='maxQty' value='%d'></td></tr>\n",
                 		team.getMaxQty());
                 out.println("<tr><th>기간</th><td>");
-                out.printf("	<input type='date' name='startDate' value='%s' readonly>"
-                		+ "<input type='date' name='endDate' value='%s' readonly></td></tr>\n", 
+                out.printf("	<input type='date' name='startDate' value='%s'>"
+                		+ "<input type='date' name='endDate' value='%s'></td></tr>\n", 
                     team.getStartDate(), team.getEndDate());
                 out.println("</table>");
             }
