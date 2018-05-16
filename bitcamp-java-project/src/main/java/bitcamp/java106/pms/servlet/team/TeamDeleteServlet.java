@@ -15,7 +15,7 @@ import bitcamp.java106.pms.servlet.InitServlet;
 
 @SuppressWarnings("serial")
 @WebServlet("/team/delete")
-public class TeamDeleteController extends HttpServlet {
+public class TeamDeleteServlet extends HttpServlet {
 
     TeamDao teamDao;
     
