@@ -11,6 +11,7 @@ public class Test {
         String str = "/board/add?title=aaaa&content=bbb";
         
         ServerRequest request = new ServerRequest(str);
+<<<<<<< HEAD
 
 
         
@@ -22,6 +23,17 @@ public class Test {
         System.out.println("잘부탁드립니다 ..   진호");
 
 
+=======
+
+
+        
+        System.out.println(request.getServerPath());
+        System.out.println(request.getParameter("title"));
+        System.out.println(request.getParameter("content"));
+        System.out.println(request.getParameter("age"));
+        System.out.println("화이팅");
+        System.out.println("잘부탁드립니다 ..   진호");
+>>>>>>> branch 'master' of https://github.com/pparksuuu/bitcamp2.git
         System.out.println("안녕하세욘'ㅅ')/~~~~~~~ -문-");
         System.out.println(request.getServerPath());
         System.out.println("박수현 천재");
@@ -35,22 +47,23 @@ public class Test {
         System.out.println("김소영 천재");
         System.out.println("♡♡♡♡♡♡♡♡");
         System.out.println("오현주!!!!!!!!");
+<<<<<<< HEAD
         
 <<<<<<< HEAD
         System.out.println("정호형 바보");
 
 =======
         
+=======
+        System.out.println("정호형 바보");
+>>>>>>> branch 'master' of https://github.com/pparksuuu/bitcamp2.git
         System.out.println("♡♡♡♡♡♡♡♡");
         System.out.println("오현주!!!!!!!!");
-        
         System.out.println("♡♡♡♡♡♡♡♡");
         System.out.println("박수현!!!!!!!!");
-        
         System.out.println("♡♡♡♡♡♡♡♡");
         System.out.println("김소영23323223!!!!!!!!");
 >>>>>>> branch 'master' of https://github.com/pparksuuu/bitcamp2.git
     }
 }
 
-        
