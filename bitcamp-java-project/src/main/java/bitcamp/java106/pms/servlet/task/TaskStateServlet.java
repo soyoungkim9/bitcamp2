@@ -3,7 +3,6 @@ package bitcamp.java106.pms.servlet.task;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,88 +10,86 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import bitcamp.java106.pms.dao.MemberDao;
 import bitcamp.java106.pms.dao.TaskDao;
 import bitcamp.java106.pms.dao.TeamDao;
-import bitcamp.java106.pms.dao.TeamMemberDao;
-import bitcamp.java106.pms.domain.Member;
 import bitcamp.java106.pms.domain.Task;
-import bitcamp.java106.pms.domain.Team;
 import bitcamp.java106.pms.servlet.InitServlet;
 
 @SuppressWarnings("serial")
-@WebServlet("/task/add")
-public class TaskAddServlet extends HttpServlet {
+@WebServlet("/task/state")
+public class TaskStateServlet extends HttpServlet {
     
     TeamDao teamDao;
     TaskDao taskDao;
-    MemberDao memberDao;
-    TeamMemberDao teamMemberDao;
     
     @Override
     public void init() throws ServletException {
         teamDao = InitServlet.getApplicationContext().getBean(TeamDao.class);
         taskDao = InitServlet.getApplicationContext().getBean(TaskDao.class);
-        memberDao = InitServlet.getApplicationContext().getBean(MemberDao.class);
-        teamMemberDao = InitServlet.getApplicationContext().getBean(TeamMemberDao.class);
-    }
     
+    }
+
     @Override
     protected void doPost(
-            HttpServletRequest request,
+            HttpServletRequest request, 
             HttpServletResponse response) throws ServletException, IOException {
         
         request.setCharacterEncoding("UTF-8");
+        int no = Integer.parseInt(request.getParameter("no"));
+        int state = Integer.parseInt(request.getParameter("state"));
         
-        Task task = new Task();
-        task.setTitle(request.getParameter("title"));
-        task.setStartDate(Date.valueOf(request.getParameter("startDate")));
-        task.setEndDate(Date.valueOf(request.getParameter("endDate")));
-        task.setTeam(new Team().setName(request.getParameter("teamName")));
-        task.setWorker(new Member().setId(request.getParameter("memberId")));
-        
-        response.setContentType("text/html;charset=utf-8");
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
         out.println("<meta charset='UTF-8'>");
-        
         out.println("<meta http-equiv='Refresh' content='1;url=list'>");
-        
-        out.println("<title>작업 등록</title>");
+        out.println("<title>작업 변경</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h1>작업 등록 결과</h1>");
+        out.println("<h1>작업 변경 결과</h1>");
+        
         try {
-            Team team = teamDao.selectOne(task.getTeam().getName());
-            if (team == null) {
-                out.printf("<p>'%s' 팀은 존재하지 않습니다.</p>", task.getTeam().getName());
+            if (!(state == Task.READY || 
+                 state == Task.WORKING || 
+                 state == Task.COMPLETE)) {
+                out.println("<p>올바르지 않은 값입니다. 이전 상태를 유지합니다!</p>");
                 return;
             }
             
-            Member member = memberDao.selectOne(task.getWorker().getId());
-            if (member == null) {
-                out.printf("<p>'%s' 회원은 존재하지 않습니다.</p>", task.getWorker().getId());
-                return;
+            int count = taskDao.updateState(no, state);
+            if (count == 0) {
+                out.println("<p>해당 작업이 없습니다.</p>");
+            } else {
+                out.printf("<p>작업 상태를 '%s'로 변경하였습니다.</p>", 
+                        getStateLabel(state));
             }
-            
-            taskDao.insert(task);
-            out.println("등록 성공!");
         } catch (Exception e) {
-            out.println("등록 실패!");
+            out.println("<p>상태 변경 실패!</p>");
             e.printStackTrace(out);
         }
         out.println("</body>");
         out.println("</html>");
     }
-
+    
+    // 다음 메서드와 같이 인스턴스 변수를 사용하지 않는 메서드라면,
+    // static을 붙여 클래스 메서드로 만들라!
+    public static String getStateLabel(int state) {
+        switch (state) {
+        case Task.READY: return "작업대기";
+        case Task.WORKING: return "작업중";
+        case Task.COMPLETE: return "작업완료";
+        default:
+            return null;
+        }
+    }
 }
 
 //ver 31 - JDBC API가 적용된 DAO 사용
 //ver 28 - 네트워크 버전으로 변경
-//ver 26 - TaskController에서 add() 메서드를 추출하여 클래스로 정의.
+//ver 26 - TaskController에서 state() 메서드를 추출하여 클래스로 정의.
 //ver 23 - @Component 애노테이션을 붙인다.
 //ver 22 - TaskDao 변경 사항에 맞춰 이 클래스를 변경한다.
 //ver 18 - ArrayList가 적용된 TaskDao를 사용한다.

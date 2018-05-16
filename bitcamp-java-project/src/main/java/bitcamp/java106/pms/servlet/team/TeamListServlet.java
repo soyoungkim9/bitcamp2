@@ -3,7 +3,7 @@ package bitcamp.java106.pms.servlet.team;
 
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.sql.Date;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -13,54 +13,55 @@ import javax.servlet.http.HttpServletResponse;
 
 import bitcamp.java106.pms.dao.TeamDao;
 import bitcamp.java106.pms.domain.Team;
-import bitcamp.java106.pms.server.ServerRequest;
-import bitcamp.java106.pms.server.ServerResponse;
 import bitcamp.java106.pms.servlet.InitServlet;
 
 @SuppressWarnings("serial")
-@WebServlet("/team/add")
-public class TeamAddServlet extends HttpServlet {
+@WebServlet("/team/list")
+public class TeamListServlet extends HttpServlet {
 
     TeamDao teamDao;
-    
+
     @Override
     public void init() throws ServletException {
         teamDao = InitServlet.getApplicationContext().getBean(TeamDao.class);
     }
 
     @Override
-    protected void doPost(HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
-        request.setCharacterEncoding("UTF-8");
+    protected void doGet(
+            HttpServletRequest request, HttpServletResponse response)
+                    throws ServletException, IOException {
 
-        
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
-        Team team = new Team();
-        team.setName(request.getParameter("name"));
-        team.setDescription(request.getParameter("description"));
-        team.setMaxQty(Integer.parseInt(request.getParameter("maxQty")));
-        team.setStartDate(Date.valueOf(request.getParameter("startDate")));
-        team.setEndDate(Date.valueOf(request.getParameter("endDate")));
-        
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
         out.println("<meta charset='UTF-8'>");
-        out.println("<meta http-equiv='Refresh' content='1;url=list'>");
-        
-        out.println("<title>팀 등록</title>");
+        out.println("<title>팀 목록</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h1>팀 등록 결과</h1>");
-        
+        out.println("<h1>팀 목록</h1>");
+
         try {
-            teamDao.insert(team);
-            out.println("<p>등록 성공!</p>");
+            List<Team> list = teamDao.selectList();
+            out.println("<p><a href='form.html'>팀 목록</a></p>");
+            out.println("<table border='1'>");
+            out.println("<tr>");
+            out.println("    <th>팀명</th><th>최대인원</th><th>시작일</th><th>종료일</th>");
+            out.println("</tr>");
+            for (Team team : list) {
+                out.println("<tr>");
+                out.printf("<td><a href='view?name=%s'>%s</td><td>%d</td><td>%s</td><td>%s</td>\n", 
+                        team.getName(),
+                        team.getName(),
+                        team.getMaxQty(), 
+                        team.getStartDate(), team.getEndDate());
+                out.println("</tr>");
+            }
+            out.println("</table>");
         } catch (Exception e) {
-            out.println("<p>등록 실패!</p>");
+            out.println("목록 가져오기 실패!");
             e.printStackTrace(out);
         }
         out.println("</body>");
@@ -70,7 +71,7 @@ public class TeamAddServlet extends HttpServlet {
 
 //ver 31 - JDBC API가 적용된 DAO 사용
 //ver 28 - 네트워크 버전으로 변경
-//ver 26 - TeamController에서 add() 메서드를 추출하여 클래스로 정의.
+//ver 26 - TeamController에서 list() 메서드를 추출하여 클래스로 정의.
 //ver 23 - @Component 애노테이션을 붙인다.
 //ver 22 - TaskDao 변경 사항에 맞춰 이 클래스를 변경한다.
 //ver 18 - ArrayList가 적용된 TeamDao를 사용한다.
