@@ -1,5 +1,6 @@
 package bitcamp.java106.pms;
 
+
 import bitcamp.java106.pms.server.ServerRequest;
 
 public class Test {
@@ -10,11 +11,9 @@ public class Test {
         String str = "/board/add?title=aaaa&content=bbb";
         
         ServerRequest request = new ServerRequest(str);
-        
+        System.out.println("안녕하세욘'ㅅ')/~~~~~~~ -문-");
         System.out.println(request.getServerPath());
-        System.out.println("박수현 천재");
         System.out.println(request.getParameter("title"));
-        System.out.println("문선민 천재");
         System.out.println(request.getParameter("content"));
         System.out.println("오현주 천재");
         System.out.println(request.getParameter("age"));
@@ -32,5 +31,6 @@ public class Test {
         System.out.println("♡♡♡♡♡♡♡♡");
         System.out.println("김소영!!!!!!!!");
     }
-
 }
+
+        
