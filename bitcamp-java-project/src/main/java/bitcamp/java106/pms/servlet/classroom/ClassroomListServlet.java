@@ -27,7 +27,10 @@ public class ClassroomListServlet extends HttpServlet{
     
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        response.setContentType("text/html;charset=UTF-8");
+        
+        int no = Integer.parseInt(request.getParameter("no"));
+        
+    	response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
         out.println("<!DOCTYPE html>");
@@ -38,6 +41,7 @@ public class ClassroomListServlet extends HttpServlet{
         out.println("</head>");
         out.println("<body>");
         out.println("<h1>수강 목록</h1>");
+        out.println("<form action='update' method='post'>");
         try {
             //classroom.setTitle(request.getParameter("title"));
            // classroom.setStartDate(Date.valueOf(request.getParameter("startDate")));
@@ -64,6 +68,12 @@ public class ClassroomListServlet extends HttpServlet{
             out.println("<p>목록 가져오기 실패!</p>");
             e.printStackTrace(out);
         }
+        out.println("<p>");
+        out.println("<a href='list'>목록</a>");
+        out.println("<button>변경</button>");
+        out.printf("<a href='delete?no=%d'>삭제</a>\n", no);
+        out.println("</p>");
+        out.println("</form>");
         out.println("</body>");
         out.println("</html>");
     }
