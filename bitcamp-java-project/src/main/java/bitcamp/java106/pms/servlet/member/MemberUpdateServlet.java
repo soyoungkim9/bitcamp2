@@ -19,11 +19,10 @@ import bitcamp.java106.pms.servlet.InitServlet;
 public class MemberUpdateServlet extends HttpServlet {
 
     MemberDao memberDao;
-    
-    public MemberUpdateServlet(MemberDao memberDao) {
-        this.memberDao = memberDao     ;
-        System.out.println("박수현 바보");
-        System.out.println("문선민 바보");
+
+    @Override
+    public void init() throws ServletException {
+        memberDao=InitServlet.getApplicationContext().getBean(MemberDao.class);
     }
     
     
