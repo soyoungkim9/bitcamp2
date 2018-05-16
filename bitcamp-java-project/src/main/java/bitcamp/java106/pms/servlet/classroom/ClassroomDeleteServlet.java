@@ -17,13 +17,11 @@ import bitcamp.java106.pms.servlet.InitServlet;
 @WebServlet("/classroom/delete")
 public class ClassroomDeleteServlet extends HttpServlet {
 	
-	니ㅏ헝ㄴ허이너ㅣ하ㅏㅇㅎㅈ히ㅏㄴ 문선민꺼
     ClassroomDao classroomDao;
     @Override
     public void init() throws ServletException {
     	classroomDao = InitServlet.getApplicationContext().getBean(ClassroomDao.class);
     }
-    
     @Override
     public void service(ServerRequest request, ServerResponse response) {
         PrintWriter out = response.getWriter();
