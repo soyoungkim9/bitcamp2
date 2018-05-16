@@ -3,19 +3,25 @@ package bitcamp.java106.pms.servlet.classroom;
 
 import java.io.PrintWriter;
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 
+import bitcamp.java106.pms.dao.BoardDao;
 import bitcamp.java106.pms.dao.ClassroomDao;
 import bitcamp.java106.pms.server.ServerRequest;
 import bitcamp.java106.pms.server.ServerResponse;
+import bitcamp.java106.pms.servlet.InitServlet;
 
+@SuppressWarnings("serial")
 @WebServlet("/classroom/delete")
 public class ClassroomDeleteServlet extends HttpServlet {
+	
+	니ㅏ헝ㄴ허이너ㅣ하ㅏㅇㅎㅈ히ㅏㄴ 문선민꺼
     ClassroomDao classroomDao;
-    
-    public ClassroomDeleteServlet(ClassroomDao classroomDao) {
-        this.classroomDao = classroomDao;
+    @Override
+    public void init() throws ServletException {
+        boardDao = InitServlet.getApplicationContext().getBean(BoardDao.class);
     }
     
     @Override
