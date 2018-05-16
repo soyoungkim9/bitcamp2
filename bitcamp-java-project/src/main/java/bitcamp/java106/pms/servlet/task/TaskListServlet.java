@@ -21,30 +21,30 @@ import bitcamp.java106.pms.servlet.InitServlet;
 
 @SuppressWarnings("serial")
 @WebServlet("/task/list")
-public class TaskListController extends HttpServlet {
-    
+public class TaskListServlet extends HttpServlet {
+
     TeamDao teamDao;
     TaskDao taskDao;
-    
+
     @Override
     public void init() throws ServletException {
         teamDao=InitServlet.getApplicationContext().getBean(TeamDao.class);
         taskDao=InitServlet.getApplicationContext().getBean(TaskDao.class);
     }
-    
-    
+
+
     @Override
     protected void doGet(
             HttpServletRequest request, HttpServletResponse response)
-            throws ServletException, IOException {
-        
+                    throws ServletException, IOException {
+
         request.setCharacterEncoding("UTF-8");
         String teamName = request.getParameter("teamName");
-        
+
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        
-        
+
+
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
@@ -53,16 +53,16 @@ public class TaskListController extends HttpServlet {
         out.println("</head>");
         out.println("<body>");
         out.println("<h1>작업 목록</h1>");
-        
+
         try {
-            
-            
-            out.println("<p><a href='list.html'>새 글</a></p>");
+
+
+            //out.println("<p><a href='list.html'>새 글</a></p>");
             out.println("<table border='1'>");
             out.println("<tr>");
             out.println("    <th>작업번호</th><th>작업명</th><th>시작일</th><th>종료일</th><th>작업자</th>");
             out.println("</tr>");
-            
+
             Team team = teamDao.selectOne(teamName);
             if (team == null) {
                 out.printf("<p>'%s' 팀은 존재하지 않습니다.</p>\n", teamName);
@@ -70,8 +70,9 @@ public class TaskListController extends HttpServlet {
             }
             List<Task> list = taskDao.selectList(team.getName());
             for (Task task : list) {
-                
-                out.printf("    <td><a href='view?teamName=%s'>%d</td><td>%s</td><td>%s</td><td>%s</td><td>%s<td/>\n",
+
+                out.println("<tr>");
+                out.printf("    <td><a href='view?teamName=%s'>%d</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td>\n",
                         task.getTeam(),
                         task.getNo(), 
                         task.getTitle(), 
@@ -79,6 +80,7 @@ public class TaskListController extends HttpServlet {
                         task.getEndDate(),
                         (task.getWorker() == null) ? 
                                 "-" : task.getWorker().getId());
+                out.println("</tr>");
             }
         } catch (Exception e) {
             out.println("<p>목록 가져오기 실패!</p>");
