@@ -25,6 +25,8 @@ public class Test {
         
         System.out.println("♡♡♡♡♡♡♡♡");
         System.out.println("오현주!!!!!!!!");
+        System.out.println("♡♡♡♡♡♡♡♡");
+        System.out.println("김소영!!!!!!!!");
     }
 
 }
