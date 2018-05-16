@@ -42,7 +42,7 @@ public class TaskDeleteServlet extends HttpServlet {
         out.println("<html>");
         out.println("<head>");
         out.println("<meta charset='UTF-8'>");
-        out.println("<meta http-equiv='Refresh' content='1;url=list'>");
+        out.println("<meta http-equiv='Refresh' content='1;url=list.html'>");
         out.println("<title>팀 삭제</title>");
         out.println("</head>");
         out.println("<body>");
