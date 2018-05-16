@@ -32,6 +32,9 @@ public class TeamAddServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
         
+        request.setCharacterEncoding("UTF-8");
+
+        
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
 
@@ -41,14 +44,27 @@ public class TeamAddServlet extends HttpServlet {
         team.setMaxQty(Integer.parseInt(request.getParameter("maxQty")));
         team.setStartDate(Date.valueOf(request.getParameter("startDate")));
         team.setEndDate(Date.valueOf(request.getParameter("endDate")));
-
+        
+        out.println("<!DOCTYPE html>");
+        out.println("<html>");
+        out.println("<head>");
+        out.println("<meta charset='UTF-8'>");
+        out.println("<meta http-equiv='Refresh' content='1;url=list'>");
+        
+        out.println("<title>팀 등록</title>");
+        out.println("</head>");
+        out.println("<body>");
+        out.println("<h1>팀 등록 결과</h1>");
+        
         try {
             teamDao.insert(team);
-            out.println("등록 성공!");
+            out.println("<p>등록 성공!</p>");
         } catch (Exception e) {
-            out.println("등록 실패!");
+            out.println("<p>등록 실패!</p>");
             e.printStackTrace(out);
         }
+        out.println("</body>");
+        out.println("</html>");
     }
 }
 
