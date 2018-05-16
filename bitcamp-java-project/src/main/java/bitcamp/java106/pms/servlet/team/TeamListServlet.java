@@ -64,6 +64,7 @@ public class TeamListServlet extends HttpServlet {
             out.println("목록 가져오기 실패!");
             e.printStackTrace(out);
         }
+        
         out.println("</body>");
         out.println("</html>");
     }
