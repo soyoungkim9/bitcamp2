@@ -19,6 +19,7 @@ public class MemberUpdateServlet extends HttpServlet {
     
     public MemberUpdateServlet(MemberDao memberDao) {
         this.memberDao = memberDao     ;
+        System.out.println("박수현 바보");
     }
 
     @Override

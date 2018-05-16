@@ -3,15 +3,16 @@ package bitcamp.java106.pms.servlet.member;
 
 import java.io.PrintWriter;
 
-import org.springframework.stereotype.Component;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
 
-import bitcamp.java106.pms.controller.Controller;
 import bitcamp.java106.pms.dao.MemberDao;
 import bitcamp.java106.pms.server.ServerRequest;
 import bitcamp.java106.pms.server.ServerResponse;
 
-@Component("/member/delete")
-public class MemberDeleteServlet implements Controller {
+@SuppressWarnings("serial")
+@WebServlet("/member/delete")
+public class MemberDeleteServlet extends HttpServlet {
 
     MemberDao memberDao;
     
