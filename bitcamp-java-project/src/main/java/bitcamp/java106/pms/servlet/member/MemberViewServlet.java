@@ -30,9 +30,10 @@ public class MemberViewServlet extends HttpServlet {
     protected void doGet(
             HttpServletRequest request,
             HttpServletResponse response) throws ServletException, IOException {
-
+        request.setCharacterEncoding("UTF-8");
         String id = request.getParameter("id");
-        response.setContentType("text/html;UTF-8");
+        
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         out.println("<!DOCTYPE html>");
         out.println("<html>");
@@ -63,10 +64,11 @@ public class MemberViewServlet extends HttpServlet {
             out.printf("<p>%s</p>\n", e.getMessage());
             e.printStackTrace(out);
         }
-        out.println("<p>"
-                + "<a href='list'>[목록]</a>"
-                + "<button>변경</button>"
-                + "</p>");
+        out.println("<p>");
+        out.println("<a href='list'>목록</a>");
+        out.println("<button>변경</button>");
+        out.printf("<a href='delete?id=%s'>삭제</a>\n", id);
+        out.println("</p>");
         out.println("</form>");
         out.println("</body>");
         out.println("</html>");
