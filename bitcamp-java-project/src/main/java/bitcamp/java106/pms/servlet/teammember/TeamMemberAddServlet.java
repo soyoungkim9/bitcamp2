@@ -18,7 +18,7 @@ import bitcamp.java106.pms.domain.Team;
 import bitcamp.java106.pms.servlet.InitServlet;
 
 @SuppressWarnings("serial")
-@WebServlet("/team/member/add")
+@WebServlet("/teammember/add")
 public class TeamMemberAddServlet extends HttpServlet {
     
     TeamDao teamDao;
@@ -27,9 +27,9 @@ public class TeamMemberAddServlet extends HttpServlet {
     
     @Override
     public void init() throws ServletException {
-        teamDao = InitServlet.getApplicationContext().getBean(TeamDao.class);;
-        memberDao =InitServlet.getApplicationContext().getBean(MemberDao.class);;
-        teamMemberDao = InitServlet.getApplicationContext().getBean(TeamMemberDao.class);;
+        teamDao = InitServlet.getApplicationContext().getBean(TeamDao.class);
+        memberDao =InitServlet.getApplicationContext().getBean(MemberDao.class);
+        teamMemberDao = InitServlet.getApplicationContext().getBean(TeamMemberDao.class);
     }
     
     

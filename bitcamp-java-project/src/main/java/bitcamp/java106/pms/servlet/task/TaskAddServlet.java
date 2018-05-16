@@ -51,6 +51,8 @@ public class TaskAddServlet extends HttpServlet {
         task.setTeam(new Team().setName(request.getParameter("teamName")));
         task.setWorker(new Member().setId(request.getParameter("memberId")));
         
+        String teamName = request.getParameter("teamName");
+        
         response.setContentType("text/html;charset=utf-8");
         PrintWriter out = response.getWriter();
         
@@ -59,7 +61,7 @@ public class TaskAddServlet extends HttpServlet {
         out.println("<head>");
         out.println("<meta charset='UTF-8'>");
         
-        out.println("<meta http-equiv='Refresh' content='1;url=list'>");
+        out.printf("<meta http-equiv='Refresh' content='1;url=list?teamName=%s'>",teamName);
         
         out.println("<title>작업 등록</title>");
         out.println("</head>");

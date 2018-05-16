@@ -72,8 +72,8 @@ public class TaskListServlet extends HttpServlet {
             for (Task task : list) {
 
                 out.println("<tr>");
-                out.printf("    <td><a href='view?teamName=%s'>%d</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td>\n",
-                        task.getTeam(),
+                out.printf("    <td><a href='view?no=%d'>%d</td><td>%s</td><td>%s</td><td>%s</td><td>%s</td>\n",
+                        task.getNo(),
                         task.getNo(), 
                         task.getTitle(), 
                         task.getStartDate(), 
