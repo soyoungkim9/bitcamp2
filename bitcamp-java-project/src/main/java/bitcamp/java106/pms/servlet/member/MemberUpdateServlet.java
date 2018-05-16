@@ -38,7 +38,7 @@ public class MemberUpdateServlet extends HttpServlet {
         member.setEmail(request.getParameter("email"));
         member.setPassword(request.getParameter("password"));
         
-        response.setContentType("text;html/charset=UTF-8");
+        response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
         
         out.println("<!DOCTYPE html>");

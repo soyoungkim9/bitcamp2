@@ -56,7 +56,7 @@ public class MemberViewServlet extends HttpServlet {
                 out.println("<tr><th>제목</th>");
                 out.printf("   <td><input type='text' name='email' value='%s'></td></tr>\n",
                        member.getEmail());
-                out.printf("<tr><th>암호</th><td>%s</td></tr>\n",
+                out.printf("<tr><th>암호</th><td><input type='text' name='password' value='%s'></td></tr>\n",
                        member.getPassword());
                 out.printf("</table>");
             }
