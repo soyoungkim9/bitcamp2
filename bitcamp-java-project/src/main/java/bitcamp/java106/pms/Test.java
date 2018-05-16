@@ -33,7 +33,7 @@ public class Test {
         System.out.println("박수현!!!!!!!!");
         
         System.out.println("♡♡♡♡♡♡♡♡");
-        System.out.println("김소영!!!!!!!!");
+        System.out.println("김소영23323223!!!!!!!!");
     }
 }
 
