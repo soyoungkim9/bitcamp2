@@ -55,7 +55,6 @@ public class MemberListServlet extends HttpServlet {
             for (Member member : list) {
                 out.println("<tr>");
                 out.printf("    <td>%s</td> <td>%s</td> <td> <a href='view?id=%d'></td>\n",
-                
                     member.getId(),
                     member.getEmail());
                 out.println("</tr>");
