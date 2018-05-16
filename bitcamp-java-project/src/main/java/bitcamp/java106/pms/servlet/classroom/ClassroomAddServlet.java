@@ -19,7 +19,7 @@ import bitcamp.java106.pms.servlet.InitServlet;
 
 @SuppressWarnings("serial")
 @WebServlet("/classroom/add")
-public class ClassroomAddController extends HttpServlet {
+public class ClassroomAddServlet extends HttpServlet {
     ClassroomDao classroomDao;
     
     @Override
