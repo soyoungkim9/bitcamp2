@@ -12,7 +12,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import bitcamp.java106.pms.dao.MemberDao;
+import bitcamp.java106.pms.dao.TeamDao;
 import bitcamp.java106.pms.domain.Member;
+import bitcamp.java106.pms.server.ServerRequest;
+import bitcamp.java106.pms.server.ServerResponse;
 import bitcamp.java106.pms.servlet.InitServlet;
 
 @SuppressWarnings("serial")
@@ -23,42 +26,39 @@ public class MemberListServlet extends HttpServlet {
     
     @Override
     public void init() throws ServletException {
-        memberDao = InitServlet.getApplicationContext().getBean(MemberDao.class);
+    	memberDao = InitServlet.getApplicationContext().getBean(MemberDao.class);
     }
-
+    
     @Override
     protected void doGet(
-            HttpServletRequest request, 
-            HttpServletResponse response) throws ServletException, IOException {
+    		HttpServletRequest request, 
+    		HttpServletResponse response) throws ServletException, IOException {
         
-        response.setContentType("text/html;charset=UTF-8");
-        PrintWriter out = response.getWriter();
-        
+    	response.setContentType("text/html;charset=UTF-8");
+    	PrintWriter out = response.getWriter();
+    	
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
         out.println("<meta charset='UTF-8'>");
-        out.println("<title>맴버 목록</title>");
+        out.println("<title>회원 목록</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h1>맴버 목록</h1>");
-        
+        out.println("<h1>회원 목록</h1>");
+    	
         try {
             List<Member> list = memberDao.selectList();
-            
-            out.println("<p><a href='form.html'>새 글</a></p>");
+            out.println("<p><a href='form.html'>회원 목록</a></p>");
             out.println("<table border='1'>");
             out.println("<tr>");
-            out.println("    <th>아이디</th><th>이메일</th><th>암호</th>");
+            out.println("    <th>아이디</th><th>이메일</th>");
             out.println("</tr>");
-            
             for (Member member : list) {
                 out.println("<tr>");
-                out.printf("    <td><a href='view?id=%s'>%s</a></td><td>%s</td><td>%s</td>\n",
-                    member.getId(),
-                    member.getId(),
-                    member.getEmail());
-                     
+                out.printf("<td><a href='view?id=%s'>%s</td><td>%s</td>\n",
+                		member.getId(),
+                		member.getId(),
+                		member.getEmail());
                 out.println("</tr>");
             }
             out.println("</table>");
