@@ -18,7 +18,7 @@ public class MemberUpdateServlet extends HttpServlet {
     MemberDao memberDao;
     
     public MemberUpdateServlet(MemberDao memberDao) {
-        this.memberDao = memberDao;
+        this.memberDao = memberDao     ;
     }
 
     @Override
