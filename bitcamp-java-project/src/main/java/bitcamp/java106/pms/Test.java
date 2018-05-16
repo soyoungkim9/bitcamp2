@@ -16,7 +16,8 @@ public class Test {
         System.out.println(request.getParameter("content"));
         System.out.println(request.getParameter("age"));
         
-
+        System.out.println("♡♡♡♡♡♡♡♡");
+        System.out.println("오현주!!!!!!!!");
     }
 
 }
