@@ -49,13 +49,13 @@ public class MemberListServlet extends HttpServlet {
             out.println("<p><a href='form.html'>새 글</a></p>");
             out.println("<table border='1'>");
             out.println("<tr>");
-            out.println("    <th>아이디</th><th>이메일</th>");
+            out.println("    <th>아이디</th><th>이메일</th><th>암호</th>");
             out.println("</tr>");
             
             for (Member member : list) {
                 out.println("<tr>");
-                out.printf("    <td>%s</td> <td>%s</td> <td> <a href='view?id=%d'></td>\n",
-                
+                out.printf("    <td><a href='view?id=%s'>%s</a></td><td>%s</td><td>-</td>\n",
+                        member.getId(),
                     member.getId(),
                     member.getEmail());
                 out.println("</tr>");
