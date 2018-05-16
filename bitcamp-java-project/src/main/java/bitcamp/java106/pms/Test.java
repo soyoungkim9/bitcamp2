@@ -12,16 +12,12 @@ public class Test {
         
         ServerRequest request = new ServerRequest(str);
 
-        
-        System.out.println(request.getServerPath());
         System.out.println(request.getParameter("title"));
         System.out.println(request.getParameter("content"));
         System.out.println(request.getParameter("age"));
         
         System.out.println("잘부탁드립니다 ..   진호");
 
-
-        
         System.out.println(request.getServerPath());
         System.out.println(request.getParameter("title"));
         System.out.println(request.getParameter("content"));
@@ -42,7 +38,6 @@ public class Test {
         System.out.println("♡♡♡♡♡♡♡♡");
         System.out.println("오현주!!!!!!!!");
         System.out.println("정호형 바보");
-
         System.out.println("정호형 바보");
         System.out.println("♡♡♡♡♡♡♡♡");
         System.out.println("오현주!!!!!!!!");
