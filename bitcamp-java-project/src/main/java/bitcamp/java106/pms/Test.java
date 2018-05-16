@@ -10,6 +10,7 @@ public class Test {
         String str = "/board/add?title=aaaa&content=bbb";
         
         ServerRequest request = new ServerRequest(str);
+
         
         System.out.println(request.getServerPath());
         System.out.println(request.getParameter("title"));
@@ -17,6 +18,16 @@ public class Test {
         System.out.println(request.getParameter("age"));
         
         System.out.println("잘부탁드립니다 ..   진호");
+
+
+        System.out.println("안녕하세욘'ㅅ')/~~~~~~~ -문-");
+        System.out.println(request.getServerPath());
+        System.out.println(request.getParameter("title"));
+        System.out.println(request.getParameter("content"));
+        System.out.println(request.getParameter("age"));
+        
+        System.out.println("정호형 바보");
+
     }
 
 }
