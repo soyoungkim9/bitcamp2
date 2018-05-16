@@ -23,7 +23,7 @@ public class MemberDeleteServlet extends HttpServlet {
     public void init() throws ServletException {
     	memberDao = InitServlet.getApplicationContext().getBean(MemberDao.class);
     }
-    
+     
     @Override
     protected void doGet(
     		HttpServletRequest request,
