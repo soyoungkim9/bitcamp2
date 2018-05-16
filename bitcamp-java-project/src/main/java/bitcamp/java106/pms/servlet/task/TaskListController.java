@@ -57,10 +57,10 @@ public class TaskListController extends HttpServlet {
         try {
             
             
-            out.println("<p><a href='form.html'>새 글</a></p>");
+            out.println("<p><a href='list.html'>새 글</a></p>");
             out.println("<table border='1'>");
             out.println("<tr>");
-            out.println("    <th>번호</th><th>제목</th><th>등록일</th>");
+            out.println("    <th>작업번호</th><th>작업명</th><th>시작일</th><th>종료일</th><th>작업자</th>");
             out.println("</tr>");
             
             Team team = teamDao.selectOne(teamName);
@@ -71,10 +71,12 @@ public class TaskListController extends HttpServlet {
             List<Task> list = taskDao.selectList(team.getName());
             for (Task task : list) {
                 
-                out.printf("    <td><a href='view?no=%d'>%d</td><td>%s</td><td>%s</td><td>%s</td><td>%s<td/>\n",
-                        task.getNo(),
-                        task.getNo(), task.getTitle(), 
-                        task.getStartDate(), task.getEndDate(),
+                out.printf("    <td><a href='view?teamName=%s'>%d</td><td>%s</td><td>%s</td><td>%s</td><td>%s<td/>\n",
+                        task.getTeam(),
+                        task.getNo(), 
+                        task.getTitle(), 
+                        task.getStartDate(), 
+                        task.getEndDate(),
                         (task.getWorker() == null) ? 
                                 "-" : task.getWorker().getId());
             }
