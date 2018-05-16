@@ -19,7 +19,7 @@ import bitcamp.java106.pms.servlet.InitServlet;
 
 @SuppressWarnings("serial")
 @WebServlet("/team/member/add")
-public class TeamMemberAddController extends HttpServlet {
+public class TeamMemberAddServlet extends HttpServlet {
     
     TeamDao teamDao;
     MemberDao memberDao;
@@ -68,10 +68,10 @@ public class TeamMemberAddController extends HttpServlet {
                 return;
             }
             teamMemberDao.insert(teamName, memberId);
-            out.println("팀에 회원을 추가하였습니다.");
+            out.println("<p>팀에 회원을 추가하였습니다.</p>");
             
         } catch (Exception e) {
-            out.println("등록 실패!");
+            out.println("<p>등록 실패!</p>");
             e.printStackTrace(out);
         }
         out.println("</body>");
