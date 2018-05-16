@@ -17,63 +17,65 @@ import bitcamp.java106.pms.servlet.InitServlet;
 
 @SuppressWarnings("serial")
 @WebServlet("/classroom/list")
-public class ClassroomListServlet extends HttpServlet{
+public class ClassroomListServlet extends HttpServlet {
     ClassroomDao classroomDao;
     
     @Override
     public void init() throws ServletException {
         classroomDao = InitServlet.getApplicationContext().getBean(ClassroomDao.class);
     }
-    
+
     @Override
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+    protected void doGet(
+            HttpServletRequest request, 
+            HttpServletResponse response) throws ServletException, IOException {
+
         
-        int no = Integer.parseInt(request.getParameter("no"));
-        
-    	response.setContentType("text/html;charset=UTF-8");
+        response.setContentType("text/html; charset=utf-8");
         PrintWriter out = response.getWriter();
-        
+
         out.println("<!DOCTYPE html>");
         out.println("<html>");
         out.println("<head>");
         out.println("<meta charset='UTF-8'>");
-        out.println("<title>수강 목록</title>");
+        out.println("<title>수업 목록</title>");
         out.println("</head>");
         out.println("<body>");
-        out.println("<h1>수강 목록</h1>");
-        out.println("<form action='update' method='post'>");
+        out.println("<h1>수업 목록</h1>");
+        
         try {
-            //classroom.setTitle(request.getParameter("title"));
-           // classroom.setStartDate(Date.valueOf(request.getParameter("startDate")));
-            //classroom.setEndDate(Date.valueOf(request.getParameter("endDate")));
-            //classroom.setRoom(request.getParameter("room"));
             List<Classroom> list = classroomDao.selectList();
             
-            out.println("<p><a href='form.html'>새 글</a></p>");
+            out.println("<p><a href='form.html'>새 수업 추가</a></p>");
             out.println("<table border='1'>");
             out.println("<tr>");
-            out.println("    <th>제목</th><th>수강 기간</th><th>강의실</th>");
+            out.println("    <th>번호</th><th>수업명</th><th>시작일</th><th>종료일</th><th>강의실</th><th>삭제</th><th>변경</th>");
             out.println("</tr>");
             for (Classroom classroom : list) {
+                out.println("<form action='update' method='post'>");
                 out.println("<tr>");
-                out.printf("    <td>%s</td><td>%s ~ %s</td><td>%s</td>\n",
-                        classroom.getTitle(), 
-                        classroom.getStartDate(),
-                        classroom.getEndDate(), 
-                        classroom.getRoom());
+                out.printf("    <td><input type='text' name='no' value=%d readonly></td>"
+                        + "<td><input type='text' name='title' value=%s readonly></td>"
+                        + "<td><input type='date' name='startDate' value=%s></td>"
+                        + "<td><input type='date' name='endDate' value=%s></td>"
+                        + "<td><input type='text' name='room' value=%s></td>"
+                        + "<td><a href='delete?no=%d'>삭제</a></td>"
+                        + "<td><button>변경</button></td>\n",
+                    classroom.getNo(), 
+                    classroom.getTitle(), 
+                    classroom.getStartDate(),
+                    classroom.getEndDate(),
+                    classroom.getRoom(),
+                    classroom.getNo());
                 out.println("</tr>");
+                out.println("</form>");
             }
             out.println("</table>");
+            
         } catch (Exception e) {
             out.println("<p>목록 가져오기 실패!</p>");
             e.printStackTrace(out);
         }
-        out.println("<p>");
-        out.println("<a href='list'>목록</a>");
-        out.println("<button>변경</button>");
-        out.printf("<a href='delete?no=%d'>삭제</a>\n", no);
-        out.println("</p>");
-        out.println("</form>");
         out.println("</body>");
         out.println("</html>");
     }
@@ -82,4 +84,3 @@ public class ClassroomListServlet extends HttpServlet{
 //ver 31 - JDBC API가 적용된 DAO 사용
 //ver 28 - 네트워크 버전으로 변경
 //ver 26 - ClassroomController에서 list() 메서드를 추출하여 클래스로 정의.
-
