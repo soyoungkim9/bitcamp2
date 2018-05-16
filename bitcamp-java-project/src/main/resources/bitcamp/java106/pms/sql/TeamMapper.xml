@@ -15,7 +15,7 @@
   
   <select id="selectList" 
           resultMap="TeamMap" parameterType="map">
-    select name, sdt, edt, max_qty 
+    select name, dscrt, sdt, edt, max_qty
     from pms2_team
     <!--  limit #{startIndex}, #{pageSize} -->
   </select>
