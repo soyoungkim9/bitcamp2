@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>로그인</title>
+</head>
+<body>
+<h1>로그인</h1>
+<form>
+<table border='1'>
+<tr><th>아이디</th>
+    <td><input type='text' id='fId'></td></tr>
+<tr><th>암호</th>
+    <td><input type='password' id='fPassword'></td></tr>
+</table>
+<p><input type='checkbox' id='fSaveId'> 아이디 저장</p>
+<button id="loginBtn" type="button">로그인</button>
+</form>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<script>
+$("#loginBtn").click(() => {
+	var data = {
+		id: $("#fId").val(),
+		password: $("#fPassword").val()
+	};
+	if($(document.body).is("#fSaveId:checked")) { // 부모노드 중(body)에서 fSaved:checked라는 조건에 해당되는 태그가 있냐? 라고 물은 것. 한 개라도 있으면 true, 없으면 false.
+		//data.saveId = "true";
+		document.cookie += "userid=" + $("#fId").val() + ";"; 
+	}
+	$.post("../../json/auth/login", data, (result) => {
+		if (result.state == "success")
+			location.href = "../board/list.html";
+		else 
+			window.alert("로그인 실패!");
+	}, "json");
+});
+
+
+</script>
+
+</body>
+</html>
+    
