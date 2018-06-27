@@ -2,26 +2,65 @@
 <html>
 <head>
 <meta charset='UTF-8'>
-<title>게시물 목록</title>
+<title>마이페이지</title>
 <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/common.css">
-<style>
-#웹페이지용 {
-#nav
-.class
+<style type="text/css">
 
-}
-
-#테블릿용 {
-}
 </style>
 </head>
 <body>
+<div class="top-bar">
+    <div class="top-bar2">
+    CHALLENGE
+    </div>
+</div><!-- top-bar -->
+<nav id="header" style="width:100%;" class="navbar navbar-expand-lg navbar-light bg-light"></nav>
+<!-- 위에는 상단, 밑에는 하단 -->
+
 <div class="container">
+<br><br>
+<h3><b>마이페이지</b></h3>
+<div class="mypage">
+	<div class="profile">
+		<div style="text-align: center;">
+			<img src="img1.jpg" style="border-radius:60px; padding:10px;" width="120px" height="120px"><br>
+			사용자이름<br>
+		    <a id="profileBtn" href='http://www.daum.net' class="btn btn-success btn-sm">프로필관리</a>
+		</div>
+	</div><!-- .profile -->
+    <div class="mypage-bar">
+    <ul>
+        <li><b>진행중인 운동</b><span>1개</span></li>
+        <li><b>나의 히스토리</b><span>22개</span></li>
+        <li><b>내가 쓴 리뷰</b><span>3개</span></li>
+    </ul>
+    </div><!-- mypage-bar -->
+    
+    <div class="mypage-body">
+    <ul>
+        <li style="width:17%;"><b>알림</b></li>
+        <li>내가 쓴 글</li>
+        <li>내가 쓴 댓글</li>
+    </ul>
+    <hr style="border: solid 0.5px gray;"/>
+    <img src="xx.jpg" style="padding:10px;" width="120px" height="120px"><br>
+    <img src="img1.jpg" style="padding:10px;" width="120px" height="120px"><br>
+    <img src="xx.jpg" style="padding:10px;" width="120px" height="120px"><br>
+    <img src="xx.jpg" style="padding:10px;" width="120px" height="120px"><br>
+    <img src="xx.jpg" style="padding:10px;" width="120px" height="120px"><br>
+    
+    내용<br>내용<br>내용<br>내용<br>내용<br>내용<br>내용<br>내용<br>내용<br>내용<br>내용<br>내용<br>내용<br>내용<br>내용<br>내용<br>내용<br>내용<br>
+    </div><!-- mypage-body -->
 
-<nav id="header" class="navbar navbar-expand-lg navbar-light bg-light"></nav>
+</div><!-- mypage -->
+</div><!--.container-->
 
-<h1>게시물 목록</h1>
+
+
+<!-- 
+
+<h1>마이페이지</h1>
 <p><a href='form.html' class="btn btn-primary btn-sm">새 글</a></p>
 <table class="table table-hover">
 <thead>
@@ -29,8 +68,8 @@
 </thead>
 <tbody id="tableBody"></tbody>
 </table>
+ -->
 
-</div><!--.container-->
 
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each list}}

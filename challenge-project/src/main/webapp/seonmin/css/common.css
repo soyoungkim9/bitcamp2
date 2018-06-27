@@ -2,4 +2,50 @@
 
 .container {
     width: 1200px;
+    margin: 0 auto;
 }
+
+.profile {
+	margin-top: 30px;
+	border: 1px solid black;
+    width: 18%;
+    padding: 20px;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    float:left;
+}
+.top-bar {
+	width: 100%;
+	hight: 100px;
+	background-color: black;
+}
+.top-bar2 {margin-bottom:0; margin:0;padding:10px; padding-left:20px;font-size:1.5em;color:white;font-weight:bold;}
+
+.mypage{
+    overflow:hidden;
+    text-align: center;
+}
+.mypage-body {
+    float:left;
+    width:70%;
+    margin-top:30px;
+    margin-left:5%;
+    border:0px solid black;
+    text-align: left;
+}
+.mypage-body ul{margin:0;padding:0;font-size:0.8em;color:gray;}
+.mypage-body ul li{float:left;width:20%;}
+.mypage-bar{
+    float:left;
+    width:70%;
+    margin-top:30px;
+    margin-left:5%;
+    border:1px solid black;
+    padding: 20px;
+}
+ul {list-style:none; overflow:hidden;}
+li {float:left;}
+.mypage-bar ul{margin:0;padding:0;}
+.mypage-bar ul li{width:33.3%;}
+.mypage-bar ul li b{display:block;}
+hr.lll{width:0px; height:100%;}
