@@ -1,0 +1,80 @@
+#container {
+  width: 1200px;
+  margin: auto;
+  position: relative;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.img-responsive {
+  overflow: hidden;
+  margin: auto;
+  width: 1200px;
+  height: 360px;
+  background-color: black;
+}
+
+.row-program-timeline {
+  border: solid 1px blue;
+}
+
+#row-program-banner {
+  width: 1200px;
+  background-color: blue;
+  position: absolute;
+  bottom: 140px;
+  z-index: 2;
+    font-size: 55px;
+    float: left;
+}
+
+#row-program-image {
+  position: relative;
+  z-index: 3;
+}
+
+#timeline-daily-feed {
+  margin: 25px 25px 0px 25px;
+  padding: 15px;
+  border: solid 1px red;
+  background-color: gray;
+}
+
+#timeline-comment {
+  margin: 0px 25px 25px 25px;
+  padding: 15px;
+  border: solid 1px green;
+}
+
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  /* height: 100px;
+  width: 100px; */
+  /* outline: black;
+  background-size: 100%, 100%;
+  background-image: none; */
+
+}
+
+.carousel-control-next-icon:after {
+	z-index: 1;
+    background-color: gray;
+  content: '>';
+  /* font-size: 55px; */
+  color: red;
+}
+
+.carousel-indicators {
+  color: red;
+}
+
+.carousel-control-prev-icon:after {
+    background-color: gray;
+  content: '<';
+  /* font-size: 55px; */
+  color: red;
+}

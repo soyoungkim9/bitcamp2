@@ -1,0 +1,70 @@
+#container {
+  width: 1200px;
+  margin: 0 auto;
+  position: relative;
+}
+
+body, div {
+  border : 1px solid red;
+      width: 1200px;
+      margin: auto;
+}
+.inner {
+  position: relative;
+}
+
+.carousel-item {
+  position: relative;
+}
+
+#row-program-banner {
+  z-index: 1;
+  border: 1px solid blue;
+  position: absolute;
+  bottom: 150px;
+  display: inline-block;
+  background-color: black;
+}
+
+#program-title {
+  text-align: center;
+  display: inline-block;
+  width: 93.5%;
+  /* height: 100%; */
+  font-size: 53px;
+  color: white;
+  /* background-color: black; */
+  position: relative;
+  z-index: 1;
+}
+
+.control-prev-icon
+.control-next-icon{
+  /* height: 100px;
+  width: 100px; */
+  /* outline: black;
+  background-size: 100%, 100%;
+  background-image: none; */
+  /* text-align:left; */
+  /* bottom: 0px; */
+  /* right: 0px; */
+  /* position: relative; */
+  /* z-index: 2; */
+}
+
+.control-next-icon:after {
+  z-index: 2;
+  /* background-color: gray; */
+  content: '>';
+  font-size: 52px;
+  color: red;
+  float: right;
+
+}
+.control-prev-icon:after {
+    /* background-color: gray; */
+  content: '<';
+  font-size: 52px;
+  color: red;
+  float: left;
+}
