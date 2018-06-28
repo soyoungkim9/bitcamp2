@@ -1,0 +1,19 @@
+@charset "UTF-8";
+ul { list-style: none; padding: 0;}
+h1 { float: left; margin: 0;}
+h1 + ul { float: right; }
+li { float: left;}
+#footer-body { width: 900px; margin: 0 auto;}
+#footer-left { width: 75%; float: left;}
+#footer-left-top { 
+	height: 80px;
+    vertical-align: bottom;
+}
+#footer-left-bottom { margin-top: 20px;}
+#footer-left-bottom > ul {
+	height: 30px;}
+#footer-left-bottom li:nth-child(2n) {
+	text-align: center;
+	width: 20px;}
+#footer-right { width: 25%; float: right;
+}

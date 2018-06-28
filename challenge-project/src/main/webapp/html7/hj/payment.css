@@ -71,3 +71,32 @@ div {
     float: right;
 }
 
+#payment-button-body {
+	height: 100px;
+}
+
+<!-- 풋터 -->
+#footer-body {
+	height: 600px;
+}
+#footer-body > ul { 
+	width: 700px;
+	overflow: hidden;
+	margin : 0 auto;
+}
+#footer-body > ul > li {
+	display: inline;
+	float: left; 
+	text-align: center;
+}
+#footer-body > ul > li:nth-child(2n) {
+	width: 30px;
+}
+#notice {
+	width: 75%;
+	float:left;
+}
+#call {
+	width: 25%;
+	float:left;
+}
