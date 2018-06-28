@@ -5,6 +5,16 @@
     margin: 0 auto;
 }
 
+#linkfont a {
+  color: black;
+}
+#linkfont li.on {
+  border: 1px solid black;
+  border-top-left-radius: .25rem;
+  border-top-right-radius: .25rem;
+  border-bottom: 0px;
+  background-color:#F6F6F6;
+}
 .profile {
 	margin-top: 30px;
 	border: 1px solid black;
@@ -15,16 +25,21 @@
     float:left;
 }
 .top-bar {
+background: rgba(0,0,0,.7);
+position: fixed;
+top: 0px;
+left: 0px;
 	width: 100%;
 	hight: 100px;
-	background-color: black;
 	padding:10px; padding-left:20px;
 }
 .top-bar2 {
 	position:relative;
 	margin-bottom:0; margin:0;
 	font-size:1.5em;color:white;font-weight:bold;display:inline;}
-
+.search {
+  margin-top: 10px;
+}
 .mypage{
     overflow:hidden;
     text-align: center;
@@ -62,6 +77,10 @@ hr.lll{width:0px; height:100%;}
     margin-left: 0px;
 }
 .menubar{
+
+position: fixed;
+top: 0px;
+left: 180px;
 border:none;
 border:0px;
 margin:0px;
@@ -72,7 +91,7 @@ font-weight:bold;
 }
 
 .menubar ul{
-background: rgb(109,109,109);
+
 height:50px;
 list-style:none;
 margin:0;
@@ -85,7 +104,7 @@ padding:0px;
 }
 
 .menubar li a{
-background: rgb(109,109,109);
+
 color:#cccccc;
 display:block;
 font-weight:normal;
@@ -151,4 +170,3 @@ text-decoration:none;
 .menubar p{
 clear:left;
 }
-
