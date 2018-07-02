@@ -79,6 +79,7 @@ body {
 
 #logo_h1 {
   margin-bottom: 0px;
+      margin-top: 12px;
 }
 
 #logo_img {
@@ -286,7 +287,7 @@ input {
   width: 100%;
   background-color: #1B3453;
   text-align: center;
-  padding: 60px 20px 30px 20px;
+  /* padding: 60px 20px 30px 20px; */
   display: inline-block;
   box-sizing: border-box;
   position: relative;
@@ -295,7 +296,7 @@ input {
 .foot_wrap {
   width: 1200px;
   text-align: left;
-  padding: 0 250px 0 170px;
+  padding: 10px 170px 10px 170px;
   display: inline-block;
   box-sizing: border-box;
   position: relative;
@@ -304,14 +305,15 @@ input {
 .foot_utile_wrap {
   width: 100%;
   padding: 0;
-  margin-bottom: 20px;
+  /* margin-bottom: 20px; */
   display: inline-block;
   box-sizing: border-box;
 }
 
 .foot_link {
   display: inline-block;
-  float: left;
+  padding-left:  0;
+  margin: 10px 0px;
 }
 
 .foot_link li {
@@ -321,8 +323,9 @@ input {
 }
 
 .foot_link li a {
+  margin-top: 10px;
   font-weight: 400;
-  font-size: 16px;
+  font-size: 14px;
   color: #ffff;
   line-height: 20px;
   display: inline-block;
@@ -332,12 +335,20 @@ input {
  .foot_wrap address {
   width: 100%;
   font-weight: 100;
-  font-size: 16px;
+  font-size: 12px;
   font-style: normal;
   color: #EBEDF3;
   line-height: 20px;
-  padding: 5px 0;
+  /* padding: 2px 0; */
   display: inline-block;
 }
 
+#foot-logo-img {
+  height: 41px;
+}
+
+.copy {
+  font-size: 10px;
+margin: 2px 0;
+}
 /*푸터 CSS 종료*/
