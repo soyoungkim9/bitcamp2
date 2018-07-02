@@ -1,9 +1,43 @@
-.slide {width: 50px;
-overflow: hidden; margin: 0 auto; position: relative;}
-.slide img {display: block;}
-.slide ul{list-style: none; font-size: 0; width:250px;}
-/* .slide ul li{display: inline-block;} */
-/* .slide button.prev {position: absolute; */
-/* left: 0; top: 120px;} */
-/* .slide button.next {position: absolute; */
-/* left: 0; top: 120px;} */
+html, body, ul, li, button {
+  margin: 0;
+  padding: 0;
+}
+img {
+  display: block;
+  border: 0;
+}
+button {
+  border: 0;
+  background: none;
+}
+
+.slide {
+  width: 600px;
+  height: 200px;
+  overflow: hidden;
+  margin: 0 auto;
+  position: relative;
+}
+
+
+.slide ul {
+  width: 3000px;
+  list-style: none;
+  font-size: 0px;
+}
+
+ .slide ul li {
+  display: inline-block;
+}
+
+.slide button.prev {
+  position: absolute;
+  left: 0;
+  top: 120px;
+}
+
+.slide button.next {
+  position: absolute;
+  right: 0;
+  top: 120px;
+}

@@ -1,6 +1,15 @@
 @charset "UTF-8";
+@font-face {
+  font-family: 'NanumSquareRound',sans-serif;
+  src: url('font/NanumSquareRoundR.eot');
+  src: url('font/NanumSquareRoundR.eot?#iefix') format(‘embedded-opentype’),
+       url('font/NanumSquareRoundR.woff') format(‘woff’),
+       url('font/NanumSquareRoundR.woff2') format(‘woff’),
+       url('font/NanumSquareRoundR.ttf') format('truetype');
+  }
 
 .container {
+  font-family: 'NanumSquareRound',sans-serif;
     width: 1200px;
     margin: 0 auto;
 }

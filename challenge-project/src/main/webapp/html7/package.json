@@ -9,6 +9,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.1.0",
     "bootstrap": "^4.1.1",
     "handlebars": "^4.0.11",
     "jquery": "^1.12.4",
