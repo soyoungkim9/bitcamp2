@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>트레이너페이지</title>
+<link rel="stylesheet" href="sm-mypage.css">
+<link rel="stylesheet" href="../css/common.css">
+<style type="text/css">
+
+table {
+  text-align: center;
+  /*
+  table-layout:fixed;
+  word-break: break-all;
+  */
+}
+
+</style>
+</head>
+<body>
+    <div class="top-bar-black">
+      <div class="top-bar-white">
+        <hr style="position:relative; top:33px;">
+        <div class="container">
+          <div class="">
+
+          </div>
+          <div class="menubar margin-none">
+            <ul>
+              <li><a href="https://kmong.com/">마이페이지</a></li>
+              <li><a href="https://kmong.com/" id="current">서비스관리
+                <img src="menu-icon.png" height="15px"></a>
+                 <ul>
+                   <li><a href="https://kmong.com/">프로젝트 관리</a></li>
+                   <li><a href="https://kmong.com/">프로젝트 등록</a></li>
+                 </ul>
+              </li>
+              <li><a href="https://kmong.com/">회원관리</a></li>
+              <li><a href="https://kmong.com/">수익관리
+                <img src="menu-icon.png" height="15px"></a>
+                 <ul>
+                   <li><a href="https://kmong.com/">입/출금 내역</a></li>
+                   <li><a href="https://kmong.com/">통계</a></li>
+                 </ul>
+              </li>
+              <li><a href="https://kmong.com/">메시지</a></li>
+              <li><a href="https://kmong.com/">계정설정</a></li>
+           </ul>
+           <img src="logo.png" style="position: absolute; left: 10px; top:-40px; width:130px;">
+        </div><!-- menubar -->
+
+      </div><!-- container -->
+    </div><!-- top-bar-white -->
+  </div><!-- top-bar-black -->
+
+
+
+
+<div id="back">
+<div class="container">
+  <h2><b>마이페이지</b></h2>
+
+<div class="mypage">
+	<div class="profile">
+    <div style="text-align: center;">
+			<img src="img1.jpg" style="margin-left: 30px; border-radius:60px; z-index: -1; width:120px; height:120px;">
+      <button id="btn-1" type="button" style="position:relative; z-index: 0; top:-10px; right:40px; width:30px; height:30px; border-radius:15px; padding:0px;font-size:14px;"><span>2</span></button>
+      <br>
+			사용자이름<br>
+      <button id="btn-1" type="button" style="margin-top:10px;">프로필관리</button>
+		</div>
+	</div><!-- .profile -->
+    <div class="mypage-bar">
+    <ul>
+        <li><b>판매 중인 건</b><span>1개</span></li>
+        <li><b>이달의 수익금</b><span>200,000원</span></li>
+        <li><b>구매 중인 건</b><span>3개</span></li>
+    </ul>
+    </div><!-- mypage-bar -->
+
+    <div class="mypage-body">
+      <div class="tab">
+        <button class="tablinks" onclick="openCity(event, 'tab1')">회원관리</button>
+        <button class="tablinks" onclick="openCity(event, 'tab2')" style="border-left:none;">수익관리</button>
+      </div>
+
+      <div id="tab1" class="tabcontent current">
+        <div class="tab-down" style="width:22%; padding-top:10px;"> <!-- 회원관리1 -->
+          <img src="#" width="120px" height="120px">
+          <img src="#" width="120px" height="120px">
+          <img src="#" width="120px" height="120px">
+        </div>
+        <div class="tab-down" style="width:55%; border-right:1px solid gray; border-left:1px solid gray;"> <!-- 회원관리2 -->
+          <table width="467.5px" cellspacing="0">
+            <tr bgcolor=#ccc>
+              <td width="80px" height="40px">프로필</td><td width="80px">이름</td><td>연락처</td><td width="70px">출석률</td><td width="80px">선택<input type="checkbox" value="#"></td>
+            </tr>
+            <tr>
+              <td><img src="img1.jpg" style="border-radius:20px; width:40px; height:40px;"></td>
+              <td>홍길동</td>
+              <td>010-2212-2121</td>
+              <td>20%</td>
+              <td><input type="checkbox" value="okok"></td>
+            </tr>
+            <tr>
+              <td><img src="img1.jpg" style="border-radius:20px; width:40px; height:40px;"></td>
+              <td>홍길동</td>
+              <td>010-2212-2121</td>
+              <td>20%</td>
+              <td><input type="checkbox" value="okok"></td>
+            </tr>
+            <tr>
+              <td><img src="img1.jpg" style="border-radius:20px; width:40px; height:40px;"></td>
+              <td>홍길동</td>
+              <td>010-2011-1111</td>
+              <td>30%</td>
+              <td><input type="checkbox" value="okok"></td>
+            </tr>
+            <tr>
+              <td><img src="img1.jpg" style="border-radius:20px; width:40px; height:40px;"></td>
+              <td>홍길동</td>
+              <td>010-2011-1111</td>
+              <td>30%</td>
+              <td><input type="checkbox" value="okok"></td>
+            </tr>
+            <tr>
+              <td><img src="img1.jpg" style="border-radius:20px; width:40px; height:40px;"></td>
+              <td>홍길동</td>
+              <td>010-2011-1111</td>
+              <td>30%</td>
+              <td><input type="checkbox" value="okok"></td>
+            </tr>
+            <tr>
+              <td><img src="img1.jpg" style="border-radius:20px; width:40px; height:40px;"></td>
+              <td>홍길동</td>
+              <td>010-2011-1111</td>
+              <td>30%</td>
+              <td><input type="checkbox" value="okok"></td>
+            </tr>
+          </table>
+        </div>
+        <div class="tab-down" style="width:22.3%; text-align:center;"> <!-- 회원관리3 -->
+          <form>
+            <button id="btn-1" type="button" style="margin-top:50px; margin-bottom:10px;">메모하기</button><br>
+            <button id="btn-1" type="button" style="margin-bottom:10px;">정보보기</button><br>
+            <button id="btn-1" type="button" style="margin-bottom:10px;">정보보기</button>
+          </form>
+        </div>
+      </div>
+
+      <div id="tab2" class="tabcontent">
+        <div class="tab-down" style="width:22%; padding-top:10px;"> <!-- 회원관리1 -->
+          <img src="#" width="120px" height="120px">
+          <img src="#" width="120px" height="120px">
+          <img src="#" width="120px" height="120px">
+        </div>
+          <div class="tab-down" style="text-align:center;"> <!-- 수익관리2 -->
+            <h1>수익 관련 그래프 들어가는 자리 </h1>
+          </div>
+      </div>
+
+
+
+
+      <h2>타임라인</h2>
+        ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>
+          ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>
+    </div><!-- mypage-body -->
+
+
+</div><!-- mypage -->
+</div><!--.container-->
+</div>
+
+
+
+
+
+<script> // 탭 메뉴
+function openCity(evt, cityName) {
+    var i, tabcontent, tablinks;
+    tabcontent = document.getElementsByClassName("tabcontent");
+    for (i = 0; i < tabcontent.length; i++) {
+        tabcontent[i].style.display = "none";
+    }
+    tablinks = document.getElementsByClassName("tablinks");
+    for (i = 0; i < tablinks.length; i++) {
+        tablinks[i].className = tablinks[i].className.replace(" active", "");
+    }
+    document.getElementById(cityName).style.display = "block";
+    evt.currentTarget.className += " active";
+}
+</script>
+
+</body>
+</html>
