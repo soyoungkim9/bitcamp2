@@ -1,23 +1,21 @@
 @charset "UTF-8";
 
-.container {
+body {
+  margin: 0;
+}
+.container { /* 전체 틀 */
     width: 1200px;
     margin: 0 auto;
 }
 
-#linkfont a {
-  color: black;
-}
-#linkfont li.on {
-  border: 1px solid black;
-  border-top-left-radius: .25rem;
-  border-top-right-radius: .25rem;
-  border-bottom: 0px;
-  background-color:#F6F6F6;
+#back { /* 로고 뒷배경 */
+  height: 55px;
+  width: 100%;
+  background-color: black;
 }
 .profile {
+border:1px solid gray;
 	margin-top: 30px;
-	border: 1px solid black;
     width: 18%;
     padding: 20px;
     padding-top: 20px;
@@ -25,43 +23,41 @@
     float:left;
 }
 .top-bar {
-background: rgba(0,0,0,.7);
-position: fixed;
-top: 0px;
-left: 0px;
-	width: 100%;
-	hight: 100px;
-	padding:10px; padding-left:20px;
-}
-.top-bar2 {
 	position:relative;
-	margin-bottom:0; margin:0;
-	font-size:1.5em;color:white;font-weight:bold;display:inline;}
-.search {
-  margin-top: 10px;
+  margin: 10px;
+  display: inline-block;
+	font-size:1.5em;color:white;font-weight:bold;
 }
+
 .mypage{
     overflow:hidden;
     text-align: center;
 }
 .mypage-body {
     float:left;
-    width:70%;
+    width:73.5%;
     margin-top:30px;
     margin-left:5%;
-    border:0px solid black;
     text-align: left;
 }
-.mypage-body ul{margin:0;padding:0;font-size:0.8em;color:gray;}
-.mypage-body ul li{float:left;width:20%;}
+
+.tab-down {
+  border: 1px solid black;
+  height: 250px;
+  float: left;
+  align: center;
+  overflow: auto;
+}
+
 .mypage-bar{
     float:left;
     width:70%;
     margin-top:30px;
     margin-left:5%;
-    border:1px solid black;
+    border:1px solid gray;
     padding: 20px;
 }
+
 ul {list-style:none; overflow:hidden;}
 li {float:left;}
 .mypage-bar ul{margin:0;padding:0;}
@@ -77,8 +73,7 @@ hr.lll{width:0px; height:100%;}
     margin-left: 0px;
 }
 .menubar{
-
-position: fixed;
+/* position: fixed; */
 top: 0px;
 left: 180px;
 border:none;
@@ -105,7 +100,7 @@ padding:0px;
 
 .menubar li a{
 
-color:#cccccc;
+color:black;
 display:block;
 font-weight:normal;
 line-height:50px;

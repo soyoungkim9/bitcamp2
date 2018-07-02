@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset='UTF-8'>
+<title>트레이너페이지</title>
+<link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/common.css">
+<style type="text/css">
+#main {
+  margin:auto;
+      float:left;
+      width:100%;
+  text-align: center;
+  margin-bottom: 30px;
+}
+#main-sub {
+  width:30%;
+  height: 400px;
+      float:left;
+}
+</style>
+</head>
+<body>
+<div id="back">
+<div class="container">
+  <div class="top-bar">
+      <div class="top-bar2">
+      CHALLENGE
+      </div>
+      <!-- 검색창 <div style="padding-top:15px;">
+        <input type="text" placeholder="지역을 입력해주세요.">
+          <button></button>
+      </div> -->
+  </div><!-- top-bar -->
+  <div class="menubar margin-none">
+     <ul>
+        <li><a href="https://kmong.com/">마이페이지</a></li>
+        <li><a href="https://kmong.com/" id="current">서비스관리
+          <img src="menu-icon.png" height="15px"></a>
+           <ul>
+             <li><a href="https://kmong.com/">프로젝트 관리</a></li>
+             <li><a href="https://kmong.com/">프로젝트 등록</a></li>
+           </ul>
+        </li>
+        <li><a href="https://kmong.com/">회원관리</a></li>
+        <li><a href="https://kmong.com/">수익관리
+          <img src="menu-icon.png" height="15px"></a>
+           <ul>
+             <li><a href="https://kmong.com/">입/출금 내역</a></li>
+             <li><a href="https://kmong.com/">통계</a></li>
+           </ul>
+        </li>
+        <li><a href="https://kmong.com/">메시지</a></li>
+        <li><a href="https://kmong.com/">계정설정</a></li>
+     </ul>
+     <hr style="margin-top:0px;">
+  </div><!-- menubar -->
+
+
+
+<h3><b>마이페이지</b></h3>
+
+<div class="mypage">
+	<div class="profile">
+		<div style="text-align: center;">
+			<img src="img1.jpg" style="border-radius:60px; padding:10px;" width="120px" height="120px"><br>
+			사용자이름<br>
+		    <a id="profileBtn" href='http://www.daum.net' class="btn btn-success btn-sm">프로필관리</a>
+		</div>
+	</div><!-- .profile -->
+    <div class="mypage-bar">
+    <ul>
+        <li><b>판매 중인 건</b><span>1개</span></li>
+        <li><b>이달의 수익금</b><span>200,000원</span></li>
+        <li><b>구매 중인 건</b><span>3개</span></li>
+    </ul>
+    </div><!-- mypage-bar -->
+
+    <div class="mypage-body">
+
+      <ul id="linkfont" class="nav nav-tabs">
+  <li class="nav-item on">
+    <a class="nav-link active" style="border:0px;" href="#">회원관리</a>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" style="border:0px;" href="#">수익관리</a>
+  </li>
+</ul>
+    <div id="main" style="border:1px solid gray;">
+      <div id="main-sub" style="overflow:auto; width:25%; border-right:1px solid gray;">프로젝트 목록<br>
+<img src="#" style="display:inline;padding:20px;" width="120px" height="120px">
+<img src="#" style="display:inline;padding:20px;" width="120px" height="120px">
+<img src="#" style="display:inline;padding:20px;" width="120px" height="120px">
+<img src="#" style="display:inline;padding:20px;" width="120px" height="120px">
+<img src="#" style="display:inline;padding:20px;" width="120px" height="120px">
+      </div>
+      <div id="main-sub" style="overflow:auto; width:55%;">
+        <table class="table table-striped" style="font-size:0.8em; border-top-color:white;">
+          <thead>
+            <tr>
+              <th>프로필</th><th>이름</th><th>출석률</th><th>진행상태</th><th>전체선택&nbsp;<input type="checkbox" value="okok"></th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><img src="img1.jpg" style="border-radius:20px;" width="40px" height="40px"></td>
+              <td>홍길동</td>
+              <td>100%</td>
+              <td>20%</td>
+              <td><input type="checkbox" value="okok"></td>
+            </tr>
+            <tr>
+              <td><img src="img1.jpg" style="border-radius:20px;" width="40px" height="40px"></td>
+              <td>홍길동</td>
+              <td>100%</td>
+              <td>20%</td>
+              <td><input type="checkbox" value="okok"></td>
+            </tr>
+            <tr>
+              <td><img src="img1.jpg" style="border-radius:20px;" width="40px" height="40px"></td>
+              <td>홍길동</td>
+              <td>100%</td>
+              <td>20%</td>
+              <td><input type="checkbox" value="okok"></td>
+            </tr>
+            <tr>
+              <td><img src="img1.jpg" style="border-radius:20px;" width="40px" height="40px"></td>
+              <td>홍길동</td>
+              <td>100%</td>
+              <td>20%</td>
+              <td><input type="checkbox" value="okok"></td>
+            </tr>
+          </tbody>
+        </table>
+      </div> <!-- 회원 목록 -->
+      <div id="main-sub"  style="width:20%; padding:96px 0;border-left:1px solid gray;"><br><!-- 버튼 -->
+        <a id="profileBtn" href='http://www.daum.net' class="btn btn-dark btn-sm" style="width:70px;">메시지</a><br><br>
+        <a id="profileBtn" href='http://www.daum.net' class="btn btn-dark btn-sm" style="width:70px;">메모</a><br><br>
+        <a id="profileBtn" href='http://www.daum.net' class="btn btn-dark btn-sm" style="width:70px;">정보보기</a>
+      </div>
+    </div><!--main -->
+
+
+<h4>타임라인</h4>
+        ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>
+          ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>ㅇㅇ<br>
+
+
+    </div><!-- mypage-body -->
+
+
+</div><!-- mypage -->
+</div><!--.container-->
+</div><!-- back -->
+
+
+<!--
+
+<h1>마이페이지</h1>
+<p><a href='form.html' class="btn btn-primary btn-sm">새 글</a></p>
+<table class="table table-hover">
+<thead>
+    <tr><th>번호</th><th>제목</th><th>등록일</th></tr>
+</thead>
+<tbody id="tableBody"></tbody>
+</table>
+ -->
+
+
+<script id="tr-template" type="text/x-handlebars-template">
+{{#each list}}
+<tr>
+	<td>{{no}}</td>
+	<td><a href='form.html?no={{no}}'>{{title}}</a></td>
+	<td>{{createdDate}}</td>
+</tr>
+{{/each}}
+</script>
+
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+<script src="../header.js"></script>
+
+<script>
+
+// 템플릿 엔진이 사용할 템플릿 데이터 가져오기
+var trTemplateSrc = $("#tr-template").html();
+
+// 위에서 준비한 템플릿 데이터를 가지고 HTML을 생성할 템플릿 엔진 준비
+var templateFn = Handlebars.compile(trTemplateSrc);
+
+$.getJSON("../../json/board/list", (data) => {
+	// tableBody.innerHTML = templateFn
+	$(tableBody).html(templateFn({list:data}));
+});
+
+$(function() {
+  $('li').click(function(){
+    $('li').removeClass()
+    $(this).addClass('on')
+  })
+})
+
+
+</script>
+
+</body>
+</html>
