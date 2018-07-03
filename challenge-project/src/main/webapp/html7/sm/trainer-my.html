@@ -6,9 +6,9 @@
 <link rel="stylesheet" href="sm-mypage.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
-<link rel="stylesheet" href="../header/header_white.css">
+<link rel="stylesheet" href="../header/header_white_top.css">
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
-  <link rel="stylesheet" href="footer.css">
+  <link rel="stylesheet" href="../footer/footer.css">
 <style type="text/css">
 table {
   text-align: center;
@@ -26,74 +26,79 @@ table {
 
   <div class="sm-top-bar-white">
     <div class="sm-container">
-
-        <!-- 헤더 시작 -->
-        <div id="top_layout" class="" style="position:fixed;">
-          <header class="top_wrap">
-            <a href="#">
-              <div class="top_logo_wrap">
-                <h1 id="logo_img"><img id="logo" src="red-logo.png" alt=""></h1>
-                <div class="logo_name">
-                  <h1 id="logo_h1" style="font-family:'Titillium Web';"><i>CHALLENGE</i></h1>
-                </div>
+      <!-- 헤더 시작 -->
+      <div id="sh_top_layout">
+        <header class="sh_top_wrap">
+          <a href="#">
+            <div class="sh_top_logo_wrap">
+              <h1 id="sh_logo_img"><img id="sh_logo" src="red-logo.png" alt=""></h1>
+              <div class="sh_logo_name">
+                <h1 id="sh_logo_h1" style="font-family:'Titillium Web';"><i>CHALLENGE</i></h1>
               </div>
-            </a>
-            <!-- 드롭다운 서브메뉴 시작-->
-            <div class="top_utile_wrap">
-              <ul class="top_link">
-                <li class="top_menu dropdown">
-                  <a class="a-underline menu after drop_menu" href="#">로그인</a>
-                  <div class="dropdown-content">
-                    <ul id="sub-menu-ul">
-                      <li><a class="menu after" href="#">회원가입</a></li>
-                      <li><a class="menu after" href="#">Link 3</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="top_menu dropdown">
-                  <a class="menu after drop_menu" href="#">커뮤니티</a>
-                  <div class="dropdown-content">
-                    <ul id="sub-menu-ul">
-                      <li><a class="menu after" href="#">명예의전당</a></li>
-                      <li><a class="menu after" href="#">비포&애프터</a></li>
-                      <li><a class="menu after" href="#">질문과답변</a></li>
-                      <li><a class="menu after" href="#">자유게시판</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="top_menu dropdown">
-                  <a class="menu after drop_menu" href="#">프로그램</a>
-                  <div class="dropdown-content">
-                    <ul id="sub-menu-ul">
-                      <li><a class="menu after" href="#">추천프로그램</a></li>
-                      <li><a class="menu after" href="#">인기프로그램</a></li>
-                      <li><a class="menu after" href="#">진행중인프로그램</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="top_menu dropdown">
-                  <a class="menu after drop_menu" href="#"><span>마이페이지</span></a>
-                  <div class="dropdown-content">
-                    <ul id="sub-menu-ul">
-                      <li><a class="menu after" href="#">마이페이지</a></li>
-                      <li><a class="menu after" href="#">운동관리</a></li>
-                      <li><a class="menu after" href="#">메시지</a></li>
-                      <li><a class="menu after" href="#">운동후기</a></li>
-                      <li><a class="menu after" href="#">계정설정</a></li>
-                    </ul>
-                  </div>
-                </li>
-                <li class="top_menu">
-                  <form id="content">
-                    <input type="text" name="input" class="input" placeholder="">
-                    <button type="reset" class="search"></button>
-                  </form>
-                </li>
-              </ul>
             </div>
-            <!-- 드롭다운 서브메뉴 종료-->
-          </header>
-        </div> <!-- 헤더(로고) 종료 -->
+          </a>
+
+
+          <!-- 드롭다운 서브메뉴 시작-->
+          <div class="sh_top_utile_wrap">
+            <ul class="sh_top_link">
+              <li class="sh_top_menu sh_dropdown">
+                <a class="sh_menu sh_after" href="#">로그인</a>
+                <div class="sh_dropdown-content">
+                  <ul id="sh_sub-menu-ul">
+                    <li><a class="sh_menu sh_after" href="#">회원가입</a></li>
+                    <li><a class="sh_menu sh_after" href="#">Link 3</a></li>
+                    <li><a class="sh_menu sh_after" href="#">Link 3</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="sh_top_menu sh_dropdown">
+                <a class="sh_menu sh_after" href="#">커뮤니티</a>
+                <div class="sh_dropdown-content">
+                  <ul id="sh_sub-menu-ul">
+                    <li><a class="sh_menu sh_after" href="#">명예의전당</a></li>
+                    <li><a class="sh_menu sh_after" href="#">비포&애프터</a></li>
+                    <li><a class="sh_menu sh_after" href="#">질문과답변</a></li>
+                    <li><a class="sh_menu sh_after" href="#">자유게시판</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="sh_top_menu sh_dropdown">
+                <a class="sh_menu sh_after " href="#">프로그램</a>
+                <div class="sh_dropdown-content">
+                  <ul id="sh_sub-menu-ul">
+                    <li><a class="sh_menu sh_after" href="#">추천프로그램</a></li>
+                    <li><a class="sh_menu sh_after" href="#">인기프로그램</a></li>
+                    <li><a class="sh_menu sh_after" href="#">진행중인프로그램</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="sh_top_menu sh_dropdown">
+                <a class="sh_menu sh_after " href="#"><span>마이페이지</span></a>
+                <div class="sh_dropdown-content">
+                  <ul id="sh_sub-menu-ul">
+                    <li><a class="sh_menu sh_after" href="#">마이페이지</a></li>
+                    <li><a class="sh_menu sh_after" href="#">운동관리</a></li>
+                    <li><a class="sh_menu sh_after" href="#">메시지</a></li>
+                    <li><a class="sh_menu sh_after" href="#">운동후기</a></li>
+                    <li><a class="sh_menu sh_after" href="#">계정설정</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li class="sh_top_menu">
+                <form id="sh_content">
+                  <input type="text" name="sh-input" class="sh-input" placeholder="">
+                  <button class="sh-searchBtn" type="reset"></button>
+                </form>
+              </li>
+            </ul>
+          </div>
+          <!-- 드롭다운 서브메뉴 종료-->
+
+        </header>
+      </div>
+
+
 
             <!-- 상단 메뉴바 시작 -->
         <div class="sm-menubar sm-margin-none">
@@ -290,6 +295,6 @@ function openCity(evt, cityName) {
 </script>
 
 <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../header/header_white.js"></script>
+<script src="../header/header_white_top.js"></script>
 </body>
 </html>
