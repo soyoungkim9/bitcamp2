@@ -14,7 +14,21 @@ body {
   margin-left: 0px;
 }
 
-#sm-btn-1 { /* 빨간색 버튼 */
+#sm-btn-1 { /* 남색 버튼 */
+  width:100px;
+    background-color: #1B3453;
+    border: none;
+    color:#fff;
+    padding: 10px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 3px;
+    cursor: pointer;
+    border-radius:10px;
+}
+#sm-btn-2 { /* 빨간색 버튼 */
   width:100px;
     background-color: #DD1F26;
     border: none;
@@ -28,6 +42,7 @@ body {
     cursor: pointer;
     border-radius:10px;
 }
+
 
 #sm-back { /* 로고 뒷배경 */
   padding-top: 130px;
