@@ -6,25 +6,84 @@
 <title>회원 상세페이지</title>
 <link rel="stylesheet" href="../ksy/css/memberDetailPage.css">
 <link rel="stylesheet" href="../css/common.css">
+<link rel="stylesheet" href="../header/header_white_top.css">
 <link rel="stylesheet" href="../footer/footer.css">
-<link rel="stylesheet" href="../css/@fortawesome/fontawesome-free/css/all.css">
+<link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
 
 <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
 </head>
 <body>
-<div class="header">
-<div>
- <h1>CHALLENGE</h1>
- <form class="search">
-  <input placeholder=" 프로그램·종목 찾기">
-  <button type="button"><img class="searchBtn" src="../ksy/img/search.png"></button>
- </form>
- <ul>
-   <li><a href="#">알림</a></li>
-   <li><a href="#">마이페이지</a></li>
- </ul>
-</div>
-</div>
+
+  <!-- 헤더 시작 -->
+  <div id="top_layout">
+    <header class="top_wrap">
+      <a href="#">
+        <div class="top_logo_wrap">
+          <h1 id="logo_img"><img id="logo" src="../header/red-logo.png" alt=""></h1>
+          <div class="logo_name">
+            <h1 id="logo_h1" style="font-family:'Titillium Web';"><i>CHALLENGE</i></h1>
+          </div>
+        </div>
+      </a>
+
+      <!-- 드롭다운 서브메뉴 시작-->
+      <div class="top_utile_wrap">
+        <ul class="top_link">
+          <li class="top_menu dropdown">
+            <a class="a-underline menu after drop_menu" href="#">로그인</a>
+            <div class="dropdown-content">
+              <ul id="sub-menu-ul">
+                <li><a class="menu after" href="#">회원가입</a></li>
+                <li><a class="menu after" href="#">Link 3</a></li>
+                <li><a class="menu after" href="#">Link 3</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="top_menu dropdown">
+            <a class="menu after drop_menu" href="#">커뮤니티</a>
+            <div class="dropdown-content">
+              <ul id="sub-menu-ul">
+                <li><a class="menu after" href="#">명예의전당</a></li>
+                <li><a class="menu after" href="#">비포&애프터</a></li>
+                <li><a class="menu after" href="#">질문과답변</a></li>
+                <li><a class="menu after" href="#">자유게시판</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="top_menu dropdown">
+            <a class="menu after drop_menu" href="#">프로그램</a>
+            <div class="dropdown-content">
+              <ul id="sub-menu-ul">
+                <li><a class="menu after" href="#">추천프로그램</a></li>
+                <li><a class="menu after" href="#">인기프로그램</a></li>
+                <li><a class="menu after" href="#">진행중인프로그램</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="top_menu dropdown">
+            <a class="menu after drop_menu" href="#"><span>마이페이지</span></a>
+            <div class="dropdown-content">
+              <ul id="sub-menu-ul">
+                <li><a class="menu after" href="#">마이페이지</a></li>
+                <li><a class="menu after" href="#">운동관리</a></li>
+                <li><a class="menu after" href="#">메시지</a></li>
+                <li><a class="menu after" href="#">운동후기</a></li>
+                <li><a class="menu after" href="#">계정설정</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="top_menu">
+            <form id="content">
+              <input type="text" name="input" class="input" placeholder="">
+              <button type="reset" class="search"></button>
+            </form>
+          </li>
+        </ul>
+      </div>
+      <!-- 드롭다운 서브메뉴 종료-->
+    </header>
+  </div>
+<!-- 본문 -->
 <div id="container">
 <div class="subject">
 <h2 class="challengeName">본격! 식스팩 만들기</h2>
@@ -618,5 +677,7 @@
   </footer>
 </div>
 <script src="../ksy/js/memberDetailPage.js"></script>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../header/header_white_top.js"></script>
 </body>
 </html>
