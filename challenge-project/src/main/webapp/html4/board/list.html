@@ -16,7 +16,7 @@
 </table>
 
 <script src="../js/jquery.min.js"></script>
-<script src="../header.js"></script> 
+<script src="../header.js"></script>
 <script>
 
 console.log(document.cookie);
@@ -24,8 +24,8 @@ console.log(document.cookie);
 $.getJSON("../../json/board/list", (data) => {
     for (var item of data) {
         $("<tr>")
-            .html("<td>" + item.no + "</td>" + 
-	            "<td><a href='form.html?no=" + item.no + "'>" + item.title + "</a></td>" + 
+            .html("<td>" + item.no + "</td>" +
+	            "<td><a href='form.html?no=" + item.no + "'>" + item.title + "</a></td>" +
 	            "<td>" + item.createdDate + "</td>")
             .appendTo(tableBody);
     }
@@ -36,7 +36,7 @@ $.ajax("../../json/board/list", {
     success(data) {
     	for (var item of data) {
             var tr = document.createElement("tr");
-            tr.innerHTML = "<td>" + item.no + "</td>" + 
+            tr.innerHTML = "<td>" + item.no + "</td>" +
                 "<td><a href='form.html?no=" + item.no + "'>" + item.title + "</a></td>" + 
                 "<td>" + item.createdDate + "</td>";
             tableBody.appendChild(tr);
@@ -51,10 +51,3 @@ $.ajax("../../json/board/list", {
 
 </body>
 </html>
-
-
-
-
-
-
-

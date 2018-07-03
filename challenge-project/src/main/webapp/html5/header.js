@@ -4,7 +4,7 @@ $.get("/bitcamp-java-project/html5/header.html", (data) => {
 	loadLoginUser();
 });
 
-function loadLoginUser() {	
+function loadLoginUser() {
 	// 로그인 정보를 가져와서 span#username 태그에 사용자 아이디를 삽입한다.
 	$.getJSON("/bitcamp-java-project/json/auth/loginUser", (data) => {
 		$("#username").text(data.id);
