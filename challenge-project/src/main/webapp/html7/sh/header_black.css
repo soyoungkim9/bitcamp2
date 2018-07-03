@@ -45,8 +45,9 @@ a.after:hover:after {
 /* MENU Link Hover Effect CSS 종료 */
 
 /*헤더 CSS 시작*/
+
 .top_menu {
-  padding: 10px 10px 10px 10px;
+  padding: 13px 10px 13px 10px;
 }
 
 body {
@@ -58,8 +59,6 @@ body {
   display: inline-block;
 }
 
-
-
 #top_layout {
   background-color: #000;
 }
@@ -68,23 +67,31 @@ body {
   height: 42px;
 }
 
+.top_link {
+  float:right;
+  margin-top:14px;
+  padding-top:10px;
+  padding-bottom: 10px;
+}
+
 .top_link>li {
   float: right;
 }
 
 .logo_name {
-      float: left;
-      /* margin:0 auto; */
+  float: left;
+  /* margin:0 auto; */
 }
 
 #logo_h1 {
   margin-bottom: 0px;
-      margin-top: 12px;
+  margin-top: 12px;
+  color: #fff;
 }
 
 #logo_img {
-      margin: 14px 0px 0px 0px;
-      float: left;
+  margin: 14px 0px 0px 0px;
+  float: left;
 }
 
 .top_wrap {
@@ -112,20 +119,15 @@ body {
   color: white;
   text-align: center;
   padding-left: 2px;
-  padding-right: 2px;/
-  text-decoration: none;
+  padding-right: 2px;
+  / text-decoration: none;
 }
 
 .top_link>li a:hover {}
 
 /* 헤더 search button CSS 시작 */
 
-body {
-  color: #fff;
-}
-
 #content {
-  position: absolute;
   height: 4px;
   top: 50%;
   left: 50%;
@@ -145,7 +147,8 @@ body {
   animation-iteration-count: 1;
 }
 
-input {
+.input {
+  margin-top:11px;
   box-sizing: border-box;
   width: 19px;
   height: 19px;
@@ -169,7 +172,7 @@ input {
 .search {
   background: none;
   position: absolute;
-  top: 0px;
+  top: 8px;
   left: 0;
   height: 37px;
   width: 50px;
@@ -238,8 +241,9 @@ input {
 }
 
 .square {
+  margin-top: 11px;
   box-sizing: border-box;
-  padding: 0px 22px 0 13px;
+  padding: 10px 22px 10px 13px;
   width: 231px;
   height: 40px;
   border: 3px solid #FFFFFF;
@@ -256,7 +260,6 @@ input {
   -webkit-transform: translate(-100%, -50%);
   -ms-transform: translate(-100%, -50%);
   transform: translate(-100%, -50%);
-  margin-top: 2px;
 }
 
 /* search button CSS 종료*/
@@ -312,7 +315,7 @@ input {
 
 .foot_link {
   display: inline-block;
-  padding-left:  0;
+  padding-left: 0;
   margin: 10px 0px;
 }
 
@@ -332,7 +335,7 @@ input {
   text-decoration: none;
 }
 
- .foot_wrap address {
+.foot_wrap address {
   width: 100%;
   font-weight: 100;
   font-size: 12px;
@@ -349,6 +352,8 @@ input {
 
 .copy {
   font-size: 10px;
-margin: 2px 0;
+  margin: 2px 0;
+  color: #fff;
 }
+
 /*푸터 CSS 종료*/
