@@ -39,26 +39,16 @@ border:1px solid gray;
     padding-top: 20px;
     float:left;
 }
-.sm-top-bar-black {
-  position: relative;
-  top:0px;
-  height: 55px;
-  width: 100%;
-  background-color: black;
-	position:fixed;
-  z-index: 1;
-  display: inline-block;
-	font-size:1.5em;color:white;font-weight:bold;
-}
 .sm-top-bar-white {
+  font-size: small;
   top:0px;
   height: 128px;
   width: 100%;
   background-color: white;
 	position:fixed;
   display: inline-block;
-	font-size:1.5em;color:white;font-weight:bold;
   border-bottom: 1px solid rgb(102, 102, 102, 0.2);
+  z-index: 1;
 }
 
 .sm-mypage{
@@ -89,15 +79,10 @@ border:1px solid gray;
     padding: 20px;
 }
 
-ul {list-style:none; overflow:hidden;}
-li {float:left;}
+ul {list-style:none;}
 .sm-mypage-bar ul{margin:0;padding:0;}
-.sm-mypage-bar ul li{width:33.3%;}
+.sm-mypage-bar ul li{width:33%; display: inline-block; text-align: center;}
 .sm-mypage-bar ul li b{display:block;}
-hr.sm-lll{width:0px; height:100%;}
-
-
-
 
 
 /* 상단 메뉴바 */
@@ -203,4 +188,4 @@ hr.sm-lll{width:0px; height:100%;}
     text-align: center;
     margin-bottom: 30px;
 }
-.sm-tabcontent.current {display: inline;}
+.sm-tabcontent.sm-current {display: inline;}

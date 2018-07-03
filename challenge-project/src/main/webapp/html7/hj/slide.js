@@ -43,3 +43,41 @@
   }
   jQuery(document).ready(init);
 })();
+
+
+
+
+<!-- DC Flickr Slider Start -->
+<div id="dc_jflickr_slider_container">
+  <ul id="dc_flickr_slider"></ul>
+  <div class="flickr_slider_nav"><a id="flickr_slider_prev" href="#"><<</a> <a id="flickr_slider_next" href="#">>></a></div>
+</div>
+<!-- DC Flickr Slider End -->
+<div class="dc_clear"></div> <!-- line break/clear line -->
+
+<!-- DC Flickr Slider Settings -->
+<script type="text/javascript">
+	$('#dc_flickr_slider').jflickrfeed({
+		limit: 14, // number of images to show
+		qstrings: {
+			id: '13547802@N05' // id of flickr gallery (use idgettr.com to get flickr gallery id)
+		},
+		// Small images: {{image_s}}
+		// Medium images: {{image}}
+		// Large images: {{image_b}}
+		itemTemplate: '<li><a href="{{image_b}}" title="{{title}}" target="_blank"><img src="{{image}}" title="{{title}}" /><div>{{title}}</div></a></li>'
+	}, function(data) {
+		$('#dc_flickr_slider div').hide();
+		$('#dc_flickr_slider').cycle({
+			timeout: 3000, // ms before next slide  (3000 = 3 seconds)
+	  		   fx: 'scrollHorz', // scrollHorz, scrollVert, fade, shuffle, turnDown, zoom, wipe, fadeZoom, toss, uncover, curtainX, curtainY
+  	  	 prev: '#flickr_slider_prev',
+    		 next: '#flickr_slider_next'
+		});
+		$('#dc_flickr_slider li').hover(function(){
+			$(this).children('div').show();
+		},function(){
+			$(this).children('div').hide();
+		});
+	});
+</script>
