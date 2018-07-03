@@ -1,13 +1,18 @@
-function expand() {
-  $('input').attr("placeholder","");
-  $(".search").toggleClass("close");
-  $(".input").toggleClass("square");
-  if ($('.search').hasClass('close')) {
-    $('input').focus();
+//div#header 태그에 /html/header.html 내용을 삽입한다.
+$.get("/challenge-project/html7/header/header_black.html", (data) => {
+	$("#header").html(data);
+});
 
-    $('input').attr("placeholder","지역,프로그램명");
+
+function expand() {
+  $('.sh-input').attr("placeholder","");
+  $(".sh-searchBtn").toggleClass("sh-close");
+  $(".sh-input").toggleClass("sh-square");
+  if ($('.sh-searchBtn').hasClass('sh-close')) {
+    $('sh-input').focus();
+    $('.sh-input').attr("placeholder","지역,프로그램명");
   } else {
-    $('input').blur();
+    $('sh-input').blur();
   }
 }
-$('button').on('click', expand);
+$('.sh-searchBtn').on('click', expand);

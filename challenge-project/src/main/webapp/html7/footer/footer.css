@@ -3,7 +3,7 @@ body {
 }
 /*푸터 CSS 시작*/
 
-#foot_layout {
+#sh_foot_layout {
   width: 100%;
   background-color: #1B3453;
   text-align: center;
@@ -13,7 +13,7 @@ body {
   position: relative;
 }
 
-.foot_wrap {
+.sh_foot_wrap {
   width: 1200px;
   text-align: left;
   padding: 10px 170px 10px 170px;
@@ -22,7 +22,7 @@ body {
   position: relative;
 }
 
-.foot_utile_wrap {
+.sh_foot_utile_wrap {
   width: 100%;
   padding: 0;
   /* margin-bottom: 20px; */
@@ -30,19 +30,19 @@ body {
   box-sizing: border-box;
 }
 
-.foot_link {
+.sh_foot_link {
   display: inline-block;
   padding-left: 0;
   margin: 10px 0px;
 }
 
-.foot_link li {
+.sh_foot_link li {
   margin-right: 30px;
   display: inline-block;
   float: left;
 }
 
-.foot_link li a {
+.sh_foot_link li a {
   margin-top: 10px;
   font-weight: 400;
   font-size: 14px;
@@ -52,7 +52,7 @@ body {
   text-decoration: none;
 }
 
-.foot_wrap address {
+.sh_foot_wrap address {
   width: 100%;
   font-weight: 100;
   font-size: 12px;
@@ -63,7 +63,7 @@ body {
   display: inline-block;
 }
 
-#foot-logo-img {
+#sh_foot-logo-img {
   height: 41px;
 }
 
