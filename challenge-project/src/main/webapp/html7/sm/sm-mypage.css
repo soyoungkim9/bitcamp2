@@ -37,7 +37,6 @@ border:1px solid gray;
 	margin-top: 15px;
     width: 255px;
     padding-top: 20px;
-    padding-bottom: 20px;
     float:left;
 }
 .top-bar-black {
@@ -204,4 +203,4 @@ hr.lll{width:0px; height:100%;}
     text-align: center;
     margin-bottom: 30px;
 }
-.tabcontent.current {display: block;}
+.tabcontent.current {display: inline;}
