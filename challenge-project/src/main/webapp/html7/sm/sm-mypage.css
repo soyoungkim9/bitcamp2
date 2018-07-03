@@ -35,10 +35,8 @@ body {
 .profile {
 border:1px solid gray;
 	margin-top: 15px;
-    width: 18%;
-    padding: 20px;
+    width: 255px;
     padding-top: 20px;
-    padding-bottom: 20px;
     float:left;
 }
 .top-bar-black {
@@ -70,7 +68,7 @@ border:1px solid gray;
 .mypage-body {
     float:left;
     width:73.5%;
-    margin-top:30px;
+    margin-top:13px;
     margin-left:5%;
     text-align: left;
 }
@@ -86,6 +84,7 @@ border:1px solid gray;
     width:70%;
     margin-top:15px;
     margin-left:5%;
+    margin-bottom: 15px;
     border:1px solid gray;
     padding: 20px;
 }
@@ -200,8 +199,8 @@ hr.lll{width:0px; height:100%;}
     display: none;
     border: 1px solid gray;
     float: left;
-    width: 99.8%;
+    width: 97.3%;
     text-align: center;
     margin-bottom: 30px;
 }
-.tabcontent.current {display: block;}
+.tabcontent.current {display: inline;}

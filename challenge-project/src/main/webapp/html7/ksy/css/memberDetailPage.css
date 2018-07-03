@@ -112,7 +112,7 @@ ul {
 }
 
 .challengeName {
-	margin: 0 0 0 5px;
+	margin: 0 0 0 3px;
 }
 
 .challengeSub {
@@ -122,19 +122,19 @@ ul {
 }
 .challengeSub p:nth-child(1) {
 	display: inline-block;
-	margin: 25px 0 0 5px;
+	margin: 20px 0 0 5px;
 	color: #e74c3c;
 }
 
 .challengeSub p:nth-child(2) {
 	display: inline-block;
-	margin: 25px 0 0 0;
+	margin: 20px 0 0 0;
 }
 
 .challengeSub p:nth-child(3) {
 	display: inline-block;
 	float: right;
-	margin: 25px 5px 0 0;
+	margin: 20px 2px 0 0;
 }
 
 .column {
@@ -142,6 +142,7 @@ ul {
 	margin-right: 82px;
 	display: inline-block;
 	float: left;
+  margin-bottom: 60px;
 }
 
 .middle { /*공통사항*/
@@ -166,6 +167,9 @@ ul {
 	height: 100px;
 }
 
+.oneName .far {
+  font-size: 20px;
+}
 .oneName p:nth-child(2) {
 	float: left;
 	display: inline-block;
@@ -190,9 +194,10 @@ ul {
 	height: 42px;
 	margin: 0 auto;
 }
-.two img {
-	float: left;
 
+.alineCenter .fas {
+  font-size: 27px;
+  color: #ffd400;
 }
 .evalNum {
 	display: inline-block;
@@ -223,7 +228,7 @@ ul {
   color: #999;
   font-weight: bold;
   text-align: center;
-  padding: 14px 43px;
+  padding: 14px 46.3px;
   text-decoration: none;
   font-size: 15px;
   border-left: 1px solid #e6e6e6;
@@ -345,7 +350,7 @@ ul {
 }
 
 .active, .dot:hover {
-  background-color: #717171;
+  background-color: #EEEEEE;
 }
 
 @-webkit-keyframes fade {
@@ -368,6 +373,10 @@ ul {
 width: 649px;
 }
 
+.checkbox {
+  width: 13px;
+  height: 12.3px;
+}
 .navPriceSub {
   margin-bottom: 17px;
 }
@@ -393,7 +402,7 @@ width: 649px;
 }
 
 .PriceContent ul li:first-child {
-  background-color: #fafafa;
+  background-color: #EEEEEE;
 }
 
 .priceLeft {
@@ -426,6 +435,7 @@ width: 649px;
   background-color: #e4e1e1;
   text-align: center;
   vertical-align: middle;
+  font-size: 18px;
 }
 
 .priceSubLeft span {
@@ -447,8 +457,9 @@ width: 649px;
   border-radius: 4px;
   background-color: #DD1F26;
   color: #FFFFFF;
-  padding: 8px 20px;
+  padding: 10px 20px;
   text-align: center;
+  cursor: pointer;
 }
 
 /* 기수 정보 */
@@ -461,7 +472,7 @@ width: 649px;
 }
 
 thead {
-  background-color: #fafafa;
+  background-color: #EEEEEE;
   border-top: 1px solid #999;
   border-bottom: 1px solid #999;
 }
@@ -494,8 +505,13 @@ th, td {
   padding: 0 11%;
 }
 
+.EvalContent1-star {
+  color: #ffd400;
+  font-size: 25px;
+}
+
 .EvalContent1-score {
-  padding: 0 32%;
+  padding: 0 28%;
 }
 
 .EvalContent1-score .evalEnp {
@@ -533,9 +549,14 @@ th, td {
 .commentEval {
   padding: 0;
 }
+
+.commentEval .fas {
+  font-size: 15px;
+  color: #ffd400;
+}
 .commentContent {
   width: 550px;
-  margin: 10px 0;
+  margin: 10px 0 13px 0;
   padding-left: 20px;
 }
 
@@ -549,7 +570,7 @@ th, td {
 .EvalContent2 li {
   border-bottom: 1px solid #eee;
   height: 99px;
-  padding-top: 15px;
+  padding-top: 18px;
 }
 
 .commentPlus {
@@ -567,32 +588,6 @@ th, td {
 }
 
 #more {display: none;}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* aside 부분 */
 .aside {
@@ -636,8 +631,8 @@ th, td {
 	margin-top: 15px;
 }
 .proName {
-	margin-top: 15px;
-	margin-bottom: 10px;
+	margin-top: 8px;
+	margin-bottom: 12px;
 }
 .proName h2 {
 	width: 380px;
@@ -649,7 +644,7 @@ th, td {
 	width: 40px;
 	height: 2px;
 	margin: auto;
-	margin-top: 10px;
+	margin-top: 7px;
 	background-color: #ffd400;
 }
 
@@ -667,8 +662,8 @@ th, td {
 .CommuniDiv {
 	margin: 0 auto;
 	overflow:hidden;
-	padding: 0 31%;
-	height: 70px;
+	padding: 0 34%;
+	height: 52px;
 
 }
 
@@ -676,12 +671,20 @@ th, td {
 	width: 50%;
 	height: 50px;
 	float:left;
+  text-align: center;
 }
 
 .box a {
 	display: block;
 }
 
+.follow .fas {
+  font-size: 35px;
+}
+
+.inq .far {
+  font-size: 38px;
+}
 .proInfo {
 	overflow: hidden;
 }
@@ -702,7 +705,7 @@ th, td {
 }
 
 .left h6 {
-	color: 1px solid #e6e6e6;
+	color: #666666;
 }
 
 .prolect {
@@ -723,7 +726,7 @@ th, td {
 	border: 1px solid #e6e6e6;
 	border-radius: 5px;
 	height: 150px;
-	padding-left: 4.5%;
+	padding-left: 6%;
 	padding-top: 4%;
 	height: 83px;
 	margin: 0 auto;
@@ -732,7 +735,8 @@ th, td {
 
 .subjectBox {
 	overflow: hidden;
-	padding-left: 12px;
+	padding-left: 16px;
+  padding-top: 3px;
 
 }
 
@@ -755,7 +759,7 @@ th, td {
 
 .evalBox {
 	float: left;
-	padding-left: 11px;
+	padding-left: 16px;
 	width: 250px;
 }
 
@@ -765,20 +769,26 @@ th, td {
 
 .evalBox p {
 	float: left;
-	margin: 0;
+	margin: 2px;
 	font-size: 13px;
 	padding-left: 5px;
 }
 
+.evalBox .fas {
+  font-size: 14px;
+  color: #ffd400;
+}
+
 .priceBox {
 	float: left;
-	padding-left: 13px;
+	padding-left: 16px;
 
 }
 
 .priceBox p {
 	margin: 0;
 	font-size: 14px;
+  margin-top: 7px;
 }
 
 .asideCost {
@@ -792,8 +802,9 @@ th, td {
 
 .asideCost h2 {
 	margin: 0;
-	padding: 8px 0px 8px 0px;
+	padding: 10px 0px;
 	text-align: center;
+  cursor: pointer;
 }
 
 /* 장소 */
@@ -806,6 +817,11 @@ th, td {
   margin: 0;
   margin-bottom: 8px;
 }
+
+.asidePosition .fas, .asideDate .far {
+  font-size: 13px;
+}
+
 
 .tab {
     overflow: hidden;
@@ -845,65 +861,6 @@ th, td {
   margin: 6px;
 }
 
-/*강의 일정*/
-.asideDate {
-
-}
-
 [id="date"] button {
   padding: 7px 20px;
 }
-
-
-
-
-.footer {
-	background-color:#eee;
-	width: 1200px;
-	height: 100px;
-	float: left;
-}
-
-
-
-/*
-.row {
-	margin: 0 auto;
-}
-.column {
-    padding: 10px;
-    height: 300px;
-}
-
-.column.middle {
-
-    width: 650px;
-    float: left;
-}
-
-.column.aside {
-    width: 440px;
-    float: left;
-}
-
-.footer {
-    background-color: #f1f1f1;
-    padding: 10px;
-    text-align: center;
-}
-*/
-
-/*
-@media (max-width: 655px) {
-    .column.middle {
-        width: 100%;
-        float: left;
-    }
-}
-
-@media (max-width: 440px) {
-    .column.aside {
-        width: 100%;
-    }
-}
-*/
