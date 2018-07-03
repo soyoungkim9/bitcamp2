@@ -2,12 +2,14 @@
 <html>
 <head>
 <meta charset='UTF-8'>
-<title>트레이너페이지</title>
+<title>회원페이지</title>
 <link rel="stylesheet" href="sm-mypage.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+<link rel="stylesheet" href="../header/header_white.css">
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
+  <link rel="stylesheet" href="footer.css">
 <style type="text/css">
-
 table {
   text-align: center;
   /*
@@ -15,84 +17,158 @@ table {
   word-break: break-all;
   */
 }
-.tabcontent {
+.sm-tabcontent {
   width: 99.8%;
 }
 </style>
 </head>
 <body>
-    <div class="top-bar-black">
-      <div class="top-bar-white">
-        <hr style="position:relative; top:33px;">
-        <div class="container">
-          <div class="">
 
-          </div>
-          <div class="menubar margin-none">
-            <ul>
-              <li><a href="https://kmong.com/">마이페이지</a></li>
-              <li><a href="https://kmong.com/" id="current">서비스관리
-                <img src="menu-icon.png" height="15px"></a>
-                 <ul>
-                   <li><a href="https://kmong.com/">프로젝트 관리</a></li>
-                   <li><a href="https://kmong.com/">프로젝트 등록</a></li>
-                 </ul>
-              </li>
-              <li><a href="https://kmong.com/">회원관리</a></li>
-              <li><a href="https://kmong.com/">수익관리
-                <img src="menu-icon.png" height="15px"></a>
-                 <ul>
-                   <li><a href="https://kmong.com/">입/출금 내역</a></li>
-                   <li><a href="https://kmong.com/">통계</a></li>
-                 </ul>
-              </li>
-              <li><a href="https://kmong.com/">메시지</a></li>
-              <li><a href="https://kmong.com/">계정설정</a></li>
-           </ul>
-           <img src="logo.png" style="position: absolute; left: 10px; top:-40px; width:130px;">
-        </div><!-- menubar -->
+  <div class="sm-top-bar-white">
+    <div class="sm-container">
 
-      </div><!-- container -->
-    </div><!-- top-bar-white -->
-  </div><!-- top-bar-black -->
+        <!-- 헤더 시작 -->
+        <div id="top_layout" class="" style="position:fixed;">
+          <header class="top_wrap">
+            <a href="#">
+              <div class="top_logo_wrap">
+                <h1 id="logo_img"><img id="logo" src="red-logo.png" alt=""></h1>
+                <div class="logo_name">
+                  <h1 id="logo_h1" style="font-family:'Titillium Web';"><i>CHALLENGE</i></h1>
+                </div>
+              </div>
+            </a>
+            <!-- 드롭다운 서브메뉴 시작-->
+            <div class="top_utile_wrap">
+              <ul class="top_link">
+                <li class="top_menu dropdown">
+                  <a class="a-underline menu after drop_menu" href="#">로그인</a>
+                  <div class="dropdown-content">
+                    <ul id="sub-menu-ul">
+                      <li><a class="menu after" href="#">회원가입</a></li>
+                      <li><a class="menu after" href="#">Link 3</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="top_menu dropdown">
+                  <a class="menu after drop_menu" href="#">커뮤니티</a>
+                  <div class="dropdown-content">
+                    <ul id="sub-menu-ul">
+                      <li><a class="menu after" href="#">명예의전당</a></li>
+                      <li><a class="menu after" href="#">비포&애프터</a></li>
+                      <li><a class="menu after" href="#">질문과답변</a></li>
+                      <li><a class="menu after" href="#">자유게시판</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="top_menu dropdown">
+                  <a class="menu after drop_menu" href="#">프로그램</a>
+                  <div class="dropdown-content">
+                    <ul id="sub-menu-ul">
+                      <li><a class="menu after" href="#">추천프로그램</a></li>
+                      <li><a class="menu after" href="#">인기프로그램</a></li>
+                      <li><a class="menu after" href="#">진행중인프로그램</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="top_menu dropdown">
+                  <a class="menu after drop_menu" href="#"><span>마이페이지</span></a>
+                  <div class="dropdown-content">
+                    <ul id="sub-menu-ul">
+                      <li><a class="menu after" href="#">마이페이지</a></li>
+                      <li><a class="menu after" href="#">운동관리</a></li>
+                      <li><a class="menu after" href="#">메시지</a></li>
+                      <li><a class="menu after" href="#">운동후기</a></li>
+                      <li><a class="menu after" href="#">계정설정</a></li>
+                    </ul>
+                  </div>
+                </li>
+                <li class="top_menu">
+                  <form id="content">
+                    <input type="text" name="input" class="input" placeholder="">
+                    <button type="reset" class="search"></button>
+                  </form>
+                </li>
+              </ul>
+            </div>
+            <!-- 드롭다운 서브메뉴 종료-->
+          </header>
+        </div> <!-- 헤더(로고) 종료 -->
+
+            <!-- 상단 메뉴바 시작 -->
+        <div class="sm-menubar sm-margin-none">
+          <ul>
+            <li><a href="sm-member-my.html">마이페이지</a></li>
+            <li><a href="sm-member-ex.html" id="sm-current">운동관리
+              <img src="menu-icon.png" height="15px"></a>
+               <ul>
+                 <li><a href="https://kmong.com/">히스토리</a></li>
+                 <li><a href="https://kmong.com/">운동일지 관리</a></li>
+                 <li><a href="https://kmong.com/">진행중인 운동</a></li>
+                 <li><a href="https://kmong.com/">구매내역</a></li>
+                 <li><a href="https://kmong.com/">취소/환불 내역</a></li>
+               </ul>
+            </li>
+            <li><a href="#">북마크
+              <img src="menu-icon.png" height="15px"></a>
+              <ul>
+                <li><a href="https://kmong.com/">프로젝트</a></li>
+                <li><a href="https://kmong.com/">업체</a></li>
+                <li><a href="https://kmong.com/">리뷰</a></li>
+              </ul>
+            </li>
+            <li><a href="#">메시지</a></li>
+            <li><a href="#">운동후기
+              <img src="menu-icon.png" height="15px"></a>
+              <ul>
+                <li><a href="https://kmong.com/">입/출금 내역</a></li>
+                <li><a href="https://kmong.com/">통계</a></li>
+              </ul>
+            </li>
+            <li><a href="#">계정설정</a></li>
+         </ul>
+      </div><!-- 상단 메뉴바 종료 -->
+    </div><!-- container -->
+  </div><!-- top-bar-white -->
 
 
 
 
-<div class="container">
+<div id="sm-back">
+<div class="sm-container">
   <h2><b>마이페이지</b></h2>
 
-<div class="mypage">
-	<div class="profile">
-    <div style="text-align: center;">
-			<img src="img1.jpg" style="margin-left: 30px; border-radius:60px; z-index: -1; width:120px; height:120px;">
-      <button id="btn-1" type="button" style="position:relative; z-index: 0; top:-10px; right:40px; width:30px; height:30px; border-radius:15px; padding:0px;font-size:14px;"><span>2</span></button>
+<div class="sm-sm-mypage">
+	<div class="sm-profile">
+		<div style="text-align: center;">
+			<img src="img1.jpg" style="margin-left: 30px; border-radius:60px; width:120px; height:120px;">
+      <button id="sm-btn-1" type="button" style="position:relative; top:-10px; right:40px; width:30px; height:30px; border-radius:15px; padding:0px;font-size:14px;"><span>2</span></button>
       <br>
 			사용자이름<br>
-      <button id="btn-1" type="button" style="margin-top:10px; margin-bottom:20px;">프로필관리</button>
+      <button id="sm-btn-1" type="button" style="margin-top:10px; margin-bottom:20px;">프로필관리</button>
 		</div>
 	</div><!-- .profile -->
-    <div class="mypage-bar">
+    <div class="sm-mypage-bar">
     <ul>
-        <li><b>판매 중인 건</b><span>1개</span></li>
-        <li><b>이달의 수익금</b><span>200,000원</span></li>
-        <li><b>구매 중인 건</b><span>3개</span></li>
+      <li><b>판매 중인 건</b><span>1개</span></li>
+      <li><b>이달의 수익금</b><span>200,000원</span></li>
+      <li><b>구매 중인 건</b><span>3개</span></li>
     </ul>
     </div><!-- mypage-bar -->
 
-    <div class="mypage-body">
-      <div class="tab">
-        <button class="tablinks" onclick="openCity(event, 'tab1')">회원관리</button>
-        <button class="tablinks" onclick="openCity(event, 'tab2')" style="border-left:none;">수익관리</button>
+    <div class="sm-mypage-body">
+      <div class="sm-tab">
+        <button class="sm-tablinks" onclick="openCity(event, 'sm-tab1')">회원관리</button>
+        <button class="sm-tablinks" onclick="openCity(event, 'sm-tab2')" style="border-left:none;">수입관리</button>
       </div>
 
-      <div id="tab1" class="tabcontent current">
-        <div class="tab-down" style="width:22%; padding-top:10px;"> <!-- 회원관리1 -->
+      <div id="sm-tab1" class="sm-tabcontent sm-current">
+        <div class="sm-tab-down" style="width:22%; padding-top:10px;"> <!-- 회원관리1 -->
           <img src="#" width="120px" height="120px">
           <img src="#" width="120px" height="120px">
           <img src="#" width="120px" height="120px">
         </div>
-        <div class="tab-down" style="width:55%; border-right:1px solid gray; border-left:1px solid gray;"> <!-- 회원관리2 -->
+        <div class="sm-tab-down" style="width:55%; border-right:1px solid gray; border-left:1px solid gray;"> <!-- 회원관리2 -->
           <table width="467.5px" cellspacing="0">
             <tr bgcolor=#ccc>
               <td width="80px" height="40px">프로필</td><td width="80px">이름</td><td>연락처</td><td width="70px">출석률</td><td width="80px">선택<input type="checkbox" value="#"></td>
@@ -141,27 +217,25 @@ table {
             </tr>
           </table>
         </div>
-        <div class="tab-down" style="width:22.3%; text-align:center;"> <!-- 회원관리3 -->
+        <div class="sm-tab-down" style="width:22.3%; text-align:center;"> <!-- 회원관리3 -->
           <form>
-            <button id="btn-1" type="button" style="margin-top:50px; margin-bottom:10px;">메모하기</button><br>
-            <button id="btn-1" type="button" style="margin-bottom:10px;">정보보기</button><br>
-            <button id="btn-1" type="button" style="margin-bottom:10px;">정보보기</button>
+            <button id="sm-btn-1" type="button" style="margin-top:50px; margin-bottom:10px;">메모하기</button><br>
+            <button id="sm-btn-1" type="button" style="margin-bottom:10px;">정보보기</button><br>
+            <button id="sm-btn-1" type="button" style="margin-bottom:10px;">정보보기</button>
           </form>
         </div>
       </div>
 
-      <div id="tab2" class="tabcontent">
-        <div class="tab-down" style="width:22%; padding-top:10px;"> <!-- 회원관리1 -->
+      <div id="sm-tab2" class="sm-tabcontent">
+        <div class="sm-tab-down" style="width:22%; padding-top:10px;"> <!-- 회원관리1 -->
           <img src="#" width="120px" height="120px">
           <img src="#" width="120px" height="120px">
           <img src="#" width="120px" height="120px">
         </div>
-          <div class="tab-down" style="text-align:center;"> <!-- 수익관리2 -->
+          <div class="sm-tab-down" style="text-align:center;"> <!-- 수익관리2 -->
             <h1>수익 관련 그래프 들어가는 자리 </h1>
           </div>
       </div>
-
-
 
 
       <h2>타임라인</h2>
@@ -173,6 +247,28 @@ table {
 </div><!-- mypage -->
 </div><!--.container-->
 
+<!-- 푸터 시작 -->
+<div id="foot_layout">
+  <footer class="foot_wrap">
+    <div class="foot_logo">
+    </div>
+    <div class="foot_utile_wrap">
+      <ul class="foot_link">
+        <li> <img id="foot-logo-img" src="../footer/white-logo.png" alt="footer-logo"> </li>
+        <li><a href="#">직원검색</a></li>
+        <li><a href="#">사이트맵</a></li>
+        <li><a href="#">이메일집단수집거부</a></li>
+        <li><a href="#">개인정보취급방침</a></li>
+      </ul>
+    </div>
+    <address>우) 21990 인천광역시 연수구 송도미래로 26(송도동 213-3)  <span class="tel">Tel: 032)770-8400</span> <span class="fax">Fax: 032)770-8709</span> </address>
+    <p class="copy">COPYRIGHT (C) KOREA POLAR RESEARCH INSTITUTE ALL RIGHT RESERVED</p>
+  </footer>
+</div>
+<!-- 푸터 끝 -->
+
+</div><!-- back -->
+
 
 
 
@@ -180,11 +276,11 @@ table {
 <script> // 탭 메뉴
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
+    tabcontent = document.getElementsByClassName("sm-tabcontent");
     for (i = 0; i < tabcontent.length; i++) {
         tabcontent[i].style.display = "none";
     }
-    tablinks = document.getElementsByClassName("tablinks");
+    tablinks = document.getElementsByClassName("sm-tablinks");
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
@@ -193,5 +289,7 @@ function openCity(evt, cityName) {
 }
 </script>
 
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../header/header_white.js"></script>
 </body>
 </html>
