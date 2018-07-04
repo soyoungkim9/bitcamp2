@@ -54,17 +54,6 @@ border:1px solid gray;
     padding-top: 20px;
     float:left;
 }
-.sm-top-bar-white {
-  font-size: small;
-  top:0px;
-  height: 128px;
-  width: 100%;
-  background-color: white;
-	position:fixed;
-  display: inline-block;
-  border-bottom: 1px solid rgb(102, 102, 102, 0.2);
-  z-index: 1;
-}
 
 .sm-mypage{
     overflow:hidden;
@@ -101,12 +90,21 @@ ul {list-style:none;}
 
 
 /* 상단 메뉴바 */
+.sm-top-bar-white {
+  top:0px;
+  height: 120px;
+  width: 100%;
+  background-color: white;
+  position:fixed;
+  display: inline-block;
+  border-bottom: 1px solid rgb(102, 102, 102, 0.2);
+  z-index: 1;
+}
+
 .sm-menubar{
   position: fixed;
   background-color: white;
   z-index: 1;
-
-
   top: 70px;
   border:none;
   border:0px;
@@ -114,8 +112,8 @@ ul {list-style:none;}
   padding:0px;
   font-size:small;
   font-weight:bold;
-  margin-top: 8px;
 }
+
 .sm-menubar ul{
   height:50px;
   list-style:none;
@@ -136,13 +134,26 @@ ul {list-style:none;}
   text-align:center;
   text-decoration:none;
 }
-.sm-menubar li a:hover, .sm-menubar ul li:hover a{
-  background: rgb(71,71,71);
-  color:#FFFFFF;
-  text-decoration:none;
+.sm-menubar li a:hover, .sm-menubar ul li:hover {
+  color:black;
 }
+
+.sm_after:after {
+  content: "";
+  transition: 0.2s all ease;
+  -webkit-backface-visibility: hidden;
+  position: absolute;
+    bottom: 0.05em;
+    height: 0.2rem;
+    width: 0;
+    background: #1B3453;
+}
+
+.sm_after:hover:after {
+  width: 110px;
+}
+
 .sm-menubar li ul{
-  background: rgb(109,109,109);
   display:none; /* 평상시에는 드랍메뉴가 안보이게 하기 */
   height:auto;
   padding:0px;
@@ -151,10 +162,12 @@ ul {list-style:none;}
   position:absolute;
   width:200px;
   z-index:200;
+  border: 1px solid rgb(102, 102, 102, 0.2);
+  background-color: white;
 }
 .sm-menubar li:hover ul{display:block; /* 마우스 커서 올리면 드랍메뉴 보이게 하기 */}
 .sm-menubar li li {
-  background: rgb(109,109,109);
+
   display:block;
   float:none;
   margin:0px;
@@ -172,16 +185,15 @@ ul {list-style:none;}
   text-align:left;
 }
 .sm-menubar li ul a:hover, .sm-menubar li ul li:hover a{
-  background: rgb(71,71,71);
   border:0px;
-  color:#ffffff;
+  font-weight: 800;
   text-decoration:none;
 }
 .sm-menubar p{clear:left;}
 
 
 
-/* 마이페이지 탭 메뉴 */
+/* 마이페이지-회원관리 탭 메뉴 */
 .sm-tab {overflow: hidden;}
 .sm-tab button {
     background-color: inherit;
