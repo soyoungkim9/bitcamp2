@@ -118,10 +118,8 @@ right: 380px;
   padding:0;
 }
 .tplMore {
-
-
-
-
+position: absolute;
+top: 1200px;
 }
 #notice-table > tbody > tr > td {
   height:30px;
