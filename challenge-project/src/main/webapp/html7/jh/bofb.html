@@ -19,9 +19,83 @@
   <!-- page css-->
   <link rel="stylesheet" href="css/bofb.css?ver=5">
 
+  <link rel="stylesheet" href="css/header_white_top.css">
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
 
+  <div id="sh_top_layout">
+    <header class="sh_top_wrap">
+      <a href="#">
+        <div class="sh_top_logo_wrap">
+          <h1 id="sh_logo_img"><img id="sh_logo" src="red-logo.png" alt=""></h1>
+          <div class="sh_logo_name">
+            <h1 id="sh_logo_h1" style="font-family:'Titillium Web';"><i>CHALLENGE</i></h1>
+          </div>
+        </div>
+      </a>
+
+
+      <!-- 드롭다운 서브메뉴 시작-->
+      <div class="sh_top_utile_wrap">
+        <ul class="sh_top_link">
+          <li class="sh_top_menu sh_dropdown">
+            <a class="sh_menu sh_after" href="#">로그인</a>
+            <div class="sh_dropdown-content">
+              <ul id="sh_sub-menu-ul">
+                <li><a class="sh_menu sh_after" href="#">회원가입</a></li>
+                <li><a class="sh_menu sh_after" href="#">Link 3</a></li>
+                <li><a class="sh_menu sh_after" href="#">Link 3</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="sh_top_menu sh_dropdown">
+            <a class="sh_menu sh_after" href="#">커뮤니티</a>
+            <div class="sh_dropdown-content">
+              <ul id="sh_sub-menu-ul">
+                <li><a class="sh_menu sh_after" href="#">명예의전당</a></li>
+                <li><a class="sh_menu sh_after" href="#">비포&애프터</a></li>
+                <li><a class="sh_menu sh_after" href="#">질문과답변</a></li>
+                <li><a class="sh_menu sh_after" href="#">자유게시판</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="sh_top_menu sh_dropdown">
+            <a class="sh_menu sh_after " href="#">프로그램</a>
+            <div class="sh_dropdown-content">
+              <ul id="sh_sub-menu-ul">
+                <li><a class="sh_menu sh_after" href="#">추천프로그램</a></li>
+                <li><a class="sh_menu sh_after" href="#">인기프로그램</a></li>
+                <li><a class="sh_menu sh_after" href="#">진행중인프로그램</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="sh_top_menu sh_dropdown">
+            <a class="sh_menu sh_after " href="#"><span>마이페이지</span></a>
+            <div class="sh_dropdown-content">
+              <ul id="sh_sub-menu-ul">
+                <li><a class="sh_menu sh_after" href="#">마이페이지</a></li>
+                <li><a class="sh_menu sh_after" href="#">운동관리</a></li>
+                <li><a class="sh_menu sh_after" href="#">메시지</a></li>
+                <li><a class="sh_menu sh_after" href="#">운동후기</a></li>
+                <li><a class="sh_menu sh_after" href="#">계정설정</a></li>
+              </ul>
+            </div>
+          </li>
+          <li class="sh_top_menu">
+            <form id="sh_content">
+              <input type="text" name="sh-input" class="sh-input" placeholder="">
+              <button class="sh-searchBtn" type="reset"></button>
+            </form>
+          </li>
+        </ul>
+      </div>
+      <!-- 드롭다운 서브메뉴 종료-->
+
+    </header>
+  </div>
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="javascript/header_white_top.js"></script>
 </head>
- 
+
 <body>
 
   <main id="main">
@@ -29,67 +103,84 @@
 
       <section class="jumbotron text-left board-form">
         <div class="hf-header-container">
-          <h2 class="jumbotron-heading">명예의 전당</h2>
+          <h3 class="jumbotron-heading">명예의 전당</h3>
           <br>
           <p style="border:1px solid gray;"></p>
         </div>
       </section>
       <div class="all-form">
         <div class="hf-sidebar">
-          <div style="padding:0 0 40px 0;">
-            <table class="jh-notice table-bordered">
-              <thead>
-                <tr>
-                  <th>공지사항
-                    <span><a href=""><button class="plusBtn">+</button></a></span>
-                  </th>
-                </tr>
-              </thead>
+          <div class="notice-table-form" style="padding: 20px 20px 13px 20px;">
 
-              <tr>
-                <td><img class="bell-icon" src="C:\Users\Bit\git\bitcamp2\challenge-project\src\main\webapp\html7\jh\img\bell.png" alt="종"></img>공지사항어쩌구 저쩌구</td>
-              </tr>
-              <tr>
-                <td><img class="bell-icon" src="C:\Users\Bit\git\bitcamp2\challenge-project\src\main\webapp\html7\jh\img\bell.png" alt="종">공지사항어쩌구 저쩌구</td>
-              </tr>
-              <tr>
-                <td><img class="bell-icon" src="C:\Users\Bit\git\bitcamp2\challenge-project\src\main\webapp\html7\jh\img\bell.png" alt="종">공지사항어쩌구 저쩌구</td>
-              </tr>
-            </table>
-            <div class="dieter_rank">
-              <p class="tit">다이어터 랭킹</p>
-              <!-- 다이어터랭킹 -->
-              <div class="inner">
-                <ol class="diet-rank">
-                  <li>
-                    <strong class="toprank">1</strong>
-                    <a href=""><img src="http://placehold.it/20x20" class="pic" style="width:26px;height:26px;" alt=""></a>
-                    <em><a href="">회원 아이디</a></em>
-                  </li>
-                  <li>
-                    <strong class="toprank">2</strong>
-                    <a href=""><img src="http://placehold.it/20x20" class="pic" style="width:26px;height:26px;" alt=""></a>
-                    <em><a href="">회원 아이디</a></em>
-                  </li>
-                  <li>
-                    <strong class="toprank">3</strong>
-                    <a href=""><img src="http://placehold.it/20x20" class="pic" style="width:26px;height:26px;" alt=""></a>
-                    <em><a href="">회원 아이디</a></em>
-                  </li>
-                  <li>
-                    <strong class="toprank">4</strong>
-                    <a href=""><img src="http://placehold.it/20x20" class="pic" style="width:26px;height:26px;" alt=""></a>
-                    <em><a href="">탄력원츄</a></em>
-                  </li>
-                  <li>
-                    <strong class="toprank">5</strong>
-                    <a href=""><img src="http://placehold.it/20x20" class="pic" style="width:26px;height:26px;" alt=""></a>
-                    <em><a href="">회원 아이디</a></em>
-                  </li>
-                </ol>
-              </div>
-              <!-- //다이어터랭킹 -->
+            <div style="padding-bottom:7px;">
+              <h3><span style="font-size:14px; font-weight:bold;">공지사항</span></h3>
             </div>
+
+              <table id="notice-table">
+                <tbody>
+                  <tr>
+                    <td>
+                      <span>
+                        <i class="fas fa-bullhorn" style="margin:0 6px 0 0;"></i>공지사항 제목이 들어갈곳입니다</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>
+                        <i class="fas fa-bullhorn" style="margin:0 6px 0 0;"></i>공지사항 제목이 들어갈곳입니다</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>
+                        <i class="fas fa-bullhorn" style="margin:0 6px 0 0;"></i>공지사항 제목이 들어갈곳입니다</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>
+                        <i class="fas fa-bullhorn" style="margin:0 6px 0 0;"></i>공지사항 제목이 들어갈곳입니다</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="tplMore" >
+                <a href="ab-4486"><span style="font-size:11px;color: #666666;">+ 전체보기</span></a>
+              </div>
+          </div>
+          <div class="notice-table-form" style="padding: 20px 20px 13px 20px;">
+            <div style="padding-bottom:7px;">
+              <h3><span style="font-size:14px; font-weight:bold;">다이어터 랭킹</span></h3>
+            </div>
+
+              <table id="notice-table">
+                <tbody>
+                  <tr>
+                    <td>
+                      <span>
+                        <strong style="color:red;">1</strong><i class="fas fa-user" style="margin:10px"></i>사용자 아이디</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>
+                        <strong style="color:red;">2</strong><i class="fas fa-user" style="margin:10px"></i>사용자 아이디</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>
+                        <strong style="color:red;">3</strong><i class="fas fa-user" style="margin:10px"></i>사용자 아이디</span>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>
+                      <span>
+                        <strong>4</strong><i class="fas fa-user" style="margin:10px"></i>사용자 아이디</span>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
           </div>
         </div>
 
@@ -246,28 +337,19 @@
                 </div>
               </div>
             </div>
-            <div class="jh-paging" style="display:block;">
-              <nav aria-label="Page navigation example">
-                <ul class="pagination justify-content-center" >
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span class="sr-only">Previous</span>
-                </a>
-                  </li>
-                  <li class="page-item"><a class="page-link" href="#">1</a></li>
-                  <li class="page-item"><a class="page-link" href="#">2</a></li>
-                  <li class="page-item"><a class="page-link" href="#">3</a></li>
-                  <li class="page-item"><a class="page-link" href="#">4</a></li>
-                  <li class="page-item">
-                    <a class="page-link" href="#" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span class="sr-only">Next</span>
-                </a>
-                  </li>
-                </ul>
-              </nav>
-            </div>
+            <div class ="btnPagelink">
+              <span class="LF_page_link_current"><b>1</b></span>
+              <a href="" class="LF_page_link">2</a>
+              <a href="" class="LF_page_link">3</a>
+              <a href="" class="LF_page_link">4</a>
+              <a href="" class="LF_page_link">5</a>
+              <a href="" class="LF_page_link">6</a>
+              <a href="" class="LF_page_link">7</a>
+              <a href="" class="LF_page_link">8</a>
+              <a href="" class="LF_page_link">9</a>
+              <a href="" class="LF_page_link">10</a>
+              -><a href="" class=""></a>
+            </div> <!-- btnPagelink -->
           </div>
         </div>
         <!--album py-5 bg-light-->
