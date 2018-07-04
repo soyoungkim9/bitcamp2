@@ -1,21 +1,122 @@
 /* container CSS 시작 */
 
-.container {}
-
 /* container CSS 종료 */
 
 /* MENU Link Hover Effect CSS 시작 */
 
-.top_link li a, .top_link li a:visited, .top_link li a:hover, .top_link li a:active {
+#sh-msgbox-msg ul {
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  flex-direction: column;
+  padding: 0;
+  width: 100%;
+}
+
+#sh-msgbox-msg ul li {
+  color: #666666;
+  border: 1px solid #EEEEEE;
+  height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#sh_sub-menu-ul div {
+  margin-top: 0;
+}
+
+#sh-msg-dropdown-content {
+  min-width: 250px;
+  padding: 0;
+}
+
+#sh-msgbox-msg {
+  min-height: 40px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#sh-msgbox-more {
+  display: flex;
+  justify-content: space-around;
+  font-size: 12px;
+  padding-top: 5px;
+}
+
+#sh-msgbox-top {
+  padding-bottom: 0px;
+}
+
+#sh-msgbox-top ul {
+  list-style: none;
+  justify-content: space-between;
+  display: flex;
+  padding: 4px;
+}
+
+#sh-msgbox-top ul li {
+  padding: 2px;
+  font-size: 12px;
+}
+
+.sh-msgbox {
+  font-size: 15px;
+  background-color: #EEEEEE;
+  width: 100%;
+  height: 24px;
+}
+
+#sh_top_menu_user {
+  padding-top: 2px;
+}
+
+.sh-user-inline-block {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+#sh-user-name {
+  font-size: 15px;
+  color: #EEEEEE;
+}
+
+#sh-user-name-div {
+  margin-left: 6px;
+}
+
+#sh-user-icon {
+  height: 10px;
+  font-size: 36px;
+  color: #EEEEEE;
+}
+
+#sh-user-icon-tri {
+  color: #666666;
+}
+
+#sh-bell-icon:hover {
+  color: #DD1F26;
+}
+
+#sh-bell-icon {
+  height: 10px;
+  font-size: 23px;
+  color: #EEEEEE;;
+  margin-top: -3px;
+}
+
+.sh_top_link li a, .sh_top_link li a:visited, .sh_top_link li a:hover, .sh_top_link li a:active {
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
   position: relative;
   transition: 0.2s color ease;
   text-decoration: none;
-  color: white;
+  color: #fff;
 }
 
-a.after:after {
+a.sh_after:after {
   content: "";
   transition: 0.2s all ease;
   -webkit-backface-visibility: hidden;
@@ -23,22 +124,22 @@ a.after:after {
   position: absolute;
 }
 
-a.after:after {
+a.sh_after:after {
   bottom: -0.25em;
 }
 
-a.after:after {
+a.sh_after:after {
   height: 5px;
   height: 0.2rem;
   width: 0;
   background: #d73444;
 }
 
-a.menu:after {
+a.sh_menu:after {
   left: 0;
 }
 
-a.after:hover:after {
+a.sh_after:hover:after {
   width: 100%;
 }
 
@@ -46,12 +147,11 @@ a.after:hover:after {
 
 /* MENU Sub-Menu 시작 */
 
-.dropdown {
+.sh_dropdown {
   position: relative;
-  /* display: inline-block; */
 }
 
-.dropdown-content {
+.sh_dropdown-content {
   display: none;
   position: absolute;
   background-color: #FFFFFF;
@@ -66,27 +166,25 @@ a.after:hover:after {
   margin-top: 10px;
 }
 
-.dropdown:hover .dropdown-content {
+.sh_dropdown:hover .sh_dropdown-content {
   display: block;
 }
 
-.dropdown-content a {
+.sh_dropdown-content a {
   color: #666666;
   padding: 12px 0px;
   margin: 10px;
-  /* text-decoration: none; */
-  /* display: inline-block; */
 }
 
-.dropdown-content a:hover {
+.sh_dropdown-content a:hover {
   background-color: #FFFFFF;
 }
 
-#sub-menu-ul {
+#sh_sub-menu-ul {
   padding-left: 0px;
 }
 
-#sub-menu-ul>li a {
+#sh_sub-menu-ul>li a {
   display: inline-block !important;
   padding-bottom: 1px;
   padding-top: 1px;
@@ -95,91 +193,96 @@ a.after:hover:after {
   color: #666666;
 }
 
-/* .dropdown:hover .drop_menu {background-color: white;} */
-
 /* MENU Sub-Menu 종료 */
 
 /*헤더 CSS 시작*/
 
-.top_menu {
-  padding: 13px 10px 13px 10px;
+.sh_top_menu {
+  padding: 12px 13px;
 }
 
-body {
-  margin: 0;
-}
-
-.top_logo_wrap {
+.sh_top_logo_wrap {
   float: left;
   display: inline-block;
 }
 
-#top_layout {
+#logo-link {
+  position: relative;
+  z-index: 999;
+  text-decoration: none;
+}
+
+#logo-link:visited {
+  text-decoration: none;
+}
+
+#sh_top_layout {
   border-bottom: solid 1px rgb(102, 102, 102, 0.2);
   height: 76px;
 }
 
-#logo {
+#sh_logo {
   height: 42px;
 }
 
-.top_link {
+.sh_top_link {
   float: right;
   margin-top: 14px;
   padding-top: 10px;
   padding-bottom: 10px;
 }
 
-.top_link>li {
+.sh_top_link>li {
   float: right;
 }
 
-.logo_name {
+.sh_logo_name {
   float: left;
-  /* margin:0 auto; */
 }
 
-#logo_h1 {
+#sh_logo_h1 {
   margin-bottom: 0px;
   margin-top: 12px;
   color: #fff;
 }
 
-#logo_img {
+#sh_logo_img {
   margin: 14px 0px 0px 0px;
   float: left;
 }
 
-.top_wrap {
+.sh_top_wrap {
   margin: auto;
   width: 1200px;
-}
-
-.top_utile_wrap {
   height: 76px;
 }
 
-.top_utile_wrap>ul {
+.sh_top_utile_wrap {
+  height: 76px;
+}
+
+.sh_top_utile_wrap>ul {
   font-weight: bold;
   font-size: 1em;
   list-style-type: none;
   padding: 0;
+  display: flex;
 }
 
-.top_link>li a {
+.sh_top_link>li a {
   display: block;
-  color: white;
+  color: #fff;
   text-align: center;
   padding-left: 2px;
   padding-right: 2px;
-  / text-decoration: none;
+  text-decoration: none;
 }
 
-.top_link>li a:hover {}
+.sh_top_link>li a:hover {}
 
 /* 헤더 search button CSS 시작 */
 
-#content {
+#sh_content {
   height: 4px;
   top: 50%;
   left: 50%;
@@ -188,7 +291,7 @@ body {
   margin-left: 226px;
 }
 
-#content.on {
+#sh_content.on {
   -webkit-animation-name: in-out;
   animation-name: in-out;
   -webkit-animation-duration: 0.7s;
@@ -199,15 +302,15 @@ body {
   animation-iteration-count: 1;
 }
 
-.input {
+.sh-input {
   margin-top: 11px;
   box-sizing: border-box;
   width: 19px;
   height: 19px;
-  border: 3px solid #FFFFFF;
+  border: 3px solid #fff;
   border-radius: 50%;
   background: none;
-  color: #fff;
+  color: #DD1F26;
   font-size: 12px;
   font-weight: 400;
   font-family: Roboto;
@@ -221,7 +324,7 @@ body {
   transform: translate(-100%, -50%);
 }
 
-.search {
+.sh-searchBtn {
   background: none;
   position: absolute;
   top: 8px;
@@ -241,7 +344,7 @@ body {
   transform: translate(-100%, -50%);
 }
 
-.search:before {
+.sh-searchBtn:before {
   content: "";
   position: absolute;
   width: 11px;
@@ -256,14 +359,14 @@ body {
   transition: 0.1s ease-in-out;
 }
 
-.close {
+.sh-close {
   -webkit-transition: 0.4s ease-in-out;
   transition: 0.4s ease-in-out;
   -webkit-transition-delay: 0.4s;
   transition-delay: 0.4s;
 }
 
-.close:before {
+.sh-close:before {
   content: "";
   position: absolute;
   width: 16px;
@@ -278,7 +381,7 @@ body {
   transition: 0.2s ease-in-out;
 }
 
-.close:after {
+.sh-close:after {
   content: "";
   position: absolute;
   width: 16px;
@@ -292,16 +395,16 @@ body {
   transform: rotate(-45deg);
 }
 
-.square {
+.sh-square {
   margin-top: 11px;
   box-sizing: border-box;
   padding: 10px 22px 10px 13px;
   width: 231px;
   height: 40px;
-  border: 3px solid #FFFFFF;
+  border: 3px solid #fff;
   border-radius: 0;
   background: none;
-  color: #fff;
+  color: #666666;
   font-size: 14px;
   font-weight: 400;
   outline: 0;
@@ -319,93 +422,3 @@ body {
 /*헤더 CSS 종료*/
 
 /* 메인 이미지 시작 */
-
-.img {
-  z-index: 1;
-  top: 0;
-  position: absolute;
-  width: 100%;
-  margin: auto;
-  float: left;
-  height: 720px;
-}
-
-/* 메인 이미지 종료*/
-
-/* 메인 문구 시작 */
-
-/* 메인 문구 종료 */
-
-/*푸터 CSS 시작*/
-
-#foot_layout {
-  width: 100%;
-  background-color: #1B3453;
-  text-align: center;
-  /* padding: 60px 20px 30px 20px; */
-  display: inline-block;
-  box-sizing: border-box;
-  position: relative;
-}
-
-.foot_wrap {
-  width: 1200px;
-  text-align: left;
-  padding: 10px 170px 10px 170px;
-  display: inline-block;
-  box-sizing: border-box;
-  position: relative;
-}
-
-.foot_utile_wrap {
-  width: 100%;
-  padding: 0;
-  /* margin-bottom: 20px; */
-  display: inline-block;
-  box-sizing: border-box;
-}
-
-.foot_link {
-  display: inline-block;
-  padding-left: 0;
-  margin: 10px 0px;
-}
-
-.foot_link li {
-  margin-right: 30px;
-  display: inline-block;
-  float: left;
-}
-
-.foot_link li a {
-  margin-top: 10px;
-  font-weight: 400;
-  font-size: 14px;
-  color: #ffff;
-  line-height: 20px;
-  display: inline-block;
-  text-decoration: none;
-}
-
-.foot_wrap address {
-  width: 100%;
-  font-weight: 100;
-  font-size: 12px;
-  font-style: normal;
-  color: #EBEDF3;
-  line-height: 20px;
-  /* padding: 2px 0; */
-  display: inline-block;
-}
-
-#foot-logo-img {
-  height: 41px;
-}
-
-.copy {
-  font-size: 10px;
-  margin: 2px 0;
-  color: #fff;
-}
-
-/*푸터 CSS 종료*/
