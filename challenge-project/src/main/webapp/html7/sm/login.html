@@ -1,12 +1,24 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
+<html>
 
 <head>
   <meta charset="utf-8">
-  <title></title>
+  <title>로그인</title>
+  <link rel="stylesheet" href="sm-mypage.css">
   <link rel="stylesheet" href="../css/common.css">
   <link rel="stylesheet" href="../header/header_white_top.css">
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
+  <link rel="stylesheet" href="../footer/footer.css">
+  <style>
+    .sm-loginBody {
+      height: 700px;
+      text-align: center;
+      margin-top: 150px;
+      margin-bottom: 150px;
+    }
+
+
+  </style>
 </head>
 
 <body>
@@ -82,18 +94,46 @@
   </div>
   <!-- 헤더 종료-->
 
+<div class="sm-container">
+  <div class="sm-loginBody">
+
+    <div style="margin-left: 40%; text-align: left;">
+    <h1>로그인</h1>
+    <form>
+      <div>
+        <label>아이디</label>
+        <input type="text" class="form-control" id="fId" aria-describedby="idHelp" placeholder="사용자 아이디를 입력하세요.">
+      </div>
+      <div>
+        <label>암호</label>
+        <input type="password" class="form-control" id="fPassword" placeholder="암호를 입력하세요.">
+      </div>
+      <div>
+        <input type="checkbox" class="form-check-input" id="fSaveId">
+        <label class="form-check-label" for="fSaveId">아이디 저장</label>
+      </div>
+      <div style="margin:10px; padding-bottom:20px;">
+        <a href="member-ex.html">회원으로 시작하기</a>
+        <a href="trainer-my.html">트레이너로 시작하기</a>
+      </div>
+      <button id="loginBtn" type="button" class="btn btn-primary btn-sm">로그인</button>
+    </form>
+  </div>
+
+  </div>
+</div>
 
 
 
   <!-- 푸터 시작 -->
-  <div id="foot_layout">
-    <footer class="foot_wrap">
-      <div class="foot_logo">
+  <div id="sh_foot_layout">
+    <footer class="sh_foot_wrap">
+      <div class="sh_foot_logo">
 
       </div>
-      <div class="foot_utile_wrap">
-        <ul class="foot_link">
-          <li> <img id="foot-logo-img" src="white-logo.png" alt="footer-logo"> </li>
+      <div class="sh_foot_utile_wrap">
+        <ul class="sh_foot_link">
+          <li> <img id="sh_foot-logo-img" src="../footer/white-logo.png" alt="sh-footer-logo"> </li>
           <li><a href="#">직원검색</a></li>
           <li><a href="#">사이트맵</a></li>
           <li><a href="#">이메일집단수집거부</a></li>
