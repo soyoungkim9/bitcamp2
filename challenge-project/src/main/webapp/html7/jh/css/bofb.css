@@ -1,0 +1,89 @@
+/*명예의 전당 페이지 : class 이름 앞에 hf- 붙이기*/
+ @charset "UTF-8";
+
+
+* {
+  box-sizing: border-box;
+  font-family: 'Nanum Gothic', sans-serif;
+}
+
+.jumbotron-heading {
+  font-size: 30px;
+
+}
+
+.all-form {
+  display: inline-block;
+}
+
+main {
+    width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+
+
+.board-form{
+  padding:2rem 2rem 0 0; background-color:white;
+
+ }
+
+.jh-notice {
+
+    width: 260px;
+    height: 180px;
+    position: fixed;
+}
+.hf-sidebar { /* 사이드바 */
+    width:300px;
+    height: 1200px;
+    float: right;
+    padding: 10px;
+    overflow: hidden;
+
+}
+.bell-icon {
+  width: 1rem;
+  height: 1rem;
+  margin: 0 5px 0 0 ;
+}
+
+.jh-album { /*사이드바 왼쪽 */
+      font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol";
+    width:900px;
+    float:left;
+}
+
+
+.pagination {
+	margin: 0px auto;
+
+}
+
+.dieter_rank { /*다이어터랭킹 전체 폼*/
+    width: 260px;
+    height: 240px;
+    margin: 20px 0;
+
+    padding: 10px 10px 6px 20px;
+    background: #fff;
+    position: fixed;
+    top: 350px;
+
+}
+.dieter_rank .inner ol{
+
+    padding-left:0px;
+    list-style:none;
+
+}
+
+.plusBtn {
+
+    width: 1rem;
+    height: 1rem;
+    margin: 3px;
+    float: right;
+
+}
