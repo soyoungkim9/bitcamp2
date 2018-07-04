@@ -17,6 +17,13 @@
 #tr-img {
   font-size: 100px;
   margin-bottom: 10px;
+  background-image: url('man.jpg');
+  background-size: 100px 100%;
+  background-repeat: no-repeat;
+  display: inline-block;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
 }
 
 .tr-table {

@@ -1,8 +1,4 @@
 @charset "UTF-8";
-* {
-  margin: 0;
-  padding: 0;
-}
 
 img {
   border: 0;
@@ -25,13 +21,13 @@ ul {
 }
 
 .pay-0-left {
-  width: 140px;
+  width: 120px;
   height: 100%;
   float: left;
 }
 
 .pay-0-right {
-  width: 700px;
+  width: 780px;
   height: 100%;
   float: right;
 }
@@ -76,9 +72,25 @@ ul {
 .order-table {
   clear: both;
   padding-top: 20px;
-}
 
-thead {
+}
+.order-table1 {
+  width: 100%;
+  border: 0;
+  height: 70px;
+  border-collapse: collapse;
+}
+.order-th {
+  padding: 0;
+}
+.order-td {
+  text-align: center;
+  padding: 0;
+}
+.order-tr {
+  height: 20px;
+}
+.order-thead {
   background-color: #eeeeee;
 }
 
@@ -89,15 +101,18 @@ thead {
 
 .auth {
   overflow: hidden;
+
 }
 
 .pay-1-img {
   float: left;
   width: 50%;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .pay-1-agr {
+  box-sizing: border-box;
   float: left;
   width: 50%;
   padding: 20px;
@@ -111,12 +126,14 @@ thead {
   width: 60%;
   float: left;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .pay-2-right {
   width: 40%;
   float: left;
   padding: 20px;
+  box-sizing: border-box;
 }
 
 .pay-2-price {
@@ -126,8 +143,9 @@ thead {
 }
 
 .pay-3-type {
-  /* overflow: hidden; */
-  padding: 20px;
+  overflow: hidden;
+  padding-top: 10px;
+  padding-bottom: 20px;
 }
 
 .pay-3-type>ul {

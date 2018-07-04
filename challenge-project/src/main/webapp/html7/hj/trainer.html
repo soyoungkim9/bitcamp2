@@ -12,6 +12,27 @@
   <link rel="stylesheet" href="card.css">
   <link rel="stylesheet" href="trainer.css">
   <link rel="stylesheet" href="../css/common.css">
+  <!-- <link rel="stylesheet" type="text/css" media="screen" href="css/CSSreset.min.css" /> -->
+  <link rel="stylesheet" type="text/css" media="screen" href="css/als_demo.css" />
+  <script type="text/javascript" src="js/jquery-2.1.1.min.js"></script>
+  <script type="text/javascript" src="js/jquery.als-1.7.min.js"></script>
+  <script type="text/javascript">
+    $(document).ready(function()
+    {
+      $("#lista1").als({
+        visible_items: 2,
+        scrolling_items: 1,
+        orientation: "horizontal",
+        circular: "yes",
+        autoscroll: "no",
+        interval: 5000,
+        speed: 500,
+        easing: "linear",
+        direction: "right",
+        start_from: 0
+      });
+    });
+  </script>
 
 </head>
 
@@ -101,7 +122,7 @@
         <div>31명 팔로워</div>
       </div>
       <div class="tr1-co-center">
-        <img src="" class="tr1-img"><i id="tr-img" class="fas fa-user-circle"></i></img>
+        <img src="" class="tr1-img"><div id="tr-img"></div></img>
         <div class="tr-name">
           해동근력
         </div>
@@ -133,65 +154,114 @@
     <div class="tr2">
 
       <div class="tr2-pro">
-        <button type="button">&#10094;</button>
-        <div class="card">
-          <div class="ribbon"><span>성공 98%</span></div>
-      <div class="card-trainer"></div>
-      <!-- 카드 헤더 -->
-      <div class="card-header">
-
-      </div>
-      <!--  카드 바디 -->
-      <div class="card-body">
-        <!--  카드 바디 헤더 -->
-        <div class="card-body-header">
-          <h3>3개월 상체운동</h3>
-          <p class="card-body-price">100,000 원</p>
-          <span class="card-body-local">강남</span></p>
-          <p><span class="card-body-number">12 / 20명</span>
-            <p class="card-body-hashtag">#헬스 #근력 #식단관리</p>
-            <!--  카드 바디 본문 -->
-            <p class="card-body-description">안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~
-              안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~
-            </p>
-        </div>
-        <!--  카드 바디 푸터 -->
-        <div class="card-body-footer">
-          <!-- <hr style="margin-bottom: 8px; opacity: 0.5; border-color: #EF5A31"> -->
-          <i class="icon icon-review"></i>리뷰 90개
-          <i class="icon icon-count"></i>[2기]
-          <i class="reg_date">18/08/20(D-50) </i>
-        </div>
-      </div>
-    </div>
-    <div class="card">
-      <div class="ribbon"><span>성공 98%</span></div>
-      <div class="card-trainer"></div>
-      <!-- 카드 헤더 -->
-      <div class="card-header">
-
-      </div>
-      <!--  카드 바디 -->
-      <div class="card-body">
-        <!--  카드 바디 헤더 -->
-        <div class="card-body-header">
-          <h3>4개월 상체운동</h3>
-          <p class="card-body-price">100,000 원</p>
-          <span class="card-body-local">강남</span></p>
-          <p><span class="card-body-number">12 / 20명</span>
-            <p class="card-body-hashtag">#헬스 #근력 #식단관리</p>
-            <p class="card-body-description">안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~
-              안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~
-            </p>
-        </div>
-        <div class="card-body-footer">
-          <i class="icon icon-review"></i>리뷰 90개
-          <i class="icon icon-count"></i>[2기]
-          <i class="reg_date">18/08/20(D-50) </i>
-        </div>
-      </div>
-    </div>
-    <button type="button">&#10095;</button>
+        <div id="lista1" class="als-container">
+  				<span class="als-prev"><img src="images/thin_left_arrow_333.png" alt="prev" title="previous" /></span>
+  				<div class="als-viewport">
+  					<ul class="als-wrapper">
+  						<li class="als-item">
+  							<div class="card">
+  					      <div class="ribbon"><span>성공 98%</span></div>
+  					      <div class="card-trainer"></div>
+  					      <div class="card-header">
+  					      </div>
+  					      <div class="card-body">
+  					        <div class="card-body-header">
+  					          <h3>3개월 상체운동</h3>
+  					          <p class="card-body-price">100,000 원</p>
+  					          <span class="card-body-local">강남</span></p>
+  					          <p><span class="card-body-number">12 / 20명</span>
+  					            <p class="card-body-hashtag">#헬스 #근력 #식단관리</p>
+  					            <p class="card-body-description">안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~
+  					              안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~
+  					            </p>
+  					        </div>
+  					        <div class="card-body-footer">
+  					          <i class="icon icon-review"></i>리뷰 90개
+  					          <i class="icon icon-count"></i>[2기]
+  					          <i class="reg_date">18/08/20(D-50) </i>
+  					        </div>
+  					      </div>
+  					    </div>
+  						</li>
+  						<li class="als-item">
+  							<div class="card">
+  					      <div class="ribbon"><span>성공 98%</span></div>
+  					      <div class="card-trainer"></div>
+  					      <div class="card-header">
+  					      </div>
+  					      <div class="card-body">
+  					        <div class="card-body-header">
+  					          <h3>4개월 상체운동</h3>
+  					          <p class="card-body-price">100,000 원</p>
+  					          <span class="card-body-local">강남</span></p>
+  					          <p><span class="card-body-number">12 / 20명</span>
+  					            <p class="card-body-hashtag">#헬스 #근력 #식단관리</p>
+  					            <p class="card-body-description">안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~
+  					              안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~
+  					            </p>
+  					        </div>
+  					        <div class="card-body-footer">
+  					          <i class="icon icon-review"></i>리뷰 90개
+  					          <i class="icon icon-count"></i>[2기]
+  					          <i class="reg_date">18/08/20(D-50) </i>
+  					        </div>
+  					      </div>
+  					    </div>
+  						</li>
+  						<li class="als-item">
+  							<div class="card">
+  					      <div class="ribbon"><span>성공 98%</span></div>
+  					      <div class="card-trainer"></div>
+  					      <div class="card-header">
+  					      </div>
+  					      <div class="card-body">
+  					        <div class="card-body-header">
+  					          <h3>5개월 상체운동</h3>
+  					          <p class="card-body-price">100,000 원</p>
+  					          <span class="card-body-local">강남</span></p>
+  					          <p><span class="card-body-number">12 / 20명</span>
+  					            <p class="card-body-hashtag">#헬스 #근력 #식단관리</p>
+  					            <p class="card-body-description">안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~
+  					              안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~
+  					            </p>
+  					        </div>
+  					        <div class="card-body-footer">
+  					          <i class="icon icon-review"></i>리뷰 90개
+  					          <i class="icon icon-count"></i>[2기]
+  					          <i class="reg_date">18/08/20(D-50) </i>
+  					        </div>
+  					      </div>
+  					    </div>
+  						</li>
+  						<li class="als-item">
+  							<div class="card">
+  					      <div class="ribbon"><span>성공 98%</span></div>
+  					      <div class="card-trainer"></div>
+  					      <div class="card-header">
+  					      </div>
+  					      <div class="card-body">
+  					        <div class="card-body-header">
+  					          <h3>6개월 상체운동</h3>
+  					          <p class="card-body-price">100,000 원</p>
+  					          <span class="card-body-local">강남</span></p>
+  					          <p><span class="card-body-number">12 / 20명</span>
+  					            <p class="card-body-hashtag">#헬스 #근력 #식단관리</p>
+  					            <p class="card-body-description">안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~
+  					              안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~ 안녕하세요! 3기 하체운동 모집합니다~
+  					            </p>
+  					        </div>
+  					        <div class="card-body-footer">
+  					          <i class="icon icon-review"></i>리뷰 90개
+  					          <i class="icon icon-count"></i>[2기]
+  					          <i class="reg_date">18/08/20(D-50) </i>
+  					        </div>
+  					      </div>
+  					    </div>
+  						</li>
+  					</ul>
+  				</div>
+  				<span class="als-next"><img src="images/thin_right_arrow_333.png" alt="next" title="next" /></span>
+  			</div>
   </div>
   </div>
 
@@ -279,7 +349,7 @@
     </footer>
   </div>
   <!-- 푸터 종료 -->
-  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <!-- <script src="../node_modules/jquery/dist/jquery.min.js"></script> -->
   <script src="../header/header_white_top.js"></script>
 </body>
 
