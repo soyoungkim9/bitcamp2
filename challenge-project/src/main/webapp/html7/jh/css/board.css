@@ -117,9 +117,10 @@ right: 380px;
   border-spacing:0;
   padding:0;
 }
-.tplMore {
-position: absolute;
-top: 1200px;
+.jh-allview {
+  position: absolute;
+  top: 165px;
+  right: 50px;
 }
 #notice-table > tbody > tr > td {
   height:30px;
