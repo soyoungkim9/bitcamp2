@@ -7,12 +7,16 @@ img {
 ul {
   list-style: none;
 }
-
+.pay-h2 {
+  margin-left: 100px;
+}
 .pay-boarder {
   width: 1000px;
   box-sizing: border-box;
   border: 1px solid #eeeeee;
   margin-top: 10px;
+  display: block;
+  margin-left: 100px;
 }
 
 .pay-0 {
@@ -37,7 +41,7 @@ ul {
   height: 90px;
   background-image: url('man.jpg');
   border-radius: 10px;
-  background-size: 100%;
+  background-size: 120px 100%;
   /* vertical-align: middle; */
   /* margin-right: 20px; */
 }
@@ -61,7 +65,7 @@ ul {
   width: 30px;
   height: 30px;
   background-image: url('man.jpg');
-  background-size: 100%;
+  background-size: 30px 100%;
   border-radius: 50%;
   vertical-align: middle;
   margin-right: 10px;
