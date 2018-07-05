@@ -15,6 +15,11 @@ body {
   margin-left: 0px;
 }
 
+.hr-up {
+  width: 0;
+  height: 100%;
+}
+
 #sm-btn-1 { /* 남색 버튼 */
   width:100px;
     background-color: #1B3453;
@@ -245,4 +250,39 @@ ul {list-style:none;}
 .sm-menu i {
   margin: 10px;
   font-size:50px;
+}
+
+
+.sm-pagination { /* 하단 페이지 바 */
+  width: 100%;
+  text-align: center;
+  font-size: 0;
+  margin: 20px 0;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+}
+
+.sm-pagination-button {
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-right: none;
+  width: 45px;
+  height: 25px;
+  color: #666666;
+  font-size: 15px;
+  margin: 10px 0px;
+  padding-top: 10px;
+  text-decoration: none;
+}
+.sm-pagination-button-end {
+  border-right: 1px solid #ddd;
+}
+.sm-pagination-side {
+  color:#ddd;
+  border: none;
+}
+
+.sm-a-none, sm-a-none a:hover, sm-a-none a:visited { /* a 태그 스타일 없애기 */
+  text-decoration: none;
+  color:black;
 }
