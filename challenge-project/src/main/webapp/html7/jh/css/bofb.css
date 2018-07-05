@@ -75,7 +75,11 @@ main {
     padding: 10px;
     overflow: hidden;
 }
-
+.jh-allview {
+  position: absolute;
+  top: 165px;
+  right: 50px;
+}
 #notice-table {
   width:100%;
   border-spacing:0;

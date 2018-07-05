@@ -10,93 +10,27 @@
 
   <title>커뮤니티-명예의전당</title>
 
-  <!-- Bootstrap core CSS -->
+  <!-- Bootstrap core CSS -->\
   <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
   <!-- font core CSS -->
-  <link rel="stylesheet" href="css/common.css?ver=5">
+  <link rel="stylesheet" href="css/common.css">
   <!-- icon tools-->
   <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
   <!-- page css-->
-  <link rel="stylesheet" href="css/bofb.css?ver=5">
-
-  <link rel="stylesheet" href="css/header_white_top.css">
-  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
-
-  <div id="sh_top_layout">
-    <header class="sh_top_wrap">
-      <a href="#">
-        <div class="sh_top_logo_wrap">
-          <h1 id="sh_logo_img"><img id="sh_logo" src="red-logo.png" alt=""></h1>
-          <div class="sh_logo_name">
-            <h1 id="sh_logo_h1" style="font-family:'Titillium Web';"><i>CHALLENGE</i></h1>
-          </div>
-        </div>
-      </a>
+  <link rel="stylesheet" href="css/bofb.css">
 
 
-      <!-- 드롭다운 서브메뉴 시작-->
-      <div class="sh_top_utile_wrap">
-        <ul class="sh_top_link">
-          <li class="sh_top_menu sh_dropdown">
-            <a class="sh_menu sh_after" href="#">로그인</a>
-            <div class="sh_dropdown-content">
-              <ul id="sh_sub-menu-ul">
-                <li><a class="sh_menu sh_after" href="#">회원가입</a></li>
-                <li><a class="sh_menu sh_after" href="#">Link 3</a></li>
-                <li><a class="sh_menu sh_after" href="#">Link 3</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="sh_top_menu sh_dropdown">
-            <a class="sh_menu sh_after" href="#">커뮤니티</a>
-            <div class="sh_dropdown-content">
-              <ul id="sh_sub-menu-ul">
-                <li><a class="sh_menu sh_after" href="#">명예의전당</a></li>
-                <li><a class="sh_menu sh_after" href="#">비포&애프터</a></li>
-                <li><a class="sh_menu sh_after" href="#">질문과답변</a></li>
-                <li><a class="sh_menu sh_after" href="#">자유게시판</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="sh_top_menu sh_dropdown">
-            <a class="sh_menu sh_after " href="#">프로그램</a>
-            <div class="sh_dropdown-content">
-              <ul id="sh_sub-menu-ul">
-                <li><a class="sh_menu sh_after" href="#">추천프로그램</a></li>
-                <li><a class="sh_menu sh_after" href="#">인기프로그램</a></li>
-                <li><a class="sh_menu sh_after" href="#">진행중인프로그램</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="sh_top_menu sh_dropdown">
-            <a class="sh_menu sh_after " href="#"><span>마이페이지</span></a>
-            <div class="sh_dropdown-content">
-              <ul id="sh_sub-menu-ul">
-                <li><a class="sh_menu sh_after" href="#">마이페이지</a></li>
-                <li><a class="sh_menu sh_after" href="#">운동관리</a></li>
-                <li><a class="sh_menu sh_after" href="#">메시지</a></li>
-                <li><a class="sh_menu sh_after" href="#">운동후기</a></li>
-                <li><a class="sh_menu sh_after" href="#">계정설정</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="sh_top_menu">
-            <form id="sh_content">
-              <input type="text" name="sh-input" class="sh-input" placeholder="">
-              <button class="sh-searchBtn" type="reset"></button>
-            </form>
-          </li>
-        </ul>
-      </div>
-      <!-- 드롭다운 서브메뉴 종료-->
 
-    </header>
-  </div>
-  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="javascript/header_white_top.js"></script>
+
+
+
+
 </head>
 
 <body>
+
+  <div id="header"></div>
 
   <main id="main">
     <div class="hf-wrapper">
@@ -144,7 +78,7 @@
                   </tr>
                 </tbody>
               </table>
-              <div class="tplMore">
+              <div class="jh-allview">
                 <a href="ab-4486"><span style="font-size:11px;color: #666666;">+ 전체보기</span></a>
               </div>
           </div>
@@ -358,7 +292,14 @@
       <!--hf-wrapper-->
     </div>
   </main>
+  <!-- 푸터 시작 -->
 
+<div id="footer"></div>
+<!-- 푸터 종료 -->
+<!-- 헤더/푸터 스크립트 종료-->
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../header/header_black_login.js"></script>
+<script src="../footer/footer.js"></script>
 </body>
 
 </html>
