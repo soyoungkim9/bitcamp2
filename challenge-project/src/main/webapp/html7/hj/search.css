@@ -1,0 +1,37 @@
+* {
+  margin: 0 auto;
+  padding: 0;
+  box-sizing: border-box;
+  list-style: none;
+}
+a {
+	text-decoration: none;
+}
+.search-column {
+  float: left;
+  padding: 10px;
+}
+
+.sidenav {
+  width: 200px;
+}
+
+.search-title {
+  font-size: 20px;
+	 font-weight: 800px;
+	 margin-bottom: 15px;
+}
+.search-challenge {
+	margin-bottom: 35px;
+}
+.challenge-ul {
+	display: block;
+}
+.challenge-li {
+	padding: 7px 0;
+	border-bottom: 1px solid #eeeeee;
+}
+.search-price {
+	
+}
+.content {}

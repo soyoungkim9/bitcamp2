@@ -2,8 +2,8 @@
 	/* do: inherit; */
 }
 .card {
-	height: 320px;
-	width: 250px;
+	height: 200px;
+	width: 500px;
 	display: inline-block;
 	box-sizing: border-box;
 	margin-top: 30px;
@@ -14,12 +14,13 @@
 }
 
 .card-header {
-	width: 100%;
-	height: 170px;
+	width: 200px;
+	height: 100%;
 	background-image: url("man.jpg");
-	background-size: 100% 170px;
+	background-size: 200px 100%;
 	background-repeat: no-repeat;
-	border-radius: 5px 5px 0 0;
+	border-radius: 5px 0 0 5px;
+	float: left;
 	position: relative;
 }
 .ribbon {
@@ -67,7 +68,7 @@
 }
 .card-trainer {
 	position: absolute;
-	top: 120px; right: 10px;
+	top: 140px; right: 0px;
 	height: 60px; width: 60px;
 	background-image: url("man.jpg");
 	background-size: 60px 100%;
@@ -75,11 +76,13 @@
 }
 .card-body {
 	box-sizing: border-box;
-	height: 110px;
+	height: 160px;
+	width: 300px;
 	padding: 10px;
 	line-height: 22px;
-	border-left: 1px solid #eeeeee;
+	border-top: 1px solid #eeeeee;
 	border-right: 1px solid #eeeeee;
+	float: right;
 }
 .card-body-title {
 	font-weight: 700;
@@ -90,11 +93,12 @@
 .card-body-numger {}
 .card-body-score {color: gold; line-height: 27px;}
 .card-footer {
+	float: right;
 	box-sizing: border-box;
 	border-radius: 0 0 5px 5px;
 	border: 1px solid #eeeeee;
 	height: 40px;
-	width: 100%;
+	width: 300px;
 	padding: 10px;
   overflow: hidden;
 }
