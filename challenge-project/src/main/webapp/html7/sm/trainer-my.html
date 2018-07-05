@@ -3,7 +3,7 @@
 <head>
 <meta charset='UTF-8'>
 <title>회원페이지</title>
-<link rel="stylesheet" href="sm-mypage.css">
+<link rel="stylesheet" href="sm-trainerPage.css">
 <link rel="stylesheet" href="../css/common.css">
 <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
 <link rel="stylesheet" href="../header/header_white_top.css">
@@ -20,6 +20,32 @@ table {
 .sm-tabcontent {
   width: 99.8%;
 }
+
+/* 바디에 있는 탭 메뉴 (트레이너:회원,수익관리/회원:알림,내가쓴글) */
+.sm-tab {overflow: hidden;}
+.sm-tab button {
+    background-color: inherit;
+    border: 1px solid gray;
+    border-bottom: none;
+    float: left;
+    cursor: pointer;
+    padding: 14px 16px;
+    transition: 0.3s;
+    font-size: 17px;
+}
+.sm-tab button:hover {background-color: #ddd;}
+.sm-tab button.active {background-color: #ccc;}
+.sm-tabcontent {
+    display: none;
+    border: 1px solid gray;
+    float: left;
+    width: 97.3%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+.sm-tabcontent.sm-current {display: inline;}
+
+
 </style>
 </head>
 <body>

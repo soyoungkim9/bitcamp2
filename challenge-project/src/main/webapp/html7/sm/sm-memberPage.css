@@ -3,6 +3,7 @@
 body {
   margin: 0;
 }
+
 .sm-container { /* 전체 틀 */
     width: 1200px;
     margin: 0 auto;
@@ -193,7 +194,7 @@ ul {list-style:none;}
 
 
 
-/* 마이페이지-회원관리 탭 메뉴 */
+/* 바디에 있는 탭 메뉴 (트레이너:회원,수익관리/회원:알림,내가쓴글) */
 .sm-tab {overflow: hidden;}
 .sm-tab button {
     background-color: inherit;
@@ -216,3 +217,32 @@ ul {list-style:none;}
     margin-bottom: 30px;
 }
 .sm-tabcontent.sm-current {display: inline;}
+
+
+
+/* 왼쪽 아이콘 메뉴 */
+
+.sm-tabcontent {
+  padding:10px;
+  text-align: left;
+}
+.sm-profile {
+  padding-bottom: 0px;
+}
+
+.sm-menu {
+  width: 49.28%; height: 100px; border:1px solid gray; padding:0px;
+  display: inline-block;
+  float: left;
+  font-size:small;
+  border-right: white;
+  border-bottom: white;
+}
+.sm-menu:hover {
+  background-color: #EEEEEE;
+}
+
+.sm-menu i {
+  margin: 10px;
+  font-size:50px;
+}
