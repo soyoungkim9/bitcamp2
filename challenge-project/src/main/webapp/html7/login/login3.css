@@ -37,7 +37,7 @@ a:hover {
 
 /*버튼 부분*/
 
-.omb_login .omb_socialButtons .omb_btn-facebook {background: #3b5998; -webkit-transition: all 0.5s ease-in-out;
+.omb_login .omb_socialButtons .omb_btn-facebook {background:#3b5998; -webkit-transition: all 0.5s ease-in-out;
      -moz-transition: all 0.5s ease-in-out;
        -o-transition: all 0.5s ease-in-out;
           transition: all 0.5s ease-in-out;}
@@ -56,7 +56,8 @@ a:hover {
        -o-transition: all 0.5s ease-in-out;
           transition: all 0.5s ease-in-out;}
 .omb_login .omb_socialButtons .omb_btn-kakao:hover {background: #6b1301}
-.omb_login .omb_socialButtons .omb_btn-kakao:focus {background: #fff; color:#6b1301;  border-color: #6b1301}
+.omb_login .omb_socialButtons .omb_btn-kakao:focus {background: #fff; color: #F7FE2E; border-color: #F7FE2E;}
+
 
 
 .omb_login .omb_loginOr {
