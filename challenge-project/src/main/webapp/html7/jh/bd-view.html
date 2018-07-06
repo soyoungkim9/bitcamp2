@@ -13,11 +13,11 @@
   <!-- page css-->
   <link rel="stylesheet" href="css/bd-view.css?ver=5">
 
- 
+
 </head>
 
 <body>
-
+<div id="header"></div>
   <main id="main">
     <div class="hf-wrapper">
 
@@ -200,9 +200,8 @@
                     <dd class="opinion">
                       <div class="upDown">
                         <p class="line">
-                          <a href="#" id="like-up"onclick="click();return false;">
-                            <em class="up"><i class="far fa-thumbs-up"></i> 좋아요</em></a>
-                             <strong id="total-like">0</strong></p>
+<a onclick="AddClick()" href="#!"><em class="up"><i class="far fa-thumbs-up"></i> 좋아요</em></a>
+                             <strong id="CountedClicks">0</a></strong>
 
 
                       </div>
@@ -241,7 +240,11 @@
           </div>
 
   </main>
-  <script src="javascript/bd-view.js"></script>
+  
+  <div id="footer"></div>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../header/header_white_login.js"></script>
+<script src="../footer/footer.js"></script>
 </body>
 
 </html>
