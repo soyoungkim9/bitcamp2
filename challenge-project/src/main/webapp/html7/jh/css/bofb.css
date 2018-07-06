@@ -69,27 +69,36 @@ main {
 
 /* 사이드바 컨텐츠 메뉴 css 시작지점*/
 .hf-sidebar { /* 사이드바 전체*/
-    width:300px;
-    height: 1200px;
-    float: right;
-    padding: 10px;
-    overflow: hidden;
+  width:300px;
+  height: 1200px;
+  float: right;
+  padding: 10px;
+  overflow: hidden;
 }
-.jh-allview {
-  position: absolute;
-  top: 165px;
-  right: 50px;
+.notice-table {
+  border: solid 1px rgb(166, 166, 164);
+  margin-top:20px;
+  padding: 5px 10px 10px 10px;
+}
+.rank-list {
+  border: solid 1px rgb(166, 166, 164);
+  padding: 5px 10px 10px 10px;
 }
 #notice-table {
   width:100%;
   border-spacing:0;
   padding:0;
 }
+.jh-allview {
+  position: absolute;
+  top: 195px;
+  right: 50px;
+}
 #notice-table > tbody > tr > td {
   height:30px;
   border-bottom:1px dashed #eee;
 }
 #notice-table > tbody > tr > td > span {
-   color: #666; font-size: 13px; letter-spacing: -0.5px; line-height: 1.4;
+  color: #666; font-size: 13px; letter-spacing: -0.5px; line-height: 1.4;
 }
 /* 사이드바 컨텐츠 메뉴 css 끝지점*/
