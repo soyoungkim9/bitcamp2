@@ -1,4 +1,6 @@
-window.onscroll = function() {myFunction()};
+window.onscroll = function() {
+  myFunction()
+};
 
 var sh_Class_Daily = document.getElementById("sh-Class-Daily");
 var diff = document.getElementById("sh-mainContainer");
@@ -31,13 +33,16 @@ function currentSlide(n) {
 function showSlides(n) {
   var i;
   var slides = document.getElementsByClassName("sh-mySlides");
-  if (n > slides.length) {slideIndex = 1}
-  if (n < 1) {slideIndex = slides.length}
-  for (i = 0; i < slides.length; i++) {
-      slides[i].style.display = "none";
+  if (n > slides.length) {
+    slideIndex = 1
   }
-  slides[slideIndex-1].style.display = "block";
-  dots[slideIndex-1].className += " active";
+  if (n < 1) {
+    slideIndex = slides.length
+  }
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";
+  }
+  slides[slideIndex - 1].style.display = "block";
 }
 
 /* 강의계획서 더보기 */
@@ -56,3 +61,5 @@ function shClassFunction() {
     moreText.style.display = "inline";
   }
 }
+
+/* 타임라인 글 작성 textarea auto-growing / self-resizing */
