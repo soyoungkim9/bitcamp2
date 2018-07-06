@@ -70,19 +70,21 @@
 	position: absolute;
 	top: 140px; right: 0px;
 	height: 60px; width: 60px;
+	border: 1px solid #eeeeee;
 	background-image: url("man.jpg");
 	background-size: 60px 100%;
 	border-radius: 50%;
 }
 .card-body {
 	box-sizing: border-box;
-	height: 160px;
+	height: 100%;
 	width: 300px;
 	padding: 10px;
 	line-height: 22px;
-	border-top: 1px solid #eeeeee;
-	border-right: 1px solid #eeeeee;
+	border: 1px solid #eeeeee;
 	float: right;
+	border-radius: 0 5px 5px 0;
+	position: relative;
 }
 .card-body-title {
 	font-weight: 700;
@@ -94,19 +96,22 @@
 .card-body-score {color: gold; line-height: 27px;}
 .card-footer {
 	float: right;
+	width: 270px;
 	box-sizing: border-box;
-	border-radius: 0 0 5px 5px;
-	border: 1px solid #eeeeee;
+	padding-top: 5px;
+	border-top: 1px solid #eeeeee;
 	height: 40px;
-	width: 300px;
-	padding: 10px;
-  overflow: hidden;
+	position: absolute;
+	bottom: 0;
 }
+.table-set {
+	display: table-cell;
+	width: 50%;
+}
+
 .card-footer-review {
-	float: left;
 }
 .card-footer-date {
-	float: right;
 }
 .card:hover {
 box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
