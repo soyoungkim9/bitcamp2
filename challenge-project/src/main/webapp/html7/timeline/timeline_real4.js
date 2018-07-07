@@ -63,11 +63,3 @@ function shClassFunction() {
 }
 
 /* 타임라인 글 작성 textarea auto-growing / self-resizing */
-
-
-/* 좋아요 카운트 */
-var Clicks = 0 ;
-function TlAddClick(){
-	Clicks = Clicks + 1;
-	document.getElementById('sh-tl-CountedClicks').innerHTML = '회원님 외' + Clicks + ' 명이 좋아합니다.';
-	}

@@ -256,7 +256,7 @@
   display: block;
 }
 
-.sh-tl-card-primary, .sh-tl-card-reply{
+.sh-tl-card-primary {
   padding: 16px;
     border:1px solid rgba(0,0,0,0.1);
 }
@@ -342,24 +342,18 @@ font-family: "NanumSquareRound";
 
 .sh-tl-user-circle {
       color: #666666;
-      font-size: 52px;
+      font-size: 60px;
 }
 
 #sh-tl-user-name {
   position: absolute;
 color: #666666;
 top: -4px;
-left: 67px;
+left: 73px;
     font-size: 16px;
 }
 
-.sh-tl-like-count a, .sh-tl-card-bottom div a {
-  color:black;
-  text-decoration: none;
-}
-.sh-like-clicked:visited {
-  color:red;
-}
+
 
 /* 카드 공통 CSS 종료 */
 
@@ -380,7 +374,7 @@ left: 67px;
 	    text-align: center;
     width: 100%;
     border: 1px solid red;
-	background-color:gray;
+	background-color:gray;    
 }
 .sh-tl-card-bottom-items a{
 	    display: list-item;
@@ -395,26 +389,6 @@ left: 67px;
 
 
 /* 다른사람 카드 CSS 종료 */
-
-/* 대댓글 CSS 시작 */
-.sh-tl-reply-user {
-	position: relative;
-	left: 1%;
-}
-
-.sh-tl-reply-write {
-	  position: absolute;
-color: #666666;
-top: -4px;
-left: 67px;
-    font-size: 16px;
-}
-
-.sh-tl-reply-user-circle {
-	      color: #666666;
-      font-size: 30px;
-}
-/* 대댓글 CSS 종료 */
 
 /* 무한스크롤 CSS 시작 */
 /* 무한스크롤 CSS 종료 */
