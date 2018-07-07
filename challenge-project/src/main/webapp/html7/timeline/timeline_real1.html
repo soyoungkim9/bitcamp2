@@ -58,6 +58,16 @@
       <!-- content 시작 -->
       <div id="sh-contentCol">
 
+        <!-- sideMenu 시작 -->
+        <div id="sh-sideMenu">
+
+          <div id="sh-sideMenu-item">
+
+          </div>
+
+        </div>
+        <!-- sideMenu 종료 -->
+
         <!-- 강의계획서 시작 -->
         <div id="sh-Class-Daily">
           <div id="sh-Class-Daily-item">
@@ -166,7 +176,7 @@
                         <a href="#!"><i class="far fa-comments"></i>댓글달기</a>
                       </div>
                     </div>
-                  </section> 
+                  </section>
                   <!-- 좋아요/댓글 종료-->
                   <!-- 대댓글 시작-->
                   <section class="sh-tl-card-reply">
@@ -176,104 +186,96 @@
                     </div>
                   </section>
                   <!-- 대댓글 종료-->
+                  <div style="clear:both;"></div>
+                </div>
+
+
+
+                <div class="sh-tl-card sh-card" style="border: 2px solid blue;">
+                  <!--글쓴이 시작 -->
+                  <section class="sh-tl-card-primary">
+                    <div class="sh-tl-user">
+                      <i class="sh-tl-user-circle fas fa-user-circle"></i>
+                      <h1 id="sh-tl-user-name">박수박수</h1>
+                    </div>
+                  </section>
+                  <!-- 글쓴이 종료-->
+                  <!-- 글내용 시작-->
+                  <div class="sh-tl-card-content">
+                    <p>졸려죽겠네? 아니야 할 수 있다! 북극곰 짱</p>
+                  </div>
+                  <!-- 글내용 종료 -->
+                  <!-- 좋아요/댓글 시작-->
+                  <section class="sh-tl-card-actions">
+                    <div class="sh-tl-like-count">
+                      <a href="#!"><i class="far fa-thumbs-up"></i></a>
+                      <a id="sh-tl-CountedClicks" href="#!">0 명이 좋아합니다.</a>
+                      <a href="#!"></a>
+                    </div>
+                    <div class="sh-tl-card-bottom">
+                      <div class="sh-tl-like sh-tl-card-bottom-items" style="border: 1px solid black;">
+                        <a onclick="TlAddClick()" href="#!"><i class="far fa-thumbs-up"></i>좋아요</a>
+                      </div>
+                      <div class="sh-tl-comment sh-tl-card-bottom-items" style="border: 1px solid black;">
+                        <a href="#!"><i class="far fa-comments"></i>댓글달기</a>
+                      </div>
+                    </div>
+                  </section>
+                  <!-- 좋아요/댓글 종료-->
+                  <!-- 대댓글 시작-->
+                  <section class="sh-tl-card-reply">
+                    <div class="sh-tl-reply-user">
+                      <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
+                      <h1 class="sh-tl-reply-write">댓글을 입력하세요</h1>
+                    </div>
+                  </section>
+                  <!-- 대댓글 종료-->
+                  <div style="clear:both;"></div>
+                </div>
+
+
                 <div style="clear:both;"></div>
               </div>
 
-              <div class="sh-tl-card sh-card" style="border: 2px solid blue;">
-                <!--글쓴이 시작 -->
-                <section class="sh-tl-card-primary">
-                  <div class="sh-tl-user">
-                    <i class="sh-tl-user-circle fas fa-user-circle"></i>
-                    <h1 id="sh-tl-user-name">박수현</h1>
-                  </div>
-                </section>
-                <!-- 글쓴이 종료-->
-                <!-- 글내용 시작-->
-                <div class="sh-tl-card-content">
-                  <p>졸려죽겠네? 아니야 할 수 있다! 북극곰 짱</p>
-                </div>
-                <!-- 글내용 종료 -->
-                <!-- 좋아요/댓글 시작-->
-                <section class="sh-tl-card-actions">
-                  <div class="sh-tl-like-count">
-                    <a href="#!"><i class="far fa-thumbs-up"></i></a>
-                    <a id="sh-tl-CountedClicks" href="#!">0 명이 좋아합니다.</a>
-                    <a href="#!"></a>
-                  </div>
-                  <div class="sh-tl-card-bottom">
-                    <div class="sh-tl-like sh-tl-card-bottom-items" style="border: 1px solid black;">
-                      <a onclick="TlAddClick()" href="#!"><i class="far fa-thumbs-up"></i>좋아요</a>
-                    </div>
-                    <div class="sh-tl-comment sh-tl-card-bottom-items" style="border: 1px solid black;">
-                      <a href="#!"><i class="far fa-comments"></i>댓글달기</a>
-                    </div>
-                  </div>
-                </section>
-                <!-- 좋아요/댓글 종료-->
-                <!-- 대댓글 시작-->
-                <section class="sh-tl-card-reply">
-                  <div class="sh-tl-reply-user">
-                    <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
-                    <h1 class="sh-tl-reply-write">댓글을 입력하세요</h1>
-                  </div>
-                </section>
-                <!-- 대댓글 종료-->
-              <div style="clear:both;"></div>
+
             </div>
-
-
-                    <div style="clear:both;"></div>
-                  </div>
-
-
-                </div>
-              </div>
-            </div>
-            <!-- 무한 스크롤 종료-->
-
           </div>
-          <!--타임라인 feed 종료-->
-
         </div>
-        <!-- content 종료 -->
+        <!-- 무한 스크롤 종료-->
 
-        <!-- sideMenu 시작 -->
-        <div id="sh-sideMenu">
-
-          <div id="sh-sideMenu-item">
-
-          </div>
-
-        </div>
-        <!-- sideMenu 종료 -->
-
-        <div id="more">
-          <!-- 무한 스크롤 -->
-
-        </div>
       </div>
+      <!--타임라인 feed 종료-->
 
     </div>
-    <!-- .container -->
+    <!-- content 종료 -->
+
+
+    <div id="more">
+      <!-- 무한 스크롤 -->
+
+    </div>
+  </div>
+
+  </div>
+  <!-- .container -->
 
 
 
 
-
-    <script>
-      function resize(obj) {
-        obj.style.height = "1px";
-        obj.style.height = (12 + obj.scrollHeight) + "px";
-      }
-    </script>
-    <!-- 푸터 시작 -->
-    <div id="footer"></div>
-    <!-- 푸터 종료 -->
-    <script src="../timeline/timeline_real1.js"></script>
-    <!-- 헤더/푸터 스크립트 종료-->
-    <script src="../header/header_white_login.js"></script>
-    <script src="../footer/footer.js"></script>
-    <!-- 헤더/푸터 스크립트 종료-->
+  <script>
+    function resize(obj) {
+      obj.style.height = "1px";
+      obj.style.height = (12 + obj.scrollHeight) + "px";
+    }
+  </script>
+  <!-- 푸터 시작 -->
+  <div id="footer"></div>
+  <!-- 푸터 종료 -->
+  <script src="../timeline/timeline_real1.js"></script>
+  <!-- 헤더/푸터 스크립트 종료-->
+  <script src="../header/js/header_white.js"></script>
+  <script src="../footer/js/footer.js"></script>
+  <!-- 헤더/푸터 스크립트 종료-->
 </body>
 
 </html>
