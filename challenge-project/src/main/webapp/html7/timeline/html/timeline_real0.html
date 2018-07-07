@@ -4,10 +4,14 @@
 <head>
   <meta charset="utf-8">
   <title></title>
-  <link rel="stylesheet" href="../css/common.css">
+  <link rel="stylesheet" href="../../css/common.css">
   <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
-  <link rel="stylesheet" href="test.css">
-  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+  <link rel="stylesheet" href="../css/timeline_real0.css">
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <!-- 헤더/푸터 스크립트 종료-->
+  <script src="../../header/js/header_white_login.js"></script>
+  <script src="../../footer/js/footer.js"></script>
+  <!-- 헤더/푸터 스크립트 종료-->
 </head>
 
 <body>
@@ -25,21 +29,21 @@
       <div class="sh-slideshow-container">
 
         <div class="sh-mySlides sh-fade">
-          <img src="fitness-wallpapers-1.jpg" style="width:100%">
+          <img src="../img/fitness-wallpapers-1.jpg" style="width:100%">
           <button class="sh-slide-edit-btn" type="button" name="button">EDIT</button>
           <div class="sh-imgSlide-text">
             <h1>이미지1입니다.</h1></div>
         </div>
 
         <div class="sh-mySlides sh-fade">
-          <img src="fitness-wallpapers-2.jpg" style="width:100%">
+          <img src="../img/fitness-wallpapers-2.jpg" style="width:100%">
           <button class="sh-slide-edit-btn" type="button" name="button">EDIT</button>
           <div class="sh-imgSlide-text">
             <h1>이미지2입니다.</h1></div>
         </div>
 
         <div class="sh-mySlides sh-fade">
-          <img src="fitness-wallpapers-3.jpg" style="width:100%">
+          <img src="../img/fitness-wallpapers-3.jpg" style="width:100%">
           <button class="sh-slide-edit-btn" type="button" name="button">EDIT</button>
           <div class="sh-imgSlide-text">
             <h1>이미지3입니다.</h1></div>
@@ -83,20 +87,23 @@
           <!-- 글쓰기 카드 시작-->
           <div class="sh-tl-card sh-card">
             <section class="sh-tl-card-primary sh-tl-card-header">
-              <div>
+              <div class="sh-tl-user">
                 <i class="sh-tl-user-circle fas fa-user-circle"></i>
-              </div>
-              <div class="sh-tl-card-content">
                 <h2 class="sh-tl-subtitle">리뷰 작성 하기...</h2>
               </div>
             </section>
             <section class="sh-tl-card-primary sh-tl-card-header sh-tl-review-hidden">
-              <div>
+
+              <div class="sh-tl-user">
                 <i class="sh-tl-user-circle fas fa-user-circle"></i>
+                <h1 id="sh-user-name">박수현</h1>
               </div>
               <div class="sh-tl-review-write">
-                <textarea class="sh-tl-review-title sh-tl-textarea" placeholder="무슨 생각을 하고 계신가요?" style="height: 54px"></textarea>
+
+                <textarea class="sh-tl-review-title sh-tl-textarea" placeholder="무슨 생각을 하고 계신가요?" style="height: 54px" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
               </div>
+
+
             </section>
           </div>
           <!-- 글쓰기 카드 종료-->
@@ -105,58 +112,84 @@
           <div>
             <div class="sh-infinite-scroll">
               <div>
-                <!-- 다른사람 카드 시작-->
                 <div class="sh-tl-card sh-card">
-                  <section class="sh-tl-card-primary">다른사람사진/날짜</section>
+                  <section class="sh-tl-card-primary">
+                    <div class="sh-tl-user">
+                      <i class="sh-tl-user-circle fas fa-user-circle"></i>
+                      <h1 id="sh-user-name">박수현</h1>
+                    </div>
+                  </section>
+                  <div class="sh-tl-card-content">글쓴내용</div>
+                  <section class="sh-tl-card-actions">
+                    <div class="">좋아요</div>
+                    <div class="">댓글달기</div>
+                  </section>
+                </div>
+
+                <div class="sh-tl-card sh-card">
+                  <section class="sh-tl-card-primary">
+                    <div class="sh-tl-user">
+                      <i class="sh-tl-user-circle fas fa-user-circle"></i>
+                      <h1 id="sh-user-name">박수현</h1>
+                    </div>
+                  </section>
                   <div class="sh-tl-card-content">글쓴내용</div>
                   <section class="sh-tl-card-actions">공유/좋아요 등</section>
                 </div>
 
                 <div class="sh-tl-card sh-card">
-                  <section class="sh-tl-card-primary">다른사람사진/날짜</section>
+                  <section class="sh-tl-card-primary">
+                    <div class="sh-tl-user">
+                      <i class="sh-tl-user-circle fas fa-user-circle"></i>
+                      <h1 id="sh-user-name">박수현</h1>
+                    </div>
+                  </section>
                   <div class="sh-tl-card-content">글쓴내용</div>
                   <section class="sh-tl-card-actions">공유/좋아요 등</section>
                 </div>
 
                 <div class="sh-tl-card sh-card">
-                  <section class="sh-tl-card-primary">다른사람사진/날짜</section>
+                  <section class="sh-tl-card-primary">
+                    <div class="sh-tl-user">
+                      <i class="sh-tl-user-circle fas fa-user-circle"></i>
+                      <h1 id="sh-user-name">박수현</h1>
+                    </div>
+                  </section>
                   <div class="sh-tl-card-content">글쓴내용</div>
                   <section class="sh-tl-card-actions">공유/좋아요 등</section>
                 </div>
 
                 <div class="sh-tl-card sh-card">
-                  <section class="sh-tl-card-primary">다른사람사진/날짜</section>
+                  <section class="sh-tl-card-primary">
+                    <div class="sh-tl-user">
+                      <i class="sh-tl-user-circle fas fa-user-circle"></i>
+                      <h1 id="sh-user-name">박수현</h1>
+                    </div>
+                  </section>
+                  <div class="sh-tl-card-content">글쓴내용</div>
+                  <section class="sh-tl-card-actions">공유/좋아요 등</section>
+                </div>
+                <div class="sh-tl-card sh-card">
+                  <section class="sh-tl-card-primary">
+                    <div class="sh-tl-user">
+                      <i class="sh-tl-user-circle fas fa-user-circle"></i>
+                      <h1 id="sh-user-name">박수현</h1>
+                    </div>
+                  </section>
+                  <div class="sh-tl-card-content">글쓴내용</div>
+                  <section class="sh-tl-card-actions">공유/좋아요 등</section>
+                </div>
+                <div class="sh-tl-card sh-card">
+                  <section class="sh-tl-card-primary">
+                    <div class="sh-tl-user">
+                      <i class="sh-tl-user-circle fas fa-user-circle"></i>
+                      <h1 id="sh-user-name">박수현</h1>
+                    </div>
+                  </section>
                   <div class="sh-tl-card-content">글쓴내용</div>
                   <section class="sh-tl-card-actions">공유/좋아요 등</section>
                 </div>
 
-                <div class="sh-tl-card sh-card">
-                  <section class="sh-tl-card-primary">다른사람사진/날짜</section>
-                  <div class="sh-tl-card-content">글쓴내용</div>
-                  <section class="sh-tl-card-actions">공유/좋아요 등</section>
-                </div>
-
-                <div class="sh-tl-card sh-card">
-                  <section class="sh-tl-card-primary">다른사람사진/날짜</section>
-                  <div class="sh-tl-card-content">글쓴내용</div>
-                  <section class="sh-tl-card-actions">공유/좋아요 등</section>
-                </div>
-                <div class="sh-tl-card sh-card">
-                  <section class="sh-tl-card-primary">다른사람사진/날짜</section>
-                  <div class="sh-tl-card-content">글쓴내용</div>
-                  <section class="sh-tl-card-actions">공유/좋아요 등</section>
-                </div>
-                <div class="sh-tl-card sh-card">
-                  <section class="sh-tl-card-primary">다른사람사진/날짜</section>
-                  <div class="sh-tl-card-content">글쓴내용</div>
-                  <section class="sh-tl-card-actions">공유/좋아요 등</section>
-                </div>
-                <div class="sh-tl-card sh-card">
-                  <section class="sh-tl-card-primary">다른사람사진/날짜</section>
-                  <div class="sh-tl-card-content">글쓴내용</div>
-                  <section class="sh-tl-card-actions">공유/좋아요 등</section>
-                </div>
-                <!-- 다른사람 카드 종료-->
 
               </div>
             </div>
@@ -192,15 +225,16 @@
 
 
 
-
+  <script>
+    function resize(obj) {
+      obj.style.height = "1px";
+      obj.style.height = (12 + obj.scrollHeight) + "px";
+    }
+  </script>
   <!-- 푸터 시작 -->
   <div id="footer"></div>
   <!-- 푸터 종료 -->
-  <script src="../timeline/test.js"></script>
-  <!-- 헤더/푸터 스크립트 종료-->
-<!-- <script src="../header/header_white_login.js"></script>
-  <script src="../footer/footer.js"></script> -->
-  <!-- 헤더/푸터 스크립트 종료-->
+  <script src="../js/timeline_real0.js"></script>
 </body>
 
 </html>
