@@ -43,7 +43,6 @@ function showSlides(n) {
     slides[i].style.display = "none";
   }
   slides[slideIndex - 1].style.display = "block";
-  dots[slideIndex - 1].className += " active";
 }
 
 /* 강의계획서 더보기 */
@@ -62,3 +61,5 @@ function shClassFunction() {
     moreText.style.display = "inline";
   }
 }
+
+/* 타임라인 글 작성 textarea auto-growing / self-resizing */

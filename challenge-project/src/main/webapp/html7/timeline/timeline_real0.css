@@ -171,9 +171,8 @@
   border: 2px dashed #000;
 }
 
-
 #shClassDiv {
-  border:1px solid black;
+  border: 1px solid black;
   text-align: center;
   background-color: #666666;
   padding: 3px;
@@ -214,15 +213,16 @@
 /* right sideMenu CSS 끝*/
 
 /* Class-Daily CSS 시작 */
+
 #sh-class-more {
   display: none;
 }
-
 
 #sh-Class-Daily {
   border: 1px solid purple;
   background-color: #EEEEEE;
   width: 909px;
+  z-index: 1000;
   /* position: fixed; */
   /* top:0; */
 }
@@ -244,41 +244,79 @@
 /* 타임라인 시작*/
 
 /* 카드 공통 CSS 시작 */
+
 .sh-tl-card {
   border: 1px solid blue;
   box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
-  display: -webkit-box;
-  display: -webkit-flex;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-box-pack: end;
-  -webkit-justify-content: flex-end;
-  -ms-flex-pack: end;
-  justify-content: flex-end;
-  box-sizing: border-box;
-  padding: 0;
   border-radius: 2px;
   overflow: hidden;
 }
 
+.sh-tl-card-primary {
+  padding: 16px;
+  border: 1px dotted green;
+}
+
+.sh-tl-card-header {
+  display: inline-block -webkit-box-align: center;
+  align-items: center;
+  cursor: pointer;
+}
+
 .sh-card {
-  height: 160px;
+  /* height: 160px; */
   margin-bottom: 16px;
 }
 
-.sh-tl-card-primary {
-  height:50px;
-  border:1px dotted green;
+.sh-tl-card-header .sh-tl-card-content {
+  text-overflow: ellipsis;
+  /* overflow: hidden; */
+  white-space: nowrap;
 }
 
-.sh-tl-card-content {
-  height: 80px;
-  border: 1px solid red;
+.sh-tl-card-header .sh-tl-card-content * {
+  text-overflow: ellipsis;
+  /* overflow: hidden; */
+  white-space: nowrap;
+}
+
+.sh-tl-subtitle {
+  -webkit-font-smoothing: antialiased;
+  font-size: 16px;
+  text-decoration: inherit;
+  text-transform: inherit;
+  color: rgba(0, 0, 0, 0.87);
+  margin-left: 15px;
+  position: absolute;
+  color: #666666;
+  top: -7px;
+  left: 32px;
+}
+
+/* 글작성 히든 CSS 시작 */
+
+.sh-tl-review-write {
+  width: 100%;
+  position: relative;
+}
+
+.sh-tl-review-title {
+  font-family: "NanumSquareRound";
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: normal;
+  resize: none;
+  border: none;
+  width: 90%;
+  overflow-y: hidden;
+  margin-left: 46px;
+  padding-right: -11px;
+}
+
+/* 글작성 히든 CSS 종료 */
+
+.sh-tl-user {
+  position: relative;
 }
 
 .sh-tl-card-actions {
@@ -286,19 +324,31 @@
   border: 1px solid black;
 }
 
+.sh-tl-user-circle {
+  color: #666666;
+  font-size: 36px;
+}
 
+#sh-user-name {
+  position: absolute;
+  color: #666666;
+  top: -7px;
+  left: 46px;
+}
 
 /* 카드 공통 CSS 종료 */
 
 /* 글쓰기 카드 CSS 시작*/
+
 /* 글쓰기 카드 CSS 종료*/
 
 /* 다른사람 카드 CSS 시작 */
+
+
 /* 다른사람 카드 CSS 종료 */
 
 /* 무한스크롤 CSS 시작 */
+
 /* 무한스크롤 CSS 종료 */
-
-
 
 /* 타임라인 끝*/
