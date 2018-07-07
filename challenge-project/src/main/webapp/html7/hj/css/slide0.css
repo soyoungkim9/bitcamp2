@@ -55,7 +55,7 @@
   position: relative;
   float: left;
   cursor: pointer;
-  background: url('point_button.png');
+  background: url('../img/point_button.png');
 }
 
 .control_button:hover {
