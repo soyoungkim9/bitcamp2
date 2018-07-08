@@ -15,6 +15,15 @@ body {
   margin-left: 0px;
 }
 
+.hr-up { /* 세로 hr */
+  width: 0;
+  height: 100%;
+}
+
+button:focus {
+  outline: none;
+}
+
 #sm-btn-1 { /* 남색 버튼 */
   width:100px;
     background-color: #1B3453;
@@ -49,23 +58,24 @@ body {
   padding-top: 130px;
 }
 .sm-profile {
-border:1px solid gray;
+  border:1px solid gray;
 	margin-top: 15px;
-    width: 255px;
-    padding-top: 20px;
-    float:left;
+  width: 255px;
+  padding-top: 20px;
+  float:left;
+  text-align: center;
 }
 
 .sm-mypage{
-    overflow:hidden;
-    text-align: center;
+  overflow:hidden;
+  text-align: center;
 }
 .sm-mypage-body {
-    float:left;
-    width:73.5%;
-    margin-top:13px;
-    margin-left:5%;
-    text-align: left;
+  float:left;
+  width:73.5%;
+  margin-top:13px;
+  margin-left:5%;
+  text-align: left;
 }
 
 .sm-tab-down {
@@ -75,13 +85,13 @@ border:1px solid gray;
   overflow: auto;
 }
 .sm-mypage-bar{
-    float:left;
-    width:70%;
-    margin-top:15px;
-    margin-left:5%;
-    margin-bottom: 15px;
-    border:1px solid gray;
-    padding: 20px;
+  float:left;
+  width:70%;
+  margin-top:15px;
+  margin-left:5%;
+  margin-bottom: 15px;
+  border:1px solid gray;
+  padding: 20px;
 }
 
 ul {list-style:none;}
@@ -197,17 +207,20 @@ ul {list-style:none;}
 /* 바디에 있는 탭 메뉴 (트레이너:회원,수익관리/회원:알림,내가쓴글) */
 .sm-tab {overflow: hidden;}
 .sm-tab button {
-    background-color: inherit;
+    background-color:inherit;
+    height: 49px;
     border: 1px solid gray;
     border-bottom: none;
     float: left;
     cursor: pointer;
-    padding: 14px 16px;
+    padding: 10px 16px;
     transition: 0.3s;
-    font-size: 17px;
+    font-size: 15px;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
 }
-.sm-tab button:hover {background-color: #ddd;}
-.sm-tab button.active {background-color: #ccc;}
+.sm-tab button:hover {background-color: #1B3453; color:white; transition: 0.3;}
+.sm-tab button.active {background-color: #1B3453; color:white;}
 .sm-tabcontent {
     display: none;
     border: 1px solid gray;
@@ -245,4 +258,39 @@ ul {list-style:none;}
 .sm-menu i {
   margin: 10px;
   font-size:50px;
+}
+
+
+.sm-pagination { /* 하단 페이지 바 */
+  width: 100%;
+  text-align: center;
+  font-size: 0;
+  margin: 20px 0;
+  margin-bottom: 50px;
+  padding-bottom: 50px;
+}
+
+.sm-pagination-button {
+  display: inline-block;
+  border: 1px solid #ddd;
+  border-right: none;
+  width: 45px;
+  height: 25px;
+  color: #666666;
+  font-size: 15px;
+  margin: 10px 0px;
+  padding-top: 10px;
+  text-decoration: none;
+}
+.sm-pagination-button-end {
+  border-right: 1px solid #ddd;
+}
+.sm-pagination-side {
+  color:#ddd;
+  border: none;
+}
+
+.sm-a-none, sm-a-none a:hover, sm-a-none a:visited { /* a 태그 스타일 없애기 */
+  text-decoration: none;
+  color:black;
 }

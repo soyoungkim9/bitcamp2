@@ -13,7 +13,9 @@ body {
   margin-bottom: 0px;
   margin-left: 0px;
 }
-
+button:focus {
+  outline: none;
+}
 #sm-btn-1 { /* 남색 버튼 */
   width:100px;
     background-color: #1B3453;
@@ -67,12 +69,7 @@ border:1px solid gray;
     text-align: left;
 }
 
-.sm-tab-down {
-  height: 250px;
-  float: left;
-  align: center;
-  overflow: auto;
-}
+
 .sm-mypage-bar{
     float:left;
     width:70%;
@@ -197,7 +194,6 @@ ul {list-style:none;}
 /* 왼쪽 아이콘 메뉴 */
 
 .sm-tabcontent {
-  padding:10px;
   text-align: left;
 }
 .sm-profile {
