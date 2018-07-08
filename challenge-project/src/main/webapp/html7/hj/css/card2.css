@@ -20,7 +20,7 @@ a {
 .card-header {
 	width: 200px;
 	height: 100%;
-	background-image: url("http://localhost:8888/challenge-project/html7/hj/img/man.jpg");
+	background-image: url("../img/man.jpg");
 	background-size: 200px 100%;
 	background-repeat: no-repeat;
 	border-radius: 5px 0 0 5px;

@@ -59,7 +59,7 @@
   position: relative;
   float: left;
   cursor: pointer;
-  background: url('http://localhost:8888/challenge-project/html7/hj/img/point_button.png');
+  background: url('../point_button.png');
 }
 
 .control_button:hover {

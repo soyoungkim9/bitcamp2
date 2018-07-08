@@ -12,9 +12,6 @@ a {
   float: left;
   width: 250px;
 }
-.search-program00 {
-  overflow:hidden;
-}
 #map {
 	margin-bottom: 20px;
 }
@@ -107,6 +104,7 @@ margin-bottom: 35px;
 .search-nav {
   display: table;
   margin: 0 auto;
+  padding-top: 50px;
 }
 
 .chal-search-filter {

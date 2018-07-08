@@ -7,7 +7,7 @@
 	position: relative;
 	overflow: hidden;
 	height: 300px;
-	width: 620px;
+	width: 700px;
 	margin: 0px auto;
 	padding: 5px;
 }
@@ -20,7 +20,7 @@
 .als-item {
 	position: relative;
 	display: block;
-	text-align: center;
+	/* text-align: center; */
 	cursor: pointer;
 	float: left;
 }
@@ -46,7 +46,7 @@
 }
 
 #lista1 .als-prev, #lista1 .als-next {
-	top: 58px;
+	top: 140px;
 	width: 15px;
 	height: 22px;
 }

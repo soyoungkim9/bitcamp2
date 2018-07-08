@@ -26,7 +26,7 @@
   /* transition: 0.5s; */
   width: 100%;
   height: 170px;
-  background-image: url("http://localhost:8888/challenge-project/html7/hj/img/man.jpg");
+  background-image: url("../img/man.jpg");
   background-size: 100% 270px;
   background-repeat: no-repeat;
   border-radius: 5px 5px 0 0;
@@ -52,7 +52,7 @@
   border-radius: 50%;
   height: 60px;
   width: 60px;
-  background-image: url("http://localhost:8888/challenge-project/html7/hj/img/man.jpg");
+  background-image: url("../img/man.jpg");
   background-size: 60px 100%;
 
 }

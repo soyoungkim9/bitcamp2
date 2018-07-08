@@ -22,7 +22,7 @@ header > h1 { margin: 0px auto;
 }
 
 #main-img {
-	background: url('http://localhost:8888/challenge-project/html7/hj/img/main.jpg');
+	background: url('../img/main.jpg');
   height: 600px; width: 1200px;
   margin: 0 auto;
 }

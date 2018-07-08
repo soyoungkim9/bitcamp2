@@ -23,7 +23,7 @@
 	/* transition: 0.5s; */
 	height: 100%;
 	width: 200px;
-	background-image: url("http://localhost:8888/challenge-project/html7/hj/img/man.jpg");
+	background-image: url("../img/man.jpg");
 	background-size: 200px 100%;
 	background-repeat: no-repeat;
 	float: left;
@@ -61,7 +61,7 @@
 	bottom: 0px; left: 120px;
 	border-radius: 50%;
 	height: 80px; width: 80px;
-	background-image: url("http://localhost:8888/challenge-project/html7/hj/img/man.jpg");
+	background-image: url("../img/man.jpg");
 	background-size: 100%
 }
 .card-body {

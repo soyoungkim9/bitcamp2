@@ -4,18 +4,18 @@
 <head>
   <meta charset="UTF-8">
   <title>찾기</title>
-  
-  <link rel="stylesheet" href="http://localhost:8888/challenge-project/html7/hj/css/search.css">
-  <link rel="stylesheet" href="http://localhost:8888/challenge-project/html7/hj/css/card1.css">
-  <link rel="stylesheet" href="http://localhost:8888/challenge-project/html7/css/common.css">
-  <link rel="stylesheet" href="http://localhost:8888/challenge-project/html7/node_modules/@fortawesome/fontawesome-free/css/all.css">
-  
-  <script src="http://localhost:8888/challenge-project/html7/node_modules/jquery/dist/jquery.min.js"></script>
+
+  <link rel="stylesheet" href="../css/search.css">
+  <link rel="stylesheet" href="../css/card1.css">
+  <link rel="stylesheet" href="../../css/common.css">
+  <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="http://localhost:8888/challenge-project/html7/header/js/header_white_login.js"></script>
   <script src="http://localhost:8888/challenge-project/html7/footer/js/footer.js"></script>
 
-  <link rel="stylesheet" href="http://localhost:8888/challenge-project/html7/hj/css/multirange.css">
-  <script src="http://localhost:8888/challenge-project/html7/hj/js/multirange.js"></script>
+  <link rel="stylesheet" href="../css/multirange.css">
+  <script src="../js/multirange.js"></script>
 </head>
 
 <body>
@@ -23,13 +23,12 @@
 
   <div class="container">
     <h2>프로그램</h2>
-    <div class="search-program00">
 
       <div class="sidenav">
-      
+
       <div class="search-title">지도</div>
       <div id="map" style="width:100%;height:200px;"></div>
-      
+
         <div class="search-challenge">
           <div class="search-title">챌린지</div>
           <ul class="challenge-ul">
@@ -103,7 +102,7 @@
         </div>
 
       </div>
-        
+
         <div class="search-flex">
           <div class="search-row">
             <div class="search-column">1
@@ -333,19 +332,18 @@
 
       </div>
     </div>
-  </div>
   <!--container-->
 
 <footer id="footer"></footer >
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=952b22a683523a137feaf2c7d49f44e9"></script>
       <script>
-      var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-      mapOption = { 
+      var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+      mapOption = {
           center: new daum.maps.LatLng(37.494675, 127.027881), // 지도의 중심좌표
           level: 3 // 지도의 확대 레벨
       };
       // 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
-      var map = new daum.maps.Map(mapContainer, mapOption); 
+      var map = new daum.maps.Map(mapContainer, mapOption);
       </script>
 </body>
 
