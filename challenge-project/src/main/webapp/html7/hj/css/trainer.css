@@ -28,7 +28,7 @@
 
 .tr-table {
   display: inline-block;
-  width: 50%;
+  width: 500px;
 }
 
 .tr-name {
@@ -71,7 +71,7 @@
   top: -90px;
   position: absolute;
   height: 55px;
-  width: 1200px;
+  width: 100%;
   display: table;
   border-top: 1px solid #eeeeee;
   border-bottom: 1px solid #eeeeee;

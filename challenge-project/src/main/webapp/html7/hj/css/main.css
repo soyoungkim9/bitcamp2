@@ -4,6 +4,9 @@
   margin: 0px;
   padding: 0px;
 }
+ul {
+  list-style: none;
+}
 
 /* Animation Canvas */
 
@@ -59,7 +62,7 @@
   position: relative;
   float: left;
   cursor: pointer;
-  background: url('../point_button.png');
+  background: url('../img/point_button.png');
 }
 
 .control_button:hover {
@@ -68,4 +71,30 @@
 
 .control_button.active {
   top: -31px;
+}
+
+.main2-chal {
+  display: flex;
+
+}
+.main-flex-column {
+  flex:1;
+}
+.main1 {
+  background-color: #eeeeee;
+  height: 100px;
+  padding: 20px;
+}
+.main-ul {
+  width: 100%;
+}
+.main1-li {
+  display: inline-block;
+  float: left;
+  width: 170px;
+  text-align: center;
+}
+
+.main4 {
+  height: 150px;
 }
