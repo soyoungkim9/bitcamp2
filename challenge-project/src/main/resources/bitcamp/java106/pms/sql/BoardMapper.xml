@@ -10,7 +10,6 @@
      스프링 프레임워크와 연동할 때 DAO 객체를 자동 생성할 수 있다. 
 -->
 <mapper namespace="bitcamp.java106.pms.dao.BoardDao">
-
   <resultMap type="Board" id="BoardMap">
     <id column="bno" property="no"/>
     <result column="titl" property="title"/>
