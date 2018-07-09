@@ -1,5 +1,5 @@
 body:not(#footer) {
-  background-color:rgb(240, 233, 235);
+    background-color: #fafafa;
 }
 
 
@@ -108,7 +108,7 @@ body:not(#footer) {
     width: 100%;
     text-align: center;
     box-sizing: border-box;
-    background-color: rgba(0, 0, 0, 0.8); 
+    background-color: rgba(0, 0, 0, 0.8);
 }
 
 .sh-imgSlide-text h1 {
@@ -239,6 +239,9 @@ body:not(#footer) {
       z-index: 1000;
   /* position: fixed; */
   /* top:0; */
+ 
+    border-radius: 2px;
+    /* overflow: hidden; */
 }
 
 .sh_class_daily_sticky {
@@ -250,7 +253,7 @@ body:not(#footer) {
 #sh-Class-Daily-item * :not(#shClassDiv) {
   /* border: 1px solid purple; */
   margin: 0;
-  padding: 12px;
+    padding-bottom: 13px;
 }
 
 /* Class-Daily CSS 끝 */
@@ -260,15 +263,15 @@ body:not(#footer) {
 /* 카드 공통 CSS 시작 */
 .sh-tl-card {
 /*   border: 1px solid blue; */
-  box-shadow: 0px 3px 1px -2px rgba(0, 0, 0, 0.2), 0px 2px 2px 0px rgba(0, 0, 0, 0.14), 0px 1px 5px 0px rgba(0, 0, 0, 0.12);
+ border:1px solid rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   /* overflow: hidden; */
+  border-top: 1px solid rgba(0, 0, 0, 0.12);
   display: block;
 }
 
 .sh-tl-card-primary, .sh-tl-card-reply{
   padding: 16px;
-    border:1px solid rgba(0,0,0,0.1);
 }
 
 .sh-tl-card-header {
@@ -286,12 +289,12 @@ cursor: pointer;
 
 .sh-tl-card-content {
 min-height: 22px;
-    padding: 20px 59px 20px 85px;
-    border: 1px solid rgba(0, 0, 0, 0.3);
+padding: 0px 59px 20px 21px;
+
 }
 
 .sh-tl-card-content p {
-	    margin: 0
+        margin: 0
 }
 
 .sh-tl-card-header .sh-tl-card-content {
@@ -323,8 +326,27 @@ white-space: nowrap;
 .sh-tl-review-write {
       width: 100%;
       position: relative;
+
 }
 
+
+.sh-tl-reply-textarea {
+    margin-left: 15px!important;
+    border: 1px solid gray!important;
+    border-radius: 18px;
+    padding-left: 17px!important;
+    padding-top: 10px;
+}
+
+.sh-tl-replay-textarea:focus {
+       border: 1px solid gray!important;
+  border-radius: 18px;
+}
+
+textarea:focus {
+    outline:none;
+
+}
 
 .sh-tl-review-title {
 font-family: "NanumSquareRound";
@@ -357,18 +379,19 @@ font-family: "NanumSquareRound";
 
 #sh-tl-user-name {
   position: absolute;
-color: #666666;
+color: #000;
 top: -4px;
 left: 67px;
     font-size: 16px;
 }
 
 .sh-tl-like-count a, .sh-tl-card-bottom div a {
-  color:black;
+  color: #000;
   text-decoration: none;
 }
 .sh-like-clicked:visited {
-  color:red;
+  color: #DD1F26;
+  border-right: 1px solid rgba(0,0,0,0.1);
 }
 
 /* 카드 공통 CSS 종료 */
@@ -387,20 +410,23 @@ left: 67px;
 }
 
 .sh-tl-card-bottom-items{
-	    text-align: center;
-    width: 100%;
-    border: 1px solid red;
-	background-color:gray;
+        text-align: center;
+        width: 100%;
+    border-bottom: 1px solid rgba(0,0,0,0.1);
+    border-right: 1px solid rgba(0,0,0,0.1);
+        border-top: none;
+        /* background-color: #DD1F26; */
 }
 .sh-tl-card-bottom-items a{
-	    display: list-item;
+        display: list-item;
     list-style: none;
         padding: 9px;
 }
 
 
 .sh-tl-like-count {
-	padding: 10px;
+    padding: 10px;
+    border: 1px solid rgba(0,0,0,0.1);
 }
 
 
@@ -408,12 +434,12 @@ left: 67px;
 
 /* 대댓글 CSS 시작 */
 .sh-tl-reply-user {
-	position: relative;
-	left: 1%;
+    position: relative;
+    left: 1%;
 }
 
 .sh-tl-reply-write {
-	  position: absolute;
+      position: absolute;
 color: #666666;
 top: -4px;
 left: 67px;
@@ -421,8 +447,22 @@ left: 67px;
 }
 
 .sh-tl-reply-user-circle {
-	      color: #666666;
+          color: #666666;
       font-size: 30px;
+      float:left;
+}
+
+[contenteditable=true]:empty:before{
+  content: attr(placeholder);
+  display: block; /* For Firefox */
+}
+
+div[contenteditable=true] {
+  border: 1px solid #ddd;
+  color : #333;
+  font-size: 12px;
+  width: 300px;
+  padding: 5px;
 }
 /* 대댓글 CSS 종료 */
 
