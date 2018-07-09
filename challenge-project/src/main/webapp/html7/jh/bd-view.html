@@ -12,6 +12,10 @@
   <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
   <!-- page css-->
   <link rel="stylesheet" href="css/bd-view.css?ver=5">
+  <script src="../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="js/bd-view.js" ></script>
+  <script src="../header/js/header_bg_black.js"></script>
+  <script src="../footer/js/footer.js"></script>
 
 
 </head>
@@ -200,8 +204,8 @@
                     <dd class="opinion">
                       <div class="upDown">
                         <p class="line">
-<a onclick="AddClick()" href="#!"><em class="up"><i class="far fa-thumbs-up"></i> 좋아요</em></a>
-                             <strong id="CountedClicks">0</a></strong>
+<a onclick="AddClick();" href="#!"><em class="upDown"><i class="far fa-thumbs-up"></i> 좋아요</em></a>
+                             <a id="CountedClicks">0</a></p>
 
 
                       </div>
@@ -240,11 +244,19 @@
           </div>
 
   </main>
-  
+
   <div id="footer"></div>
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../header/header_white_login.js"></script>
-<script src="../footer/footer.js"></script>
+
+  <!-- <script>
+  var Clicks = 0 ;
+
+  function AddClick(){
+      Clicks = Clicks + 1;
+      document.getElementById('CountedClicks').innerHTML = Clicks ;
+      };
+  </script>-->
+
+
 </body>
 
 </html>
