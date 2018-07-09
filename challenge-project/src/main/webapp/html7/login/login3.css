@@ -93,9 +93,9 @@ a:hover {
 .omb_login .omb_loginForm .input-group.i {
     width: 2em;
 }
-.omb_login .omb_loginForm  .help-block {
+/* .omb_login .omb_loginForm  .help-block {
     color: red;
-}
+} */
 
     
 @media (min-width: 768px) {
@@ -107,8 +107,11 @@ a:hover {
 
 .container {
 	border: solid red;
+	margin: 100px auto;
+	
 }
 
 .omb_login {
 	border: dashed yellow;
+	margin: 50px auto;
 }
