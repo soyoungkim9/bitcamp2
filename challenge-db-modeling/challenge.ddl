@@ -1,721 +1,721 @@
--- È¸¿ø
+-- È¸ï¿½ï¿½
 DROP TABLE IF EXISTS MEMB RESTRICT;
 
--- Å¸ÀÓ¶óÀÎ
+-- Å¸ï¿½Ó¶ï¿½ï¿½ï¿½
 DROP TABLE IF EXISTS TML RESTRICT;
 
--- ÇÁ·Î±×·¥
+-- ï¿½ï¿½ï¿½Î±×·ï¿½
 DROP TABLE IF EXISTS PROG RESTRICT;
 
--- Æ®·¹ÀÌ³Ê
+-- Æ®ï¿½ï¿½ï¿½Ì³ï¿½
 DROP TABLE IF EXISTS TRN RESTRICT;
 
--- ÇÁ·Î±×·¥Âü¿©ÀÚ
+-- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 DROP TABLE IF EXISTS PMEMB RESTRICT;
 
--- È¸¿ø¹ÙµðÁ¤º¸
+-- È¸ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½
 DROP TABLE IF EXISTS BINFO RESTRICT;
 
--- ¸Þ½ÃÁö
+-- ï¿½Þ½ï¿½ï¿½ï¿½
 DROP TABLE IF EXISTS MSG RESTRICT;
 
--- Ä¿¹Â´ÏÆ¼-°Ô½Ã¹°
+-- Ä¿ï¿½Â´ï¿½Æ¼-ï¿½Ô½Ã¹ï¿½
 DROP TABLE IF EXISTS CMU RESTRICT;
 
--- ¿îµ¿°èÈ¹¼­
+-- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½
 DROP TABLE IF EXISTS PLAN RESTRICT;
 
--- ´ñ±Û
+-- ï¿½ï¿½ï¿½
 DROP TABLE IF EXISTS CMT RESTRICT;
 
--- ¿îµ¿ÀÏÁö
+-- ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½
 DROP TABLE IF EXISTS DIARY RESTRICT;
 
--- Ã§¸°Áö
+-- Ã§ï¿½ï¿½ï¿½ï¿½
 DROP TABLE IF EXISTS CHAL RESTRICT;
 
--- ÇÁ·Î±×·¥¹Ìµð¾î
+-- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½Ìµï¿½ï¿½
 DROP TABLE IF EXISTS PMED RESTRICT;
 
--- °Ô½Ã¹°¹Ìµð¾î
+-- ï¿½Ô½Ã¹ï¿½ï¿½Ìµï¿½ï¿½
 DROP TABLE IF EXISTS CMED RESTRICT;
 
--- »ç¿ëÀÚ
+-- ï¿½ï¿½ï¿½ï¿½ï¿½
 DROP TABLE IF EXISTS USER RESTRICT;
 
--- ¸¶ÀÏ¸®Áö
+-- ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½
 DROP TABLE IF EXISTS MILE RESTRICT;
 
--- ÆÈ·ÎÀ®
+-- ï¿½È·ï¿½ï¿½ï¿½
 DROP TABLE IF EXISTS FOLLOW RESTRICT;
 
--- ÇÁ·Î±×·¥Å¸ÀÓ¶óÀÎÁÁ¾Æ¿ä
+-- ï¿½ï¿½ï¿½Î±×·ï¿½Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½
 DROP TABLE IF EXISTS TML_LK RESTRICT;
 
--- °Ô½Ã±Û
+-- ï¿½Ô½Ã±ï¿½
 DROP TABLE IF EXISTS POST RESTRICT;
 
--- È¸¿ø
+-- È¸ï¿½ï¿½
 CREATE TABLE MEMB (
-	UNO INTEGER NOT NULL COMMENT 'È¸¿ø¹øÈ£' -- È¸¿ø¹øÈ£
+	UNO INTEGER NOT NULL COMMENT 'È¸ï¿½ï¿½ï¿½ï¿½È£' -- È¸ï¿½ï¿½ï¿½ï¿½È£
 )
-COMMENT 'È¸¿ø';
+COMMENT 'È¸ï¿½ï¿½';
 
--- È¸¿ø
+-- È¸ï¿½ï¿½
 ALTER TABLE MEMB
-	ADD CONSTRAINT PK_MEMB -- È¸¿ø ±âº»Å°
+	ADD CONSTRAINT PK_MEMB -- È¸ï¿½ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			UNO -- È¸¿ø¹øÈ£
+			UNO -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		);
 
 ALTER TABLE MEMB
-	MODIFY COLUMN UNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'È¸¿ø¹øÈ£';
+	MODIFY COLUMN UNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'È¸ï¿½ï¿½ï¿½ï¿½È£';
 
--- Å¸ÀÓ¶óÀÎ
+-- Å¸ï¿½Ó¶ï¿½ï¿½ï¿½
 CREATE TABLE TML (
-	TMLNO   INTEGER      NOT NULL COMMENT 'Å¸ÀÓ¶óÀÎ ¹øÈ£', -- Å¸ÀÓ¶óÀÎ ¹øÈ£
-	PNO     INTEGER      NOT NULL COMMENT 'ÇÁ·Î±×·¥¹øÈ£', -- ÇÁ·Î±×·¥¹øÈ£
-	UNO     INTEGER      NOT NULL COMMENT 'È¸¿ø¹øÈ£', -- È¸¿ø¹øÈ£
-	TMLPATH VARCHAR(255) NULL     COMMENT '»çÁø' -- »çÁø
+	TMLNO   INTEGER      NOT NULL COMMENT 'Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ ï¿½ï¿½È£', -- Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	PNO     INTEGER      NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£', -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+	UNO     INTEGER      NOT NULL COMMENT 'È¸ï¿½ï¿½ï¿½ï¿½È£', -- È¸ï¿½ï¿½ï¿½ï¿½È£
+	TMLPATH VARCHAR(255) NULL     COMMENT 'ï¿½ï¿½ï¿½ï¿½' -- ï¿½ï¿½ï¿½ï¿½
 )
-COMMENT 'Å¸ÀÓ¶óÀÎ';
+COMMENT 'Å¸ï¿½Ó¶ï¿½ï¿½ï¿½';
 
--- Å¸ÀÓ¶óÀÎ
+-- Å¸ï¿½Ó¶ï¿½ï¿½ï¿½
 ALTER TABLE TML
-	ADD CONSTRAINT PK_TML -- Å¸ÀÓ¶óÀÎ ±âº»Å°
+	ADD CONSTRAINT PK_TML -- Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			TMLNO -- Å¸ÀÓ¶óÀÎ ¹øÈ£
+			TMLNO -- Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 		);
 
 ALTER TABLE TML
-	MODIFY COLUMN TMLNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'Å¸ÀÓ¶óÀÎ ¹øÈ£';
+	MODIFY COLUMN TMLNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ ï¿½ï¿½È£';
 
--- ÇÁ·Î±×·¥
+-- ï¿½ï¿½ï¿½Î±×·ï¿½
 CREATE TABLE PROG (
-	PNO      INTEGER      NOT NULL COMMENT 'ÇÁ·Î±×·¥¹øÈ£', -- ÇÁ·Î±×·¥¹øÈ£
-	CNO      INTEGER      NOT NULL COMMENT 'Ã§¸°Áö¹øÈ£', -- Ã§¸°Áö¹øÈ£
-	PSTNO    CHAR(5)      NOT NULL COMMENT '¿ìÆí¹øÈ£', -- ¿ìÆí¹øÈ£
-	BAS_ADDR VARCHAR(100) NOT NULL COMMENT '±âº»ÁÖ¼Ò', -- ±âº»ÁÖ¼Ò
-	DET_ADDR VARCHAR(100) NOT NULL COMMENT '»ó¼¼ÁÖ¼Ò', -- »ó¼¼ÁÖ¼Ò
-	SDT      DATE         NOT NULL COMMENT '½ÃÀÛÀÏ', -- ½ÃÀÛÀÏ
-	EDT      DATE         NOT NULL COMMENT 'Á¾·áÀÏ', -- Á¾·áÀÏ
-	PNAME    VARCHAR(50)  NOT NULL COMMENT 'ÇÁ·Î±×·¥¸í', -- ÇÁ·Î±×·¥¸í
-	MINQTY   INTEGER      NOT NULL COMMENT 'ÃÖ¼ÒÀÎ¿ø', -- ÃÖ¼ÒÀÎ¿ø
-	MAXQTY   INTEGER      NOT NULL COMMENT 'ÃÖ´ëÀÎ¿ø', -- ÃÖ´ëÀÎ¿ø
-	PPRICE   INTEGER      NOT NULL COMMENT '°¡°Ý', -- °¡°Ý
-	PDESC    TEXT         NOT NULL COMMENT 'ÇÁ·Î±×·¥¼³¸í', -- ÇÁ·Î±×·¥¼³¸í
-	PTYPE    VARCHAR(50)  NOT NULL COMMENT 'ÇÁ·Î±×·¥Á¾¸ñ', -- ÇÁ·Î±×·¥Á¾¸ñ
-	PGOAL    VARCHAR(255) NOT NULL COMMENT 'ÇÁ·Î±×·¥¸ñÇ¥', -- ÇÁ·Î±×·¥¸ñÇ¥
-	PGOAL_N  DOUBLE       NOT NULL COMMENT 'ÇÁ·Î±×·¥¸ñÇ¥¼öÄ¡', -- ÇÁ·Î±×·¥¸ñÇ¥¼öÄ¡
-	PTH      INTEGER      NOT NULL COMMENT 'ÇÁ·Î±×·¥±â¼ö', -- ÇÁ·Î±×·¥±â¼ö
-	PTOVER   INTEGER      NOT NULL COMMENT 'ÇÁ·Î±×·¥È¸Â÷', -- ÇÁ·Î±×·¥È¸Â÷
-	PDAY     DATE         NOT NULL COMMENT 'ÇÁ·Î±×·¥¼ö¾÷¿äÀÏ', -- ÇÁ·Î±×·¥¼ö¾÷¿äÀÏ
-	PTIME    DATETIME     NOT NULL COMMENT 'ÇÁ·Î±×·¥¼ö¾÷½Ã°£', -- ÇÁ·Î±×·¥¼ö¾÷½Ã°£
-	PSTATE   INTEGER      NOT NULL COMMENT 'ÁøÇà»óÅÂ', -- ÁøÇà»óÅÂ
-	PRESULT  VARCHAR(255) NOT NULL COMMENT 'ÁøÇà»óÅÂ³»¿ë', -- ÁøÇà»óÅÂ³»¿ë
-	PLNO     INTEGER      NOT NULL COMMENT '¿îµ¿°èÈ¹¼­¹øÈ£', -- ¿îµ¿°èÈ¹¼­¹øÈ£
-	TRNNO    INTEGER      NOT NULL COMMENT 'Æ®·¹ÀÌ³Ê¹øÈ£' -- Æ®·¹ÀÌ³Ê¹øÈ£
+	PNO      INTEGER      NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£', -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+	CNO      INTEGER      NOT NULL COMMENT 'Ã§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£', -- Ã§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	PSTNO    CHAR(5)      NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½È£', -- ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	BAS_ADDR VARCHAR(100) NOT NULL COMMENT 'ï¿½âº»ï¿½Ö¼ï¿½', -- ï¿½âº»ï¿½Ö¼ï¿½
+	DET_ADDR VARCHAR(100) NOT NULL COMMENT 'ï¿½ï¿½ï¿½Ö¼ï¿½', -- ï¿½ï¿½ï¿½Ö¼ï¿½
+	SDT      DATE         NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	EDT      DATE         NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	PNAME    VARCHAR(50)  NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½
+	MINQTY   INTEGER      NOT NULL COMMENT 'ï¿½Ö¼ï¿½ï¿½Î¿ï¿½', -- ï¿½Ö¼ï¿½ï¿½Î¿ï¿½
+	MAXQTY   INTEGER      NOT NULL COMMENT 'ï¿½Ö´ï¿½ï¿½Î¿ï¿½', -- ï¿½Ö´ï¿½ï¿½Î¿ï¿½
+	PPRICE   INTEGER      NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½
+	PDESC    TEXT         NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½
+	PTYPE    VARCHAR(50)  NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½
+	PGOAL    VARCHAR(255) NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½Ç¥', -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½Ç¥
+	PGOAL_N  DOUBLE       NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½Ä¡', -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½Ç¥ï¿½ï¿½Ä¡
+	PTH      INTEGER      NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½
+	PTOVER   INTEGER      NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½È¸ï¿½ï¿½', -- ï¿½ï¿½ï¿½Î±×·ï¿½È¸ï¿½ï¿½
+	PDAY     DATE         NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	PTIME    DATETIME     NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½', -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã°ï¿½
+	PSTATE   INTEGER      NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	PRESULT  VARCHAR(255) NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â³ï¿½ï¿½ï¿½
+	PLNO     INTEGER      NOT NULL COMMENT 'ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½È£', -- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½È£
+	TRNNO    INTEGER      NOT NULL COMMENT 'Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£' -- Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£
 )
-COMMENT 'ÇÁ·Î±×·¥';
+COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½';
 
--- ÇÁ·Î±×·¥
+-- ï¿½ï¿½ï¿½Î±×·ï¿½
 ALTER TABLE PROG
-	ADD CONSTRAINT PK_PROG -- ÇÁ·Î±×·¥ ±âº»Å°
+	ADD CONSTRAINT PK_PROG -- ï¿½ï¿½ï¿½Î±×·ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			PNO -- ÇÁ·Î±×·¥¹øÈ£
+			PNO -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
 		);
 
 ALTER TABLE PROG
-	MODIFY COLUMN PNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ÇÁ·Î±×·¥¹øÈ£';
+	MODIFY COLUMN PNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£';
 
--- Æ®·¹ÀÌ³Ê
+-- Æ®ï¿½ï¿½ï¿½Ì³ï¿½
 CREATE TABLE TRN (
-	TRNNO   INTEGER      NOT NULL COMMENT 'Æ®·¹ÀÌ³Ê¹øÈ£', -- Æ®·¹ÀÌ³Ê¹øÈ£
-	TRNINT  TEXT         NOT NULL COMMENT 'ÀÚ±â¼Ò°³', -- ÀÚ±â¼Ò°³
-	TRNCAR  TEXT         NOT NULL COMMENT '°æ·Â»çÇ×', -- °æ·Â»çÇ×
-	TRNTIME DATETIME     NOT NULL COMMENT '»ó´ã½Ã°£', -- »ó´ã½Ã°£
-	TRNPROG VARCHAR(255) NULL     COMMENT 'ÇÁ·Î±×·¥', -- ÇÁ·Î±×·¥
-	TRNACNT VARCHAR(20)  NOT NULL COMMENT '°èÁÂ¹øÈ£', -- °èÁÂ¹øÈ£
-	TRNBANK VARCHAR(50)  NOT NULL COMMENT 'ÀºÇà¸í', -- ÀºÇà¸í
-	TRNCOIN INTEGER      NOT NULL COMMENT '¼öÀÍ±Ý' -- ¼öÀÍ±Ý
+	TRNNO   INTEGER      NOT NULL COMMENT 'Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£', -- Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£
+	TRNINT  TEXT         NOT NULL COMMENT 'ï¿½Ú±ï¿½Ò°ï¿½', -- ï¿½Ú±ï¿½Ò°ï¿½
+	TRNCAR  TEXT         NOT NULL COMMENT 'ï¿½ï¿½Â»ï¿½ï¿½ï¿½', -- ï¿½ï¿½Â»ï¿½ï¿½ï¿½
+	TRNTIME DATETIME     NOT NULL COMMENT 'ï¿½ï¿½ï¿½Ã°ï¿½', -- ï¿½ï¿½ï¿½Ã°ï¿½
+	TRNPROG VARCHAR(255) NULL     COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½', -- ï¿½ï¿½ï¿½Î±×·ï¿½
+	TRNACNT VARCHAR(20)  NOT NULL COMMENT 'ï¿½ï¿½ï¿½Â¹ï¿½È£', -- ï¿½ï¿½ï¿½Â¹ï¿½È£
+	TRNBANK VARCHAR(50)  NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½ï¿½
+	TRNCOIN INTEGER      NOT NULL COMMENT 'ï¿½ï¿½ï¿½Í±ï¿½' -- ï¿½ï¿½ï¿½Í±ï¿½
 )
-COMMENT 'Æ®·¹ÀÌ³Ê';
+COMMENT 'Æ®ï¿½ï¿½ï¿½Ì³ï¿½';
 
--- Æ®·¹ÀÌ³Ê
+-- Æ®ï¿½ï¿½ï¿½Ì³ï¿½
 ALTER TABLE TRN
-	ADD CONSTRAINT PK_TRN -- Æ®·¹ÀÌ³Ê ±âº»Å°
+	ADD CONSTRAINT PK_TRN -- Æ®ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			TRNNO -- Æ®·¹ÀÌ³Ê¹øÈ£
+			TRNNO -- Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£
 		);
 
--- Æ®·¹ÀÌ³Ê À¯´ÏÅ© ÀÎµ¦½º
+-- Æ®ï¿½ï¿½ï¿½Ì³ï¿½ ï¿½ï¿½ï¿½ï¿½Å© ï¿½Îµï¿½ï¿½ï¿½
 CREATE UNIQUE INDEX UIX_TRN
-	ON TRN ( -- Æ®·¹ÀÌ³Ê
-		TRNACNT ASC, -- °èÁÂ¹øÈ£
-		TRNBANK ASC  -- ÀºÇà¸í
+	ON TRN ( -- Æ®ï¿½ï¿½ï¿½Ì³ï¿½
+		TRNACNT ASC, -- ï¿½ï¿½ï¿½Â¹ï¿½È£
+		TRNBANK ASC  -- ï¿½ï¿½ï¿½ï¿½ï¿½
 	);
 
 ALTER TABLE TRN
-	MODIFY COLUMN TRNNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'Æ®·¹ÀÌ³Ê¹øÈ£';
+	MODIFY COLUMN TRNNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£';
 
--- ÇÁ·Î±×·¥Âü¿©ÀÚ
+-- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 CREATE TABLE PMEMB (
-	PNO    INTEGER      NOT NULL COMMENT 'ÇÁ·Î±×·¥¹øÈ£', -- ÇÁ·Î±×·¥¹øÈ£
-	UNO    INTEGER      NOT NULL COMMENT 'È¸¿ø¹øÈ£', -- È¸¿ø¹øÈ£
-	PAYDAY DATE         NOT NULL COMMENT '°áÁ¦ÀÏ', -- °áÁ¦ÀÏ
-	REBANK VARCHAR(50)  NOT NULL COMMENT 'È¯ºÒÀºÇà¸í', -- È¯ºÒÀºÇà¸í
-	REACNT VARCHAR(20)  NOT NULL COMMENT 'È¯ºÒ°èÁÂ¹øÈ£', -- È¯ºÒ°èÁÂ¹øÈ£
-	PGRADE DOUBLE       NULL     COMMENT 'ÆòÁ¡', -- ÆòÁ¡
-	PRV    VARCHAR(255) NULL     COMMENT '¸®ºä', -- ¸®ºä
-	PRVDT  DATE         NULL     COMMENT '¸®ºäÀÏÀÚ', -- ¸®ºäÀÏÀÚ
-	PMTYPE INTEGER      NOT NULL COMMENT 'À¯Çü' -- À¯Çü
+	PNO    INTEGER      NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£', -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+	UNO    INTEGER      NOT NULL COMMENT 'È¸ï¿½ï¿½ï¿½ï¿½È£', -- È¸ï¿½ï¿½ï¿½ï¿½È£
+	PAYDAY DATE         NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	REBANK VARCHAR(50)  NOT NULL COMMENT 'È¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', -- È¯ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	REACNT VARCHAR(20)  NOT NULL COMMENT 'È¯ï¿½Ò°ï¿½ï¿½Â¹ï¿½È£', -- È¯ï¿½Ò°ï¿½ï¿½Â¹ï¿½È£
+	PGRADE DOUBLE       NULL     COMMENT 'ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½
+	PRV    VARCHAR(255) NULL     COMMENT 'ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½
+	PRVDT  DATE         NULL     COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	PMTYPE INTEGER      NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½' -- ï¿½ï¿½ï¿½ï¿½
 )
-COMMENT 'ÇÁ·Î±×·¥Âü¿©ÀÚ';
+COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½';
 
--- ÇÁ·Î±×·¥Âü¿©ÀÚ
+-- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 ALTER TABLE PMEMB
-	ADD CONSTRAINT PK_PMEMB -- ÇÁ·Î±×·¥Âü¿©ÀÚ ±âº»Å°
+	ADD CONSTRAINT PK_PMEMB -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			PNO, -- ÇÁ·Î±×·¥¹øÈ£
-			UNO  -- È¸¿ø¹øÈ£
+			PNO, -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+			UNO  -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		);
 
--- È¸¿ø¹ÙµðÁ¤º¸
+-- È¸ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½
 CREATE TABLE BINFO (
-	BNO    INTEGER NOT NULL COMMENT 'È¸¿ø¹ÙµðÁ¤º¸¹øÈ£', -- È¸¿ø¹ÙµðÁ¤º¸¹øÈ£
-	UNO    INTEGER NOT NULL COMMENT 'È¸¿ø¹øÈ£', -- È¸¿ø¹øÈ£
-	BDATE  DATE    NULL     COMMENT 'ÃøÁ¤ÀÏ', -- ÃøÁ¤ÀÏ
-	WEIGHT DOUBLE  NULL     COMMENT '¸ö¹«°Ô', -- ¸ö¹«°Ô
-	MUSCLE DOUBLE  NULL     COMMENT '±Ù·Â·®', -- ±Ù·Â·®
-	FAT    DOUBLE  NULL     COMMENT 'Ã¼Áö¹æ·®' -- Ã¼Áö¹æ·®
+	BNO    INTEGER NOT NULL COMMENT 'È¸ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£', -- È¸ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	UNO    INTEGER NOT NULL COMMENT 'È¸ï¿½ï¿½ï¿½ï¿½È£', -- È¸ï¿½ï¿½ï¿½ï¿½È£
+	BDATE  DATE    NULL     COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	WEIGHT DOUBLE  NULL     COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MUSCLE DOUBLE  NULL     COMMENT 'ï¿½Ù·Â·ï¿½', -- ï¿½Ù·Â·ï¿½
+	FAT    DOUBLE  NULL     COMMENT 'Ã¼ï¿½ï¿½ï¿½æ·®' -- Ã¼ï¿½ï¿½ï¿½æ·®
 )
-COMMENT 'È¸¿ø¹ÙµðÁ¤º¸';
+COMMENT 'È¸ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½';
 
--- È¸¿ø¹ÙµðÁ¤º¸
+-- È¸ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½
 ALTER TABLE BINFO
-	ADD CONSTRAINT PK_BINFO -- È¸¿ø¹ÙµðÁ¤º¸ ±âº»Å°
+	ADD CONSTRAINT PK_BINFO -- È¸ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			BNO -- È¸¿ø¹ÙµðÁ¤º¸¹øÈ£
+			BNO -- È¸ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 		);
 
 ALTER TABLE BINFO
-	MODIFY COLUMN BNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'È¸¿ø¹ÙµðÁ¤º¸¹øÈ£';
+	MODIFY COLUMN BNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'È¸ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£';
 
--- ¸Þ½ÃÁö
+-- ï¿½Þ½ï¿½ï¿½ï¿½
 CREATE TABLE MSG (
-	MSGNO  INTEGER NOT NULL COMMENT '¸Þ½ÃÁö¹øÈ£', -- ¸Þ½ÃÁö¹øÈ£
-	MSCONT TEXT    NOT NULL COMMENT '³»¿ë', -- ³»¿ë
-	UNO    INTEGER NOT NULL COMMENT 'È¸¿ø¹øÈ£', -- È¸¿ø¹øÈ£
-	TRNNO  INTEGER NOT NULL COMMENT 'Æ®·¹ÀÌ³Ê¹øÈ£', -- Æ®·¹ÀÌ³Ê¹øÈ£
-	MSDIR  INTEGER NOT NULL COMMENT '¸Þ½ÃÁö¹æÇâ', -- ¸Þ½ÃÁö¹æÇâ
-	MSDATE DATE    NOT NULL COMMENT '³¯Â¥' -- ³¯Â¥
+	MSGNO  INTEGER NOT NULL COMMENT 'ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½È£', -- ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	MSCONT TEXT    NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½
+	UNO    INTEGER NOT NULL COMMENT 'È¸ï¿½ï¿½ï¿½ï¿½È£', -- È¸ï¿½ï¿½ï¿½ï¿½È£
+	TRNNO  INTEGER NOT NULL COMMENT 'Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£', -- Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£
+	MSDIR  INTEGER NOT NULL COMMENT 'ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', -- ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	MSDATE DATE    NOT NULL COMMENT 'ï¿½ï¿½Â¥' -- ï¿½ï¿½Â¥
 )
-COMMENT '¸Þ½ÃÁö';
+COMMENT 'ï¿½Þ½ï¿½ï¿½ï¿½';
 
--- ¸Þ½ÃÁö
+-- ï¿½Þ½ï¿½ï¿½ï¿½
 ALTER TABLE MSG
-	ADD CONSTRAINT PK_MSG -- ¸Þ½ÃÁö ±âº»Å°
+	ADD CONSTRAINT PK_MSG -- ï¿½Þ½ï¿½ï¿½ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			MSGNO -- ¸Þ½ÃÁö¹øÈ£
+			MSGNO -- ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 		);
 
 ALTER TABLE MSG
-	MODIFY COLUMN MSGNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '¸Þ½ÃÁö¹øÈ£';
+	MODIFY COLUMN MSGNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ï¿½Þ½ï¿½ï¿½ï¿½ï¿½ï¿½È£';
 
--- Ä¿¹Â´ÏÆ¼-°Ô½Ã¹°
+-- Ä¿ï¿½Â´ï¿½Æ¼-ï¿½Ô½Ã¹ï¿½
 CREATE TABLE CMU (
-	CMUNO    INTEGER      NOT NULL COMMENT 'Ä¿¹Â´ÏÆ¼ ±Û¹øÈ£', -- Ä¿¹Â´ÏÆ¼ ±Û¹øÈ£
-	CMUT     VARCHAR(255) NOT NULL COMMENT 'Á¦¸ñ', -- Á¦¸ñ
-	CMU_CNT  INTEGER      NOT NULL COMMENT 'Á¶È¸¼ö', -- Á¶È¸¼ö
-	CMU_TYPE VARCHAR(10)  NOT NULL COMMENT '¸»¸Ó¸®', -- ¸»¸Ó¸®
-	CMU_LK   INTEGER      NULL     COMMENT 'ÁÁ¾Æ¿ä', -- ÁÁ¾Æ¿ä
-	UNO      INTEGER      NOT NULL COMMENT '»ç¿ëÀÚ¹øÈ£' -- »ç¿ëÀÚ¹øÈ£
+	CMUNO    INTEGER      NOT NULL COMMENT 'Ä¿ï¿½Â´ï¿½Æ¼ ï¿½Û¹ï¿½È£', -- Ä¿ï¿½Â´ï¿½Æ¼ ï¿½Û¹ï¿½È£
+	CMUT     VARCHAR(255) NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½
+	CMU_CNT  INTEGER      NOT NULL COMMENT 'ï¿½ï¿½È¸ï¿½ï¿½', -- ï¿½ï¿½È¸ï¿½ï¿½
+	CMU_TYPE VARCHAR(10)  NOT NULL COMMENT 'ï¿½ï¿½ï¿½Ó¸ï¿½', -- ï¿½ï¿½ï¿½Ó¸ï¿½
+	CMU_LK   INTEGER      NULL     COMMENT 'ï¿½ï¿½ï¿½Æ¿ï¿½', -- ï¿½ï¿½ï¿½Æ¿ï¿½
+	UNO      INTEGER      NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£' -- ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
 )
-COMMENT 'Ä¿¹Â´ÏÆ¼-°Ô½Ã¹°';
+COMMENT 'Ä¿ï¿½Â´ï¿½Æ¼-ï¿½Ô½Ã¹ï¿½';
 
--- Ä¿¹Â´ÏÆ¼-°Ô½Ã¹°
+-- Ä¿ï¿½Â´ï¿½Æ¼-ï¿½Ô½Ã¹ï¿½
 ALTER TABLE CMU
-	ADD CONSTRAINT PK_CMU -- Ä¿¹Â´ÏÆ¼-°Ô½Ã¹° ±âº»Å°
+	ADD CONSTRAINT PK_CMU -- Ä¿ï¿½Â´ï¿½Æ¼-ï¿½Ô½Ã¹ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			CMUNO -- Ä¿¹Â´ÏÆ¼ ±Û¹øÈ£
+			CMUNO -- Ä¿ï¿½Â´ï¿½Æ¼ ï¿½Û¹ï¿½È£
 		);
 
 ALTER TABLE CMU
-	MODIFY COLUMN CMUNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'Ä¿¹Â´ÏÆ¼ ±Û¹øÈ£';
+	MODIFY COLUMN CMUNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'Ä¿ï¿½Â´ï¿½Æ¼ ï¿½Û¹ï¿½È£';
 
--- ¿îµ¿°èÈ¹¼­
+-- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½
 CREATE TABLE PLAN (
-	PLNO    INTEGER      NOT NULL COMMENT '¿îµ¿°èÈ¹¼­¹øÈ£', -- ¿îµ¿°èÈ¹¼­¹øÈ£
-	PLTOVER INTEGER      NOT NULL COMMENT '¿îµ¿Â÷¼ö', -- ¿îµ¿Â÷¼ö
-	PLDT    DATE         NOT NULL COMMENT '¿îµ¿³¯Â¥', -- ¿îµ¿³¯Â¥
-	PLTITL  VARCHAR(255) NOT NULL COMMENT '¿îµ¿Á¦¸ñ', -- ¿îµ¿Á¦¸ñ
-	PLCONT  TEXT         NOT NULL COMMENT '¿îµ¿³»¿ë' -- ¿îµ¿³»¿ë
+	PLNO    INTEGER      NOT NULL COMMENT 'ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½È£', -- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½È£
+	PLTOVER INTEGER      NOT NULL COMMENT 'ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½', -- ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½
+	PLDT    DATE         NOT NULL COMMENT 'ï¿½îµ¿ï¿½ï¿½Â¥', -- ï¿½îµ¿ï¿½ï¿½Â¥
+	PLTITL  VARCHAR(255) NOT NULL COMMENT 'ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½', -- ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½
+	PLCONT  TEXT         NOT NULL COMMENT 'ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½' -- ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½
 )
-COMMENT '¿îµ¿°èÈ¹¼­';
+COMMENT 'ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½';
 
--- ¿îµ¿°èÈ¹¼­
+-- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½
 ALTER TABLE PLAN
-	ADD CONSTRAINT PK_PLAN -- ¿îµ¿°èÈ¹¼­ ±âº»Å°
+	ADD CONSTRAINT PK_PLAN -- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			PLNO -- ¿îµ¿°èÈ¹¼­¹øÈ£
+			PLNO -- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½È£
 		);
 
 ALTER TABLE PLAN
-	MODIFY COLUMN PLNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '¿îµ¿°èÈ¹¼­¹øÈ£';
+	MODIFY COLUMN PLNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½È£';
 
--- ´ñ±Û
+-- ï¿½ï¿½ï¿½
 CREATE TABLE CMT (
-	CMTNO INTEGER NOT NULL COMMENT '´ñ±Û ¹øÈ£', -- ´ñ±Û ¹øÈ£
-	TMLNO INTEGER NOT NULL COMMENT 'Å¸ÀÓ¶óÀÎ ¹øÈ£' -- Å¸ÀÓ¶óÀÎ ¹øÈ£
+	CMTNO INTEGER NOT NULL COMMENT 'ï¿½ï¿½ï¿½ ï¿½ï¿½È£', -- ï¿½ï¿½ï¿½ ï¿½ï¿½È£
+	TMLNO INTEGER NOT NULL COMMENT 'Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ ï¿½ï¿½È£' -- Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 )
-COMMENT '´ñ±Û';
+COMMENT 'ï¿½ï¿½ï¿½';
 
--- ´ñ±Û
+-- ï¿½ï¿½ï¿½
 ALTER TABLE CMT
-	ADD CONSTRAINT PK_CMT -- ´ñ±Û ±âº»Å°
+	ADD CONSTRAINT PK_CMT -- ï¿½ï¿½ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			CMTNO -- ´ñ±Û ¹øÈ£
+			CMTNO -- ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 		);
 
 ALTER TABLE CMT
-	MODIFY COLUMN CMTNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '´ñ±Û ¹øÈ£';
+	MODIFY COLUMN CMTNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ï¿½ï¿½ï¿½ ï¿½ï¿½È£';
 
--- ¿îµ¿ÀÏÁö
+-- ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½
 CREATE TABLE DIARY (
-	DNO   INTEGER NOT NULL COMMENT '¿îµ¿ÀÏÁö¹øÈ£', -- ¿îµ¿ÀÏÁö¹øÈ£
-	PLNO  INTEGER NOT NULL COMMENT '¿îµ¿°èÈ¹¼­¹øÈ£', -- ¿îµ¿°èÈ¹¼­¹øÈ£
-	PNO   INTEGER NOT NULL COMMENT 'ÇÁ·Î±×·¥¹øÈ£', -- ÇÁ·Î±×·¥¹øÈ£
-	UNO   INTEGER NOT NULL COMMENT 'È¸¿ø¹øÈ£', -- È¸¿ø¹øÈ£
-	DCONT TEXT    NULL     COMMENT '³»¿ë', -- ³»¿ë
-	DCHEK CHAR(1) NOT NULL COMMENT 'Ãâ¼®¿©ºÎ' -- Ãâ¼®¿©ºÎ
+	DNO   INTEGER NOT NULL COMMENT 'ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£', -- ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	PLNO  INTEGER NOT NULL COMMENT 'ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½È£', -- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½È£
+	PNO   INTEGER NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£', -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+	UNO   INTEGER NOT NULL COMMENT 'È¸ï¿½ï¿½ï¿½ï¿½È£', -- È¸ï¿½ï¿½ï¿½ï¿½È£
+	DCONT TEXT    NULL     COMMENT 'ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½
+	DCHEK CHAR(1) NOT NULL COMMENT 'ï¿½â¼®ï¿½ï¿½ï¿½ï¿½' -- ï¿½â¼®ï¿½ï¿½ï¿½ï¿½
 )
-COMMENT '¿îµ¿ÀÏÁö';
+COMMENT 'ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½';
 
--- ¿îµ¿ÀÏÁö
+-- ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½
 ALTER TABLE DIARY
-	ADD CONSTRAINT PK_DIARY -- ¿îµ¿ÀÏÁö ±âº»Å°
+	ADD CONSTRAINT PK_DIARY -- ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			DNO -- ¿îµ¿ÀÏÁö¹øÈ£
+			DNO -- ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 		);
 
--- ¿îµ¿ÀÏÁö À¯´ÏÅ© ÀÎµ¦½º
+-- ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å© ï¿½Îµï¿½ï¿½ï¿½
 CREATE UNIQUE INDEX UIX_DIARY
-	ON DIARY ( -- ¿îµ¿ÀÏÁö
-		PLNO ASC, -- ¿îµ¿°èÈ¹¼­¹øÈ£
-		PNO ASC,  -- ÇÁ·Î±×·¥¹øÈ£
-		UNO ASC   -- È¸¿ø¹øÈ£
+	ON DIARY ( -- ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½
+		PLNO ASC, -- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½È£
+		PNO ASC,  -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+		UNO ASC   -- È¸ï¿½ï¿½ï¿½ï¿½È£
 	);
 
 ALTER TABLE DIARY
-	MODIFY COLUMN DNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '¿îµ¿ÀÏÁö¹øÈ£';
+	MODIFY COLUMN DNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£';
 
--- Ã§¸°Áö
+-- Ã§ï¿½ï¿½ï¿½ï¿½
 CREATE TABLE CHAL (
-	CHNO   INTEGER      NOT NULL COMMENT 'Ã§¸°Áö¹øÈ£', -- Ã§¸°Áö¹øÈ£
-	CHTITL VARCHAR(255) NOT NULL COMMENT 'Ã§¸°ÁöÁ¦¸ñ', -- Ã§¸°ÁöÁ¦¸ñ
-	CHCONT TEXT         NOT NULL COMMENT 'Ã§¸°Áö³»¿ë', -- Ã§¸°Áö³»¿ë
-	CHPATH VARCHAR(255) NOT NULL COMMENT 'Ã§¸°Áö»çÁø' -- Ã§¸°Áö»çÁø
+	CHNO   INTEGER      NOT NULL COMMENT 'Ã§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£', -- Ã§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	CHTITL VARCHAR(255) NOT NULL COMMENT 'Ã§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', -- Ã§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	CHCONT TEXT         NOT NULL COMMENT 'Ã§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½', -- Ã§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	CHPATH VARCHAR(255) NOT NULL COMMENT 'Ã§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½' -- Ã§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 )
-COMMENT 'Ã§¸°Áö';
+COMMENT 'Ã§ï¿½ï¿½ï¿½ï¿½';
 
--- Ã§¸°Áö
+-- Ã§ï¿½ï¿½ï¿½ï¿½
 ALTER TABLE CHAL
-	ADD CONSTRAINT PK_CHAL -- Ã§¸°Áö ±âº»Å°
+	ADD CONSTRAINT PK_CHAL -- Ã§ï¿½ï¿½ï¿½ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			CHNO -- Ã§¸°Áö¹øÈ£
+			CHNO -- Ã§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 		);
 
 ALTER TABLE CHAL
-	MODIFY COLUMN CHNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'Ã§¸°Áö¹øÈ£';
+	MODIFY COLUMN CHNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'Ã§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£';
 
--- ÇÁ·Î±×·¥¹Ìµð¾î
+-- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½Ìµï¿½ï¿½
 CREATE TABLE PMED (
-	PMEDNO INTEGER      NOT NULL COMMENT 'ÇÁ·Î±×·¥¹Ìµð¾î¹øÈ£', -- ÇÁ·Î±×·¥¹Ìµð¾î¹øÈ£
-	PPATH  VARCHAR(255) NULL     COMMENT '¹Ìµð¾î°æ·Î', -- ¹Ìµð¾î°æ·Î
-	PMTYPE INTEGER      NULL     COMMENT 'Å¸ÀÔ', -- Å¸ÀÔ
-	PNO    INTEGER      NOT NULL COMMENT 'ÇÁ·Î±×·¥¹øÈ£' -- ÇÁ·Î±×·¥¹øÈ£
+	PMEDNO INTEGER      NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½Ìµï¿½ï¿½ï¿½È£', -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½Ìµï¿½ï¿½ï¿½È£
+	PPATH  VARCHAR(255) NULL     COMMENT 'ï¿½Ìµï¿½ï¿½ï¿½ï¿½', -- ï¿½Ìµï¿½ï¿½ï¿½ï¿½
+	PMTYPE INTEGER      NULL     COMMENT 'Å¸ï¿½ï¿½', -- Å¸ï¿½ï¿½
+	PNO    INTEGER      NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£' -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
 )
-COMMENT 'ÇÁ·Î±×·¥¹Ìµð¾î';
+COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½Ìµï¿½ï¿½';
 
--- ÇÁ·Î±×·¥¹Ìµð¾î
+-- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½Ìµï¿½ï¿½
 ALTER TABLE PMED
-	ADD CONSTRAINT PK_PMED -- ÇÁ·Î±×·¥¹Ìµð¾î ±âº»Å°
+	ADD CONSTRAINT PK_PMED -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½Ìµï¿½ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			PMEDNO -- ÇÁ·Î±×·¥¹Ìµð¾î¹øÈ£
+			PMEDNO -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½Ìµï¿½ï¿½ï¿½È£
 		);
 
 ALTER TABLE PMED
-	MODIFY COLUMN PMEDNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ÇÁ·Î±×·¥¹Ìµð¾î¹øÈ£';
+	MODIFY COLUMN PMEDNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½Ìµï¿½ï¿½ï¿½È£';
 
--- °Ô½Ã¹°¹Ìµð¾î
+-- ï¿½Ô½Ã¹ï¿½ï¿½Ìµï¿½ï¿½
 CREATE TABLE CMED (
-	CMEDNO INTEGER      NOT NULL COMMENT '°Ô½Ã¹°»çÁø¹øÈ£', -- °Ô½Ã¹°»çÁø¹øÈ£
-	CPATH  VARCHAR(255) NULL     COMMENT '»çÁø', -- »çÁø
-	CMUNO  INTEGER      NOT NULL COMMENT 'Ä¿¹Â´ÏÆ¼ ±Û¹øÈ£' -- Ä¿¹Â´ÏÆ¼ ±Û¹øÈ£
+	CMEDNO INTEGER      NOT NULL COMMENT 'ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£', -- ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	CPATH  VARCHAR(255) NULL     COMMENT 'ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½
+	CMUNO  INTEGER      NOT NULL COMMENT 'Ä¿ï¿½Â´ï¿½Æ¼ ï¿½Û¹ï¿½È£' -- Ä¿ï¿½Â´ï¿½Æ¼ ï¿½Û¹ï¿½È£
 )
-COMMENT '°Ô½Ã¹°¹Ìµð¾î';
+COMMENT 'ï¿½Ô½Ã¹ï¿½ï¿½Ìµï¿½ï¿½';
 
--- °Ô½Ã¹°¹Ìµð¾î
+-- ï¿½Ô½Ã¹ï¿½ï¿½Ìµï¿½ï¿½
 ALTER TABLE CMED
-	ADD CONSTRAINT PK_CMED -- °Ô½Ã¹°¹Ìµð¾î ±âº»Å°
+	ADD CONSTRAINT PK_CMED -- ï¿½Ô½Ã¹ï¿½ï¿½Ìµï¿½ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			CMEDNO -- °Ô½Ã¹°»çÁø¹øÈ£
+			CMEDNO -- ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 		);
 
 ALTER TABLE CMED
-	MODIFY COLUMN CMEDNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '°Ô½Ã¹°»çÁø¹øÈ£';
+	MODIFY COLUMN CMEDNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ï¿½Ô½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£';
 
--- »ç¿ëÀÚ
+-- ï¿½ï¿½ï¿½ï¿½ï¿½
 CREATE TABLE USER (
-	UNO   INTEGER      NOT NULL COMMENT '»ç¿ëÀÚ¹øÈ£', -- »ç¿ëÀÚ¹øÈ£
-	UNAME VARCHAR(50)  NOT NULL COMMENT 'ÀÌ¸§', -- ÀÌ¸§
-	SEX   CHAR(1)      NOT NULL COMMENT '¼ºº°', -- ¼ºº°
-	MAIL  VARCHAR(255) NOT NULL COMMENT 'ÀÌ¸ÞÀÏ', -- ÀÌ¸ÞÀÏ
-	PWD   VARCHAR(150) NOT NULL COMMENT 'ºñ¹Ð¹øÈ£', -- ºñ¹Ð¹øÈ£
-	UPATH VARCHAR(255) NULL     COMMENT '»çÁø', -- »çÁø
-	UPHON VARCHAR(30)  NOT NULL COMMENT 'ÇÚµåÆù¹øÈ£', -- ÇÚµåÆù¹øÈ£
-	UTYPE INTEGER      NOT NULL COMMENT 'À¯Çü' -- À¯Çü
+	UNO   INTEGER      NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£', -- ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
+	UNAME VARCHAR(50)  NOT NULL COMMENT 'ï¿½Ì¸ï¿½', -- ï¿½Ì¸ï¿½
+	SEX   CHAR(1)      NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½
+	MAIL  VARCHAR(255) NOT NULL COMMENT 'ï¿½Ì¸ï¿½ï¿½ï¿½', -- ï¿½Ì¸ï¿½ï¿½ï¿½
+	PWD   VARCHAR(150) NOT NULL COMMENT 'ï¿½ï¿½Ð¹ï¿½È£', -- ï¿½ï¿½Ð¹ï¿½È£
+	UPATH VARCHAR(255) NULL     COMMENT 'ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½
+	UPHON VARCHAR(30)  NOT NULL COMMENT 'ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½È£', -- ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½È£
+	UTYPE INTEGER      NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½' -- ï¿½ï¿½ï¿½ï¿½
 )
-COMMENT '»ç¿ëÀÚ';
+COMMENT 'ï¿½ï¿½ï¿½ï¿½ï¿½';
 
--- »ç¿ëÀÚ
+-- ï¿½ï¿½ï¿½ï¿½ï¿½
 ALTER TABLE USER
-	ADD CONSTRAINT PK_USER -- »ç¿ëÀÚ ±âº»Å°
+	ADD CONSTRAINT PK_USER -- ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			UNO -- »ç¿ëÀÚ¹øÈ£
+			UNO -- ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
 		);
 
--- »ç¿ëÀÚ À¯´ÏÅ© ÀÎµ¦½º
+-- ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å© ï¿½Îµï¿½ï¿½ï¿½
 CREATE UNIQUE INDEX UIX_USER
-	ON USER ( -- »ç¿ëÀÚ
-		MAIL ASC -- ÀÌ¸ÞÀÏ
+	ON USER ( -- ï¿½ï¿½ï¿½ï¿½ï¿½
+		MAIL ASC -- ï¿½Ì¸ï¿½ï¿½ï¿½
 	);
 
 ALTER TABLE USER
-	MODIFY COLUMN UNO INTEGER NOT NULL AUTO_INCREMENT COMMENT '»ç¿ëÀÚ¹øÈ£';
+	MODIFY COLUMN UNO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£';
 
--- ¸¶ÀÏ¸®Áö
+-- ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½
 CREATE TABLE MILE (
-	MILENO   INTEGER NOT NULL COMMENT '¸¶ÀÏ¸®Áö¹øÈ£', -- ¸¶ÀÏ¸®Áö¹øÈ£
-	UNO      INTEGER NOT NULL COMMENT 'È¸¿ø¹øÈ£', -- È¸¿ø¹øÈ£
-	MILECNT  INTEGER NOT NULL COMMENT '¸¶ÀÏ¸®Áö', -- ¸¶ÀÏ¸®Áö
-	MILESTAT CHAR(1) NOT NULL COMMENT 'ÀÔÃâ±Ý»óÅÂ', -- ÀÔÃâ±Ý»óÅÂ
-	MILEDATE DATE    NOT NULL COMMENT 'ÀÏÀÚ' -- ÀÏÀÚ
+	MILENO   INTEGER NOT NULL COMMENT 'ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½È£', -- ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½È£
+	UNO      INTEGER NOT NULL COMMENT 'È¸ï¿½ï¿½ï¿½ï¿½È£', -- È¸ï¿½ï¿½ï¿½ï¿½È£
+	MILECNT  INTEGER NOT NULL COMMENT 'ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½
+	MILESTAT CHAR(1) NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½Ý»ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½Ý»ï¿½ï¿½ï¿½
+	MILEDATE DATE    NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½' -- ï¿½ï¿½ï¿½ï¿½
 )
-COMMENT '¸¶ÀÏ¸®Áö';
+COMMENT 'ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½';
 
--- ¸¶ÀÏ¸®Áö
+-- ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½
 ALTER TABLE MILE
-	ADD CONSTRAINT PK_MILE -- ¸¶ÀÏ¸®Áö ±âº»Å°
+	ADD CONSTRAINT PK_MILE -- ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			MILENO -- ¸¶ÀÏ¸®Áö¹øÈ£
+			MILENO -- ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½È£
 		);
 
 ALTER TABLE MILE
-	MODIFY COLUMN MILENO INTEGER NOT NULL AUTO_INCREMENT COMMENT '¸¶ÀÏ¸®Áö¹øÈ£';
+	MODIFY COLUMN MILENO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½ï¿½È£';
 
--- ÆÈ·ÎÀ®
+-- ï¿½È·ï¿½ï¿½ï¿½
 CREATE TABLE FOLLOW (
-	UNO   INTEGER NOT NULL COMMENT 'È¸¿ø¹øÈ£', -- È¸¿ø¹øÈ£
-	TRNNO INTEGER NOT NULL COMMENT 'Æ®·¹ÀÌ³Ê¹øÈ£' -- Æ®·¹ÀÌ³Ê¹øÈ£
+	UNO   INTEGER NOT NULL COMMENT 'È¸ï¿½ï¿½ï¿½ï¿½È£', -- È¸ï¿½ï¿½ï¿½ï¿½È£
+	TRNNO INTEGER NOT NULL COMMENT 'Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£' -- Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£
 )
-COMMENT 'ÆÈ·ÎÀ®';
+COMMENT 'ï¿½È·ï¿½ï¿½ï¿½';
 
--- ÆÈ·ÎÀ®
+-- ï¿½È·ï¿½ï¿½ï¿½
 ALTER TABLE FOLLOW
-	ADD CONSTRAINT PK_FOLLOW -- ÆÈ·ÎÀ® ±âº»Å°
+	ADD CONSTRAINT PK_FOLLOW -- ï¿½È·ï¿½ï¿½ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			UNO,   -- È¸¿ø¹øÈ£
-			TRNNO  -- Æ®·¹ÀÌ³Ê¹øÈ£
+			UNO,   -- È¸ï¿½ï¿½ï¿½ï¿½È£
+			TRNNO  -- Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£
 		);
 
--- ÇÁ·Î±×·¥Å¸ÀÓ¶óÀÎÁÁ¾Æ¿ä
+-- ï¿½ï¿½ï¿½Î±×·ï¿½Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½
 CREATE TABLE TML_LK (
-	PNO  INTEGER NOT NULL COMMENT 'ÇÁ·Î±×·¥¹øÈ£', -- ÇÁ·Î±×·¥¹øÈ£
-	UNO  INTEGER NOT NULL COMMENT 'È¸¿ø¹øÈ£', -- È¸¿ø¹øÈ£
-	PONO INTEGER NOT NULL COMMENT '°Ô½Ã±Û ¹øÈ£' -- °Ô½Ã±Û ¹øÈ£
+	PNO  INTEGER NOT NULL COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£', -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+	UNO  INTEGER NOT NULL COMMENT 'È¸ï¿½ï¿½ï¿½ï¿½È£', -- È¸ï¿½ï¿½ï¿½ï¿½È£
+	PONO INTEGER NOT NULL COMMENT 'ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È£' -- ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È£
 )
-COMMENT 'ÇÁ·Î±×·¥Å¸ÀÓ¶óÀÎÁÁ¾Æ¿ä';
+COMMENT 'ï¿½ï¿½ï¿½Î±×·ï¿½Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½';
 
--- ÇÁ·Î±×·¥Å¸ÀÓ¶óÀÎÁÁ¾Æ¿ä
+-- ï¿½ï¿½ï¿½Î±×·ï¿½Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½
 ALTER TABLE TML_LK
-	ADD CONSTRAINT PK_TML_LK -- ÇÁ·Î±×·¥Å¸ÀÓ¶óÀÎÁÁ¾Æ¿ä ±âº»Å°
+	ADD CONSTRAINT PK_TML_LK -- ï¿½ï¿½ï¿½Î±×·ï¿½Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			PNO,  -- ÇÁ·Î±×·¥¹øÈ£
-			UNO,  -- È¸¿ø¹øÈ£
-			PONO  -- °Ô½Ã±Û ¹øÈ£
+			PNO,  -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+			UNO,  -- È¸ï¿½ï¿½ï¿½ï¿½È£
+			PONO  -- ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È£
 		);
 
--- °Ô½Ã±Û
+-- ï¿½Ô½Ã±ï¿½
 CREATE TABLE POST (
-	PONO   INTEGER NOT NULL COMMENT '°Ô½Ã±Û ¹øÈ£', -- °Ô½Ã±Û ¹øÈ£
-	POCONT TEXT    NOT NULL COMMENT '³»¿ë', -- ³»¿ë
-	PODATE DATE    NOT NULL COMMENT '³¯Â¥' -- ³¯Â¥
+	PONO   INTEGER NOT NULL COMMENT 'ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È£', -- ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È£
+	POCONT TEXT    NOT NULL COMMENT 'ï¿½ï¿½ï¿½ï¿½', -- ï¿½ï¿½ï¿½ï¿½
+	PODATE DATE    NOT NULL COMMENT 'ï¿½ï¿½Â¥' -- ï¿½ï¿½Â¥
 )
-COMMENT '°Ô½Ã±Û';
+COMMENT 'ï¿½Ô½Ã±ï¿½';
 
--- °Ô½Ã±Û
+-- ï¿½Ô½Ã±ï¿½
 ALTER TABLE POST
-	ADD CONSTRAINT PK_POST -- °Ô½Ã±Û ±âº»Å°
+	ADD CONSTRAINT PK_POST -- ï¿½Ô½Ã±ï¿½ ï¿½âº»Å°
 		PRIMARY KEY (
-			PONO -- °Ô½Ã±Û ¹øÈ£
+			PONO -- ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È£
 		);
 
 ALTER TABLE POST
-	MODIFY COLUMN PONO INTEGER NOT NULL AUTO_INCREMENT COMMENT '°Ô½Ã±Û ¹øÈ£';
+	MODIFY COLUMN PONO INTEGER NOT NULL AUTO_INCREMENT COMMENT 'ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È£';
 
--- È¸¿ø
+-- È¸ï¿½ï¿½
 ALTER TABLE MEMB
-	ADD CONSTRAINT FK_USER_TO_MEMB -- »ç¿ëÀÚ -> È¸¿ø
+	ADD CONSTRAINT FK_USER_TO_MEMB -- ï¿½ï¿½ï¿½ï¿½ï¿½ -> È¸ï¿½ï¿½
 		FOREIGN KEY (
-			UNO -- È¸¿ø¹øÈ£
+			UNO -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		)
-		REFERENCES USER ( -- »ç¿ëÀÚ
-			UNO -- »ç¿ëÀÚ¹øÈ£
+		REFERENCES USER ( -- ï¿½ï¿½ï¿½ï¿½ï¿½
+			UNO -- ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
 		);
 
--- Å¸ÀÓ¶óÀÎ
+-- Å¸ï¿½Ó¶ï¿½ï¿½ï¿½
 ALTER TABLE TML
-	ADD CONSTRAINT FK_PMEMB_TO_TML -- ÇÁ·Î±×·¥Âü¿©ÀÚ -> Å¸ÀÓ¶óÀÎ
+	ADD CONSTRAINT FK_PMEMB_TO_TML -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -> Å¸ï¿½Ó¶ï¿½ï¿½ï¿½
 		FOREIGN KEY (
-			PNO, -- ÇÁ·Î±×·¥¹øÈ£
-			UNO  -- È¸¿ø¹øÈ£
+			PNO, -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+			UNO  -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		)
-		REFERENCES PMEMB ( -- ÇÁ·Î±×·¥Âü¿©ÀÚ
-			PNO, -- ÇÁ·Î±×·¥¹øÈ£
-			UNO  -- È¸¿ø¹øÈ£
+		REFERENCES PMEMB ( -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			PNO, -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+			UNO  -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		);
 
--- Å¸ÀÓ¶óÀÎ
+-- Å¸ï¿½Ó¶ï¿½ï¿½ï¿½
 ALTER TABLE TML
-	ADD CONSTRAINT FK_POST_TO_TML -- °Ô½Ã±Û -> Å¸ÀÓ¶óÀÎ
+	ADD CONSTRAINT FK_POST_TO_TML -- ï¿½Ô½Ã±ï¿½ -> Å¸ï¿½Ó¶ï¿½ï¿½ï¿½
 		FOREIGN KEY (
-			TMLNO -- Å¸ÀÓ¶óÀÎ ¹øÈ£
+			TMLNO -- Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 		)
-		REFERENCES POST ( -- °Ô½Ã±Û
-			PONO -- °Ô½Ã±Û ¹øÈ£
+		REFERENCES POST ( -- ï¿½Ô½Ã±ï¿½
+			PONO -- ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È£
 		);
 
--- ÇÁ·Î±×·¥
+-- ï¿½ï¿½ï¿½Î±×·ï¿½
 ALTER TABLE PROG
-	ADD CONSTRAINT FK_TRN_TO_PROG -- Æ®·¹ÀÌ³Ê -> ÇÁ·Î±×·¥
+	ADD CONSTRAINT FK_TRN_TO_PROG -- Æ®ï¿½ï¿½ï¿½Ì³ï¿½ -> ï¿½ï¿½ï¿½Î±×·ï¿½
 		FOREIGN KEY (
-			TRNNO -- Æ®·¹ÀÌ³Ê¹øÈ£
+			TRNNO -- Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£
 		)
-		REFERENCES TRN ( -- Æ®·¹ÀÌ³Ê
-			TRNNO -- Æ®·¹ÀÌ³Ê¹øÈ£
+		REFERENCES TRN ( -- Æ®ï¿½ï¿½ï¿½Ì³ï¿½
+			TRNNO -- Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£
 		);
 
--- ÇÁ·Î±×·¥
+-- ï¿½ï¿½ï¿½Î±×·ï¿½
 ALTER TABLE PROG
-	ADD CONSTRAINT FK_CHAL_TO_PROG -- Ã§¸°Áö -> ÇÁ·Î±×·¥
+	ADD CONSTRAINT FK_CHAL_TO_PROG -- Ã§ï¿½ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½Î±×·ï¿½
 		FOREIGN KEY (
-			CNO -- Ã§¸°Áö¹øÈ£
+			CNO -- Ã§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 		)
-		REFERENCES CHAL ( -- Ã§¸°Áö
-			CHNO -- Ã§¸°Áö¹øÈ£
+		REFERENCES CHAL ( -- Ã§ï¿½ï¿½ï¿½ï¿½
+			CHNO -- Ã§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£
 		);
 
--- ÇÁ·Î±×·¥
+-- ï¿½ï¿½ï¿½Î±×·ï¿½
 ALTER TABLE PROG
-	ADD CONSTRAINT FK_PLAN_TO_PROG -- ¿îµ¿°èÈ¹¼­ -> ÇÁ·Î±×·¥
+	ADD CONSTRAINT FK_PLAN_TO_PROG -- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ -> ï¿½ï¿½ï¿½Î±×·ï¿½
 		FOREIGN KEY (
-			PLNO -- ¿îµ¿°èÈ¹¼­¹øÈ£
+			PLNO -- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½È£
 		)
-		REFERENCES PLAN ( -- ¿îµ¿°èÈ¹¼­
-			PLNO -- ¿îµ¿°èÈ¹¼­¹øÈ£
+		REFERENCES PLAN ( -- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½
+			PLNO -- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½È£
 		);
 
--- Æ®·¹ÀÌ³Ê
+-- Æ®ï¿½ï¿½ï¿½Ì³ï¿½
 ALTER TABLE TRN
-	ADD CONSTRAINT FK_USER_TO_TRN -- »ç¿ëÀÚ -> Æ®·¹ÀÌ³Ê
+	ADD CONSTRAINT FK_USER_TO_TRN -- ï¿½ï¿½ï¿½ï¿½ï¿½ -> Æ®ï¿½ï¿½ï¿½Ì³ï¿½
 		FOREIGN KEY (
-			TRNNO -- Æ®·¹ÀÌ³Ê¹øÈ£
+			TRNNO -- Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£
 		)
-		REFERENCES USER ( -- »ç¿ëÀÚ
-			UNO -- »ç¿ëÀÚ¹øÈ£
+		REFERENCES USER ( -- ï¿½ï¿½ï¿½ï¿½ï¿½
+			UNO -- ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
 		);
 
--- ÇÁ·Î±×·¥Âü¿©ÀÚ
+-- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 ALTER TABLE PMEMB
-	ADD CONSTRAINT FK_PROG_TO_PMEMB -- ÇÁ·Î±×·¥ -> ÇÁ·Î±×·¥Âü¿©ÀÚ
+	ADD CONSTRAINT FK_PROG_TO_PMEMB -- ï¿½ï¿½ï¿½Î±×·ï¿½ -> ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		FOREIGN KEY (
-			PNO -- ÇÁ·Î±×·¥¹øÈ£
+			PNO -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
 		)
-		REFERENCES PROG ( -- ÇÁ·Î±×·¥
-			PNO -- ÇÁ·Î±×·¥¹øÈ£
+		REFERENCES PROG ( -- ï¿½ï¿½ï¿½Î±×·ï¿½
+			PNO -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
 		);
 
--- ÇÁ·Î±×·¥Âü¿©ÀÚ
+-- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 ALTER TABLE PMEMB
-	ADD CONSTRAINT FK_MEMB_TO_PMEMB -- È¸¿ø -> ÇÁ·Î±×·¥Âü¿©ÀÚ
+	ADD CONSTRAINT FK_MEMB_TO_PMEMB -- È¸ï¿½ï¿½ -> ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		FOREIGN KEY (
-			UNO -- È¸¿ø¹øÈ£
+			UNO -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		)
-		REFERENCES MEMB ( -- È¸¿ø
-			UNO -- È¸¿ø¹øÈ£
+		REFERENCES MEMB ( -- È¸ï¿½ï¿½
+			UNO -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		);
 
--- È¸¿ø¹ÙµðÁ¤º¸
+-- È¸ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½
 ALTER TABLE BINFO
-	ADD CONSTRAINT FK_MEMB_TO_BINFO -- È¸¿ø -> È¸¿ø¹ÙµðÁ¤º¸
+	ADD CONSTRAINT FK_MEMB_TO_BINFO -- È¸ï¿½ï¿½ -> È¸ï¿½ï¿½ï¿½Ùµï¿½ï¿½ï¿½ï¿½ï¿½
 		FOREIGN KEY (
-			UNO -- È¸¿ø¹øÈ£
+			UNO -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		)
-		REFERENCES MEMB ( -- È¸¿ø
-			UNO -- È¸¿ø¹øÈ£
+		REFERENCES MEMB ( -- È¸ï¿½ï¿½
+			UNO -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		);
 
--- ¸Þ½ÃÁö
+-- ï¿½Þ½ï¿½ï¿½ï¿½
 ALTER TABLE MSG
-	ADD CONSTRAINT FK_MEMB_TO_MSG -- È¸¿ø -> ¸Þ½ÃÁö
+	ADD CONSTRAINT FK_MEMB_TO_MSG -- È¸ï¿½ï¿½ -> ï¿½Þ½ï¿½ï¿½ï¿½
 		FOREIGN KEY (
-			UNO -- È¸¿ø¹øÈ£
+			UNO -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		)
-		REFERENCES MEMB ( -- È¸¿ø
-			UNO -- È¸¿ø¹øÈ£
+		REFERENCES MEMB ( -- È¸ï¿½ï¿½
+			UNO -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		);
 
--- ¸Þ½ÃÁö
+-- ï¿½Þ½ï¿½ï¿½ï¿½
 ALTER TABLE MSG
-	ADD CONSTRAINT FK_TRN_TO_MSG -- Æ®·¹ÀÌ³Ê -> ¸Þ½ÃÁö
+	ADD CONSTRAINT FK_TRN_TO_MSG -- Æ®ï¿½ï¿½ï¿½Ì³ï¿½ -> ï¿½Þ½ï¿½ï¿½ï¿½
 		FOREIGN KEY (
-			TRNNO -- Æ®·¹ÀÌ³Ê¹øÈ£
+			TRNNO -- Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£
 		)
-		REFERENCES TRN ( -- Æ®·¹ÀÌ³Ê
-			TRNNO -- Æ®·¹ÀÌ³Ê¹øÈ£
+		REFERENCES TRN ( -- Æ®ï¿½ï¿½ï¿½Ì³ï¿½
+			TRNNO -- Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£
 		);
 
--- Ä¿¹Â´ÏÆ¼-°Ô½Ã¹°
+-- Ä¿ï¿½Â´ï¿½Æ¼-ï¿½Ô½Ã¹ï¿½
 ALTER TABLE CMU
-	ADD CONSTRAINT FK_USER_TO_CMU -- »ç¿ëÀÚ -> Ä¿¹Â´ÏÆ¼-°Ô½Ã¹°
+	ADD CONSTRAINT FK_USER_TO_CMU -- ï¿½ï¿½ï¿½ï¿½ï¿½ -> Ä¿ï¿½Â´ï¿½Æ¼-ï¿½Ô½Ã¹ï¿½
 		FOREIGN KEY (
-			UNO -- »ç¿ëÀÚ¹øÈ£
+			UNO -- ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
 		)
-		REFERENCES USER ( -- »ç¿ëÀÚ
-			UNO -- »ç¿ëÀÚ¹øÈ£
+		REFERENCES USER ( -- ï¿½ï¿½ï¿½ï¿½ï¿½
+			UNO -- ï¿½ï¿½ï¿½ï¿½Ú¹ï¿½È£
 		);
 
--- Ä¿¹Â´ÏÆ¼-°Ô½Ã¹°
+-- Ä¿ï¿½Â´ï¿½Æ¼-ï¿½Ô½Ã¹ï¿½
 ALTER TABLE CMU
-	ADD CONSTRAINT FK_POST_TO_CMU -- °Ô½Ã±Û -> Ä¿¹Â´ÏÆ¼-°Ô½Ã¹°
+	ADD CONSTRAINT FK_POST_TO_CMU -- ï¿½Ô½Ã±ï¿½ -> Ä¿ï¿½Â´ï¿½Æ¼-ï¿½Ô½Ã¹ï¿½
 		FOREIGN KEY (
-			CMUNO -- Ä¿¹Â´ÏÆ¼ ±Û¹øÈ£
+			CMUNO -- Ä¿ï¿½Â´ï¿½Æ¼ ï¿½Û¹ï¿½È£
 		)
-		REFERENCES POST ( -- °Ô½Ã±Û
-			PONO -- °Ô½Ã±Û ¹øÈ£
+		REFERENCES POST ( -- ï¿½Ô½Ã±ï¿½
+			PONO -- ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È£
 		);
 
--- ´ñ±Û
+-- ï¿½ï¿½ï¿½
 ALTER TABLE CMT
-	ADD CONSTRAINT FK_POST_TO_CMT -- °Ô½Ã±Û -> ´ñ±Û
+	ADD CONSTRAINT FK_POST_TO_CMT -- ï¿½Ô½Ã±ï¿½ -> ï¿½ï¿½ï¿½
 		FOREIGN KEY (
-			CMTNO -- ´ñ±Û ¹øÈ£
+			CMTNO -- ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 		)
-		REFERENCES POST ( -- °Ô½Ã±Û
-			PONO -- °Ô½Ã±Û ¹øÈ£
+		REFERENCES POST ( -- ï¿½Ô½Ã±ï¿½
+			PONO -- ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È£
 		);
 
--- ´ñ±Û
+-- ï¿½ï¿½ï¿½
 ALTER TABLE CMT
-	ADD CONSTRAINT FK_TML_TO_CMT -- Å¸ÀÓ¶óÀÎ -> ´ñ±Û
+	ADD CONSTRAINT FK_TML_TO_CMT -- Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½
 		FOREIGN KEY (
-			TMLNO -- Å¸ÀÓ¶óÀÎ ¹øÈ£
+			TMLNO -- Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 		)
-		REFERENCES TML ( -- Å¸ÀÓ¶óÀÎ
-			TMLNO -- Å¸ÀÓ¶óÀÎ ¹øÈ£
+		REFERENCES TML ( -- Å¸ï¿½Ó¶ï¿½ï¿½ï¿½
+			TMLNO -- Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ ï¿½ï¿½È£
 		);
 
--- ¿îµ¿ÀÏÁö
+-- ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½
 ALTER TABLE DIARY
-	ADD CONSTRAINT FK_PLAN_TO_DIARY -- ¿îµ¿°èÈ¹¼­ -> ¿îµ¿ÀÏÁö
+	ADD CONSTRAINT FK_PLAN_TO_DIARY -- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ -> ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½
 		FOREIGN KEY (
-			PLNO -- ¿îµ¿°èÈ¹¼­¹øÈ£
+			PLNO -- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½È£
 		)
-		REFERENCES PLAN ( -- ¿îµ¿°èÈ¹¼­
-			PLNO -- ¿îµ¿°èÈ¹¼­¹øÈ£
+		REFERENCES PLAN ( -- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½
+			PLNO -- ï¿½îµ¿ï¿½ï¿½È¹ï¿½ï¿½ï¿½ï¿½È£
 		);
 
--- ¿îµ¿ÀÏÁö
+-- ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½
 ALTER TABLE DIARY
-	ADD CONSTRAINT FK_PMEMB_TO_DIARY -- ÇÁ·Î±×·¥Âü¿©ÀÚ -> ¿îµ¿ÀÏÁö
+	ADD CONSTRAINT FK_PMEMB_TO_DIARY -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -> ï¿½îµ¿ï¿½ï¿½ï¿½ï¿½
 		FOREIGN KEY (
-			PNO, -- ÇÁ·Î±×·¥¹øÈ£
-			UNO  -- È¸¿ø¹øÈ£
+			PNO, -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+			UNO  -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		)
-		REFERENCES PMEMB ( -- ÇÁ·Î±×·¥Âü¿©ÀÚ
-			PNO, -- ÇÁ·Î±×·¥¹øÈ£
-			UNO  -- È¸¿ø¹øÈ£
+		REFERENCES PMEMB ( -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			PNO, -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+			UNO  -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		);
 
--- ÇÁ·Î±×·¥¹Ìµð¾î
+-- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½Ìµï¿½ï¿½
 ALTER TABLE PMED
-	ADD CONSTRAINT FK_PROG_TO_PMED -- ÇÁ·Î±×·¥ -> ÇÁ·Î±×·¥¹Ìµð¾î
+	ADD CONSTRAINT FK_PROG_TO_PMED -- ï¿½ï¿½ï¿½Î±×·ï¿½ -> ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½Ìµï¿½ï¿½
 		FOREIGN KEY (
-			PNO -- ÇÁ·Î±×·¥¹øÈ£
+			PNO -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
 		)
-		REFERENCES PROG ( -- ÇÁ·Î±×·¥
-			PNO -- ÇÁ·Î±×·¥¹øÈ£
+		REFERENCES PROG ( -- ï¿½ï¿½ï¿½Î±×·ï¿½
+			PNO -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
 		);
 
--- °Ô½Ã¹°¹Ìµð¾î
+-- ï¿½Ô½Ã¹ï¿½ï¿½Ìµï¿½ï¿½
 ALTER TABLE CMED
-	ADD CONSTRAINT FK_CMU_TO_CMED -- Ä¿¹Â´ÏÆ¼-°Ô½Ã¹° -> °Ô½Ã¹°¹Ìµð¾î
+	ADD CONSTRAINT FK_CMU_TO_CMED -- Ä¿ï¿½Â´ï¿½Æ¼-ï¿½Ô½Ã¹ï¿½ -> ï¿½Ô½Ã¹ï¿½ï¿½Ìµï¿½ï¿½
 		FOREIGN KEY (
-			CMUNO -- Ä¿¹Â´ÏÆ¼ ±Û¹øÈ£
+			CMUNO -- Ä¿ï¿½Â´ï¿½Æ¼ ï¿½Û¹ï¿½È£
 		)
-		REFERENCES CMU ( -- Ä¿¹Â´ÏÆ¼-°Ô½Ã¹°
-			CMUNO -- Ä¿¹Â´ÏÆ¼ ±Û¹øÈ£
+		REFERENCES CMU ( -- Ä¿ï¿½Â´ï¿½Æ¼-ï¿½Ô½Ã¹ï¿½
+			CMUNO -- Ä¿ï¿½Â´ï¿½Æ¼ ï¿½Û¹ï¿½È£
 		);
 
--- ¸¶ÀÏ¸®Áö
+-- ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½
 ALTER TABLE MILE
-	ADD CONSTRAINT FK_MEMB_TO_MILE -- È¸¿ø -> ¸¶ÀÏ¸®Áö
+	ADD CONSTRAINT FK_MEMB_TO_MILE -- È¸ï¿½ï¿½ -> ï¿½ï¿½ï¿½Ï¸ï¿½ï¿½ï¿½
 		FOREIGN KEY (
-			UNO -- È¸¿ø¹øÈ£
+			UNO -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		)
-		REFERENCES MEMB ( -- È¸¿ø
-			UNO -- È¸¿ø¹øÈ£
+		REFERENCES MEMB ( -- È¸ï¿½ï¿½
+			UNO -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		);
 
--- ÆÈ·ÎÀ®
+-- ï¿½È·ï¿½ï¿½ï¿½
 ALTER TABLE FOLLOW
-	ADD CONSTRAINT FK_MEMB_TO_FOLLOW -- È¸¿ø -> ÆÈ·ÎÀ®
+	ADD CONSTRAINT FK_MEMB_TO_FOLLOW -- È¸ï¿½ï¿½ -> ï¿½È·ï¿½ï¿½ï¿½
 		FOREIGN KEY (
-			UNO -- È¸¿ø¹øÈ£
+			UNO -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		)
-		REFERENCES MEMB ( -- È¸¿ø
-			UNO -- È¸¿ø¹øÈ£
+		REFERENCES MEMB ( -- È¸ï¿½ï¿½
+			UNO -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		);
 
--- ÆÈ·ÎÀ®
+-- ï¿½È·ï¿½ï¿½ï¿½
 ALTER TABLE FOLLOW
-	ADD CONSTRAINT FK_TRN_TO_FOLLOW -- Æ®·¹ÀÌ³Ê -> ÆÈ·ÎÀ®
+	ADD CONSTRAINT FK_TRN_TO_FOLLOW -- Æ®ï¿½ï¿½ï¿½Ì³ï¿½ -> ï¿½È·ï¿½ï¿½ï¿½
 		FOREIGN KEY (
-			TRNNO -- Æ®·¹ÀÌ³Ê¹øÈ£
+			TRNNO -- Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£
 		)
-		REFERENCES TRN ( -- Æ®·¹ÀÌ³Ê
-			TRNNO -- Æ®·¹ÀÌ³Ê¹øÈ£
+		REFERENCES TRN ( -- Æ®ï¿½ï¿½ï¿½Ì³ï¿½
+			TRNNO -- Æ®ï¿½ï¿½ï¿½Ì³Ê¹ï¿½È£
 		);
 
--- ÇÁ·Î±×·¥Å¸ÀÓ¶óÀÎÁÁ¾Æ¿ä
+-- ï¿½ï¿½ï¿½Î±×·ï¿½Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½
 ALTER TABLE TML_LK
-	ADD CONSTRAINT FK_PMEMB_TO_TML_LK -- ÇÁ·Î±×·¥Âü¿©ÀÚ -> ÇÁ·Î±×·¥Å¸ÀÓ¶óÀÎÁÁ¾Æ¿ä
+	ADD CONSTRAINT FK_PMEMB_TO_TML_LK -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ -> ï¿½ï¿½ï¿½Î±×·ï¿½Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½
 		FOREIGN KEY (
-			PNO, -- ÇÁ·Î±×·¥¹øÈ£
-			UNO  -- È¸¿ø¹øÈ£
+			PNO, -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+			UNO  -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		)
-		REFERENCES PMEMB ( -- ÇÁ·Î±×·¥Âü¿©ÀÚ
-			PNO, -- ÇÁ·Î±×·¥¹øÈ£
-			UNO  -- È¸¿ø¹øÈ£
+		REFERENCES PMEMB ( -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			PNO, -- ï¿½ï¿½ï¿½Î±×·ï¿½ï¿½ï¿½È£
+			UNO  -- È¸ï¿½ï¿½ï¿½ï¿½È£
 		);
 
--- ÇÁ·Î±×·¥Å¸ÀÓ¶óÀÎÁÁ¾Æ¿ä
+-- ï¿½ï¿½ï¿½Î±×·ï¿½Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½
 ALTER TABLE TML_LK
-	ADD CONSTRAINT FK_POST_TO_TML_LK -- °Ô½Ã±Û -> ÇÁ·Î±×·¥Å¸ÀÓ¶óÀÎÁÁ¾Æ¿ä
+	ADD CONSTRAINT FK_POST_TO_TML_LK -- ï¿½Ô½Ã±ï¿½ -> ï¿½ï¿½ï¿½Î±×·ï¿½Å¸ï¿½Ó¶ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¿ï¿½
 		FOREIGN KEY (
-			PONO -- °Ô½Ã±Û ¹øÈ£
+			PONO -- ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È£
 		)
-		REFERENCES POST ( -- °Ô½Ã±Û
-			PONO -- °Ô½Ã±Û ¹øÈ£
+		REFERENCES POST ( -- ï¿½Ô½Ã±ï¿½
+			PONO -- ï¿½Ô½Ã±ï¿½ ï¿½ï¿½È£
 		);
