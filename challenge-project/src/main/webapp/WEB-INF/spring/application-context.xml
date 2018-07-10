@@ -39,7 +39,7 @@
         <property name="password" value="${jdbc.password}" />
     </bean>
     
-    <context:property-placeholder 
+<context:property-placeholder 
         location="classpath:jdbc.properties,
                   classpath:aws.properties"/> 
         
