@@ -107,11 +107,15 @@ a:hover {
 
 .container {
 	border: solid red;
-	margin: 100px auto;
+	/* margin: auto; */
+	padding:25px;
+
 	
 }
 
 .omb_login {
 	border: dashed yellow;
-	margin: 50px auto;
+	margin: 30px;
+	padding: 30px;
+
 }
