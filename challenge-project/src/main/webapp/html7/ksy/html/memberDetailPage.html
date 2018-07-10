@@ -4,104 +4,115 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>회원 상세페이지</title>
-<link rel="stylesheet" href="../ksy/css/memberDetailPage.css">
-<link rel="stylesheet" href="../css/common.css">
-<link rel="stylesheet" href="../header/header_white_top.css">
-<link rel="stylesheet" href="../footer/footer.css">
-<link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
-<link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
+<link rel="stylesheet" href="../../ksy/css/memberDetailPage.css">
+<link rel="stylesheet" href="../../css/common.css">
+<!-- 서버에 연결할 때 지울 부분 2가지 -->
+<link rel="stylesheet" href="../../header/header_white.css">
+<link rel="stylesheet" href="../../footer/footer.css">
+
+<link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
 
 <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
 </head>
 <body>
+
+<!-- <div id="header">
+</div> -->
+<!-- 서버에 연결할 땐 지울 부분 -->
+<!-- 헤더 시작 -->
 <div id="sh_top_layout">
-    <header class="sh_top_wrap">
-      <a href="#">
-        <div class="sh_top_logo_wrap">
-          <h1 id="sh_logo_img"><img id="sh_logo" src="../header/red-logo.png" alt=""></h1>
-          <div class="sh_logo_name">
-            <h1 id="sh_logo_h1" style="font-family:'Titillium Web';"><i>CHALLENGE</i></h1>
-          </div> 
+  <header class="sh_top_wrap">
+    <a href="#">
+      <div class="sh_top_logo_wrap">
+        <h1 id="sh_logo_img"><img id="sh_logo" src="../../header/red-logo.png" alt=""></h1>
+        <div class="sh_logo_name">
+          <h1 id="sh_logo_h1" style="font-family:'Titillium Web';"><i>CHALLENGE</i></h1>
         </div>
-      </a>
-
-
-      <!-- 드롭다운 서브메뉴 시작-->
-      <div class="sh_top_utile_wrap">
-        <ul class="sh_top_link">
-          <li class="sh_top_menu">
-            <form id="sh_content">
-              <input type="text" name="sh-input" class="sh-input" placeholder="">
-              <button class="sh-searchBtn" type="reset"></button>
-            </form>
-          </li>
-          <li class="sh_top_menu sh_dropdown">
-            <a class="sh_menu sh_after" href="#">커뮤니티</a>
-            <div class="sh_dropdown-content"> 
-              <ul id="sh_sub-menu-ul">
-                <li><a class="sh_menu sh_after" href="#">명예의전당</a></li>
-                <li><a class="sh_menu sh_after" href="#">비포&애프터</a></li>
-                <li><a class="sh_menu sh_after" href="#">질문과답변</a></li>
-                <li><a class="sh_menu sh_after" href="#">자유게시판</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="sh_top_menu sh_dropdown">
-            <a class="sh_menu sh_after " href="#">프로그램</a>
-            <div class="sh_dropdown-content">
-              <ul id="sh_sub-menu-ul">
-                <li><a class="sh_menu sh_after" href="#">추천프로그램</a></li>
-                <li><a class="sh_menu sh_after" href="#">인기프로그램</a></li>
-                <li><a class="sh_menu sh_after" href="#">진행중인프로그램</a></li>
-              </ul>
-            </div>
-          </li>
-          <li class="sh_top_menu sh_dropdown sh_top_menu_user">
-            <a href="#"><i id="sh-bell-icon" class="fas fa-bell"></i></a>
-            <div id="sh-msg-dropdown-content" class="sh_dropdown-content">
-              <ul id="sh_sub-menu-ul">
-                <div id="sh-msgbox-top" class="sh-msgbox">
-                  <ul>
-                    <li>알림(<span>0</span>)</li>
-                  </ul>
-                </div>
-                <div id="sh-msgbox-msg">
-                    <ul>
-                      <li>메세지가 없습니다.</li>
-                    </ul>
-                </div>
-                <div class="sh-msgbox"><span id="sh-msgbox-more">더보기</span></div>
-              </ul>
-            </div>
-          </li>
-          <li id="sh_top_menu_user" class="sh_top_menu sh_dropdown">
-            <a href="#">
-              <div class="sh-user-inline-block">
-                <i id="sh-user-icon" class="fas fa-user-circle"></i>
-              </div>
-              <div id="sh-user-name-div" class="sh-user-inline-block">
-                <span id="sh-user-name">SUHYEON PARK</span>
-              </div>
-              <div class="sh-user-inline-block">
-                <i id="sh-user-icon-tri" class="fas fa-caret-down"></i>
-              </div>
-            </a>
-            <div class="sh_dropdown-content">
-              <ul id="sh_sub-menu-ul">
-                <li><a class="sh_menu sh_after" href="#">마이페이지</a></li>
-                <li><a class="sh_menu sh_after" href="#">운동관리</a></li>
-                <li><a class="sh_menu sh_after" href="#">메시지</a></li>
-                <li><a class="sh_menu sh_after" href="#">운동후기</a></li>
-                <li><a class="sh_menu sh_after" href="#">계정설정</a></li>
-              </ul>
-            </div>
-          </li>
-        </ul>
       </div>
-      <!-- 드롭다운 서브메뉴 종료-->
+    </a>
 
-    </header>
-  </div>
+
+    <!-- 드롭다운 서브메뉴 시작-->
+    <div class="sh_top_utile_wrap">
+      <ul class="sh_top_link">
+        <li class="sh_top_menu">
+          <form id="sh_content">
+            <input type="text" name="sh-input" class="sh-input" placeholder="">
+            <button class="sh-searchBtn" type="reset"></button>
+          </form>
+        </li>
+        <li class="sh_top_menu sh_dropdown">
+          <a class="sh_menu sh_after" href="#">커뮤니티</a>
+          <div class="sh_dropdown-content">
+            <ul id="sh_sub-menu-ul">
+              <li><a class="sh_menu sh_after" href="#">명예의전당</a></li>
+              <li><a class="sh_menu sh_after" href="#">비포&애프터</a></li>
+              <li><a class="sh_menu sh_after" href="#">질문과답변</a></li>
+              <li><a class="sh_menu sh_after" href="#">자유게시판</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="sh_top_menu sh_dropdown">
+          <a class="sh_menu sh_after " href="#">프로그램</a>
+          <div class="sh_dropdown-content">
+            <ul id="sh_sub-menu-ul">
+              <li><a class="sh_menu sh_after" href="#">추천프로그램</a></li>
+              <li><a class="sh_menu sh_after" href="#">인기프로그램</a></li>
+              <li><a class="sh_menu sh_after" href="#">진행중인프로그램</a></li>
+            </ul>
+          </div>
+        </li>
+        <li class="sh_top_menu sh_dropdown">
+          <a class="sh_menu sh_after " href="#">로그인</a>
+        </li>
+        <!-- <li class="sh_top_menu sh_dropdown sh_top_menu_user">
+          <a href="#"><i id="sh-bell-icon" class="fas fa-bell"></i></a>
+          <div id="sh-msg-dropdown-content" class="sh_dropdown-content">
+            <ul id="sh_sub-menu-ul">
+              <div id="sh-msgbox-top" class="sh-msgbox">
+                <ul>
+                  <li>알림(<span>0</span>)</li>
+                </ul>
+              </div>
+              <div id="sh-msgbox-msg">
+                  <ul>
+                    <li>메세지가 없습니다.</li>
+                  </ul>
+              </div>
+              <div class="sh-msgbox"><span id="sh-msgbox-more">더보기</span></div>
+            </ul>
+          </div>
+        </li> -->
+        <!-- <li id="sh_top_menu_user" class="sh_top_menu sh_dropdown">
+          <a href="#">
+            <div class="sh-user-inline-block">
+              <i id="sh-user-icon" class="fas fa-user-circle"></i>
+            </div>
+            <div id="sh-user-name-div" class="sh-user-inline-block">
+              <span id="sh-user-name">SUHYEON PARK</span>
+            </div>
+            <div class="sh-user-inline-block">
+              <i id="sh-user-icon-tri" class="fas fa-caret-down"></i>
+            </div>
+          </a>
+          <div class="sh_dropdown-content">
+            <ul id="sh_sub-menu-ul">
+              <li><a class="sh_menu sh_after" href="#">마이페이지</a></li>
+              <li><a class="sh_menu sh_after" href="#">운동관리</a></li>
+              <li><a class="sh_menu sh_after" href="#">메시지</a></li>
+              <li><a class="sh_menu sh_after" href="#">운동후기</a></li>
+              <li><a class="sh_menu sh_after" href="#">계정설정</a></li>
+            </ul>
+          </div>
+        </li> -->
+      </ul>
+    </div>
+    <!-- 드롭다운 서브메뉴 종료-->
+
+  </header>
+</div>
+
+
 <!-- 본문 -->
 <div id="container">
 <div class="subject">
@@ -115,7 +126,7 @@
 <div class="column">
   <div class="middle one">
   <div class="oneImg">
-  	<img src="../ksy/img/exam01.PNG" style="width:661px; height:496px">
+  	<img src="../../ksy/img/exam01.PNG" style="width:661px; height:496px">
   </div>
   <div class="oneName">
   	<h3>[2기] 아웃바디 피트니스센터 - 3개월 안에 식스팩을 만들어 드립니다.</h3>
@@ -137,7 +148,7 @@
 
   <!-- 본문 따라다니는 navbar -> name id(#) 잘 활용하기 -->
   <div id="navbar" class="middle">
-   <a id="defaultNav" href="#navExam" onclick="openNav(event)" class="navLink">프로그램설명</a>
+   <a href="#navExam" onclick="openNav(event)" class="navLink">프로그램설명</a>
    <a href="#navPrice" onclick="openNav(event)" class="navLink">가격정보</a>
    <a href="#navNum" onclick="openNav(event)" class="navLink">기수정보</a>
    <a href="#navEval" onclick="openNav(event)" class="navLink">프로그램평가</a>
@@ -161,17 +172,17 @@
 
        <div class="mySlides fade">
          <div class="numbertext">1 / 3</div>
-         <img src="../ksy/img/inner1.jpg" style="width:100%; height: 365px;">
+         <img src="../../ksy/img/inner1.jpg" style="width:100%; height: 365px;">
        </div>
 
        <div class="mySlides fade">
          <div class="numbertext">2 / 3</div>
-         <img src="../ksy/img/inner2.jpg" style="width:100%; height: 365px;">
+         <img src="../../ksy/img/inner2.jpg" style="width:100%; height: 365px;">
        </div>
 
        <div class="mySlides fade">
          <div class="numbertext">3 / 3</div>
-         <img src="../ksy/img/inner3.jpg" style="width:100%; height: 365px;">
+         <img src="../../ksy/img/inner3.jpg" style="width:100%; height: 365px;">
        </div>
 
        <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
@@ -222,9 +233,9 @@
           <div class="priceRight">
             <div>
               <div class="priceSubLeft">
-                <a class="numMinus"><b>↓</b></a>
+                <!--<a class="numMinus"><b>↓</b></a>
                 <span><b>1</b></span>
-                <a class="numPlus"><b>↑</b></a>
+                <a class="numPlus"><b>↑</b></a>-->
               </div>
               <div class="priceSubRight"><b>99,000</b>원</div>
             </div>
@@ -677,14 +688,15 @@
 </div>
 </div>
 <!-- Footer -->
+<!--<div id="footer">
+</div>-->
+<!-- 서버 연결했을 때 지울 부분 -->
 <div id="sh_foot_layout">
   <footer class="sh_foot_wrap">
-    <div class="sh_foot_logo">
-
-    </div>
+    <div class="sh_foot_logo"></div>
     <div class="sh_foot_utile_wrap">
       <ul class="sh_foot_link">
-        <li> <img id="sh_foot-logo-img" src="../header/white-logo.png" alt="sh-footer-logo"> </li>
+        <li> <img id="sh_foot-logo-img" src="../../footer/white-logo.png" alt="sh-footer-logo"> </li>
         <li><a href="#">직원검색</a></li>
         <li><a href="#">사이트맵</a></li>
         <li><a href="#">이메일집단수집거부</a></li>
@@ -695,8 +707,15 @@
     <p class="copy">COPYRIGHT (C) KOREA POLAR RESEARCH INSTITUTE ALL RIGHT RESERVED</p>
   </footer>
 </div>
-<script src="../ksy/js/memberDetailPage.js"></script>
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../header/header_white_top.js"></script>
+<!-- 푸터 종료 -->
+
+
+<script src="../../ksy/js/memberDetailPage.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../header/header_white.js"></script>
+<script src="../../footer/footer.js"></script>
+<!-- 서버에 올릴 때 지울 부분 -->
+<script src="../../header/header_event.js"></script>
+
 </body>
 </html>
