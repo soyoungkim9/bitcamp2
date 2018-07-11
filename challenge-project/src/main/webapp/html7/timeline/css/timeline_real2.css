@@ -169,7 +169,7 @@ body:not(#footer) {
   height: 100%;
   min-height: 600px;
   position: relative;
-  /*background-color: #fff;*/
+  background-color: #fff;
 }
 
 #sh-mainContainer:not(#sh-mainContainer *) {
@@ -325,6 +325,7 @@ white-space: nowrap;
     color: #666666;
     top: 9px;
     left: 32px;
+    width: 100%;
 }
 /* 글작성 히든 CSS 시작 */
 .sh-tl-review-write {
@@ -472,6 +473,24 @@ div[contenteditable=true] {
   font-size: 12px;
   width: 300px;
   padding: 5px;
+}
+
+.sh-tl-post-img-upload {
+    display: inline-block;
+    position: relative;
+    /* text-align: right; */
+    right: -603px;
+    /* float: right; */
+    /* padding: 10px 50px 10px 10px; */
+    font-size: 26px;
+}
+
+.sh-tl-img-upload {
+    display: inline-block;
+    position: relative;
+    float: right;
+    padding: 10px 50px 10px 10px;
+    font-size: 26px;
 }
 /* 대댓글 CSS 종료 */
 
