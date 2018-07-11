@@ -37,8 +37,17 @@
     inner join POST p on c.CMUNO=p.PONO
     order by pono desc
     <!-- limit #{startRowNo}, #{pageSize} -->
-    
   </select>
+  
+  <select id="selectListNotice" 
+          resultMap="CommunityMap" 
+          parameterType="map">
+  SELECT pono, cmut 
+  from CMU c inner join POST p on c.CMUNO=p.PONO
+  WHERE CMU_TYPE='notice'
+  order by pono desc
+  </select>
+  
   
   <insert id="insert" parameterType="Community"
           useGeneratedKeys="true" keyColumn="pono" keyProperty="pono">
