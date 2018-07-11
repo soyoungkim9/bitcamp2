@@ -237,6 +237,38 @@
         <p class="evalEnp"><span>11</span>개의 평가</p>
       </div>
       </div>
+      <!-- 댓글입력 창 -->
+      <div class="commentInput">
+
+        <div class="userName">
+          <div class="userNameCircle"></div>
+          <div class="userNameContent"><b>홍길동</b></div>
+        </div>
+        <div class="userContent">
+          <textarea rows="5" cols="82" placeholder="정직한 프로그램 후기를 남겨주세요^^"></textarea>
+        </div>
+        <div class="formInput">
+          <div class="starInput">
+            <span class="star-input">
+            <span class="input">
+              <input type="radio" name="star-input" value="1" id="p1">
+              <label for="p1">1</label>
+              <input type="radio" name="star-input" value="2" id="p2">
+              <label for="p2">2</label>
+              <input type="radio" name="star-input" value="3" id="p3">
+              <label for="p3">3</label>
+              <input type="radio" name="star-input" value="4" id="p4">
+              <label for="p4">4</label>
+              <input type="radio" name="star-input" value="5" id="p5">
+              <label for="p5">5</label>
+            </span>
+            <output for="star-input"><b>0</b>점</output>
+            </span>
+          </div>
+            <button class="commentRegister" type="button">등록</button>
+        </div>
+      </div>
+      <!-- 댓글 리스트 -->
       <div class="EvalContent2">
         <div>
           <ul>
@@ -420,7 +452,7 @@
  <div class="asideProfile">
   <div class="ProfileDiv">
     <div class="proImg">
-   	   <a href="http://challenge.java106.com:8888/challenge-project/html7/hj/html/trainer.html"><div class="imgCircle"></div></a>
+   	   <div class="imgCircle"></div>
     </div>
     <div class="proName">
      <h2>ksy106</h2>
@@ -599,6 +631,7 @@
 <script src="../../js/common.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../../ksy/js/memberDetailPage.js"></script>
+<script src="../../ksy/js/star.js"></script>
 <script src="../../header/js/header_white.js"></script>
 <script src="../../footer/js/footer.js"></script>
 
