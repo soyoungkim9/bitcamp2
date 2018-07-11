@@ -24,18 +24,7 @@
 
   }
 
-  .sm-msgBox-body th, td {
-    text-align: center;
-    padding: 16px;
-  }
-
-  tr:nth-child(even) {
-    background-color: #f2f2f2
-  }
-  tr:hover {
-    background-color: #FAF4C0
-  }
-  img {
+  .chall-table img {
     width:100px;
     height:80px;
     padding-top: 3px;
@@ -61,12 +50,12 @@
 
 
   <div class="sm-top-bar-white" style="z-index:2;">
-    <div class="sm-container">
 
       <!-- 헤더 시작 -->
       <div id="header"></div>
       <!-- 헤더 종료-->
 
+    <div class="sm-container">
       <!-- 상단 메뉴바 시작 -->
       <div id="mb-menu"></div>
       <!-- 상단 메뉴바 종료 -->
@@ -153,7 +142,7 @@
             <input id="sm-btn-2" style="margin:0; margin-bottom:3px; padding:5px 0px;" type="button" value="환불신청">
           </form>
         <div class="sm-msgBox-body">
-          <table cellspacing="0" style="text-align:center; width:100%; border:1px solid #ddd">
+          <table class="chall-table" cellspacing="0" style="text-align:center; width:100%; border:1px solid #ddd">
             <tr style="background-color:#1B3453; height:40px; color:white;">
               <td width="10%">선택</td><td width="20%">챌린지</td><td width="30%">프로그램 제목</td>
               <td width="20%">트레이너</td><td width="20%">결제일</td>
@@ -178,7 +167,7 @@
             <input id="sm-btn-1-small" style="margin:0; margin-bottom:3px;" type="button" value="삭제하기">
           </form>
         <div class="sm-msgBox-body">
-          <table cellspacing="0" style="text-align:center; width:100%; border:1px solid #ddd">
+          <table class="chall-table" cellspacing="0" style="text-align:center; width:100%; border:1px solid #ddd">
             <tr style="background-color:#1B3453; height:40px; color:white;">
               <td width="10%">선택</td><td width="20%">챌린지</td><td width="30%">프로그램 제목</td>
               <td width="20%">트레이너</td><td width="20%">상태</td>
@@ -210,7 +199,7 @@
             <input id="sm-btn-1-small" style="margin:0; margin-bottom:3px;" type="button" value="삭제하기">
           </form>
         <div class="sm-msgBox-body">
-          <table cellspacing="0" style="text-align:center; width:100%; border:1px solid #ddd">
+          <table class="chall-table" cellspacing="0" style="text-align:center; width:100%; border:1px solid #ddd">
             <tr style="background-color:#1B3453; height:40px; color:white;">
               <td width="10%">선택</td><td width="20%">챌린지</td><td width="30%">프로그램 제목</td>
               <td width="20%">트레이너</td><td width="20%">결제일</td>
@@ -262,8 +251,9 @@ function openCity(evt, cityName) {
 }
 </script>
 <script src="/challenge-project/html7/node_modules/jquery/dist/jquery.min.js"></script>
-<script src="/challenge-project/html7/header/js/header_white_login.js"></script>
-<script src="/challenge-project/html7/footer/js/footer.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../header/js/header_white_login.js"></script>
+<script src="../../footer/js/footer.js"></script>
 <script src="../js/sm-following.js"></script>
 <script src="../js/mb-menu.js"></script>
 </body>
