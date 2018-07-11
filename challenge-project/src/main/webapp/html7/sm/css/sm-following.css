@@ -27,6 +27,7 @@
 
 /* The Close Button */
 .close {
+	padding: 5px;
     color: #aaa;
     float: right;
     font-size: 28px;
@@ -94,24 +95,14 @@
     margin: 10px;
     width:50px;
     display:inline-block;
-    margin-left: 142px;
+    margin-left: 20px;
 }
-
-li {
-    display:inline-block;
-    text-align:center;
-}
-h2 {
+table h2 {
     position: relative;
     margin:0;
     top:-20px;
     left:20px;
 }
-ul {
-    padding:0;
-    margin:0;
-}
-
 .sm-modal-i {
     font-family: 'Titillium Web';
     top: -20px;
@@ -124,6 +115,7 @@ ul {
     height: 70px;
     display: inline-block;
     border-radius: 50%;
+    margin-bottom: 5px;
 }
 
 .sm-c-s {
