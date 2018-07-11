@@ -114,7 +114,8 @@ a:hover {
 .container {
 	/* border: solid red; */
 	/* margin: auto; */
-	padding:50px;
+	padding: 0 50px;
+	/* border:solid red; */
 
 	
 }
@@ -126,3 +127,11 @@ a:hover {
 	border-radius: 20px;
 
 }
+
+#footer {
+	/* border:solid red; */
+   bottom: 0;
+    position: fixed;
+    width: 100%;
+}
+

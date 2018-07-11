@@ -217,3 +217,10 @@ textarea {
     border-radius: 50%;
     background: white;
 }
+
+#footer {
+    /* border:solid red; */
+   bottom: 0;
+    position: fixed;
+    width: 100%;
+}
