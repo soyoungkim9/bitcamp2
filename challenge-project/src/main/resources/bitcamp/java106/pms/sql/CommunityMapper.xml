@@ -35,6 +35,7 @@
     from CMU c 
     inner join USER u on c.uno=u.uno 
     inner join POST p on c.CMUNO=p.PONO
+    order by pono desc
     <!-- limit #{startRowNo}, #{pageSize} -->
     
   </select>

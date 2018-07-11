@@ -13,7 +13,6 @@
 }
 
 .chall-table {
-  text-align: center;
   width: 100%;
   border: 1px solid #ddd
 }
@@ -24,16 +23,23 @@
 }
 
 .chall-table tr:first-child {
-  background-color: #1B3453;
-  height: 40px;
-  color: white;
+	height: 50px;
 }
 
-.chall-table tr:nth-child(even) {
+.chall-thead {
+  text-align: center;
+  background-color: #1B3453;
+  color: white;
+}
+.chall-thead th {
+	padding: 12px;
+}
+
+.chall-tbody tr:nth-child(even) {
   background-color: #f2f2f2
 }
 
-.chall-table tr:hover {
+.chall-tbody tr:hover {
   background-color: #FAF4C0
 }
 
