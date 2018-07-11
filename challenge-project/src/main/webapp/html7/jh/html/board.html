@@ -11,16 +11,23 @@
   <title>자유게시판</title>
 
   <!-- Bootstrap core CSS -->
-  <link href="../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
   <!-- font core CSS -->
-  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="../css/common.css">
   <!-- icon tools-->
-  <link rel="stylesheet" href="../node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
   <!-- page css-->
-  <link rel="stylesheet" href="css/board.css">
+  <link rel="stylesheet" href="../css/board.css">
+  <link rel="stylesheet" href="/challenge-project/html7/sm/css/table.css">
+  <link rel="stylesheet" href="/challenge-project/html7/sm/css/pagenation.css">
 
 
-
+<style>
+    .sm-pagination-button {
+        height:35px;
+        padding:5px;
+    }
+</style>
 </head>
 
 <body>
@@ -122,13 +129,83 @@
 
         <div class="jh-left-board ">
           <div class="border-table-wrapper">
+            <table class="chall-table">
+              <tr>
+                <td width="10%">글번호</td><td width="10%">말머리</td><td width="40%">제목</td>
+                <td width="20%">게시날짜</td><td width="20%">조회수</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><i class="fas fa-star"></i></td>
+                <td><a href="#">안녕하세요!!</a></td>
+                <td>홍길동</td>
+                <td>2011-01-01</td> 
+              </tr>  
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><i class="fas fa-star"></i></td>
+                <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
+                <td>홍길동</td>
+                <td>2011-01-01</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><i class="far fa-star"></i></td>
+                <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
+                <td>홍길동</td>
+                <td>2011-01-01</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><i class="far fa-star" style="color:#1B3453;"></i></td>
+                <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
+                <td>홍길동</td>
+                <td>2011-01-01</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><i class="fas fa-star" style="color:#1B3453;"></i></td>
+                <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
+                <td>홍길동</td>
+                <td>2011-01-01</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><i class="fas fa-star" style="color:#1B3453;"></i></td>
+                <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
+                <td>홍길동</td>
+                <td>2011-01-01</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><i class="fas fa-star" style="color:#1B3453;"></i></td>
+                <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
+                <td>홍길동</td>
+                <td>2011-01-01</td>
+              </tr>
+              <tr>
+                <td><input type="checkbox"></td>
+                <td><i class="fas fa-star" style="color:#1B3453;"></i></td>
+                <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
+                <td>홍길동</td>
+                <td>2011-01-01</td>
+              </tr>
+              
+              
+              
+              
+            </table>
+          </div><!--테이블-->
+          <div class="sm-pagination" style="height:35px; padding-top:5px;">
+            <a class="sm-pagination-button sm-pagination-side" href="#"><i class="fas fa-angle-left"></i></a>
+            <a class="sm-pagination-button" href="#">1</a>
+            <a class="sm-pagination-button" href="#">2</a>
+            <a class="sm-pagination-button" href="#">3</a>
+            <a class="sm-pagination-button" href="#">4</a>
+            <a class="sm-pagination-button sm-pagination-button-end" href="#">5</a>
+            <a class="sm-pagination-button sm-pagination-side" href="#"><i class="fas fa-angle-right"></i></a>
+          </div> <!-- pagination -->
 
-
-
-
-
-
-            </div>
             <div class="btnWrap">
               <button type="button" name="write">글쓰기</button></div>
             <div id="jh-search-freeboard">
@@ -146,16 +223,16 @@
             </div>
           </div>
 
-
+</div>
         </div>
         <!--hf-wrapper-->div>
   </main>
 <div id="footer"></div>
 
-<script src="../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../js/common.js"></script>
-<script src="../header/js/header_white_login.js"></script>
-<script src="../footer/js/footer.js"></script>
+<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../js/common.js"></script>
+<script src="../../header/js/header_white_login.js"></script>
+<script src="../../footer/js/footer.js"></script>
 </body>
 
 </html>
