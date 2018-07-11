@@ -41,6 +41,22 @@ button:focus {
     cursor: pointer;
     border-radius:10px;
 }
+
+#sm-btn-1-small { /* 남색 작은버튼 */
+  width:100px;
+    background-color: #1B3453;
+    border: none;
+    color:#fff;
+    padding: 5px 0;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 13px;
+    margin: 3px;
+    cursor: pointer;
+    border-radius:10px;
+}
+
 #sm-btn-2 { /* 빨간색 버튼 */
   width:100px;
     background-color: #DD1F26;
@@ -264,34 +280,7 @@ ul {list-style:none;}
 }
 
 
-.sm-pagination { /* 하단 페이지 바 */
-  width: 100%;
-  text-align: center;
-  font-size: 0;
-  margin: 20px 0;
-  margin-bottom: 50px;
-  padding-bottom: 50px;
-}
 
-.sm-pagination-button {
-  display: inline-block;
-  border: 1px solid #ddd;
-  border-right: none;
-  width: 45px;
-  height: 25px;
-  color: #666666;
-  font-size: 15px;
-  margin: 10px 0px;
-  padding-top: 10px;
-  text-decoration: none;
-}
-.sm-pagination-button-end {
-  border-right: 1px solid #ddd;
-}
-.sm-pagination-side {
-  color:#ddd;
-  border: none;
-}
 
 .sm-a-none, sm-a-none a:hover, sm-a-none a:visited { /* a 태그 스타일 없애기 */
   text-decoration: none;
