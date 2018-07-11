@@ -3,7 +3,7 @@
 <head>
 <meta charset='UTF-8'>
 <title>회원페이지</title>
-    <link rel="stylesheet" href="sm-following.css">
+    <link rel="stylesheet" href="css/sm-following.css">
 <link rel="stylesheet" href="/challenge-project/html7/sm/sm-memberPage.css">
   <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
 <link rel="stylesheet" href="/challenge-project/html7/node_modules/@fortawesome/fontawesome-free/css/all.css">
@@ -21,7 +21,7 @@
       <br>
             사용자이름<br>
             <button id="myBtn" class="sm-fw-btn" style="margin-top:10px; margin-bottom:20px;">나의 팔로잉</button>
-				<div id="myModal" class="modal">
+				<div id="myModal" class="modal" style="z-index:5;">
 				    
 				    <div class="modal-content">
 				      <div class="modal-header">
@@ -78,22 +78,9 @@
 
 
 <script>
-var modal = document.getElementById('myModal');
-var btn = document.getElementById("myBtn");
-var span = document.getElementsByClassName("close")[0];
-btn.onclick = function() {
-    modal.style.display = "block";
-}
-span.onclick = function() {
-    modal.style.display = "none";
-}
-window.onclick = function(event) {
-    if (event.target == modal) {
-        modal.style.display = "none";
-    }
-}
+
 </script>
-<script src="sm-following.js"></script>
+<script src="css/sm-following.js"></script>
 
 </body>
 </html>
