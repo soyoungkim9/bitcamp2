@@ -71,10 +71,10 @@
             </select>
           </form>
         <div class="sm-msgBox-body">
-          <table cellspacing="0">
+          <table class="chall-table" cellspacing="0">
             <tr>
-              <td width="10%">선택</td><td width="10%">보관</td><td width="40%">제목</td>
-              <td width="20%">보낸사람</td><td width="20%">날짜</td>
+              <th width="10%">선택</th><th width="10%">보관</th><th width="40%">제목</th>
+              <th width="20%">보낸사람</th><th width="20%">날짜</th>
             </tr>
             <tr>
               <td><input type="checkbox"></td>
@@ -142,25 +142,29 @@
           </select>
         </form>
         <div class="sm-msgBox-body">
-          <table cellspacing="0" style="text-align:center; width:100%; border:1px solid #ddd">
-            <tr style="background-color:#1B3453; height:40px; color:white;">
-              <td width="10%">선택</td><td width="10%">보관</td><td width="40%">제목</td>
-              <td width="20%">보낸사람</td><td width="20%">날짜</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox"></td>
-              <td><i class="fas fa-star" style="color:#1B3453;"></i></td>
-              <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
-              <td>홍길동</td>
-              <td>2011-01-01</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox"></td>
-              <td><i class="fas fa-star" style="color:#1B3453;"></i></td>
-              <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
-              <td>홍길동</td>
-              <td>2011-01-01</td>
-            </tr>
+          <table class="chall-table" cellspacing="0" style="text-align:center; width:100%; border:1px solid #ddd">
+            <thead>
+	            <tr style="background-color:#1B3453; height:40px; color:white;">
+	              <th width="10%">선택</th><th width="10%">보관</th><th width="40%">제목</th>
+	              <th width="20%">보낸사람</th><th width="20%">날짜</th>
+	            </tr>
+            </thead>
+            <tbody>
+	            <tr>
+	              <td><input type="checkbox"></td>
+	              <td><i class="fas fa-star" style="color:#1B3453;"></i></td>
+	              <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
+	              <td>홍길동</td>
+	              <td>2011-01-01</td>
+	            </tr>
+	            <tr>
+	              <td><input type="checkbox"></td>
+	              <td><i class="fas fa-star" style="color:#1B3453;"></i></td>
+	              <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
+	              <td>홍길동</td>
+	              <td>2011-01-01</td>
+	            </tr>
+            </tbody>
           </table>
           <div class="sm-pagination">
             <a class="sm-pagination-button sm-pagination-side" href="#"><i class="fas fa-angle-left"></i></a>
@@ -209,6 +213,7 @@ function openCity(evt, cityName) {
 }
 </script>
 <script src="/challenge-project/html7/node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../../js/common.js"></script>
 <script src="/challenge-project/html7/header/js/header_white_login.js"></script>
 <script src="/challenge-project/html7/footer/js/footer.js"></script>
 <script src="../js/mb-menu.js"></script>
