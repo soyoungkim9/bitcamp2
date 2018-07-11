@@ -1,8 +1,8 @@
-package bitcamp.java106.pms.dao;
+package challenge.dao;
 
 import java.util.List;
 
-import bitcamp.java106.pms.domain.Community;
+import challenge.domain.Community;
 
 public interface CommunityDao {
     int delete(int no);

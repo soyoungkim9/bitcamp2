@@ -1,4 +1,4 @@
-package bitcamp.java106.pms.web.json;
+package challenge.web.json;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import bitcamp.java106.pms.domain.Community;
-import bitcamp.java106.pms.service.CommunityService;
+import challenge.domain.Community;
+import challenge.service.CommunityService;
 
 @RestController
 @RequestMapping("/community")

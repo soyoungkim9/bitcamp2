@@ -1,4 +1,4 @@
-package bitcamp.java106.pms.domain;
+package challenge.domain;
 
 import java.io.Serializable;
 

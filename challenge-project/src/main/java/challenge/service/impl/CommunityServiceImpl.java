@@ -1,13 +1,13 @@
 // 업무로직 구현체 - 고객사 마다 다른 구현을 할 수 있다.
-package bitcamp.java106.pms.service.impl;
+package challenge.service.impl;
 
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
-import bitcamp.java106.pms.dao.CommunityDao;
-import bitcamp.java106.pms.domain.Community;
-import bitcamp.java106.pms.service.CommunityService;
+import challenge.dao.CommunityDao;
+import challenge.domain.Community;
+import challenge.service.CommunityService;
 
 
 @Service
