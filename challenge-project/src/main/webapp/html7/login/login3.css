@@ -32,12 +32,18 @@ a:hover {
 .omb_login .omb_socialButtons a {
     color: white; // In yourUse @body-bg 
     opacity:0.9;
+    
 }
 .omb_login .omb_socialButtons a:hover {
     color: white;
     opacity:1;      
 }
 
+.omb_login .omb_socialButtons {
+	/* border:solid red; */
+	width: 700px;
+	margin:0 auto;
+}
 
 /*버튼 부분*/
 
@@ -107,11 +113,15 @@ a:hover {
 
 .container {
 	border: solid red;
-	margin: 100px auto;
+	/* margin: auto; */
+	padding:25px;
+
 	
 }
 
 .omb_login {
 	border: dashed yellow;
-	margin: 50px auto;
+	margin: 30px;
+	padding: 30px;
+
 }
