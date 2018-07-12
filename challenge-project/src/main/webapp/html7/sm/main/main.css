@@ -4,7 +4,7 @@
 #sm-btn-1 { /* 남색 버튼 */
   width:100px;
     background-color: #1B3453;
-    border: none;
+    border:1px solid #1B3453;
     color:#fff;
     padding: 10px 0;
     text-align: center;
@@ -23,7 +23,7 @@
 #sm-btn-2 { /* 빨간색 버튼 */
   width:100px;
     background-color: #DD1F26;
-    border: none;
+    border:1px solid #DD1F26;
     color:#fff;
     padding: 10px 0;
     text-align: center;
@@ -51,12 +51,12 @@
       font-weight: 600;
       margin-bottom: 30px;
   }
+
   h4 {
       font-size: 19px;
       line-height: 1.375em;
       color: #303030;
       font-weight: 400;
-      margin-bottom: 30px;
   }  
   .jumbotron {
       background-color: #DD1F26;
@@ -65,7 +65,13 @@
       font-family: Montserrat, sans-serif;
   }
   .container-fluid {
-      padding: 60px 50px;
+      padding: 20px 50px;
+  }
+  .container-fluid div div i {
+  padding-top:10px;
+  padding-bottom:10px;
+    font-size:80px;
+      color:white;
   }
   .bg-grey {
       background-color: #f6f6f6;

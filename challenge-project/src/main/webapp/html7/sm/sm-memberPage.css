@@ -30,7 +30,7 @@ button:focus {
 #sm-btn-1 { /* 남색 버튼 */
   width:100px;
     background-color: #1B3453;
-    border: none;
+    border:1px solid #1B3453;
     color:#fff;
     padding: 10px 0;
     text-align: center;
@@ -50,7 +50,7 @@ button:focus {
 #sm-btn-1-small { /* 남색 작은버튼 */
   width:100px;
     background-color: #1B3453;
-    border: none;
+    border:1px solid #1B3453;
     color:#fff;
     padding: 5px 0;
     text-align: center;
@@ -65,7 +65,7 @@ button:focus {
 #sm-btn-2 { /* 빨간색 버튼 */
   width:100px;
     background-color: #DD1F26;
-    border: none;
+    border:1px solid #DD1F26;
     color:#fff;
     padding: 10px 0;
     text-align: center;
