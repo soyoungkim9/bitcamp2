@@ -80,12 +80,13 @@
       color:#DD1F26;
   }
   .sm-red-i2 i {
-    padding-top: 10px;
+padding-top: 10px;
     padding-bottom: 10px;
-    font-size: 250px;
+    font-size: 230px;
     position: relative;
     color: #DD1F26;
-    top: -45px;
+    margin-top: 80px;
+    left: 500px;
   }
   .bg-grey {
       background-color: #f6f6f6;
