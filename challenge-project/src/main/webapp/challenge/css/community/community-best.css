@@ -104,11 +104,22 @@ main {
   color: #666; font-size: 13px; letter-spacing: -0.5px; line-height: 1.4;
 }
 /* 사이드바 컨텐츠 메뉴 css 끝지점*/
+.card-text{
+	    margin-bottom: 0.5rem;
+}
 .card-content>ul{padding:3px;}
 .card-content>ul>li {
   color: #6c757d!important;
   display:inline; /* 세로나열을 가로나열로 변경 */
   border-left:1px solid #999; /* 각 메뉴의 왼쪽에 "|" 표시(분류 표시) */
   font:bold 12px Dotum; /* 폰트 설정 - 12px의 돋움체 굵은 글씨로 표시 */
-  padding:0 10px; /* 각 메뉴 간격 */ }
+  padding:0 3px; /* 각 메뉴 간격 */ }
 .card-content>ul>li:first-child{border-left:none;}
+.btn-group > small {
+	margin-left: 0.5rem;
+	font-size:15px;
+	padding-top: 0.8rem;
+}
+.d-flex {
+	padding-left:3rem;
+}
