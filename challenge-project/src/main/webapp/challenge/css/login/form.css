@@ -19,6 +19,7 @@ form.memberform, form.trainerform {
      /* border: solid red; */
      /* border: solid hidden; */
      padding: 0 100px;
+     margin-top: 80px;
   
 }
 
@@ -42,17 +43,18 @@ fieldset {
  
  .button1, .button2 {
     background-color: #DD1F26;
-     border: none;
+    border: none;   
     color: #FFFFFF;
-    padding: 10px 5px;
+    padding: 8px 0;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 16px;
-    margin: 10px 10px;
+   /* /*  margin: 10px 10px; */
     cursor: pointer;
     border-radius: 6px;
-    width: 100px;
+    width: 130px;
+    margin-right: 40px;
 } 
 .file {
     border: 1px solid #EEEEEE;
@@ -101,7 +103,7 @@ input.name, .email, .password, .phone{
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    padding-bottom: 3px;
+    padding-bottom: 7px;
 }
 
 /* Hide the browser's default checkbox */
