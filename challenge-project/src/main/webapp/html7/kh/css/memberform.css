@@ -13,38 +13,38 @@ body {
 }
 
 form.memberform, form.trainerform {
-	  /* border: solid red; */
-	/*  margin: 50px;
-	 padding: 50px; */
-	 /* border: solid red; */
-	 /* border: solid hidden; */
-	 padding: 0 100px;
-	 
-	 
-	
-	
-	
+      /* border: solid red; */
+    /*  margin: 50px;
+     padding: 50px; */
+     /* border: solid red; */
+     /* border: solid hidden; */
+     padding: 0 100px;
+     
+     
+    
+    
+    
 }
 
 legend {
-	color:#1B3453;
-	font-size: 25px;
-	font-weight: bold;
+    color:#1B3453;
+    font-size: 25px;
+    font-weight: bold;
 }
 
 fieldset {
-	background: #EEEEEE;
-	/* border: none; */
-	border-radius: 10px;
-	margin:30px 100px;
-	
-/* 	
-	padding: 15px 0px 30px 0px;  */
-	
-}    
+    /* background: #EEEEEE; */
+    border: none;
+    border-radius: 10px;
+    margin:30px 100px;
+    
+    
+    padding: 15px 0px 30px 0px; 
+    
+} 
 
  
- .button {
+ .button1, .button2 {
     background-color: #DD1F26;
      border: none;
     color: #FFFFFF;
@@ -52,14 +52,15 @@ fieldset {
     text-align: center;
     text-decoration: none;
     display: inline-block;
-    font-size: 18px;
+    font-size: 16px;
     margin: 10px 10px;
     cursor: pointer;
     border-radius: 6px;
-    width: 250px;
+    width: 100px;
 } 
 .file {
-     border: none;
+    border: 1px solid #EEEEEE;
+    /* border: none; */
     background: #FFFFFF;
     border-radius: 4px;
     width:215px;
@@ -67,22 +68,30 @@ fieldset {
     padding: 0px;
 }
 input.name, .email, .password, .phone{
-	
-	margin: 5px 5px;
+    
+    margin: 5px 5px;
     padding: 8px;
     border: 1px solid #EEEEEE;
     border-radius: 4px;
     resize: vertical;
     width: 200px;
+    /* color: #eee; */
+    /* opacity: 0.8; */
+    color:#666666;
 }
 
-textarea {
-	margin: 5px 5px;
+::-webkit-input-placeholder{
+    opacity: 0.3;
+    }
+
+ .txtar {
+    margin: 5px 5px;
     padding: 8px;
     border: 1px solid #EEEEEE;
     border-radius: 4px;
     resize: vertical;
     resize: none;
+    color:#666666;
 }
 
 .agree {
@@ -92,11 +101,11 @@ textarea {
     /* margin-bottom: 12px; */
     cursor: pointer;
      font-size: 14px;
-    -webkit-user-select: none;
+  -webkit-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    padding-bottom: 8px;
+    padding-bottom: 3px;
 }
 
 /* Hide the browser's default checkbox */
@@ -109,11 +118,13 @@ textarea {
 /* Create a custom checkbox */
 .checkmark {
     position: absolute;
-    top: -5px;
-    left: 0;
-    height: 25px;
-    width: 25px;
-    background-color: #ffffff;
+    top: -3px;
+    left: 5px;
+    height: 15px;
+    width: 15px;
+   /*  background-color: #ffffff; */
+   /*  border:0.3px solid black; */
+   border: 2px solid #EEEEEE;
 }
 
 /* On mouse-over, add a grey background color */
@@ -128,9 +139,9 @@ textarea {
 
 /* Create the checkmark/indicator (hidden when not checked) */
 .checkmark:after {
-    content: "";
+    content: " ";
     position: absolute;
-    display: none;
+   display: none;
 }
 
 /* Show the checkmark when checked */
@@ -140,15 +151,15 @@ textarea {
 
 /* Style the checkmark/indicator */
 .agree .checkmark:after {
-     left: 9px;
-    top: 5px;
+    top: 0px;
+     left: 4px;
     width: 5px;
     height: 10px;
     border: solid white;
     border-width: 0 3px 3px 0;
     -webkit-transform: rotate(45deg);
     -ms-transform: rotate(45deg);
-    transform: rotate(45deg);
+    transform: rotate(45deg);*
 }
 
 
@@ -164,7 +175,7 @@ textarea {
     -moz-user-select: none;
     -ms-user-select: none;
     user-select: none;
-    padding-bottom: 3px;
+    /* padding-bottom: 0px; */
     padding-top: 3px;
 }
 
@@ -176,44 +187,45 @@ textarea {
 }
 
 /* Create a custom radio button */
-.rcheckmark {
+.gcheckmark {
     position: absolute;
-    top: 0px;
-    left: 6px;
-    height: 23px;
-    width: 23px;
-    background-color: #ffffff;
+    top: 2px;
+    left: 8px;
+    height: 16px;
+    width: 16px;
+    /* background-color: #ffffff; */
     border-radius: 50%;
+    border: 2px solid #eeeeee;
 }
 
 /* On mouse-over, add a grey background color */
-/* .gen:hover input ~ .rcheckmark {
+/* .gen:hover input ~ .gcheckmark {
     background-color: #ccc; red;
 } */
 
 /* When the radio button is checked, add a blue background */
-.gen input:checked ~ .rcheckmark {
+.gen input:checked ~ .gcheckmark {
     background-color: #DD1F26;
 }
 
 /* Create the indicator (the dot/circle - hidden when not checked) */
-.rcheckmark:after {
+.gcheckmark:after {
     content: "";
     position: absolute;
     display: none;
 }
 
 /* Show the indicator (dot/circle) when checked */
-.gen input:checked ~ .rcheckmark:after {
+.gen input:checked ~ .gcheckmark:after {
     display: block;
 }
 
 /* Style the indicator (dot/circle) */
-.gen .rcheckmark:after {
-    top: 7px;
-    left: 7px;
-    width: 9px;
-    height: 9px;
+.gen .gcheckmark:after {
+    top: 5px;
+    left: 5px;
+    width: 6px;
+    height: 6px;
     border-radius: 50%;
     background: white;
 }

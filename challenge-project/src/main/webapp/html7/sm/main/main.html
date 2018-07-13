@@ -469,8 +469,7 @@ display: block;
       </div>
 
       <!-- Add Google Maps -->
-      <div id="googleMap" style="height:400px;width:100%;">
-      </div>
+      <div id="map" style="height:400px;width:100%;"></div>
 
       <!-- 부트스트랩 바디코드 끝 -->
 
@@ -493,6 +492,21 @@ display: block;
     <!-- 푸터 종료 -->
 
 
+
+
+    <!-- 지도API -->
+    <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4ea5df98d1c1bb747f2e255fe41fd48b"></script>
+    <script>
+        var container = document.getElementById('map');
+        var options = {
+            center: new daum.maps.LatLng(33.450701, 126.570667),
+            level: 3
+        };
+
+        var map = new daum.maps.Map(container, options);
+    </script>
+    <!-- 지도API 끝! -->
+    
     <script>
     function myMap() {
     var myCenter = new google.maps.LatLng(41.878114, -87.629798);
