@@ -35,9 +35,9 @@
                     <tr>
                         <td><label for="gender">성별</label></td>
                         <td><label class="gen">남자 <input type="radio"
-                                name="radio"> <span class="rcheckmark"></span>
+                                name="radio"> <span class="gcheckmark"></span>
                         </label> <label class="gen">여자 <input type="radio" name="radio">
-                                <span class="rcheckmark"></span>
+                                <span class="gcheckmark"></span>
                         </label></td>
                     </tr>
 
@@ -71,14 +71,14 @@
 
                     <tr>
                         <td><label for="tel">전화</label></td>
-                        <td><input type="tel" name="tel" id="tel"
-                            placeholder="000-0000-0000"
+                        <td><input type="tel" name="tel"
+                            placeholder="00*-000*-0000"
                             pattern="[0-9]{2,3}-[0-9]{3,4}-[0-9]{3,4}" maxlength="13"
                             class="phone" required></td>
                 
                 <tr>
                 <td><label for="textarea">소개</label></td>
-                <td><textarea cols="35" rows="6" placeholder="자기소개나 경력을 입력해 주세요."></textarea></td>
+                <td><textarea cols="35" rows="6" placeholder="자기소개나 경력을 입력해 주세요." class="txtar"></textarea></td>
                 </tr>            
 
 <tr>
@@ -90,10 +90,10 @@
 
                 <center>
 
-                    <input type="submit" name="submit" value="회원가입" class="button">
+                    <input type="submit" name="submit" value="회원가입" class="button1">
 
 
-                    <input type="reset" name="reset" value="가입취소" class="button">
+                    <input type="reset" name="reset" value="가입취소" class="button2">
                 </center>
 
             </fieldset>
