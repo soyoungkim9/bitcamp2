@@ -12,19 +12,20 @@
 <title>자유게시판</title>
 
 <!-- Bootstrap core CSS -->
-<link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+<link href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"
+	rel="stylesheet">
 <!-- font core CSS -->
 <link rel="stylesheet" href="../../css/common.css">
 <!-- icon tools-->
 <link rel="stylesheet"
 	href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
 <!-- page css-->
-<link rel="stylesheet" href="../../css/community/board.css">
+<link rel="stylesheet" href="../../css/community/community-list.css">
 <link rel="stylesheet" href="/challenge-project/html7/sm/css/table.css">
 <link rel="stylesheet"
 	href="/challenge-project/html7/sm/css/pagenation.css">
 
- 
+
 <style>
 .sm-pagination-button {
 	height: 35px;
@@ -180,9 +181,9 @@
 	<!--hf-wrapper-->div> </main>
 	<div id="footer"></div>
 
-	<script src="../node_modules/handlebars/dist/handlebars.min.js"></script>
-	<script src="../node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="../js/common.js"></script>
+	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+	<script src="../../js/common.js"></script>
 	<script id="tr-template" type="text/x-handlebars-template">
 {{#each list}}
 <tr>
@@ -195,12 +196,12 @@
 </tr>
 {{/each}}
 </script>
-    <script>
-    $("#writeBtn").click(() => { location.href="bd-write.html"});
+	<script>
+    $("#writeBtn").click(() => { location.href="community-write.html"});
     </script>
-	<script src="../header/js/header_white_login.js"></script>
-	<script src="../footer/js/footer.js"></script>
-	<script src="list.js"></script>
+	<script src="../../js/header/header_white.js"></script>
+	<script src="../../js/footer/footer.js"></script>
+	<script src="../../js/community/community-list.js"></script>
 </body>
 
 </html>
