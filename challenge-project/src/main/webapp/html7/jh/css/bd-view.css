@@ -278,7 +278,7 @@ dl.cmt_item dd.opinion .upDown .line em.up {
     font: normal 12px 돋움,Dotum,Helvetica, sans-serif;
     text-align: left;
 }
-dl.cmt_item dd.opinion .upDown .line strong {
+dl.cmt_item dd.opinion .upDown .line #CountedClicks {
     float: right;
     font: bold 10px Verdana;
     color: #999;
