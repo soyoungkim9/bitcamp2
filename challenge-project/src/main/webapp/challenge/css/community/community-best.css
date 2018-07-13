@@ -115,3 +115,11 @@ main {
   font:bold 12px Dotum; /* 폰트 설정 - 12px의 돋움체 굵은 글씨로 표시 */
   padding:0 3px; /* 각 메뉴 간격 */ }
 .card-content>ul>li:first-child{border-left:none;}
+.btn-group > small {
+	margin-left: 0.5rem;
+	font-size:15px;
+	padding-top: 0.8rem;
+}
+.d-flex {
+	padding-left:3rem;
+}
