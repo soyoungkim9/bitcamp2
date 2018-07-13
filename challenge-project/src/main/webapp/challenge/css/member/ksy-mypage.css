@@ -80,7 +80,7 @@ border:1px solid gray;
   position:fixed;
   display: inline-block;
   border-bottom: 1px solid rgb(102, 102, 102, 0.2);
-  z-index: 999;
+  z-index:4;
 }
 
 .sm-menubar{
