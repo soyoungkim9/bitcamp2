@@ -7,47 +7,47 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
-import challenge.domain.Community;
-import challenge.service.CommunityService;
+import challenge.domain.Post;
+import challenge.service.PostService;
 
 @RestController
-@RequestMapping("/community")
-public class CommunityController {
+@RequestMapping("/post")
+public class PostController {
 
-    CommunityService communityService;
+    PostService postService;
 
-    public CommunityController(CommunityService communityService) {
-        this.communityService = communityService;
+    public PostController(PostService postService) {
+        this.postService = postService;
     }
     
    @RequestMapping("add")
    @ResponseStatus(HttpStatus.CREATED)
-    public void add(Community community) throws Exception {
-            communityService.add(community);
+    public void add(Post post) throws Exception {
+            postService.add(post);
     }
     
     @RequestMapping("delete")
     //@ResponseStatus(HttpStatus.OK) // 응답 상태 코드 값의 기본은 "200(OK)" 이다.
     public void delete(
             @RequestParam("no") int no) throws Exception {
-       communityService.delete(no);
+       postService.delete(no);
     }
     
     @RequestMapping("list")
     public Object list(
             ) {
-        return communityService.list();
+        return postService.list();
     }
     
     @RequestMapping("update")
     @ResponseStatus(HttpStatus.OK)
-    public void update(Community community) throws Exception {
-        communityService.update(community);
+    public void update(Post post) throws Exception {
+        postService.update(post);
     }
     
     @RequestMapping("{no}")
-    public Community view(@PathVariable int no) throws Exception {
-        return communityService.get(no);
+    public Post view(@PathVariable int no) throws Exception {
+        return postService.get(no);
     }
     
 }
