@@ -120,18 +120,7 @@
 
       <div id="sm-tab2" class="sm-tabcontent"> <!-- 내가 쓴 글 -->
         <div class="sm-tab-down">
-          <table>
-            <tr style="color:gray; height:10px;">
-              <td rowspan="2"><img src="#" width="100px" height="100px"></td>
-              <td colspan="2"><i class="fas fa-angle-right" style="margin:10px; color:gray;"></i>
-                <span>2018-06-11</span>
-              </td>
-            </tr>
-            <tr>
-              <td></td>
-              <td><p>안녕하세여 저는 55키로에서 20키로까지 뺀 사람입니다~~~ 제가 생각해도 정말 대단한거 같아요! 저는 제 자신을 사랑하게 되었습니다! 여러분도 할 수 있어요! 도전하세요! </p></td>
-            </tr>
-          </table>
+          <table id="listbody"></table> <!-- handlebars가 뿌려줄 위치! -->
         </div>
       </div>
 
@@ -159,7 +148,20 @@
 
 
 
-
+<script id="my-template" type="text/x-handlebars-template">
+{{#each list}}
+            <tr style="color:gray; height:10px;">
+              <td rowspan="2">{{user}}</td>
+              <td colspan="2"><i class="fas fa-angle-right" style="margin:10px; color:gray;"></i>
+                <span>{{createdDate}}</span>
+              </td>
+            </tr>
+            <tr>
+              <td></td>
+              <td><p>{{title}}</p></td>
+            </tr>
+{{/each}}
+</script>
 
 <script> // 탭 메뉴
 function openCity(evt, cityName) {
@@ -177,11 +179,14 @@ function openCity(evt, cityName) {
 }
 </script>
 
+
+<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../../js/common.js"></script>
 <script src="../../js/header/header_white.js"></script>
 <script src="../../js/footer/footer.js"></script>
 <script src="../../js/member/mb-menu.js"></script>
 <script src="../../js/member/sm-following.js"></script>
+    <script src="list.js"></script>
 </body>
 </html>
