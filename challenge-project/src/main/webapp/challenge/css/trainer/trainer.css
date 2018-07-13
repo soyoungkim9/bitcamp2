@@ -17,7 +17,7 @@
 #tr-img {
   font-size: 100px;
   margin-bottom: 10px;
-  background-image: url('../img/man.jpg');
+  background-image: url('../../img/program/man.jpg');
   background-size: 100px 100%;
   background-repeat: no-repeat;
   display: inline-block;

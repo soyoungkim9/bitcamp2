@@ -25,7 +25,7 @@ div p {
 .card-header {
 	width: 200px;
 	height: 100%;
-	background-image: url("../img/man.jpg");
+	background-image: url("../../img/program/man.jpg");
 	background-size: 200px 100%;
 	background-repeat: no-repeat;
 	border-radius: 5px 0 0 5px;
@@ -80,7 +80,7 @@ div p {
 	top: 140px; right: 0px;
 	height: 60px; width: 60px;
 	border: 1px solid #eeeeee;
-	background-image: url("http://localhost:8888/challenge-project/html7/hj/img/man.jpg");
+	background-image: url("../../img/program/man.jpg");
 	background-size: 60px 100%;
 	border-radius: 50%;
 }
