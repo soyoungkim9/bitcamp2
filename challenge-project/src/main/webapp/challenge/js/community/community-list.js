@@ -7,5 +7,5 @@ var templateFn = Handlebars.compile(trTemplateSrc);
 console.log();
 $.getJSON(serverRoot + "/json/community/list", (data) => {
 	//$tableBody.innerHTML = templateFn({list:data});
-    $(listbody).html(templateFn({list:data}));
+    $("#listbody").html(templateFn({list:data}));
 });
