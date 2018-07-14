@@ -11,7 +11,7 @@ public class Community extends Post implements Serializable {
     private int like; // 좋아요
     private int user;
     private User person;
-    private CommuMedia commuMedia;
+    private CommuMedia[] commuMedia; // 글 하나에 사진이 여러개 들어갈 수 있음.
     
     public int getUser() {
         return user;
@@ -28,10 +28,11 @@ public class Community extends Post implements Serializable {
     public String getTitle() {
         return title;
     }
-    public CommuMedia getCommuMedia() {
+
+    public CommuMedia[] getCommuMedia() {
         return commuMedia;
     }
-    public void setCommuMedia(CommuMedia commuMedia) {
+    public void setCommuMedia(CommuMedia[] commuMedia) {
         this.commuMedia = commuMedia;
     }
     public void setTitle(String title) {
