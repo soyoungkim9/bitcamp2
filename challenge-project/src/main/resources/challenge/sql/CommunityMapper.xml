@@ -18,11 +18,15 @@
     <result column="cmu_cnt" property="cnt"/>
     <result column="cmu_type" property="type"/>
     <result column="cmu_lk" property="like"/>
-    <result column="uno" property="user"/>
-    <association property="person" javaType="User">
+    <association property="user" javaType="User">
         <id column="uno" property="userNo"/>
         <result column="uname" property="name"/>
     </association>
+    <collection property="commuMedias" ofType="CommuMedia">
+        <id column="cmedno" property="mediaNo"/>
+        <result column="cpath" property="mediaPath"/>
+        <result column="cmuno" property="commuNo"/>
+    </collection>
   </resultMap>
   
   
@@ -35,7 +39,7 @@
   <select id="selectList" 
           resultMap="CommunityMap" 
           parameterType="map">
-    select pono, pocont, podate, cmut, cmu_cnt, cmu_type, cmu_lk, u.uno 
+    select pono, pocont, podate, cmut, cmu_cnt, cmu_type, cmu_lk, u.uno, u.uname 
     from CMU c 
     inner join USER u on c.uno=u.uno 
     inner join POST p on c.CMUNO=p.PONO
