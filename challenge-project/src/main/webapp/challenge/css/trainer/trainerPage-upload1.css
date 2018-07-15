@@ -333,6 +333,10 @@
   cursor: pointer;
 }
 
+.nextBox a {
+	color: white;
+	text-decoration: none;
+}
 
 
 
