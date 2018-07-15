@@ -2,12 +2,13 @@ package challenge.domain;
 
 import java.io.Serializable;
 import java.sql.Date;
+import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
 public class Program implements Serializable {
     private static final long serialVersionUID = 1L;
-    
+
     private int no; // 프로그램 번호
     private char postNo; // 우편번호
     private String address; // 기본주소
@@ -20,7 +21,7 @@ public class Program implements Serializable {
     private int minQty;
     private int maxQty;
     private int price;
-    private String description; 
+    private String description;
     private String proType; // 종목
     private String proGoal; // 목표
     private double proGoalNum; // 목표수치
@@ -30,11 +31,19 @@ public class Program implements Serializable {
     private Date proTime; // 수업시간
     private int proState; // 진행상태
     private String proResult; // 진행상태내용
-    
+
     private int challengeNo; // 챌린지번호
     private int planNo; // 운동계획서번호
-    private int trainerNo; // 트레이너번호
-    
+    private Trainer trainerNo; // 트레이너번호
+
+    private List<ProgramMedia> medias; // 프로그램 미디어
+
+    public List<ProgramMedia> getMedias() {
+        return medias;
+    }
+    public void setMedias(List<ProgramMedia> medias) {
+        this.medias = medias;
+    }
     public int getNo() {
         return no;
     }
@@ -167,10 +176,11 @@ public class Program implements Serializable {
     public void setPlanNo(int planNo) {
         this.planNo = planNo;
     }
-    public int getTrainerNo() {
+    public Trainer getTrainerNo() {
         return trainerNo;
     }
-    public void setTrainerNo(int trainerNo) {
+    public void setTrainerNo(Trainer trainerNo) {
         this.trainerNo = trainerNo;
     }
+
 }
