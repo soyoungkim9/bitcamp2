@@ -18,7 +18,7 @@ body:not(#footer) {
   display: inline-block;
 }
 
-.sh-slide-edit-btn {
+.sh-slide-edit-btn{
   /* 빨간색 버튼 */
   width: 67px;
   background-color: #DD1F26;
@@ -37,6 +37,23 @@ body:not(#footer) {
   margin: 3px;
   cursor: pointer;
   border-radius: 10px;
+}
+
+.sh-tl-reply-btn {
+	  /* 빨간색 버튼 */
+  width: 67px;
+    background-color: #DD1F26;
+    border: none;
+    color: #fff;
+    padding: 5px 0;
+    float: right;
+    margin: 20px;
+    text-decoration: none;
+    font-size: 12px;
+    margin: 3px;
+    cursor: pointer;
+    border-radius: 10px;
+}
 }
 
 .sh-program-img {
@@ -272,9 +289,12 @@ body:not(#footer) {
   display: block;
 }
 
-.sh-tl-card-primary, .sh-tl-card-reply {
-  padding: 16px;
+.sh-tl-card-primary, .sh-tl-card-reply-write, .sh-tl-card-reply-load {
+  padding: 7px;
+  border: 1px solid red;
 }
+
+
 
 .sh-tl-card-header {
   display: inline-block -webkit-box-align: center;
@@ -325,17 +345,27 @@ body:not(#footer) {
 /* 글작성 히든 CSS 시작 */
 
 .sh-tl-review-write {
-  width: 100%;
+	border: 1px solid green;
+  width: 94%;
   position: relative;
   display: inline-block;
 }
 
-.sh-tl-reply-textarea {
+.sh-tl-reply-textarea{
   margin-left: 15px !important;
   border: 1px solid gray !important;
   border-radius: 18px;
   padding-left: 17px !important;
   padding-top: 10px;
+}
+
+.sh-tl-reply-content {
+	  margin-left: 15px !important;
+  border: 1px solid gray !important;
+  border-radius: 18px;
+  padding-left: 17px !important;
+  padding-top: 10px;
+  display:inline-block;
 }
 
 .sh-tl-replay-textarea:focus {
@@ -354,13 +384,30 @@ textarea:focus {
   letter-spacing: normal;
   resize: none;
   border: none;
-  width: 87%;
+  width: 72%;
   overflow-y: hidden;
   margin-left: 72px;
   padding-right: -11px;
+  height: 26px;
+}
+
+.sh-tl-review-content {
+	  font-family: "NanumSquareRound";
+  font-size: 16px;
+  font-weight: 500;
+  letter-spacing: normal;
+  resize: none;
+  border: none;
+  max-width: 72%;
+  overflow-y: hidden;
+  margin-left: 72px;
+  padding-right: -11px;
+  height: 26px;
 }
 
 /* 글작성 히든 CSS 종료 */
+
+
 
 .sh-tl-user {
   position: relative;
@@ -495,7 +542,7 @@ textarea:focus {
   left: 1%;
 }
 
-.sh-tl-reply-write {
+.sh-tl-reply-write{
   position: absolute;
   color: #666666;
   top: -4px;
@@ -524,33 +571,48 @@ div[contenteditable=true] {
 }
 
 #sh-tl-post {
-  float:right;
-  /* margin-left: 32px; */
-  width:100px;
+    padding-top: 6px!important;
+    margin-top: 9px!important;
+    float: right;
+    /* display: inline-block; */
+    /* margin-left: 32px; */
+    width: 60px;
     background-color: #DD1F26;
     border: none;
-    color:#fff;
-    padding: 10px 0;
+    color: #fff;
+    margin-top: 10px;
+    padding: 6px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 13px;
     margin: 3px;
     cursor: pointer;
-    border-radius:10px;
+    /* height: 34px; */
+    border-radius: 10px;
 }
 
 #sh-tl-upload {
   padding:9px;
   font-size:31px;
 }
-.sh-tl-post-img-upload {
+
+#sh-tl-post-img-btn {
+    float: right;
+    font-size: 25px;
+    margin-right: 16px;
+    margin-top: 10px;
+}
+
+.sh-tl-img-upload-lb {
+	      position: relative;
+    margin-right: 10px;
+    cursor: pointer;
+}
+.sh-tl-img-upload-lb {
   padding:6px;
   display: inline-block;
   position: relative;
-  /* text-align: right; */
-  float: right;
-  /* padding: 10px 50px 10px 10px; */
   font-size: 26px;
 }
 
@@ -558,10 +620,23 @@ div[contenteditable=true] {
   display: inline-block;
   position: relative;
   float: right;
-  padding: 10px 50px 10px 10px;
   font-size: 26px;
 }
 
+
+.sh-tl-review-load-cont {
+  margin-left: 15px !important;
+  border: 1px solid gray !important;
+  border-radius: 18px;
+  padding-left: 17px !important;
+  padding-top: 10px;
+}
+
+.sh-tl-review-load {
+	width: 86%;
+	position: relative;
+	display: inline-block;
+}
 /* 대댓글 CSS 종료 */
 
 /* 무한스크롤 CSS 시작 */

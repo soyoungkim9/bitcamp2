@@ -64,6 +64,10 @@ function shClassFunction() {
 
 /* 타임라인 글 작성 textarea auto-growing / self-resizing */
 
+function resizeFunction() {
+	$('.sh-tl-reply-content').css('height','auto');
+	$('.sh-tl-reply-content').height(this.scrollHeight);
+}
 
 /* 좋아요 카운트 */
 var Clicks = 0 ;
