@@ -87,7 +87,7 @@ button:focus {
 }
 .sm-profile {
   border:1px solid gray;
-	margin-top: 15px;
+    margin-top: 15px;
   width: 255px;
   padding-top: 20px;
   float:left;
@@ -105,16 +105,9 @@ button:focus {
   margin-left:5%;
   text-align: left;
 }
-
-.sm-tab-down {
-  height: 250px;
-  float: left;
-  align: center;
-  overflow: auto;
-}
 .sm-mypage-bar{
   float:left;
-  width:70%;
+  width:73.5%;
   margin-top:15px;
   margin-left:5%;
   margin-bottom: 15px;
@@ -234,6 +227,14 @@ ul {list-style:none;}
 
 /* 바디에 있는 탭 메뉴 (트레이너:회원,수익관리/회원:알림,내가쓴글) */
 .sm-tab {overflow: hidden;}
+
+.sm-tab-down {
+  height: 250px;
+  width:105%;
+  float: left;
+  align: center;
+  overflow: auto;
+}
 .sm-tab button {
     background-color:inherit;
     height: 49px;
@@ -250,12 +251,15 @@ ul {list-style:none;}
 .sm-tab button:hover {background-color: #1B3453; color:white; transition: 0.3;}
 .sm-tab button.active {background-color: #1B3453; color:white;}
 .sm-tabcontent {
-    display: none;
+    overflow: hidden;
+    padding: 10px;
+    text-align: left;
     border: 1px solid gray;
     float: left;
     width: 97.3%;
     text-align: center;
     margin-bottom: 30px;
+    display: none;
 }
 .sm-tabcontent.sm-current {display: inline;}
 

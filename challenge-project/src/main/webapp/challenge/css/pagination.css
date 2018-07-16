@@ -26,3 +26,10 @@
   color:#ddd;
   border: none;
 }
+
+.sm-pagination a.pageActive {
+    background-color: #728aa7;
+    color: white;
+}
+
+.sm-pagination a:hover:not(.pageActive) {background-color: #eee;}
