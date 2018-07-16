@@ -225,7 +225,8 @@ ul {list-style:none;}
 
 
 
-/* 바디에 있는 탭 메뉴 (트레이너:회원,수익관리/회원:알림,내가쓴글) */
+/* 바디에 있는 탭 메뉴 (트레이너:회원,수익관리/회원:알림,내가쓴글) 
+*/
 .sm-tab {overflow: hidden;}
 
 .sm-tab-down {
@@ -237,7 +238,6 @@ ul {list-style:none;}
 }
 .sm-tab button {
     background-color:inherit;
-    height: 49px;
     border: 1px solid gray;
     border-bottom: none;
     float: left;
@@ -254,12 +254,13 @@ ul {list-style:none;}
     overflow: hidden;
     padding: 10px;
     text-align: left;
-    border: 1px solid gray;
+    border:none;
     float: left;
-    width: 97.3%;
+    width: 98%;
     text-align: center;
     margin-bottom: 30px;
     display: none;
+    border-bottom:1px solid gray;
 }
 .sm-tabcontent.sm-current {display: inline;}
 
