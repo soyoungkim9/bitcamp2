@@ -7,6 +7,7 @@
 <link rel="stylesheet" href="../../css/trainer/trainerPage-memberManage.css">
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+<link rel="stylesheet" href="../../css/pagination.css">
 </head>
 <body>
 <div id="subMenu"></div>
@@ -72,16 +73,16 @@
             <li class="MenuShare"><a id="showBtn">정보보기</a></li>
           </ul>
         </div>
-        <div class="pagination">
-          <a>«</a>
-          <a class="pageActive" href="#">1</a>
-          <a>2</a>
-          <a>3</a>
-          <a>4</a>
-          <a>5</a>
-          <a>6</a>
-          <a>»</a>
-        </div>
+        <!-- pagenation -->
+	    <div class="sm-pagination" id="pagination">
+	      <a class="sm-pagination-button sm-pagination-side" href="#"><i class="fas fa-angle-left"></i></a>
+	      <a class="sm-pagination-button pageActive">1</a>
+	      <a class="sm-pagination-button">2</a>
+	      <a class="sm-pagination-button">3</a>
+	      <a class="sm-pagination-button">4</a>
+	      <a class="sm-pagination-button sm-pagination-button-end" href="#">5</a>
+	      <a class="sm-pagination-button sm-pagination-side" href="#"><i class="fas fa-angle-right"></i></a>
+	    </div>
         <!-- 모달창 -->
         <div id="myModal" class="modal">
           <!-- Modal content -->
