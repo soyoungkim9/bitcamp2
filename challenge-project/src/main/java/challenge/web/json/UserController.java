@@ -1,4 +1,4 @@
-package bitcamp.java106.pms.web;
+package challenge.web.json;
 
 import java.util.Map;
 
@@ -8,17 +8,17 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
-import bitcamp.java106.pms.domain.Member;
-import bitcamp.java106.pms.service.MemberService;
+import challenge.domain.User;
+import challenge.service.UserService;
 
 @Controller
-@RequestMapping("/member")
-public class MemberController {
+@RequestMapping("/user")
+public class UserController {
 
-    MemberService memberService;
+    UserService userService;
     
-    public MemberController(MemberService memberService) {
-        this.memberService = memberService;
+    public UserController(UserService userService) {
+        this.userService = userService;
     }
     
     @RequestMapping("form")
@@ -26,16 +26,16 @@ public class MemberController {
     }
     
     @RequestMapping("add")
-    public String add(Member member) throws Exception {
+    public String add(User user) throws Exception {
           
-        memberService.add(member);
+        userService.add(user);
         return "redirect:list";
     }
     
     @RequestMapping("delete")
-    public String delete(@RequestParam("id") String id) throws Exception {
+    public String delete(@RequestParam("email") String email) throws Exception {
         
-        int count = memberService.delete(id);
+        int count = userService.delete(email);
         if (count == 0) {
             throw new Exception("해당 회원이 없습니다.");
         }
@@ -48,30 +48,30 @@ public class MemberController {
             @MatrixVariable(defaultValue="3") int pageSize,
             Map<String,Object> map) throws Exception {        
         
-        map.put("list", memberService.list(pageNo, pageSize));
+        map.put("list", userService.list(pageNo, pageSize));
     }
     
     @RequestMapping("update")
-    public String update(Member member) throws Exception {
+    public String update(User user) throws Exception {
         
-        int count = memberService.update(member);
+        int count = userService.update(user);
         if (count == 0) {
             throw new Exception("해당 회원이 존재하지 않습니다.");
         }
         return "redirect:list";
     }
     
-    @RequestMapping("{id}")
+    @RequestMapping("{email}")
     public String view(
-            @PathVariable String id,
+            @PathVariable String email,
             Map<String,Object> map) throws Exception {
 
-        Member member = memberService.get(id);
-        if (member == null) {
+        User user = userService.get(email);
+        if (user == null) {
             throw new Exception("유효하지 않은 멤버 아이디입니다.");
         }
-        map.put("member", member);
-        return "member/view";
+        map.put("user", user);
+        return "user/view";
     }
 }
 
@@ -93,11 +93,11 @@ public class MemberController {
 //ver 37 - 컨트롤러를 서블릿으로 변경
 //ver 31 - JDBC API가 적용된 DAO 사용
 //ver 28 - 네트워크 버전으로 변경
-//ver 26 - MemberController에서 add() 메서드를 추출하여 클래스로 정의.
+//ver 26 - UserController에서 add() 메서드를 추출하여 클래스로 정의.
 //ver 23 - @Component 애노테이션을 붙인다.
-//ver 22 - MemberDao 변경 사항에 맞춰 이 클래스를 변경한다.
-//ver 18 - ArrayList가 적용된 MemberDao를 사용한다.
-//         onMemberList()에서 배열의 각 항목에 대해 null 값을 검사하는 부분을 제거한다.
+//ver 22 - UserDao 변경 사항에 맞춰 이 클래스를 변경한다.
+//ver 18 - ArrayList가 적용된 UserDao를 사용한다.
+//         onUserList()에서 배열의 각 항목에 대해 null 값을 검사하는 부분을 제거한다.
 //ver 16 - 인스턴스 변수를 직접 사용하는 대신 겟터, 셋터 사용.
-//ver 15 - MemberDao를 생성자에서 주입 받도록 변경.
-//ver 14 - MemberDao를 사용하여 회원 데이터를 관리한다.
+//ver 15 - UserDao를 생성자에서 주입 받도록 변경.
+//ver 14 - UserDao를 사용하여 회원 데이터를 관리한다.
