@@ -121,7 +121,7 @@
 .memberName button {
   height: 34px;
   width: 50px;
-  background: #2d5586;
+  background: #1b3453;
   border: none;
   border-radius: 5px;
   color: white;
@@ -140,7 +140,6 @@
 }
 .demo-table th,
 .demo-table td {
-  border: 1px solid #e1edff;
   padding: 7px 17px;
 }
 .demo-table .title {
@@ -150,9 +149,8 @@
 
 /* Table Header */
 .demo-table thead th {
-  background-color: #2d5586;
+  background-color: #1b3453;
   color: #FFFFFF;
-  border-color: #6ea1cc !important;
   text-transform: uppercase;
 }
 
@@ -171,7 +169,7 @@
 }
 
 .demo-table td, .demo-table th {
-  padding: 13px 40px;
+  padding: 13px 39.9px;
 }
 
 /* 회원관리 버튼 들 */
@@ -371,6 +369,11 @@
   width: 65%;
   background-color: #f44336;
   font-size: 15px;
+}
+
+#memberList a {
+	color: black;
+	text-decoration: none;
 }
 
 
