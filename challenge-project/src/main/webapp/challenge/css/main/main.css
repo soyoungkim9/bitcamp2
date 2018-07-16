@@ -16,7 +16,7 @@
     border-radius:10px;
 }
 #sm-btn-1:hover {
-    background-color: white;
+    background-color: none;
     color:#1B3453;
     border:1px solid #1B3453;
 }
@@ -35,7 +35,7 @@
     border-radius:10px;
 }
 #sm-btn-2:hover {
-	background-color: white;
+	background-color: none;
 	color:#DD1F26;
 	border:1px solid #DD1F26;
 }
