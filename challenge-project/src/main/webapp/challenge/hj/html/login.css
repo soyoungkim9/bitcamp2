@@ -1,0 +1,115 @@
+* {
+  box-sizing: border-box;
+  text-decoration: none;
+  line-height: 20px;
+}
+a:link {
+  color: black;
+}
+.naverLogo {
+	width: 32px;
+	position: absolute;
+	left: 5px;
+	top:-2px;
+}
+.googleLogo {
+	width: 30px;
+	position: absolute;
+	left: 7px;
+}
+.kakaoLogo {
+	width: 35px;
+	position: absolute;
+	left: 5px;
+}
+.login-out > i {
+	position: absolute;
+	top: 6px;
+	left: 10px;
+}
+.omb_login {
+  margin: 0 auto;
+  width: 300px;
+  display: inline-block;
+  text-align: center;
+}
+.form-control {
+  width: 300px;
+  height: 30px;
+  margin: 5px 0;
+  border: 1px solid #666666;
+  border-radius: 3px;
+
+}
+.loginBtn {
+  width: 300px;
+  height: 30px;
+  margin: 5px 0;
+  background-color: #1B3453;
+  border-radius: 3px;
+  border: #1B3453;
+  color: #ffffff;
+}
+
+.loginBtn:hover {
+  background-color: black;
+}
+
+.login-left {
+  float: left;
+}
+.login-right {
+  float: right;
+}
+
+.login-row {
+  overflow: hidden;
+  vertical-align: middle;
+  margin: 5px 0;
+}
+.input-login {
+  margin: 0 auto;
+}
+
+.login-out {
+  display: table-cell;
+  width: 147px;
+  height: 30px;
+  border-radius: 3px;
+  vertical-align: middle;
+  position: relative;
+  overflow: hidden;
+}
+
+.naver {
+  background-color: #00c73c;
+  color: white;
+  float: left;
+}
+
+.facebook {
+  background-color: #29487d;
+  color: white;
+  float: right;
+}
+
+.google {
+  background-color: #f53e28;
+  color: white;
+  float: left;
+}
+
+.kakao {
+  background-color: #f8df00;
+  float: right;
+}
+.outLo {
+  position:absolute;
+  margin-top:4px;
+  left:50px;
+  top:0;
+}
+
+.join {
+  margin: 20px 0;
+}
