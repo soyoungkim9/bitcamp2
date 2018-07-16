@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="challenge.dao.UserDao">
+
+  <resultMap type="User" id="UserMap">
+    <id column="mid" property="email"/>
+    <result column="pwd" property="password"/>
+  </resultMap>
+  
+  <select id="selectList" 
+          resultMap="UserMap" parameterType="map">
+    select mid, email, pwd 
+    from pms2_member
+    order by mid asc
+    limit #{startRowNo}, #{pageSize}
+  </select>
+  
+  <insert id="insert" parameterType="User">
+    insert into pms2_member(mid,email,pwd) 
+    values(#{id},#{email},password(#{password}))
+  </insert>
+  
+  <select id="selectOne" parameterType="String" resultMap="UserMap">
+    select mid, email 
+    from pms2_member 
+    where mid=#{value}
+  </select>
+  
+  <select id="selectOneWithPassword" parameterType="map" resultMap="UserMap">
+    select mid, email 
+    from pms2_member 
+    where mid=#{id} and pwd=password(#{password})
+  </select>
+  
+  <select id="count" parameterType="map" resultType="int">
+    select count(*) 
+    from pms2_member 
+    where mid=#{id} and pwd=password(#{password})
+  </select>
+  
+  <update id="update" parameterType="User">
+    update pms2_member set 
+        email=#{email}, 
+        pwd=password(#{password}) 
+    where mid=#{id}
+  </update>
+  
+  <delete id="delete" parameterType="String">
+    delete from pms2_member where mid=#{value}
+  </delete>
+</mapper>
