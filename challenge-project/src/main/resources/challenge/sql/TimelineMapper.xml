@@ -34,7 +34,7 @@
 				inner join PMEMB pm on t.uno = pm.uno
 				inner join PROG pro on pro.pno = pm.pno 
 				inner join USER u on pm.uno = u.uno
-				order by podate desc
+				order by pono desc
 			</when>
 			<otherwise>
 	           select pono, pocont, podate, t.tmlpath, pro.pno, pro.pname, u.uno, u.uname
@@ -43,7 +43,7 @@
                 inner join PMEMB pm on t.uno = pm.uno
                 inner join PROG pro on pro.pno = pm.pno 
                 inner join USER u on pm.uno = u.uno
-                order by podate desc
+                order by pono desc
 			</otherwise>
 		</choose>
 	</select>
@@ -53,11 +53,11 @@
 		<choose>
 			<when test="picture != ''">
 				insert into TML(pno, uno, tmlpath)
-				values(1, 2, #{picture})
+				values(1, 1, #{picture})
 			</when>
 			<otherwise>
 				insert into TML(pno, uno)
-				values(1, 2)
+				values(1, 1)
 			</otherwise>
 		</choose>
 	</insert>

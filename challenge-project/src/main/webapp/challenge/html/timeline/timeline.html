@@ -8,9 +8,11 @@
   <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="../../css/timeline/timeline.css">
   <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
   <script src="../../js/common.js"></script>
   <script src="../../js/header/header_bg_black.js"></script>
   <script src="../../js/footer/footer.js"></script>
+
 </head>
 
 <body>
@@ -108,22 +110,22 @@
             </section>
             <!-- HIDE -->
             <!-- SHOW & Modal-->
-            <!--The Modal-->
+            <!--The Modal POST 시작-->
             <div id="sh-tl-myModal" class="sh-tl-modal">
               <!-- modal content -->
               <section class="sh-tl-modal-content sh-tl-card-primary sh-tl-card-header sh-tl-review-hidden">
                 <div class="sh-tl-user">
                   <span class="sh-tl-modal-close">&times;</span>
                   <i class="sh-tl-user-circle fas fa-user-circle"></i>
-                  <h1 id="sh-tl-user-name">박수현</h1>
+                  <h1 class="sh-tl-user-name">박수현</h1>
                 </div>
                 <div class="sh-tl-review-write">
-                  <textarea class="sh-tl-review-title sh-tl-textarea" placeholder="무슨 생각을 하고 계신가요?" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+                  <textarea id="sh_tl_post_write" class="sh-tl-review-title sh-tl-textarea" placeholder="무슨 생각을 하고 계신가요?" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
                 </div>
-                  <button id="sh-tl-post" type="button" name="button">게시</button>
-                  <div class="sh-tl-post-img-upload"><label id="sh-tl-post-img-btn" for="sh-tl-upload" style="cursor:pointer"><i class="far fa-images"><input accept="video/*,  video/x-m4v, video/webm, video/x-ms-wmv, video/x-msvideo, video/3gpp, video/flv, video/x-flv, video/mp4, video/quicktime, video/mpeg, video/ogv, .ts, .mkv, image/*"  name="file" title="사진 또는 동영상 첨부" type="file" id="sh-tl-upload" style="display:none"></i></label></div>
+                <button id="sh-tl-post-btn" type="submit" name="button">게시</button>
+                <div class="sh-tl-post-img-upload"><label id="sh-tl-post-img-btn" for="sh_tl_upload" style="cursor:pointer"><i class="far fa-images"><input id="sh_tl_upload" accept="video/*,  video/x-m4v, video/webm, video/x-ms-wmv, video/x-msvideo, video/3gpp, video/flv, video/x-flv, video/mp4, video/quicktime, video/mpeg, video/ogv, .ts, .mkv, image/*"  name="file" title="사진 또는 동영상 첨부" type="file" style="display:none" multiple></i></label></div>
               </section>
-            </div>
+            </div><!--The Modal POST 종료-->
             <!-- SHOW -->
           </div>
           <!-- 글쓰기 카드 종료-->
@@ -135,257 +137,14 @@
             <div class="sh-infinite-scroll">
               <div>
 
+                <!-- 새로 추가된 글 들어가는 div 시작 -->
+                <div id="sh_tl_card_add"></div>
+                <!-- 새로 추가된 글 들어가는 div 종료 -->
 
 
-                <div class="sh-tl-card sh-card">
-                  <!--글쓴이 시작 -->
-                  <section class="sh-tl-card-primary">
-                    <div class="sh-tl-user">
-                      <img src="../../img/timeline/sh_profile.jpg" style="border-radius:50%; width:50px;">
-                      <h1 id="sh-tl-user-name">박수현</h1>
-                    </div>
-                  </section>
-                  <!-- 글쓴이 종료-->
-                  <!-- 글내용 시작-->
-                  <div class="sh-tl-card-content">
-                    <p>졸려죽겠다!? 아니야 할 수 있다! 북극곰 짱</p>
-                    <div><img src="../../img/timeline/madrid.PNG"></div>
-                    <p>타임라인 좀 힘들지만 할 수 있다!</p>
-                  </div>
-                  <!-- 글내용 종료 -->
-                  <!-- 좋아요/댓글 시작-->
-                  <section class="sh-tl-card-actions">
-                    <div class="sh-tl-like-count">
-                      <a class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i></a>
-                      <a class="sh-like-clicked" id="sh-tl-CountedClicks" href="#!">0 명이 좋아합니다.</a>
-                      <a href="#!"></a>
-                    </div>
-                    <div class="sh-tl-card-bottom">
-                      <div class="sh-tl-like sh-tl-card-bottom-items">
-                        <a onclick="TlAddClick()" class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i><span>     좋아요</span></a>
-                      </div>
-                      <div class="sh-tl-comment sh-tl-card-bottom-items">
-                        <a href="#!"><i class="far fa-comments"></i>     댓글달기</a>
-                      </div>
-                    </div>
-                  </section>
-                  <!-- 좋아요/댓글 종료-->
-                  <!-- 대댓글 시작-->
-                  <!-- 대댓글 불러오기-->
-	                  <section class="sh-tl-card-reply-load">
-                                <div class="sh-tl-reply-user">
-                          <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
-                          <div class="sh-tl-review-write">
-                           <!-- <span class="sh-tl-review-content sh-tl-reply-content" onkeydown="resize(this)" onkeyup="resize(this)"></span> -->
-                            <textarea readonly class="sh-tl-review-content  sh-tl-reply-content"></textarea>
-                            <div class="sh-tl-img-upload"> 
-                          </div>
-                        </div>
-	                  </section>
-                  <!-- 댓글쓰기 -->
-	                  <section class="sh-tl-card-reply-write">
-	                    <div class="sh-tl-reply-user">
-	                      <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
-	                      <div class="sh-tl-review-write">
-	                        <textarea class="sh-tl-review-title  sh-tl-reply-textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-	                        <div class="sh-tl-img-upload"><button class="sh-tl-reply-btn">게시</button> </div>
-	                      </div>
-	                    </div>
-	                  </section>
-                  <!-- 대댓글 종료-->
-                  <div style="clear:both;"></div>
-                </div>
-                
-                
-                
-                
-
-                <div class="sh-tl-card sh-card">
-                  <!--글쓴이 시작 -->
-                  <section class="sh-tl-card-primary">
-                    <div class="sh-tl-user">
-                      <img src="../../img/timeline/sh_profile.jpg" style="border-radius:50%; width:50px;">
-                      <h1 id="sh-tl-user-name">박수현</h1>
-                    </div>
-                  </section>
-                  <!-- 글쓴이 종료-->
-                  <!-- 글내용 시작-->
-                  <div class="sh-tl-card-content">
-                    <p>졸려죽겠다!? 아니야 할 수 있다! 북극곰 짱</p>
-                    <div><img src="../../img/timeline/london.PNG"></div>
-                    <p>타임라인 좀 힘들지만 할 수 있다!</p>
-                  </div>
-                  <!-- 글내용 종료 -->
-                  <!-- 좋아요/댓글 시작-->
-                  <section class="sh-tl-card-actions">
-                    <div class="sh-tl-like-count">
-                      <a class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i></a>
-                      <a class="sh-like-clicked" id="sh-tl-CountedClicks" href="#!">0 명이 좋아합니다.</a>
-                      <a href="#!"></a>
-                    </div>
-                    <div class="sh-tl-card-bottom">
-                      <div class="sh-tl-like sh-tl-card-bottom-items">
-                        <a onclick="TlAddClick()" class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i><span>     좋아요</span></a>
-                      </div>
-                      <div class="sh-tl-comment sh-tl-card-bottom-items">
-                        <a href="#!"><i class="far fa-comments"></i>     댓글달기</a>
-                      </div>
-                    </div>
-                  </section>
-                  <!-- 좋아요/댓글 종료-->
-                  <!-- 대댓글 시작-->
-                  <section class="sh-tl-card-reply-write">
-                    <div class="sh-tl-reply-user">
-                      <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
-                      <div class="sh-tl-review-write">
-                        <textarea class="sh-tl-review-title  sh-tl-reply-textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-                        <div class="sh-tl-img-upload"> <button>게시</button> <label for="sh-tl-upload" style="cursor:pointer"><i class="far fa-images"><input accept="video/*,  video/x-m4v, video/webm, video/x-ms-wmv, video/x-msvideo, video/3gpp, video/flv, video/x-flv, video/mp4, video/quicktime, video/mpeg, video/ogv, .ts, .mkv, image/*"  name="file" title="사진 또는 동영상 첨부" type="file" id="sh-tl-upload" style="display:none"></i></label></div>
-                      </div>
-                    </div>
-                  </section>
-                  <!-- 대댓글 종료-->
-                  <div style="clear:both;"></div>
-                </div>
-
-
-
-                <div class="sh-tl-card sh-card">
-                  <!--글쓴이 시작 -->
-                  <section class="sh-tl-card-primary">
-                    <div class="sh-tl-user">
-                      <img src="../../img/timeline/sh_profile.jpg" style="border-radius:50%; width:50px;">
-                      <h1 id="sh-tl-user-name">박수현</h1>
-                    </div>
-                  </section>
-                  <!-- 글쓴이 종료-->
-                  <!-- 글내용 시작-->
-                  <div class="sh-tl-card-content">
-                    <p>졸려죽겠다!? 아니야 할 수 있다! 북극곰 짱</p>
-                    <div><img src="../../img/timeline/madrid.PNG"></div>
-                    <p>타임라인 좀 힘들지만 할 수 있다!</p>
-                  </div>
-                  <!-- 글내용 종료 -->
-                  <!-- 좋아요/댓글 시작-->
-                  <section class="sh-tl-card-actions">
-                    <div class="sh-tl-like-count">
-                      <a class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i></a>
-                      <a class="sh-like-clicked" id="sh-tl-CountedClicks" href="#!">0 명이 좋아합니다.</a>
-                      <a href="#!"></a>
-                    </div>
-                    <div class="sh-tl-card-bottom">
-                      <div class="sh-tl-like sh-tl-card-bottom-items">
-                        <a onclick="TlAddClick()" class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i><span>     좋아요</span></a>
-                      </div>
-                      <div class="sh-tl-comment sh-tl-card-bottom-items">
-                        <a href="#!"><i class="far fa-comments"></i>     댓글달기</a>
-                      </div>
-                    </div>
-                  </section>
-                  <!-- 좋아요/댓글 종료-->
-                  <!-- 대댓글 시작-->
-                  <section class="sh-tl-card-reply-write">
-                    <div class="sh-tl-reply-user">
-                      <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
-                      <div class="sh-tl-review-write">
-                        <textarea class="sh-tl-review-title  sh-tl-reply-textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-                        <div class="sh-tl-img-upload"><label for="sh-tl-upload" style="cursor:pointer"><i class="far fa-images"><input accept="video/*,  video/x-m4v, video/webm, video/x-ms-wmv, video/x-msvideo, video/3gpp, video/flv, video/x-flv, video/mp4, video/quicktime, video/mpeg, video/ogv, .ts, .mkv, image/*"  name="file" title="사진 또는 동영상 첨부" type="file" id="sh-tl-upload" style="display:none"></i></label></div>
-                      </div>
-                    </div>
-                  </section>
-                  <!-- 대댓글 종료-->
-                  <div style="clear:both;"></div>
-                </div>
-
-
-                <div class="sh-tl-card sh-card">
-                  <!--글쓴이 시작 -->
-                  <section class="sh-tl-card-primary">
-                    <div class="sh-tl-user">
-                      <i class="sh-tl-user-circle fas fa-user-circle"></i>
-                      <h1 id="sh-tl-user-name">박수현</h1>
-                    </div>
-                  </section>
-                  <!-- 글쓴이 종료-->
-                  <!-- 글내용 시작-->
-                  <div class="sh-tl-card-content">
-                    <p>졸려죽겠네? 아니야 할 수 있다! 북극곰 짱</p>
-                  </div>
-                  <!-- 글내용 종료 -->
-                  <!-- 좋아요/댓글 시작-->
-                  <section class="sh-tl-card-actions">
-                    <div class="sh-tl-like-count">
-                      <a class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i></a>
-                      <a class="sh-like-clicked" id="sh-tl-CountedClicks" href="#!">0 명이 좋아합니다.</a>
-                      <a href="#!"></a>
-                    </div>
-                    <div class="sh-tl-card-bottom">
-                      <div class="sh-tl-like sh-tl-card-bottom-items">
-                        <a onclick="TlAddClick()" class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i><span >     좋아요</span></a>
-                      </div>
-                      <div class="sh-tl-comment sh-tl-card-bottom-items">
-                        <a href="#!"><i class="far fa-comments"></i>     댓글달기</a>
-                      </div>
-                    </div>
-                  </section>
-                  <!-- 좋아요/댓글 종료-->
-                  <!-- 대댓글 시작-->
-                  <section class="sh-tl-card-reply-write">
-                    <div class="sh-tl-reply-user">
-                      <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
-                      <div class="sh-tl-review-write">
-                        <textarea class="sh-tl-review-title  sh-tl-reply-textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-                      </div>
-                    </div>
-                  </section>
-                  <!-- 대댓글 종료-->
-                  <div style="clear:both;"></div>
-                </div>
-
-                <div class="sh-tl-card sh-card">
-                  <!--글쓴이 시작 -->
-                  <section class="sh-tl-card-primary">
-                    <div class="sh-tl-user">
-                      <i class="sh-tl-user-circle fas fa-user-circle"></i>
-                      <h1 id="sh-tl-user-name">박수현</h1>
-                    </div>
-                  </section>
-                  <!-- 글쓴이 종료-->
-                  <!-- 글내용 시작-->
-                  <div class="sh-tl-card-content">
-                    <p>졸려죽겠네? 아니야 할 수 있다! 북극곰 짱</p>
-                  </div>
-                  <!-- 글내용 종료 -->
-                  <!-- 좋아요/댓글 시작-->
-                  <section class="sh-tl-card-actions">
-                    <div class="sh-tl-like-count">
-                      <a class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i></a>
-                      <a class="sh-like-clicked" id="sh-tl-CountedClicks" href="#!">0 명이 좋아합니다.</a>
-                      <a href="#!"></a>
-                    </div>
-                    <div class="sh-tl-card-bottom">
-                      <div class="sh-tl-like sh-tl-card-bottom-items">
-                        <a onclick="TlAddClick()" class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i><span tyle="color:#fff">     좋아요</span></a>
-                      </div>
-                      <div class="sh-tl-comment sh-tl-card-bottom-items">
-                        <a href="#!"><i class="far fa-comments"></i>     댓글달기</a>
-                      </div>
-                    </div>
-                  </section>
-                  <!-- 좋아요/댓글 종료-->
-                  <!-- 대댓글 시작-->
-                  <section class="sh-tl-card-reply-write">
-                    <div class="sh-tl-reply-user">
-                      <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
-                      <div class="sh-tl-review-write">
-                        <textarea class="sh-tl-review-title  sh-tl-reply-textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-                      </div>
-                    </div>
-                  </section>
-                  <!-- 대댓글 종료-->
-                  <div style="clear:both;"></div>
-                </div>
 
               </div>
+
             </div>
           </div>
           <!-- 무한 스크롤 종료-->
@@ -397,14 +156,13 @@
       <!-- content 종료 -->
 
 
-      <div id="more">
-        <!-- 무한 스크롤 -->
+      <div id="more"><!-- 무한 스크롤 시작-->
 
-      </div>
-    </div>
 
-  </div>
-  <!-- .container -->
+      </div><!-- 무한 스크롤 종료-->
+    </div><!-- .mainContainer 종료-->
+
+  </div><!-- .container 종료-->
 
 
 
@@ -418,9 +176,76 @@
   <!-- 푸터 시작 -->
   <div id="footer"></div>
   <!-- 푸터 종료 -->
+
+  <!-- 헤더/푸터 스크립트 종료-->
+  <!-- 헤더/푸터 스크립트 종료-->
+  <script id="tr-template" type="text/x-handlebars-template">
+{{#each list}}
+<!-- 타임라인 카드 시작 -->
+<div class="sh-tl-card sh-card">
+  <!--글쓴이 시작 -->
+  <section class="sh-tl-card-primary">
+    <div class="sh-tl-user">
+      <img src="../../img/timeline/sh_profile.jpg" style="border-radius:50%; width:50px;">
+      <h1 class="sh-tl-user-name">박수현-글번호: {{no}}</h1>
+      <h6 class="sh-tl-post-date">{{createdDate}}</h6>
+    </div>
+  </section>
+  <!-- 글쓴이 종료-->
+  <!-- 글내용 시작-->
+  <div class="sh-tl-card-content">
+    <p>{{content}}</p>
+
+  </div>
+  <!-- 글내용 종료 -->
+  <!-- 좋아요/댓글 시작-->
+  <section class="sh-tl-card-actions">
+    <div class="sh-tl-like-count">
+      <a class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i></a>
+      <a class="sh-like-clicked" id="sh-tl-CountedClicks" href="#!">0 명이 좋아합니다.</a>
+      <a href="#!"></a>
+    </div>
+    <div class="sh-tl-card-bottom">
+      <div class="sh-tl-like sh-tl-card-bottom-items">
+        <a onclick="TlAddClick()" class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i><span>     좋아요</span></a>
+      </div>
+      <div class="sh-tl-comment sh-tl-card-bottom-items">
+        <a href="#!"><i class="far fa-comments"></i>     댓글달기</a>
+      </div>
+    </div>
+  </section>
+  <!-- 좋아요/댓글 종료-->
+
+  <!-- 댓글쓰기 시작-->
+  <section class="sh-tl-card-reply-write">
+    <div class="sh-tl-reply-user">
+      <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
+      <div class="sh-tl-review-write">
+        <textarea class="sh-tl-review-title  sh-tl-reply-textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+        <div class="sh-tl-img-upload"><button class="sh-tl-reply-btn">게시</button> </div>
+      </div>
+    </div>
+  </section>
+  <!-- 댓글쓰기 종료 -->
+  <!-- 대댓글 불러오기-->
+  <section class="sh-tl-card-reply-load">
+    <div class="sh-tl-reply-user">
+      <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
+      <div class="sh-tl-review-write">
+        <!-- <span class="sh-tl-review-content sh-tl-reply-content" onkeydown="resize(this)" onkeyup="resize(this)"></span> -->
+        <textarea readonly class="sh-tl-review-content  sh-tl-reply-content"></textarea>
+        <div class="sh-tl-img-upload">
+        </div>
+      </div>
+  </section>
+  <!-- 대댓글 불러오기 종료-->
+  <div style="clear:both;"></div>
+  </div>
+</div>
+<!-- 타임라인 카드 하나 종료 -->
+{{/each}}
+</script>
   <script src="../../js/timeline/timeline.js"></script>
-  <!-- 헤더/푸터 스크립트 종료-->
-  <!-- 헤더/푸터 스크립트 종료-->
 </body>
 
 </html>

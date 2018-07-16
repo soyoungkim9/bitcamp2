@@ -13,4 +13,5 @@ public interface TimelineService {
     int add(Timeline timeline);
     int update(Timeline timeline);
     int delete(int no);
+
 }
