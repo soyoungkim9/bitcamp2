@@ -14,10 +14,13 @@ import challenge.service.TimelineService;
 public class TimelineServiceImpl implements TimelineService {
 
     TimelineDao timelineDao;
+
     
     public TimelineServiceImpl(TimelineDao timelineDao) {
         this.timelineDao = timelineDao;
     }
+    
+    
     
     @Override
     public List<Timeline> list() {
@@ -47,4 +50,5 @@ public class TimelineServiceImpl implements TimelineService {
     public int update(Timeline timeline) {
         return timelineDao.update(timeline);
     }
+
 }

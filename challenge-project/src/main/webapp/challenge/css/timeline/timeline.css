@@ -203,7 +203,9 @@ body:not(#footer) {
 #shClassDiv {
   /*   border:1px solid black; */
   text-align: center;
-  background-color: #666666;
+
+     background-color: rgba(0,0,0,0.85);
+  color:#fff;
   padding: 3px;
 }
 
@@ -227,14 +229,17 @@ body:not(#footer) {
 /* right sideMenu CSS 시작*/
 
 #sh-sideMenu {
-  right: 486px;
-  /* height: 55%; */
-  border: 1px solid green;
-  width: 200px;
-  min-height: 300px;
-  /* float:right; */
-  position: fixed;
-  overflow: hidden;
+    /* display: flex; */
+    /* float: right; */
+    /* right: 486px; */
+    /* height: 55%; */
+    border: 1px solid green;
+    width: 200px;
+    min-height: 300px;
+    /* float: right; */
+    position: fixed;
+    overflow: hidden;
+    margin-left: 734px;
 }
 
 #sh-sideMenu-item {}
@@ -291,7 +296,6 @@ body:not(#footer) {
 
 .sh-tl-card-primary, .sh-tl-card-reply-write, .sh-tl-card-reply-load {
   padding: 7px;
-  border: 1px solid red;
 }
 
 
@@ -299,7 +303,6 @@ body:not(#footer) {
 .sh-tl-card-header {
   display: inline-block -webkit-box-align: center;
   align-items: center;
-  cursor: pointer;
 }
 
 .sh-card {
@@ -340,6 +343,7 @@ body:not(#footer) {
   top: 9px;
   left: 32px;
   width: 100%;
+  cursor:pointer;
 }
 
 /* 글작성 히든 CSS 시작 */
@@ -411,6 +415,7 @@ textarea:focus {
 
 .sh-tl-user {
   position: relative;
+  padding: 7px;
 }
 
 .sh-tl-card-actions {
@@ -424,12 +429,21 @@ textarea:focus {
   font-size: 52px;
 }
 
-#sh-tl-user-name {
+.sh-tl-user-name {
   position: absolute;
   color: #000;
-  top: -4px;
-  left: 67px;
+  top: 0px;
+  left: 73px;
   font-size: 16px;
+}
+
+.sh-tl-post-date {
+	    margin-bottom: 0px;
+    margin-left: 13px;
+    margin-top: 0px;
+    display: inline-block;
+    position: relative;
+    bottom: 6px;
 }
 
 .sh-tl-like-count a, .sh-tl-card-bottom div a {
@@ -570,7 +584,7 @@ div[contenteditable=true] {
   padding: 5px;
 }
 
-#sh-tl-post {
+#sh-tl-post-btn {
     padding-top: 6px!important;
     margin-top: 9px!important;
     float: right;
