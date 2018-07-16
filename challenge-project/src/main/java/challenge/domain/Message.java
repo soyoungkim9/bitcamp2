@@ -3,6 +3,8 @@ package challenge.domain;
 import java.io.Serializable;
 import java.sql.Date;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 public class Message implements Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -11,6 +13,7 @@ public class Message implements Serializable {
     private Trainer trainer; // 트레이너번호
     private Member member; // 회원번호
     private int direct; // 메시지 방향
+    @JsonFormat(pattern="yyyy-MM-dd")
     private Date msgDate; // 메시지 날짜
     
     
