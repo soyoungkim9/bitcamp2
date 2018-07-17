@@ -331,6 +331,16 @@
   margin-left: 300px;
 }
 
+/*이미지 업로드*/
+
+.uploadpreview img[src] + input[type=file] {
+    display: none;
+}
+
+figure.uploadpreview {
+    width: 500px;
+}
+
 
 /* 가능일 */
 .scheduleBox {

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8">
+  <title>로그인</title>
+  <!-- <link rel="stylesheet" href="../../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
+  <link rel="stylesheet" href="login.css">
+  <!-- <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css"> -->
+  <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.1.0/css/all.css" integrity="sha384-lKuwvrZot6UHsBSfcMvOkWwlCMgc0TaWr+30HWe3a4ltaBwTZhyTEggF5tJv8tbt" crossorigin="anonymous">
+
+  <!-- <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+  <!-- <script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script> -->
+  <!-- <script src="//code.jquery.com/jquery-1.11.1.min.js"></script> -->
+  <!--  <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"> -->
+
+
+  <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
+  <!-- <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+
+
+</head>
+
+<body>
+  <header id="header"></header>
+
+  <div class="omb_login">
+    <h2 class="omb_authTitle">로그인</h2>
+    <div class="login-aa">
+      <form class="omb_loginForm" action="" autocomplete="off" method="POST">
+        <input type="email" class="form-control" name="email" placeholder="이메일 주소">
+        <input type="password" class="form-control" name="password" placeholder="비밀번호">
+        <div class="login-row">
+          <span class="login-left"><input class="form-check-input" type="checkbox">아이디 저장</span>
+          <span class="login-right"><a href="#" class="findpw">패스워드 찾기</a></span>
+        </div>
+        <button class="loginBtn" type="button" name="button">로그인</button>
+        <div class="login-row">
+          <a href="#"><div class="login-out naver">
+          <img class="naverLogo" src="naver.png"><span class="outLo">네이버</span></div></a>
+          <a href="#"><div class="login-out facebook">
+          <i class="fab fa-facebook-f"></i><span class="outLo">페이스북</span></div></a>
+        </div>
+        <div class="login-row">
+          <a href="#"><div class="login-out google">
+          <img class="googleLogo" src="google.png"><span class="outLo">구글</span></div></a>
+          <a href="#"><div class="login-out kakao">
+          <img class="kakaoLogo" src="kakao.png"><span class="outLo">카카오</span></div></a>
+        </div>
+        <div class="join">
+          <a href="memberform.html" class="login-left">회원으로 가입하기</a>
+          <a href="trainerform.html" class="login-right">트레이너로 가입하기</a>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <footer id="footer"></footer>
+
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../../js/common.js"></script>
+  <!-- <script src="../../js/header/header_white.js"></script>
+	<script src="../../js/footer/footer.js"></script> -->
+</body>
+
+</html>

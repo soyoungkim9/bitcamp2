@@ -1,6 +1,7 @@
 package challenge.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class Community extends Post implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -9,30 +10,29 @@ public class Community extends Post implements Serializable {
     private int cnt; // 조회수
     private String type; // 말머리
     private int like; // 좋아요
-    private int user;
-    private User person;
-    private CommuMedia commuMedia;
-    
-    public int getUser() {
+    private User user;
+    private List<CommuMedia> commuMedias;
+
+    public User getUser() {
         return user;
     }
-    public User getPerson() {
-        return person;
-    }
-    public void setPerson(User person) {
-        this.person = person;
-    }
-    public void setUser(int user) {
+
+
+    public void setUser(User user) {
         this.user = user;
     }
+
+
     public String getTitle() {
         return title;
     }
-    public CommuMedia getCommuMedia() {
-        return commuMedia;
+
+
+    public List<CommuMedia> getCommuMedias() {
+        return commuMedias;
     }
-    public void setCommuMedia(CommuMedia commuMedia) {
-        this.commuMedia = commuMedia;
+    public void setCommuMedias(List<CommuMedia> commuMedias) {
+        this.commuMedias = commuMedias;
     }
     public void setTitle(String title) {
         this.title = title;

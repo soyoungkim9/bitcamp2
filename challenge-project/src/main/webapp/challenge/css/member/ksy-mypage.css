@@ -53,7 +53,7 @@ body {
 }
 .sm-profile {
 border:1px solid gray;
-	margin-top: 15px;
+    margin-top: 15px;
     width: 255px;
     padding-top: 20px;
     float:left;
@@ -278,7 +278,7 @@ a {
   padding: 10px 24px 8px;
   background-color: #FFF;
   margin-right: 46px;
-  z-index: 2;
+  z-index: -1;
   position: relative;
   cursor: pointer;
   color: #777;
@@ -316,7 +316,7 @@ a {
   color: #444;
 }
 .tabbed ul li.active {
-  z-index: 3;
+  z-index: 0;
 }
 .tabbed ul li.active,
 .tabbed ul li.active:before,

@@ -129,7 +129,7 @@
 							<div id="inner-id">
 								<i class="inner-img fas fa-user-secret"
 									style="float: left; font-size: 30px"></i>
-								<pre id="fPerson" style="margin: 0; padding: 5px;"></pre>
+								<pre id="fUser" style="margin: 0; padding: 5px;"></pre>
 							</div>
 						</div>
 
@@ -247,10 +247,10 @@
 		if (location.href.split("?").length > 1) {
 			var no = location.href.split("?")[1].split("=")[1];
 
-			$.getJSON("../../json/community/" + no, function(data) {
+			$.getJSON("../../../json/community/" + no, function(data) {
 				$(fContent).val(data.content);
 				$(fTitle).append(data.title);
-				$(fPerson).append(data.person.name);
+				$(fUser).append(data.user.name);
 				$(fCreatedDate).append(data.createdDate);
 				$(fCnt).append(data.cnt);
 				//$(fLike).append(data.like);

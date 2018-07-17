@@ -13,6 +13,69 @@
 #sh_top_layout {
   border-bottom: none!important;
 }
+.sm-tab {
+  width: 882px;
+  margin: 0 auto;
+  margin-left: 0;
+  border-bottom: 1px solid gray;
+  overflow: hidden;
+  transition: border 250ms ease;
+}
+
+.sm-tab button {
+  display: block;
+  float: left;
+  padding: 10px 24px;
+  background-color: #FFF;
+  margin-right: 46px;
+  z-index: 0;
+  position: relative;
+  cursor: pointer;
+  color: #777;
+  border:none;
+  text-transform: uppercase;
+  font: 600 13px/20px roboto, "Open Sans", Helvetica, sans-serif;
+  transition: all 250ms ease;
+  left:36px;
+}
+.sm-tab button:before,
+.sm-tab button:after {
+  display: block;
+  content: " ";
+  position: absolute;
+  top: 0;
+  height: 100%;
+  width: 44px;
+  background-color: #FFF;
+  transition: all 250ms ease;
+}
+.sm-tab button:before {
+  right: -24px;
+  transform: skew(30deg, 0deg);
+  box-shadow: rgba(0,0,0,.1) 3px 2px 5px, inset rgba(255,255,255,.09) -1px 0;
+}
+.sm-tab button:after {
+  left: -24px;
+  transform: skew(-30deg, 0deg);
+  box-shadow: rgba(0,0,0,.1) -3px 2px 5px, inset rgba(255,255,255,.09) 1px 0;
+}
+.sm-tab button:hover,
+.sm-tab button:hover:before,
+.sm-tab button:hover:after {
+  background-color: #F4F7F9;
+  color: #444;
+}
+.sm-tab button.active {
+  z-index: 1;
+}
+.sm-tab button.active,
+.sm-tab button.active:before,
+.sm-tab button.active:after {
+  background-color: #1B3453;
+  color: #fff;
+}
+
+
 </style>
 </head>
 <body>
@@ -54,28 +117,33 @@
                       <div style="display:block; height: 300px; margin-bottom:50px;">
                         <div class="sm-card sm-c-s">
                           <img class="profile-img" src="../../img/member/user02.jpg"><br>
-                               해동검도
+                               해동검도<input type="checkbox">
                         </div>
                         <div class="sm-card sm-c-s">
                           <img class="profile-img" src="../../img/member/user02.jpg"><br>
-                                       해동검도
+                                       해동검도<input type="checkbox">
                         </div>
                         <div class="sm-card sm-c-s">
                           <img class="profile-img" src="../../img/member/user02.jpg"><br>
-                                       해동검도
+                                       해동검도<input type="checkbox">
                           </div>
                         <div class="sm-card sm-c-s">
                           <img class="profile-img" src="../../img/member/user02.jpg"><br>
-                                     해동검도
+                                     해동검도<input type="checkbox">
                         </div>
                         <div class="sm-card sm-c-s">
                           <img class="profile-img" src="../../img/member/user02.jpg"><br>
-                                     해동검도
+                                     해동검도<input type="checkbox">
+                        </div>
+                        <div class="sm-card sm-c-s">
+                          <img class="profile-img" src="../../img/member/user02.jpg"><br>
+                                     해동검도<input type="checkbox">
                         </div>
                       </div>
                     </div>
                     <div class="modal-footer">
-                      <h3>Modal Footer</h3>
+                    <button id="myBtn" class="sm-fw-btn" style="margin-top:10px; margin-bottom:20px;">전체선택</button>
+                    <button id="myBtn" class="sm-fw-btn" style="margin-top:10px; margin-bottom:20px;">삭제하기</button>
                     </div>
                   </div>
                 </div>
@@ -96,7 +164,7 @@
 
     <div class="sm-mypage-body">
       <div class="sm-tab">
-        <button class="sm-tablinks" onclick="openCity(event, 'sm-tab1')">알림</button>
+        <button class="sm-tablinks active" onclick="openCity(event, 'sm-tab1')">알림</button>
         <button class="sm-tablinks" onclick="openCity(event, 'sm-tab2')" style="border-left:none;">내가 쓴 글</button>
         <button class="sm-tablinks" onclick="openCity(event, 'sm-tab3')" style="border-left:none;">내가 쓴 댓글</button>
       </div>

@@ -64,6 +64,10 @@ function shClassFunction() {
 
 /* 타임라인 글 작성 textarea auto-growing / self-resizing */
 
+function resizeFunction() {
+	$('.sh-tl-reply-content').css('height','auto');
+	$('.sh-tl-reply-content').height(this.scrollHeight);
+}
 
 /* 좋아요 카운트 */
 var Clicks = 0 ;
@@ -89,7 +93,7 @@ $(document).ready(function(){
 		// 스크롤한 높이와 문서의 높이가 같을 때
 		if (scrollHeight == documentHeight) {
 			for (var i = 0; i < 5; i++) {
-				$(' <div class="sh-tl-card sh-card" style="border: 2px solid blue;"><section class="sh-tl-card-primary"><div class="sh-tl-user"><i class="sh-tl-user-circle fas fa-user-circle"></i><h1 id="sh-tl-user-name">무한스크롤</h1></div></section><div class="sh-tl-card-content"><p>졸려죽겠네? 아니야 할 수 있다! 북극곰 짱</p></div><section class="sh-tl-card-actions"><div class="sh-tl-like-count"><a href="#!"><i class="far fa-thumbs-up"></i></a><a id="sh-tl-CountedClicks" href="#!">0 명이 좋아합니다.</a><a href="#!"></a></div><div class="sh-tl-card-bottom"><div class="sh-tl-like sh-tl-card-bottom-items" style="border: 1px solid black;"><a onclick="TlAddClick()" href="#!"><i class="far fa-thumbs-up"></i>좋아요</a></div><div class="sh-tl-comment sh-tl-card-bottom-items" style="border: 1px solid black;"><a href="#!"><i class="far fa-comments"></i>댓글달기</a></div></div></section><section class="sh-tl-card-reply"><div class="sh-tl-reply-user"><i class="sh-tl-reply-user-circle fas fa-user-circle"></i><h1 class="sh-tl-reply-write">댓글을 입력하세요</h1></div></section><div style="clear:both;"></div></div>').appendTo('.sh-infinite-scroll');
+				$(' <div class="sh-tl-card sh-card" style="border: 2px solid blue;"><section class="sh-tl-card-primary"><div class="sh-tl-user"><i class="sh-tl-user-circle fas fa-user-circle"></i><h1 class="sh-tl-user-name">무한스크롤</h1></div></section><div class="sh-tl-card-content"><p>졸려죽겠네? 아니야 할 수 있다! 북극곰 짱</p></div><section class="sh-tl-card-actions"><div class="sh-tl-like-count"><a href="#!"><i class="far fa-thumbs-up"></i></a><a id="sh-tl-CountedClicks" href="#!">0 명이 좋아합니다.</a><a href="#!"></a></div><div class="sh-tl-card-bottom"><div class="sh-tl-like sh-tl-card-bottom-items" style="border: 1px solid black;"><a onclick="TlAddClick()" href="#!"><i class="far fa-thumbs-up"></i>좋아요</a></div><div class="sh-tl-comment sh-tl-card-bottom-items" style="border: 1px solid black;"><a href="#!"><i class="far fa-comments"></i>댓글달기</a></div></div></section><section class="sh-tl-card-reply"><div class="sh-tl-reply-user"><i class="sh-tl-reply-user-circle fas fa-user-circle"></i><h1 class="sh-tl-reply-write">댓글을 입력하세요</h1></div></section><div style="clear:both;"></div></div>').appendTo('.sh-infinite-scroll');
 			}
 		}
 	});
@@ -121,3 +125,37 @@ $(document).ready(function(){
                modal.style.display = "none";
            }
        }
+
+       
+// 타임라인 글 게시
+$("#sh-tl-post-btn").click(() => {
+	
+	$.ajax({
+		type: 'POST',
+		url: '../../../json/post/add',
+		data: {content:$(sh_tl_post_write).val()},
+		async: false
+	});
+	
+	
+	$.ajax({
+		type: 'POST',
+		url: '../../../json/timeline/add',
+		data: {picture:$(sh_tl_upload).val()},
+	}).done(function(){
+		console.log("입력됨.");
+		location.href="timeline.html"
+	});
+});
+
+// 타임라인 카드 글 list 출력
+//템플릿 엔진이 사용할 템플릿 데이터 가져오기
+var trTemplateSrc = $("#tr-template").html();
+
+//위에서 준비한 템플릿 데이터를 가지고 HTML을 생성할 템플릿 엔진 준비
+var templateFn = Handlebars.compile(trTemplateSrc);
+
+$.getJSON(serverRoot + "/json/timeline/list", (data) => {
+	//$tableBody.innerHTML = templateFn({list:data});
+    $(sh_tl_card_add).html(templateFn({list:data}));
+});
