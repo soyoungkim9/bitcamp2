@@ -84,7 +84,7 @@
 }
 
 /* 챌린지 주제, 종목 */
-#selectTab1 {
+.selectTab1 {
     border:1px solid #d7d7d7;
     padding: 10px;
     border-radius:2px;
@@ -94,12 +94,12 @@
     width: 200px;
  }
 
-#selectTab1:hover{
+.selectTab1:hover{
     background:#cde4f7;
     border:1px solid #41c9ff;
 }
 
-#selectTab1 option {
+.selectTab1 option {
   background:#fff;
 }
 
