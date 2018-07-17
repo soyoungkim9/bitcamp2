@@ -17,8 +17,7 @@ public class Message implements Serializable {
     private Date msgDate; // 메시지 날짜
     
     
-    
-    @Override
+        @Override
     public String toString() {
         return "Message [no=" + no + ", content=" + content + ", trainer=" + trainer + ", member=" + member
                 + ", direct=" + direct + ", msgDate=" + msgDate + "]";
@@ -61,6 +60,5 @@ public class Message implements Serializable {
     }
     
     
-       
-    
+      
 }

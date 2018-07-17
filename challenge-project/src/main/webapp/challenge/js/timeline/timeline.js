@@ -130,18 +130,18 @@ $(document).ready(function(){
 // 타임라인 글 게시
 $("#sh-tl-post-btn").click(() => {
 	
-	$.ajax({
-		type: 'POST',
-		url: '../../../json/post/add',
-		data: {content:$(sh_tl_post_write).val()},
-		async: false
-	});
+//	$.ajax({
+//		type: 'POST',
+//		url: '../../../json/post/add',
+//		data: {content:$(sh_tl_post_write).val()},
+//		async: false
+//	});
 	
 	
 	$.ajax({
 		type: 'POST',
 		url: '../../../json/timeline/add',
-		data: {picture:$(sh_tl_upload).val()},
+		data: {picture:$(sh_tl_upload).val(), content:$(sh_tl_post_write).val()},
 	}).done(function(){
 		console.log("입력됨.");
 		location.href="timeline.html"
@@ -159,3 +159,7 @@ $.getJSON(serverRoot + "/json/timeline/list", (data) => {
 	//$tableBody.innerHTML = templateFn({list:data});
     $(sh_tl_card_add).html(templateFn({list:data}));
 });
+
+// 타임라인 댓글 게시
+
+

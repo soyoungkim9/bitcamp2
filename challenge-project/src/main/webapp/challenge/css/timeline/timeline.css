@@ -566,8 +566,13 @@ textarea:focus {
 
 .sh-tl-reply-user-circle {
   color: #666666;
-  font-size: 30px;
+  font-size: 40px;
   float: left;
+}
+
+.sh-tl-user-img {
+	border-radius:50%; 
+	width:48px;
 }
 
 [contenteditable=true]:empty:before {
