@@ -129,62 +129,69 @@
 
 			<div class="jh-album py-5 bg-light">
 				<div class="jh-container">
-
-					<div class="row">
-						<div class="col-md-4">
-							<div class="card mb-4 box-shadow">
-								<img class="card-img-top" src="http://placehold.it/348x200"
-									alt="">
-								<div class="card-body" style="text-align: center;">
-									<p id="fTitle" class="card-text">3개월 다이어트 성공후기</p>
-									<div class="card-content">
-										<ul>
-											<li id="fCreatedDate"><i class="far fa-clock"></i> 2018.04.04</li>
-											<li id="fCnt"><i class="far fa-eye"></i> 121</li>
-											<li><i class="far fa-comment"></i> 703</li>
-										</ul>
-									</div>
-									<div class="d-flex justify-content-between align-items-center">
-										<div class="btn-group">
-											<img src="http://placehold.it/50x50" alt="">
-                                            <small class="text-muted">홍정호</small> 
-										</div>
-
-									</div>
-								</div>
-							</div>
-						</div>
-						
+					<div id="listbody" class="row">
+						<!-- handlebars -->
 					</div>
-					<div class="btnPagelink">
-						<span class="LF_page_link_current"><b>1</b></span> <a href=""
-							class="LF_page_link">2</a> <a href="" class="LF_page_link">3</a>
-						<a href="" class="LF_page_link">4</a> <a href=""
-							class="LF_page_link">5</a> <a href="" class="LF_page_link">6</a>
-						<a href="" class="LF_page_link">7</a> <a href=""
-							class="LF_page_link">8</a> <a href="" class="LF_page_link">9</a>
-						<a href="" class="LF_page_link">10</a> <a href="" class=""><i
-							class="fas fa-chevron-right"
-							style="font-size: 12px; padding-top: 3px;"></i></a>
-					</div>
-					<!-- btnPagelink -->
 				</div>
-			</div>
-			<!--album py-5 bg-light-->
 
+				<div class="btnPagelink">
+					<span class="LF_page_link_current"><b>1</b></span> <a href=""
+						class="LF_page_link">2</a> <a href="" class="LF_page_link">3</a> <a
+						href="" class="LF_page_link">4</a> <a href="" class="LF_page_link">5</a>
+					<a href="" class="LF_page_link">6</a> <a href=""
+						class="LF_page_link">7</a> <a href="" class="LF_page_link">8</a> <a
+						href="" class="LF_page_link">9</a> <a href="" class="LF_page_link">10</a>
+					<a href="" class=""><i class="fas fa-chevron-right"
+						style="font-size: 12px; padding-top: 3px;"></i></a>
+				</div>
+				<!-- btnPagelink -->
+			</div>
 		</div>
-		<!--hf-wrapper-->
+		<!--album py-5 bg-light-->
+
 	</div>
-	</main>
+	<!--hf-wrapper--> </main>
 	<!-- 푸터 시작 -->
 
 	<div id="footer"></div>
 	<!-- 푸터 종료 -->
 	<!-- 헤더/푸터 스크립트 종료-->
+	<script id="review-card" type="text/x-handlebars-template">
+{{#each list}}
+	
+    <div class="col-md-4">
+        <div class="card mb-4 box-shadow">
+            <img class="card-img-top" src="http://placehold.it/348x200"
+                alt="">
+            <div class="card-body" style="text-align: center;">
+                <p id="fTitle" class="card-text">{{title}}</p>
+                <div class="card-content">
+                    <ul>
+                        <li id="fCreatedDate"><i class="far fa-clock"></i>{{createdDate}}</li>
+                        <li id="fCnt"><i class="far fa-eye"></i> {{like}}</li>
+                        <li><i class="far fa-comment"></i> 703</li>
+                    </ul>
+                </div>
+                <div class="d-flex justify-content-between align-items-center">
+                    <div class="btn-group">
+                        <img src="http://placehold.it/50x50" alt="">
+                        <small class="text-muted">{{user}}</small> 
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+{{/each}}
+	</script>
+	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../../js/common.js"></script>
 	<script src="../../js/header/header_white.js"></script>
 	<script src="../../js/footer/footer.js"></script>
+	<script src="../../js/community/community-best.js"></script>
 </body>
 
 </html>
