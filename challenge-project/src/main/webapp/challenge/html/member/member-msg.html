@@ -79,42 +79,7 @@
               <th width="20%">보낸사람</th><th width="20%">날짜</th>
             </tr>
           </thead>
-          <tbody class="chall-tbody">
-            <tr>
-              <td><input type="checkbox"></td>
-              <td><i class="fas fa-star"></i></td>
-              <td><a href="#">안녕하세요!!</a></td>
-              <td>홍길동</td>
-              <td>2011-01-01</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox"></td>
-              <td><i class="fas fa-star"></i></td>
-              <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
-              <td>홍길동</td>
-              <td>2011-01-01</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox"></td>
-              <td><i class="far fa-star"></i></td>
-              <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
-              <td>홍길동</td>
-              <td>2011-01-01</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox"></td>
-              <td><i class="far fa-star" style="color:#1B3453;"></i></td>
-              <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
-              <td>홍길동</td>
-              <td>2011-01-01</td>
-            </tr>
-            <tr>
-              <td><input type="checkbox"></td>
-              <td><i class="fas fa-star" style="color:#1B3453;"></i></td>
-              <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
-              <td>홍길동</td>
-              <td>2011-01-01</td>
-            </tr>
+          <tbody id="listbody" class="chall-tbody">
           </tbody>
           </table>
 <div class="pagination"></div> <!-- pagination -->
@@ -185,6 +150,17 @@
 
 
 
+<script id="msg-template" type="text/x-handlebars-template">
+{{#each list}}
+            <tr>
+              <td><input type="checkbox"></td>
+              <td><i class="far fa-star"></i></td>
+              <td><a href="#">{{content}}</a></td>
+              <td>{{name}}</td>
+              <td>{{msgDate}}</td>
+            </tr>
+{{/each}}
+</script>
 
 <script> // 탭 메뉴
 function openCity(evt, cityName) {
@@ -201,11 +177,13 @@ function openCity(evt, cityName) {
     evt.currentTarget.className += " active";
 }
 </script>
+<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../../js/common.js"></script>
 <script src="../../js/header/header_white.js"></script>
 <script src="../../js/footer/footer.js"></script>
 <script src="../../js/member/mb-menu.js"></script>
 <script src="../../js/pagination.js"></script>
+    <script src="msg.js"></script>
 </body>
 </html>

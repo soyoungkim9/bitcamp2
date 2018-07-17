@@ -18,6 +18,7 @@ public class Message implements Serializable {
     
     
     
+    
     @Override
     public String toString() {
         return "Message [no=" + no + ", content=" + content + ", trainer=" + trainer + ", member=" + member
@@ -61,6 +62,5 @@ public class Message implements Serializable {
     }
     
     
-       
-    
+      
 }
