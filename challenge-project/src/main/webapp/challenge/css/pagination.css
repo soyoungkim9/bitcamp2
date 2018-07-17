@@ -1,3 +1,4 @@
+
 .sm-pagination { /* 하단 페이지 바 */
   width: 100%;
   text-align: center;
@@ -5,6 +6,7 @@
   margin: 20px 0;
   margin-bottom: 50px;
   padding-bottom: 50px;
+  
 }
 
 .sm-pagination-button {
@@ -30,6 +32,7 @@
 .sm-pagination a.pageActive {
     background-color: #728aa7;
     color: white;
+    
 }
 
 .sm-pagination a:hover:not(.pageActive) {background-color: #eee;}

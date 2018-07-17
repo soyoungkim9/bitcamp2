@@ -23,7 +23,13 @@
 	href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
 <!-- page css-->
 <link rel="stylesheet" href="../../css/community/community-best.css">
-
+<link rel="stylesheet" href="../../css/pagination.css">
+<style>
+.sm-pagination-button {
+    height: 35px;
+    padding: 5px;
+}
+</style>
 
 
 
@@ -134,16 +140,7 @@
 					</div>
 				</div>
 
-				<div class="btnPagelink">
-					<span class="LF_page_link_current"><b>1</b></span> <a href=""
-						class="LF_page_link">2</a> <a href="" class="LF_page_link">3</a> <a
-						href="" class="LF_page_link">4</a> <a href="" class="LF_page_link">5</a>
-					<a href="" class="LF_page_link">6</a> <a href=""
-						class="LF_page_link">7</a> <a href="" class="LF_page_link">8</a> <a
-						href="" class="LF_page_link">9</a> <a href="" class="LF_page_link">10</a>
-					<a href="" class=""><i class="fas fa-chevron-right"
-						style="font-size: 12px; padding-top: 3px;"></i></a>
-				</div>
+				<div class="pagination"></div>
 				<!-- btnPagelink -->
 			</div>
 		</div>
@@ -167,7 +164,7 @@
                 <p id="fTitle" class="card-text">{{title}}</p>
                 <div class="card-content">
                     <ul>
-                        <li id="fCreatedDate"><i class="far fa-clock"></i>{{createdDate}}</li>
+                        <li id="fCreatedDate"><i class="far fa-clock"></i> {{createdDate}}</li>
                         <li id="fCnt"><i class="far fa-eye"></i> {{like}}</li>
                         <li><i class="far fa-comment"></i> 703</li>
                     </ul>
@@ -175,7 +172,7 @@
                 <div class="d-flex justify-content-between align-items-center">
                     <div class="btn-group">
                         <img src="http://placehold.it/50x50" alt="">
-                        <small class="text-muted">{{user}}</small> 
+                        <small class="text-muted"> {{user.name}}</small> 
                     </div>
 
                 </div>
@@ -192,6 +189,8 @@
 	<script src="../../js/header/header_white.js"></script>
 	<script src="../../js/footer/footer.js"></script>
 	<script src="../../js/community/community-best.js"></script>
-</body>
+	<script src="../../js/pagination.js"></script>
+	
+	</body>
 
 </html>
