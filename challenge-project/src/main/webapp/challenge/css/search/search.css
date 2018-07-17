@@ -8,6 +8,7 @@ a {
 	text-decoration: none;
 }
 .sidenav {
+  margin-left: 30px;
   padding: 10px;
   float: left;
   width: 250px;
@@ -157,7 +158,9 @@ margin-bottom: 35px;
     clear: both;
 }
 
-.sm-
+.sm-pagination-button {
+    height: 36px;
+}
 
 /* .search-nav {
   display: table;
