@@ -74,7 +74,8 @@ tr:nth-child(even) {
 
 <div class="sm-mypage">
   <div class="sm-profile" id="cssRemove">
-  <h3>나의 정보</h3><hr style="border:1px solid gray; width:150px; float:left;"><br>
+  <h3><a href="member-set.html" id="myInfo">나의 정보</a></h3><hr style="border:1px solid gray; width:150px; float:left;"><br>
+  <h3><a href="member-set2.html" id="myBody">바디 정보</a></h3><hr style="border:1px solid gray; width:150px; float:left;"><br>
     </div><!-- .profile -->
 
 
@@ -83,7 +84,6 @@ tr:nth-child(even) {
       <div class="settingsSubMenu">
         <ul>
           <li id="settingsSubMenu-fist"><a>나의 정보</a></li>
-          <li id="settingsSubMenu-fist"><a>바디 정보</a></li>
         </ul>
       </div>
       <!-- 프로젝트 등록 본문-->
@@ -169,5 +169,39 @@ function openCity(evt, cityName) {
 <script src="../../js/header/header_white.js"></script>
 <script src="../../js/footer/footer.js"></script>
 <script src="../../js/member/mb-menu.js"></script>
+<script>
+$("#myBody").click(() => {
+    
+ 
+    
+    $.ajax({
+        type: 'POST',
+        url: '../../../json/community/add',
+        data:{
+            title: $(fTitle).val(),
+            type: $(CMU_TYPE).val(),
+            content:$(fContent).val()
+        }
+    }).done(function(){
+        location.href="community-list.html"
+    });
+    
+    /*
+    $.post("../../../json/post/add", {content:$(fContent).val()}, () => {
+        console.log($(fContent).val())});
+    
+    
+    
+    $.post("../../../json/community/add", {
+        title: $(fTitle).val(),
+        type: $(CMU_TYPE).val()
+    }, () => {
+        console.log($(fTitle).val()),
+        console.log($(CMU_TYPE).val())
+        location.href="community-list.html"
+    });
+    */
+});
+</script>
 </body>
 </html>
