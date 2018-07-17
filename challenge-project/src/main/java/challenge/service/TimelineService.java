@@ -2,6 +2,7 @@
 package challenge.service;
 
 import java.util.List;
+import java.util.Map;
 
 import challenge.domain.Timeline;
 
@@ -13,5 +14,4 @@ public interface TimelineService {
     int add(Timeline timeline);
     int update(Timeline timeline);
     int delete(int no);
-
 }

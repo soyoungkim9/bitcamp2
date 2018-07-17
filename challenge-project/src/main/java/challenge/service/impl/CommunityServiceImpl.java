@@ -6,6 +6,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import challenge.dao.CommunityDao;
+import challenge.dao.PostDao;
 import challenge.domain.Community;
 import challenge.service.CommunityService;
 
@@ -14,9 +15,11 @@ import challenge.service.CommunityService;
 public class CommunityServiceImpl implements CommunityService {
 
     CommunityDao communityDao;
+    PostDao postDao;
     
-    public CommunityServiceImpl(CommunityDao communityDao) {
+    public CommunityServiceImpl(CommunityDao communityDao, PostDao postDao) {
         this.communityDao = communityDao;
+        this.postDao = postDao;
     }
     
     @Override
@@ -41,6 +44,7 @@ public class CommunityServiceImpl implements CommunityService {
     
     @Override
     public int add(Community community) {
+        postDao.insert(community);
         return communityDao.insert(community);
     }
     

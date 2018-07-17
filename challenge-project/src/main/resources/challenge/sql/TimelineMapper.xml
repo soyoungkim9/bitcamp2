@@ -11,6 +11,7 @@
 		<result column="pocont" property="content" />
 		<result column="podate" property="createdDate" />
 		<result column="tmlpath" property="picture" />
+		<result column="tlike" property="like"/>
 		<association property="program" javaType="Program">
 			<id column="pno" property="no" />
 			<result column="pname" property="name" />
@@ -48,16 +49,15 @@
 		</choose>
 	</select>
 
-	<insert id="insert" parameterType="Timeline"
-		useGeneratedKeys="true" keyColumn="tmlno" keyProperty="pono">
+	<insert id="insert" parameterType="Timeline">
 		<choose>
 			<when test="picture != ''">
-				insert into TML(pno, uno, tmlpath)
-				values(1, 1, #{picture})
+				insert into TML(tmlno, pno, uno, tmlpath)
+				values(#{no}, 2, 1, #{picture})
 			</when>
 			<otherwise>
-				insert into TML(pno, uno)
-				values(1, 1)
+				insert into TML(tmlno, pno, uno)
+				values(#{no}, 2, 1)
 			</otherwise>
 		</choose>
 	</insert>

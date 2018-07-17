@@ -4,10 +4,19 @@ public class Timeline extends Post{
     String picture;
     Program program;
     User user;
+    int like;
+//    List<Comment> comments;
+    
     @Override
     public String toString() {
         return "Timeline [picture=" + picture + ", program=" + program
                 + ", user=" + user + "]";
+    }
+    public int getLike() {
+        return like;
+    }
+    public void setLike(int like) {
+        this.like = like;
     }
     public String getPicture() {
         return picture;

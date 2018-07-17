@@ -1,5 +1,7 @@
 package challenge.web.json;
 
+import java.util.Map;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -20,10 +22,10 @@ public class TimelineController {
         this.timelineService = timelineService;
     }
     
-   @RequestMapping("add")
-   @ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping("add")
+    @ResponseStatus(HttpStatus.CREATED)
     public void add(Timeline timeline) throws Exception {
-            timelineService.add(timeline);
+        timelineService.add(timeline);
     }
     
     @RequestMapping("delete")
@@ -34,10 +36,15 @@ public class TimelineController {
     }
     
     @RequestMapping("list")
-    public Object list(
-            ) {
+    public Object list() {
         return timelineService.list();
     }
+    
+    // Timeline 카드 + 좋아요 같이 가져오기 도전 !!!!
+//    @RequestMapping("listWithLike")
+//    public Object listWithLike() {
+//        return timelineService.listWithLike();
+//    }
     
     @RequestMapping("update")
     @ResponseStatus(HttpStatus.OK)

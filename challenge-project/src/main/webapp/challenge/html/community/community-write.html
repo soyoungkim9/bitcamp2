@@ -172,19 +172,22 @@
 
 $("#addBtn").click(() => {
 	
+	/*
 	$.ajax({
 		type: 'POST',
 		url: '../../../json/post/add',
 	    data: {content:$(fContent).val()},
 	    async: false
 	});
+	*/
 	
 	$.ajax({
 	    type: 'POST',
         url: '../../../json/community/add',
         data:{
             title: $(fTitle).val(),
-            type: $(CMU_TYPE).val()
+            type: $(CMU_TYPE).val(),
+            content:$(fContent).val()
         }
 	}).done(function(){
 		location.href="community-list.html"
