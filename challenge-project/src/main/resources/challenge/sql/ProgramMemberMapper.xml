@@ -12,22 +12,24 @@
 <mapper namespace="challenge.dao.ProgramMemberDao">
 
   <resultMap type="ProgramMember" id="ProgramMemberMap">
-    <id column="pno" property="pno"/>
+    <id column="pno" property="no"/>
     <result column="pname" property="name"/>
     <result column="sdt" property="startDate"/>
     <result column="edt" property="endDate"/>
     <result column="uno" property="uno"/>
-	<collection property="members" ofType="Member">
+    <result column="pgoal" property="proGoal"/>
+    <result column="pgoal_n" property="proGoalNum"/>
+    <collection property="diary" ofType="Diary">
+        <id column="dno" property="dno"/>
+        <result column="dchek" property="dcheck"/>
+    </collection>
+    <collection property="members" ofType="Member">
         <id column="uno" property="userNo"/>
         <result column="mail" property="email"/>
         <result column="uname" property="name"/>
         <result column="sex" property="sex"/>
+        <result column="uphon" property="userPhone"/>
     </collection>
-    <collection property="diary" ofType="Diary">
-        <id column="dno" property="dno"/>
-        <result column="dcheck" property="dcheck"/>
-    </collection>
-
   </resultMap>
   
   <!-- SQL 문 id를 설정할 때 SQL문을 사용하는 메서드 이름과 같게하면
@@ -38,7 +40,7 @@
   -->
   <select id="selectList" 
           resultMap="ProgramMemberMap">
-	select u.mail, u.uname, u.sex, p.pname, d.dchek
+	select u.mail, u.uname, u.sex, p.pname, d.dchek, u.uno
 	from PMEMB pm, PROG p, DIARY d, MEMB m, USER u
 	where pm.pno = p.pno
 	AND u.uno = m.UNO
@@ -51,10 +53,15 @@
   <!-- 파라미터의 타입이 primitive type이나 wrapper 클래스, String 클래스인 경우
        값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
   -->
-  <select id="selectOne" parameterType="String" resultMap="ProgramMemberMap">
-    select pono, pocont, podate 
-    from POST 
-    where pono=#{value}
+  <select id="selectOne" parameterType="int" resultMap="ProgramMemberMap">
+    select u.uname, u.sex, u.uphon, p.pname, p.pgoal, d.dchek, p.pgoal_n
+	from PMEMB pm, PROG p, DIARY d, MEMB m, USER u
+	where pm.pno = p.pno
+	AND u.uno = m.UNO
+	AND m.uno = pm.uno
+	AND pm.pno = d.pno
+	AND pm.uno = d.UNO
+    AND m.uno=#{value}
   </select>
 </mapper>
 

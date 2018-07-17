@@ -4,7 +4,7 @@
 <meta charset='UTF-8'>
 <title>트레이너페이지</title>
 <link rel="stylesheet" href="../../css/trainer/template/sm-trainerPage.css">
-<link rel="stylesheet" href="../../css/trainer/trainerPage-memberManage.css">
+<link rel="stylesheet" href="../../css/trainer/trainerPage-memberModal.css">
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
 <link rel="stylesheet" href="../../css/pagination.css">
@@ -76,6 +76,67 @@
 	      <a class="sm-pagination-button sm-pagination-button-end" href="#">5</a>
 	      <a class="sm-pagination-button sm-pagination-side" href="#"><i class="fas fa-angle-right"></i></a>
 	    </div>
+        <!-- 모달창 -->
+        <div id="myModal" class="modal">
+          <!-- Modal content -->
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close"><i class="far fa-times-circle"></i></span>
+            </div>
+            <div class="modal-body">
+   			<div id="topContentBox">
+			  <div class="memberInfo1">
+			    <div class="originalImg"></div>
+			  </div>
+			  <div class="memberInfo2">
+			  <ul class="memberInfoList">
+			    <li class="modalName">
+			      <div class="contentName">이름</div>
+			      <div id="mName" class="modalContent"></div>
+			    </li>
+			    <li class="modalSex">
+			      <div class="contentName">성별</div>
+			      <div id="mSex" class="modalContent"></div>
+			    </li>
+			    <li class="modaPhone">
+			      <div class="contentName">연락처</div>
+			      <div id="mTel" class="modalContent"></div>
+			    </li>
+			    <li class="modalProgram">
+			      <div class="contentName">참여 프로그램</div>
+			      <div id="mProgram" class="modalContent"></div>
+			    </li>
+			    <li class="modalTarget">
+			      <div class="contentName">목표</div>
+			      <div id="mTarget" class="modalContent"></div>
+			    </li>
+			    <li class="attendanceRate">
+			      <div class="contentName styleBox">출석률</div>
+			      <div class="modalContent cssBox">
+			      <div class="skillBox">
+			        <div id="mAttend" class="skills attend"></div>
+			      </div>
+			      </div>
+			    </li>
+			    <li class="targetRate">
+			      <div class="contentName styleBox">목표 달성률</div>
+			      <div class="modalContent cssBox">
+			        <div class="skillBox">
+			          <div id="mTargetPer" class="skills target"></div>
+			        </div>
+			      </div>
+			    </li>
+			  </ul>
+			  </div>
+			<div class="memberButtons">
+	          <ul>
+	            <li><a>메시지</a></li>
+	          </ul>
+	        </div>
+			</div>
+            </div>
+        </div>
+      </div>
       </div>
     </div><!-- mypage-body -->
 </div><!-- mypage -->
@@ -99,5 +160,6 @@
 {{/each}}
 </script>
 <script src="../../js/trainer/memberList.js"></script>
+<script src="../../js/trainer/memberView.js"></script>
 </body>
 </html>

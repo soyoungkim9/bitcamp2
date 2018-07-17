@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+.sm-mypage-body {
+  box-sizing: border-box;
+  margin-bottom: 100px;
+}
+
 /* 프로젝트 선택 서브메뉴*/
 .tabbed {
   max-width: 880px;
@@ -169,17 +174,40 @@
   padding-bottom: 13px;
 }
 
+/* 회원관리 버튼 들 */
+.memberButtons {
+  float: right;
+  margin-top: 5px;
+  margin-bottom: 30px;
+  margin-bottom: 20px;
+}
+
+.memberButtons ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.memberButtons li {
+  padding: 6px 25px;
+  font-weight: bold;
+  border: 1px solid #DD1F26;
+  border-radius: 5px;
+  background-color: #DD1F26;
+  color: white;
+  font-size: 15px;
+}
+
 /* 회원관리 넘기는 탭 */
 #pagination {
 	padding-top: 30px;
-}
+ }
 
 .pagination a:hover:not(.pageActive) {background-color: #ddd;}
 
 /* 모달창 퍼옴 */
 /* The Modal (background) */
 .modal {
-    display: none; /* Hidden by default */
     position: fixed; /* Stay in place */
     z-index: 99999; /* Sit on top */
     padding-top: 100px; /* Location of the box */
@@ -261,13 +289,6 @@
   margin: 0 auto;
 }
 
-.memberId {
-  text-align: center;
-  font-weight: bold;
-  font-size: 17px;
-  margin-top: 12px;
-}
-
 .memberInfoList {
   margin: 0;
   margin-top: 8px;
@@ -300,7 +321,7 @@
 }
 
 .skillBox{
-    width: 100%;
+    width: 97%;
     background-color: #ddd;
 }
 

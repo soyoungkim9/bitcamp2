@@ -2,7 +2,6 @@ package challenge.domain;
 
 import java.io.Serializable;
 import java.sql.Date;
-import java.util.List;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -20,14 +19,14 @@ public class ProgramMember extends Program implements Serializable {
     private int memberType; // 회원유형
     
     private int uno; // 회원번호
-    private List<Member> members;
+    private Member members;
     private Diary diary;
     
     
-    public List<Member> getMembers() {
+    public Member getMembers() {
         return members;
     }
-    public void setMembers(List<Member> members) {
+    public void setMembers(Member members) {
         this.members = members;
     }
     public Diary getDiary() {
