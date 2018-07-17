@@ -5,7 +5,7 @@
 /* MENU Link Hover Effect CSS 시작 */
 
 #sh_top_layout {
-	background-color: #000!important;
+	background-color: #000;
 }
 
 #sh-msgbox-msg ul {
@@ -221,7 +221,7 @@ a.sh_after:hover:after {
 }
 
 #sh_top_layout {
-  border-bottom: solid 1px rgb(102, 102, 102, 0.2);
+  
   height: 76px;
 }
 
