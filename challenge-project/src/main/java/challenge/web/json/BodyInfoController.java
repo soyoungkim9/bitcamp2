@@ -8,7 +8,6 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import challenge.domain.BodyInfo;
-import challenge.domain.Community;
 import challenge.service.BodyInfoService;
 
 @RestController

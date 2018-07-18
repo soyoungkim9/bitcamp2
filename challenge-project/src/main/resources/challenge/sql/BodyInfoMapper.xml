@@ -11,16 +11,13 @@
 -->
 <mapper namespace="challenge.dao.BodyInfoDao">
   <resultMap type="BodyInfo" id="BodyInfoMap">
-    <id column="uno" property="uno"/>
-    <result column="bno" property="bno"/>
+    <id column="bno" property="bno"/>
+    
     <result column="bDate" property="mdate"/>
     <result column="weight" property="weight"/>
     <result column="muscle" property="muscle"/>
     <result column="fat" property="fat"/>
-    <association property="user" javaType="User">
-        <id column="uno" property="userNo"/>
-        <result column="uname" property="name"/>
-    </association>
+    
     
   </resultMap>
   
@@ -42,7 +39,7 @@
     
   </select>
   
-  <insert id="insert" parameterType="Community">
+  <insert id="insert" parameterType="BodyInfo">
     insert into CMU(cmuno, cmut, cmu_cnt, cmu_type, cmu_lk, uno) 
     values (#{no}, #{title}, 0, #{type}, 0, 1);
   </insert>
@@ -50,7 +47,7 @@
   <!-- 파라미터의 타입이 primitive type이나 wrapper 클래스, String 클래스인 경우
        값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
   -->
-  <select id="selectOne" parameterType="int" resultMap="CommunityMap">
+  <select id="selectOne" parameterType="int" resultMap="BodyInfoMap">
     select pono, pocont, podate, cmut, cmu_cnt, cmu_type, cmu_lk, u.uno, u.uname
     from CMU c
     inner join USER u on c.uno=u.uno 
@@ -58,7 +55,7 @@
     where pono=#{value}
   </select>
   
-  <update id="update" parameterType="Community">
+  <update id="update" parameterType="BodyInfo">
     update POST set 
         pocont=#{content}, 
         podate=now()
