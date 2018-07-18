@@ -107,17 +107,15 @@ h3 {
 
 
 				<div class="row">
-					<div class="col-50">
-						
-						<label for="fname">측정일</label> 
-						<input type="text" id="mDate" name="mDate" placeholder="yyyy-mm-dd"> 
-						<label for="email">몸무게</label> 
-						<input type="text" id="weight" name="email" placeholder="kg">
-						<label for="adr">근력량</label> 
-						<input type="text" id="muscle" name="address" placeholder="kg"> 
-						<label for="city">체지방량</label> 
-						<input type="text"id="fat" name="city" placeholder="kg">
-
+					<div id="bodyInfo"class="col-50">
+                        <label for="fname">측정일</label> 
+                        <input type="text" id="mDate" name="mDate" > 
+                        <label for="email">몸무게</label> 
+                        <input type="text" id="weight" name="email" >
+                        <label for="adr">근력량</label> 
+                        <input type="text" id="muscle" name="address" > 
+                        <label for="city">체지방량</label> 
+                        <input type="text"id="fat" name="city" >
 					</div>
 
 				</div>
@@ -129,8 +127,8 @@ h3 {
 	</div>
 					<!-- 다음 단계 버튼 -->
 					<div class="nextBox">
-						
-						<button type="button">수정 완료</button>
+
+						<button id="update">수정 완료</button>
 					</div>
 				</div>
 				<!-- mypage-body -->
@@ -148,7 +146,21 @@ h3 {
 
 	</div>
 	<!-- back -->
+<script>
 
+    
+    $.getJSON(serverRoot + "/json/bodyInfo/list", function(data) {
+        
+        $("#mDate").attr('value',data.mdate);
+        /* $("#weight").append(data.weight);
+        $("#muscle").append(data.muscle);
+        $("#fat").append(data.fat); */
+    });
+    
+
+    
+
+</script>
 
 
 
@@ -173,11 +185,12 @@ function openCity(evt, cityName) {
 	<script src="../../js/header/header_white.js"></script>
 	<script src="../../js/footer/footer.js"></script>
 	<script src="../../js/member/mb-menu.js"></script>
+	
 	<script>
 $("#myBody").click(() => {
-    
- 
-    
+
+
+
     $.ajax({
         type: 'POST',
         url: '../../../json/community/add',
@@ -189,13 +202,13 @@ $("#myBody").click(() => {
     }).done(function(){
         location.href="community-list.html"
     });
-    
+
     /*
     $.post("../../../json/post/add", {content:$(fContent).val()}, () => {
         console.log($(fContent).val())});
-    
-    
-    
+
+
+
     $.post("../../../json/community/add", {
         title: $(fTitle).val(),
         type: $(CMU_TYPE).val()

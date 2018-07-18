@@ -23,13 +23,17 @@
 				<legend align="center"> 회원가입 </legend>
 
 				<table>
-				<tbody id="listbody" class="chall-tbody"></tbody>
+				<tr>
+                        <td><label for="name">이름</label></td>
+                        <td><input id="fName" type="text" name="name"
+                            placeholder="name" class="name"></td>
+                            </tr>
 
 					<tr>
 						<td><label for="gender">성별</label></td>
-						<td><label class="gen">남자 <input type="radio"
+						<td><label class="gen">남자 <input id="fGen1" type="radio"
 								name="radio"> <span class="gcheckmark"></span>
-						</label><label class="gen">여자 <input type="radio" name="radio">
+						</label><label class="gen">여자 <input id="fGen2" type="radio" name="radio">
 								<span class="gcheckmark"></span>
 						</label></td>
 					</tr>
@@ -37,19 +41,19 @@
 
 					<tr>
 						<td><label for="password">비밀번호</label></td>
-						<td><input type="password" name="password"
+						<td><input id="fPassword1" type="password" name="password"
 							placeholder="password" class="password"></td>
 					</tr>
 					<tr>
 						<td><label for="password">비밀번호확인</label></td>
 
-						<td><input type="password" name="password"
+						<td><input id="fPassword2" type="password" name="password"
 							placeholder="password" class="password"></td>
 					</tr>
 
 					<tr>
 						<td><label for="email">이메일</label></td>
-						<td><input type="text" name="email" placeholder="email"
+						<td><input id="fEmail" type="text" name="email" placeholder="email"
 							class="email" style="width: 100px;"> @ <select
 							class="email" style="width: 100px;">
 								<option>naver.com</option>
@@ -70,7 +74,7 @@
 								<option>010</option>
 								<option>017</option>
 								<option>011</option>
-						</select> - <input type="tel" name="tel" class="phone" maxlength="4"
+						</select> - <input id="fPhone" type="tel" name="tel" class="phone" maxlength="4"
 							size="4" pattern="[0-9]{3,4}" onkeypress="phonedate(event)">
 							- <input type="tel" name="tel" class="phone" maxlength="4"
 							size="4" pattern="[0-9]{4}" onkeypress="phonedate(event)">
@@ -79,7 +83,7 @@
 
 					<tr>
 						<td><label for="file">사진</label>
-						<td><input type="file" name="file" placeholder="file"
+						<td><input id="uPath" type="file" name="file" placeholder="file"
 							class="file"></td>
 					</tr>
 					<!-- <tr>
@@ -109,7 +113,7 @@
 				</table>
 
 				<center>
-					<input type="submit" name="submit" value="회원가입" class="button1">
+					<input id="addBtn" type="button" name="button" value="회원가입" class="button1">
 					<input type="reset" name="reset" value="가입취소" class="button2">
 				</center>
 
@@ -126,15 +130,7 @@
 	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../../js/common.js"></script>
-	<script id="tr-template" type="text/x-handlebars-template">
-{{#each list}}
-<tr>
-                        <td><label for="name">{{user.name}}</label></td>
-                        <td><input type="text" name="name" placeholder="name"
-                            class="name"></td>
-</tr>
-{{/each}}
-</script>
+	<script src="member.js"></script>
 	<script src="../../js/header/header_white.js"></script>
 	<script src="../../js/footer/footer.js"></script>
 	<!-- 헤더 스크립트 -->

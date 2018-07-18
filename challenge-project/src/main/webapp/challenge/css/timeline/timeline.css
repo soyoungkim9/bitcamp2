@@ -355,7 +355,7 @@ body:not(#footer) {
   display: inline-block;
 }
 
-.sh-tl-reply-textarea{
+.sh_tl_reply_textarea{
   margin-left: 15px !important;
   border: 1px solid gray !important;
   border-radius: 18px;
@@ -402,7 +402,7 @@ textarea:focus {
   letter-spacing: normal;
   resize: none;
   border: none;
-  max-width: 72%;
+  width: 72%;
   overflow-y: hidden;
   margin-left: 72px;
   padding-right: -11px;
