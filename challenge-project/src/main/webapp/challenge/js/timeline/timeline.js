@@ -85,8 +85,8 @@ $(document).ready(function(){
 		// 필요한 변수 구하기
 		var scrollHeight = $(window).scrollTop() + $(window).height();
 		var documentHeight = $(document).height();
-		console.log(scrollHeight);
-		console.log(documentHeight);
+//		console.log(scrollHeight);
+//		console.log(documentHeight);
 
 
 
@@ -129,7 +129,7 @@ $(document).ready(function(){
        
 // 타임라인 글 게시
 $("#sh-tl-post-btn").click(() => {
-	
+
 //	$.ajax({
 //		type: 'POST',
 //		url: '../../../json/post/add',
@@ -141,7 +141,7 @@ $("#sh-tl-post-btn").click(() => {
 	$.ajax({
 		type: 'POST',
 		url: '../../../json/timeline/add',
-		data: {picture:$(sh_tl_upload).val(), content:$(sh_tl_post_write).val()},
+		data: {picture:$('#sh_tl_upload').val(), content:$('#sh_tl_post_write').val()},
 	}).done(function(){
 		console.log("입력됨.");
 		location.href="timeline.html"
@@ -156,10 +156,61 @@ var trTemplateSrc = $("#tr-template").html();
 var templateFn = Handlebars.compile(trTemplateSrc);
 
 $.getJSON(serverRoot + "/json/timeline/list", (data) => {
-	//$tableBody.innerHTML = templateFn({list:data});
-    $(sh_tl_card_add).html(templateFn({list:data}));
+    $('#sh_tl_card_add').html(templateFn({list:data}));
+    
 });
 
-// 타임라인 댓글 게시
+//달린 댓글 불러오기
+var cmTemplateSrc = $("#cm-template").html();
+var cmtemplateFn = Handlebars.compile(cmTemplateSrc);
+$.getJSON(serverRoot + "/json/comment/list", (data) => {
+	$('#sh_tl_load_comments').html(cmtemplateFn({list:data}));
+});
+
+
+/*
+function commentFn() {
+	var content = document.getElementById("sh_tl_load_comments");
+	console.log(content);
+	var cmTemplateSrc = $("#cm-template").html();
+	var cmtemplateFn = Handlebars.compile(cmTemplateSrc);
+	$.getJSON(serverRoot + "/json/comment/list", (data) => {
+		$('#sh_tl_load_comments').html(cmtemplateFn({list:data}));
+	});
+}
+*/
+
+// 댓글 달기
+function cmtFunction() {
+	
+	console.log("댓글 버튼 눌렸습니다.")
+	
+	var contents = document.getElementsByClassName("shsh");
+	var tlNos = document.getElementsByClassName("tlNo");
+	
+	console.log(tlNos[0].textContent) // 카드 객체 번호 가져오기.
+	
+	// 댓글 쓰인 카드의 번호 가져오기 위한 for문
+	var i = 0;
+	for (i = 0; i < contents.length; i++) {
+		if (contents[i].value.length > 0) {
+			console.log(i)
+			break;
+		} 
+	} 
+	
+	console.log(contents[i].value) // 댓글의 content 가져오기
+	console.log(tlNos[i].textContent) // 카드 객체 번호(Timeline 기본기 번호) 가져오기.
+	
+	$.ajax({
+		type: 'POST',
+		url: '../../../json/comment/add',
+		data: {content:contents[i].value, timelineNo:tlNos[i].textContent}
+	}).done(function(){
+		console.log("댓글 입력됨");
+		location.href="timeline.html"
+	});
+
+}
 
 

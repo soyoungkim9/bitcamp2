@@ -179,7 +179,7 @@
 
   <!-- 헤더/푸터 스크립트 종료-->
   <!-- 헤더/푸터 스크립트 종료-->
-  <script id="tr-template" type="text/x-handlebars-template">
+<script id="tr-template" type="text/x-handlebars-template">
 {{#each list}}
 <!-- 타임라인 카드 시작 -->
 <div class="sh-tl-card sh-card">
@@ -221,23 +221,16 @@
     <div class="sh-tl-reply-user">
       <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
       <div class="sh-tl-review-write">
-        <textarea class="sh-tl-review-title  sh-tl-reply-textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-        <div class="sh-tl-img-upload"><button class="sh-tl-reply-btn">게시</button> </div>
+        <textarea class="shsh sh-tl-review-title  sh_tl_reply_textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+        <div class="sh-tl-img-upload"><button onclick="cmtFunction()" class="sh-tl-reply-btn" type="submit">게시</button> </div>
       </div>
     </div>
   </section>
   <!-- 댓글쓰기 종료 -->
   <!-- 대댓글 불러오기-->
-  <section class="sh-tl-card-reply-load">
-    <div class="sh-tl-reply-user">
-      <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
-      <div class="sh-tl-review-write">
-        <!-- <span class="sh-tl-review-content sh-tl-reply-content" onkeydown="resize(this)" onkeyup="resize(this)"></span> -->
-        <textarea readonly class="sh-tl-review-content  sh-tl-reply-content"></textarea>
-        <div class="sh-tl-img-upload">
-        </div>
-      </div>
-  </section>
+    <div style="display:none;" class="tlNo">{{no}}</div>
+    <div onclick="commentFn()" id="sh_tl_load_comments">ㅇㅇ</div>
+
   <!-- 대댓글 불러오기 종료-->
   <div style="clear:both;"></div>
   </div>
@@ -245,6 +238,22 @@
 <!-- 타임라인 카드 하나 종료 -->
 {{/each}}
 </script>
+
+<!-- 대댓글 Handlebars -->
+<script id="cm-template" type="text/x-handlebars-template">
+{{#each list}}
+  <section class="sh-tl-card-reply-load">
+    <div class="sh-tl-reply-user">
+      <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
+      <div class="sh-tl-review-write">
+        <!-- <span class="sh-tl-review-content sh-tl-reply-content" onkeydown="resize(this)" onkeyup="resize(this)"></span> -->
+        <textarea readonly class="sh-tl-review-content  sh-tl-reply-content">글번호 : {{timelineNo}}, 내용: {{content}}, 날짜 : {{createdDate}}</textarea>
+      </div>
+  </section>
+{{/each}}
+</script>
+
+
   <script src="../../js/timeline/timeline.js"></script>
 </body>
 
