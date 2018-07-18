@@ -5,6 +5,7 @@
 <title>회원페이지</title>
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet" href="../../css/table.css">
+<link rel="stylesheet" href="../../css/paging.css">
 <link rel="stylesheet" href="../../css/member/sm-memberPage.css">
 <link rel="stylesheet" href="../../css/member/ksy-settings.css">
 <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
@@ -23,7 +24,7 @@
     text-align:left;
     margin:5px;
   }
-  
+
   </style>
   </head>
   <body>
@@ -61,9 +62,10 @@
       <h3 class="sm-margin-none" style="color:#666666;">전체메시지</h3>
       <hr style="margin-bottom:30px;">
       <div class="sm-msgBox" style=" ">
-          <form name="frame">
+          <form name="frame" action="" id="setRows">
             <input id="sm-btn-1-small" class="checkAll" style="margin:0; margin-bottom:3px;" type="button" value="전체선택">
             <input id="sm-btn-1-small" style="margin:0; margin-bottom:3px;" type="button" value="삭제하기">
+            <input type="hidden" name="rowPerPage" value="3">
             <select>
               <option selected>--정렬 방식--
               <option>전체메시지
@@ -72,7 +74,7 @@
             </select>
           </form>
         <div class="sm-msgBox-body">
-          <table class="chall-table" cellspacing="0">
+          <table id="products" class="chall-table" cellspacing="0">
           <thead class="chall-thead">
             <tr>
               <th width="10%">선택</th><th width="10%">보관</th><th width="40%">내용</th>
@@ -82,7 +84,6 @@
           <tbody id="listbody" class="chall-tbody">
           </tbody>
           </table>
-<div class="pagination"></div> <!-- pagination -->
         </div>
       </div>
       
@@ -93,9 +94,10 @@
       <h3 class="sm-margin-none" style="color:#666666;">보관메시지</h3>
       <hr style="margin-bottom:30px; border:1px solid gray;">
       <div class="sm-msgBox" style=" ">
-        <form name="frame">
+        <form name="frame" action="" id="setRows">
           <input id="sm-btn-1-small" style="margin:0; margin-bottom:3px;" type="button" value="전체선택">
           <input id="sm-btn-1-small" style="margin:0; margin-bottom:3px;" type="button" value="삭제하기">
+          <input type="hidden" name="rowPerPage" value="3">
           <select>
             <option selected>--정렬 방식--
             <option>전체메시지
@@ -104,7 +106,7 @@
           </select>
         </form>
         <div class="sm-msgBox-body">
-          <table class="chall-table" cellspacing="0" style="text-align:center; width:100%; border:1px solid #ddd">
+          <table id="products" class="chall-table" cellspacing="0" style="text-align:center; width:100%; border:1px solid #ddd">
             <thead class="chall-thead">
 	            <tr style="background-color:#1B3453; height:40px; color:white;">
 	              <th width="10%">선택</th><th width="10%">보관</th><th width="40%">내용</th>
@@ -126,9 +128,29 @@
 	              <td>홍길동</td>
 	              <td>2011-01-01</td>
 	            </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td><i class="fas fa-star" style="color:#1B3453;"></i></td>
+                  <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
+                  <td>홍길동</td>
+                  <td>2011-01-01</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td><i class="fas fa-star" style="color:#1B3453;"></i></td>
+                  <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
+                  <td>홍길동</td>
+                  <td>2011-01-01</td>
+                </tr>
+                <tr>
+                  <td><input type="checkbox"></td>
+                  <td><i class="fas fa-star" style="color:#1B3453;"></i></td>
+                  <td>ㄴㄹㄴㄴㄹㅇㄴㄹㅇㄴ</td>
+                  <td>홍길동</td>
+                  <td>2011-01-01</td>
+                </tr>
             </tbody>
           </table>
-            <div class="pagination"></div> <!-- pagination -->
         </div>
       </div>
 
@@ -171,28 +193,13 @@ $('.checkAll').click(function(){
 
 </script>
 
-<script> // 탭 메뉴
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-</script>
 <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../../js/common.js"></script>
 <script src="../../js/header/header_white.js"></script>
 <script src="../../js/footer/footer.js"></script>
 <script src="../../js/member/mb-menu.js"></script>
-<script src="../../js/pagination.js"></script>
     <script src="msg.js"></script>
+<script src="../../js/paging.js"></script>
 </body>
 </html>
