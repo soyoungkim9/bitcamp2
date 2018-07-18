@@ -12,8 +12,8 @@
 
   DayScheduleSelector.DEFAULTS = {
     days        : [0, 1, 2, 3, 4, 5, 6],  // Sun - Sat
-    startTime   : '08:00',                // HH:mm format
-    endTime     : '20:00',                // HH:mm format
+    startTime   : '00:00',                // HH:mm format
+    endTime     : '24:00',                // HH:mm format
     interval    : 30,                     // minutes
     stringDays  : ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
     template    : '<div class="day-schedule-selector">'         +
@@ -310,7 +310,7 @@ $("#weekly-schedule").dayScheduleSelector({
   // minutes
   interval    : 30,
 
-  stringDays  : ['월', '화', '수', '목', '금', '토', '일'],
+  stringDays  : ['일', '월', '화', '수', '목', '금', '토'],
 
   // Custom template
   template    : '<div class="day-schedule-selector">'         +
@@ -321,6 +321,6 @@ $("#weekly-schedule").dayScheduleSelector({
                 '<div>'
 });
 
-$("#weekly-schedule").data('artsy.dayScheduleSelector').deserialize({
+/*$("#weekly-schedule").data('artsy.dayScheduleSelector').deserialize({
   '0': [['00:30', '01:30']]
-});
+});*/
