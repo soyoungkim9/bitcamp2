@@ -70,6 +70,13 @@
 		from TML t
 		where pono=#{value}
 	</select>
+    
+    <select id="timelineLike" parameterType="int" resultType="int">
+	     select count(*)
+	     from TML_LK
+	     where pono=#{value}
+    </select>
+
 
 	<update id="update" parameterType="Timeline">
 		update POST set
