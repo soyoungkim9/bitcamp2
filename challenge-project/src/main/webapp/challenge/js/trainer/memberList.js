@@ -1,3 +1,4 @@
+// tr-template
 // 템플릿 엔진이 사용할 템플릿 데이터 가져오기
 var trTemplateSrc = $("#tr-template").html();
 
@@ -7,5 +8,21 @@ var templateFn = Handlebars.compile(trTemplateSrc);
 console.log();
 $.getJSON(serverRoot + "/json/programMember/list", (data) => {
 	//$tableBody.innerHTML = templateFn({list:data});
-    $(memberList).html(templateFn({list:data}));
+    $('#memberList').html(templateFn({list:data}));
+});
+
+//li-template
+var liTemplateSrc = $("#li-template").html();
+var templateFn2 = Handlebars.compile(liTemplateSrc);
+console.log();
+$.getJSON(serverRoot + "/json/programMember/list", (data) => {
+ $('#programList').html(templateFn2({list:data}));
+});
+
+/* 탭 메뉴 이벤트 */
+$(document).on('click','.tabSelect', function(){
+	if ($(".tabSelect").find(".active")) {
+		$(".tabSelect").removeClass("active");
+	}
+	$(this).addClass("active");
 });

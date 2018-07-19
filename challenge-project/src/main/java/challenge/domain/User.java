@@ -1,14 +1,18 @@
 package challenge.domain;
 
-public class User {
-    protected int userNo;
-    protected String name;
-    protected char sex;
-    protected String email;
-    protected String password;
-    protected String userPath;
-    protected String userPhone;
-    protected int userType;
+import java.io.Serializable;
+
+public class User implements Serializable {
+    private static final long serialVersionUID = 1L;
+    
+    private int userNo;
+    private String name;
+    private char sex;
+    private String email;
+    private String password;
+    private String userPath;
+    private String userPhone;
+    private int userType;
     
     
     @Override

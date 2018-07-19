@@ -33,7 +33,7 @@
     
   </select>
   
-  <insert id="insert" parameterType="Timeline"
+  <insert id="insert" parameterType="Object"
           useGeneratedKeys="true" keyColumn="pono" keyProperty="no">
     insert into POST(pocont, podate) 
     values(#{content}, now());

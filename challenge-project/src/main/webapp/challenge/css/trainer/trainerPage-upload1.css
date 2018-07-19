@@ -1,10 +1,21 @@
 @charset "UTF-8";
 
+textarea {
+	width: 590px;
+	resize: vertical;
+	overflow-x: hidden;
+}
+
 .sm-mypage-body {
   box-sizing: border-box;
+  min-height: 700px;
   margin-bottom: 100px;
 }
 
+.sm-mypage-body  div {
+	display: inline-box;
+	box-sizing: border-box;
+}
 /* 프로젝트 등록 서브 메뉴 */
 
 /* 이 부분은 임시 나중에 삭제 10~13*/
@@ -60,11 +71,13 @@
 }
 
 .uploadContent li {
+  width: 790px;
   clear: both;
   display: inline-block;
   box-sizing: border-box;
   border-bottom: 1px dashed #d7d7d7;
   padding: 15px 0 20px 0;
+  overflow: hidden;
 }
 
 #notPadding {
@@ -72,6 +85,7 @@
 }
 
 .contentName {
+  display: inline-block;
   width: 170px;
   font-size: 17px;
   font-weight: bold;
@@ -80,7 +94,9 @@
 
 .ucContet {
   float: left;
-  width: 658px;
+  overflow: hidden;
+  width: 600px;
+  display: inline-block;
 }
 
 /* 챌린지 주제, 종목 */
@@ -155,12 +171,82 @@
   padding: 10px;
 }
 
+/* 금액 */
+.ucpMoney h5 {
+  margin: 0;
+  margin-bottom: 12px;
+}
+
+.moneyBox {
+  display: inline-block;
+  width: 600px;
+}
+
+.moneyName2 {
+  float: left;
+}
+
+.marginBox {
+  margin-right: 20px;
+  width: 600px;
+  box-sizing: border-box;
+}
+
+.moneyList {
+  float: left;
+  border-bottom: 1px solid #eae8e8;
+  padding: 20px;
+  width: 600px;
+  box-sizing: border-box;
+}
+
+.ucpInputBox input {
+    border:1px solid #d7d7d7;
+    padding: 8px;
+    height: 20px;
+    width: 200px;
+}
+
+.moneyContent {
+    background: #fafafa;
+    display: inline-block;
+    box-sizing: border-box;
+    border: 1px solid #eae8e8;
+    border-bottom: none;
+}
+
+.moneyPlus {
+  border:1px solid #d7d7d7;
+  float: left;
+  width: 600px;
+  box-sizing: border-box;
+  margin-top: 10px;
+  height: 42px;
+}
+
+.moneyPlus a {
+  display: inherit;
+  text-align: center;
+  padding-top: 13px;
+  font-size: 14px;
+  font-weight: bold;
+  height: 29px;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.moneyName2 .fas {
+  float: right;
+}
+
+
 /* 챌린지 메인 이미지 등록 */
 
 #mainImg {
   border:1px solid #eae8e8;
-  width: 500px;
-  height: 400px;
+  width: 300px;
+  height: 300px;
   background: #fafafa;
   text-align: center;
 }
@@ -232,11 +318,12 @@
 }
 
 .positionList {
+  position: relative;
   float: left;
-  width: 100%;
   border-bottom: 1px solid #eae8e8;
   padding: 20px;
-  width: 611px;
+  width: 600px;
+  box-sizing: border-box;
 }
 
 .ucpInputBox input {
@@ -251,12 +338,14 @@
     display: inline-block;
     border: 1px solid #eae8e8;
     border-bottom: none;
+    width: 600px;
+    box-sizing: border-box;
 }
 
 .positionPlus {
   border:1px solid #d7d7d7;
   float: left;
-  width: 651px;
+  width: 600px;
   margin-top: 10px;
   height: 42px;
 }
@@ -283,8 +372,9 @@
 }
 
 #lessBtn {
+  position: absolute;
   display: inline-block;
-  margin-left: 370px;
+  right: 20px;
 }
 
 /* 가능일 */
@@ -340,9 +430,105 @@
 
 
 
+/* 바디에 있는 탭 메뉴 (트레이너:회원,수익관리/회원:알림,내가쓴글) 
+*/
+.sm-tab {overflow: hidden;}
+
+.sm-tab-down {
+  height: 250px;
+  width:105%;
+  float: left;
+  align: center;
+  overflow: auto;
+}
+.sm-tab button {
+    background-color:inherit;
+    border: 1px solid gray;
+    border-bottom: none;
+    float: left;
+    cursor: pointer;
+    padding: 10px 16px;
+    transition: 0.3s;
+    font-size: 15px;
+    border-top-left-radius: 0.5em;
+    border-top-right-radius: 0.5em;
+}
+.sm-tab button:hover {background-color: #1B3453; color:white; transition: 0.3;}
+.sm-tab button.active {background-color: #1B3453; color:white;}
+.sm-tabcontent {
+    overflow: hidden;
+    padding: 10px;
+    text-align: left;
+    border:none;
+    float: left;
+    width: 98%;
+    text-align: center;
+    margin-bottom: 30px;
+    display: none;
+    border-bottom:1px solid gray;
+}
+.sm-tabcontent.sm-current {display: inline;}
 
 
+/* 프로젝트 설명 */
+.ucContet textarea {
+}
 
+/* 상세 이미지 등록 */
+#bottomNone {
+  border-bottom: none;
+}
+
+#subImgMain, .subImg {
+  border:1px solid #eae8e8;
+  width: 250px;
+  height: 200px;
+  background: #fafafa;
+  text-align: center;
+  margin-bottom: 10px;
+}
+
+#subImgMain .far, .subImg .far {
+  font-size: 60px;
+  color: #bbbbbb;
+}
+
+#subImgMain .imgIcon {
+  margin-top: 68px;
+}
+
+.subImg .plusImg {
+  float: right;
+  margin: 8px 7px;
+}
+
+.subImg .imgIcon {
+  margin-top: 65px;
+}
+
+.subImg {
+  display: none;
+}
+
+.mediaPlus {
+  text-align: center;
+  width: 250px;
+  border:1px solid #d7d7d7;
+  margin-top: 10px;
+  height: 42px;
+}
+
+.mediaPlus a {
+  display: inherit;
+  text-align: center;
+  padding-top: 13px;
+  font-size: 14px;
+  font-weight: bold;
+  height: 29px;
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
 
 
 

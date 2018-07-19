@@ -65,101 +65,158 @@ function shClassFunction() {
 /* 타임라인 글 작성 textarea auto-growing / self-resizing */
 
 function resizeFunction() {
-	$('.sh-tl-reply-content').css('height','auto');
-	$('.sh-tl-reply-content').height(this.scrollHeight);
+  $('.sh-tl-reply-content').css('height', 'auto');
+  $('.sh-tl-reply-content').height(this.scrollHeight);
 }
 
 /* 좋아요 카운트 */
-var Clicks = 0 ;
-function TlAddClick(){
-	Clicks = Clicks + 1;
-	document.getElementById('sh-tl-CountedClicks').innerHTML = '회원님 외' + Clicks + ' 명이 좋아합니다.';
-	}
+var Clicks = 0;
+
+function TlAddClick() {
+  Clicks = Clicks + 1;
+  document.getElementById('sh-tl-CountedClicks').innerHTML = '회원님 외' + Clicks + ' 명이 좋아합니다.';
+}
 
 
 /* 무한 스크롤 */
 //무한 스크롤 부분
-$(document).ready(function(){
-	// 스크롤 이벤트 발생시
-	$(window).scroll(function(){
-		// 필요한 변수 구하기
-		var scrollHeight = $(window).scrollTop() + $(window).height();
-		var documentHeight = $(document).height();
-		console.log(scrollHeight);
-		console.log(documentHeight);
+$(document).ready(function() {
+  // 스크롤 이벤트 발생시
+  $(window).scroll(function() {
+    // 필요한 변수 구하기
+    var scrollHeight = $(window).scrollTop() + $(window).height();
+    var documentHeight = $(document).height();
+    //		console.log(scrollHeight);
+    //		console.log(documentHeight);
 
 
 
-		// 스크롤한 높이와 문서의 높이가 같을 때
-		if (scrollHeight == documentHeight) {
-			for (var i = 0; i < 5; i++) {
-				$(' <div class="sh-tl-card sh-card" style="border: 2px solid blue;"><section class="sh-tl-card-primary"><div class="sh-tl-user"><i class="sh-tl-user-circle fas fa-user-circle"></i><h1 class="sh-tl-user-name">무한스크롤</h1></div></section><div class="sh-tl-card-content"><p>졸려죽겠네? 아니야 할 수 있다! 북극곰 짱</p></div><section class="sh-tl-card-actions"><div class="sh-tl-like-count"><a href="#!"><i class="far fa-thumbs-up"></i></a><a id="sh-tl-CountedClicks" href="#!">0 명이 좋아합니다.</a><a href="#!"></a></div><div class="sh-tl-card-bottom"><div class="sh-tl-like sh-tl-card-bottom-items" style="border: 1px solid black;"><a onclick="TlAddClick()" href="#!"><i class="far fa-thumbs-up"></i>좋아요</a></div><div class="sh-tl-comment sh-tl-card-bottom-items" style="border: 1px solid black;"><a href="#!"><i class="far fa-comments"></i>댓글달기</a></div></div></section><section class="sh-tl-card-reply"><div class="sh-tl-reply-user"><i class="sh-tl-reply-user-circle fas fa-user-circle"></i><h1 class="sh-tl-reply-write">댓글을 입력하세요</h1></div></section><div style="clear:both;"></div></div>').appendTo('.sh-infinite-scroll');
-			}
-		}
-	});
+    // 스크롤한 높이와 문서의 높이가 같을 때
+    if (scrollHeight == documentHeight) {
+      for (var i = 0; i < 5; i++) {
+        $(' <div class="sh-tl-card sh-card" style="border: 2px solid blue;"><section class="sh-tl-card-primary"><div class="sh-tl-user"><i class="sh-tl-user-circle fas fa-user-circle"></i><h1 class="sh-tl-user-name">무한스크롤</h1></div></section><div class="sh-tl-card-content"><p>졸려죽겠네? 아니야 할 수 있다! 북극곰 짱</p></div><section class="sh-tl-card-actions"><div class="sh-tl-like-count"><a href="#!"><i class="far fa-thumbs-up"></i></a><a id="sh-tl-CountedClicks" href="#!">0 명이 좋아합니다.</a><a href="#!"></a></div><div class="sh-tl-card-bottom"><div class="sh-tl-like sh-tl-card-bottom-items" style="border: 1px solid black;"><a onclick="TlAddClick()" href="#!"><i class="far fa-thumbs-up"></i>좋아요</a></div><div class="sh-tl-comment sh-tl-card-bottom-items" style="border: 1px solid black;"><a href="#!"><i class="far fa-comments"></i>댓글달기</a></div></div></section><section class="sh-tl-card-reply"><div class="sh-tl-reply-user"><i class="sh-tl-reply-user-circle fas fa-user-circle"></i><h1 class="sh-tl-reply-write">댓글을 입력하세요</h1></div></section><div style="clear:both;"></div></div>').appendTo('.sh-infinite-scroll');
+      }
+    }
+  });
 });
 
 /* modal event */
 // Get the modal
-       var modal = document.getElementById('sh-tl-myModal');
+var modal = document.getElementById('sh-tl-myModal');
 
-       // Get the button that opens the modal
-       var btn = document.getElementById("sh-tl-myModalBtn");
+// Get the button that opens the modal
+var btn = document.getElementById("sh-tl-myModalBtn");
 
-       // Get the <span> element that closes the modal
-       var span = document.getElementsByClassName("sh-tl-modal-close")[0];
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("sh-tl-modal-close")[0];
 
-       // When the user clicks on the button, open the modal
-       btn.onclick = function() {
-           modal.style.display = "block";
-       }
+// When the user clicks on the button, open the modal
+btn.onclick = function() {
+  modal.style.display = "block";
+}
 
-       // When the user clicks on <span> (x), close the modal
-       span.onclick = function() {
-           modal.style.display = "none";
-       }
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
 
-       // When the user clicks anywhere outside of the modal, close it
-       window.onclick = function(event) {
-           if (event.target == modal) {
-               modal.style.display = "none";
-           }
-       }
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
 
-       
+
 // 타임라인 글 게시
 $("#sh-tl-post-btn").click(() => {
-	
-//	$.ajax({
-//		type: 'POST',
-//		url: '../../../json/post/add',
-//		data: {content:$(sh_tl_post_write).val()},
-//		async: false
-//	});
-	
-	
-	$.ajax({
-		type: 'POST',
-		url: '../../../json/timeline/add',
-		data: {picture:$(sh_tl_upload).val(), content:$(sh_tl_post_write).val()},
-	}).done(function(){
-		console.log("입력됨.");
-		location.href="timeline.html"
-	});
+
+  //	$.ajax({
+  //		type: 'POST',
+  //		url: '../../../json/post/add',
+  //		data: {content:$(sh_tl_post_write).val()},
+  //		async: false
+  //	});
+
+
+  $.ajax({
+    type: 'POST',
+    url: '../../../json/timeline/add',
+    data: {
+      picture: $('#sh_tl_upload').val(),
+      content: $('#sh_tl_post_write').val()
+    },
+  }).done(function() {
+    console.log("입력됨.");
+    location.href = "timeline.html"
+  });
 });
 
 // 타임라인 카드 글 list 출력
 //템플릿 엔진이 사용할 템플릿 데이터 가져오기
+
+/*
 var trTemplateSrc = $("#tr-template").html();
 
-//위에서 준비한 템플릿 데이터를 가지고 HTML을 생성할 템플릿 엔진 준비
 var templateFn = Handlebars.compile(trTemplateSrc);
 
 $.getJSON(serverRoot + "/json/timeline/list", (data) => {
-	//$tableBody.innerHTML = templateFn({list:data});
-    $(sh_tl_card_add).html(templateFn({list:data}));
+    $('#sh_tl_card_add').html(templateFn({list:data}));
+
 });
 
-// 타임라인 댓글 게시
+var cmTemplateSrc = $("#cm-template").html();
+var cmtemplateFn = Handlebars.compile(cmTemplateSrc);
+$.getJSON(serverRoot + "/json/comment/list", (data) => {
+	$('#sh_tl_load_comments').html(cmtemplateFn({list:data}));
+});
+*/
 
 
+/*
+function commentFn() {
+	var content = document.getElementById("sh_tl_load_comments");
+	console.log(content);
+	var cmTemplateSrc = $("#cm-template").html();
+	var cmtemplateFn = Handlebars.compile(cmTemplateSrc);
+	$.getJSON(serverRoot + "/json/comment/list", (data) => {
+		$('#sh_tl_load_comments').html(cmtemplateFn({list:data}));
+	});
+}
+*/
+
+// 댓글 달기
+function cmtFunction() {
+
+  console.log("댓글 버튼 눌렸습니다.")
+
+  var contents = document.getElementsByClassName("shsh");
+  var tlNos = document.getElementsByClassName("tlNo");
+
+  console.log(tlNos[0].textContent) // 카드 객체 번호 가져오기.
+
+  // 댓글 쓰인 카드의 번호 가져오기 위한 for문
+  var i = 0;
+  for (i = 0; i < contents.length; i++) {
+    if (contents[i].value.length > 0) {
+      console.log(i)
+      break;
+    }
+  }
+
+  console.log(contents[i].value) // 댓글의 content 가져오기
+  console.log(tlNos[i].textContent) // 카드 객체 번호(Timeline 기본기 번호) 가져오기.
+
+  $.ajax({
+    type: 'POST',
+    url: '../../../json/comment/add',
+    data: {
+      content: contents[i].value,
+      timelineNo: tlNos[i].textContent
+    }
+  }).done(function() {
+    console.log("댓글 입력됨");
+    location.href = "timeline.html"
+  });
+
+}
