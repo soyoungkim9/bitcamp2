@@ -54,7 +54,7 @@
       <button class="sm-tablinks" onclick="openCity(event, 'sm-tab2')"
        style="border-left: none;">② 가격설정</button>
       <button class="sm-tablinks" onclick="openCity(event, 'sm-tab3')"
-       style="border-left: none;">③ 운동계획서</button>
+       style="border-left: none;">③ 이미지&설명</button>
      </div>
      <!-- 프로젝트 등록 본문-->
      <div id="sm-tab1" class="sm-tabcontent sm-current">
@@ -164,53 +164,6 @@
           </div>
          </div>
         </li>
-        <li class="ucmainImage">
-         <div class="contentName">메인 미디어</div>
-         <div class="ucContet">
-          <div id="mainImg">
-           <div class="imgIcon">
-            <i class="far fa-image"></i>
-           </div>
-           <div class="imgtext">
-            <div class="subText1">
-             <!-- PMED.ppath, pmtype -->
-             999 * 999px 사이즈의<br> 메인 이미지를 등록해 주세요.
-            </div>
-            <div class="subText2">(5MB 이하의 jpg.jpeg.png 형식)</div>
-           </div>
-          </div>
-         </div>
-        </li>
-        <li class="ucpImgs">
-         <div class="contentName">상세 미디어</div>
-         <div class="ucContet">
-          <div class="ImgsBox">
-           <div id="subImgMain">
-            <div class="imgIcon">
-             <i class="far fa-image"></i>
-            </div>
-           </div>
-           <div id="more" class="subImg">
-            <div class="plusImg">
-             <a onclick="lessFunction()" id="lessBtn"><i
-              class="fas fa-times-circle"></i></a>
-            </div>
-            <div class="imgIcon">
-             <i class="far fa-image"></i>
-            </div>
-           </div>
-          </div>
-          <div class="mediaPlus">
-           <a onclick="moreFunction()" id="moreBtn">+ 미디어 추가</a>
-          </div>
-         </div>
-        </li>
-        <li class="ucpexplain">
-         <div class="contentName">프로그램 설명</div>
-         <div class="ucContet">
-          <textarea id="fdescription" name="name" rows="15" cols="80"></textarea>
-         </div>
-        </li>
         <li class="ucposition">
          <div class="contentName">장소</div>
          <div class="ucContet">
@@ -219,10 +172,9 @@
             <div class="positionList">
              <!-- pstno, bas_addr, det_addr -->
              <input type="text" id="sample6_postcode" placeholder="우편번호">
-             <input type="button" onclick="sample6_execDaumPostcode()"
-              value="우편번호 찾기"><br> <input type="text"
-              id="sample6_address" placeholder="주소"> <input
-              type="text" id="sample6_address2" placeholder="상세주소">
+             <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
+             <input type="text" id="sample6_address" placeholder="주소">
+             <input type="text" id="sample6_address2" placeholder="상세주소">
             </div>
             <!-- <div class="positionList" id="more">
              <a onclick="lessFunction()" id="lessBtn"><i
@@ -323,17 +275,53 @@
      <div id="sm-tab3" class="sm-tabcontent">
       <div class="uploadContent">
        <ul>
-        <li class="ucpPlan">
-         <div class="contentName">운동계획서</div>
+        <li class="ucmainImage">
+         <div class="contentName">메인 미디어</div>
          <div class="ucContet">
-          <textarea name="name" rows="15" cols="80"></textarea>
-          <div class="positionPlus">
-           <a onclick="moreFunction()" id="moreBtn">+ 운동계획서 추가</a>
+          <div id="mainImg">
+           <div class="imgIcon">
+            <i class="far fa-image"></i>
+           </div>
+           <div class="imgtext">
+            <div class="subText1">
+             <!-- PMED.ppath, pmtype -->
+             999 * 999px 사이즈의<br> 메인 이미지를 등록해 주세요.
+            </div>
+            <div class="subText2">(5MB 이하의 jpg.jpeg.png 형식)</div>
+           </div>
           </div>
          </div>
         </li>
-
-
+        <li class="ucpImgs">
+         <div class="contentName">상세 미디어</div>
+         <div class="ucContet">
+          <div class="ImgsBox">
+           <div id="subImgMain">
+            <div class="imgIcon">
+             <i class="far fa-image"></i>
+            </div>
+           </div>
+           <div id="more" class="subImg">
+            <div class="plusImg">
+             <a onclick="lessFunction()" id="lessBtn"><i
+              class="fas fa-times-circle"></i></a>
+            </div>
+            <div class="imgIcon">
+             <i class="far fa-image"></i>
+            </div>
+           </div>
+          </div>
+          <div class="mediaPlus">
+           <a onclick="moreFunction()" id="moreBtn">+ 미디어 추가</a>
+          </div>
+         </div>
+        </li>
+        <li class="ucpexplain">
+         <div class="contentName">프로그램 설명</div>
+         <div class="ucContet">
+          <textarea id="fdescription" name="name" rows="15" cols="80"></textarea>
+         </div>
+        </li>
        </ul>
       </div>
       <!-- 다음 단계 버튼 -->

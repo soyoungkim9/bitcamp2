@@ -10,7 +10,7 @@ public class Program implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int no; // 프로그램 번호
-    private char postNo; // 우편번호
+    private String postNo; // 우편번호
     private String address; // 기본주소
     private String addDetail; // 상세주소
     private String name; // 프로그램명
@@ -50,10 +50,10 @@ public class Program implements Serializable {
     public void setNo(int no) {
         this.no = no;
     }
-    public char getPostNo() {
+    public String getPostNo() {
         return postNo;
     }
-    public void setPostNo(char postNo) {
+    public void setPostNo(String postNo) {
         this.postNo = postNo;
     }
     public String getAddress() {

@@ -71,6 +71,9 @@ function sample6_execDaumPostcode() {
 $("#addBtn").click(() => {
   console.log("들어가11")
   $.post(serverRoot + "/json/program/add", {
+      postNo: $(sample6_postcode).val(),
+      address: $(sample6_address).val(),
+      addDetail: $(sample6_address2).val(),
       name: $(fname).val(),
       startDate: $(fStartDate).val(),
       endDate: $(fEndDate).val(),
@@ -80,6 +83,11 @@ $("#addBtn").click(() => {
       description: $(fdescription).val(),
       proType: $(ftype).val(),
       proGoal: $(fprgoal).val(),
+      proGoalNum: $(fprogoalnum).val(),
+      proTh: $(fth).val(),
+      proTurn: $(fptover).val(),
+      proDay: "2018-07-19",
+      proTime: "2018-07-19",
       planNo: 4,
       challengeNo: $(chalTab).val()
       /*trainerNo: {userNo: 2} */
