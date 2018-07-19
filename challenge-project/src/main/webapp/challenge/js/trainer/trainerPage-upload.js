@@ -1,3 +1,7 @@
+$.get(serverRoot + "/challenge/html/trainer/trainerPageTemplate.html", (data) => {
+	$("#subMenu").html(data);
+});
+
 /* 더보기 임시 */
 function moreFunction() {
   var moreText = document.getElementById("more");

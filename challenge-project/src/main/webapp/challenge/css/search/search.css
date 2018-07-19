@@ -8,6 +8,7 @@ a {
 	text-decoration: none;
 }
 .sidenav {
+  margin-left: 30px;
   padding: 10px;
   float: left;
   width: 250px;
@@ -85,8 +86,8 @@ margin-bottom: 35px;
 }
 .content {
   float: left;
-  padding: 10px;
-  width: 950px;
+  padding: 10px 10px 10px 40px;
+  width: 888px;
 }
 
 .search-flex{
@@ -96,6 +97,8 @@ margin-bottom: 35px;
 .search-row {
   display: flex;
   margin-bottom: 40px;
+  flex-wrap: wrap;
+  justify-content: space-between;
 }
 .search-column {
   flex: 1;
@@ -153,6 +156,10 @@ margin-bottom: 35px;
 }
 .chal-search-filter::after {
     clear: both;
+}
+
+.sm-pagination-button {
+    height: 36px;
 }
 
 /* .search-nav {

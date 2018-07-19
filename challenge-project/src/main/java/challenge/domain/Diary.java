@@ -22,12 +22,13 @@ public class Diary implements Serializable{
     public void setContent(String content) {
         this.content = content;
     }
-    public char isCheck() {
+    public char getDcheck() {
         return dcheck;
     }
-    public void setCheck(char dcheck) {
+    public void setDcheck(char dcheck) {
         this.dcheck = dcheck;
     }
+
     
     
 }

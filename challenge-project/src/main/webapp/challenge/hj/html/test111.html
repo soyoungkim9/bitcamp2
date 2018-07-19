@@ -3,16 +3,19 @@
 <title>W3.CSS</title>
 <meta charset='UTF-8'>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+<!-- <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css"> -->
 <style>
 .city {display:none}
 </style>
+<style>
+/* @import url(../../css/table.css) screen; */
+@import url(test111.css) screen;
+</style>
+
 <script src="test111.js"></script>
 <body>
 
 <div class="w3-container">
-<h2>Modal Tabs</h2>
-<p>In this example we add tabbed content inside the modal.</p>
 
 <button onclick="document.getElementById('id01').style.display='block'" class="w3-button w3-black">Open Tabbed Modal</button>
 
@@ -21,7 +24,7 @@
   <header class="w3-container w3-blue">
    <span onclick="document.getElementById('id01').style.display='none'"
    class="w3-button w3-blue w3-xlarge w3-display-topright">&times;</span>
-   <h2>Header</h2>
+   <h2>메시지</h2>
   </header>
 
   <div class="w3-bar w3-border-bottom">
@@ -31,17 +34,14 @@
   </div>
 
   <div id="receiveM" class="w3-container city">
-   <h1>receiveM</h1>
    <div class="border-table-wrapper">
 	<table class="chall-table">
 		<thead class="chall-thead">
 			<tr>
 				<th width="10%">번호</th>
-				<th width="10%">게시판</th>
-				<th width="40%">제목</th>
-				<th width="15%">작성자</th>
-				<th width="10%">조회수</th>
-				<th width="15%">작성일</th>
+				<th width="70%">내용</th>
+				<th width="10%">이름</th>
+				<th width="10%">날짜</th>
 			</tr>
 		</thead>
 		<tbody id="listbody" class="chall-tbody"></tbody>
@@ -50,14 +50,31 @@
   </div>
 
   <div id="sendM" class="w3-container city">
-   <h1>sendM</h1>
-   <p>sendM is the capital of France.</p>
-   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+   <table class="chall-table">
+        <thead class="chall-thead">
+            <tr>
+                <th width="10%">번호</th>
+                <th width="70%">내용</th>
+                <th width="10%">이름</th>
+                <th width="10%">날짜</th>
+            </tr>
+        </thead>
+        <tbody id="listbody" class="chall-tbody"></tbody>
+    </table>
   </div>
 
   <div id="writeM" class="w3-container city">
-   <h1>writeM</h1>
-   <p>writeM is the capital of Japan.</p><br>
+   <table class="chall-table">
+            <tr>
+                <th width="10%">받는사람</th>
+                <td><input type="text"></td>
+            </tr>
+            <tr>
+                <th width="10%">내용</th>
+                <td><textarea></textarea></td>
+            </tr>
+        <tbody id="listbody" class="chall-tbody"></tbody>
+    </table>
   </div>
 
   <div class="w3-container w3-light-grey w3-padding">

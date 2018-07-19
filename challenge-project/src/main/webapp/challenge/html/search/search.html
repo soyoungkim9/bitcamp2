@@ -5,12 +5,12 @@
   <meta charset="UTF-8">
   <title>찾기</title>
 
+  <link rel="stylesheet" href="../../css/common.css">
+  <link rel="stylesheet" href="../../css/pagination.css">
   <link rel="stylesheet" href="../../css/search/search.css">
   <link rel="stylesheet" href="../../css/program/card1.css">
-  <link rel="stylesheet" href="../../css/common.css">
   <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
   <link rel="stylesheet" href="../../css/search/multirange.css">
-  <link rel="stylesheet" href="../../css/pagination.css">
 
 </head>
 
@@ -100,11 +100,7 @@
       </div>
 
         <div class="search-flex">
-          <div class="search-row" id="aaa">
-          </div>
-          <div class="search-row">
-          </div>
-          
+          <div class="search-row" id="aaa"></div>
           
           <!-- <div class="search-nav">
             <nav aria-label="Page navigation">
@@ -136,9 +132,9 @@
 
 <script id="cardBody2" type="text/x-handlebars-template">
 {{#each list}}
-<div class="search-column">
+
 <div class="card" id="card">
-    <a href="#">
+    <a href="../programDetail/programDetailPage.html">
     <!-- 카드 헤더 -->
     <div class="card-header">
       <img class="card-img" src="../../img/program/{{medias.[0].path}}"/>
@@ -163,7 +159,7 @@
     </a>
 </div>
 </div>
-</div>
+
 {{/each}}
 </script>
   <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>

@@ -4,7 +4,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import challenge.domain.ProgramMember;
 import challenge.service.ProgramMemberService;
 
 @RestController
@@ -23,9 +22,9 @@ public class ProgramMemberController {
         return programMemberService.list();
     }
     
-    @RequestMapping("{email}")
-    public ProgramMember view(@PathVariable String email) throws Exception {
-        return programMemberService.get(email);
+    @RequestMapping("{no}")
+    public Object view(@PathVariable int no) throws Exception {
+        return programMemberService.get(no);
     }
     
 }

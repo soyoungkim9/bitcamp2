@@ -27,8 +27,7 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
     }
 
     @Override
-    public ProgramMember get(String email) {
-        ProgramMember programMember = programMemberDao.selectOne(email);
-        return programMember;
+    public Object get(int no) {
+        return programMemberDao.selectOne(no);
     }
 }
