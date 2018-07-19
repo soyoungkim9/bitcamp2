@@ -175,7 +175,7 @@
           <div class="contentName">챌린지 주제</div>
           <div class="ucContet">
             <div class="challengeProgram">
-            <input type="text" placeholder="챌린지 주제를 정해주세요.">
+            <input id="aTitle" type="text" placeholder="챌린지 주제를 정해주세요.">
             </div>
           </div>
         </li>
@@ -193,7 +193,8 @@
         <li class="ucContent">
           <div class="contentName">내용</div>
           <div class="ucContet">
-      <textarea name="content" cols="70" rows="40" ></textarea>
+      <textarea  id="content" cols="70" rows="20" ></textarea>
+      <!-- <textarea id="editor"></textarea> -->
            </div>
 
         </li>
@@ -232,7 +233,7 @@
             <br>
             <figure class="uploadpreview">
                      <img/>
-                 <input type="file" />
+                 <input type="file" id="path"/>
                <figcaption contenteditable></figcaption>
            </figure>
           </div>
@@ -263,7 +264,7 @@
       </div>
       <!-- 다음 단계 버튼 -->
       <div class="nextBox">
-        <button type="button">등록</button>
+        <button id="addButn" type="button">등록</button>
       </div>
     </div><!-- mypage-body -->
 
@@ -297,16 +298,44 @@
 </div><!-- back -->
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../../node_modules/lightbox2/dist/js/lightbox.js"></script>
+
+<script src="../../node_modules/@ckeditor/ckeditor5-build-classic/build/ckeditor.js"></script>
 <script src="../../js/common.js"></script>
 <script src="../../js/admin/image_upload.js"></script>
 <!-- <script src="../../js/header/header_white_login.js"></script> -->
 <script src="../../js/footer/footer.js"></script>
 <script src="../../js/admin/trainerPageChallenge-upload.js"></script>
-<script src="../../js/admin/dailySchedule.js"></script>
+
 <!-- 서버에 올릴 때 지울 부분 -->
 <script src="../../js/header/header_event.js"></script>
-<!-- CKEditor-->
-<script src="http://cdn.ckeditor.com/4.4.7/standard/ckeditor.js"></script>
+
+
+  
+    <script>
+    $("#addButn").click(() => {
+    
+    $.ajax({
+    	type : "post",
+    	url : "../../../json/admin/add",
+    	data : {
+    		title: $(aTitle).val(),
+    		cotent: $(content).val()
+    		}
+    
+    }).done(function(){
+        location.href="admin-list.html"
+    });
+    });
+    </script>
+
+<!-- <script>
+    ClassicEditor
+        .create( document.querySelector( '#editor' ) )
+        .catch( error => {
+            console.error( error );
+        } );
+</script> -->
+
 
 </body>
 </html>
