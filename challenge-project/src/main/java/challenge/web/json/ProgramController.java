@@ -9,6 +9,8 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import challenge.domain.Program;
+import challenge.domain.ProgramMedia;
+import challenge.service.ProgramMediaService;
 import challenge.service.ProgramService;
 
 @RestController
@@ -16,15 +18,20 @@ import challenge.service.ProgramService;
 public class ProgramController {
 
     ProgramService programService;
+    ProgramMediaService programMediaService;
 
-    public ProgramController(ProgramService programService) {
+    public ProgramController(ProgramService programService, 
+            ProgramMediaService programMediaService) {
         this.programService = programService;
+        this.programMediaService = programMediaService;
     }
 
    @RequestMapping("add")
    @ResponseStatus(HttpStatus.CREATED)
-    public void add(Program program) throws Exception {
+    public void add(Program program/*, ProgramMedia programMedia*/) throws Exception {
+           System.out.println("컨트롤러는 들어옴");
             programService.add(program);
+            /*programMediaService.add(programMedia);*/
     }
 
     @RequestMapping("delete")

@@ -3,15 +3,14 @@ package challenge.service;
 
 import java.util.List;
 
-import challenge.domain.Comment;
+import challenge.domain.ProgramMedia;
 
-public interface CommentService {
+public interface ProgramMediaService {
     // 서비스 컴포넌트에서 메서드명을 지을 때는 
     // 업무 용어를 사용하라!
-    List<Comment> list();
-    Comment get(int no);
-    int add(Comment comment);
-    int update(Comment comment);
+    List<ProgramMedia> list();
+    ProgramMedia get(int no);
+    int add(ProgramMedia programMedia);
+    int update(ProgramMedia programMedia);
     int delete(int no);
-    List<Comment> listWithNo(int no);
 }
