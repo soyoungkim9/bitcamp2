@@ -202,7 +202,7 @@
   <section class="sh-tl-card-actions">
     <div class="sh-tl-like-count">
       <a class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i></a>
-      <a class="sh-like-clicked" id="sh-tl-CountedClicks" href="#!">0 명이 좋아합니다.</a>
+      <a class="sh-like-clicked" id="sh-tl-CountedClicks" href="#!"><span class="tlLks">0</span> 명이 좋아합니다.</a>
       <a href="#!"></a>
     </div>
     <div class="sh-tl-card-bottom">
@@ -221,15 +221,14 @@
     <div class="sh-tl-reply-user">
       <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
       <div class="sh-tl-review-write">
-        <textarea class="shsh sh-tl-review-title  sh_tl_reply_textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-        <div class="sh-tl-img-upload"><button onclick="cmtFunction()" class="sh-tl-reply-btn" type="submit">게시</button> </div>
+        <textarea id="{{no}}" class="sh-tl-review-title  sh_tl_reply_textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+        <div class="sh-tl-img-upload"><button onclick="cmtFunction({{no}})" class="sh-tl-reply-btn" type="submit">게시</button> </div>
       </div>
     </div>
   </section>
   <!-- 댓글쓰기 종료 -->
   <!-- 대댓글 불러오기-->
     <div style="display:none;" class="tlNo">{{no}}</div>
-    <div onclick="commentFn()" id="sh_tl_load_comments">ㅇㅇ</div>
 
   <!-- 대댓글 불러오기 종료-->
   <div style="clear:both;"></div>

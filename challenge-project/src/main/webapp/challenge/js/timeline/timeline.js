@@ -152,67 +152,19 @@ $("#sh-tl-post-btn").click(() => {
   });
 });
 
-// 타임라인 카드 글 list 출력
-//템플릿 엔진이 사용할 템플릿 데이터 가져오기
-
-/*
-var trTemplateSrc = $("#tr-template").html();
-
-var templateFn = Handlebars.compile(trTemplateSrc);
-
-$.getJSON(serverRoot + "/json/timeline/list", (data) => {
-    $('#sh_tl_card_add').html(templateFn({list:data}));
-
-});
-
-var cmTemplateSrc = $("#cm-template").html();
-var cmtemplateFn = Handlebars.compile(cmTemplateSrc);
-$.getJSON(serverRoot + "/json/comment/list", (data) => {
-	$('#sh_tl_load_comments').html(cmtemplateFn({list:data}));
-});
-*/
-
-
-/*
-function commentFn() {
-	var content = document.getElementById("sh_tl_load_comments");
-	console.log(content);
-	var cmTemplateSrc = $("#cm-template").html();
-	var cmtemplateFn = Handlebars.compile(cmTemplateSrc);
-	$.getJSON(serverRoot + "/json/comment/list", (data) => {
-		$('#sh_tl_load_comments').html(cmtemplateFn({list:data}));
-	});
-}
-*/
 
 // 댓글 달기
-function cmtFunction() {
-
+function cmtFunction(no) {
   console.log("댓글 버튼 눌렸습니다.")
-
-  var contents = document.getElementsByClassName("shsh");
-  var tlNos = document.getElementsByClassName("tlNo");
-
-  console.log(tlNos[0].textContent) // 카드 객체 번호 가져오기.
-
-  // 댓글 쓰인 카드의 번호 가져오기 위한 for문
-  var i = 0;
-  for (i = 0; i < contents.length; i++) {
-    if (contents[i].value.length > 0) {
-      console.log(i)
-      break;
-    }
-  }
-
-  console.log(contents[i].value) // 댓글의 content 가져오기
-  console.log(tlNos[i].textContent) // 카드 객체 번호(Timeline 기본기 번호) 가져오기.
-
+  console.log(no); // 카드 번호 가져오기
+  console.log($('#' + no).val());
+  
   $.ajax({
     type: 'POST',
     url: '../../../json/comment/add',
     data: {
-      content: contents[i].value,
-      timelineNo: tlNos[i].textContent
+      content: $('#' + no).val(),
+      timelineNo: no
     }
   }).done(function() {
     console.log("댓글 입력됨");
