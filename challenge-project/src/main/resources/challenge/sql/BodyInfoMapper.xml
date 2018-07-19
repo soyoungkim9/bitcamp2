@@ -54,7 +54,7 @@
   
    <update id="update" parameterType="BodyInfo">
     update BINFO set 
-        mdate=now(), 
+        mdate=#{bdate}, 
         weight=#{weight},
         muscle=#{muscle},
         muscle=#{muscle},
