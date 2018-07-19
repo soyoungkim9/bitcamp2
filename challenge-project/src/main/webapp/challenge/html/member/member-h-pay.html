@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet" href="../../css/member/sm-memberPage.css">
 <link rel="stylesheet" href="../../css/table.css">
-<link rel="stylesheet" href="../../css/pagenation.css">
+<link rel="stylesheet" href="../../css/pagination.css">
 <link rel="stylesheet" href="../../css/member/sm-following.css">
 <link rel="stylesheet" href="../../css/member/ksy-mypage.css">
 <link rel="stylesheet"
@@ -298,21 +298,7 @@ span {
 
 
 
-  <script> // 탭 메뉴
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-</script>
+
   <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../../js/common.js"></script>
   <script src="../../js/header/header_white.js"></script>
