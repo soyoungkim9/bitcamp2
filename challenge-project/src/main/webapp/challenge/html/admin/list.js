@@ -8,3 +8,4 @@ $.getJSON(serverRoot + "/json/admin/list", (data) => {
 	//$tableBody.innerHTML = templateFn({list:data});
     $(aaaa).html(templateFn({list:data}));
 });
+

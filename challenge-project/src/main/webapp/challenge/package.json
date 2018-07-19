@@ -8,6 +8,8 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@ckeditor/ckeditor5-adapter-ckfinder": "^10.0.2",
+    "@ckeditor/ckeditor5-build-classic": "^10.1.0",
     "@fortawesome/fontawesome": "^1.1.8",
     "bootstrap": "^4.1.1",
     "handlebars": "^4.0.11",
