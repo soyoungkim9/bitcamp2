@@ -11,7 +11,6 @@ public class BodyInfo extends Member implements Serializable {
    
     private int bno; 
     @JsonFormat(pattern="yyyy-MM-dd")
-    private int uno;
     private Date bdate; // 측정일
     private Double weight; // 몸무게
     private Double muscle; // 근력량
