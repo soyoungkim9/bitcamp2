@@ -16,9 +16,7 @@
     <result column="weight" property="weight"/>
     <result column="muscle" property="muscle"/>
     <result column="fat" property="fat"/>
-    <association property="user" javaType="Member">
-        <id column="uno" property="uno"/>
-    </association>
+    
     
   </resultMap>
   
@@ -49,10 +47,12 @@
        값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
   -->
   <select id="selectOne" parameterType="int" resultMap="BodyInfoMap">
-    select bno,bdate,weight,muscle,fat,m.uno
-    from BINFO b
-    inner join MEMB m on b.uno=m.uno 
-    where uno=#{value}
+    
+    
+    
+    SELECT u.uno b.uno FROM BINFO b,USER u
+    INNER JOIN USER ON BINFO.uno = USER.uno
+    where uno=#{value};
   </select>
   
   <update id="update" parameterType="BodyInfo">
