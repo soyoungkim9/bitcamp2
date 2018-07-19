@@ -15,14 +15,12 @@
 #sh_top_layout {
   border-bottom: none !important;
 }
-
 .sm-msgBox {
   display: block;
   margin-bottom: 50px;
   width: 97.5%;
   height: 430px;
 }
-
 .sm-msgBox-menu {
   display: block;
   margin: 0px;
@@ -30,21 +28,17 @@
   width: 98.9%;
   height: 30px;
 }
-
 .sm-msgBox-body th, td {
   text-align: center;
   padding: 16px;
 }
-
 tr:nth-child(even) {
   background-color: #f2f2f2
 }
-
 h3 {
   text-align: left;
   margin: 5px;
 }
-
 .sm-container h2 {
   margin-bottom: 38px;
 }
@@ -106,31 +100,34 @@ h3 {
               <div class="container">
 
 
-                <div class="row">
-                  <div id="bodyInfo" class="col-50">
-                    <label for="fname">측정일</label> <input type="text"
-                      id="mDate" name="mDate"> <label
-                      for="email">몸무게</label> <input type="text"
-                      id="weight" name="email"> <label
-                      for="adr">근력량</label> <input type="text"
-                      id="muscle" name="address"> <label
-                      for="city">체지방량</label> <input type="text"
-                      id="fat" name="city">
-                  </div>
 
-                </div>
+                <div class="row">
+                    <div id="bodyInfo"class="col-50">
+                        <p>측정일</p> 
+                        <input type="text" id="setmdate"> 
+                        <p>몸무게</p>
+                        <input type="text" id="setweight">
+                        <p>근력량</p> 
+                        <input type="text" id="setmuscle"> 
+                        <p>체지방량</p> 
+                        <input type="text"id="setfat" style="display: block;">
+                        <div class="nextBox" style="float:left;">
+                            <button id="update">수정 완료</button>
+                        </div>
+                    </div>
+
+                
 
               </div>
             </div>
-
-
+                
           </div>
           <!-- 다음 단계 버튼 -->
-          <div class="nextBox">
+          
+                </div>
+                <!-- mypage-body -->
 
-            <button id="update">수정 완료</button>
-          </div>
-        </div><!-- mypage-body -->
+            
       </div><!-- mypage -->
     </div><!--.container-->
 
@@ -138,18 +135,17 @@ h3 {
     <div id="footer"></div>
     <!-- 푸터 종료 -->
 
+            
+
+
+    </div>
+    <!-- back -->
+    
 
   </div>
   <!-- back -->
-  <script>
-    $.getJSON(serverRoot + "/json/bodyInfo/list", function(data) {
-        
-        $("#mDate").attr('value',data.mdate);
-        /* $("#weight").append(data.weight);
-        $("#muscle").append(data.muscle);
-        $("#fat").append(data.fat); */
-    });
-  </script>
+
+
 
 
 
@@ -169,45 +165,24 @@ function openCity(evt, cityName) {
     evt.currentTarget.className += " active";
 }
 </script>
-  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="../../js/common.js"></script>
-  <script src="../../js/header/header_white.js"></script>
-  <script src="../../js/footer/footer.js"></script>
-  <script src="../../js/member/mb-menu.js"></script>
-
-  <script>
-$("#myBody").click(() => {
 
 
+    <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+    <script src="../../js/common.js"></script>
+    <script src="../../js/header/header_white.js"></script>
+    <script src="../../js/footer/footer.js"></script>
+    <script src="../../js/member/mb-menu.js"></script>
+<script>
 
-    $.ajax({
-        type: 'POST',
-        url: '../../../json/community/add',
-        data:{
-            title: $(fTitle).val(),
-            type: $(CMU_TYPE).val(),
-            content:$(fContent).val()
-        }
-    }).done(function(){
-        location.href="community-list.html"
-    });
-
-    /*
-    $.post("../../../json/post/add", {content:$(fContent).val()}, () => {
-        console.log($(fContent).val())});
-
-
-
-    $.post("../../../json/community/add", {
-        title: $(fTitle).val(),
-        type: $(CMU_TYPE).val()
-    }, () => {
-        console.log($(fTitle).val()),
-        console.log($(CMU_TYPE).val())
-        location.href="community-list.html"
-    });
-    */
-});
+    $.getJSON(serverRoot + "/json/bodyInfo/list", (data) => {
+            console.log(data);
+            $(setmdate).val(data[0].bdate);
+            $(setweight).val(data[0].weight);
+            $(setmuscle).val(data[0].muscle);
+            $(setfat).val(data[0].fat);
+           });
 </script>
+  
+
 </body>
 </html>

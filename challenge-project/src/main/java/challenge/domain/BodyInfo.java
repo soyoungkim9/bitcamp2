@@ -5,27 +5,28 @@ import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class BodyInfo implements Serializable {
+public class BodyInfo extends Member implements Serializable {
     private static final long serialVersionUID = 1L;
 
    
-    private int bno; // 회원번호
+    private int bno; 
     @JsonFormat(pattern="yyyy-MM-dd")
-    private Date mdate; // 측정일
+    private Date bdate; // 측정일
     private Double weight; // 몸무게
     private Double muscle; // 근력량
     private Double fat;
+   
     public int getBno() {
         return bno;
     }
     public void setBno(int bno) {
         this.bno = bno;
     }
-    public Date getMdate() {
-        return mdate;
+    public Date getBdate() {
+        return bdate;
     }
-    public void setMdate(Date mdate) {
-        this.mdate = mdate;
+    public void setBdate(Date bdate) {
+        this.bdate = bdate;
     }
     public Double getWeight() {
         return weight;
@@ -45,6 +46,7 @@ public class BodyInfo implements Serializable {
     public void setFat(Double fat) {
         this.fat = fat;
     }
+    
    
 
 
