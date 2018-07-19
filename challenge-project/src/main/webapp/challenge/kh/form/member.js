@@ -1,8 +1,8 @@
 $("#addBtn").click(() => {
 	$.post(serverRoot + "/json/user/add", {
 		name: $("#fName").val(),
-		sex: $('#fGen1[value]:checked').val(),
-		sex: $('#fGen2[value]:checked').val(),
+		/*sex: $('#fGen1[value]:checked').val(),*/
+		sex: $('input[value]:checked').val(),
 		email: $("#fEmail1").val() + '@' + $("#fEmail2").val(),
 //		email: $(fEmail2).val(),
 		password: $("#fPassword1").val(),
