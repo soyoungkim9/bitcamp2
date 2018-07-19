@@ -12,7 +12,7 @@
 <mapper namespace="challenge.dao.BodyInfoDao">
   <resultMap type="BodyInfo" id="BodyInfoMap">
     <id column="bno" property="bno"/>
-    <result column="bDate" property="mdate"/>
+    <result column="bDate" property="bdate"/>
     <result column="weight" property="weight"/>
     <result column="muscle" property="muscle"/>
     <result column="fat" property="fat"/>
