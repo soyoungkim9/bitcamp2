@@ -25,7 +25,7 @@
         <div class="pay-0-img"></div>
       </div>
       <div class="pay-0-right">
-        <div class="order-title"><b>3개월 하체단련</b></div>
+        <div class="order-title" id="project-title"><b>3개월 하체단련</b></div>
         <div><span class="trainer-img"></span><span class="pay-0-trainer">튼튼하체</span></div>
       </div>
       <div class="order-table">
@@ -109,6 +109,14 @@
 <footer id="footer"></footer>
 
 <script>
+$.getJSON(serverRoot + "/json/program/" + no, (data) => {
+    console.log(data);
+    $(project-title).val(data.bdate);
+    $(setweight).val(data.weight);
+    $(setmuscle).val(data.muscle);
+    $(setfat).val(data.fat);
+}); 
+
 
 </script>
 

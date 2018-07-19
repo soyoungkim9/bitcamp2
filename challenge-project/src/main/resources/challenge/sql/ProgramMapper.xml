@@ -93,9 +93,10 @@
 
 
   <select id="selectOne" parameterType="string" resultMap="ProgramMap">
-    select name, dscrt, sdt, edt, max_qty
-    from pms2_program
-    where name=#{value}
+    select p.PNO,p.PNAME,p.PPRICE,t.TRNNO
+    from PROG p 
+    inner join TRN t on p.TRNNO =  t.TRNNO
+    
   </select>
 
   <select id="selectOneWithMembers" parameterType="string" resultMap="ProgramMap">
