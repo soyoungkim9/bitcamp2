@@ -8,7 +8,7 @@
 		<id column="uno" property="userNo" />
 		<result column="uname" property="name" />
 		<result column="sex" property="sex" />
-		<result column="mail" property="email" />
+		<result column="mail" property="id" />
 		<result column="pwd" property="password" />
 		<result column="uphon" property="userPhone" />
 		<result column="upath" property="userPath" />
@@ -23,11 +23,11 @@
 	</select>
 
 	<insert id="insert" parameterType="User" useGeneratedKeys="true"
-		keyColumn="uno" keyProperty="no">
+		keyColumn="uno" keyProperty="userNo">
 		insert into USER(uname, sex, mail, pwd, uphon, upath, utype)
-		values('나나', '여', 'USER05@', password('1111'), '1234-5678', 'popo.jpg', '2');
-		<!-- insert into USER(uname, sex, mail, pwd, uphon, upath)
-		values(#{name},#{gen},#{email},password(#{password}),#{userPhone},#{path}); -->
+		<!-- values('나나', '여', 'USER07@', password('1111'), '1234-5678', 'popo.jpg', '2'); -->
+		insert into USER(uname, sex, mail, pwd, uphon, upath, utype)
+		values(#{name},#{sex},#{id},password(#{password}),#{userPhone},#{userPath},#{userType});
 	</insert>
 
 	<select id="selectOne" parameterType="int" resultMap="UserMap">
@@ -68,7 +68,7 @@
 		update USER set
 		uname=#{name},
 		sex=#{sex},
-		mail=#{email},
+		mail=#{id},
 		pwd=password(#{password}),
 		uphon=#{userPhone},
 		upath=#{userPath},

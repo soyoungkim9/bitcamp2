@@ -8,7 +8,7 @@ public class User implements Serializable {
     private int userNo;
     private String name;
     private char sex;
-    private String email;
+    private String id;
     private String password;
     private String userPath;
     private String userPhone;
@@ -17,7 +17,7 @@ public class User implements Serializable {
     
     @Override
     public String toString() {
-        return "User [userNo=" + userNo + ", name=" + name + ", sex=" + sex + ", email=" + email + ", password="
+        return "User [userNo=" + userNo + ", name=" + name + ", sex=" + sex + ", id=" + id + ", password="
                 + password + ", userPath=" + userPath + ", userPhone=" + userPhone + ", userType=" + userType + "]";
     }
     public int getUserNo() {
@@ -39,10 +39,10 @@ public class User implements Serializable {
         this.sex = sex;
     }
     public String getEmail() {
-        return email;
+        return id;
     }
-    public void setEmail(String email) {
-        this.email = email;
+    public void setEmail(String id) {
+        this.id = id;
     }
     public String getPassword() {
         return password;

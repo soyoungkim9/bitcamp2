@@ -1,8 +1,8 @@
-$("#addBtn").click(() => {
+/*$("#addBtn").click(() => {
 	$.post(serverRoot + "/json/user/add", {
 		name: $("#fName").val(),
-		/*sex: $('#fGen1[value]:checked').val(),*/
-		sex: $('input[value]:checked').val(),
+		sex: $('#fGen1[name]:checked').val(),
+//		sex: $('input[value]:checked').val(),
 		email: $("#fEmail1").val() + '@' + $("#fEmail2").val(),
 //		email: $(fEmail2).val(),
 		password: $("#fPassword1").val(),
@@ -12,6 +12,20 @@ $("#addBtn").click(() => {
 		userType: '1'
 	}, () => {
 		location.href="../auth/login.html";
+	});
+});*/
+
+$("#addBtn").click(() => {
+	$.post(serverRoot + "/json/user/add", {
+		name: '김김',
+		/*sex: '여',*/
+		/*id: 'user08@test.com',*/
+		password: '1111',
+		userPhone: '010-1234-5678',
+		userPath: 'jj.png',
+		userType: '1'
+	}, () => {
+		console.log("시바");
 	});
 });
 
@@ -46,7 +60,6 @@ $("#addBtn").click(() => {
 			userPath: $(fPath).val(),
 			userType: $(fType).val()
 		}
-	success: success,
 	}).done(function(){
 		console.error("성공???");
 	});
