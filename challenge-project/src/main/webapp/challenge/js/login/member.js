@@ -3,15 +3,14 @@ $("#addBtn").click(() => {
 		name: $("#fName").val(),
 		sex: $('input[name]:checked').val(),
 //		sex: $('input[value]:checked').val(),
-		id: $("#fid").val() + '@' + $("#fid2").val(),
+		id: $("#fId").val(),
 //		email: $(fEmail2).val(),
 		password: $("#fPassword").val(),
-//		password: $(fPassword2).val(), 
 		userPhone: $("#fPhone1").val() + '-' + $("#fPhone2").val() + '-' + $("#fPhone3").val(),
 		userPath: $("#fPath").val(),
 		userType: '1'
 	}, () => {
-		location.href="../auth/login.html";
+		console.log("시바");
 	});
 });
 
@@ -25,7 +24,7 @@ $("#addBtn").click(() => {
 		userPath: 'jj.png',
 		userType: '1'
 	}, () => {
-		console.log("시바");
+location.href=serverRoot + "/challenge/html/login/login.html";
 	});
 });*/
 

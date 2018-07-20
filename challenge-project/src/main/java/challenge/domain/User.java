@@ -38,10 +38,11 @@ public class User implements Serializable {
     public void setSex(char sex) {
         this.sex = sex;
     }
-    public String getEmail() {
+    
+    public String getId() {
         return id;
     }
-    public void setEmail(String id) {
+    public void setId(String id) {
         this.id = id;
     }
     public String getPassword() {

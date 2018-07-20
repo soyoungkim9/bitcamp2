@@ -18,50 +18,52 @@
 	<select id="selectList" resultMap="UserMap" parameterType="map">
 		select uno, uname, sex, mail, pwd, uphon, upath, utype
 		from USER
-		order by uno asc
+		order
+		by uno asc
 		<!-- limit #{startRowNo}, #{pageSize} -->
 	</select>
 
 	<insert id="insert" parameterType="User" useGeneratedKeys="true"
 		keyColumn="uno" keyProperty="userNo">
+		<!-- insert into USER(uname, sex, mail, pwd, uphon, upath, utype) values('나나', 
+			'여', 'USER10@', password('1111'), '1234-5678', 'popo.jpg', '2'); -->
 		insert into USER(uname, sex, mail, pwd, uphon, upath, utype)
-		<!-- values('나나', '여', 'USER07@', password('1111'), '1234-5678', 'popo.jpg', '2'); -->
-		insert into USER(uname, sex, mail, pwd, uphon, upath, utype)
-		values(#{name},#{sex},#{id},password(#{password}),#{userPhone},#{userPath},#{userType});
+		values(#{name},#{sex},#{id},password(#{password}),#{userPhone},#{userPath},#{userType})
 	</insert>
 
 	<select id="selectOne" parameterType="int" resultMap="UserMap">
-		select uno, uname, sex, mail, pwd, uphon, upath, utype
+		select uno,
+		uname, sex, mail, pwd, uphon, upath, utype
 		from USER
 		where uno=#{value}
 	</select>
-	
-	 <select id="selectOneWithId" parameterType="String" resultMap="UserMap">
-        select uno, uname, sex, mail, pwd, uphon, upath, utype
-        from USER
-        where mail=#{value}
-    </select>
-    
-    
-    <select id="selectOneWithPassword" parameterType="map"
-        resultMap="UserMap">
-        select uno, uname, sex, mail, pwd, uphon, upath
-        from USER
-        where mail=#{id} and pwd=password(#{password})
-    </select>
 
-    <select id="count" parameterType="map" resultType="int">
-		select count(*)
-		from USER
-		where mail=#{id} and pwd=#{password}
+	<select id="selectOneWithId" parameterType="String"
+		resultMap="UserMap">
+		select uno, uname, sex, mail, pwd, uphon, upath, utype
+		from
+		USER
+		where mail=#{value}
 	</select>
-	
-	<!-- <select id="selectOneWithPassword" parameterType="map"
+
+
+	<select id="selectOneWithPassword" parameterType="map"
 		resultMap="UserMap">
 		select uno, uname, sex, mail, pwd, uphon, upath
 		from USER
-		where uno=#{uno} and pwd=password(#{password})
-	</select> -->
+		where mail=#{id} and pwd=password(#{password})
+	</select>
+
+	<select id="count" parameterType="map" resultType="int">
+		select
+		count(*)
+		from USER
+		where mail=#{id} and pwd=#{password}
+	</select>
+
+	<!-- <select id="selectOneWithPassword" parameterType="map" resultMap="UserMap"> 
+		select uno, uname, sex, mail, pwd, uphon, upath from USER where uno=#{uno} 
+		and pwd=password(#{password}) </select> -->
 
 
 	<update id="update" parameterType="User">
@@ -76,7 +78,8 @@
 		where uno=#{userNo}
 	</update>
 
-	 <delete id="delete" parameterType="int"> 
-	 delete from USER where uno=#{value} 
-		</delete>
+	<delete id="delete" parameterType="int">
+		delete from USER where
+		uno=#{value}
+	</delete>
 </mapper>
