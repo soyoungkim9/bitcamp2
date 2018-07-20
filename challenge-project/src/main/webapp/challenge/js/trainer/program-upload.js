@@ -88,44 +88,10 @@ $("#addBtn").click(() => {
       proTurn: $(fptover).val(),
       proDay: "2018-07-19",
       proTime: "2018-07-19",
-      planNo: 4,
       challengeNo: $(chalTab).val()
-      /*trainerNo: {userNo: 2} */
+      /*planNo: 4,*/
+      /*trainerNo: 2*/
   }, () => {
-    console.log("들어가222")
       location.href = "trainerPage-programList.html";
   });
 });
-
-
-
-/*$("#addBtn").click(() => {
-    $.post(serverRoot + "/json/program/add", {
-        postNo: $(sample6_postcode).val(),
-        address: $(sample6_address).val(),
-        addDetail: $(sample6_address2).val(),
-        name: $(fname).val(),
-        startDate: $(fStartDate).val(),
-        endDate: $(fEndDate).val(),
-        minQty: $(fminQty).val(),
-        maxQty: $(fmaxQty).val(),
-        price: $(fprice).val(),
-        description: $(fdescription).val(),
-        proType: $(ftype).val(),
-        proGoal: $(fprgoal).val(),
-        proGoalNum: $(fprogoalnum).val(),
-        proTh: $(fth).val(),
-        proTurn: $(fptover).val(),
-        proDay: '2018-07-19',
-        proTime: '2018-07-19',
-        proState: 0,
-        proResult: 0,
-        
-        challengeNo: $(chalTab).val(),
-        planNo: 4,
-        trainerNo: 2
-    }, () => {
-        location.href = "trainerPage-programList.html";
-    });
-});*/
-

@@ -87,7 +87,7 @@
         #{proTh}, #{proTurn}, 
         #{proDay}, #{proTime}, 
         #{proState}, #{proResult},
-        #{challengeNo}, #{planNo}, #{trainerNo.userNo})
+        #{challengeNo}, 1, 10)
   </insert>
 
 
