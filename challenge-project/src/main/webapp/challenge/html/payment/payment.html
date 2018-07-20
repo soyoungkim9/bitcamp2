@@ -25,7 +25,7 @@
         <div class="pay-0-img"></div>
       </div>
       <div class="pay-0-right">
-        <div class="order-title" id="project-title"><b>3개월 하체단련</b></div>
+        <div class="order-title" id="project-title"></div>
         <div><span class="trainer-img"></span><span class="pay-0-trainer">튼튼하체</span></div>
       </div>
       <div class="order-table">
@@ -39,7 +39,7 @@
           </thead>
           <tbody>
             <tr class="order-tr">
-              <td class="order-td">3개월 하체단련</td>
+              <td class="order-td" class="project-title"></td>
               <td class="order-td">
                 <span class="pay-nu">-</span>
                 <span>1</span>
@@ -109,12 +109,15 @@
 <footer id="footer"></footer>
 
 <script>
+var no = 1;
 $.getJSON(serverRoot + "/json/program/" + no, (data) => {
     console.log(data);
-    $(project-title).val(data.bdate);
-    $(setweight).val(data.weight);
+    console.log(this);
+    $("#project-title").append("<b>"+data.name+"</b>");
+
+    /* $(setweight).val(data.weight);
     $(setmuscle).val(data.muscle);
-    $(setfat).val(data.fat);
+    $(setfat).val(data.fat); */ 
 }); 
 
 
