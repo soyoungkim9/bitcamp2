@@ -1,0 +1,37 @@
+//build.gradle 파일
+// - gradle 빌드 도구가 사용하는 설정 파일이다.
+// - gradle 빌드 도구가 실행할 명령을 이 파일에 작성한다.
+
+// 1) gradle 빌드 도구가 사용할 플러그인 추가
+// => 이클립스 관련 파일을 생성하고 제거하는 명령어가 들어 있는 플러그인
+apply plugin: 'eclipse'  //'eclipse' 자리에 쓰는 IDE를 쓰면 됨.
+
+// => 자바 관련 작업을 수행할 명령어가 들어 있는 플러그인
+apply plugin: 'java'
+
+//=> Gradle 기본 소스 폴더 경로(src/main/java)를 src/로 변경하라
+sourceSets {
+    main {
+        java {
+            srcDir 'src'
+        }
+        resources {
+            srcDir 'src'
+        }
+    }
+} 
+
+
+// => 의존 라이브러리를 다운로드 받을 서버를 지정
+repositories {
+    mavenCentral() // https://repo.maven.apache.org/maven2/ 서버에서 다운로드 받는다.
+}
+
+// => 의존 라이브러리 정보
+dependencies {
+    // MySQL JDBC Driver 라이브러리
+    compile group: 'mysql', name: 'mysql-connector-java', version: '8.0.11'
+    
+    // Mybatis 라이브러리
+    compile group: 'org.mybatis', name: 'mybatis', version: '3.4.6'
+}
