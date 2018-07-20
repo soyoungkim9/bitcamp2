@@ -1,14 +1,16 @@
 package challenge.domain;
 
-public class Member extends User{
+import java.io.Serializable;
 
+public class Member extends User implements Serializable {
     private static final long serialVersionUID = 1L;
-    private int uno;
-    
-    public int getUno() {
-        return uno;
+
+    private int userNo;
+
+    public int getUserNo() {
+        return userNo;
     }
-    public void setUno(int uno) {
-        this.uno = uno;
-    } 
+    public void setUserNo(int userNo) {
+        this.userNo = userNo;
+    }
 }
