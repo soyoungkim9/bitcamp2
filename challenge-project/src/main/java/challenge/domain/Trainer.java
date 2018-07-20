@@ -6,13 +6,22 @@ import java.sql.Date;
 public class Trainer extends User implements Serializable {
     private static final long serialVersionUID = 1L;
 
+    private int tno;
     private String introduce; // 소개
     private String career; // 경력사항
     private Date time; // 상담시간
     private String account; // 계좌
     private String bank; // 은행명
     private int coin; // 수익금
+    
+    
 
+    public int getTno() {
+        return tno;
+    }
+    public void setTno(int tno) {
+        this.tno = tno;
+    }
     public String getIntroduce() {
         return introduce;
     }
