@@ -58,7 +58,7 @@
 		select
 		count(*)
 		from USER
-		where mail=#{id} and pwd=#{password}
+		where mail=#{id} and pwd=password(#{password})
 	</select>
 
 	<!-- <select id="selectOneWithPassword" parameterType="map" resultMap="UserMap"> 

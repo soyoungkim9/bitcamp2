@@ -10,7 +10,7 @@ $("#addBtn").click(() => {
 		userPath: $("#fPath").val(),
 		userType: '1'
 	}, () => {
-		console.log("시바");
+		console.log("비밀번호 : " + $("#fPassword").val());
 	});
 });
 

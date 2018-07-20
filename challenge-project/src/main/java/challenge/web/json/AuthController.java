@@ -58,6 +58,7 @@ public class AuthController {
 
         if (userService.isExist(id, password)) { // 로그인 성공!
             session.setAttribute("loginUser", userService.getWithId(id));
+            System.out.println();
             // If 로그인한 유저가 유저?회원?트레이너?피멤브? 어떤거냐에 따라 세션에 넣어주기. 유형
             result.put("state", "success");
         } else { // 로그인 실패!
