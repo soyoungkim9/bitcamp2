@@ -4,7 +4,7 @@
 		console.log($("#fPassword").val())
 		*/
 	    var data = {
-	        id : $("#fId").val(),
+	        id : $("#fId").val() +  $("#fId").val() + $("#fId").val(),
 	        password: $("#fPassword").val()
 	    };
 		
