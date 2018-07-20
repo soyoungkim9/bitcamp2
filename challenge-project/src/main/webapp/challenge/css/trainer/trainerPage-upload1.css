@@ -6,6 +6,30 @@ textarea {
 	overflow-x: hidden;
 }
 
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+	-webkit-appearance: none;
+	margin: 0;
+}
+
+li input {
+    box-sizing: border-box;
+    border: 1px solid #d7d7d7;
+    border-radius: 2px;
+    padding: 5px;
+    height: 35px;
+    font-size: 15px;
+}
+
+select {
+	box-sizing: border-box;
+    border: 1px solid #d7d7d7;
+    border-radius: 2px;
+    padding: 5px;
+    height: 35px;
+    font-size: 15px;
+}
+
 .sm-mypage-body {
   box-sizing: border-box;
   min-height: 700px;
@@ -100,12 +124,6 @@ textarea {
 }
 
 /* 챌린지 주제, 종목 */
-.selectTab1 {
-    border:1px solid #d7d7d7;
-    padding: 10px;
-    border-radius:2px;
-}
-
 .ucChallenge select, .ucProgram select {
     width: 200px;
  }
@@ -122,9 +140,6 @@ textarea {
 /* 챌린지 날짜 */
 
 .challengeDate input {
-  border:1px solid #d7d7d7;
-  padding: 8px;
-  border-radius:2px;
   width: 180px;
 }
 
@@ -134,11 +149,6 @@ textarea {
 }
 
 /* 챌린지 프로그램 */
-.programTurnBox input {
-  border:1px solid #d7d7d7;
-  height: 32px;
-
-}
 .programTurnName {
   float: left;
   margin-right: 25px;
@@ -147,9 +157,7 @@ textarea {
   float: left;
 }
 .challengeProgram input {
-    border:1px solid #d7d7d7;
     width: 350px;
-    padding: 10px;
 }
 
 /* 챌린지 인원 */
@@ -165,10 +173,7 @@ textarea {
 }
 
 .ucNum input {
-  border:1px solid #d7d7d7;
   width: 90px;
-  height: 10px;
-  padding: 10px;
 }
 
 /* 금액 */
@@ -198,13 +203,6 @@ textarea {
   padding: 20px;
   width: 600px;
   box-sizing: border-box;
-}
-
-.ucpInputBox input {
-    border:1px solid #d7d7d7;
-    padding: 8px;
-    height: 20px;
-    width: 200px;
 }
 
 .moneyContent {
@@ -291,10 +289,6 @@ textarea {
 }
 
 .targetNumInput input {
-  height: 21px;
-  border:1px solid #d7d7d7;
-  padding: 8px;
-  border-radius:2px;
   width: 85px;
 }
 
@@ -325,11 +319,10 @@ textarea {
   width: 600px;
   box-sizing: border-box;
 }
-
+.positionList input {
+	margin: 0 3px 7px 0;
+}
 .ucpInputBox input {
-    border:1px solid #d7d7d7;
-    padding: 8px;
-    height: 20px;
     width: 420px;
 }
 
