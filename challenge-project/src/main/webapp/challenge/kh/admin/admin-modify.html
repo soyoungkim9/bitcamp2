@@ -262,24 +262,7 @@
 <!-- Footer -->
 <!--<div id="footer">
 </div>-->
-<!-- 서버 연결했을 때 지울 부분 -->
-<div id="sh_foot_layout">
-  <footer class="sh_foot_wrap">
-    <div class="sh_foot_logo"></div>
-    <div class="sh_foot_utile_wrap">
-      <ul class="sh_foot_link">
-        <li> <img id="sh_foot-logo-img" src="../../img/footer/white-logo.png" alt="sh-footer-logo"> </li>
-        <li><a href="#">직원검색</a></li>
-        <li><a href="#">사이트맵</a></li>
-        <li><a href="#">이메일집단수집거부</a></li>
-        <li><a href="#">개인정보취급방침</a></li>
-      </ul>
-    </div>
-    <address>우) 21990 인천광역시 연수구 송도미래로 26(송도동 213-3)  <span class="tel">Tel: 032)770-8400</span> <span class="fax">Fax: 032)770-8709</span> </address>
-    <p class="copy">COPYRIGHT (C) KOREA POLAR RESEARCH INSTITUTE ALL RIGHT RESERVED</p>
-  </footer>
-</div>
-<!-- 푸터 종료 -->
+<div id="footer"></div>
 
 
 </div><!-- back -->
@@ -289,11 +272,27 @@
 <!-- <script src="../../js/header/header_white_login.js"></script> -->
 <script src="../../js/footer/footer.js"></script>
 <script src="../../js/admin/trainerPageChallenge-upload.js"></script>
-<script src="../../js/admin/dailySchedule.js"></script>
+<!-- <script src="../../js/admin/dailySchedule.js"></script> -->
 <!-- 서버에 올릴 때 지울 부분 -->
 <script src="../../js/header/header_event.js"></script>
 <!-- CKEditor-->
 <script src="http://cdn.ckeditor.com/4.4.7/standard/ckeditor.js"></script>
+
+
+<script>
+        if (location.href.split("?").length > 1) {
+            var no = location.href.split("?")[1].split("=")[1];
+
+            $.getJSON(serverRoot +"/json/challenge/" + no, function(data) {
+                $(aTitle).val(data.title);
+                /* $(content).append(data.cotent); */
+               /*  $(fUser).append(data.user.name);
+                $(fCreatedDate).append(data.createdDate);
+                $(fCnt).append(data.cnt); */
+                //$(fLike).append(data.like);
+            });
+        }
+    </script>
 
 </body>
 </html>

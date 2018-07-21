@@ -169,22 +169,16 @@
 
 
   
-    <script>
-    $("#addButn").click(() => {
+ <script>
+        if (location.href.split("?").length > 1) {
+            var chno = location.href.split("?")[1].split("=")[1];
     
-    $.ajax({
-    	type : "post",
-    	url : serverRoot + "/json/admin/add",
-    	data : {
-    		title: $("#aTitle").val(),
-    		cotent: $("#content").val()
-    		}
-    
-    }).done(function(){
-    	console.log("훗 성공인가?");
-       /*  location.href="admin-list.html" */
-    });
-    });
+            $.getJSON(serverRoot + "/json/admin/" + chno, function(data) {
+            $("#aTitle").val(data.title);
+            $("#content").val(data.cotent);
+            //$(fLike).append(data.like);
+            });
+        }
     </script>
 
 <!-- <script>
