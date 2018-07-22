@@ -14,3 +14,4 @@ public class Member extends User implements Serializable {
         this.userNo = userNo;
     }
 }
+

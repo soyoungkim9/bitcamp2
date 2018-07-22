@@ -24,10 +24,6 @@ public class TrainerServiceImpl implements TrainerService {
     
     @Override
     public List<Trainer> list() {
-//        HashMap<String,Object> params = new HashMap<>();
-//        params.put("startRowNo", (pageNo - 1) * pageSize);
-//        params.put("pageSize", pageSize);
-        
         return trainerDao.selectList();
     }
     

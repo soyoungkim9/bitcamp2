@@ -8,18 +8,12 @@ public class User implements Serializable {
     private int userNo;
     private String name;
     private char sex;
-    private String id;
+    private String email;
     private String password;
     private String userPath;
     private String userPhone;
     private int userType;
     
-    
-    @Override
-    public String toString() {
-        return "User [userNo=" + userNo + ", name=" + name + ", sex=" + sex + ", id=" + id + ", password="
-                + password + ", userPath=" + userPath + ", userPhone=" + userPhone + ", userType=" + userType + "]";
-    }
     public int getUserNo() {
         return userNo;
     }
@@ -38,12 +32,11 @@ public class User implements Serializable {
     public void setSex(char sex) {
         this.sex = sex;
     }
-    
-    public String getId() {
-        return id;
+    public String getEmail() {
+        return email;
     }
-    public void setId(String id) {
-        this.id = id;
+    public void setEmail(String email) {
+        this.email = email;
     }
     public String getPassword() {
         return password;
@@ -69,5 +62,8 @@ public class User implements Serializable {
     public void setUserType(int userType) {
         this.userType = userType;
     }
+    
+
+
     
 }
