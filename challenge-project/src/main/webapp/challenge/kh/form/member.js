@@ -11,7 +11,8 @@ $("#addBtn").click(() => {
 		userPath: $("#fPath").val(),
 		userType: '1'
 	}, () => {
-		location.href="../auth/login.html";
+		console.log("시바");
+		/*location.href="../auth/login.html";*/
 	});
 });
 
