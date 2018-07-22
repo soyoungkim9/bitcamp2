@@ -10,8 +10,11 @@
 
   <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../../js/common.js"></script>
+  <script src="../../js/payment/payment.js"></script>
   <script src="../../js/header/header_white.js"></script>
   <script src="../../js/footer/footer.js"></script>
+  <!-- iamport.payment.js -->
+  <script type="text/javascript" src="https://cdn.iamport.kr/js/iamport.payment-1.1.5.js"></script>
 
 </head>
 
@@ -39,7 +42,7 @@
           </thead>
           <tbody>
             <tr class="order-tr">
-              <td class="order-td project-title"></td>
+              <td class="order-td project-title" id="test-name"></td>
               <td class="order-td" >
                 <span class="pay-nu">-</span>
                 <span id="p-value">1</span>
@@ -100,7 +103,8 @@
         Challenge는 에스크로 결제 서비스를 이용하여 안전한 거래 환경을 제공합니다. Challenge를 통해 결제 진행 시 관련 정책에 의해 보호 받을 수 있습니다.
       </div>
       <div class="pay-2-right">
-        <button type="button" class="btn-payment">결제하기</button>
+        <button onclick="requestPay()" class="btn-payment">결제하기</button>
+        
       </div>
     </div>
   </div>
@@ -108,20 +112,9 @@
 
 <footer id="footer"></footer>
 
-<script>
-var no = 1;
-$.getJSON(serverRoot + "/json/program/" + no, (data) => {
-    console.log(data);
-    console.log($('#p-value').attr('value'));
-    
-    $('.project-title').append("<b>"+data.name+"</b>");
-    $('.p-price').append(data.price+" 원");
-    $('.p-trainer').append(data.trainerNo.name);
-    
-}); 
 
 
-</script>
+
 
 
 </body>
