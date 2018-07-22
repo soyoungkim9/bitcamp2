@@ -1,10 +1,4 @@
-$("#addBtn").click(() => {
-	
-	console.log($("#fTrnint").val())
-	console.log($("#fTrancar").val())
-	console.log($("#fTrntime").val())
-	console.log($("#fTrnacnt").val())
-	console.log($("#fTrnbank").val())
+$("#addBtn").click(() => {	
 	
     $.post(serverRoot + "/json/trainer/add", {
       name: $("#fName").val(),
@@ -20,9 +14,10 @@ $("#addBtn").click(() => {
       time: $("#fTrntime").val(),
       account: $("#fTrnacnt").val(),
       bank: $("#fTrnbank").val(),
-      coin: '0'
-    }, () => {
-    	console.log("트레이너 등록 완료!")
-    });
-
+      coin: 0
+    })
+    .done(() => {
+    	alert("회원 등록 완료!");
+        location.href = "../login/login.html";
+    })
 });

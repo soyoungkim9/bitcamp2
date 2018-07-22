@@ -8,7 +8,12 @@ $("#addBtn").click(() => {
       userPhone: $("#fPhone1").val() + '-' + $("#fPhone2").val() + '-' + $("#fPhone3").val(),
       userPath: $("#fPath").val(),
       userType: '1'
-    }, () => {
-    	console.log("회원가입 성공");
+    })
+    .done(() => {
+    	alert("회원 등록 완료!");
+        location.href = "../login/login.html";
+    })
+    .fail(() => {
+    	alert("회원 등록 실패!")
     });
 });

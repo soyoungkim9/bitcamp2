@@ -35,12 +35,6 @@ public class Admin implements Serializable {
     public void setCotent(String content) {
         this.cotent = content;
     }
-    @Override
-    public String toString() {
-        return "Admin [no=" + no + ", title=" + title + ", cotent=" + cotent + ", path=" + path + "]";
-    }
-    
-    
 }
     
    

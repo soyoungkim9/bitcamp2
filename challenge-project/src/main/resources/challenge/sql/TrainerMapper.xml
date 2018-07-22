@@ -14,7 +14,6 @@
 		<result column="upath" property="userPath" />
 		<result column="utype" property="userType" />
 		
-		<result column="trnno" property="trainerNo"/>
 		<result column="trnint" property="introduce"/>
 		<result column="trncar" property="career"/>
 		<result column="trntime" property="time"/>
