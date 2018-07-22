@@ -37,10 +37,10 @@
     </association>
 
     <collection property="medias" ofType="ProgramMedia">
-        <id column="pmedno" property="no"/>
+        <id column="pno" property="no" />
+        <id column="pmedno" property="pmno"/>
         <result column="ppath" property="path"/>
         <result column="pmtype" property="state"/>
-        <result column="pno" property="program"/>
     </collection>
   </resultMap>
 
