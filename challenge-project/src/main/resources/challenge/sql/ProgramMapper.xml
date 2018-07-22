@@ -93,9 +93,10 @@
 
 
   <select id="selectOne" parameterType="string" resultMap="ProgramMap">
-    select p.PNO,p.PNAME,p.PPRICE,t.TRNNO
+    select p.PNO,p.PNAME,p.PPRICE,u.uname
     from PROG p 
     inner join TRN t on p.TRNNO =  t.TRNNO
+    inner join USER u on t.TRNNO = u.UNO
     
   </select>
 
