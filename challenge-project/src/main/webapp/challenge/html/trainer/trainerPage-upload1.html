@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet"
  href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+ <link rel="stylesheet" href="../../node_modules/blueimp-file-upload/css/jquery.fileupload.css">
 </head>
 
 <body>
@@ -38,7 +39,8 @@
      <div class="sm-menu" style="border-bottom: 1px solid gray;">
       <i class="fas fa-angle-double-up"></i><br>프로그램 등록
      </div>
-     <div class="sm-menu" style="border-left: none; border-right: 1px solid gray;">
+     <div class="sm-menu"
+      style="border-left: none; border-right: 1px solid gray;">
       <i class="fas fa-dumbbell"></i><br>프로그램 운동일지
      </div>
     </div>
@@ -103,8 +105,7 @@
          <div class="ucContet">
           <div class="typeSelect">
            <!-- ptype -->
-           <select name="subjectSelect" class="selectTab1"
-            id="ftype">
+           <select name="subjectSelect" class="selectTab1" id="ftype">
             <option value="one">피트니스</option>
             <option value="two">수영</option>
             <option value="three">태권도</option>
@@ -171,9 +172,10 @@
             <div class="positionList">
              <!-- pstno, bas_addr, det_addr -->
              <input type="text" id="sample6_postcode" placeholder="우편번호">
-             <input type="button" onclick="sample6_execDaumPostcode()" value="우편번호 찾기"><br>
-             <input type="text" id="sample6_address" placeholder="주소">
-             <input type="text" id="sample6_address2" placeholder="상세주소">
+             <input type="button" onclick="sample6_execDaumPostcode()"
+              value="우편번호 찾기"><br> <input type="text"
+              id="sample6_address" placeholder="주소"> <input
+              type="text" id="sample6_address2" placeholder="상세주소">
             </div>
             <!-- <div class="positionList" id="more">
              <a onclick="lessFunction()" id="lessBtn"><i
@@ -275,20 +277,17 @@
       <div class="uploadContent">
        <ul>
         <li class="ucmainImage">
-         <div class="contentName">메인 미디어</div>
+         <div class="contentName">메인 이미지</div>
          <div class="ucContet">
-          <div id="mainImg">
-           <div class="imgIcon">
-            <i class="far fa-image"></i>
-           </div>
-           <div class="imgtext">
-            <div class="subText1">
-             <!-- PMED.ppath, pmtype -->
-             999 * 999px 사이즈의<br> 메인 이미지를 등록해 주세요.
-            </div>
-            <div class="subText2">(5MB 이하의 jpg.jpeg.png 형식)</div>
-           </div>
-          </div>
+         
+         <div class="filebox">
+         <label for="fileupload">업로드</label> 
+         <input id="fileupload" type="file" name="files">
+          <button id='upload-btn' type='button'>등록</button>
+         </div>
+          <div id='images-div'></div>
+          <div id="imgBox"></div>
+
          </div>
         </li>
         <li class="ucpImgs">
@@ -351,11 +350,20 @@
  <script src="../../js/common.js"></script>
  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+ <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
+ 
+ <script src="../../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+<script src="../../node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+<script src="../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
+<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>  
+ 
  <script src="../../js/trainer/program-upload.js"></script>
  <script src="../../js/trainer/trainerPage-upload.js"></script>
  <script src="../../js/trainer/dailySchedule.js"></script>
  <script src="../../js/trainer/trainer-template.js"></script>
- <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
  <script src="../../js/footer/footer.js"></script>
 </body>
 

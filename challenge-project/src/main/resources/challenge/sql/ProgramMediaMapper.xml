@@ -7,10 +7,10 @@
 	유지보수할 때 알아보기 쉽다. 단순히 알아보기 쉬울 뿐만 아니라 스프링 프레임워크와 연동할 때 DAO 객체를 자동 생성할 수 있다. -->
 <mapper namespace="challenge.dao.ProgramMediaDao">
 	<resultMap type="ProgramMedia" id="ProgramMediaMap">
-		<id column="pmedno" property="no"/>
+		<id column="pno" property="no" />
+		<id column="pmedno" property="pmno"/>
         <result column="ppath" property="path"/>
         <result column="pmtype" property="state"/>
-        <result column="pno" property="program"/>
 	</resultMap>
 
 
@@ -43,8 +43,8 @@
 	<insert id="insert" parameterType="ProgramMedia"
 	   useGeneratedKeys="true" keyColumn="pmedno" keyProperty="no">
 		<if test="path != null">
-		insert into PMED(ppath, pmtype, pno)
-		values(#{path}, #{pmtype}, #{PROG.no})
+		insert into PMED(pno, ppath, pmtype)
+		values(#{no}, #{path}, #{state})
 		</if>
 	</insert>
 

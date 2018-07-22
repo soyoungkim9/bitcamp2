@@ -11,7 +11,7 @@ public interface UserDao {
     int insert(User user);
     int update(User user);
     User selectOne(int userNo);
-    User selectOneWithId(String id);
+    User selectOneWithId(String email);
     User selectOneWithPassword(Map<String,Object> params);
     int count(Map<String,Object> params);
 }

@@ -5,7 +5,15 @@
 
 <mapper namespace="challenge.dao.TrainerDao">
 	<resultMap type="Trainer" id="TrainerMap">
-		<id column="trnno" property="tno"/>
+		<id column="uno" property="userNo" />
+		<result column="uname" property="name" />
+		<result column="sex" property="sex" />
+		<result column="mail" property="email" />
+		<result column="pwd" property="password" />
+		<result column="uphon" property="userPhone" />
+		<result column="upath" property="userPath" />
+		<result column="utype" property="userType" />
+		
 		<result column="trnint" property="introduce"/>
 		<result column="trncar" property="career"/>
 		<result column="trntime" property="time"/>
@@ -14,42 +22,64 @@
 		<result column="trncoin" property="coin"/>
 	</resultMap>
 
-	<select id="selectList" resultMap="TrainerMap" parameterType="map">
-		select trnno, trnint, trncar, trntime, trnacnt, trnbank, trncoin
-		from TRN
-		order by trnno asc
-		<!-- limit #{startRowNo}, #{pageSize} -->
+	<select id="selectList" resultMap="TrainerMap">
+		select uno, uname, sex, mail, pwd, uphon, upath, utype, trnno, trnint, trncar,
+		trntime, trnacnt, trnprog, trnbank, trncoin
+		from TRN t
+		inner join USER u on u.uno = t.trnno 
+		order by uno asc
 	</select>
 
-	<!-- <insert id="insert" parameterType="Trainer" useGeneratedKeys="true"
-		keyColumn="uno" keyProperty="userNo">
-		insert into USER(uname, sex, mail, pwd, uphon, upath, utype)
-        values(#{'라라'},#{'여'},#{'user08@'},password(#{'1111'}),#{'123-456'},#{'popo.jpg'},#{'2'});
-		insert into USER(uname, sex, mail, pwd, uphon, upath, utype)
-		values('나나', '여', 'USER08@', password('1111'), '1234-5678', 'popo.jpg', '2');
-		insert into USER(uname, sex, mail, pwd, uphon, upath, utype)
-		values(#{name},#{sex},#{email},password(#{password}),#{userPhone},#{userPath},#{userType});
+	<insert id="insert" parameterType="Trainer">
+		insert into TRN(trnno, trnint, trncar, trntime, trnacnt, trnbank, trncoin)
+		values(#{userNo},#{introduce},#{career},#{time},#{account},#{bank}, #{coin})
 	</insert>
- -->
-	<!-- <select id="selectOne" parameterType="int" resultMap="TrainerMap">
-		select uno, uname, sex, mail, pwd, uphon, upath, utype
+
+	<select id="selectOne" parameterType="int" resultMap="TrainerMap">
+		select uno,
+		uname, sex, mail, pwd, uphon, upath, utype
 		from USER
 		where uno=#{value}
-	</select> -->
+	</select>
 
-	<!-- <update id="update" parameterType="Trainer">
+	<select id="selectOneWithId" parameterType="String"
+		resultMap="TrainerMap">
+		select uno, uname, sex, mail, pwd, uphon, upath, utype
+		from
+		USER
+		where mail=#{value}
+	</select>
+
+
+	<select id="selectOneWithPassword" parameterType="map"
+		resultMap="TrainerMap">
+		select uno, uname, sex, mail, pwd, uphon, upath
+		from USER
+		where mail=#{id} and pwd=password(#{password})
+	</select>
+
+	<select id="count" parameterType="map" resultType="int">
+		select
+		count(*)
+		from USER
+		where mail=#{id} and pwd=password(#{password})
+	</select>
+
+
+	<update id="update" parameterType="Trainer">
 		update USER set
 		uname=#{name},
 		sex=#{sex},
-		mail=#{email},
+		mail=#{id},
 		pwd=password(#{password}),
-		uphon=#{userPhone},
-		upath=#{userPath},
-		utype=#{userType}
-		where uno=#{userNo}
-	</update> -->
+		uphon=#{trainerPhone},
+		upath=#{trainerPath},
+		utype=#{trainerType}
+		where uno=#{trainerNo}
+	</update>
 
-	<!--  <delete id="delete" parameterType="int"> 
-	 delete from USER where uno=#{value} 
-		</delete> -->
+	<delete id="delete" parameterType="int">
+		delete from USER where
+		uno=#{value}
+	</delete>
 </mapper>

@@ -1,11 +1,11 @@
-/*$("#addBtn").click(() => {
+$("#addBtn").click(() => {
 	$.post(serverRoot + "/json/user/add", {
 		name: $("#fName").val(),
-		sex: $('#fGen1[name]:checked').val(),
+		sex: $('input[name]:checked').val(),
 //		sex: $('input[value]:checked').val(),
-		email: $("#fEmail1").val() + '@' + $("#fEmail2").val(),
+		id: $("#fid").val() + '@' + $("#fid2").val(),
 //		email: $(fEmail2).val(),
-		password: $("#fPassword1").val(),
+		password: $("#fPassword").val(),
 //		password: $(fPassword2).val(), 
 		userPhone: $("#fPhone1").val() + '-' + $("#fPhone2").val() + '-' + $("#fPhone3").val(),
 		userPath: $("#fPath").val(),
@@ -13,13 +13,13 @@
 	}, () => {
 		location.href="../auth/login.html";
 	});
-});*/
+});
 
-$("#addBtn").click(() => {
+/*$("#addBtn").click(() => {
 	$.post(serverRoot + "/json/user/add", {
 		name: '김김',
-		/*sex: '여',*/
-		/*id: 'user08@test.com',*/
+		sex: '여',
+		id: 'user11@test.com',
 		password: '1111',
 		userPhone: '010-1234-5678',
 		userPath: 'jj.png',
@@ -27,7 +27,7 @@ $("#addBtn").click(() => {
 	}, () => {
 		console.log("시바");
 	});
-});
+});*/
 
 
 

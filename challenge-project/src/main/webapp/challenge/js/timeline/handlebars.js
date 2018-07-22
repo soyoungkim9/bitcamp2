@@ -1,6 +1,4 @@
-/**
- *
- */ //위에서 준비한 템플릿 데이터를 가지고 HTML을 생성할 템플릿 엔진 준비
+//위에서 준비한 템플릿 데이터를 가지고 HTML을 생성할 템플릿 엔진 준비
 
 $(document).ready(function() {
 	// 타임라인 불러오기
@@ -11,13 +9,6 @@ $(document).ready(function() {
     $('#sh_tl_card_add').html(templateFn({
       list: data
     }));
-    
-//    console.log( $.getJSON(serverRoot + "/json/timeline/timelineLike/89"))
-    
-//    console.log($.ajax({
-//    	url: serverRoot + "/json/timeline/timelineLike/89",
-//    	dataType: "text"
-//    }))
     
   }).done(function() {
 	  // 댓글 달기
@@ -51,13 +42,16 @@ $(document).ready(function() {
   });
 });
 
-//달린 댓글 불러오기
-/*
-$(document).ready(function(){
-var cmTemplateSrc = $("#cm-template").html();
-var cmtemplateFn = Handlebars.compile(cmTemplateSrc);
-$.getJSON(serverRoot + "/json/comment/list", (data) => {
-	$('#sh_tl_load_comments').html(cmtemplateFn({list:data}));
+//
+$(document).ready(function() {
+	$.getJSON(serverRoot + "/json/auth/loginUser", (data) => {
+		$(".tl-user-name-json").html(data.name);
+	})
+	.done(function() {
+		console.log("회원 이름 입력 성공!")
+	})
+	.fail(function() {
+		console.log("회원 이름 입력 실패!!")
+	});
+	
 });
-});
-*/

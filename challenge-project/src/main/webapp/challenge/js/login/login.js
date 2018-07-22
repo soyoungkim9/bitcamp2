@@ -1,10 +1,10 @@
 	$("#loginBtn").click(() => {
-		
+		/*
 		console.log($("#fId").val())
 		console.log($("#fPassword").val())
-		
+		*/
 	    var data = {
-	        id : $("#fId").val(),
+	        email : $("#fId").val(),
 	        password: $("#fPassword").val()
 	    };
 		

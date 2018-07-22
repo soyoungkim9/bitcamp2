@@ -27,12 +27,12 @@ public class UserServiceImpl implements UserService {
     }
     
     @Override
-    public boolean isExist(String id, String password) {
+    public boolean isExist(String email, String password) {
         HashMap<String,Object> params = new HashMap<>();
-        params.put("id", id);
+        params.put("email", email);
         params.put("password", password);
         
-        System.out.println("UserServiceImpl의 아이디 : " + id + ", 비번 : " + password);
+        System.out.println("UserServiceImpl의 아이디 : " + email + ", 비번 : " + password);
         
         System.out.println(userDao.count(params));
         

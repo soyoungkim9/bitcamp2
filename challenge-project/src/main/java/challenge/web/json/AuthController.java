@@ -34,7 +34,7 @@ public class AuthController {
 
     @RequestMapping("/login")
     public Object login(
-            @RequestParam("id") String id,
+            @RequestParam("email") String email,
             @RequestParam("password") String password,
             @RequestParam(value="saveId",required=false) String saveId,
             HttpServletRequest request,
@@ -45,10 +45,10 @@ public class AuthController {
         if (saveId != null) {
             // 입력폼에서 로그인할 때 사용한 ID를 자동으로 출력할 수 있도록 
             // 웹브라우저로 보내 저장시킨다.
-            cookie = new Cookie("id", id);
+            cookie = new Cookie("email", email);
             cookie.setMaxAge(60 * 60 * 24 * 7);
         } else { // "아이디 저장" 체크박스를 체크하지 않았다면 
-            cookie = new Cookie("id", "");
+            cookie = new Cookie("email", "");
             cookie.setMaxAge(0); // 웹브라우저에 "id"라는 이름으로 저장된 쿠키가 있다면 제거한다.
             // 즉 유효기간을 0으로 설정함으로써 "id"라는 이름의 쿠키를 무효화시키는 것이다.
         }
@@ -56,8 +56,10 @@ public class AuthController {
 
         HashMap<String, Object> result = new HashMap<>();
 
-        if (userService.isExist(id, password)) { // 로그인 성공!
-            session.setAttribute("loginUser", userService.getWithId(id));
+        if (userService.isExist(email, password)) { // 로그인 성공!
+            session.setAttribute("loginUser", userService.getWithId(email));
+            System.out.println();
+            // If 로그인한 유저가 유저?회원?트레이너?피멤브? 어떤거냐에 따라 세션에 넣어주기. 유형
             result.put("state", "success");
         } else { // 로그인 실패!
             System.out.println("오류!");

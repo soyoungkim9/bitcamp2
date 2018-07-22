@@ -28,7 +28,7 @@
     <result column="presult" property="proResult"/>
 
     <result column="cno" property="challengeNo"/>
-    <result column="plno" property="planNo"/>
+    <!-- <result column="plno" property="planNo"/> -->
 
     <association property="trainerNo" javaType="Trainer">
       <id column="uno" property="userNo"/>
@@ -37,10 +37,10 @@
     </association>
 
     <collection property="medias" ofType="ProgramMedia">
-        <id column="pmedno" property="no"/>
+        <id column="pno" property="no" />
+        <id column="pmedno" property="pmno"/>
         <result column="ppath" property="path"/>
         <result column="pmtype" property="state"/>
-        <result column="pno" property="program"/>
     </collection>
   </resultMap>
 
@@ -76,7 +76,7 @@
         pth, ptover, 
         pday, ptime, 
         pstate, presult,
-        cno, plno, trnno)
+        cno, trnno)
     values(
         #{postNo},#{address},#{addDetail},
         #{startDate},#{endDate}, 
@@ -87,7 +87,7 @@
         #{proTh}, #{proTurn}, 
         #{proDay}, #{proTime}, 
         #{proState}, #{proResult},
-        #{challengeNo}, 1, 10)
+        #{challengeNo}, 3)
   </insert>
 
 

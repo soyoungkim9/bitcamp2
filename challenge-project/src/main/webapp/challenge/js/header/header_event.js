@@ -14,7 +14,7 @@ $('.sh-searchBtn').on('click', expand);
 //로그인 한 사람만 쓸 수 있는 페이지에 넣어줄 function.header에 이 function 저장되어있음
 //loadLoginUser();
 
-
+ 
 //로그인 여부에 따른 헤더 Nav 메뉴 변경
 (function () {
 	$.getJSON(serverRoot + "/json/auth/loginUser")

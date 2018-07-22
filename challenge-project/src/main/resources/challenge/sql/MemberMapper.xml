@@ -3,32 +3,24 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
-<mapper namespace="challenge.dao.UserDao">
-	<resultMap type="User" id="UserMap">
+<mapper namespace="challenge.dao.MemberDao">
+	<resultMap type="Member" id="MemberMap">
 		<id column="uno" property="userNo" />
-		<result column="uname" property="name" />
-		<result column="sex" property="sex" />
-		<result column="mail" property="email" />
-		<result column="pwd" property="password" />
-		<result column="uphon" property="userPhone" />
-		<result column="upath" property="userPath" />
-		<result column="utype" property="userType" />
 	</resultMap>
 
-	<select id="selectList" resultMap="UserMap" parameterType="map">
+	<select id="selectList" resultMap="MemberMap" parameterType="map">
 		select uno, uname, sex, mail, pwd, uphon, upath, utype
 		from USER
 		order
 		by uno asc
 	</select>
 
-	<insert id="insert" parameterType="Object" useGeneratedKeys="true"
-		keyColumn="uno" keyProperty="userNo">
-		insert into USER(uname, sex, mail, pwd, uphon, upath, utype)
-		values(#{name},#{sex},#{email},password(#{password}),#{userPhone},#{userPath},#{userType})
+	<insert id="insert" parameterType="Member">
+		insert into MEMB(uno)
+		values(#{userNo})
 	</insert>
 
-	<select id="selectOne" parameterType="int" resultMap="UserMap">
+	<select id="selectOne" parameterType="int" resultMap="MemberMap">
 		select uno,
 		uname, sex, mail, pwd, uphon, upath, utype
 		from USER
@@ -36,7 +28,7 @@
 	</select>
 
 	<select id="selectOneWithId" parameterType="String"
-		resultMap="UserMap">
+		resultMap="MemberMap">
 		select uno, uname, sex, mail, pwd, uphon, upath, utype
 		from
 		USER
@@ -45,25 +37,24 @@
 
 
 	<select id="selectOneWithPassword" parameterType="map"
-		resultMap="UserMap">
+		resultMap="MemberMap">
 		select uno, uname, sex, mail, pwd, uphon, upath
 		from USER
-		where mail=#{email} and pwd=password(#{password})
+		where mail=#{id} and pwd=password(#{password})
 	</select>
 
 	<select id="count" parameterType="map" resultType="int">
 		select
 		count(*)
 		from USER
-		where mail=#{email} and pwd=password(#{password})
+		where mail=#{id} and pwd=password(#{password})
 	</select>
 
-
-	<update id="update" parameterType="User">
+	<update id="update" parameterType="Member">
 		update USER set
 		uname=#{name},
 		sex=#{sex},
-		mail=#{email},
+		mail=#{id},
 		pwd=password(#{password}),
 		uphon=#{userPhone},
 		upath=#{userPath},
