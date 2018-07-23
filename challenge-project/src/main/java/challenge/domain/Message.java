@@ -9,6 +9,7 @@ public class Message implements Serializable {
     private static final long serialVersionUID = 1L;
 
     private int no; // 메시지번호
+    private String title; // 제목
     private String content; // 내용
     private Trainer trainer; // 트레이너번호
     private Member member; // 회원번호
@@ -17,16 +18,24 @@ public class Message implements Serializable {
     private Date msgDate; // 메시지 날짜
     
     
-        @Override
+    
+    
+    @Override
     public String toString() {
-        return "Message [no=" + no + ", content=" + content + ", trainer=" + trainer + ", member=" + member
-                + ", direct=" + direct + ", msgDate=" + msgDate + "]";
+        return "Message [no=" + no + ", title=" + title + ", content=" + content + ", trainer=" + trainer + ", member="
+                + member + ", direct=" + direct + ", msgDate=" + msgDate + "]";
     }
     public int getNo() {
         return no;
     }
     public void setNo(int no) {
         this.no = no;
+    }
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
     }
     public String getContent() {
         return content;
@@ -59,6 +68,5 @@ public class Message implements Serializable {
         this.msgDate = msgDate;
     }
     
-    
-      
+         
 }

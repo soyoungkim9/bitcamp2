@@ -72,7 +72,7 @@
                   <tr>
                     <th width="10%">선택</th>
                     <th width="10%">보관</th>
-                    <th width="40%">내용</th>
+                    <th width="40%">제목</th>
                     <th width="20%">보낸사람</th>
                     <th width="20%">날짜</th>
                   </tr>
@@ -82,7 +82,9 @@
               </table>
             </div>
           </div>
-
+          
+          
+          
           <h3 class="sm-margin-none" style="color: #666666;">보관메시지</h3>
           <hr style="margin-bottom: 30px; border: 1px solid gray;">
           <div class="sm-msgBox" style="">
@@ -168,13 +170,12 @@
 
 
 
-  <script src="http://code.jquery.com/jquery-latest.min.js"></script>
   <script id="msg-template" type="text/x-handlebars-template">
 {{#each list}}
             <tr>
               <td><input type="checkbox" name="checkOne"></td>
               <td><i class="check far fa-star"></i></td>
-              <td><a href="#">{{content}}</a></td>
+              <td><a href='member-msgView.html?{{no}}'>{{title}}</a></td>
               <td>{{trainer.name}}</td>
               <td>{{msgDate}}</td>
             </tr>

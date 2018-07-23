@@ -1,6 +1,5 @@
 package challenge.dao;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import challenge.domain.Message;

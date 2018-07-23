@@ -12,6 +12,7 @@
 <mapper namespace="challenge.dao.MessageDao">
   <resultMap type="Message" id="MessageMap">
     <id column="msgno" property="no"/>
+    <result column="mstitl" property="title"/>
     <result column="msdir" property="direct"/>
     <result column="mscont" property="content"/>
     <result column="msdate" property="msgDate"/>
@@ -38,7 +39,7 @@
   <select id="selectList" 
           resultMap="MessageMap" 
           parameterType="map">
-   select mscont, uname, msdate
+   select msgno, mscont, uname, msdate
    from USER u, TRN t, MSG ms, MEMB m
    where u.uno = t.trnno 
    AND m.uno = ms.uno
@@ -48,7 +49,7 @@
   
   <insert id="insert" parameterType="Message"
           useGeneratedKeys="true" keyColumn="pono" keyProperty="pono">
-    insert into MSG(pocont, podate) 
+    insert into MSG(mscont, msdate) 
     values(#{content}, now());
   </insert>
   
@@ -56,9 +57,12 @@
        값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
   -->
   <select id="selectOne" parameterType="int" resultMap="MessageMap">
-    select pono, pocont, podate 
-    from MSG 
-    where pono=#{value}
+   select msgno, mscont, uname, msdate
+   from USER u, TRN t, MSG ms, MEMB m
+   where u.uno = t.trnno 
+   AND m.uno = ms.uno
+   AND t.trnno = ms.trnno
+   AND msgno = #{value}
   </select>
 
   <delete id="delete" parameterType="int">
