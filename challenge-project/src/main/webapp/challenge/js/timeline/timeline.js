@@ -170,6 +170,7 @@ function cmtFunction(no) {
 var Clicks = 0;
 
 function TlAddClick() {
+	
   Clicks = Clicks + 1;
   document.getElementById('sh-tl-CountedClicks').innerHTML = '회원님 외' + Clicks + ' 명이 좋아합니다.';
 }
