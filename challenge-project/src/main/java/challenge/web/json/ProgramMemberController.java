@@ -36,6 +36,11 @@ public class ProgramMemberController {
         return programMemberService.get(no, userNo);
     }
     
+    @RequestMapping("{userNo}")
+    public List<ProgramMember> listWithUserNo(
+            @PathVariable int userNo) throws Exception {
+        return programMemberService.getWithUserNo(userNo);
+    }
 }
 
 //ver 55 - JSON 데이터를 출력하는 페이지 컨트롤러 생성

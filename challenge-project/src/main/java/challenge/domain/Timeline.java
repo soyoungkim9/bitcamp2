@@ -2,16 +2,11 @@ package challenge.domain;
 
 public class Timeline extends Post{
     String picture;
-    Program program;
-    User user;
+    ProgramMember progMemb;
     int like;
 //    List<Comment> comments;
     
-    @Override
-    public String toString() {
-        return "Timeline [picture=" + picture + ", program=" + program
-                + ", user=" + user + "]";
-    }
+
     public int getLike() {
         return like;
     }
@@ -24,19 +19,13 @@ public class Timeline extends Post{
     public void setPicture(String picture) {
         this.picture = picture;
     }
-    public Program getProgram() {
-        return program;
+    public ProgramMember getProgMemb() {
+        return progMemb;
     }
-    public void setProgram(Program program) {
-        this.program = program;
+    public void setProgMemb(ProgramMember progMemb) {
+        this.progMemb = progMemb;
     }
-    public User getUser() {
-        return user;
-    }
-    public void setUser(User user) {
-        this.user = user;
-    }
-    
+
     
     
 }

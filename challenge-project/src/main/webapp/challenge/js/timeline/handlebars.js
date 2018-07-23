@@ -1,7 +1,7 @@
 //위에서 준비한 템플릿 데이터를 가지고 HTML을 생성할 템플릿 엔진 준비
 
 $(document).ready(function() {
-	// 타임라인 불러오기
+	// 타임라인 전체 글 불러오기
   var trTemplateSrc = $("#tr-template").html();
   var templateFn = Handlebars.compile(trTemplateSrc);
 
@@ -42,16 +42,7 @@ $(document).ready(function() {
   });
 });
 
-//
+// 타임라인 글
 $(document).ready(function() {
-	$.getJSON(serverRoot + "/json/auth/loginUser", (data) => {
-		$(".tl-user-name-json").html(data.name);
-	})
-	.done(function() {
-		console.log("회원 이름 입력 성공!")
-	})
-	.fail(function() {
-		console.log("회원 이름 입력 실패!!")
-	});
-	
+	$(".tl-user-name-json").html(obj.name); // 리뷰 작성할 때 지금 글쓴이.
 });

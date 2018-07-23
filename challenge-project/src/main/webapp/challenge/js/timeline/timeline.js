@@ -1,5 +1,3 @@
-// 로그인 한 사람만 쓸 수 있는 페이지에 넣어줄 function.header에 이 function 저장되어있음
-loadLoginUser();
 
 window.onscroll = function() {
   myFunction()
@@ -133,14 +131,17 @@ window.onclick = function(event) {
 
 // 타임라인 글 게시
 $("#sh-tl-post-btn").click(() => {
-
+	console.log(obj)
+	console.log(objPmemb[1].no)
   $.ajax({
     type: 'POST',
     url: '../../../json/timeline/add',
     data: {
       picture: $('#sh_tl_upload').val(),
-      content: $('#sh_tl_post_write').val()
-    },
+      content: $('#sh_tl_post_write').val(),
+      "progMemb.no" : objPmemb[1].no,
+      "progMemb.users.userNo" : obj.userNo
+    }
   }).done(function() {
     console.log("입력됨.");
     location.href = "timeline.html"

@@ -12,13 +12,16 @@
 		<result column="podate" property="createdDate" />
 		<result column="tmlpath" property="picture" />
 		<result column="tlike" property="like"/>
-		<association property="program" javaType="Program">
-			<id column="pno" property="no" />
-			<result column="pname" property="name" />
-		</association>
-		<association property="user" javaType="User">
-			<id column="uno" property="userNo" />
-			<result column="uname" property="name" />
+		<association property="progMemb" javaType="ProgramMember">
+		    <id column="pno" property="no"/>
+		    <result column="pname" property="name"/>
+			<association property="users" javaType="User">
+		         <id column="uno" property="userNo"/>
+		        <result column="mail" property="email"/>
+		        <result column="uname" property="name"/>
+		        <result column="sex" property="sex"/>
+		        <result column="uphon" property="userPhone"/>
+			</association>
 		</association>
 	</resultMap>
 
@@ -53,11 +56,11 @@
 		<choose>
 			<when test="picture != ''">
 				insert into TML(tmlno, pno, uno, tmlpath)
-				values(#{no}, 1, 1, #{picture})
+				values(#{no}, #{progMemb.no}, #{progMemb.users.userNo}, #{picture})
 			</when>
 			<otherwise>
 				insert into TML(tmlno, pno, uno)
-				values(#{no}, 1, 1)
+				values(#{no}, #{progMemb.no}, #{progMemb.users.userNo})
 			</otherwise>
 		</choose>
 	</insert>

@@ -23,6 +23,7 @@ public class TimelineController {
     @RequestMapping("add")
     @ResponseStatus(HttpStatus.CREATED)
     public void add(Timeline timeline) throws Exception {
+        System.out.println(timeline);
         timelineService.add(timeline);
     }
     

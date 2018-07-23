@@ -14,12 +14,10 @@ $('.sh-searchBtn').on('click', expand);
 //로그인 한 사람만 쓸 수 있는 페이지에 넣어줄 function.header에 이 function 저장되어있음
 //loadLoginUser();
 
- 
 //로그인 여부에 따른 헤더 Nav 메뉴 변경
 (function () {
 	$.getJSON(serverRoot + "/json/auth/loginUser")
 	.done(function(data) { // 로그인 O
-		console.log(data)
 		$(".login_menu_before").attr("style", "display:none")
 		$("#logoutBtn").click((e) => {
 			e.preventDefault(); // 클릭했을 때 원래 하던 일이 있는데 그것을 하지 말라!
@@ -34,3 +32,48 @@ $('.sh-searchBtn').on('click', expand);
 })();
 
 
+
+// USER 객체 정보 저장
+var obj;
+$.ajax({
+    method: "GET",
+    dataType: "json",
+    url: serverRoot + "/json/auth/loginUser",
+    async: false
+  })
+  .done(function(data) {
+    obj = data;
+    pmembLoader()
+  });
+
+
+
+// PMEMB 객체 정보 저장 ( 복수 허용)
+var objPmemb
+function pmembLoader() {
+	console.log("pmembLoader 불려짐")
+$.ajax({
+	method: "GET",
+	dataType: "json",
+	url : serverRoot + "/json/programMember/" + obj.userNo,
+    async: false
+}).done(function(data) {
+	objPmemb = data;
+});
+}
+
+console.log(objPmemb)
+
+
+//로그인 한 유저 정보 받아오기
+/*
+function loadLoginUser() {
+
+	$.getJSON(serverRoot + "/json/auth/loginUser", (data) => {
+		console.log(data)
+	}).fail(() => {
+		location.href = serverRoot + "/challenge/html/login/login.html";
+	});
+
+}
+*/

@@ -70,4 +70,13 @@
 	AND pm.pno=#{arg0} <!-- 프로그램 번호 -->
     AND u.uno=#{arg1} <!-- 회원 번호 -->
   </select>
+  
+  <select id="selectListWithUno" parameterType="int" resultMap="ProgramMemberMap">  
+    select DISTINCT  *
+    from PMEMB pm
+    inner join USER u on pm.uno = u.uno
+    inner join PROG p on pm.PNO = p.PNO
+    where u.uno = #{value};
+  </select>
+  
 </mapper>
