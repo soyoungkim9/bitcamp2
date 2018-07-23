@@ -70,13 +70,6 @@ function resizeFunction() {
   $('.sh-tl-reply-content').height(this.scrollHeight);
 }
 
-/* 좋아요 카운트 */
-var Clicks = 0;
-
-function TlAddClick() {
-  Clicks = Clicks + 1;
-  document.getElementById('sh-tl-CountedClicks').innerHTML = '회원님 외' + Clicks + ' 명이 좋아합니다.';
-}
 
 
 /* 무한 스크롤 */
@@ -169,4 +162,14 @@ function cmtFunction(no) {
     location.href = "timeline.html";
   });
 
+}
+
+
+
+/* 좋아요 카운트 */
+var Clicks = 0;
+
+function TlAddClick() {
+  Clicks = Clicks + 1;
+  document.getElementById('sh-tl-CountedClicks').innerHTML = '회원님 외' + Clicks + ' 명이 좋아합니다.';
 }
