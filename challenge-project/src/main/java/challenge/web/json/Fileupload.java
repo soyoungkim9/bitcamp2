@@ -22,8 +22,54 @@ import net.coobird.thumbnailator.Thumbnails;
 public class Fileupload {
 
     @Autowired ServletContext sc;
+    
+    
+    @PostMapping("upload") // 이미지경로 외 다른 데이터들도 같이 저장!
+    public Object upload03(
+            String email,
+            String pwd,
+            MultipartFile[] files) {
+        String filesDir = sc.getRealPath("/files");  // 진짜 Real Path (사진이 저장되는 폴더명)
+        
+        HashMap<String,Object> returnData = new HashMap<>();
+        returnData.put("email", email);
+        returnData.put("pwd", pwd);
+        
+        ArrayList<Map<String,Object>> jsonDataList = new ArrayList<>();
+        returnData.put("files", jsonDataList);
+        
+        for (int i = 0; i < files.length; i++) {
+            HashMap<String,Object> jsonData = new HashMap<>();
+            String filename = UUID.randomUUID().toString();
+            jsonData.put("filename", filename);
+            jsonData.put("filesize", files[i].getSize());
+            jsonData.put("originname", files[i].getOriginalFilename());
+            try {
+                File path = new File(filesDir + "/" + filename);
+                System.out.println(path);
+                files[i].transferTo(path);
+                jsonDataList.add(jsonData);
+                
+                Thumbnails.of(path)
+                .size(50, 50)
+                .outputFormat("jpg")
+                .toFile(path.getCanonicalFile() + "_50x50");
+                Thumbnails.of(path)
+                .size(200,200)
+                .outputFormat("jpg")
+                .toFile(path.getCanonicalFile() + "_200x200");
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+        return returnData;
+    }
+    
+    
+}
 
-
+/*
     @PostMapping("upload")
     public Object upload( // 썸네일
             MultipartFile files) {
@@ -55,43 +101,8 @@ public class Fileupload {
         }
         return jsonData;
     }
+ */
     
-    
-
-    @PostMapping("upload03") // 이미지경로 외 다른 데이터들도 같이 저장!
-    public Object upload03(
-            String name,
-            int age,
-            MultipartFile[] files) {
-        String filesDir = sc.getRealPath("/files");  // 진짜 Real Path (사진이 저장되는 폴더명)
-
-        HashMap<String,Object> returnData = new HashMap<>();
-        returnData.put("name", name);
-        returnData.put("age", age);
-        
-        ArrayList<Map<String,Object>> jsonDataList = new ArrayList<>();
-        returnData.put("files", jsonDataList);
-        
-        for (int i = 0; i < files.length; i++) {
-            HashMap<String,Object> jsonData = new HashMap<>();
-            String filename = UUID.randomUUID().toString();
-            jsonData.put("filename", filename);
-            jsonData.put("filesize", files[i].getSize());
-            jsonData.put("originname", files[i].getOriginalFilename());
-            try {
-                File path = new File(filesDir + "/" + filename);
-                System.out.println(path);
-                files[i].transferTo(path);
-                jsonDataList.add(jsonData);
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-        }
-        return returnData;
-    }
-    
-    
-}
 
 
 
