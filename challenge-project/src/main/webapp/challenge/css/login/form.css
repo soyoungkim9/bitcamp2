@@ -1,24 +1,36 @@
 @charset "UTF-8";
 
 body {
+	margin: 0 scroll;
+	height: 100%;
 	font-family: 'NanumSquareRound', sans-serif !important;
 	/* text-align: center; */
 	font-size: 18px;
 	color: #666666;
+	overflow:auto; 
 }
 
 .container {
 	margin: 0 auto;
 	width: 1200px;
+	/* height: 950px; */
+	/* height: 950px; */
+	/* height: 900px;  */
 	/* border: solid #FF0000; */
+    /* overflow-x:hidden; */
+   /*  margin-position: fixed; */
+    
+	 
 }
 
 form.memberform, form.trainerform {
-	margin: 0 auto;
+	/* margin: 0 auto; */
 	/*width: 50%;*/
 	/*padding: 200px;*/
 	/* border: dashed #FFFF00; */
 	/*padding: 50px;*/
+	 
+	
 }
 
 fieldset {
@@ -28,6 +40,8 @@ fieldset {
 	width: 50%;
 	margin-top: 30px;
 	border-radius: 10px;
+	margin-bottom: 30px;
+	
 }
 
 legend {
@@ -242,8 +256,17 @@ select.email, select.phone, .phone {
  ::-webkit-input-placeholder {
  opacity: 0.3;
  }*/
-#footer {
+/* #footer {
+	margin-top: 0;
 	bottom: 0;
-	position: absolute;
+	margin-bottom: 0;
+	position: fixed;
 	width: 100%;
+} */
+
+.footer {
+	bottom: 0;
+    position: fixed;
+    width: 100%;
+	
 }
