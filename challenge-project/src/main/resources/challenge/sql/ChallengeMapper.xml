@@ -41,9 +41,9 @@
        값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
   -->
   <select id="selectOne" parameterType="int" resultMap="ChallengeMap">
-    select pono, pocont, podate 
-    from POST 
-    where pono=#{value}
+    select chtitl, chcont, chpath 
+    from CHAL
+    where chno=#{no}
   </select>
   
   <update id="update" parameterType="Challenge">

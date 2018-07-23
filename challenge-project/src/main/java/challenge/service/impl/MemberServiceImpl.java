@@ -33,13 +33,13 @@ public class MemberServiceImpl implements MemberService {
     }
     
     @Override
-    public int delete(int memberNo) {
-        return memberDao.delete(memberNo);
+    public int delete(int userNo) {
+        return memberDao.delete(userNo);
     }
 
     @Override
-    public Member get(int memberNo) {
-        Member member = memberDao.selectOne(memberNo);
+    public Member get(int userNo) {
+        Member member = memberDao.selectOne(userNo);
         return member;
     }
     

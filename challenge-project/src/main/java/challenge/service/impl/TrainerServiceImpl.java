@@ -28,13 +28,13 @@ public class TrainerServiceImpl implements TrainerService {
     }
     
     @Override
-    public int delete(int tno) {
-        return trainerDao.delete(tno);
+    public int delete(int userNo) {
+        return trainerDao.delete(userNo);
     }
 
     @Override
-    public Trainer get(int tno) {
-        Trainer trainer = trainerDao.selectOne(tno);
+    public Trainer get(int userNo) {
+        Trainer trainer = trainerDao.selectOne(userNo);
         return trainer;
     }
     

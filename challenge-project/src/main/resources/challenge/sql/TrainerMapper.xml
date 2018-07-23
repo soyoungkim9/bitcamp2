@@ -22,7 +22,7 @@
 		<result column="trncoin" property="coin"/>
 	</resultMap>
 
-	<select id="selectList" resultMap="TrainerMap">
+	<select id="selectList" resultMap="TrainerMap" parameterType="map">
 		select uno, uname, sex, mail, pwd, uphon, upath, utype, trnno, trnint, trncar,
 		trntime, trnacnt, trnprog, trnbank, trncoin
 		from TRN t

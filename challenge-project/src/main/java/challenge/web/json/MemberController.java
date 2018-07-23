@@ -29,8 +29,8 @@ public class MemberController {
     @RequestMapping("delete")
     //@ResponseStatus(HttpStatus.OK) // 응답 상태 코드 값의 기본은 "200(OK)" 이다.
     public void delete(
-            @RequestParam("memberNo") int memberNo) throws Exception {
-       memberService.delete(memberNo);
+            @RequestParam("userNo") int userNo) throws Exception {
+       memberService.delete(userNo);
     }
     
     @RequestMapping("list")
@@ -45,9 +45,9 @@ public class MemberController {
         memberService.update(member);
     }
     
-    @RequestMapping("{memberNo}")
-    public Member view(@PathVariable int memberNo) throws Exception {
-        return memberService.get(memberNo);
+    @RequestMapping("{userNo}")
+    public Member view(@PathVariable int userNo) throws Exception {
+        return memberService.get(userNo);
     }
     
 }

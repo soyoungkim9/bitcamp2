@@ -30,8 +30,8 @@ public class TrainerController {
     @RequestMapping("delete")
     //@ResponseStatus(HttpStatus.OK) // 응답 상태 코드 값의 기본은 "200(OK)" 이다.
     public void delete(
-            @RequestParam("tno") int tno) throws Exception {
-        trainerService.delete(tno);
+            @RequestParam("userNo") int userNo) throws Exception {
+        trainerService.delete(userNo);
     }
 
     @RequestMapping("list")
@@ -46,9 +46,9 @@ public class TrainerController {
         trainerService.update(trainer);
     }
 
-    @RequestMapping("{tno}")
-    public Trainer view(@PathVariable int tno) throws Exception {
-        return trainerService.get(tno);
+    @RequestMapping("{userNo}")
+    public Trainer view(@PathVariable int userNo) throws Exception {
+        return trainerService.get(userNo);
     }
 
 }

@@ -6,6 +6,13 @@
 <mapper namespace="challenge.dao.MemberDao">
 	<resultMap type="Member" id="MemberMap">
 		<id column="uno" property="userNo" />
+		<result column="uname" property="name" />
+        <result column="sex" property="sex" />
+        <result column="mail" property="email" />
+        <result column="pwd" property="password" />
+        <result column="uphon" property="userPhone" />
+        <result column="upath" property="userPath" />
+        <result column="utype" property="userType" />
 	</resultMap>
 
 	<select id="selectList" resultMap="MemberMap" parameterType="map">
@@ -23,7 +30,7 @@
 	<select id="selectOne" parameterType="int" resultMap="MemberMap">
 		select uno,
 		uname, sex, mail, pwd, uphon, upath, utype
-		from USER
+		from MEMB
 		where uno=#{value}
 	</select>
 
@@ -31,7 +38,7 @@
 		resultMap="MemberMap">
 		select uno, uname, sex, mail, pwd, uphon, upath, utype
 		from
-		USER
+		MEMB
 		where mail=#{value}
 	</select>
 
@@ -39,31 +46,31 @@
 	<select id="selectOneWithPassword" parameterType="map"
 		resultMap="MemberMap">
 		select uno, uname, sex, mail, pwd, uphon, upath
-		from USER
+		from MEMB
 		where mail=#{id} and pwd=password(#{password})
 	</select>
 
 	<select id="count" parameterType="map" resultType="int">
 		select
 		count(*)
-		from USER
+		from MEMB
 		where mail=#{id} and pwd=password(#{password})
 	</select>
 
 	<update id="update" parameterType="Member">
-		update USER set
+		update MEMB set
 		uname=#{name},
 		sex=#{sex},
 		mail=#{id},
 		pwd=password(#{password}),
-		uphon=#{userPhone},
-		upath=#{userPath},
-		utype=#{userType}
-		where uno=#{userNo}
+		uphon=#{memberPhone},
+		upath=#{memberPath},
+		utype=#{memberType}
+		where uno=#{memberNo}
 	</update>
 
 	<delete id="delete" parameterType="int">
-		delete from USER where
+		delete from MEMB where
 		uno=#{value}
 	</delete>
 </mapper>

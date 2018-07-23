@@ -193,8 +193,10 @@
             var no = location.href.split("?")[1].split("=")[1];
     
             $.getJSON(serverRoot + "/json/challenge/" + no, function(data) {
-            $(aTitle).var(data.title);
-            $(aTitle).var(data.cotent);
+            /* $(Title).var(data.title); */
+            console.log(data);
+            $("#aTitle").val(data.title);
+            $("#content").val(data.content);
             
             //$(fLike).append(data.like);
             });
