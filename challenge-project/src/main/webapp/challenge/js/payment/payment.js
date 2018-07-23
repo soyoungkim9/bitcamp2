@@ -1,5 +1,5 @@
 
-
+var obj;
 var no = 1;
 $.getJSON(serverRoot + "/json/program/" + no, (data) => {
 	
@@ -8,6 +8,7 @@ $.getJSON(serverRoot + "/json/program/" + no, (data) => {
 	$('.project-title').append("<b>"+data.name+"</b>");
 	$('.p-price').append(data.price+" 원");
 	$('.p-trainer').append(data.trainerNo.name);
+	
 
 }); 
 
