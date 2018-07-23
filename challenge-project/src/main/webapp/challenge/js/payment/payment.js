@@ -5,14 +5,26 @@
 
 
 
-		$('.projec
-				t-title').append("<b>"+data.name+"</b>");
+		$('.project-title').append("<b>"+data.name+"</b>");
 		$('.p-price').append(data.price+" 원");
 		$('.p-trainer').append(data.trainerNo.name);
 
 	}); 
 
-
+// ------------------------- 수량 증가 ---------------------------//
+	var Clicks = 1 ;
+	function AddClick() {
+		Clicks = Clicks + 1;
+		document.getElementById('p-value').innerHTML = Clicks ;
+		document.getElementById('test-price').innerHTML = 10000 * Clicks +' 원' ;
+		
+	}
+	function MinusClick() {
+		Clicks = Clicks - 1;
+		document.getElementById('p-value').innerHTML = Clicks ;
+		document.getElementById('test-price').innerHTML = 10000 / Clicks +' 원' ;
+		
+	}
 //	--------------------------카카오페이 api--------------------------//
 
 
@@ -31,18 +43,24 @@
 			buyer_tel : '010-1234-5678',
 			buyer_addr : '서울특별시 강남구 삼성동',
 			buyer_postcode : '123-456',
-			kakaoOpenApp : true
+			kakaoOpenApp : true,
+			
 		}, function(rsp) {
 			if ( rsp.success ) {
+				console.log("하이요");
+				window.location.replace('http://localhost:8888/challenge-project/challenge/html/main/main.html');
 				//[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
 				jQuery.ajax({
-					url: "/payments/complete", //cross-domain error가 발생하지 않도록 주의해주세요
-					type: 'POST',
+					url: "/challenge-project/challenge/html/main/main.html", //cross-domain error가 발생하지 않도록 주의해주세요
+					type: 'GET',
 					dataType: 'json',
 					data: {
 						imp_uid : rsp.imp_uid
-						//기타 필요한 데이터가 있으면 추가 전달
 					}
+				
+				
+
+				
 				}).done(function(data) {
 					//[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
 					if ( everythings_fine ) {
@@ -66,3 +84,4 @@
 			}
 		});
 	}
+	
