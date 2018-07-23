@@ -43,10 +43,11 @@
 }
 
 .challenge-cp {
+  left:10px;
   position: absolute;
-  top: -5px;
+  top: -10px;
   background: #DD1F26;
-  padding: 3px 5px 1px 3px;
+  padding: 0px 5px 0px 0px;
   color: #ffffff;
   font-style: italic;
   font-weight: 700;

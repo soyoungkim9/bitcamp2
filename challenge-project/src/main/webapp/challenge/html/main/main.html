@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../../css/common.css">
   <link rel="stylesheet" href="../../css/main/challenge-card.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel="stylesheet" href="../../css/main/main.css">
@@ -162,90 +163,8 @@
 
             <div><!-- 새로운챌린지 사진들 시작! -->
             <div id="new-challenge">
-              <div class="challenge">
-                <div class="challenge-photo">
-                  <a href="../challenge/challenge.html">
-                    <img class="challenge-photo-img" src="../../img/main/bodybuilding.jpg">
-                    </a>
-                </div>
-                <div class="challenge-title">
-                  <a href="#">
-                    <h3 class="challenge-title1">WEIGHT LIFTING</h3></a>
-                  <a href="#">
-                    <p class="challenge-cp">BODYBUILDING</p>
-                  </a>
-                </div>
-              </div>
-              <div class="challenge">
-                <div class="challenge-photo">
-                  <a href="#">
-                    <img class="challenge-photo-img" src="../../img/main/bodybuilding.jpg">
-                    </a>
-                </div>
-                <div class="challenge-title">
-                  <a href="#">
-                    <h3 class="challenge-title1">WEIGHT LIFTING</h3></a>
-                  <a href="#">
-                    <p class="challenge-cp">BODYBUILDING</p>
-                  </a>
-                </div>
-              </div>
-              <div class="challenge">
-                <div class="challenge-photo">
-                  <a href="#">
-                    <img class="challenge-photo-img" src="../../img/main/bodybuilding.jpg">
-                    </a>
-                </div>
-                <div class="challenge-title">
-                  <a href="#">
-                    <h3 class="challenge-title1">WEIGHT LIFTING</h3></a>
-                  <a href="#">
-                    <p class="challenge-cp">BODYBUILDING</p>
-                  </a>
-                </div>
-              </div>
-              <div class="challenge">
-                <div class="challenge-photo">
-                  <a href="#">
-                    <img class="challenge-photo-img" src="../../img/main/bodybuilding.jpg">
-                    </a>
-                </div>
-                <div class="challenge-title">
-                  <a href="#">
-                    <h3 class="challenge-title1">WEIGHT LIFTING</h3></a>
-                  <a href="#">
-                    <p class="challenge-cp">BODYBUILDING</p>
-                  </a>
-                </div>
-              </div>
-              <div class="challenge">
-                <div class="challenge-photo">
-                  <a href="#">
-                    <img class="challenge-photo-img" src="../../img/main/bodybuilding.jpg">
-                    </a>
-                </div>
-                <div class="challenge-title">
-                  <a href="#">
-                    <h3 class="challenge-title1">WEIGHT LIFTING</h3></a>
-                  <a href="#">
-                    <p class="challenge-cp">BODYBUILDING</p>
-                  </a>
-                </div>
-              </div>
-              <div class="challenge">
-                <div class="challenge-photo">
-                  <a href="#">
-                    <img class="challenge-photo-img" src="../../img/main/bodybuilding.jpg">
-                    </a>
-                </div>
-                <div class="challenge-title">
-                  <a href="#">
-                    <h3 class="challenge-title1">WEIGHT LIFTING</h3></a>
-                  <a href="#">
-                    <p class="challenge-cp">BODYBUILDING</p>
-                  </a>
-                </div>
-              </div>
+              
+              
             </div>
             </div>
             </div><!-- 새로운챌린지 사진들 끝! -->
@@ -553,6 +472,25 @@
       });
     })
     </script>
+<script id="tr-template" type="text/x-handlebars-template">
+{{#each list}}
+
+    <div class="challenge">
+                <div class="challenge-photo">
+                  <a href='community-view.html?no={{no}}'>
+                    <img class="challenge-photo-img" src="../../img/main/bodybuilding.jpg">
+                    </a>
+                </div>
+                <div class="challenge-title">
+                  <a href="#">
+                    <h3 class="challenge-title1">{{title}}</h3>
+                    <p class="challenge-cp">NEW</p>
+                  </a>
+                </div>
+      </div>
+
+{{/each}}
+</script>
  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../../js/common.js"></script>
  <script src="../../js/main/main.js"></script>
