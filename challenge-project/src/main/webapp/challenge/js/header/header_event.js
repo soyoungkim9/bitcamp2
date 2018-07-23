@@ -11,10 +11,8 @@ function expand() {
 }
 $('.sh-searchBtn').on('click', expand);
 
-//로그인 한 사람만 쓸 수 있는 페이지에 넣어줄 function.header에 이 function 저장되어있음
-//loadLoginUser();
-
 //로그인 여부에 따른 헤더 Nav 메뉴 변경
+/*
 (function () {
 	$.getJSON(serverRoot + "/json/auth/loginUser")
 	.done(function(data) { // 로그인 O
@@ -30,7 +28,7 @@ $('.sh-searchBtn').on('click', expand);
 		$(".login_menu_after").attr("style", "display:none")
 	})
 })();
-
+*/
 
 
 // USER 객체 정보 저장
@@ -45,10 +43,25 @@ $.ajax({
     obj = data;
     pmembLoader()
   });
+console.log(obj)
 
+//로그인 여부(obj객체 유무에 따라)에 따른 헤더 Nav 메뉴 변경
+if(obj != null) {
+	$(".login_menu_before").attr("style", "display:none")
+	$("#sh-user-name").html(obj.name)
+	$("#logoutBtn").click((e) => {
+		e.preventDefault(); // 클릭했을 때 원래 하던 일이 있는데 그것을 하지 말라!
+		$.get(serverRoot + "/json/auth/logout", () => {
+			location.href = serverRoot + "/challenge/html/login/login.html";
+		});
+	});
+	
+	console.log("OKOK!")
+} else {
+	$(".login_menu_after").attr("style", "display:none")
+}
 
-
-// PMEMB 객체 정보 저장 ( 복수 허용)
+// PMEMB 객체 정보 저장 (복수 허용)
 var objPmemb
 function pmembLoader() {
 	console.log("pmembLoader 불려짐")
