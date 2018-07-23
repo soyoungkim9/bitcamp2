@@ -65,11 +65,9 @@
 								<option>017</option>
 								<option>011</option>
 						</select> - <input id="fPhone2" type="tel" name="tel" class="phone"
-							maxlength="4" size="4" pattern="[0-9]{3,4}[0-9]"
-							onkeypress="phonedate(event)"> - <input id="fPhone3"
-							type="text" name="tel" class="phone" maxlength="4" size="4"
-							pattern="[0-9]{4}" onkeypress="phonedate(event)" title="값을 입력하세요"
-							required></td>
+							maxlength="4" size="4" pattern="[0-9]{3,4}[0-9]" oninput="this.value=this.value.replace(/[^0-9]/g,'');"> - <input id="fPhone3"
+							type="tel" name="tel" class="phone" maxlength="4" size="4"
+							pattern="[0-9]{4}" oninput="this.value=this.value.replace(/[^0-9]/g,'');"></td>
 					</tr>
 
 					<tr>
@@ -115,7 +113,7 @@
 	<!-- <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script> -->
 	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../../js/common.js"></script>
-	<script>
+	<!-- <script>
 		function phonedate() {
 			if (event.keyCode >= 48 && event.keyCode <= 57) {
 				return true;
@@ -123,11 +121,11 @@
 				event.returnValue = false;
 			}
 		}
+ -->
 	</script>
 	<script src="../../js/header/header_white.js"></script>
 	<script src="../../js/footer/footer.js"></script>
 	<script src="../../js/login/member.js"></script>
-
 </body>
 </html>
 
