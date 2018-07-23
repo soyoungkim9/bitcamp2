@@ -22,8 +22,10 @@
     <result column="pgoal_n" property="proGoalNum"/>
     <result column="pth" property="proTh"/>
     <result column="ptover" property="proTurn"/>
+    
     <result column="pday" property="proDay"/>
     <result column="ptime" property="proTime"/>
+    
     <result column="pstate" property="proState"/>
     <result column="presult" property="proResult"/>
 

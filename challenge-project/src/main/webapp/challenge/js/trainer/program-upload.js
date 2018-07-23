@@ -22,7 +22,6 @@ function openCity(evt, cityName) {
 }
 
 
-
 //주소검색
 function sample6_execDaumPostcode() {
   new daum.Postcode({
@@ -77,18 +76,19 @@ $('#fileupload').fileupload({
     autoUpload: false,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
     disableImageResize: /Android(?!.*Chrome)|Opera/
           .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
-    previewMaxWidth: 200,   // 미리보기 이미지 너비
-    previewMaxHeight: 200,  // 미리보기 이미지 높이 
-    /*previewCrop: true,*/      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+    previewMaxWidth: 300,   // 미리보기 이미지 너비
+    previewMaxHeight: 300,  // 미리보기 이미지 높이 
+    previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
     processalways: function(e, data) {
         console.log('fileuploadprocessalways()...');
-        console.log(data);
+        console.log(data.files);
+        mainMedia = data.files;
         var imagesDiv = $('#images-div');
         imagesDiv.html("");
         for (var i = 0; i < data.files.length; i++) {
           try {
             if (data.files[i].preview.toDataURL) {
-              $("<img>").attr('src', data.files[i].preview.toDataURL()).css('width', '200px').appendTo(imagesDiv);
+              $("<img>").attr('src', data.files[i].preview.toDataURL()).css('width', '300px').appendTo(imagesDiv);
             }
           } catch (err) {}
         }
@@ -107,11 +107,39 @@ $('#fileupload').fileupload({
     }
 });
 
+/*var day;
+$("#weekly-schedule").on('selected.artsy.dayScheduleSelector', function (e, selected) {
+  
+  day = $(".schedule-header th")[selected.data().day+1].innerHTML
+  var start_time = selected.data().time
+  var end_time = selected[selected.length-1].dataset.time
+  var dayTime = (start_time + "~" + end_time);
+});*/
+
 
 $("#addBtn").click(() => {
+  var proDay = new Array();
+  
+  var proTime = new Array();
+  
+  $(".time-slot[data-selected]").each(function(i, tag) {
+    var e = $(tag);
+    /*obj1 = new Object();
+    obj1.proDay = e.attr('data-day');*/
+    proDay.push(e.attr('data-day'));
+    /*obj2 = new Object();
+    obj2.proTime = e.attr('data-time');*/
+    proTime.push(e.attr('data-time'));
+    /*console.log(e.attr('data-day'))
+    console.log(e.attr('data-time'));*/
+  });
+  console.log(proDay);
+  console.log(proTime);
   
   $.ajax({
     type: 'POST',
+    async: false,
+    traditional : true,
     url: serverRoot + '/json/programMedia/add',
     data: {
       postNo: $(sample6_postcode).val(),
@@ -129,18 +157,18 @@ $("#addBtn").click(() => {
       proGoalNum: $(fprogoalnum).val(),
       proTh: $(fth).val(),
       proTurn: $(fptover).val(),
-      proDay: '2018-07-19',
-      proTime: '2018-07-19',
+      proDay: proDay,
+      proTime: proTime,
       challengeNo: $(chalTab).val(),
-      /*trainerNo: 2*/
+      trainerNo: 2,
       path: mainMedia + '_200x200.jpg',
       state: 1
-    },
+    }, 
   }).done(function() {
     console.log('입력됨.11');
     location.href = 'trainerPage-programList.html';
   });
 });
-  
+
   
 
