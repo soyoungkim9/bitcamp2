@@ -39,7 +39,7 @@
   <select id="selectList" 
           resultMap="MessageMap" 
           parameterType="map">
-   select msgno, mscont, uname, msdate
+   select msgno, mstitl, mscont, uname, msdate
    from USER u, TRN t, MSG ms, MEMB m
    where u.uno = t.trnno 
    AND m.uno = ms.uno
@@ -57,7 +57,7 @@
        값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
   -->
   <select id="selectOne" parameterType="int" resultMap="MessageMap">
-   select msgno, mscont, uname, msdate
+   select msgno, mstitl, mscont, uname, msdate
    from USER u, TRN t, MSG ms, MEMB m
    where u.uno = t.trnno 
    AND m.uno = ms.uno
