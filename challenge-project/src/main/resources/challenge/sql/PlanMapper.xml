@@ -23,6 +23,10 @@
         <result column="sdt" property="startDate"/>
         <result column="edt" property="endDate"/>
         <result column="pth" property="proTh"/>
+        <result column="ptover" property="proTurn"/>
+        <association property="trainerNo" javaType="Trainer">
+        	<id column="trnno" property="userNo"/>
+        </association>
     </collection>
   </resultMap>
 
@@ -33,17 +37,31 @@
        그 메서드를 자동생성할 때 사용할 수 있다.
   -->
   <select id="selectList" resultMap="PlanMap">
-	select p.pno, p.pname from PROG p
+	select p.pno, p.pname from PROG p, TRN t
+	where t.trnno = p.trnno
 <!--     order by pono desc -->
   </select>
 
+  <select id="selectPlanList" parameterType="int" resultMap="PlanMap">
+	select p.pname, p.sdt, p.edt, p.ptover, pl.pno, pl.plno, pl.pltover,
+		   pl.pltitl, pl.plcont, p.trnno
+	from PROG p, PLAN pl
+	where p.pno = pl.pno
+	AND pl.pno = #{value}
+  </select>
+  
+  <insert id="insert" parameterType="Plan" 
+  	useGeneratedKeys="true" keyColumn="plno" keyProperty="no">
+  	insert into PLAN(pltover,pldt,pltitl,plcont, pno)
+  	values(#{planTurn},#{planDate},#{planTitl},#{planContent},#{program.no})
+  </insert>
   <!-- 파라미터의 타입이 primitive type이나 wrapper 클래스, String 클래스인 경우
        값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
   -->
-  <select id="selectOne" parameterType="int" resultMap="PlanMap">
+<!--   <select id="selectOne" parameterType="int" resultMap="PlanMap">
   	select p.pname, p.sdt, p.edt, pl.pltover, pl.pldt, pl.pltitl, pl.plcont
 	from PLAN pl, PROG p
 	where pl.pno = p.pno
 	and p.pno = #{value}
-  </select>
+  </select> -->
 </mapper>

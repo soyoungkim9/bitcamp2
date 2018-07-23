@@ -179,13 +179,7 @@
   margin-bottom: 30px;
 }
 
-.bottomMenu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-}
-
-.bottomMenu li {
+.bottomMenu #addPlan {
   float:left;
   padding: 6px 25px;
   font-weight: bold;
@@ -194,10 +188,7 @@
   background-color: #DD1F26;
   color: white;
   font-size: 15px;
-}
-
-.MenuShare {
-  margin: 0 10px;
+  cursor: pointer;
 }
 
 /* 운동일지 */
@@ -222,12 +213,21 @@
   margin: 10px 15px;
 }
 .dayContent {
-  height: 152px;
+  height: 146px;
   margin: 0 14px;
 }
+
+.dayContent h4 {
+	margin-bottom: 0;
+}
+
 .editIcon {
   float: right;
   margin-right: 10px;
+}
+
+.editIcon .far {
+	margin-left: 3px;
 }
 
 .dayContent p {
@@ -243,7 +243,134 @@
 
 #pagination {
   margin: 0;
-  padding: 0;
+  margin-left: 10%;
+}
+
+/* 일지 등록하는 모달*/
+.modal {
+    display: none; /* Hidden by default */
+    position: fixed; /* Stay in place */
+    z-index: 9999; /* Sit on top */
+    padding-top: 100px; /* Location of the box */
+    left: 0;
+    top: 0;
+    width: 100%; /* Full width */
+    height: 100%; /* Full height */
+    overflow: auto; /* Enable scroll if needed */
+    background-color: rgb(0,0,0); /* Fallback color */
+    background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+}
+
+/* Modal Content */
+.modal-content {
+    background-color: #fefefe;
+    margin: auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 700px;
+    height: 480px;
+}
+
+/* The Close Button */
+.close {
+    color: #aaaaaa;
+    float: right;
+    font-size: 28px;
+    font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+.addForm {
+	margin: 30px 25px;
+	margin-left: 5px;
+	text-align: center;
+}
+.addForm div {
+	margin-bottom: 25px;
+}
+
+.addForm label {
+	margin-right: 10px;
+	display: inline-block;
+	width: 50px;
+	font-size: 17px;
+	font-weight: bold;
+}
+
+.addForm input {
+	padding: 5px;
+	border: 1px solid #d7d7d7;
+	font-size: 15px;
+}
+
+.addForm select {
+	padding: 5px;
+	width: 80px;
+	border: 1px solid #d7d7d7;
+	font-size: 15px;
+	height: 35px;
+}
+
+#addTop1, #addTop2 {
+	display: inline-block;
+	margin-bottom: 0;
+}
+
+#addTop2 {
+	margin-left: 150px;
+	
+}
+
+#addTop2 input {
+	width: 203px;
+	height: 25px;
+}
+
+[name="addTitle"] {
+	width: 500px;
+}
+
+[name="addContent"] {
+	width: 505px;
+}
+
+[name="addContent"] {
+	border: 1px solid #d7d7d7;
+	height: 250px;
+	resize: none;
+}
+
+[for="addContent"] {
+	margin-bottom: 20px;
+	position: relative;
+	top: -120px;
+}
+
+[name="addTitle"] {
+	height: 25px;
+}
+
+#registerPlan {
+	float: right;
+	margin-right: 45px;
+    padding: 6px 25px;
+    font-weight: bold;
+    border: 1px solid #DD1F26;
+    border-radius: 5px;
+    background-color: #DD1F26;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+#bottomBox {
+	margin-bottom: 0;
 }
 
 
