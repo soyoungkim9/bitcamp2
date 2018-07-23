@@ -132,14 +132,14 @@ window.onclick = function(event) {
 // 타임라인 글 게시
 $("#sh-tl-post-btn").click(() => {
 	console.log(obj)
-	console.log(objPmemb[1].no)
+	console.log(objPmemb[0].no)
   $.ajax({
     type: 'POST',
     url: '../../../json/timeline/add',
     data: {
       picture: $('#sh_tl_upload').val(),
       content: $('#sh_tl_post_write').val(),
-      "progMemb.no" : objPmemb[1].no,
+      "progMemb.no" : objPmemb[0].no,
       "progMemb.users.userNo" : obj.userNo
     }
   }).done(function() {
@@ -160,11 +160,13 @@ function cmtFunction(no) {
     url: '../../../json/comment/add',
     data: {
       content: $('#' + no).val(),
-      timelineNo: no
+      timelineNo: no,
+      "progMemb.no" : objPmemb[0].no,
+      "progMemb.users.userNo" : obj.userNo
     }
   }).done(function() {
     console.log("댓글 입력됨");
-    location.href = "timeline.html"
+    location.href = "timeline.html";
   });
 
 }
