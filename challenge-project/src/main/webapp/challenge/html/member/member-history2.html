@@ -124,7 +124,12 @@
 
 					<!-- 이 부분이 운동일지 부분임! -->
 					<section id="sm-section" class="sm-timeline">
-						 <ul> 
+					<ul>
+					<li id="listbody2" class="in-view"></li>
+					</ul>
+					
+						<ul>
+					<!-- <li id="listbody" class="in-view"></li> -->
 							<li>
 								<div class="sm-time-div">
 									<span class="sm-time">2011-02-03</span>
@@ -140,9 +145,9 @@
 									</p>
 								</div>
 							</li>
-							<li id="listbody" class="chall-tbody"></li>
+							<!-- <li id="listbody2" class="chall-tbody2"></li> -->
+
 							
-							<li id="listbody2" class="chall-tbody"></li>
 							<!--   <li>
                 <div class="sm-time-div">
                   <span class="sm-time">2018-02-03</span>
@@ -202,54 +207,38 @@
 
 
 
-	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../../js/common.js"></script>
 	<script src="../../js/header/header_white.js"></script>
 	<script src="../../js/footer/footer.js"></script>
 	<script src="../../js/member/history.js"></script>
 	<script src="../../js/member/sm-following.js"></script>
 	<script src="../../js/member/mb-menu.js"></script>
-	<script id="tr-template" type="text/x-handlebars-template">
-{{#each history}}
- 
-                <div class="sm-time-div">
-                  <span class="sm-time">{{createdDate}}</span>
-                  <p class="sm-time-p">'1개월만에 다리라인 만들기' 결제를 완료했습니다!
-                  </p>
-
-    <span>{{no}}</span><br>
-    <span>{{type}}</span><br>
-    <span><a href='bd-view.html?no={{no}}'>{{title}}</a></span><br>
-    <span>토토로</span><br>
-    <span>{{cnt}}</span><br>
-    <span>{{createdDate}}</span>
-                </div>
-
-{{/each}}
-
+<script id="tr-template2" type="text/x-handlebars-template">
+{{#list}}
+<div class="sm-time-div">
+<span class="sm-time">{{userNo}}</span>
+<p class="sm-time-p">{{name}}</p>
+<p class="sm-time-p">{{email}}</p>
+</div>
+{{/list}}
 </script>
 
-    <script id="tr-template2" type="text/x-handlebars-template">
-{{#each list}}
- 
-                <div class="sm-time-div">
-                  <span class="sm-time">{{createdDate}}</span>
-                  <p class="sm-time-p">'1개월만에 다리라인 만들기' 결제를 완료했습니다!
-                  </p>
 
-    <span>{{no}}</span><br>
-    <span>{{type}}</span><br>
-    <span><a href='bd-view.html?no={{no}}'>{{title}}</a></span><br>
-    <span>가리비</span><br>
-    <span>{{cnt}}</span><br>
-    <span>{{createdDate}}</span>
-                </div>
-
-{{/each}}
-
+<script id="tr-template" type="text/x-handlebars-template">
+{{#cmu}}
+<div class="sm-time-div">
+<span class="sm-time">{{createdDate}}</span>
+<p class="sm-time-p">{{title}}</p>
+<p class="sm-time-p">{{content}}</p>
+</div>
+{{/cmu}}
 </script>
-	<script src="member-history2.js"></script>
+
+
+
+	<script src="member-history3.js"></script>
 
 
 
