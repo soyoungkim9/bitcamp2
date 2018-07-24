@@ -44,6 +44,8 @@
    where u.uno = t.trnno 
    AND m.uno = ms.uno
    AND t.trnno = ms.trnno
+   order by msgno desc
+   limit #{startRowNo}, #{pageSize}
   
   </select>
   
