@@ -32,7 +32,10 @@ public class ChallengeController {
             @RequestParam("no") int no) throws Exception {
        challengeService.delete(no);
     }
-    
+    @RequestMapping("mainList")
+    public Object mainList() {
+        return challengeService.list();
+    }
     @RequestMapping("list")
     public Object list() {
         return challengeService.list();
