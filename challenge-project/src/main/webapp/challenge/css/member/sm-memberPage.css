@@ -36,7 +36,7 @@ button:focus, #sm-btn-1:focus, #sm-btn-2:focus,
   outline: none;
 }
 
-#sm-btn-1 { /* 남색 버튼 */
+.sm-btn-1 { /* 남색 버튼 */
   width:100px;
     background-color: #1B3453;
     border:1px solid #1B3453;
@@ -50,13 +50,13 @@ button:focus, #sm-btn-1:focus, #sm-btn-2:focus,
     cursor: pointer;
     border-radius:10px;
 }
-#sm-btn-1:hover {
+.sm-btn-1:hover {
     background-color: white;
     color:#1B3453;
     border:1px solid #1B3453;
 }
 
-#sm-btn-1-small { /* 남색 작은버튼 */
+.sm-btn-1-small { /* 남색 작은버튼 */
   width:100px;
     background-color: #1B3453;
     border:1px solid #1B3453;
@@ -71,7 +71,7 @@ button:focus, #sm-btn-1:focus, #sm-btn-2:focus,
     border-radius:10px;
 }
 
-#sm-btn-2 { /* 빨간색 버튼 */
+.sm-btn-2 { /* 빨간색 버튼 */
   width:100px;
     background-color: #DD1F26;
     border:1px solid #DD1F26;
@@ -85,7 +85,7 @@ button:focus, #sm-btn-1:focus, #sm-btn-2:focus,
     cursor: pointer;
     border-radius:10px;
 }
-#sm-btn-2:hover {
+.sm-btn-2:hover {
     background-color: white;
     color:#DD1F26;
     border:1px solid #DD1F26;
