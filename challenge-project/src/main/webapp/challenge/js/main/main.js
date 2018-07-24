@@ -38,11 +38,25 @@ var trTemplateSrc = $("#tr-template").html();
 //위에서 준비한 템플릿 데이터를 가지고 HTML을 생성할 템플릿 엔진 준비
 var templateFn = Handlebars.compile(trTemplateSrc);
 
-console.log();
+
 $.getJSON(serverRoot + "/json/challenge/list", (data) => {
 	//$tableBody.innerHTML = templateFn({list:data});
     $("#new-challenge").html(templateFn({list:data}));
 });
+
+
+//템플릿 엔진이 사용할 템플릿 데이터 가져오기
+var prTemplateSrc = $("#pr-template").html();
+
+//위에서 준비한 템플릿 데이터를 가지고 HTML을 생성할 템플릿 엔진 준비
+var prtemplateFn = Handlebars.compile(prTemplateSrc);
+
+console.log("하이유~");
+$.getJSON(serverRoot + "/json/program/list", (data) => {
+	//$tableBody.innerHTML = templateFn({list:data});
+    $("#program-list").html(prtemplateFn({list:data}));
+});
+
 
 
 

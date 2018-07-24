@@ -57,7 +57,7 @@
       line-height: 1.375em;
       color: #303030;
       font-weight: 400;
-  }  
+  }
   .jumbotron {
       background-color: #DD1F26;
       color: #fff;
@@ -111,13 +111,13 @@ padding-top: 10px;
   }
   .carousel-control.right, .carousel-control.left {
       background-image: none;
-      color: #DD1F26;
+      color: #cdcdcd;
   }
   .carousel-indicators li {
-      border-color: #DD1F26;
+      border-color: #cdcdcd;
   }
   .carousel-indicators li.active {
-      background-color: #DD1F26;
+      background-color: #cdcdcd;
   }
   .item h4 {
       font-size: 19px;
