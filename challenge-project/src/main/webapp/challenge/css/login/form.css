@@ -74,7 +74,7 @@ table {
 	margin-bottom: 10px;
 }
 
-input.name, input.email, .password {
+input.name, input.email, .password, .time, .account, .bankname {
 	border-radius: 4px;
 	border: 2px solid #EEEEEE;
 	/*resize: vertical;*/

@@ -58,7 +58,7 @@
 	</select>
 
 	<update id="update" parameterType="Member">
-		update MEMB set
+		update USER set
 		uname=#{name},
 		sex=#{sex},
 		mail=#{id},
@@ -70,7 +70,7 @@
 	</update>
 
 	<delete id="delete" parameterType="int">
-		delete from MEMB where
+		delete from USER where
 		uno=#{value}
 	</delete>
 </mapper>
