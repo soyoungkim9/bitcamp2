@@ -39,7 +39,7 @@ var trTemplateSrc = $("#tr-template").html();
 var templateFn = Handlebars.compile(trTemplateSrc);
 
 
-$.getJSON(serverRoot + "/json/challenge/list", (data) => {
+$.getJSON(serverRoot + "/json/challenge/mainList", (data) => {
 	//$tableBody.innerHTML = templateFn({list:data});
     $("#new-challenge").html(templateFn({list:data}));
 });
@@ -52,7 +52,7 @@ var prTemplateSrc = $("#pr-template").html();
 var prtemplateFn = Handlebars.compile(prTemplateSrc);
 
 console.log("하이유~");
-$.getJSON(serverRoot + "/json/program/list", (data) => {
+$.getJSON(serverRoot + "/json/program/mainList", (data) => {
 	//$tableBody.innerHTML = templateFn({list:data});
     $("#program-list").html(prtemplateFn({list:data}));
 });
