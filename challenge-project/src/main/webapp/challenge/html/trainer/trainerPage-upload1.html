@@ -10,7 +10,8 @@
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet"
  href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
- <link rel="stylesheet" href="../../node_modules/blueimp-file-upload/css/jquery.fileupload.css">
+<link rel="stylesheet"
+ href="../../node_modules/blueimp-file-upload/css/jquery.fileupload.css">
 </head>
 
 <body>
@@ -279,18 +280,11 @@
         <li class="ucmainImage">
          <div class="contentName">메인 이미지</div>
          <div class="ucContet">
-         
-         <!-- <b>상품이미지</b> 
-         <input id="fileupload" type="file" name="files" multiple>
-           <div id="ad-images-div"></div>
-           <button id='upload-btn' type='button'>등록</button> -->
-         <div class="filebox">
-         <label for="fileupload">업로드</label> 
-         <input id="fileupload" type="file" name="files">
-          <button id='upload-btn' type='button'>등록</button>
-         </div>
+          <div class="filebox">
+           <label for="fileupload">업로드</label> <input id="fileupload"
+            type="file" name="files">
+          </div>
           <div id='images-div'></div>
-          <div id="imgBox"></div>
 
          </div>
         </li>
@@ -298,6 +292,10 @@
          <div class="contentName">상세 미디어</div>
          <div class="ucContet">
           <div class="ImgsBox">
+            <b>상품이미지</b> <input id="fileupload2" type="file" name="files"
+             multiple>
+            <div id="ad-images-div"></div>
+            <button id='upload-btn2' type='button'>등록</button>
            <div id="subImgMain">
             <div class="imgIcon">
              <i class="far fa-image"></i>
@@ -355,17 +353,25 @@
  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
  <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
- 
- <script src="../../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
-<script src="../../node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
-<script src="../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
-<script src="../../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
-<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
-<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
-<script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>  
- 
+
+ <script
+  src="../../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+ <script
+  src="../../node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+ <script
+  src="../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+ <script
+  src="../../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+ <script
+  src="../../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+ <script
+  src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
+ <script
+  src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+
  <script src="../../js/trainer/dailySchedule.js"></script>
  <script src="../../js/trainer/program-upload.js"></script>
+ <script src="../../js/trainer/file-upload.js"></script>
  <script src="../../js/trainer/trainerPage-upload.js"></script>
  <script src="../../js/trainer/trainer-template.js"></script>
  <script src="../../js/footer/footer.js"></script>

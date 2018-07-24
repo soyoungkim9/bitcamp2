@@ -25,6 +25,7 @@
     
     <result column="pday" property="proDay"/>
     <result column="ptime" property="proTime"/>
+    <result column="ppic" property="mainImg"/>
     
     <result column="pstate" property="proState"/>
     <result column="presult" property="proResult"/>
@@ -48,7 +49,7 @@
 
   <select id="selectListCard"
           resultMap="ProgramMap" parameterType="map">
-    select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt,
+    select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.ppic,
            m.pmedno, m.ppath, m.pmtype,
            u.upath, u.uname
     from PMED m
@@ -83,7 +84,7 @@
         pth, ptover, 
         pday, ptime, 
         pstate, presult,
-        cno, trnno)
+        cno, trnno, ppic)
     values(
         #{postNo},#{address},#{addDetail},
         #{startDate},#{endDate}, 
@@ -94,7 +95,7 @@
         #{proTh}, #{proTurn}, 
         #{proDay}, #{proTime}, 
         #{proState}, #{proResult},
-        #{challengeNo}, 3)
+        #{challengeNo}, #{trainerNo.userNo}, #{mainImg})
   </insert>
 
 

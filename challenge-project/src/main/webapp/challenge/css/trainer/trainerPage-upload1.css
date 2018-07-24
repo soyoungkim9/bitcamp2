@@ -240,11 +240,23 @@ select {
 }
 
 /* 챌린지 메인 이미지 등록 */
+#ad-images-div {
+    padding: 10px;
+    min-height: 200px;
+    max-height: 300px;
+    border: 1px solid gray;
+    border-radius: 5px;
+    display: flex;
+}
+
+
 .filebox label {
 	box-sizing: border-box;
 	display: inline-block;
 	padding: .5em .75em;
-	height: 35px;
+	width: 250px;
+    height: 250px;
+    background: #fafafa;
 	font-size: 15px;
 	line-height: normal;
 	vertical-align: middle;

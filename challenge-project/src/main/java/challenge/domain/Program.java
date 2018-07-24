@@ -32,10 +32,20 @@ public class Program implements Serializable {
     private int proState; // 진행상태
     private String proResult; // 진행상태내용
 
+    private String mainImg; // 메인이미지
+    
     private int challengeNo; // 챌린지번호
     private Trainer trainerNo; // 트레이너번호
 
     private List<ProgramMedia> medias; // 프로그램 미디어
+
+    public String getMainImg() {
+        return mainImg;
+    }
+
+    public void setMainImg(String mainImg) {
+        this.mainImg = mainImg;
+    }
 
     public int getNo() {
         return no;
