@@ -1,6 +1,7 @@
 // 업무로직 구현체 - 고객사 마다 다른 구현을 할 수 있다.
 package challenge.service.impl;
 
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -20,12 +21,12 @@ public class MessageServiceImpl implements MessageService {
     }
     
     @Override
-    public List<Message> list() {
-//        HashMap<String,Object> params = new HashMap<>();
-//        params.put("startRowNo", (pageNo - 1) * pageSize);
-//        params.put("pageSize", pageSize);
+    public List<Message> list(int pageNo, int pageSize) {
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("startRowNo", (pageNo - 1) * pageSize);
+        params.put("pageSize", pageSize);
         
-        return MessageDao.selectList();
+        return MessageDao.selectList(params);
     }
     
     @Override

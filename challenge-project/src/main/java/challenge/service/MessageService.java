@@ -6,8 +6,8 @@ import java.util.List;
 import challenge.domain.Message;
 
 public interface MessageService {
-    List<Message> list();
+    List<Message> list(int pageNo, int pageSize);
     Message get(int no);
-    int add(Message post);
+    int add(Message message);
     int delete(int no);
 }
