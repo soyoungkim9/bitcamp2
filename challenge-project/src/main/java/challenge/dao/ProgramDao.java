@@ -12,6 +12,7 @@ public interface ProgramDao {
     public int insert(Program program);
     public int update(Program program);
     public Program selectOne(int no);
+    public List<Program> mainList();
     //public Team selectOneWithMembers(String name);
 
 }

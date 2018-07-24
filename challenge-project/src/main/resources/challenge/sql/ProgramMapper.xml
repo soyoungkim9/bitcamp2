@@ -65,6 +65,11 @@
     from PROG
     <!-- limit #{startRowNo}, #{pageSize} -->
   </select>
+  <select id="mainList"
+          resultMap="ProgramMap" parameterType="map">
+    SELECT * FROM PROG limit 0, 2
+    <!-- limit #{startRowNo}, #{pageSize} -->
+  </select>
 
   <insert id="insert" parameterType="Object"
         useGeneratedKeys="true" keyColumn="pno" keyProperty="no">

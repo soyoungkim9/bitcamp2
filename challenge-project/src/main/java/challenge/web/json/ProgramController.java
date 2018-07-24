@@ -42,11 +42,17 @@ public class ProgramController {
             @MatrixVariable(defaultValue="3") int pageSize) {
         return programService.list(pageNo, pageSize);
     }
-
+    
     @RequestMapping("listCard")
     public Object list(
             ) {
         return programService.listCard();
+    }
+    @RequestMapping("mainList")
+    public Object mainList(
+            ) {
+        System.out.println("mainList 실행");
+        return programService.mainList();
     }
 
     @RequestMapping("update")
