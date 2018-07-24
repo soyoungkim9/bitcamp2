@@ -10,4 +10,5 @@ public interface ChallengeDao {
     int insert(Challenge challenge);
     int update(Challenge challenge);
     Challenge selectOne(int no);
+    List<Challenge> mainList(); 
 }
