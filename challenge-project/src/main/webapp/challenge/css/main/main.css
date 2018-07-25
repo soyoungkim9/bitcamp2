@@ -146,6 +146,14 @@
       padding: 100px 25px;
       font-family: Montserrat, sans-serif;
   }
+  
+  .container-1200 {
+    width: 1200px;
+    margin: 0 auto;
+    padding: 40px 0px;
+  }
+  
+  
   .container-fluid {
       padding: 20px 50px;
   }

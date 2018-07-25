@@ -229,6 +229,14 @@ input[type="checkbox"]:checked + label span {
 </script>
 
 <script>
+$("#msgBtn-del").click(() => {
+    if (window.confirm("삭제하시겠습니까?") == false) 
+       return;
+
+$.get("../../json/message/delete", {"no": no}, () => {
+     location.href = "member-msg.html";
+  });
+});
 
 
 /* 삭제하기 버튼 구현하기----------------------------------
