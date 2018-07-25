@@ -9,7 +9,12 @@ a:link {
 input {
 	padding: 0 10px;
 }
-
+hr {
+    border: none;
+    width: 45px;
+    height: 2px;
+    background-color: #DD1F26;
+}
 .omb_login {
   margin-left: 400px;
   margin-top: 100px;
@@ -17,6 +22,15 @@ input {
   width: 400px;
   display: inline-block;
   text-align: center;
+}
+
+.omb_authTitle {
+  margin: 10px 0;
+  
+}
+
+.login-aa {
+  margin-top: 20px;
 }
 .form-control {
   width: 100%;
