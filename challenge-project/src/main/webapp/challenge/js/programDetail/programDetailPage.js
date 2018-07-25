@@ -1,3 +1,37 @@
+// 프로그램 데이터 불러오기
+if (location.href.split("?").length > 1) {
+    var no = location.href.split("?")[1].split("=")[1];
+    
+    $.getJSON(serverRoot + "/json/program/" + no, function(data) {
+        /*$(fNo).val(data.no);
+        $(fpostNo).val(data.postNo);
+        $(faddDetail).val(data.addDetail);*/
+        $(faddress).append(data.address);
+        $(fName).append(data.name);
+        $(fStartDate).append(data.startDate);
+        //$(fendDate).append(data.endDate);
+        $(fminQty).append(data.minQty);
+        $(fmaxQty).append(data.maxQty);
+        $(fprice).append(data.price);
+        $(fdescription).append(data.description);
+        $(fproType).append(data.proType);
+        /*$(fproGoal).val(data.proGoal);
+        $(fproGoalNum).val(data.proGoalNum);*/
+        $(fproTh).append(data.proTh);
+        /*$(fproTurn).val(data.proTurn);
+        $(fproDay).val(data.proDay);
+        $(fproTime).val(data.proTime);
+        $(fchallengeNo).val(data.challengeNo);
+        $(fmainImg).val(data.mainImg);*/
+        //$(ftrainerNo).val(data.trainerNo.userNo);
+        $(ftrainerName).append(data.trainerNo.name);
+        $(ftrainerTime).append(data.trainerNo.time);
+    });
+
+}
+
+
+
 /* 장소 div 이벤트 */
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;

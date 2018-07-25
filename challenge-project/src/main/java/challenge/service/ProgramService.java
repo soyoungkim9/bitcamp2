@@ -11,7 +11,7 @@ public interface ProgramService {
     List<Program> list(int pageNo, int pageSize);
     List<Program> listCard();
     Program get(int no);
-    //Program getWithMembers(String name);
+    Program getWithMedia(int no);
     int add(Program program);
     int update(Program program);
     int delete(int no);

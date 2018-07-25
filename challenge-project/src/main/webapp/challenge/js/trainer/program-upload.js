@@ -111,7 +111,7 @@ $('#fileupload2').fileupload({
           }
         } catch (err) {}
       }
-      //$('#addBtn').unbind("click");
+      $('#addBtn').unbind("click");
       $('#addBtn').click(function() {
           data.submit();
       });
@@ -119,6 +119,7 @@ $('#fileupload2').fileupload({
   submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
     console.log('submit2()...');
   }, 
+  async: false,
   done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
     console.log('done2()...');
     console.log(data.result);
@@ -175,7 +176,9 @@ $('#fileupload').fileupload({
             }
           } catch (err) {}
         }
-        //$('#addBtn').unbind("click");
+        
+        $('#addBtn').bind("click");
+        $('#addBtn').unbind("click");
         $('#addBtn').click(function() {
             data.submit();
         });
@@ -238,25 +241,43 @@ $('#fileupload').fileupload({
         }, 
       }).done(function() {
         console.log('상세미디어등록전')
-        
+        console.log(subImglen)
         // 프로그램 미디어
-        for (var i = 0; i < subImglen; i++) {
-          console.log('상세미디어 for문')
-          $.ajax({
-            type: 'POST',
-            url: serverRoot + '/json/programMedia/add',
-            data: {
-              path: subImg[i].filename,
-              pmtype: 1
-            }, 
-          }).done(function() {
-            console.log('머지?')
-          });
+        var i = 0;
+        for (i = 0; i < subImglen; i++) {
+          console.log('ggg');
+          (function(closed_i){
+            $.ajax({
+              type: 'POST',
+              url: serverRoot + '/json/programMedia/add',
+              data: {
+                path: subImg[closed_i].filename,
+                pmtype: 1
+              },
+            })
+          })(i)
         }
         /*location.href = 'trainerPage-programList.html';*/
       });
     }
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /*$("#addBtn").click(() => {
   var selectTime = ['','','','','','',''];
@@ -312,6 +333,3 @@ $('#fileupload').fileupload({
     location.href = 'trainerPage-programList.html';
   });
 });*/
-
-  
-

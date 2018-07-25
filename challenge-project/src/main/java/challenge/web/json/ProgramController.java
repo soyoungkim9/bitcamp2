@@ -63,7 +63,7 @@ public class ProgramController {
 
     @RequestMapping("{no}")
     public Program view(@PathVariable int no) throws Exception {
-        return programService.get(no);
+        return programService.getWithMedia(no);
     }
 
 }

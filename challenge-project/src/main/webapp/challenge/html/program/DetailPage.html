@@ -8,17 +8,16 @@
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
 
-<!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
 </head>
 <body>
 <div id="header"></div>
 <div id="container">
 <div class="subject">
-<h2 class="challengeName">본격! 식스팩 만들기</h2>
+<h2 id="fName" class="challengeName"></h2>
 <div class="challengeSub">
   <p>Start D-<span>20</span></p>
-  <p>(<span>2018.06.17</span>)</p>
-  <p>참여인원 <span>25</span>/<span>30</span></p>
+  <p>(<span id="fStartDate"></span>)</p>
+  <p>참여인원 <span id="fminQty"></span>/<span id="fmaxQty"></span></p>
 </div>
 </div>
 <div class="column">
@@ -27,9 +26,10 @@
   	<img src="../../img/programDetail/exam01.PNG" style="width:661px; height:496px">
   </div>
   <div class="oneName">
-  	<h3>[2기] 아웃바디 피트니스센터 - 3개월 안에 식스팩을 만들어 드립니다.</h3>
+  	<h3>[<span id="fproTh"></span>기] 
+   <span id="fName"></span></h3>
   	<p><a class="far fa-heart"></a></p>
-  	<p>￦ <span>99,000</span></p>
+  	<p>￦ <span id="fprice"></span></p>
   </div>
   </div>
   <div class="middle two">
@@ -57,13 +57,7 @@
      <h3 class="subH3Font">프로그램 설명</h3>
     </div>
     <div id ="examContent"> <!--설명, 수업대상, 종목 수준 -->
-     <div class="pExam exFont"> <!-- 지울 예정 -->
-      &lt;장소 -  역삼역 P.T lounge진행&gt;<br><br>
-      <br>세련된 인테리어의 편리한 시설에서  다양한 기구 선택권과 여러 편의 시설, 골프 시설까지 이용<br><br> 가능하십니다!<br><br>
-      (센터이용권은 별도 등록해주셔야 하며 3개월권 부터 등록가능하십니다.)<br><br>수업은 2가지 방식으로 진행됩니다.
-      <br><br><br>첫째, 1:1 퍼스널 트레이닝<br><br>본인에게 가장 최적화된 운동을 교육 받으실 수 있으며 목표에 근접할 수 있도록
-      <br><br>개인특화 커리큘럼으로 진행이 됩니다.
-     </div>
+     <div id="fdescription" class="pExam exFont"></div>
 
      <div class="ExamImage">
        <div class="slideshow-container">
@@ -93,18 +87,11 @@
      <div class="pTarget">
       <h5>수업대상</h5>
       <div class="exFont">  <!-- 지울 예정 -->
-       <br>* 인생에 한번 젊은 청춘을 바쳐 몸짱이 되어보고 싶은신 분<br>
-       <br>* 헬스장만 가면 웨이트 트레이닝룸은 민망해서 들어가지 못하고 런닝만 뛰다 오시는분<br>
-       <br>* 남 시선이 부담스러워 혼자만 개인적으로 운동하고 싶으신 분<br>
-       <br>* 다이어트는 항상 도전하지만 실패하시는 분, 요요현상을 겪으시는 분<br>
       </div>
      </div>
      <div class="pType">
       <h5>종목</h5>
-      <div class="exFont">
-       <ul>
-         <li>퍼스널 트레이닝</li>
-       </ul>
+      <div id="fproType" class="exFont">
       </div>
      </div>
      <div class="pLevel">
@@ -445,11 +432,11 @@
    	   <a href="../trainer/trainer.html"><div class="imgCircle"></div></a>
     </div>
     <div class="proName">
-     <h2>ksy106</h2>
+     <h2 id="ftrainerName"></h2>
      <div></div>
     </div>
     <div class="proTime">
-      <h5>연락가능시간 : <span>0</span>시 ~ <span>0</span>시</h5>
+      <h5>연락가능시간 : <span id="ftrainerTime"></span></h5>
     </div>
     <div class="proCommuni">
     <div class="CommuniDiv">
@@ -473,7 +460,7 @@
     </div>
     </div>
     <div class="prolect">
-     <h3><span>ksy106</span>님의 다른 추천 강좌</h3>
+     <h3><span id="ftrainerName"></span>님의 다른 추천 강좌</h3>
      <div class="lectBox">
 	  <div class="lectList">
 	   <!-- 이미지 태그 넣을 때 공백 있으면 안됨 -->
@@ -544,7 +531,7 @@
  <div class="asideCost">
  <h2 style="font-weight:normal;">
  <span style="font-size:22px">결제하기 </span><span style="font-size:20px">(
- </span><span style="font-size: 20px;">99,000</span><span style="font-size:20px">원</span><span style="font-size:20px">
+ </span><span style="font-size: 20px;" id="fprice"></span><span style="font-size:20px">원</span><span style="font-size:20px">
  )</span>
  </h2>
  </div>
@@ -558,7 +545,7 @@
 
   <div id="cityName1" class="tabcontent1">
     <h6 class="tapMargin">상세주소</h6>
-    <h5 class="tapMargin">서울 강남 테헤란로 62-1길 비트빌딩</h5>
+    <h5 class="tapMargin" id="faddress"></h5>
   </div>
 
   <div id="cityName2" class="tabcontent1">

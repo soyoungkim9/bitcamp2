@@ -57,11 +57,11 @@ public class ProgramServiceImpl implements ProgramService {
         return programDao.delete(no);
     }
 
-    /*@Override
-    public Program getWithMembers(String name) {
-        Program program = programDao.selectOneWithMembers(name);
+    @Override
+    public Program getWithMedia(int no) {
+        Program program = programDao.selectOneWithMedia(no);
         return program;
-    }*/
+    }
     
     @Override
     public int add(Program program) {

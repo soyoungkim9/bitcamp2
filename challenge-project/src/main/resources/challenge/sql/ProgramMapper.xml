@@ -36,7 +36,9 @@
     <association property="trainerNo" javaType="Trainer">
       <id column="uno" property="userNo"/>
       <result column="uname" property="name"/>
-      <result column="upath" property="userPath"/>
+      <result column="trnint" property="introduce"/>
+      <result column="trncar" property="career"/>
+      <result column="trntime" property="time"/>
     </association>
 
     <collection property="medias" ofType="ProgramMedia">
@@ -108,19 +110,17 @@
     
   </select>
 
-  <select id="selectOneWithMembers" parameterType="string" resultMap="ProgramMap">
+  <select id="selectOneWithMedia" parameterType="int" resultMap="ProgramMap">
     select
-        t.name,
-        t.dscrt,
-        t.sdt,
-        t.edt,
-        t.max_qty,
-        tm.mid,
-        m.email
-    from pms2_program t
-         left outer join pms2_program_member tm on t.name=tm.tnm
-         left outer join pms2_member m on tm.mid=m.mid
-    where t.name=#{value}
+        p.*,
+        t.*,
+        u.*,
+        m.*
+    from PMED m 
+         right outer join PROG p on m.pno = p.pno
+         left outer join TRN t on p.TRNNO = t.TRNNO
+         left outer join USER u on t.TRNNO = u.UNO
+    where p.pno=#{value}
   </select>
 
   <update id="update" parameterType="Program">
