@@ -55,13 +55,19 @@
   	insert into PLAN(pltover,pldt,pltitl,plcont, pno)
   	values(#{planTurn},#{planDate},#{planTitl},#{planContent},#{program.no})
   </insert>
-  <!-- 파라미터의 타입이 primitive type이나 wrapper 클래스, String 클래스인 경우
-       값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
-  -->
-<!--   <select id="selectOne" parameterType="int" resultMap="PlanMap">
-  	select p.pname, p.sdt, p.edt, pl.pltover, pl.pldt, pl.pltitl, pl.plcont
-	from PLAN pl, PROG p
-	where pl.pno = p.pno
-	and p.pno = #{value}
-  </select> -->
+
+   <select id="selectOne" parameterType="int" resultMap="PlanMap">
+	select pl.pltover, pl.pldt, pl.pltitl, pl.plcont, p.pno 
+	from PLAN pl, PROG p 
+	where p.pno = pl.pno 
+	AND pl.plno = #{value}
+  </select>
+  
+  <update id="update" parameterType="Plan">
+  	update PLAN set
+	pltitl=#{planTitl},
+	plcont=#{planContent}
+	where plno=#{no} 
+  </update>
+  
 </mapper>

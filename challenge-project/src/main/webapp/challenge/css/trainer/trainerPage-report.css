@@ -219,6 +219,7 @@
 
 .dayContent h4 {
 	margin-bottom: 0;
+	text-align: center;
 }
 
 .editIcon {
@@ -230,9 +231,14 @@
 	margin-left: 3px;
 }
 
-.dayContent p {
+.editIcon a {
+	cursor: pointer;
+}
+
+.dayContent pre {
   text-align: left;
   font-size: 15px;
+  line-height: 22px;
 }
 
 .time {
@@ -268,7 +274,7 @@
     padding: 20px;
     border: 1px solid #888;
     width: 700px;
-    height: 480px;
+    height: 500px;
 }
 
 /* The Close Button */
@@ -286,16 +292,20 @@
     cursor: pointer;
 }
 
-.addForm {
-	margin: 30px 25px;
+#modalTitle {
+	margin-bottom: 0 !important;
+}
+#addForm {
+	margin: 40px 25px;
 	margin-left: 5px;
 	text-align: center;
 }
-.addForm div {
+
+#addForm div {
 	margin-bottom: 25px;
 }
 
-.addForm label {
+#addForm label {
 	margin-right: 10px;
 	display: inline-block;
 	width: 50px;
@@ -303,13 +313,13 @@
 	font-weight: bold;
 }
 
-.addForm input {
+#addForm input {
 	padding: 5px;
 	border: 1px solid #d7d7d7;
 	font-size: 15px;
 }
 
-.addForm select {
+#addForm select {
 	padding: 5px;
 	width: 80px;
 	border: 1px solid #d7d7d7;
@@ -332,18 +342,14 @@
 	height: 25px;
 }
 
-[name="addTitle"] {
-	width: 500px;
-}
-
-[name="addContent"] {
-	width: 505px;
-}
-
 [name="addContent"] {
 	border: 1px solid #d7d7d7;
 	height: 250px;
 	resize: none;
+	height: 235px;
+	width: 479px;
+	padding: 15px;
+	line-height: 22px;
 }
 
 [for="addContent"] {
@@ -353,7 +359,9 @@
 }
 
 [name="addTitle"] {
-	height: 25px;
+	width: 480px;
+	height: 15px;
+	padding: 10px 15px !important;
 }
 
 #registerPlan {
@@ -369,11 +377,70 @@
     cursor: pointer;
 }
 
+#viewForm {
+	margin: 30px;
+}
 #bottomBox {
-	margin-bottom: 0;
+	margin-bottom: 0 !important;
 }
 
+/*modal View 관련 이벤트*/
+#dayFont {
+	margin: 0;
+	padding-bottom: 5px;
+}
 
+#dateFont {
+	font-weight: bolder;
+}
+
+#modalViewTitle, #modalViewContent {
+	display: inline-block;
+}
+
+#modalViewTitle {
+	margin-top: 20px;
+}
+
+#modalViewContent {
+	margin-top: 10px;
+}
+
+#modalViewTitle input {
+	width: 470px;
+	height: 5px;
+	float: left;
+	border: 1px solid #d7d7d7;
+	font-size: 16px;
+	padding: 15px;
+}
+
+#modalViewContent textarea {
+	width: 469px;
+	height: 270px;
+	resize: none;
+	border: 1px solid #d7d7d7;
+	font-size: 17px;
+	line-height: 22px;
+	padding: 15px;
+}
+
+#updatePlan {
+	width: 570px;
+}
+
+#updatePlan button {
+	float: right;
+	margin-top: 10px;
+    padding: 6px 25px;
+    font-weight: bold;
+    border: 1px solid #DD1F26;
+    border-radius: 5px;
+    background-color: #DD1F26;
+    color: white;
+    font-size: 15px;
+    cursor: pointer;
+}
 
 
 
