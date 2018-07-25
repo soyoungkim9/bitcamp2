@@ -95,11 +95,11 @@
 						</div>
 
 					</div>
-					<a class="sm-a-none" href="member-history.html">
-						<div class="sm-menu" style="border-left: none;">
+					<a class="sm-a-none">
+						<div id="storyBtn" class="sm-menu" style="border-left: none;">
 							<i class="fas fa-history"></i><br>히스토리
-						</div>
-					</a> <a class="sm-a-none" href="member-h-day.html">
+						</div></a>
+					 <a class="sm-a-none" href="member-h-day.html">
 						<div class="sm-menu">
 							<i class="fas fa-edit"></i><br>운동일지 관리
 						</div>
@@ -221,9 +221,18 @@
 {{#list}}
 <li class="in-view">
 <div class="sm-time-div">
-<span class="sm-time">{{userNo}}</span>
+<span class="sm-time">{{startDate}}</span>
 <p class="sm-time-p">{{name}}</p>
-<p class="sm-time-p">{{email}}</p>
+<p class="sm-time-p">시작했습니다.</p>
+</div>
+</li>
+
+
+<li class="in-view">
+<div class="sm-time-div">
+<span class="sm-time">{{endDate}}</span>
+<p class="sm-time-p">{{name}}</p>
+<p class="sm-time-p">종료했습니다.</p>
 </div>
 </li>
 {{/list}}
@@ -233,7 +242,7 @@
 {{#cmu}}
 
 <div class="sm-time-div">
-<span class="sm-time">{{createdDate}}</span>
+<span class="sm-time">{{startDate}}</span>
 <p class="sm-time-p">{{title}}</p>
 <p class="sm-time-p">{{content}}</p>
 </div>
@@ -243,7 +252,8 @@
 
 
 
-	<script src="member-history3.js"></script>
+	<script src="member-history4.js"></script>
+	<script>$("#storyBtn").click(() => { location.href="member-history4.html"});</script>
 
 
 
