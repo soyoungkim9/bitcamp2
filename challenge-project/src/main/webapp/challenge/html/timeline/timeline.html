@@ -115,6 +115,7 @@
                   <h1 class="tl-user-name-json sh-tl-user-name"></h1>
                 </div>
                 <div class="sh-tl-review-write">
+                  <input id="sh_tl_post_photo" type="hidden"> 
                   <textarea id="sh_tl_post_write" class="sh-tl-review-title sh-tl-textarea" placeholder="무슨 생각을 하고 계신가요?" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
                 </div>
                 <div id='images-div'></div>
@@ -126,42 +127,26 @@
           </div>
           <!-- 글쓰기 카드 종료-->
 
-
-
           <!-- 무한 스크롤 시작-->
           <div>
             <div class="sh-infinite-scroll">
               <div>
-
                 <!-- 새로 추가된 글 들어가는 div 시작 -->
                 <div id="sh_tl_card_add"></div>
                 <!-- 새로 추가된 글 들어가는 div 종료 -->
-
-
-
               </div>
-
             </div>
           </div>
           <!-- 무한 스크롤 종료-->
-
         </div>
         <!--타임라인 feed 종료-->
-
       </div>
       <!-- content 종료 -->
-
-
       <div id="more"><!-- 무한 스크롤 시작-->
-
-
       </div><!-- 무한 스크롤 종료-->
     </div><!-- .mainContainer 종료-->
 
   </div><!-- .container 종료-->
-
-
-
 
   <script>
     function resize(obj) {
@@ -198,7 +183,7 @@
   <section class="sh-tl-card-actions">
     <div class="sh-tl-like-count">
       <a class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i></a>
-      <a class="sh-like-clicked" id="sh-tl-CountedClicks" href="#!"><span class="lk{{no}}">{{no}}</span> 명이 좋아합니다.</a>
+      <a class="sh-like-clicked" id="sh-tl-CountedClicks" href="#!"><span data-no="okok" class="lk{{no}} hi" >{{no}}</span> 명이 좋아합니다.</a>
       <a href="#!"></a>
     </div>
     <div class="sh-tl-card-bottom">

@@ -76,6 +76,7 @@ function resizeFunction() {
 
 /* 무한 스크롤 */
 //무한 스크롤 부분
+/*
 $(document).ready(function() {
   // 스크롤 이벤트 발생시
 	
@@ -90,12 +91,23 @@ $(document).ready(function() {
 
     // 스크롤한 높이와 문서의 높이가 같을 때
     if (documentHeight <= scrollHeight + 100) {
+    	/*
+    	$.ajax({
+    		type:'GET',
+    		url: serverRoot + 'json/timeline/list'
+    	});
+
+    	 */
+      /*
       for (var i = 0; i < 5; i++) {
         $(' <div class="sh-tl-card sh-card" style="border: 2px solid blue;"><section class="sh-tl-card-primary"><div class="sh-tl-user"><i class="sh-tl-user-circle fas fa-user-circle"></i><h1 class="sh-tl-user-name">무한스크롤</h1></div></section><div class="sh-tl-card-content"><p>졸려죽겠네? 아니야 할 수 있다! 북극곰 짱</p></div><section class="sh-tl-card-actions"><div class="sh-tl-like-count"><a href="#!"><i class="far fa-thumbs-up"></i></a><a id="sh-tl-CountedClicks" href="#!">0 명이 좋아합니다.</a><a href="#!"></a></div><div class="sh-tl-card-bottom"><div class="sh-tl-like sh-tl-card-bottom-items" style="border: 1px solid black;"><a onclick="TlAddClick()" href="#!"><i class="far fa-thumbs-up"></i>좋아요</a></div><div class="sh-tl-comment sh-tl-card-bottom-items" style="border: 1px solid black;"><a href="#!"><i class="far fa-comments"></i>댓글달기</a></div></div></section><section class="sh-tl-card-reply"><div class="sh-tl-reply-user"><i class="sh-tl-reply-user-circle fas fa-user-circle"></i><h1 class="sh-tl-reply-write">댓글을 입력하세요</h1></div></section><div style="clear:both;"></div></div>').appendTo('.sh-infinite-scroll');
       }
     }
+    
   });
+  
 });
+       */
 
 /* modal event */
 // Get the modal
@@ -153,13 +165,15 @@ function tl_post_textarea() {
 
 // 타임라인 글 게시
 $("#sh-tl-post-btn").click(() => {
-	console.log(obj)
+	console.log('=============>')
+	//console.log(obj)
+	/*
 	console.log(objPmemb[0].no)
   $.ajax({
     type: 'POST',
     url: '../../../json/timeline/add',
     data: {
-      picture: $('#sh_tl_upload').val(),
+      picture: $('#sh_tl_post_photo').val(),
       content: $('#sh_tl_post_write').val(),
       "progMemb.no" : objPmemb[0].no,
       "progMemb.users.userNo" : obj.userNo
@@ -168,6 +182,7 @@ $("#sh-tl-post-btn").click(() => {
     console.log("이미지 없이 글 게시 입력됨.");
     location.href = "timeline.html"
   });
+  */
 });
 
 
@@ -223,10 +238,9 @@ processalways: function(e, data) {
         }
       } catch (err) {}
     }
-  $('#sh-tl-post-btn').unbind("click");
-  $('#sh-tl-post-btn').click(function() {
-      data.submit();
-  });
+  $('#sh-tl-post-btn').attr("disabled", true);
+  $('#sh-tl-post-btn').html("업로드 중...");
+  //data.submit();
 }, 
 submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
   console.log('submit()...');
@@ -234,8 +248,11 @@ submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
 done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
   console.log('done()...');
   console.log(data.result.filename);
-  postBtnClicked(data.result.filename)
-  location.href = "timeline.html"
+  $('#sh_tl_post_photo').val(data.result.filename);
+  $('#sh-tl-post-btn').attr("disabled", false);
+  $('#sh-tl-post-btn').html("게시");
+  //postBtnClicked(data.result.filename)
+  //location.href = "timeline.html"
 }
 });
 

@@ -1,6 +1,7 @@
 // 업무로직 구현체 - 고객사 마다 다른 구현을 할 수 있다.
 package challenge.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -8,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import challenge.dao.PostDao;
 import challenge.dao.TimelineDao;
+import challenge.domain.Comment;
 import challenge.domain.Timeline;
 import challenge.service.TimelineService;
 
@@ -27,14 +29,42 @@ public class TimelineServiceImpl implements TimelineService {
 
 
     @Override
-    public List<Timeline> list() {
-        //        HashMap<String,Object> params = new HashMap<>();
-        //        params.put("startRowNo", (pageNo - 1) * pageSize);
-        //        params.put("pageSize", pageSize);
-        List<Timeline> list = timelineDao.selectList();
+    public List<Timeline> list(int pageNo, int pageSize) {
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("startRowNo", (pageNo - 1) * pageSize);
+        params.put("pageSize", pageSize);
 
-        return timelineDao.selectList();
+        return timelineDao.selectList(params);
     }
+    
+    
+    // 강사님이 알려주신 서버에서 요청하는 방법
+    /*
+    @Override
+    public List<Timeline> listWithComment(int pageNo, int pageSize) {
+        List<Timeline> timelines = this.list(pageNo, pageSize);
+        ArrayList<Integer> cardNos = new ArrayList<>();
+        for (Timeline tl : timelines) {
+            cardNos.add(tl.getNo());
+        }
+        ArrayList<Comment> comments = commentDao.list(cardNos);
+        
+        for (Timeline tl : timelines) {
+            tl.setComment(extractComment(comments, tl.getNo()));
+        }
+        
+        return timelines;
+    }
+    
+    private ArrayList<Comment> extractComment(List<Comment> comments, int cardNo) {
+        ArrayList<Comment> cardComment = new ArrayList<>();
+        for (Comment c : comments) {
+            if (c.getTimelineNo() == cardNo)
+                cardComment.add(c);
+        }
+        return cardComment;
+    }
+    */
 
     @Override
     public int delete(int no) {

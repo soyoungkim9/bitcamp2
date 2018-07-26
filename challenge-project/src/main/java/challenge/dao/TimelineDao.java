@@ -7,7 +7,7 @@ import challenge.domain.Timeline;
 
 public interface TimelineDao {
     int delete(int no);
-    List<Timeline> selectList();
+    List<Timeline> selectList(Map<String,Object> params);
     int insert(Timeline timeline);
     int update(Timeline timeline);
     Timeline selectOne(int no);

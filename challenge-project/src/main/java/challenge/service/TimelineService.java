@@ -9,7 +9,7 @@ import challenge.domain.Timeline;
 public interface TimelineService {
     // 서비스 컴포넌트에서 메서드명을 지을 때는 
     // 업무 용어를 사용하라!
-    List<Timeline> list();
+    List<Timeline> list(int pageNo, int pageSize);
     Timeline get(int no);
     int add(Timeline timeline);
     int update(Timeline timeline);

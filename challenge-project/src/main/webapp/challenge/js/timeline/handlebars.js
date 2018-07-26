@@ -1,65 +1,92 @@
 //위에서 준비한 템플릿 데이터를 가지고 HTML을 생성할 템플릿 엔진 준비
-
 $(document).ready(function() {
-	
-	// 타임라인 전체 글 불러오기
-  var trTemplateSrc = $("#tr-template").html();
-  var templateFn = Handlebars.compile(trTemplateSrc);
+	// 글쓰기 모달에 글쓴이 이름 출력
+	$(".tl-user-name-json").html(obj.name);
 
-  $.getJSON(serverRoot + "/json/timeline/list", (data) => {
-    $('#sh_tl_card_add').html(templateFn({
-      list: data
-    }));
-    
-  }).done(function() {
-	// 댓글 불러오기
+	var pageCount = 1; // 타임라인 첫번째 page 카운트임.
+	loadCards(pageCount);
+
+	$(window).on('scroll',function () {
+		infiniteScroll();
+	});
+
+	function infiniteScroll() {
+		var documentHeight = $(document).height();
+		var scrollHeight = $(window).scrollTop() + $(window).height();
+
+		// 스크롤한 높이와 문서의 높이가 같을 때
+		if (documentHeight <= scrollHeight + 100) { // 스크롤이 바닥에 닿으면?
+			setTimeout(loadCards(pageCount), 1000);
+			pageCount++;
+			console.log("무한스크롤 다음 카드 불러옴! pageCount 값 : " + pageCount);
+
+		}
+	}
+
+
+});
+
+// 타임라인 카드 불러오기
+function loadCards(pageCount) {
+	var trTemplateSrc = $("#tr-template").html();
+	var templateFn = Handlebars.compile(trTemplateSrc);
+
+	$.getJSON(serverRoot + "/json/timeline/list/" + pageCount + "/6", (data) => {
+		$('#sh_tl_card_add').append(templateFn({list: data}));
+	}).done(function(data) {
+		var i;
+		for (i = 0; i < data.length; i++) {
+			loadComments(data[i].no)
+			timelineLikeCount(data[i].no)
+		}
+	});
+}
+
+
+
+// 댓글 JSON 리스트 가져와서 댓글 붙이기(handleBars) 
+function loadComments(cardNo) {
+//	console.log(cardNo)
 	var cmTemplateSrc = $("#cm-template").html();
 	var cmtemplateFn = Handlebars.compile(cmTemplateSrc);
 	
-	var cards = $('div[class*="cm"]')
-	var likes = $('span[class*="lk"]')
-	
-	var i;
-	for (i = 0; i < cards.length; i++) {
-		(function (closed_i) {
-			// 댓글
-			$.getJSON(serverRoot + "/json/comment/listWithNo/" + cards[closed_i].textContent, (data) => {
-				$('.cm' + cards[closed_i].textContent).html(cmtemplateFn({
-	    	        list: data
-	    	      }));
-			});
-			
-			// 좋아요 (내가 체크했는지 아닌지)
-			$.post({
-				url: "../../../json/timeline/isChecked",
-				data: {
-					pno: objPmemb[0].no,
-					pono: likes[closed_i].textContent,
-					uno: obj.userNo
-				},
-				async: false
-			}).done(function (isChecked) {
-				
-				$.get(serverRoot + "/json/timeline/timelineLikeCount/" + likes[closed_i].textContent, (data) => {
-					if (isChecked == 0) {
-						$('.lk-thumbs' + likes[closed_i].textContent).attr("style", "color:#DD1F26;")
-						$('.lk' + likes[closed_i].textContent).html("회원님 외 " + data);
-					} else {
-						$('.lk' + likes[closed_i].textContent).html(data);
-					}
-				});
-			});
-		})(i)
-	}
-	
-  });
-  
-  
-  // 좋아요 불러오기
-  
-});
+	$.getJSON(serverRoot + "/json/comment/listWithNo/" + cardNo, (data) => {
+		$('.cm' + cardNo).html(cmtemplateFn({
+			list: data
+		}));
+	});
+}
 
-// 타임라인 글
-$(document).ready(function() {
-	$(".tl-user-name-json").html(obj.name); // 리뷰 작성할 때 지금 글쓴이.
-});
+// 좋아요 체크 여부
+function timelineLikeChecked(cardNo) {
+	console.log(cardNo)
+	$.post({
+		url: "../../../json/timeline/isChecked",
+		data: {
+			pno: objPmemb[0].no,
+			pono: cardNo,
+			uno: obj.userNo
+		},
+		async: false
+	}).done(function(isChecked) {
+		$('.lk' + cardNo).prepend("회원님 외 ");
+		if (isChecked) {
+			console.log("좋아요 체크 여부" + cardNo);
+			console.log($('.lk' + cardNo))
+					
+			$('.lk' + cardNo).html("회원님 외 ");
+			$('.lk-thumbs' + cardNo).attr("color", "blue")
+			$('.lk' + cardNo).prepend("회원님 외 ");
+		}
+	});
+}
+
+// 좋아요 개수 카운트
+function timelineLikeCount (cardNo) {
+	$.get(serverRoot + "/json/timeline/timelineLikeCount/" + cardNo, (data) => {
+			$('.lk' + cardNo).html(data);
+	})
+	
+	console.log("좋아요 개수 카운트 함수" + cardNo);
+	timelineLikeChecked(cardNo);
+}
