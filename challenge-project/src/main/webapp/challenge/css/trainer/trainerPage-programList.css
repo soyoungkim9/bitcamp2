@@ -3,6 +3,7 @@
 .sm-mypage-body {
   box-sizing: border-box;
   margin-bottom: 100px;
+  min-height: 500px;
 }
 
 /* 프로젝트 등록 서브 메뉴 */
@@ -47,7 +48,9 @@
   margin-left: 0;
 }
 
-
+#cardWide {
+	padding: 20px;
+}
 
 
 

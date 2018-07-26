@@ -15,7 +15,7 @@
 <div class="subject">
 <h2 id="fName" class="challengeName"></h2>
 <div class="challengeSub">
-  <p>Start D-<span>20</span></p>
+  <p>Start D<span id="Dday"></span></p>
   <p>(<span id="fStartDate"></span>)</p>
   <p>참여인원 <span id="fminQty"></span>/<span id="fmaxQty"></span></p>
 </div>
@@ -61,7 +61,7 @@
 
      <div class="ExamImage">
        <div class="slideshow-container">
-
+       <div id="detailImg"></div>
        <div class="mySlides fade">
          <div class="numbertext">1 / 3</div>
          <img src="../../img/programDetail/inner1.jpg" style="width:100%; height: 365px;">
@@ -605,9 +605,19 @@
 </div>
 </div>
 <div id="footer"></div>
+
+<script id="detail-image" type="text/x-handlebars-template">
+{{#each list}}
+<div class="mySlides fade">
+  <div class="numbertext">1 / 3</div>
+  <img src="../../img/programDetail/inner1.jpg" style="width:100%; height: 365px;">
+</div>
+{{/each}}
+</script>
+<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="../../js/common.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-<script src="../../js/programDetail/programDetailPage.js"></script>
+<script src="../../js/programDetail/DetailPage.js"></script>
 <script src="../../js/programDetail/star.js"></script>
 <script src="../../js/header/header_white.js"></script>
 <script src="../../js/footer/footer.js"></script>

@@ -26,10 +26,35 @@ if (location.href.split("?").length > 1) {
         //$(ftrainerNo).val(data.trainerNo.userNo);
         $(ftrainerName).append(data.trainerNo.name);
         $(ftrainerTime).append(data.trainerNo.time);
-    });
-
+    }).done(function(data) {
+      
+      // 날짜 간격 구하기(D-day)
+      var now = new Date();
+      var start = new Date(data.startDate)
+      var interval = now.getTime() - start.getTime();
+      interval = Math.floor(interval / (1000 * 60 * 60 * 24));
+      if (interval == 0) {
+        interval = "-day"
+      } else {
+        var str = Number(interval)
+        if (str) {
+          if (0 < str) {
+            interval = "+" + interval;
+          } 
+        }
+      }
+      $(Dday).append(interval);
+    })
 }
 
+
+// 상세 이미지 가져오기
+var trTemplateSrc = $("#detail-image").html();
+var templateFn = Handlebars.compile(trTemplateSrc);
+
+$.getJSON(serverRoot + "/json/programMedia/list/" + no, (data) => {
+  $(detailImg).html(templateFn({list:data}));
+});
 
 
 /* 장소 div 이벤트 */
