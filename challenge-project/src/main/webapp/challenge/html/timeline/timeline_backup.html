@@ -7,12 +7,6 @@
   <link rel="stylesheet" href="../../css/common.css">
   <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="../../css/timeline/timeline.css">
-  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
-  <script src="../../js/common.js"></script>
-  <script src="../../js/header/header_bg_black.js"></script>
-  <script src="../../js/footer/footer.js"></script>
-
 </head>
 
 <body>
@@ -117,11 +111,12 @@
                 <div class="sh-tl-user">
                   <span class="sh-tl-modal-close">&times;</span>
                   <i class="sh-tl-user-circle fas fa-user-circle"></i>
-                  <h1 class="sh-tl-user-name">박수현</h1>
+                  <h1 class="tl-user-name-json sh-tl-user-name"></h1>
                 </div>
                 <div class="sh-tl-review-write">
                   <textarea id="sh_tl_post_write" class="sh-tl-review-title sh-tl-textarea" placeholder="무슨 생각을 하고 계신가요?" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
                 </div>
+                <div id='images-div'>이미지 자리입니다</div>
                 <button id="sh-tl-post-btn" type="submit" name="button">게시</button>
                 <div class="sh-tl-post-img-upload"><label id="sh-tl-post-img-btn" for="sh_tl_upload" style="cursor:pointer"><i class="far fa-images"><input id="sh_tl_upload" accept="video/*,  video/x-m4v, video/webm, video/x-ms-wmv, video/x-msvideo, video/3gpp, video/flv, video/x-flv, video/mp4, video/quicktime, video/mpeg, video/ogv, .ts, .mkv, image/*"  name="file" title="사진 또는 동영상 첨부" type="file" style="display:none" multiple></i></label></div>
               </section>
@@ -179,7 +174,7 @@
 
   <!-- 헤더/푸터 스크립트 종료-->
   <!-- 헤더/푸터 스크립트 종료-->
-  <script id="tr-template" type="text/x-handlebars-template">
+<script id="tr-template" type="text/x-handlebars-template">
 {{#each list}}
 <!-- 타임라인 카드 시작 -->
 <div class="sh-tl-card sh-card">
@@ -187,8 +182,7 @@
   <section class="sh-tl-card-primary">
     <div class="sh-tl-user">
       <img class="sh-tl-user-img" src="../../img/timeline/sh_profile.jpg">
-      <h1 class="sh-tl-user-name">{{user.name}}-글번호: {{no}}</h1>
-      <div style="display:none;" class="tlNo">{{no}}</div>
+      <h1 class="sh-tl-user-name">{{progMemb.users.name}} @글번호{{no}}</h1>
       <h6 class="sh-tl-post-date">{{createdDate}}</h6>
     </div>
   </section>
@@ -203,12 +197,12 @@
   <section class="sh-tl-card-actions">
     <div class="sh-tl-like-count">
       <a class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i></a>
-      <a class="sh-like-clicked" id="sh-tl-CountedClicks" href="#!">0 명이 좋아합니다.</a>
+      <a class="sh-like-clicked" id="sh-tl-CountedClicks" href="#!"><span class="lk{{no}}">{{no}}</span> 명이 좋아합니다.</a>
       <a href="#!"></a>
     </div>
     <div class="sh-tl-card-bottom">
       <div class="sh-tl-like sh-tl-card-bottom-items">
-        <a onclick="TlAddClick()" class="sh-like-clicked" href="#!"><i class="far fa-thumbs-up"></i><span>     좋아요</span></a>
+        <a onclick="TlAddClick({{no}})" class="sh-like-clicked lk-thumbs{{no}}" href="#!"><i class="far fa-thumbs-up"></i><span>     좋아요</span></a>
       </div>
       <div class="sh-tl-comment sh-tl-card-bottom-items">
         <a href="#!"><i class="far fa-comments"></i>     댓글달기</a>
@@ -222,23 +216,15 @@
     <div class="sh-tl-reply-user">
       <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
       <div class="sh-tl-review-write">
-        <textarea class="shsh sh-tl-review-title  sh_tl_reply_textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
-        <div class="sh-tl-img-upload"><button onclick="cmtFunction()" class="sh-tl-reply-btn" type="submit">게시</button> </div>
+        <textarea id="{{no}}" class="sh-tl-review-title  sh_tl_reply_textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+        <div class="sh-tl-img-upload"><button onclick="cmtFunction({{no}})" class="sh-tl-reply-btn" type="submit">게시</button> </div>
       </div>
     </div>
   </section>
   <!-- 댓글쓰기 종료 -->
   <!-- 대댓글 불러오기-->
-  <section class="sh-tl-card-reply-load">
-    <div class="sh-tl-reply-user">
-      <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
-      <div class="sh-tl-review-write">
-        <!-- <span class="sh-tl-review-content sh-tl-reply-content" onkeydown="resize(this)" onkeyup="resize(this)"></span> -->
-        <textarea readonly class="sh-tl-review-content  sh-tl-reply-content"></textarea>
-        <div class="sh-tl-img-upload">
-        </div>
-      </div>
-  </section>
+    <div class="cm{{no}}">{{no}}</div>
+
   <!-- 대댓글 불러오기 종료-->
   <div style="clear:both;"></div>
   </div>
@@ -246,7 +232,37 @@
 <!-- 타임라인 카드 하나 종료 -->
 {{/each}}
 </script>
+
+<!-- 대댓글 Handlebars -->
+<script id="cm-template" type="text/x-handlebars-template">
+{{#each list}}
+  <section class="sh-tl-card-reply-load">
+    <div class="sh-tl-reply-user">
+      <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
+      <div class="sh-tl-review-write">
+        <!-- <span class="sh-tl-review-content sh-tl-reply-content" onkeydown="resize(this)" onkeyup="resize(this)"></span> -->
+        <textarea readonly class="sh-tl-review-content  sh-tl-reply-content">{{progMemb.users.name}}  글번호 : {{timelineNo}}, 내용: {{content}}, 날짜 : {{createdDate}}</textarea>
+      </div>
+  </section>
+{{/each}}
+</script>
+
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+  <script src="../../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+  <script src="../../node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+  <script src="../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+  <script src="../../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+  <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+  <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
+  <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script> 
+  <script src="../../js/common.js"></script>
+  <script src="../../js/header/header_bg_black.js"></script>
+  <script src="../../js/footer/footer.js"></script>
+  <script src="../../js/timeline/handlebars.js"></script>
   <script src="../../js/timeline/timeline.js"></script>
+  <!-- <script src="../../js/timeline/tlimage.js"></script> -->
+  
 </body>
 
 </html>

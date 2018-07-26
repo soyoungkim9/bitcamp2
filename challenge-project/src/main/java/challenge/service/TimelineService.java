@@ -14,5 +14,8 @@ public interface TimelineService {
     int add(Timeline timeline);
     int update(Timeline timeline);
     int delete(int no);
-    int timelineLike(int no);
+    int timelineLikeCount(int no);
+    boolean isChecked(int pno, int pono, int uno);
+    void timelineLikeCancle(int pno, int pono, int uno);
+    void timelineLike(int pno, int pono, int uno);
 }

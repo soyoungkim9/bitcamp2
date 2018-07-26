@@ -1,6 +1,7 @@
 //위에서 준비한 템플릿 데이터를 가지고 HTML을 생성할 템플릿 엔진 준비
 
 $(document).ready(function() {
+	
 	// 타임라인 전체 글 불러오기
   var trTemplateSrc = $("#tr-template").html();
   var templateFn = Handlebars.compile(trTemplateSrc);
@@ -11,36 +12,50 @@ $(document).ready(function() {
     }));
     
   }).done(function() {
-	  // 댓글 달기
-	  var tlNos = document.getElementsByClassName("tlNo");
-	  var tlLks = document.getElementsByClassName("tlLks")
-	  
-	  $('.tlNo').each(function(tlNos, item) {
-		 $(this).removeAttr("style");
-		 $(this).addClass('cm' + tlNos); 
-	  });
-	  
-    var cmTemplateSrc = $("#cm-template").html();
-    var cmtemplateFn = Handlebars.compile(cmTemplateSrc);
-
-
-    var i;
-    for (i = 0; i < tlNos.length; i++) {
-    	(function (closed_i) {
-    	  $.getJSON(serverRoot + "/json/comment/listWithNo/" + tlNos[closed_i].textContent, (data) => {
-    		  
-    		  var cm = 'cm' + closed_i;
-    		  
-    	      $('.' + cm).html(cmtemplateFn({
-    	        list: data
-    	      }));
-    	    });
-    	})(i);
-    };
-
-    
+	// 댓글 불러오기
+	var cmTemplateSrc = $("#cm-template").html();
+	var cmtemplateFn = Handlebars.compile(cmTemplateSrc);
+	
+	var cards = $('div[class*="cm"]')
+	var likes = $('span[class*="lk"]')
+	
+	var i;
+	for (i = 0; i < cards.length; i++) {
+		(function (closed_i) {
+			// 댓글
+			$.getJSON(serverRoot + "/json/comment/listWithNo/" + cards[closed_i].textContent, (data) => {
+				$('.cm' + cards[closed_i].textContent).html(cmtemplateFn({
+	    	        list: data
+	    	      }));
+			});
+			
+			// 좋아요 (내가 체크했는지 아닌지)
+			$.post({
+				url: "../../../json/timeline/isChecked",
+				data: {
+					pno: objPmemb[0].no,
+					pono: likes[closed_i].textContent,
+					uno: obj.userNo
+				},
+				async: false
+			}).done(function (isChecked) {
+				
+				$.get(serverRoot + "/json/timeline/timelineLikeCount/" + likes[closed_i].textContent, (data) => {
+					if (isChecked == 0) {
+						$('.lk-thumbs' + likes[closed_i].textContent).attr("style", "color:#DD1F26;")
+						$('.lk' + likes[closed_i].textContent).html("회원님 외 " + data);
+					} else {
+						$('.lk' + likes[closed_i].textContent).html(data);
+					}
+				});
+			});
+		})(i)
+	}
+	
   });
   
+  
+  // 좋아요 불러오기
   
 });
 

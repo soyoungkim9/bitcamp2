@@ -80,8 +80,8 @@ $(document).ready(function() {
     // 필요한 변수 구하기
     var scrollHeight = $(window).scrollTop() + $(window).height();
     var documentHeight = $(document).height();
-    //		console.log(scrollHeight);
-    //		console.log(documentHeight);
+//    		console.log("scrollHeight : " + scrollHeight);
+//    		console.log("documentHeight : " + documentHeight);
 
 
 
@@ -121,6 +121,32 @@ window.onclick = function(event) {
   }
 }
 
+//-----------------타임라인 글 게시 (img 있는 경우 / 없는 경우)------------------------------
+// 1. 글만 게시하는 함수를 선언
+
+
+/*
+function tl_post_textarea() {
+  $.ajax({
+	    type: 'POST',
+	    url: '../../../json/timeline/add',
+	    data: {
+	      picture: $('#sh_tl_upload').val(),
+	      content: $('#sh_tl_post_write').val(),
+	      "progMemb.no" : objPmemb[0].no,
+	      "progMemb.users.userNo" : obj.userNo
+	    },
+	  }).done(function() {
+	    console.log("이미지 없이 글 게시 입력됨.");
+	    location.href = "timeline.html"
+	  });
+}
+*/
+// 2. img 전달하는 코드 선언.
+
+
+// 3. img 없는 경우 1을 부른다  / img 있는 경우 글 + 이미지 처리를 부른다.
+
 
 // 타임라인 글 게시
 $("#sh-tl-post-btn").click(() => {
@@ -136,10 +162,83 @@ $("#sh-tl-post-btn").click(() => {
       "progMemb.users.userNo" : obj.userNo
     }
   }).done(function() {
-    console.log("입력됨.");
+    console.log("이미지 없이 글 게시 입력됨.");
     location.href = "timeline.html"
   });
 });
+
+
+// 게시 버튼 눌렀을 때 함수 - 이름있는 함수로
+
+
+$(document).ready(
+function postBtnClicked(picData) {
+	console.log("postBtnClicked() 눌렸습니다.")
+	
+	$.ajax({
+		type: 'POST',
+		url: '../../../json/timeline/add',
+	    data: {
+	      picture: picData,
+	      content: $('#sh_tl_post_write').val(),
+	      "progMemb.no" : objPmemb[0].no,
+	      "progMemb.users.userNo" : obj.userNo
+	    }
+	}).done(() => console.log("글 게시됨"))
+});
+
+//$(document).on("click", '#sh-tl-post-btn' ,postBtnClicked(null));
+
+// 게시 버튼 눌렀을 때 이벤트
+
+
+//타임라인 카드에서 이미지 추가
+//이미지
+
+
+$('#sh_tl_upload').fileupload({
+url: '../../../json/fileupload27/upload',        // 서버에 요청할 URL
+dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
+sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
+singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
+autoUpload: false,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
+disableImageResize: /Android(?!.*Chrome)|Opera/
+      .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
+previewMaxWidth: 633,   // 미리보기 이미지 너비
+previewMaxHeight: 300,  // 미리보기 이미지 높이 
+previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+processalways: function(e, data) {
+    console.log('fileuploadprocessalways()...');
+    console.log(data.files);
+    imgFiles = data.files;
+    var imagesDiv = $('#images-div');
+    imagesDiv.html("");
+    for (var i = 0; i < data.files.length; i++) {
+      try {
+        if (data.files[i].preview.toDataURL) {
+          $("<img>").attr('src', data.files[i].preview.toDataURL()).css('width', '500px').appendTo(imagesDiv);
+        }
+      } catch (err) {}
+    }
+  $('#sh-tl-post-btn').unbind("click");
+  $('#sh-tl-post-btn').click(function() {
+      data.submit();
+  });
+}, 
+submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
+  console.log('submit()...');
+}, 
+done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+  console.log('done()...');
+  console.log(data.result.filename);
+  postBtnClicked(data.result.filename)
+  location.href = "timeline.html"
+}
+});
+
+
+//-----------------타임라인 글 게시 (img 있는 경우 / 없는 경우)------------------------------
+
 
 
 // 댓글 달기
@@ -167,10 +266,30 @@ function cmtFunction(no) {
 
 
 /* 좋아요 카운트 */
-var Clicks = 0;
-
-function TlAddClick() {
+function TlAddClick(postNo) {
+	// 포스트 넘버를 일단 받아와야함.
 	
-  Clicks = Clicks + 1;
-  document.getElementById('sh-tl-CountedClicks').innerHTML = '회원님 외' + Clicks + ' 명이 좋아합니다.';
+	console.log(postNo)
+	$.ajax({
+		type: "POST",
+		url: "../../../json/timeline/timelineLike",
+		data: {
+			pno: objPmemb[0].no,
+			pono: postNo,
+			uno: obj.userNo
+		}
+		
+		// 성공시 좋아요 갯수 불러오기
+	}).done(function (result) {
+			$.get(serverRoot + "/json/timeline/timelineLikeCount/" + postNo, (data) => {
+				
+				if (result == 0) {
+				$('.lk' + postNo).html(data);
+				$('.lk-thumbs' + postNo).attr("style", "color:black;")
+				} else {
+					$('.lk' + postNo).html("회원님 외 " + data);
+					$('.lk-thumbs' + postNo).attr("style", "color:#DD1F26;")
+				}
+			});
+		})
 }

@@ -23,7 +23,6 @@ public class TimelineController {
     @RequestMapping("add")
     @ResponseStatus(HttpStatus.CREATED)
     public void add(Timeline timeline) throws Exception {
-        System.out.println(timeline);
         timelineService.add(timeline);
     }
     
@@ -51,9 +50,39 @@ public class TimelineController {
         return timelineService.get(no);
     }
     
-    @RequestMapping("timelineLike/{no}")
+    @RequestMapping("timelineLikeCount/{no}")
     public int timelineLike(@PathVariable int no) throws Exception {
-        return timelineService.timelineLike(no);
+        return timelineService.timelineLikeCount(no);
+    }
+    
+    @RequestMapping("isChecked")
+    public int isChecked(
+            @RequestParam("pno") int pno,
+            @RequestParam("pono") int pono,
+            @RequestParam("uno") int uno) throws Exception {
+        if (timelineService.isChecked(pno, pono, uno)) { // 이미 체크되어있다면
+            return 0;
+        } else {
+            return 1;
+        }
+    }
+        
+    
+    @RequestMapping("timelineLike")
+    public int timelineLike(
+            @RequestParam("pno") int pno,
+            @RequestParam("pono") int pono,
+            @RequestParam("uno") int uno) throws Exception {
+        
+        if (timelineService.isChecked(pno, pono, uno)) { // 이미 체크되어있다면
+            // 좋아요 취소
+            timelineService.timelineLikeCancle(pno, pono, uno);
+            return 0;
+        } else {
+            // 좋아요 ㄱㄱ
+            timelineService.timelineLike(pno, pono, uno);
+            return 1;
+        }
     }
     
 }

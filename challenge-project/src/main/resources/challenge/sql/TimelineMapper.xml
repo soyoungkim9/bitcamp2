@@ -64,7 +64,8 @@
 			</otherwise>
 		</choose>
 	</insert>
-
+	
+ 
 	<!-- 파라미터의 타입이 primitive type이나 wrapper 클래스, String 클래스인 경우 값을 꺼낼 때 프로퍼티 
 		이름을 마음대로 해도 된다. -->
 	<select id="selectOne" parameterType="int"
@@ -74,12 +75,31 @@
 		where pono=#{value}
 	</select>
     
-    <select id="timelineLike" parameterType="int" resultType="int">
+    <!-- 좋아요 개수 카운트 -->
+    <select id="timelineLikeCount" parameterType="int" resultType="int">
 	     select count(*)
 	     from TML_LK
 	     where pono=#{value}
     </select>
+    
+    <!-- 타임라인 좋아요 눌렀는지 체크 -->
+    <select id="timelineLikeCheck" parameterType="map" resultType="int">
+        select count(*)
+        from TML_LK
+        where pno=#{pno} and pono=#{pono} and uno=#{uno}
+    </select>
 
+    <!-- 좋아요 누르기 -->
+    <insert id="timelineLike" parameterType="map">
+       insert into TML_LK(pno, pono, uno)
+       values (#{pno}, #{pono}, #{uno})
+    </insert>
+    
+    <!-- 좋아요 취소 -->
+    <delete id="timelineLikeCancle" parameterType="map">
+        delete from TML_LK
+        where pno=#{pno} and pono=#{pono} and uno=#{uno}
+    </delete>
 
 	<update id="update" parameterType="Timeline">
 		update POST set
