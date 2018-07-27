@@ -104,7 +104,7 @@ CREATE TABLE PROG (
     PTH      INTEGER      NOT NULL COMMENT '프로그램기수', -- 프로그램기수
     PTOVER   INTEGER      NOT NULL COMMENT '프로그램회차', -- 프로그램회차
     PDAY     VARCHAR(50)  NOT NULL COMMENT '프로그램수업요일', -- 프로그램수업요일
-    PTIME    VARCHAR(100) NOT NULL COMMENT '프로그램수업시간', -- 프로그램수업시간
+    PTIME    VARCHAR(255) NOT NULL COMMENT '프로그램수업시간', -- 프로그램수업시간
     PSTATE   INTEGER      NULL     DEFAULT 0 COMMENT '진행상태', -- 진행상태
     PRESULT  VARCHAR(255) NULL     COMMENT '진행상태내용', -- 진행상태내용
     TRNNO    INTEGER      NOT NULL COMMENT '트레이너번호' -- 트레이너번호
@@ -254,8 +254,8 @@ ALTER TABLE PLAN
 CREATE TABLE CMT (
     CMTNO INTEGER NOT NULL COMMENT '댓글 번호', -- 댓글 번호
     TMLNO INTEGER NOT NULL COMMENT '타임라인 번호', -- 타임라인 번호
-    PNO   INTEGER NOT NULL COMMENT '프로그램번호', -- 프로그램번호
-    UNO   INTEGER NOT NULL COMMENT '사용자번호' -- 사용자번호
+    PNO   INTEGER NULL     COMMENT '프로그램번호', -- 프로그램번호
+    UNO   INTEGER NULL     COMMENT '사용자번호' -- 사용자번호
 )
 COMMENT '댓글';
 
@@ -316,9 +316,9 @@ ALTER TABLE CHAL
 -- 프로그램미디어
 CREATE TABLE PMED (
     PMEDNO INTEGER      NOT NULL COMMENT '프로그램미디어번호', -- 프로그램미디어번호
+    PNO    INTEGER      NOT NULL COMMENT '프로그램번호', -- 프로그램번호
     PPATH  VARCHAR(255) NULL     COMMENT '미디어경로', -- 미디어경로
-    PMTYPE INTEGER      NULL     COMMENT '타입', -- 타입
-    PNO    INTEGER      NOT NULL COMMENT '프로그램번호' -- 프로그램번호
+    PMTYPE INTEGER      NULL     COMMENT '타입' -- 타입
 )
 COMMENT '프로그램미디어';
 
@@ -326,7 +326,8 @@ COMMENT '프로그램미디어';
 ALTER TABLE PMED
     ADD CONSTRAINT PK_PMED -- 프로그램미디어 기본키
         PRIMARY KEY (
-            PMEDNO -- 프로그램미디어번호
+            PMEDNO, -- 프로그램미디어번호
+            PNO     -- 프로그램번호
         );
 
 ALTER TABLE PMED
