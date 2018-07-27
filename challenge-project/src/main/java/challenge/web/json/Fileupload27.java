@@ -39,11 +39,11 @@ public class Fileupload27 {
             files.transferTo(path);
             
             // 써네일 이미지 생성
-            String thumbnailPath = path.getCanonicalPath() + "_50x50";
+            String thumbnailPath = path.getCanonicalPath() + "_600x600";
             System.out.println(filename);
             System.out.println(thumbnailPath);
             Thumbnails.of(path)
-                      .size(50, 50)
+                      .size(600, 600)
                       .outputFormat("jpg")
                       .toFile(new File(thumbnailPath));
             

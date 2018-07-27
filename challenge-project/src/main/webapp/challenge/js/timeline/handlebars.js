@@ -1,14 +1,17 @@
 //위에서 준비한 템플릿 데이터를 가지고 HTML을 생성할 템플릿 엔진 준비
+var addedPostCount = 0;
 $(document).ready(function() {
 	// 글쓰기 모달에 글쓴이 이름 출력
 	$(".tl-user-name-json").html(obj.name);
 	// 스크롤 위치 맨 위로 고정
+	$("body").scrollTop(0);
 	
 	var pageCount = 1; // 타임라인 첫번째 page 카운트임.
 	loadCards(pageCount);
 
 	$(window).on('scroll',function () {
 		infiniteScroll();
+		  console.log("레디 스크롤 펑션 아: " + addedPostCount);  
 //		console.log("documentHeight : " + $(document).height() + ", scrollHeight" + $(window).scrollTop() + $(window).height())	
 	});
 
@@ -18,8 +21,8 @@ $(document).ready(function() {
 
 		// 스크롤한 높이와 문서의 높이가 같을 때
 		if (documentHeight <= scrollHeight + 100) { // 스크롤이 바닥에 닿으면?
-			setTimeout(loadCards(pageCount), 3000);
 			pageCount++;
+			setTimeout(loadCards(pageCount), 10000); //=====================> 얘가 문제... 불러오는 동안 여러번 요청(불러오는 동안 스크롤 길이가 안맞음)
 			console.log("무한스크롤 다음 카드 불러옴! pageCount 값 : " + pageCount);
 //			console.log("documentHeight : " + documentHeight + ", scrollHeight" + scrollHeight)			
 		}
@@ -38,13 +41,25 @@ function loadCards(pageCount) {
 	}).done(function(data) {
 		var i;
 		for (i = 0; i < data.length; i++) {
-			loadComments(data[i].no)
-			timelineLikeCount(data[i].no)
+			loadComments(data[i].no);
+			timelineLikeCount(data[i].no);
+			if (data[i].picture) {
+				$("#img" + data[i].no).append("<img src='../../../files/" + data[i].picture + "_600x600.jpg'>");
+			}
 		}
 	});
 }
-
-
+/*
+function loadImgs(picPath) {
+	
+	if (파일이 있으면) {
+		$("#img" + cardNo).append("<img src='../../../files/" + 파일네임 + "_600x600.jpg'>");
+		$("#img" + cardNo).attr("src", "../../../files/" + 파일네임 + "_600x600.jpg");
+	} else {
+		$("#img" + cardNo).show();
+	}
+}
+*/
 
 // 댓글 JSON 리스트 가져와서 댓글 붙이기(handleBars) 
 function loadComments(cardNo) {

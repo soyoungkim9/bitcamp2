@@ -18,36 +18,6 @@ function myFunction() {
   }
 }
 
-
-/* 슬라이드 더보기 */
-/*
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-
-function currentSlide(n) {
-  showSlides(slideIndex = n);
-}
-
-function showSlides(n) {
-  var i;
-  var slides = document.getElementsByClassName("sh-mySlides");
-  if (n > slides.length) {
-    slideIndex = 1
-  }
-  if (n < 1) {
-    slideIndex = slides.length
-  }
-  for (i = 0; i < slides.length; i++) {
-    slides[i].style.display = "none";
-  }
-  slides[slideIndex - 1].style.display = "block";
-}
-*/
-
 /* 강의계획서 더보기 */
 function shClassFunction() {
   var dots = document.getElementById("sh-class-dots");
@@ -101,89 +71,13 @@ window.onclick = function(event) {
 }
 
 //-----------------타임라인 글 게시 (img 있는 경우 / 없는 경우)------------------------------
-// 1. 글만 게시하는 함수를 선언
-
-
-/*
-function tl_post_textarea() {
-  $.ajax({
-	    type: 'POST',
-	    url: '../../../json/timeline/add',
-	    data: {
-	      picture: $('#sh_tl_upload').val(),
-	      content: $('#sh_tl_post_write').val(),
-	      "progMemb.no" : objPmemb[0].no,
-	      "progMemb.users.userNo" : obj.userNo
-	    },
-	  }).done(function() {
-	    console.log("이미지 없이 글 게시 입력됨.");
-	    location.href = "timeline.html"
-	  });
-}
-*/
-// 2. img 전달하는 코드 선언.
-
-
-// 3. img 없는 경우 1을 부른다  / img 있는 경우 글 + 이미지 처리를 부른다.
-
-
-// 타임라인 글 게시
-$("#sh-tl-post-btn").click(() => {
-	console.log('=============>')
-	//console.log(obj)
-	/*
-	console.log(objPmemb[0].no)
-  $.ajax({
-    type: 'POST',
-    url: '../../../json/timeline/add',
-    data: {
-      picture: $('#sh_tl_post_photo').val(),
-      content: $('#sh_tl_post_write').val(),
-      "progMemb.no" : objPmemb[0].no,
-      "progMemb.users.userNo" : obj.userNo
-    }
-  }).done(function() {
-    console.log("이미지 없이 글 게시 입력됨.");
-    location.href = "timeline.html"
-  });
-  */
-});
-
-
-// 게시 버튼 눌렀을 때 함수 - 이름있는 함수로
-
-/*
-$(document).ready(
-function postBtnClicked(picData) {
-	console.log("postBtnClicked() 눌렸습니다.")
-	
-	$.ajax({
-		type: 'POST',
-		url: '../../../json/timeline/add',
-	    data: {
-	      picture: picData,
-	      content: $('#sh_tl_post_write').val(),
-	      "progMemb.no" : objPmemb[0].no,
-	      "progMemb.users.userNo" : obj.userNo
-	    }
-	}).done(() => console.log("글 게시됨"))
-});
-*/
-//$(document).on("click", '#sh-tl-post-btn' ,postBtnClicked(null));
-
-// 게시 버튼 눌렀을 때 이벤트
-
-
-//타임라인 카드에서 이미지 추가
 //이미지
-
-
 $('#sh_tl_upload').fileupload({
 url: '../../../json/fileupload27/upload',        // 서버에 요청할 URL
 dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
 sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
 singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
-autoUpload: false,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
+autoUpload: true,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
 disableImageResize: /Android(?!.*Chrome)|Opera/
       .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
 previewMaxWidth: 633,   // 미리보기 이미지 너비
@@ -204,25 +98,64 @@ processalways: function(e, data) {
     }
   $('#sh-tl-post-btn').attr("disabled", true);
   $('#sh-tl-post-btn').html("업로드 중...");
-  //data.submit();
+//  data.submit();
 }, 
 submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
   console.log('submit()...');
 }, 
 done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
   console.log('done()...');
-  console.log(data.result.filename);
   $('#sh_tl_post_photo').val(data.result.filename);
   $('#sh-tl-post-btn').attr("disabled", false);
   $('#sh-tl-post-btn').html("게시");
-  //postBtnClicked(data.result.filename)
+  imgName = data.result.filename
   //location.href = "timeline.html"
 }
 });
 
 
+// 게시 버튼 눌렀을 때 함수 - 이름있는 함수로
+
+var imgName;
+
+function postBtnClicked(picData) {
+	$.ajax({
+		type: 'POST',
+		url: '../../../json/timeline/add',
+	    data: {
+	      picture: imgName,
+	      content: $('#sh_tl_post_write').val(),
+	      "progMemb.no" : objPmemb[0].no,
+	      "progMemb.users.userNo" : obj.userNo
+	    }
+	}).done(function() { 
+		
+		  modal.style.display = "none";
+		  reloadCard(1)
+			})
+};
 //-----------------타임라인 글 게시 (img 있는 경우 / 없는 경우)------------------------------
 
+var d = 1;
+
+// 글 올린 것만 카드 끼우기!
+function reloadCard(pageCount) {
+	var trTemplateSrc = $("#tr-template").html();
+	var templateFn = Handlebars.compile(trTemplateSrc);
+
+	$.getJSON(serverRoot + "/json/timeline/list/" + pageCount + "/1", (data) => {
+		$('#sh_tl_card_add').prepend(templateFn({list: data}));
+	}).done(function(data) {
+		var i;
+		for (i = 0; i < data.length; i++) {
+			loadComments(data[i].no)
+			timelineLikeCount(data[i].no)
+			if (data[i].picture) {
+				$("#img" + data[i].no).append("<img src='../../../files/" + data[i].picture + "_600x600.jpg'>");
+			}
+		}
+	});
+}
 
 
 // 댓글 달기

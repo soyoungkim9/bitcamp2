@@ -19,39 +19,6 @@
 
 
   <div class="container">
-    <!-- img 시작 
-    <div class="sh-program-img">
-      <div class="sh-slideshow-container">
-
-        <div class="sh-mySlides sh-fade">
-          <img src="../../img/timeline/fitness-wallpapers-1.jpg" style="width:100%">
-          <button class="sh-slide-edit-btn" type="button" name="button">EDIT</button>
-          <div class="sh-imgSlide-text">
-            <h1>이미지1입니다.</h1></div>
-        </div>
-
-        <div class="sh-mySlides sh-fade">
-          <img src="../../img/timeline/fitness-wallpapers-2.jpg" style="width:100%">
-          <button class="sh-slide-edit-btn" type="button" name="button">EDIT</button>
-          <div class="sh-imgSlide-text">
-            <h1>이미지2입니다.</h1></div>
-        </div>
-
-        <div class="sh-mySlides sh-fade">
-          <img src="../../img/timeline/fitness-wallpapers-3.jpg" style="width:100%">
-          <button class="sh-slide-edit-btn" type="button" name="button">EDIT</button>
-          <div class="sh-imgSlide-text">
-            <h1>이미지3입니다.</h1></div>
-        </div>
-
-        <a class="sh-prev" onclick="plusSlides(-1)">&#10094;</a>
-        <a class="sh-next" onclick="plusSlides(1)">&#10095;</a>
-
-      </div>
-      <br>
-    </div>
-      -->
-    <!-- img 종료 -->
 
     <div id="sh-mainContainer">
 
@@ -119,7 +86,7 @@
                   <textarea id="sh_tl_post_write" class="sh-tl-review-title sh-tl-textarea" placeholder="무슨 생각을 하고 계신가요?" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
                 </div>
                 <div id='images-div'></div>
-                <button id="sh-tl-post-btn" type="submit" name="button" onclick="postBtnClicked(null)">게시</button>
+                <button id="sh-tl-post-btn" type="submit" name="button" onclick="postBtnClicked()">게시</button>
                 <div class="sh-tl-post-img-upload"><label id="sh-tl-post-img-btn" for="sh_tl_upload" style="cursor:pointer"><i class="far fa-images"><input id="sh_tl_upload" accept="video/*,  video/x-m4v, video/webm, video/x-ms-wmv, video/x-msvideo, video/3gpp, video/flv, video/x-flv, video/mp4, video/quicktime, video/mpeg, video/ogv, .ts, .mkv, image/*"  name="files" title="사진 또는 동영상 첨부" type="file" style="display:none"></i></label></div>
               </section>
             </div><!--The Modal POST 종료-->
@@ -176,8 +143,8 @@
   <!-- 글내용 시작-->
   <div class="sh-tl-card-content">
     <p>{{content}}</p>
-
   </div>
+  <div id="img{{no}}"></div>
   <!-- 글내용 종료 -->
   <!-- 좋아요/댓글 시작-->
   <section class="sh-tl-card-actions">
@@ -243,10 +210,10 @@
   <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
   <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script> 
   <script src="../../js/common.js"></script>
-  <script src="../../js/header/header_bg_black.js"></script>
-  <script src="../../js/footer/footer.js"></script>
   <script src="../../js/timeline/handlebars.js"></script>
   <script src="../../js/timeline/timeline.js"></script>
+  <script src="../../js/header/header_bg_black.js"></script>
+  <script src="../../js/footer/footer.js"></script>
   <!-- <script src="../../js/timeline/tlimage.js"></script> -->
   
 </body>
