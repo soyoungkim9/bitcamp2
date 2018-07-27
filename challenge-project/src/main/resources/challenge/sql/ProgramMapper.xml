@@ -25,7 +25,7 @@
     
     <result column="pday" property="proDay"/>
     <result column="ptime" property="proTime"/>
-    <result column="ppic" property="mainImg"/>
+    <!-- <result column="ppic" property="mainImg"/> -->
     
     <result column="pstate" property="proState"/>
     <result column="presult" property="proResult"/>
@@ -51,7 +51,7 @@
 
   <select id="selectListCard"
           resultMap="ProgramMap" parameterType="map">
-    select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.ppic,
+    select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt<!-- , p.ppic -->,
            m.pmedno, m.ppath, m.pmtype,
            u.upath, u.uname
     from PMED m
@@ -61,6 +61,16 @@
     <!-- limit #{startRowNo}, #{pageSize} -->
   </select>
 
+  <select id="selectTrainerProgram"
+          resultMap="ProgramMap" parameterType="map">
+    select p.pno, p.pname, p.pth, p.pprice, p.sdt, p.ppic,
+           m.pmedno, m.ppath
+    from PMED m
+         right outer join PROG p on m.pno=p.pno
+         left outer join TRN t on p.trnno=t.trnno
+    where t.trnno=#{value}
+    <!-- limit #{startRowNo}, #{pageSize} -->
+  </select>
 
   <select id="selectList"
           resultMap="ProgramMap" parameterType="map">
@@ -68,6 +78,7 @@
     from PROG
     <!-- limit #{startRowNo}, #{pageSize} -->
   </select>
+  
   <select id="mainList"
           resultMap="ProgramMap" parameterType="map">
     SELECT * FROM PROG limit 0, 2

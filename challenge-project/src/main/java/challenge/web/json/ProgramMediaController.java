@@ -67,8 +67,8 @@ public class ProgramMediaController {
        programMediaService.delete(no);
     }
     
-    @RequestMapping("list/{no}")
-    public Object list(@PathVariable int no) throws Exception {
+    @RequestMapping("list")
+    public Object list(@RequestParam int no) throws Exception {
         return programMediaService.list(no);
     }
     

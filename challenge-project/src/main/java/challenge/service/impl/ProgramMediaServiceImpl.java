@@ -29,7 +29,7 @@ public class ProgramMediaServiceImpl implements ProgramMediaService {
 //        params.put("startRowNo", (pageNo - 1) * pageSize);
 //        params.put("pageSize", pageSize);
         
-        return programMediaDao.selectList();
+        return programMediaDao.selectList(no);
     }
     
     @Override

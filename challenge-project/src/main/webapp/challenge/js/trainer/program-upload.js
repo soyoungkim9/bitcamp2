@@ -151,8 +151,8 @@ $('#fileupload2').fileupload({
             proDay: proDay,
             proTime: proTime,
             challengeNo: $(chalTab).val(),
-            "trainerNo.userNo": obj.userNo,
-            mainImg: 'ggg'
+            "trainerNo.userNo": obj.userNo
+            /*mainImg: 'ggg'*/
         }
         data.submit();
       });
