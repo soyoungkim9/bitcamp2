@@ -40,6 +40,8 @@
           <div class="arrowLeft"><i class="fas fa-chevron-circle-left"></i></div>
           <div class="arrowRight"><i class="fas fa-chevron-circle-right"></i></div>
         </div>
+        <div id='programBox'></div>
+        <!-- 
         <div class="challengeBox1">
           <h3 id="programName"></h3>
         </div>
@@ -48,7 +50,7 @@
         </div>
         <ul id="planList" class="dayList">
         </ul>
-
+        -->
         <div class="bottomMenu">
             <button type="button" id="addPlan">새 글</button>
         </div>
@@ -120,15 +122,38 @@
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../../js/footer/footer.js"></script>
 <script src="../../js/trainer/trainer-template.js"></script>  
-<script id="li-template" type="text/x-handlebars-template">
+
+<script id="program-template" type="text/x-handlebars-template">
+<div class="challengeBox1">
+          <h3 id="programName">{{name}}</h3>
+</div>
+<div class="challengeBox2">
+          <h4>기간: <span id="sdt">{{startDate}}</span> ~ <span id="edt">{{endDate}}</span></h4>
+</div>
+<ul id="planList" class="dayList">
 {{#each list}}
-	<li class="tabSelect{{program.no}}"><a href='reportList.html?no={{program.no}}' onclick='tabEvent({{program.no}})'>{{program.name}}</a></li>
+  <li>
+    <div class="dayContent">
+      <h4 class="time">Day{{planTurn}}</h4>
+      <pre>{{planContent}}</pre>
+    </div>
+    <div class="editIcon">
+      <a data-no="{{no}}" data-pno="{{program.no}}" class="viewNum"><i class="fas fa-plus-circle"></i></a>
+    </div>
+  </li>
 {{/each}}
+</ul>
 </script>
 
-<script id="option-template" type="text/x-handlebars-template">
+<script id="li-template" type="text/x-handlebars-template">
 {{#each list}}
-	<option>{{list}}</option>
+	{{#if @last}}
+		<li class="programTab tabSelect active">
+			<a data-no='{{program.no}}' data-last='{{program.no}}'>{{program.name}}</a></li>
+	{{else}}
+		<li class="programTab tabSelect">
+			<a data-no='{{program.no}}'>{{program.name}}</a></li>
+	{{/if}}
 {{/each}}
 </script>
 <script src="../../js/trainer/reportList.js"></script>

@@ -115,6 +115,7 @@
   background-color: #F4F7F9;
   color: #444;
 }
+
 .tabbed ul li.active {
   z-index: 3;
 }
@@ -123,9 +124,11 @@
 .tabbed ul li.active:before,
 .tabbed ul li.active:after {
   background-color: #1B3453;
-  color: #fff;
 }
 
+.active a {
+	color: #fff;
+}
 .arrow .fas {
   color: #1B3453;
   font-size: 22px;
@@ -189,6 +192,7 @@
   color: white;
   font-size: 15px;
   cursor: pointer;
+  display: none;
 }
 
 /* 운동일지 */
