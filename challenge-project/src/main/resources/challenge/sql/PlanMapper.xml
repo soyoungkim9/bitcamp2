@@ -53,7 +53,8 @@
   <insert id="insert" parameterType="Plan" 
   	useGeneratedKeys="true" keyColumn="plno" keyProperty="no">
   	insert into PLAN(pltover,pldt,pltitl,plcont, pno)
-  	values(#{planTurn},#{planDate},#{planTitl},#{planContent},#{program.no})
+  	values(#{planTurn},#{planDate},
+  		   #{planTitl},#{planContent},#{program.no})
   </insert>
 
    <select id="selectOne" parameterType="int" resultMap="PlanMap">
@@ -61,6 +62,7 @@
 	from PLAN pl, PROG p 
 	where p.pno = pl.pno 
 	AND pl.plno = #{value}
+	
   </select>
   
   <update id="update" parameterType="Plan">

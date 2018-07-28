@@ -34,7 +34,7 @@ $(document).ready(function() {
 					 }
 			    },
 			    error() {
-			        window.alert("report.js default page 실행 오류!");
+			        window.alert("프로그램 등록 후 이용해 주세요!");
 			    }	
 			});
 		},
@@ -105,7 +105,8 @@ window.onclick = function(event) {
 
 // 새글 관련 이벤트
 $("#addPlan").click(() => {
-    pno = $('.active').find('a').attr('data-no');
+    console.log(startDate, endDate);
+	pno = $('.active').find('a').attr('data-no');
     // 프로그램 회차 관련
     $.ajax(serverRoot + "/json/plan/list/" + pno, {
     	dataType: "json",
@@ -149,6 +150,7 @@ $(document.body).on('click', '.editIcon', function(event) {
 	$.ajax(serverRoot + "/json/plan/" + plno, {
 		dataType: "json",
 	    success(data) {
+			console.log(data[0].planDate);
 			$("#dayFont").html("Day" + data[0].planTurn);
 	        $("#dateFont").html("(" + data[0].planDate + ")");
 	        $("#modalViewTitle input").val(data[0].planTitl);
