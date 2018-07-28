@@ -48,6 +48,11 @@ public class ProgramController {
         return programService.listCard();
     }
     
+    @RequestMapping("listProgram/{trainerNo}")
+    public Object list(@PathVariable int trainerNo) {
+        return programService.listProgram(trainerNo);
+    }
+    
     @RequestMapping("mainList")
     public Object mainList(
             ) {

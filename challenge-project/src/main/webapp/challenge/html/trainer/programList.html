@@ -4,7 +4,7 @@
 <meta charset='UTF-8'>
 <title>회원페이지</title>
 <link rel="stylesheet" href="../../css/trainer/template/sm-trainerPage.css">
-<link rel="stylesheet" href="../../css/trainer/trainerPage-programList.css">
+<link rel="stylesheet" href="../../css/trainer/programList.css">
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet" href="../../css/program/card2.css">
 <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
@@ -76,10 +76,10 @@
     <a href="../program/DetailPage.html?no={{no}}">
     <!-- 카드 헤더 -->
     <div class="card-header">
-      <img class="card-img" src="../../../files/{{mainImg}}_200x200.jpg"/>
+      <img class="card-img" src="../../../files/{{medias.[0].path}}_200x200.jpg"/>
       <div class="ribbon"><span>성공 %</span></div>
       <div class="card-trainer">
-        <img class="trainer-img" src="../../img/trainer/{{trainerNo.userPath}}"/>
+        <img class="trainer-img" src="../../../files/{{trainerNo.userPath}}_50x50.jpg"/>
       </div>
     </div>
     <!--  카드 바디 -->
@@ -93,7 +93,7 @@
       <!--  카드 바디 푸터 -->
       <div class="card-footer">
       <span class="card-footer-review">리뷰 개</span>
-      <span class="card-footer-date">{{startDate}}(D- )</span>
+      <span class="card-footer-date">{{startDate}}(D<span id="Dday"></span> )</span>
     </div>
     </a>
 </div>
@@ -105,8 +105,8 @@
  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
  <script src="../../js/common.js"></script>
- <script src="../../js/trainer/card-test2.js"></script>
- <script src="../../js/footer/footer.js"></script>
  <script src="../../js/trainer/trainer-template.js"></script>
+ <script src="../../js/trainer/programList.js"></script>
+ <script src="../../js/footer/footer.js"></script>
 </body>
 </html>
