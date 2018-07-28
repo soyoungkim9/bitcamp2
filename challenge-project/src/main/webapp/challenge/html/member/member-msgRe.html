@@ -17,7 +17,14 @@
 .sm-msgBox {
   height: 400px;
 }
+.contentNameDiv {
+    float: left;
+    margin: 20px 0px 0px 20px;
+}
 
+.originalImg {
+    float: left;
+}
 </style>
 </head>
 <body>
@@ -98,13 +105,18 @@
                       <div class="contentName">이름</div>
                       <div id="mName" class="modalContent"></div>
                     </li>
+                    <li class="modaPhone">
+                      <div class="contentName">받는사람</div>
+                      <div id="mName-send" class="modalContent"></div>
+                    </li>
                   </ul>
                 </div>
                 <div class="modal-body2">
-                  <div id="mTitl" class="modalContent-titl"></div>
-                  <div id="mCont" class="modalContent-cont"></div>
+                <input id="fTitle" class="modalContent-titl" type="text" placeholder="제목을 입력하세요."><br>
+                <textarea id="fContent" class="modalContent-cont" placeholder="내용을 입력하세요."></textarea>
+                
                   <span class="modal-ok">
-                  <button id="msg-ok2" class="sm-btn-1">확인</button>
+                  <button id="addBtn" class="sm-btn-1">보내기</button>
                   </span>
                 </div>
               </div>
