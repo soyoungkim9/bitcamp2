@@ -17,9 +17,9 @@ public class PlanController {
         this.planService = planService;
     }
         
-    @RequestMapping("list")
-    public Object list (){
-        return planService.list();
+    @RequestMapping("pList/{trnno}")
+    public Object list (@PathVariable int trnno){
+        return planService.list(trnno);
     }
     
     @RequestMapping("list/{pno}")

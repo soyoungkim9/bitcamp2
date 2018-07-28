@@ -18,12 +18,12 @@ public class PlanServiceImpl implements PlanService {
     }
     
     @Override
-    public List<Plan> list() {
+    public List<Plan> list(int trnno) {
 //        HashMap<String,Object> params = new HashMap<>();
 //        params.put("startRowNo", (pageNo - 1) * pageSize);
 //        params.put("pageSize", pageSize);
         
-        return planDao.selectList();
+        return planDao.selectList(trnno);
     }
 
     @Override

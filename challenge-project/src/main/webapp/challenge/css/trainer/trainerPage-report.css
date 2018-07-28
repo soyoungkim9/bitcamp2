@@ -164,7 +164,6 @@
   margin: 10px;
 }
 .challengeBox2 {
-  float: left;
   margin: 30px 0 5px 13px;
 }
 
@@ -192,7 +191,6 @@
   color: white;
   font-size: 15px;
   cursor: pointer;
-  display: none;
 }
 
 /* 운동일지 */
@@ -346,6 +344,10 @@
 	height: 25px;
 }
 
+#mDate {
+	height: 22.2px !important; 
+}
+
 [name="addContent"] {
 	border: 1px solid #d7d7d7;
 	height: 250px;
@@ -444,6 +446,13 @@
     color: white;
     font-size: 15px;
     cursor: pointer;
+}
+
+#noPlan {
+	text-align: center;
+	font-weight: bold;
+	font-size: 17px;
+	margin-top: 30px;
 }
 
 
