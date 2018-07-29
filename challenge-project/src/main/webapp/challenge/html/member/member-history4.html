@@ -150,7 +150,9 @@
                                 </div>
                                 </li>
               </ul>
-						<ul id="story">
+						<ul><li id="cccc"></li>
+						<li id="dddd"></li>
+						</ul>
 							<!-- <li>
 								<div class="sm-time-div">
 									<span class="sm-time">2011-02-03</span>
@@ -199,7 +201,7 @@
 									<p class="sm-time-p">'3개월 하비탈출!' 챌린지 시작!</p>
 								</div>
 							</li> -->
-						</ul> 
+						
 					</section>
 				</div>
 
@@ -230,18 +232,27 @@
 <script src="../../js/member/history2.js"></script>
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each list}}
-<li class="in-view">
+{{#if @first}}
 <div class="sm-time-div">
 <span class="sm-time">{{startDate}}</span>
-<p class="sm-time-p">{{name}} 을 시작했습니다.</p> 
+<p class="sm-time-p">'3개월 하비탈출!' 챌린지 시작!</p>
 </div>
-</li>
-<li class="in-view">
-<div class="sm-time-div">
-<span class="sm-time">{{endDate}}</span>
-<p class="sm-time-p">{{name}}을 종료했습니다.</p> 
-</div>
-</li>
+
+{{else if @last}}
+<div class="sm-time-div">마지막 아이템 ({{endDate}} ddddd번째 요소)</div>
+{{/if}}
+{{/each}}
+</script>
+
+<script id="tr-template2" type="text/x-handlebars-template">
+{{#each list2}}
+{{#if @first}}
+<div class="sm-time">{{endDate}} 번째 요소</div>
+{{else if @last}}
+                <div>마지막 아이템 ({{endDate}} ddddd번째 요소)</div>
+            {{else}}
+                <div>중간 아이템 ({{startDate}} 번째 요소)</div>
+{{/if}}
 {{/each}}
 </script>
 <script src="member-history4.js"></script>

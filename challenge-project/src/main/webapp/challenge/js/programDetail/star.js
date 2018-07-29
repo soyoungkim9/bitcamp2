@@ -1,54 +1,3 @@
-/*이미지 슬라이드 이벤트*/ 
-/*
-var prev = document.getElementsByClassName("prev");
-var next = document.getElementsByClassName("next");
-prev.onclick = function() {
-  plusSlides(-1);
-}
-next.onclick = function() {
-  plusSlides(1);
-}
-var slideIndex = 1;
-showSlides(slideIndex);
-
-function plusSlides(n) {
-  showSlides(slideIndex += n);
-}
-console.log('이미지가져오기2')
-function showSlides(n) {
-var i;
-var slides = document.getElementsByClassName("mySlides");
-if (n > slides.length) {slideIndex = 1}
-if (n < 1) {slideIndex = slides.length}
-console.log(n)
-console.log(slides.length)
-for (i = 0; i < slides.length; i++) {
-  slides[i].style.display = "none";
-  console.log('이미지슬라이드')
-}
-console.log(slides[slideIndex-1])
-  slides[slideIndex-1].style.display = "block";
-}*/
-
-
-
-/* 장소 div 이벤트 */
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent1");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks1");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-/* 클리상태를 유지하는 이벤트 */
-document.getElementById("defaultOpen1").click();
-
 /* 일정 div 이벤트 */
 function openDay(evt, dayName) {
     var i, tabcontent, tablinks;
@@ -60,7 +9,7 @@ function openDay(evt, dayName) {
     for (i = 0; i < tablinks.length; i++) {
         tablinks[i].className = tablinks[i].className.replace(" active", "");
     }
-    document.getElementById(dayName).style.display = "block";
+    //document.getElementById(dayName).style.display = "block";
     evt.currentTarget.className += " active";
 }
 document.getElementById("defaultOpen2").click();
