@@ -150,7 +150,9 @@
                                 </div>
                                 </li>
               </ul>
-						<ul><li id="cccc"></li></ul>
+						<ul><li id="cccc"></li>
+						<li id="dddd"></li>
+						</ul>
 							<!-- <li>
 								<div class="sm-time-div">
 									<span class="sm-time">2011-02-03</span>
@@ -231,18 +233,14 @@
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each list}}
 {{#if @first}}
-<li>
 <div class="sm-time-div">
 <span class="sm-time">{{startDate}}</span>
 <p class="sm-time-p">'3개월 하비탈출!' 챌린지 시작!</p>
 </div>
-{{/if}}
 
-<div class="sm-time-div">
-<span class="sm-time">{{startDate}}</span>
-<p class="sm-time-p">'3개월 하비탈출!' 챌린지 시작!</p>
-</div>
-</li>
+{{else if @last}}
+<div class="sm-time-div">마지막 아이템 ({{endDate}} ddddd번째 요소)</div>
+{{/if}}
 {{/each}}
 </script>
 
@@ -251,7 +249,7 @@
 {{#if @first}}
 <div class="sm-time">{{endDate}} 번째 요소</div>
 {{else if @last}}
-                <div>마지막 아이템 ({{@key}} ddddd번째 요소)</div>
+                <div>마지막 아이템 ({{endDate}} ddddd번째 요소)</div>
             {{else}}
                 <div>중간 아이템 ({{startDate}} 번째 요소)</div>
 {{/if}}
