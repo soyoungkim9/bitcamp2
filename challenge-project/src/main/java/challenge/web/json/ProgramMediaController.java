@@ -52,6 +52,11 @@ public class ProgramMediaController {
                .size(200, 200)
                .outputFormat("jpg")
                .toFile(path.getCanonicalPath() + "_200x200");
+               
+               Thumbnails.of(path)
+               .size(200, 200)
+               .outputFormat("jpg")
+               .toFile(path.getCanonicalPath() + "_600x600");
            } catch (Exception e) {
                e.printStackTrace();
            }

@@ -1,18 +1,19 @@
 var cardBody1 = $("#cardBody1").html();
 var cardBodyFn = Handlebars.compile(cardBody1);
 $.getJSON(serverRoot + "/json/program/listProgram/" + 2, (data) => {
+  
   $(cardWide).html(cardBodyFn({list:data}));
 }).done(function(data) {
   var i;
   for (i = 0; i < data.length; i++) {
-    dday(data[i].startDate);
+    dday(data[i].startDate, i);
     console.log(data[i].startDate)
   }
 });
 
 
 //날짜 간격 구하기(D-day)
-function dday(startDate) {
+function dday(startDate, i) {
   var now = new Date();
   var start = new Date(startDate)
   var interval = now.getTime() - start.getTime();
@@ -27,5 +28,6 @@ function dday(startDate) {
       } 
     }
   }
-  $(Dday).append(interval);
+  var dd = document.getElementById("dday-"+i);
+  dd.append(interval)
 }

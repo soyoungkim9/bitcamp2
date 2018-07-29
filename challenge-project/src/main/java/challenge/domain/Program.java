@@ -20,7 +20,7 @@ public class Program implements Serializable {
     private Date endDate;
     private int minQty;
     private int maxQty;
-    private int price;
+    private String price;
     private String description;
     private String proType; // 종목
     private String proGoal; // 목표
@@ -109,11 +109,11 @@ public class Program implements Serializable {
         this.maxQty = maxQty;
     }
 
-    public int getPrice() {
+    public String getPrice() {
         return price;
     }
 
-    public void setPrice(int price) {
+    public void setPrice(String price) {
         this.price = price;
     }
 

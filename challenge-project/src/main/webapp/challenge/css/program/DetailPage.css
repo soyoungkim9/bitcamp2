@@ -81,6 +81,13 @@ ul {
 
 .oneImg {
 	height: 496px;
+	overflow: hidden;
+	position: relative;
+}
+.oneImg > img {
+	width: 100%;
+	position: absolute;
+	top: -100px;
 }
 
 .oneName {
@@ -91,14 +98,19 @@ ul {
 .oneName .far {
 	font-size: 20px;
 }
+.oneName h3 span:last-child {
+	float: right;
+	font-weight: 400;
+    font-size: 16px;
+}
 
-.oneName p:nth-child(2) {
+.oneName p span:first-child {
 	float: left;
 	display: inline-block;
 	margin: 0;
 }
 
-.oneName p:last-child {
+.oneName p span:last-child {
 	font-size: 20px;
 	float: right;
 	display: inline-block;
@@ -207,9 +219,7 @@ ul {
 	margin-bottom: 25px;
 }
 
-.exFont {
-	font-size: 15px;
-}
+
 
 #examContent h5 {
 	font-size: 15px;
@@ -223,9 +233,14 @@ ul {
 
 .mySlides {
 	display: none;
+	height: 600px;
+	overflow: hidden;
 }
 
-#
+.mySlides img {
+    width: 100%;
+}
+
 slideshow-container img {
 	vertical-align: middle;
 }
@@ -399,6 +414,17 @@ to {
 	padding: 10px 20px;
 	text-align: center;
 	cursor: pointer;
+	font-weight:normal;
+}
+
+.PriceContentSub2 h4 span:first-child {
+	font-size:18px;
+}
+.PriceContentSub2 h4 span {
+    font-size:17px;
+}
+.PriceContentSub2 h4 span:nth-child(4) {
+    font-size:16px;
 }
 
 /* 기수 정보 */
@@ -715,12 +741,12 @@ star-input>.input.focus {
 .imgCircle {
 	width: 100px;
 	height: 100px;
-	background: #e6e6e6;
 	-moz-border-radius: 50px;
 	-webkit-border-radius: 50px;
 	border-radius: 50px;
 	margin: auto;
 	margin-top: 15px;
+	overflow: hidden;
 }
 
 .proName {
@@ -850,6 +876,10 @@ star-input>.input.focus {
 	-webkit-border-radius: 50px;
 	border-radius: 50px;
 	float: left;
+	overflow: hidden;
+}
+.imgBox img {
+	width: 100%;
 }
 
 .evalBox {
@@ -944,7 +974,6 @@ star-input>.input.focus {
 }
 
 [class^="tabcontent"] {
-	display: none;
 	padding: 10px 12px;
 	border: 1px solid #e6e6e6;
 	background-color: #fafafa;
