@@ -446,6 +446,7 @@ textarea:focus {
   text-decoration: none;
 }
 
+/*
 .sh-tl-like-count a:visited {
   color: #DD1F26 !important;
 }
@@ -454,6 +455,7 @@ textarea:focus {
   color: #DD1F26;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
 }
+*/
 
 /* 카드 공통 CSS 종료 */
 

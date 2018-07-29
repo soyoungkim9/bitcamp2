@@ -87,7 +87,8 @@ function timelineLikeChecked(cardNo) {
 	}).done(function(isChecked) {
 		if (isChecked) {
 			$('.lk-thumbs' + cardNo).attr("style", "color:#DD1F26;")
-			$('.lk' + cardNo).prepend("회원님 외 ");
+			$('.lk' + cardNo).prepend("회원님 외 ").attr("style", "color:#DD1F26;");
+			$('.lk-clicked' + cardNo).attr("style", "color:#DD1F26;");
 		}
 	});
 }

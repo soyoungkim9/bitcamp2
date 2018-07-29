@@ -129,7 +129,6 @@ function postBtnClicked(picData) {
 	      "progMemb.users.userNo" : obj.userNo
 	    }
 	}).done(function() { 
-		
 		  modal.style.display = "none";
 		  reloadCard(1)
 			})
@@ -185,8 +184,6 @@ function cmtFunction(no) {
 /* 좋아요 카운트 */
 function TlAddClick(postNo) {
 	// 포스트 넘버를 일단 받아와야함.
-	
-	console.log(postNo)
 	$.ajax({
 		type: "POST",
 		url: "../../../json/timeline/timelineLike",
@@ -201,11 +198,13 @@ function TlAddClick(postNo) {
 			$.get(serverRoot + "/json/timeline/timelineLikeCount/" + postNo, (data) => {
 				
 				if (result == 0) {
-				$('.lk' + postNo).html(data);
-				$('.lk-thumbs' + postNo).attr("style", "color:black;")
+				$('.lk' + postNo).html(data).attr("style", "color:#000;");
+				$('.lk-thumbs' + postNo).attr("style", "color:000;")
+				$('.lk-clicked' + postNo).attr("style", "color:#000;");
 				} else {
-					$('.lk' + postNo).html("회원님 외 " + data);
-					$('.lk-thumbs' + postNo).attr("style", "color:#DD1F26;")
+					$('.lk' + postNo).html("회원님 외 " + data).attr("style", "color:#DD1F26;");
+					$('.lk-thumbs' + postNo).attr("style", "color:#DD1F26;");
+					$('.lk-clicked' + postNo).attr("style", "color:#DD1F26;");
 				}
 			});
 		})
