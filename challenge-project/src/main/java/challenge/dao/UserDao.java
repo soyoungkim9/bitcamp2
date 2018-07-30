@@ -11,6 +11,8 @@ public interface UserDao {
     int insert(User user);
     int update(User user);
     int update2(User user);
+    int update3(User user);
+    int updateNotimg(User user);
     User selectOne(int userNo);
     User selectOneWithId(String email);
     User selectOneWithPassword(Map<String,Object> params);

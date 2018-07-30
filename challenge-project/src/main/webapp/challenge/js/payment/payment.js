@@ -8,7 +8,7 @@ $.getJSON(serverRoot + "/json/program/" + no, (data) => {
 	$('.project-title').append("<b>"+data.name+"</b>");
 	$('.p-price').append(data.price+" 원");
 	$('.p-trainer').append(data.trainerNo.name);
-	
+	$('#program-img').append(data.)
 
 }); 
 
@@ -67,18 +67,33 @@ function requestPay() {
 		
 	}
 	, function(rsp) {
-		if ( rsp.success ) {
-			console.log("하이요");
-			window.location.replace('http://localhost:8888/challenge-project/challenge/html/payment/paycompl.html');
-			//[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
-			jQuery.ajax({
-				url: "/challenge-project/challenge/html/main/main.html", //cross-domain error가 발생하지 않도록 주의해주세요
-				type: 'GET',
-				dataType: 'json',
-				data: {
-					imp_uid : rsp.imp_uid
-				}
+		 if ( rsp.success ) {
+//		    	//[1] 서버단에서 결제정보 조회를 위해 jQuery ajax로 imp_uid 전달하기
+//		    	jQuery.ajax({
+//		    		url: serverRoot + "", //cross-domain error가 발생하지 않도록 주의해주세요
+//		    		type: 'POST',
+//		    		dataType: 'json',
+//		    		data: {
+//			    		imp_uid : rsp.imp_uid
+//			    		//기타 필요한 데이터가 있으면 추가 전달
+//		    		}
+			 $.ajax({
+					type: 'POST',
+					async: false,
+					traditional : true,
+					url: serverRoot + '/json/user/updateNotimg' ,
+					data: {
 
+						email: $('#email').val(),
+						userPhone: $('#phone').val(),
+						userNo: obj.userNo
+
+					}, 
+				}).done(function() {
+
+					alert('회원님 정보가 수정되었습니다');
+					location.href = "http://localhost:8888/challenge-project/challenge/html/member/member-set.html";
+				});
 
 
 
