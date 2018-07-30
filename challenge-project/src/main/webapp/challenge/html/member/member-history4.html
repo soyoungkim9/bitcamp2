@@ -4,7 +4,7 @@
 <meta charset='UTF-8'>
 <title>회원페이지</title>
 <link rel="stylesheet" href="../../css/common.css">
-<link rel="stylesheet" href="../../css/member/history.css">
+<link rel="stylesheet" href="../../css/member/history2.css">
 <link rel="stylesheet" href="../../css/member/sm-following.css">
 <link rel="stylesheet" href="../../css/member/ksy-mypage.css">
 <link rel="stylesheet" href="../../css/member/sm-memberPage.css">
@@ -124,6 +124,8 @@
 
 					<!-- 이 부분이 운동일지 부분임! -->
 					<section id="sm-section" class="sm-timeline">
+					
+					
 						<!-- <ul><div id="story"></div></ul> -->
 
 						<!--  <li>
@@ -150,8 +152,10 @@
                                 </div>
                                 </li>
               </ul>
-						<ul><li id="cccc"></li>
-						<li id="dddd"></li>
+              
+						<ul id="cccc">
+						<li id="cccc"></li>
+						<li id="dddd">{{>script}}</li>
 						</ul>
 							<!-- <li>
 								<div class="sm-time-div">
@@ -233,28 +237,104 @@
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each list}}
 {{#if @first}}
+<li class="in-view">
 <div class="sm-time-div">
 <span class="sm-time">{{startDate}}</span>
-<p class="sm-time-p">'3개월 하비탈출!' 챌린지 시작!</p>
+<p class="sm-time-p">
+<img class="sm-time-img" src="../../img/member/img1.jpg">
+{{name}} 프로그램을 시작했습니다.
+</p>
 </div>
+</li>
+
+<li class="in-view">
+<div class="sm-time-div">
+<span class="sm-time">{{endDate}}</span>
+<p class="sm-time-p">
+<img class="sm-time-img" src="../../img/member/img1.jpg">
+{{name}} 프로그램을 마쳤습니다.
+</p>
+</div>
+</li>
+
 
 {{else if @last}}
-<div class="sm-time-div">마지막 아이템 ({{endDate}} ddddd번째 요소)</div>
+<li class="in-view">
+<div class="sm-time-div">
+<span class="sm-time">{{startDate}}</span>
+<p class="sm-time-p">
+<img class="sm-time-img" src="../../img/member/img1.jpg">
+{{name}} 프로그램을 시작했습니다.
+</p>
+</div>
+</li>
+
+<li class="in-view">
+<div class="sm-time-div">
+<span class="sm-time">{{endDate}}</span>
+<p class="sm-time-p">
+<img class="sm-time-img" src="../../img/member/img1.jpg">
+{{name}} 프로그램을 마쳤습니다.
+</p>
+</div>
+</li>
+
+{{else}}
+<li class="in-view">
+<div class="sm-time-div">
+<span class="sm-time">{{startDate}}</span>
+<p class="sm-time-p">
+<img class="sm-time-img" src="../../img/member/img1.jpg">
+{{name}} 프로그램을 시작했습니다.
+</p>
+</div>
+</li>
+
+<li class="in-view">
+<div class="sm-time-div">
+<span class="sm-time">{{endDate}}</span>
+<p class="sm-time-p">
+<img class="sm-time-img" src="../../img/member/img1.jpg">
+{{name}} 프로그램을 마쳤습니다.
+</p>
+</div>
+</li>
 {{/if}}
 {{/each}}
 </script>
 
 <script id="tr-template2" type="text/x-handlebars-template">
 {{#each list2}}
+<li class="in-view">
 {{#if @first}}
-<div class="sm-time">{{endDate}} 번째 요소</div>
+<div class="sm-time-div">
+<span class="sm-time">{{endDate}}</span>
+<p class="sm-time-p">
+<img class="sm-time-img" src="../../img/member/img1.jpg">
+'1개월만에 다리라인 만들기' 태권도 챌린지를 시작헀습니다!
+</p>
+</div>
+
 {{else if @last}}
-                <div>마지막 아이템 ({{endDate}} ddddd번째 요소)</div>
-            {{else}}
-                <div>중간 아이템 ({{startDate}} 번째 요소)</div>
+<div class="sm-time-div">
+<span class="sm-time">{{endDate}}</span>
+<p class="sm-time-p">
+<img class="sm-time-img" src="../../img/member/img1.jpg">
+'1개월만에 다리라인 만들기' 태권도 챌린지를 시작헀습니다!
+</p>
+</div>
+
+{{else}}
+<div class="sm-time-div">
+<span class="sm-time">{{endDate}}</span>
+<p class="sm-time-p">
+<img class="sm-time-img" src="../../img/member/img1.jpg">
+'1개월만에 다리라인 만들기' 태권도 챌린지를 시작헀습니다!
+</p>
+</div>
 {{/if}}
 {{/each}}
 </script>
-<script src="member-history4.js"></script>
+<script src="member-history4.js"></script> 
 </body>
 </html>

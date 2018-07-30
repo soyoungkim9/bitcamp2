@@ -1,9 +1,10 @@
+jQuery(document).ready(function () {
 var trTemplateSrc = $("#tr-template").html();
 
 //위에서 준비한 템플릿 데이터를 가지고 HTML을 생성할 템플릿 엔진 준비
 var templateFn = Handlebars.compile(trTemplateSrc);
 
-$.getJSON("http://challenge.java106.com:8888/challenge-project/json/program/list", (data) => {
+$.getJSON(serverRoot + "/json/program/list", (data) => {
 	console.log(data);
 	//$tableBody.innerHTML = templateFn({list:data});
 	$("#cccc").html(templateFn({list:data}));
@@ -14,10 +15,11 @@ var trTemplateSrc2 = $("#tr-template2").html();
 //위에서 준비한 템플릿 데이터를 가지고 HTML을 생성할 템플릿 엔진 준비
 var templateFn2 = Handlebars.compile(trTemplateSrc2);
 
-$.getJSON("http://challenge.java106.com:8888/challenge-project/json/program/list", (data) => {
+$.getJSON(serverRoot + "/json/program/list", (data) => {
 	console.log(data);
 	//$tableBody.innerHTML = templateFn({list:data});
 	$("#dddd").html(templateFn2({list2:data}));
+});
 });
 /*$(function () {
 	$("#toryBtn").ready(function () {

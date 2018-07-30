@@ -5,18 +5,25 @@
 <title>Insert title here</title>
 </head>
 <body>
-<div id="content1"></div>
-<div id="content2"></div>
+ <div id="aaaa1"></div>
+<div id="data1"></div>
+<div id="aaaa2"></div>
+<div id="data2"></div>
 
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../../js/common.js"></script>
 <script type="text/javascript">
 $(document).ready(function() {
-$.getJSON("json2.js", function(data){ 
-	$(content1).append(data.content);
-	$(content2).append(data.content2);
+$.getJSON("json2.js", function(data){
+	 $.each(data, function(key, value) {
+		 /* $(value).append('aaaa' + key); */
+		 $('#data' + value.no).html(value.data);
+		 
+	 });
 });
 });
+	/* $('#content2' + b.no).append(data.content2); */
+
 </script> 
 
 
