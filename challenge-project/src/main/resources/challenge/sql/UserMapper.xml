@@ -70,6 +70,15 @@
 		utype=#{userType}
 		where uno=#{userNo}
 	</update>
+	
+	<update id="update2" parameterType="User">
+        update USER set
+        mail=#{email},
+        uphon=#{userPhone},
+        upath=#{userPath},
+        pwd=password(#{password}),
+        where uno= 1
+    </update>
 
 	<delete id="delete" parameterType="int">
 		delete from USER where

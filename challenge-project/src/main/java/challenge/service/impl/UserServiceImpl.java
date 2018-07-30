@@ -67,4 +67,7 @@ public class UserServiceImpl implements UserService {
     public int update(User user) {
         return userDao.update(user);
     }
+    public int update2(User user) {
+        return userDao.update2(user);
+    }
 }

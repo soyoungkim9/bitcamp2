@@ -10,6 +10,7 @@ public interface UserDao {
     List<User> selectList();
     int insert(User user);
     int update(User user);
+    int update2(User user);
     User selectOne(int userNo);
     User selectOneWithId(String email);
     User selectOneWithPassword(Map<String,Object> params);

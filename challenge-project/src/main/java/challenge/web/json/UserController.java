@@ -44,6 +44,12 @@ public class UserController {
     public void update(User user) throws Exception {
         userService.update(user);
     }
+    @RequestMapping("update2")
+    @ResponseStatus(HttpStatus.OK)
+    public void update2(User user) throws Exception {
+        userService.update2(user);
+    }
+    
     
     @RequestMapping("{userNo}")
     public User view(@PathVariable int userNo) throws Exception {
