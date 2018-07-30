@@ -18,17 +18,22 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
     }
     
     @Override
-    public List<ProgramMember> list() {
+    public List<ProgramMember> listWithPname(int trnNo) {
+        return programMemberDao.pNameList(trnNo);
+    }
+    
+    @Override
+    public List<ProgramMember> list(int trnNo) {
 //        HashMap<String,Object> params = new HashMap<>();
 //        params.put("startRowNo", (pageNo - 1) * pageSize);
 //        params.put("pageSize", pageSize);
         
-        return programMemberDao.selectList();
+        return programMemberDao.selectList(trnNo);
     }
     
     @Override
-    public List<ProgramMember> list(int no) {
-        return programMemberDao.selectListWithProgram(no);
+    public List<ProgramMember> list(int pno, int trnNo) {
+        return programMemberDao.selectListWithProgram(pno, trnNo);
     }
 
     @Override

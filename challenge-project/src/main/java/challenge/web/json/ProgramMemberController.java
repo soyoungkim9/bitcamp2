@@ -18,15 +18,21 @@ public class ProgramMemberController {
     public ProgramMemberController(ProgramMemberService programMemberService) {
         this.programMemberService = programMemberService;
     }
-        
-    @RequestMapping("list")
-    public Object list() {
-        return programMemberService.list();
+    
+    @RequestMapping("pList/{trnNo}")
+    public List<ProgramMember> listWithPname(@PathVariable int trnNo) throws Exception {
+        return programMemberService.listWithPname(trnNo);
     }
     
-    @RequestMapping("list/{no}")
-    public Object list(@PathVariable int no) {
-        return programMemberService.list(no);
+    @RequestMapping("list/{trnNo}")
+    public List<ProgramMember> list(@PathVariable int trnNo) throws Exception {
+        return programMemberService.list(trnNo);
+    }
+    
+    @RequestMapping("list/{pno}/{trnNo}")
+    public List<ProgramMember> list(@PathVariable int pno,
+            @PathVariable int trnNo) throws Exception {
+        return programMemberService.list(pno, trnNo);
     }
     
     @RequestMapping("{no}/{userNo}")
