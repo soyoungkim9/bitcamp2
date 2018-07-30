@@ -1,4 +1,5 @@
-(function() {
+/*$.noConflict();*/
+$(document).ready(function(){
 
   'use strict';
 
@@ -29,5 +30,5 @@
   window.addEventListener("load", callbackFunc);
   window.addEventListener("resize", callbackFunc);
   window.addEventListener("scroll", callbackFunc);
-
-})();
+  
+});

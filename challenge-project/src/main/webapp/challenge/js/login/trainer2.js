@@ -1,4 +1,4 @@
- $(function() {
+$(function() {
                 $("#signupForm").validate({
                     rules : {
                     	fName : "required",
@@ -24,6 +24,15 @@
                             required : true,
                             email : true
                         },
+                        fTrnint : "required",
+                        
+                        fTrancar : "required",
+                        
+                        fTrntime : "required",
+                        
+                        fTrnacnt : "required",
+                        
+                        fTrnbank : "required",
                         
                         agree : "required"
                     },
@@ -51,6 +60,16 @@
                             required : "이메일을 입력해 주세요.",
                             email : "이메일이 형식에 맞지 않습니다."
                         },
+                        
+                        fTrnint : "자기소개는 필수 입력 항목 입니다.",
+                        
+                        fTrancar : "경력사항은 필수 입력 항목 입니다.",
+                        
+                        fTrntime : "상담시간은 필수 입력 항목 입니다.",
+                        
+                        fTrnacnt : "계좌번호는 필수 입력 항목 입니다.",
+                        
+                        fTrnbank : "은행명은 필수 입력 항목 입니다.",
                        
                        
                         agree : "약관 동의에 체크해 주세요."
@@ -58,39 +77,28 @@
                     
                 });
             });
- 
- $("#addBtn").click(() => {
 
-	    $.post(serverRoot + "/json/member/add", {
-	      name: $("#fName").val(),
-	      sex: $('input[name]:checked').val(),
-	      email: $("#fId").val(),
-//	      + '@' + $("#fid2 option:selected").val(),
-	      password: $("#pwd").val(),	      
-	      userPhone: $("#fPhone1").val() + '-' + $("#fPhone2").val() + '-' + $("#fPhone3").val(),
-	      userPath: $("#fPath").val(),
-	      userType: '1'
-	    })
-	    /*.done(() => {
-	        postUserValidatingEmail();
-	    	alert("회원 등록 완료!");
-	        location.href = "../login/login.html";
-	    })
-	    .fail(() => {
-	    	alert("회원 등록 실패!")
-	    });*/
-	});
- 
-/*function postUserValidatingEmail() {
-	$.post("http://localhost:3000/index", {
-	      email: $("#fId").val()
-	    })
-	 .done(() => {
-		 alert("회원 등록 완료!");
-	        location.href = "../login/login.html";
-	 });
-}*/
- 
 
- 
- 
+$("#addBtn").click(() => {	
+	
+    $.post(serverRoot + "/json/trainer/add", {
+      name: $("#fName").val(),
+      sex: $('input[name]:checked').val(),
+      email: $("#fId").val() + '@' + $("#fid2 option:selected").val(),
+      password: $("#pwd").val(),
+      userPhone: $("#fPhone1").val() + '-' + $("#fPhone2").val() + '-' + $("#fPhone3").val(),
+      userPath: $("#fPath").val(),
+      userType: '2',
+      
+      introduce: $("#fTrnint").val(),
+      career: $("#fTrancar").val(),
+      time: $("#fTrntime").val(),
+      account: $("#fTrnacnt").val(),
+      bank: $("#fTrnbank").val(),
+      coin: 0
+    })
+    .done(() => {
+    	alert("회원 등록 완료!");
+        location.href = "../login/login.html";
+    })
+});
