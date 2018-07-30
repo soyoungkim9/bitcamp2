@@ -3,7 +3,6 @@ body:not(#footer) {
 }
 
 .container {
-  /*   border: 1px solid blue; */
   box-sizing: border-box;
   position: relative;
   width: 1000px;
@@ -39,20 +38,22 @@ body:not(#footer) {
   border-radius: 10px;
 }
 
+
 .sh-tl-reply-btn {
-	  /* 빨간색 버튼 */
-  width: 67px;
-    background-color: #DD1F26;
-    border: none;
-    color: #fff;
-    padding: 5px 0;
-    float: right;
-    margin: 20px;
-    text-decoration: none;
-    font-size: 12px;
-    margin: 3px;
-    cursor: pointer;
-    border-radius: 10px;
+      /* 빨간색 버튼 */
+      width: 67px;
+      background-color: #DD1F26;
+      border: none;
+      color: #fff;
+      padding: 5px 0;
+      float: right;
+      margin: 20px;
+      text-decoration: none;
+      font-size: 12px;
+      margin: 3px;
+      cursor: pointer;
+      border-radius: 10px;
+          margin-bottom: 8px;
 }
 }
 
@@ -278,7 +279,6 @@ body:not(#footer) {
 /* 카드 공통 CSS 시작 */
 
 .sh-tl-card {
-  /*   border: 1px solid blue; */
   border: 1px solid rgba(0, 0, 0, 0.1);
   border-radius: 2px;
   /* overflow: hidden; */
@@ -287,11 +287,11 @@ body:not(#footer) {
 }
 
 .sh-tl-card-primary, .sh-tl-card-reply-write, .sh-tl-card-reply-load {
-  padding: 7px;
+  padding: 6px 6px 0px 6px;
 }
 
 .sh-tl-card-reply-load {
-	border: 1px solid rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 
@@ -345,9 +345,11 @@ body:not(#footer) {
 /* 글작성 히든 CSS 시작 */
 
 .sh-tl-review-write {
-  width: 94%;
-  position: relative;
-  display: inline-block;
+ width: 91%;
+ /* float: right; */
+ position: relative;
+ overflow: hidden;
+ display: inline-block;
 }
 
 .sh_tl_reply_textarea{
@@ -359,10 +361,11 @@ body:not(#footer) {
 }
 
 .sh-tl-reply-content {
-	  margin-left: 15px !important;
+      margin-left: 15px !important;
   border: 1px solid gray !important;
   border-radius: 18px;
   padding-left: 17px !important;
+  padding-right: 17px;
   padding-top: 10px;
   display:inline-block;
 }
@@ -383,7 +386,8 @@ textarea:focus {
   letter-spacing: normal;
   resize: none;
   border: none;
-  width: 72%;
+  display: inline-block;
+  width: 77%;
   overflow-y: hidden;
   margin-left: 72px;
   padding-right: -11px;
@@ -391,13 +395,12 @@ textarea:focus {
 }
 
 .sh-tl-review-content {
-	  font-family: "NanumSquareRound";
+      font-family: "NanumSquareRound";
   font-size: 16px;
   font-weight: 500;
   letter-spacing: normal;
   resize: none;
   border: none;
-  width: 72%;
   overflow-y: hidden;
   margin-left: 72px;
   padding-right: -11px;
@@ -433,7 +436,7 @@ textarea:focus {
 }
 
 .sh-tl-post-date {
-	    margin-bottom: 0px;
+        margin-bottom: 0px;
     margin-left: 13px;
     margin-top: 0px;
     display: inline-block;
@@ -551,6 +554,7 @@ textarea:focus {
 .sh-tl-reply-user {
   position: relative;
   left: 1%;
+  /* display:inline-block; */
 }
 
 .sh-tl-reply-write{
@@ -568,8 +572,8 @@ textarea:focus {
 }
 
 .sh-tl-user-img {
-	border-radius:50%; 
-	width:48px;
+    border-radius:50%; 
+    width:48px;
 }
 
 [contenteditable=true]:empty:before {
@@ -621,7 +625,7 @@ div[contenteditable=true] {
 }
 
 .sh-tl-img-upload-lb {
-	      position: relative;
+          position: relative;
     margin-right: 10px;
     cursor: pointer;
 }
@@ -635,7 +639,7 @@ div[contenteditable=true] {
 .sh-tl-img-upload {
   display: inline-block;
   position: relative;
-  float: right;
+  /* float: right; */
   font-size: 26px;
 }
 
@@ -649,15 +653,78 @@ div[contenteditable=true] {
 }
 
 .sh-tl-review-load {
-	width: 86%;
+    width: 86%;
+    position: relative;
+    display: inline-block;
+}
+
+.sh-cmt-name {
+    color:blue;
+}
+
+.sh-cmt-date {
+ font-size: 9px;
+    position: relative;
+    left: 68px;
+    display: block;
+        bottom: 8px;
+}
+
+/*
+.sh-tl-cmt-hover:hover + .sh-tl-cmt-edit {
+	display:inline-block;
+}
+
+.sh-tl-cmt-hover:hover + .sh-tl-cmt-delete {
+    display:inline-block;
+}
+*/
+
+.sh-tl-cmt-edit {
+	display: none;
 	position: relative;
-	display: inline-block;
+    top: -12px;
+    font-size: 12px;
+    font-weight: 100;
+    color: #666666;
+    margin-left: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+.sh-tl-cmt-delete {
+	display: none;
+	position: relative;
+    top: -12px;
+    font-size: 12px;
+    font-weight: 100;
+    color: #666666;
+    cursor: pointer;
+}
+
+.sh-tl-cmt-edit-btn {
+    width: 67px;
+    background-color: #DD1F26;
+    border: none;
+    color: #fff;
+    padding: 5px 0;
+    float: right;
+    position: relative;
+    margin: 20px;
+    display: inline-block;
+    text-decoration: none;
+    font-size: 12px;
+    margin: 3px;
+    cursor: pointer;
+    right: 29px;
+    top: 4px;
+    border-radius: 10px;
+}
+
+.sh-cmt-content {
+    margin-left: 2px;
 }
 /* 대댓글 CSS 종료 */
-
-/* 무한스크롤 CSS 시작 */
-
-/* 무한스크롤 CSS 종료 */
 
 /* 타임라인 끝*/
 

@@ -3,6 +3,10 @@ var addedPostCount = 0;
 $(document).ready(function() {
 	// 글쓰기 모달에 글쓴이 이름 출력
 	$(".tl-user-name-json").html(obj.name);
+	
+	// 강의이름 출력
+	$(".sh-Class-Title").html()
+	
 	// 스크롤 위치 맨 위로 고정
 	$("body").scrollTop(0);
 	
@@ -11,10 +15,27 @@ $(document).ready(function() {
 
 	$(window).on('scroll',function () {
 		infiniteScroll();
-		  console.log("레디 스크롤 펑션 아: " + addedPostCount);  
-//		console.log("documentHeight : " + $(document).height() + ", scrollHeight" + $(window).scrollTop() + $(window).height())	
 	});
+	
+	/*
+	$(document).on("hover", '.sh-tl-cmt-hover',function(e) {
+		console.log("yo ~")
+		console.log($('.sh-tl-cmt-hover'));
+		  if (e.type == "mouseenter") {
+		        console.log("one");   
+		        $(this).attr("style","display:inline-block;");
+		    }
+		    else { // mouseleave
+		        console.log("two");   
+		    }
+	});
+	*/
+	
+	// 댓글 mouseover 이벤트
 
+
+//	$('.sh-tl-review-content').hover(function(event){}, function(event){});
+	
 	function infiniteScroll() {
 		var documentHeight = $(document).height();
 		var scrollHeight = $(window).scrollTop() + $(window).height();
@@ -24,12 +45,12 @@ $(document).ready(function() {
 			pageCount++;
 			setTimeout(loadCards(pageCount), 10000); //=====================> 얘가 문제... 불러오는 동안 여러번 요청(불러오는 동안 스크롤 길이가 안맞음)
 			console.log("무한스크롤 다음 카드 불러옴! pageCount 값 : " + pageCount);
-//			console.log("documentHeight : " + documentHeight + ", scrollHeight" + scrollHeight)			
 		}
 	}
 
 
 });
+
 
 // 타임라인 카드 불러오기
 function loadCards(pageCount) {

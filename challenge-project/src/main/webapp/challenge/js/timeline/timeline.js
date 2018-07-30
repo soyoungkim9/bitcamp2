@@ -36,11 +36,16 @@ function shClassFunction() {
 }
 
 /* 타임라인 글 작성 textarea auto-growing / self-resizing */
-
 function resizeFunction() {
-  $('.sh-tl-reply-content').css('height', 'auto');
-  $('.sh-tl-reply-content').height(this.scrollHeight);
+	$('.sh-tl-reply-content').css('height', 'auto');
+	$('.sh-tl-reply-content').height(this.scrollHeight);
 }
+
+/* 댓글 auto-growing / self-resizing */
+function resize(obj) {
+	  obj.style.height = "1px";
+	  obj.style.height = (obj.scrollHeight)+"px";
+	}
 
 
 /* modal event */
@@ -130,6 +135,8 @@ function postBtnClicked(picData) {
 	    }
 	}).done(function() { 
 		  modal.style.display = "none";
+		  $('#sh_tl_post_write').val('');
+		  $('#images-div').children().remove();
 		  reloadCard(1)
 			})
 };
@@ -158,11 +165,9 @@ function reloadCard(pageCount) {
 
 
 // 댓글 달기
+var cmtNo;
 function cmtFunction(no) {
-  console.log("댓글 버튼 눌렸습니다.")
-  console.log(no); // 카드 번호 가져오기
-  console.log($('#' + no).val());
-  
+  cmtNo = no;
   $.ajax({
     type: 'POST',
     url: '../../../json/comment/add',
@@ -173,13 +178,13 @@ function cmtFunction(no) {
       "progMemb.users.userNo" : obj.userNo
     }
   }).done(function() {
-    console.log("댓글 입력됨");
-    location.href = "timeline.html";
+    loadComments(cmtNo);
+    $('.sh-tl-cmt' + cmtNo).val('');
+    $('.sh-tl-cmt' + cmtNo).attr("style","");
+//    location.href = "timeline.html";
   });
 
 }
-
-
 
 /* 좋아요 카운트 */
 function TlAddClick(postNo) {
@@ -209,3 +214,65 @@ function TlAddClick(postNo) {
 			});
 		})
 }
+
+// 댓글 mouseover 이벤트
+function showCmtMenu(e) {
+	$(e).children('.sh-tl-cmt-edit').attr("style","display:inline-block;");
+	$(e).children('.sh-tl-cmt-delete').attr("style","display:inline-block;");
+}
+
+function hideCmtMenu(e) {
+	$(e).children('.sh-tl-cmt-edit').attr("style","display:none;");
+	$(e).children('.sh-tl-cmt-delete').attr("style","display:none;");
+}
+
+function cmtEdit(e) {
+	$(e).parent().attr("onmouseover","");
+	$(e).parent().attr("onmouseout","");
+	
+	$(e).one().siblings('.sh-tl-cmt-delete').attr("style","display:none;");
+	$(e).one().attr("style","display:none;");
+	
+	$(e).parent().append('<textarea class="sh-tl-cmt' +$(e).attr("name") + ' sh-tl-review-title  sh_tl_reply_textarea" onkeydown="resize(this)" onkeyup="resize(this)">' + $(e).siblings('.sh-tl-review-content').children().last().html() + '</textarea><button onclick=cmtEditClick('+ $(e).attr("name") + ') class="sh-tl-cmt-edit-btn" type="submit">수정</button>');
+	$(e).siblings('.sh-tl-review-content').remove();
+	
+}
+
+var cmtEditNo;
+function cmtEditClick(no) {
+	cmtEditNo = no;
+	$.post({
+		url: "../../../json/comment/update",
+		data: {
+			no: no,
+			content: $('.sh-tl-cmt' + no).val()
+		} 
+	}).done(function() {
+		$.getJSON(serverRoot + "/json/comment/" + cmtEditNo).done(function(data) {
+			$('.sh-tl-cmt' + cmtEditNo).parent().first().prepend(' <div readonly class="sh-tl-review-content  sh-tl-reply-content"><span class="sh-cmt-name" >' + data.progMemb.users.name + '</span><span>' + data.content + '</span></div>');
+			$('.sh-tl-cmt' + cmtEditNo).parent().attr("onmouseover","showCmtMenu(this)");
+			$('.sh-tl-cmt' + cmtEditNo).parent().attr("onmouseout","hideCmtMenu(this)");
+			
+			
+			$('.sh-tl-cmt-edit-btn').remove();
+			$('.sh-tl-cmt' + cmtEditNo).remove();
+		})
+	});
+}
+
+var cmtNo;
+function cmtDelete(e) {
+	console.log("cmtDelete 이벤트 발생! 번호 : " + $(e).attr("name") )
+	cmtNo = $(e).attr("name");
+	$.post({
+		url: serverRoot + "/json/comment/delete",
+		data: {
+			no: $(e).attr("name")
+		}
+	}).done(function() {
+		$('.sh-tl-cmt-section' + cmtNo).remove();
+	})
+}
+
+
+

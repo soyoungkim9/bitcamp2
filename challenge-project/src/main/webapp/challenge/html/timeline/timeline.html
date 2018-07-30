@@ -40,7 +40,7 @@
           <div id="sh-Class-Daily-item">
             <div class="sh-Class-Contents">
 
-              <h1>Day-5 하비탈출</h1>
+              <h1 id="sh-Class-Title">Day-5 하비탈출</h1>
               <span id="sh-class-dots"></span>
               <span id="sh-class-more">
                   1. 물 500ml 마시고 시작합니다<br>
@@ -169,7 +169,7 @@
     <div class="sh-tl-reply-user">
       <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
       <div class="sh-tl-review-write">
-        <textarea id="{{no}}" class="sh-tl-review-title  sh_tl_reply_textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+        <textarea id="{{no}}" class="sh-tl-cmt{{no}} sh-tl-review-title  sh_tl_reply_textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
         <div class="sh-tl-img-upload"><button onclick="cmtFunction({{no}})" class="sh-tl-reply-btn" type="submit">게시</button> </div>
       </div>
     </div>
@@ -189,13 +189,17 @@
 <!-- 대댓글 Handlebars -->
 <script id="cm-template" type="text/x-handlebars-template">
 {{#each list}}
-  <section class="sh-tl-card-reply-load">
+  <section class="sh-tl-cmt-section{{no}} sh-tl-card-reply-load">
     <div class="sh-tl-reply-user">
       <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
-      <div class="sh-tl-review-write">
-        <!-- <span class="sh-tl-review-content sh-tl-reply-content" onkeydown="resize(this)" onkeyup="resize(this)"></span> -->
-        <textarea readonly class="sh-tl-review-content  sh-tl-reply-content">{{progMemb.users.name}}  글번호 : {{timelineNo}}, 내용: {{content}}, 날짜 : {{createdDate}}</textarea>
+      <div onmouseover=showCmtMenu(this) onmouseout=hideCmtMenu(this) class="sh-tl-review-write">
+        <div readonly class="sh-tl-review-content  sh-tl-reply-content">
+            <span class="sh-cmt-name" >{{progMemb.users.name}}</span><span class="sh-cmt-content"> {{content}}</span>
+        </div>
+        <div onclick=cmtEdit(this) name={{no}} class="sh-tl-cmt-edit" ><i class="fas fa-pen">수정</i></div>
+        <div onclick=cmtDelete(this) name={{no}} class="sh-tl-cmt-delete"><i class="fas fa-trash-alt">삭제</i></div>
       </div>
+      <span class="sh-cmt-date">{{createdDate}}</span>      
   </section>
 {{/each}}
 </script>
