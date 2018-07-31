@@ -35,9 +35,7 @@
 	    <result column="edt" property="endDate"/>
 	    <result column="pgoal" property="proGoal"/>
 	    <result column="pgoal_n" property="proGoalNum"/>
-	<association property="trainerNo" javaType="Trainer">
-        <id column="trnno" property="userNo"/>
-    </association>
+        <result column="trnno" property="trainerNo"/>
     </association>
     <association property="user" javaType="User">
         <id column="uno" property="userNo"/>

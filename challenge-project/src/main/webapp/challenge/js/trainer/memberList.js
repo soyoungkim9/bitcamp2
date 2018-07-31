@@ -12,8 +12,8 @@ $(document).ready(function() {
 	    success(data) {
 			$('#programList').html(templateFn({list:data}));
 			trainerNum = $(".tabSelect").find("a").attr("data-trnNo");
-			
-			// 운동일지 전체리스트 보여주기(default page)
+			console.log("a뭥밍"+ trainerNum);
+			// 담당 트레이너 회원 전체리스트 보여주기(default page)
 			$.ajax(serverRoot + "/json/programMember/list/" + trainerNum, {
 				dataType: "json",	
 			    success(data) {
