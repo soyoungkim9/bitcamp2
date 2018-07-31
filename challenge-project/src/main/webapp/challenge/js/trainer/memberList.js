@@ -57,6 +57,7 @@ $(document.body).on('click','.tabSelect', function(event){
 		});
 		return;
 	}
+
 	// 항목별로 프로그램 리스트 뽑아오기
 	$.ajax(serverRoot + "/json/programMember/list/" + programNum + "/" + trainerNum, {
 		dataType: "json",	
@@ -65,10 +66,9 @@ $(document.body).on('click','.tabSelect', function(event){
 				 list:data}));
 	    },
 	    error() {
-	        window.alert("report.js programTab AllList 실행 오류!");
+	        window.alert("report.js programTab 항목별 AllList 실행 오류!");
 	    }	
 	});
-	
 });
 
 // 회원정보 보기 
@@ -79,19 +79,18 @@ $(document.body).on('click','.trSelect', function(event){
 	event.preventDefault();
 
 	var userNo = $(this).attr("data-uno");
-	console.log("된 것이냐?" + trainerNum, programNum);
+	programNum = $(this).attr("data-pno");
 	/* 전체는 못보고 탭에 있는 애들만 선택해서 볼 수 있다.*/
 	$.ajax(serverRoot + "/json/programMember/" + userNo + "/" + programNum, {
 		dataType: "json",	
 	    success(data) {
-			console.log(data);
 			 $('.modal-body').html(viewtemplateFn({
-				 usersName: data[0].users.name,
-				 usersSex: data[0].users.sex,
-				 usersphon: data[0].users.userPhone,
-				 name: data[0].name, 
-				 startDate: data[0].startDate,
-				 endDate: data[0].endDate}));
+				 usersName: data[0].user.name,
+				 usersSex: data[0].user.sex,
+				 usersphon: data[0].user.userPhone,
+				 name: data[0].program.name, 
+				 startDate: data[0].program.startDate,
+				 endDate: data[0].program.endDate}));
 			 $('#myModal').css("display", "block");
 	    },
 	    error() {

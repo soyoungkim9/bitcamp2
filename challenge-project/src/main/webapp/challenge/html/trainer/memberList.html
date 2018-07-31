@@ -50,10 +50,10 @@
           <table class="demo-table">
             <thead>
               <tr>
+                <th>프로그램명</th>
                 <th>이메일</th>
                 <th>회원이름</th>
                 <th>성별</th>
-                <th>프로그램명</th>
               </tr>
             </thead>
             <tbody id="memberList"></tbody>
@@ -102,11 +102,11 @@
 </script>
 <script id="member-template" type="text/x-handlebars-template">
 {{#each list}}
-<tr class="trSelect" data-uno="{{user.userNo}}">
+<tr class="trSelect" data-uno="{{user.userNo}}" data-pno="{{program.no}}">
+	<td><a>{{program.name}}</a></td>
 	<td><a>{{user.email}}</a></td>
 	<td><a>{{user.name}}</a></td>
 	<td><a>{{user.sex}}</a></td>
-	<td><a>{{program.name}}</a></td>
 </tr>
 {{/each}}
 </script>
