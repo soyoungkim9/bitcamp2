@@ -3,7 +3,7 @@ if (location.href.split("?").length > 1) {
   var no = location.href.split("?")[1].split("=")[1];
 
   $.getJSON(serverRoot + "/json/program/" + no, function(data) {
-    /*$(fNo).val(data.no);
+    /*$(fNo).append(data.no);
     $(fpostNo).val(data.postNo);
     $(faddDetail).val(data.addDetail);*/
     $(faddress).append(data.address);
@@ -50,6 +50,11 @@ if (location.href.split("?").length > 1) {
       }
     }
     $(Dday).append(interval);
+    
+    
+    $("#payment").click(() => {
+      location.href = "../payment/payment.html?no="+data.no
+    });
   })
 }
 
@@ -126,5 +131,8 @@ function plan(proDay, proTime) {
   }
   $(day).html(templateF2(data));
 }
+
+
+
 
 
