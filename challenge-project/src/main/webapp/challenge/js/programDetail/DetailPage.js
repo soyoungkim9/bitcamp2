@@ -135,7 +135,4 @@ function plan(proDay, proTime) {
 
 
 
-<<<<<<< HEAD
 
-=======
->>>>>>> branch 'master' of https://github.com/pparksuuu/bitcamp2.git
