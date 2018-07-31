@@ -33,7 +33,7 @@ public class Program implements Serializable {
     private String proResult; // 진행상태내용
 
     private int challengeNo; // 챌린지번호
-    private Trainer trainerNo; // 트레이너번호
+    private int trainerNo; // 트레이너번호
 
     private List<ProgramMedia> medias; // 프로그램 미디어
 
@@ -205,14 +205,6 @@ public class Program implements Serializable {
         this.challengeNo = challengeNo;
     }
 
-    public Trainer getTrainerNo() {
-        return trainerNo;
-    }
-
-    public void setTrainerNo(Trainer trainerNo) {
-        this.trainerNo = trainerNo;
-    }
-
     public List<ProgramMedia> getMedias() {
         return medias;
     }
@@ -220,5 +212,15 @@ public class Program implements Serializable {
     public void setMedias(List<ProgramMedia> medias) {
         this.medias = medias;
     }
+
+    public int getTrainerNo() {
+        return trainerNo;
+    }
+
+    public void setTrainerNo(int trainerNo) {
+        this.trainerNo = trainerNo;
+    }
+
+    
 
 }
