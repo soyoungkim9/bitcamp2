@@ -61,7 +61,7 @@
   </select>
   
   <select id="selectListWithProgram" parameterType="map" resultMap="ProgramMemberMap">
-	SELECT p.pno, u.uno, u.mail, u.uname, u.sex, p.pname 
+	SELECT u.uno, u.mail, u.uname, u.sex, p.pname 
 	FROM PMEMB pm 
 		INNER JOIN USER u 
 	    ON pm.uno = u.uno 
@@ -75,7 +75,7 @@
        값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
   -->
   <select id="selectOne" parameterType="map" resultMap="ProgramMemberMap">
-	SELECT u.uno, u.utype, u.uname, u.sex, p.pno, p.pname, p.sdt, p.edt, p.pgoal
+	SELECT u.uno, u.utype, u.uname, u.uphon, u.sex, p.pno, p.pname, p.sdt, p.edt, p.pgoal
 	FROM PMEMB pm
 		INNER JOIN USER u
 		ON pm.uno = u.uno
