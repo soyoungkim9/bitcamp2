@@ -50,7 +50,7 @@ public class ProgramMemberController {
         return programMemberService.getWithUserNo(userNo);
     }
     @RequestMapping("add")
-    @ResponseStatus(HttpStatus.CREATED)
+    
      public void add(ProgramMember programMember) throws Exception {
              programMemberService.add(programMember);
      }

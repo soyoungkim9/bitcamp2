@@ -13,6 +13,8 @@
 
   <resultMap type="ProgramMember" id="ProgramMemberMap">
     <id column="pno" property="no"/>
+    <result column="payday" property="paymentDay"/>
+    
     <result column="pname" property="name"/>
     <result column="sdt" property="startDate"/>
     <result column="edt" property="endDate"/>
@@ -120,8 +122,8 @@
   
   <insert id="insert" parameterType="ProgramMember">
         
-    insert into PMEMB(pno, uno, payday)
-    values(#{pno}, #{uno}, now())
+    insert into PMEMB(uno,pno,payday)
+    values(#{uno},#{pno},now())
        
   </insert>
   
