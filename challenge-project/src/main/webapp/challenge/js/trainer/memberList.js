@@ -19,7 +19,6 @@ $(document).ready(function() {
 			    success(data) {
 					 $('#memberList').html(membTemplateFn({
 						 list:data}));
-					 
 			    },
 			    error() {
 			        window.alert("프로그램 등록 후 이용해 주세요!");
@@ -44,7 +43,7 @@ $(document.body).on('click','.tabSelect', function(event){
 	
 	trainerNum = $(".tabSelect").find("a").attr("data-trnNo");
 	programNum = $(this).find("a").attr("data-pno");
-	// 전체 프로그램 리스트 뽑아오기
+	// 전체 프로그램 리스트 뽑아오기(탭 메뉴로 선택했을 시)
 	if(typeof programNum == "undefined") {
 		$.ajax(serverRoot + "/json/programMember/list/" + trainerNum, {
 			dataType: "json",	
@@ -74,8 +73,10 @@ $(document.body).on('click','.tabSelect', function(event){
 });
 
 // 회원정보 보기 ---> console.log로 pno 받아오는지 확인하기!!!!!!
-
-
+$(document.body).on('click','.trSelect', function(event){
+	event.preventDefault();
+	console.log(programNum + "잘 받아오니?");
+});
 
 // 회원정보 보기
 //if (location.href.split("?").length > 1 && location.href.split("&").length > 1) {

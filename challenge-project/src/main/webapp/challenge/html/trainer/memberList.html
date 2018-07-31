@@ -161,15 +161,11 @@
 </script>
 <script id="member-template" type="text/x-handlebars-template">
 {{#each list}}
-<tr data-uno="{{users.userNo}}">
-	<td><a>{{users.email}}
-	</a></td>
-	<td><a>{{users.name}}
-	</a></td>
-	<td><a >{{users.sex}}
-	</a></td>
-	<td><a>{{name}}
-	</a></td>
+<tr class="trSelect" data-uno="{{users.userNo}}">
+	<td><a>{{users.email}}</a></td>
+	<td><a>{{users.name}}</a></td>
+	<td><a>{{users.sex}}</a></td>
+	<td><a data-no="{{no}}">{{name}}</a></td>
 </tr>
 {{/each}}
 </script>
