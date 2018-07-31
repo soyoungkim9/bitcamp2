@@ -93,7 +93,7 @@
 <script id="li-template" type="text/x-handlebars-template">
 {{#each list}}
 	<li class="tabSelect">
-		<a data-pno="{{no}}" data-trnNo="{{trainerNo.userNo}}">{{name}}</a>
+		<a data-pno="{{program.no}}" data-trnNo="{{program.trainerNo}}">{{program.name}}</a>
 	</li>
 {{/each}}
 <li class="tabSelect active">
@@ -102,11 +102,11 @@
 </script>
 <script id="member-template" type="text/x-handlebars-template">
 {{#each list}}
-<tr class="trSelect" data-uno="{{users.userNo}}">
-	<td><a>{{users.email}}</a></td>
-	<td><a>{{users.name}}</a></td>
-	<td><a>{{users.sex}}</a></td>
-	<td><a>{{name}}</a></td>
+<tr class="trSelect" data-uno="{{user.userNo}}">
+	<td><a>{{user.email}}</a></td>
+	<td><a>{{user.name}}</a></td>
+	<td><a>{{user.sex}}</a></td>
+	<td><a>{{program.name}}</a></td>
 </tr>
 {{/each}}
 </script>
