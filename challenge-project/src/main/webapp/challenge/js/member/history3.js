@@ -1,6 +1,5 @@
 ;(function($) {
-
-'use strict';
+	"use strict";
 
   // define variables
   var items = document.querySelectorAll(".sm-timeline > ul > li");
