@@ -311,8 +311,11 @@ body:not(#footer) {
   padding: 0px 59px 20px 21px;
 }
 
-.sh-tl-card-content p {
+
+.sh-tl-card-content-inside {
   margin: 0
+      overflow: hidden;
+    word-wrap: break-word;
 }
 
 .sh-tl-card-header .sh-tl-card-content {
@@ -449,16 +452,34 @@ textarea:focus {
   text-decoration: none;
 }
 
-/*
-.sh-tl-like-count a:visited {
-  color: #DD1F26 !important;
+
+
+
+.sh-tl-post-edit {
+	display: none;
+    /*display: inline-block;*/
+    right: 48px;
+    position: absolute;
+    top: 16px;
+    font-size: 12px;
+    font-weight: 100;
+    color: #666666;
+    margin-left: 8px;
+    margin-right: 8px;
+        cursor: pointer;
 }
 
-.sh-like-clicked *:visited {
-  color: #DD1F26;
-  border-right: 1px solid rgba(0, 0, 0, 0.1);
+.sh-tl-post-delete {
+	display: none;
+    /*display: inline-block;*/
+    position: absolute;
+    right: 11px;
+    top: 16px;
+    font-size: 12px;
+    font-weight: 100;
+    color: #666666;
+    cursor: pointer;
 }
-*/
 
 /* 카드 공통 CSS 종료 */
 
@@ -492,12 +513,12 @@ textarea:focus {
 /* Modal Content/Box */
 
 .sh-tl-modal-content {
-  background-color: #fefefe;
-  margin: 15% 25% auto;
-  padding: 20px;
-  border: 1px solid #888;
-  width: 50%;
-  display:inline-block;
+    background-color: #fefefe;
+    margin: 15% 25.2% auto;
+    padding: 20px;
+    border: 1px solid #888;
+    width: 34.6%;
+    display: inline-block;
   /* Could be more or less, depending on screen size */
 }
 
@@ -670,15 +691,6 @@ div[contenteditable=true] {
         bottom: 8px;
 }
 
-/*
-.sh-tl-cmt-hover:hover + .sh-tl-cmt-edit {
-	display:inline-block;
-}
-
-.sh-tl-cmt-hover:hover + .sh-tl-cmt-delete {
-    display:inline-block;
-}
-*/
 
 .sh-tl-cmt-edit {
 	display: none;

@@ -130,19 +130,21 @@
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each list}}
 <!-- 타임라인 카드 시작 -->
-<div class="sh-tl-card sh-card">
+<div class="sh-tl-card-modal{{no}} sh-tl-card sh-card">
   <!--글쓴이 시작 -->
   <section class="sh-tl-card-primary">
-    <div class="sh-tl-user">
+    <div onmouseover=showPostMenu(this) onmouseout=hidePostMenu(this)  class="sh-tl-user">
       <img class="sh-tl-user-img" src="../../img/timeline/sh_profile.jpg">
       <h1 class="sh-tl-user-name">{{progMemb.users.name}} @글번호{{no}}</h1>
       <h6 class="sh-tl-post-date">{{createdDate}}</h6>
+      <div onclick=postEdit(this) name={{no}} class="sh-tl-post-edit" ><i class="fas fa-pen">수정</i></div>
+      <div onclick=postDelete(this) name={{no}} class="sh-tl-post-delete"><i class="fas fa-trash-alt">삭제</i></div>
     </div>
   </section>
   <!-- 글쓴이 종료-->
   <!-- 글내용 시작-->
   <div class="sh-tl-card-content">
-    <p>{{content}}</p>
+    <p class="sh-tl-card-content-inside">{{content}}</p>
   </div>
   <div id="img{{no}}"></div>
   <!-- 글내용 종료 -->
@@ -203,6 +205,8 @@
   </section>
 {{/each}}
 </script>
+
+
 
   <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>

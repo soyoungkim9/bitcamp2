@@ -48,32 +48,57 @@ function resize(obj) {
 	}
 
 
-/* modal event */
+/* modal event javascript -> jQuery for using timeline edit and delete event*/
 // Get the modal
-var modal = document.getElementById('sh-tl-myModal');
+//var modal = document.getElementById('sh-tl-myModal');
+var modal = $('#sh-tl-myModal');
 
 // Get the button that opens the modal
-var btn = document.getElementById("sh-tl-myModalBtn");
+//var btn = document.getElementById("sh-tl-myModalBtn");
+var btn = $('#sh-tl-myModalBtn');
 
 // Get the <span> element that closes the modal
-var span = document.getElementsByClassName("sh-tl-modal-close")[0];
+//var span = document.getElementsByClassName("sh-tl-modal-close")[0];
+var span = $(".sh-tl-modal-close");
 
 // When the user clicks on the button, open the modal
-btn.onclick = function() {
-  modal.style.display = "block";
-}
+btn.on("click", function() {
+//  modal.style.display = "block";
+  modal.attr("style","display:block;");
+});
 
 // When the user clicks on <span> (x), close the modal
+
+span.on("click", function() {
+//	  modal.style.display = "none";
+	modal.attr("style","display:none;");
+  $('#sh_tl_post_write').val('');
+  $('#images-div').children().remove();
+})
+/*
 span.onclick = function() {
   modal.style.display = "none";
+  $('#sh_tl_post_write').val('');
+  $('#images-div').children().remove();
 }
+*/
 
 // When the user clicks anywhere outside of the modal, close it
 window.onclick = function(event) {
   if (event.target == modal) {
     modal.style.display = "none";
+	  $('#sh_tl_post_write').val('');
+	  $('#images-div').children().remove();
   }
 }
+
+$(document).on("click", function(e) {
+	if (e.target == modal[0]) { // js객체로 만들어서 동등비교
+		modal.attr("style","display:none;");
+		  $('#sh_tl_post_write').val('');
+		  $('#images-div').children().remove();
+	}
+})
 
 //-----------------타임라인 글 게시 (img 있는 경우 / 없는 경우)------------------------------
 //이미지
@@ -134,7 +159,7 @@ function postBtnClicked(picData) {
 	      "progMemb.users.userNo" : obj.userNo
 	    }
 	}).done(function() { 
-		  modal.style.display = "none";
+		modal.attr("style","display:none;");
 		  $('#sh_tl_post_write').val('');
 		  $('#images-div').children().remove();
 		  reloadCard(1)
@@ -215,7 +240,7 @@ function TlAddClick(postNo) {
 		})
 }
 
-// 댓글 mouseover 이벤트
+// 댓글 mouseover 이벤트 - 수정, 삭제
 function showCmtMenu(e) {
 	$(e).children('.sh-tl-cmt-edit').attr("style","display:inline-block;");
 	$(e).children('.sh-tl-cmt-delete').attr("style","display:inline-block;");
@@ -275,4 +300,122 @@ function cmtDelete(e) {
 }
 
 
+
+//카드 mouseover 이벤트 - 수정, 삭제
+function showPostMenu(e) {
+	$(e).children('.sh-tl-post-edit').attr("style","display:inline-block;");
+	$(e).children('.sh-tl-post-delete').attr("style","display:inline-block;");
+}
+
+function hidePostMenu(e) {
+	$(e).children('.sh-tl-post-edit').attr("style","display:none;");
+	$(e).children('.sh-tl-post-delete').attr("style","display:none;");
+}
+
+
+
+
+function postEdit(e) {
+	console.log("postEdit 이벤트 발생")
+	console.log($(e).attr("name"));
+	console.log($('.sh-tl-card-modal' + $(e).attr("name")))
+	
+	console.log("글내용은 : " + $('.sh-tl-card-modal' + $(e).attr("name")).children('.sh-tl-card-content').text());
+	console.log("글사진은 : " + $('.sh-tl-card-modal' + $(e).attr("name")).children('#img' + $(e).attr("name")).children().attr("src"));
+	var content = $('.sh-tl-card-modal' + $(e).attr("name")).children('.sh-tl-card-content-inside').text();
+	var picPath =$('.sh-tl-card-modal' + $(e).attr("name")).children('#img' + $(e).attr("name")).children().attr("src"); 
+//	console.log(modal)
+//	console.log($('#sh_tl_post_write').removeAttr("placeholder").val(content));
+//	console.log(modal.children('#sh_tl_post_write').html(content).attr("placeholder","none"));
+	
+	console.log($('#sh_tl_post_write'))
+	$('#sh_tl_post_write').val(content); // 글 끌어오기
+	
+	if (picPath != null) {
+		$('#images-div').html("<img src=" + picPath + ">");
+	}
+	
+	modal.attr("style", "display:block;");
+	
+	
+	
+	
+	
+//	var modal = $('.sh-tl-card-modal' + $(e).attr("name")).clone();
+	
+	/*
+	// post Modal event
+var modal = document.getElementById('sh-tl-myModal');
+
+//Get the button that opens the modal
+var btn = document.getElementById("sh-tl-myModalBtn");
+
+//Get the <span> element that closes the modal
+var span = document.getElementsByClassName("sh-tl-modal-close")[0];
+
+//When the user clicks on the button, open the modal
+btn.onclick = function() {
+modal.style.display = "block";
+}
+
+//When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+modal.style.display = "none";
+}
+
+//When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+if (event.target == modal) {
+ modal.style.display = "none";
+}
+}
+*/
+	
+//	$(e).parent().attr("onmouseover","");
+//	$(e).parent().attr("onmouseout","");
+	
+//	$(e).one().siblings('.sh-tl-post-delete').attr("style","display:none;");
+//	$(e).one().attr("style","display:none;");
+	
+	
+	//$(e).parent().append('<textarea class="sh-tl-cmt' +$(e).attr("name") + ' sh-tl-review-title  sh_tl_reply_textarea" onkeydown="resize(this)" onkeyup="resize(this)">' + $(e).siblings('.sh-tl-review-content').children().last().html() + '</textarea><button onclick=cmtEditClick('+ $(e).attr("name") + ') class="sh-tl-cmt-edit-btn" type="submit">수정</button>');
+//	$(e).siblings('.sh-tl-review-content').remove();
+	
+}
+
+var postEditNo;
+function postEditClick(no) {
+	cmtEditNo = no;
+	$.post({
+		url: "../../../json/comment/update",
+		data: {
+			no: no,
+			content: $('.sh-tl-cmt' + no).val()
+		} 
+	}).done(function() {
+		$.getJSON(serverRoot + "/json/comment/" + cmtEditNo).done(function(data) {
+			$('.sh-tl-cmt' + cmtEditNo).parent().first().prepend(' <div readonly class="sh-tl-review-content  sh-tl-reply-content"><span class="sh-cmt-name" >' + data.progMemb.users.name + '</span><span>' + data.content + '</span></div>');
+			$('.sh-tl-cmt' + cmtEditNo).parent().attr("onmouseover","showCmtMenu(this)");
+			$('.sh-tl-cmt' + cmtEditNo).parent().attr("onmouseout","hideCmtMenu(this)");
+			
+			
+			$('.sh-tl-cmt-edit-btn').remove();
+			$('.sh-tl-cmt' + cmtEditNo).remove();
+		})
+	});
+}
+
+var postNo;
+function cmtDelete(e) {
+	console.log("cmtDelete 이벤트 발생! 번호 : " + $(e).attr("name") )
+	cmtNo = $(e).attr("name");
+	$.post({
+		url: serverRoot + "/json/comment/delete",
+		data: {
+			no: $(e).attr("name")
+		}
+	}).done(function() {
+		$('.sh-tl-cmt-section' + cmtNo).remove();
+	})
+}
 
