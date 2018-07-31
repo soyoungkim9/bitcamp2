@@ -23,15 +23,8 @@ public class ProgramMember implements Serializable {
     private User user;
     private Program program;
     private Diary diarys;
-<<<<<<< HEAD
-   
-    
-    public int getUserType() {
-        return userType;
-=======
     public int getProgramNo() {
         return programNo;
->>>>>>> branch 'master' of https://github.com/pparksuuu/bitcamp2.git
     }
     public void setProgramNo(int programNo) {
         this.programNo = programNo;
@@ -66,8 +59,6 @@ public class ProgramMember implements Serializable {
     public void setReviewDate(Date reviewDate) {
         this.reviewDate = reviewDate;
     }
-<<<<<<< HEAD
-=======
     public int getUserType() {
         return userType;
     }
@@ -93,6 +84,5 @@ public class ProgramMember implements Serializable {
         this.diarys = diarys;
     }
     
->>>>>>> branch 'master' of https://github.com/pparksuuu/bitcamp2.git
     
 }
