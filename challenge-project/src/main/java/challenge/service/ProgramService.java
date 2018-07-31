@@ -4,6 +4,7 @@ package challenge.service;
 import java.util.List;
 
 import challenge.domain.Program;
+import challenge.domain.ProgramMember;
 
 public interface ProgramService {
     // 서비스 컴포넌트에서 메서드명을 지을 때는 
@@ -17,6 +18,7 @@ public interface ProgramService {
     int update(Program program);
     int delete(int no);
     List<Program> mainList();
+    
     //boolean isMember(String programName, String memberId);
     //int addMember(String programName, String memberId);
     //int deleteMember(String programName, String memberId);

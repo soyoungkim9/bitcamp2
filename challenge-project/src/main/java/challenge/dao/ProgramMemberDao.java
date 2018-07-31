@@ -12,7 +12,7 @@ public interface ProgramMemberDao {
     List<ProgramMember> selectListWithProgram(int pno, int trnNo); // 프로그램에 속한 회원 목록 뽑기
     List<ProgramMember> selectOne(int pno, int userNo); // 한명만 선택해서 보기
     Member selectListWithUno(int userNo); // 유저가 듣는 프로그램 모든 정보 받아오기
-  
+    int insert(ProgramMember programMember);
 }
 
 

@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import challenge.dao.ProgramDao;
 import challenge.dao.ProgramMediaDao;
 import challenge.domain.Program;
+import challenge.domain.ProgramMember;
 import challenge.service.ProgramService;
 
 
@@ -82,6 +83,7 @@ public class ProgramServiceImpl implements ProgramService {
     public Program get(int no) {
         return programDao.selectOne(no);
     }
+
 
     /*@Override
     public boolean isMember(String programName, String memberId) {
