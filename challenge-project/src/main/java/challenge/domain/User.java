@@ -1,6 +1,7 @@
 package challenge.domain;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class User implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -13,7 +14,15 @@ public class User implements Serializable {
     private String userPath;
     private String userPhone;
     private int userType;
+    private List<Program> programs;
     
+    
+    public List<Program> getPrograms() {
+        return programs;
+    }
+    public void setPrograms(List<Program> programs) {
+        this.programs = programs;
+    }
     public int getUserNo() {
         return userNo;
     }
