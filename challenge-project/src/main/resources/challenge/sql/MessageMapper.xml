@@ -41,7 +41,7 @@
   <select id="selectList" 
           resultMap="MessageMap" 
           parameterType="map">
-   select msgno, mstitl, u.utype, mscont, uname, msdate
+   select msgno, mstitl, u.utype, mscont, uname, msdate, t.trnno, ms.uno
    from USER u, TRN t, MSG ms, MEMB m
    where u.uno = t.trnno 
    AND m.uno = ms.uno
@@ -53,14 +53,14 @@
   <insert id="insert" parameterType="Message"
           useGeneratedKeys="true" keyColumn="msgno" keyProperty="msgno">
     insert into MSG(msgno, mstitl, msdir, mscont, msdate, trnno, uno) 
-    values(#{no}, #{title}, 3, #{content}, now(), 3, 1);
+    values(#{no}, #{title}, #{direct}, #{content}, now(), ${trainer.userNo}, ${member.userNo});
   </insert>
   
   <!-- 파라미터의 타입이 primitive type이나 wrapper 클래스, String 클래스인 경우
        값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
   -->
   <select id="selectOne" parameterType="int" resultMap="MessageMap">
-   select msgno, mstitl, mscont, uname, msdate
+   select msgno, mstitl, msdir, mscont, uname, msdate, t.trnno, ms.uno
    from USER u, TRN t, MSG ms, MEMB m
    where u.uno = t.trnno 
    AND m.uno = ms.uno
