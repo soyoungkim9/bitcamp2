@@ -13,6 +13,7 @@ public class ProgramMember extends Program implements Serializable {
     private Date paymentDay; // 결제일
     private double grade; // 평점
     private String review; // 리뷰
+    @JsonFormat(pattern="yyyy-MM-dd", timezone = "Asia/Seoul")
     private Date reviewDate; // 리뷰일자
     private int userType; // 회원유형
     

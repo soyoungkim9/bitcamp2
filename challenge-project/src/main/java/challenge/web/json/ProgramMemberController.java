@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import challenge.domain.Member;
 import challenge.domain.ProgramMember;
 import challenge.service.ProgramMemberService;
 
@@ -43,7 +44,7 @@ public class ProgramMemberController {
     }
     
     @RequestMapping("{userNo}")
-    public List<ProgramMember> listWithUserNo(
+    public Member listWithUserNo(
             @PathVariable int userNo) throws Exception {
         return programMemberService.getWithUserNo(userNo);
     }

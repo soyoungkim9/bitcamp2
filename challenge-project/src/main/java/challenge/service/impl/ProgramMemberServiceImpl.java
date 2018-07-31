@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 
 import challenge.dao.ProgramMemberDao;
+import challenge.domain.Member;
 import challenge.domain.ProgramMember;
 import challenge.service.ProgramMemberService;
 
@@ -42,7 +43,7 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
     }
     
     @Override
-    public List<ProgramMember> getWithUserNo(int userNo) {
+    public Member getWithUserNo(int userNo) {
         return programMemberDao.selectListWithUno(userNo);
     }
 
