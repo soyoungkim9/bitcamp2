@@ -37,11 +37,11 @@ public class ProgramMemberController {
         return programMemberService.list(pno, trnNo);
     }
     
-    @RequestMapping("{no}/{userNo}")
+    @RequestMapping("{pno}/{userNo}")
     public List<ProgramMember> view(
-            @PathVariable int no,
+            @PathVariable int pno,
             @PathVariable int userNo) throws Exception {
-        return programMemberService.get(no, userNo);
+        return programMemberService.get(pno, userNo);
     }
     
     @RequestMapping("{userNo}")
