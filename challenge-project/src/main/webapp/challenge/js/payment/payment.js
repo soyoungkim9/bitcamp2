@@ -1,14 +1,23 @@
 
-var obj;
-var no = 1;
+
+
+
+
+var no = 4;
 $.getJSON(serverRoot + "/json/program/" + no, (data) => {
 	
-
-
+	console.log(data);
 	$('.project-title').append("<b>"+data.name+"</b>");
-	$('.p-price').append(data.price+" 원");
+	function addComma(num) {
+		  var regexp = /\B(?=(\d{3})+(?!\d))/g;
+		   return num.toString().replace(regexp, ',');
+		}
+	var num = data.price;
+	
+	
+	$('.p-price').append(addComma(num)+" 원");
 	$('.p-trainer').append(data.trainerNo.name);
-	$('#program-img').append(data.)
+	
 
 }); 
 
@@ -19,12 +28,20 @@ $.getJSON(serverRoot + "/json/program/" + no, (data) => {
 var Clicks = 1 ;
 function AddClick() {
 	$.getJSON(serverRoot + "/json/program/" + no, (data) => {
-
+	
+	
+		
+		
 		Clicks = Clicks + 1;
 		document.getElementById('p-value').innerHTML = Clicks ;
-
-		$('.p-price').html(data.price * document.getElementById('p-value').innerHTML  +' 원');
-
+		
+		function addComma(num) {
+			  var regexp = /\B(?=(\d{3})+(?!\d))/g;
+			   return num.toString().replace(regexp, ',');
+			}
+		var num = data.price * document.getElementById('p-value').innerHTML;
+//		$('.p-price').html(data.price * document.getElementById('p-value').innerHTML  +' 원');
+		$('.p-price').html(addComma(num)  +' 원');
 
 	}); 
 
@@ -35,8 +52,14 @@ function MinusClick() {
 
 		Clicks = Clicks - 1;
 		document.getElementById('p-value').innerHTML = Clicks ;
-		$('.p-price').html(data.price * document.getElementById('p-value').innerHTML  +' 원');
-
+		function addComma(num) {
+			  var regexp = /\B(?=(\d{3})+(?!\d))/g;
+			   return num.toString().replace(regexp, ',');
+			}
+		var num = data.price * document.getElementById('p-value').innerHTML;
+		$('.p-price').html(addComma(num)  +' 원');
+//		$('.p-price').html(data.price * document.getElementById('p-value').innerHTML  +' 원');
+		
 
 	}); 
 
@@ -89,14 +112,7 @@ function requestPay() {
 						userNo: obj.userNo
 
 					}, 
-				}).done(function() {
-
-					alert('회원님 정보가 수정되었습니다');
-					location.href = "http://localhost:8888/challenge-project/challenge/html/member/member-set.html";
-				});
-
-
-
+		
 			}).done(function(data) {
 				//[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
 				if ( everythings_fine ) {
