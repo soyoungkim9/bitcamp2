@@ -104,13 +104,12 @@ function requestPay() {
 					type: 'POST',
 					async: false,
 					traditional : true,
-					url: serverRoot + '/json/user/updateNotimg' ,
+					url: serverRoot + '/json/programMember/updateNotimg' ,
 					data: {
-
-						email: $('#email').val(),
-						userPhone: $('#phone').val(),
-						userNo: obj.userNo
-
+						
+						pno: ,
+						uno: 
+						
 					}, 
 		
 			}).done(function(data) {

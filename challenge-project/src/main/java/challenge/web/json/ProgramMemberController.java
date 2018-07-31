@@ -2,8 +2,10 @@ package challenge.web.json;
 
 import java.util.List;
 
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import challenge.domain.ProgramMember;
@@ -47,6 +49,11 @@ public class ProgramMemberController {
             @PathVariable int userNo) throws Exception {
         return programMemberService.getWithUserNo(userNo);
     }
+    @RequestMapping("add")
+    @ResponseStatus(HttpStatus.CREATED)
+     public void add(ProgramMember programMember) throws Exception {
+             programMemberService.add(programMember);
+     }
 }
 
 //ver 55 - JSON 데이터를 출력하는 페이지 컨트롤러 생성

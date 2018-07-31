@@ -45,4 +45,10 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
     public List<ProgramMember> getWithUserNo(int userNo) {
         return programMemberDao.selectListWithUno(userNo);
     }
+
+    @Override
+    public int add(ProgramMember programMember) {
+        programMemberDao.insert(programMember);
+        return programMemberDao.insert(programMember);
+    }
 }

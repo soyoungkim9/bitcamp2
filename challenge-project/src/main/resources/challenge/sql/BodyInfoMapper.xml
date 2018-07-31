@@ -34,7 +34,6 @@
     SELECT u.uno,b.uno,bdate,weight,muscle,fat,bno FROM BINFO b
     INNER JOIN USER u ON u.uno=b.uno
     <!-- limit #{startRowNo}, #{pageSize} -->
-    
   </select>
   
   <!-- <insert id="insert" parameterType="BodyInfo">
