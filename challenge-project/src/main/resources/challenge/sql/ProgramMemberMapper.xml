@@ -24,26 +24,29 @@
   </resultMap>
 
   <resultMap type="ProgramMember" id="ProgramMemberMap">
-    <id column="pno" property="no"/>
+    <id column="pno" property="programNo"/>
+    <id column="uno" property="userNo"/>
     <result column="payday" property="paymentDay"/>
-    <result column="pname" property="name"/>
-    <result column="sdt" property="startDate"/>
-    <result column="edt" property="endDate"/>
-    <result column="pgoal" property="proGoal"/>
-    <result column="pgoal_n" property="proGoalNum"/>
-    <association property="trainerNo" javaType="Trainer">
-        <id column="trnno" property="userNo"/>
+    
+    <association property="program" javaType="Program">
+        <id column="pno" property="no"/>
+        <result column="pname" property="name"/>
+	    <result column="sdt" property="startDate"/>
+	    <result column="edt" property="endDate"/>
+	    <result column="pgoal" property="proGoal"/>
+	    <result column="pgoal_n" property="proGoalNum"/>
+	    <result column="trnno" property="trainerNo"/>
     </association>
-    <collection property="diarys" ofType="Diary">
-        <id column="dno" property="dno"/>
-        <result column="dchek" property="dcheck"/>
-    </collection>
-    <collection property="users" ofType="User">
+    <association property="user" javaType="User">
         <id column="uno" property="userNo"/>
         <result column="mail" property="email"/>
         <result column="uname" property="name"/>
         <result column="sex" property="sex"/>
         <result column="uphon" property="userPhone"/>
+    </association>
+    <collection property="diarys" ofType="Diary">
+        <id column="dno" property="dno"/>
+        <result column="dchek" property="dcheck"/>
     </collection>
   </resultMap>
 
@@ -61,7 +64,7 @@
   </select>
   
   <select id="selectList" parameterType="int" resultMap="ProgramMemberMap">
-	SELECT u.uno, pm.uno, u.mail, u.uname, u.sex, p.pname, p.trnno
+	SELECT u.uno, p.pno, pm.uno, u.mail, u.uname, u.sex, p.pname, p.trnno
 	FROM PMEMB pm 
 		INNER JOIN USER u 
 	    ON pm.uno = u.uno 
