@@ -9,7 +9,7 @@ import com.fasterxml.jackson.annotation.JsonFormat;
 public class ProgramMember extends Program implements Serializable {
     private static final long serialVersionUID = 1L;
     
-    @JsonFormat(pattern="yyyy-MM-dd")
+    @JsonFormat(pattern="yyyy-MM-dd", timezone = "Asia/Seoul")
     private Date paymentDay; // 결제일
     private double grade; // 평점
     private String review; // 리뷰
