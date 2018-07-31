@@ -5,7 +5,7 @@ import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-/* 프로그램 참여자 */
+/* 프로그램 참여자 */ 
 public class ProgramMember implements Serializable {
     private static final long serialVersionUID = 1L;
     
