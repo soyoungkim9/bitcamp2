@@ -24,7 +24,7 @@ $.ajax({
     obj = data;
     pmembLoader()
   });
-console.log(obj)
+console.log(obj);
 
 //로그인 여부(obj객체 유무에 따라)에 따른 헤더 Nav 메뉴 변경
 if(obj != null) {
