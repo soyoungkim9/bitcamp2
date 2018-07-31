@@ -35,7 +35,9 @@
 	    <result column="edt" property="endDate"/>
 	    <result column="pgoal" property="proGoal"/>
 	    <result column="pgoal_n" property="proGoalNum"/>
-	    <result column="trnno" property="trainerNo"/>
+	<association property="trainerNo" javaType="Trainer">
+        <id column="trnno" property="userNo"/>
+    </association>
     </association>
     <association property="user" javaType="User">
         <id column="uno" property="userNo"/>
@@ -80,7 +82,7 @@
   </select>
   
   <select id="selectListWithProgram" parameterType="map" resultMap="ProgramMemberMap">
-	SELECT u.uno, u.mail, u.uname, u.sex, p.pname 
+	SELECT u.uno, p.pno, u.mail, u.uname, u.sex, p.pname 
 	FROM PMEMB pm 
 		INNER JOIN USER u 
 	    ON pm.uno = u.uno 

@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Trainer extends User implements Serializable {
     private static final long serialVersionUID = 1L;
-
+    
     private String introduce; // 소개
     private String career; // 경력사항
     private String time; // 상담시간
@@ -14,8 +14,12 @@ public class Trainer extends User implements Serializable {
     private String bank; // 은행명
     private int coin; // 수익금
     
-    
-    
+    public List<Program> getPrograms() {
+        return programs;
+    }
+    public void setPrograms(List<Program> programs) {
+        this.programs = programs;
+    }
     public List<Program> getProgram() {
         return programs;
     }
