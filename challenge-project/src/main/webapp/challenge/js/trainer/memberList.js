@@ -69,7 +69,6 @@ $(document.body).on('click','.tabSelect', function(event){
 	    }	
 	});
 	
-	console.log("얍 " + trainerNum, programNum);
 });
 
 // 회원정보 보기 
@@ -80,6 +79,7 @@ $(document.body).on('click','.trSelect', function(event){
 	event.preventDefault();
 
 	var userNo = $(this).attr("data-uno");
+	console.log("된 것이냐?" + trainerNum, programNum);
 	/* 전체는 못보고 탭에 있는 애들만 선택해서 볼 수 있다.*/
 	$.ajax(serverRoot + "/json/programMember/" + userNo + "/" + programNum, {
 		dataType: "json",	
