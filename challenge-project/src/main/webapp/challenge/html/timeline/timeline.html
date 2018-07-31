@@ -130,19 +130,21 @@
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each list}}
 <!-- 타임라인 카드 시작 -->
-<div class="sh-tl-card sh-card">
+<div class="sh-tl-card-modal{{no}} sh-tl-card sh-card">
   <!--글쓴이 시작 -->
   <section class="sh-tl-card-primary">
-    <div class="sh-tl-user">
+    <div onmouseover=showPostMenu(this) onmouseout=hidePostMenu(this)  class="sh-tl-user">
       <img class="sh-tl-user-img" src="../../img/timeline/sh_profile.jpg">
       <h1 class="sh-tl-user-name">{{progMemb.users.name}} @글번호{{no}}</h1>
       <h6 class="sh-tl-post-date">{{createdDate}}</h6>
+      <div onclick=postEdit(this) name={{no}} class="sh-tl-post-edit" ><i class="fas fa-pen">수정</i></div>
+      <div onclick=postDelete(this) name={{no}} class="sh-tl-post-delete"><i class="fas fa-trash-alt">삭제</i></div>
     </div>
   </section>
   <!-- 글쓴이 종료-->
   <!-- 글내용 시작-->
   <div class="sh-tl-card-content">
-    <p>{{content}}</p>
+    <p class="sh-tl-card-content-inside">{{content}}</p>
   </div>
   <div id="img{{no}}"></div>
   <!-- 글내용 종료 -->
@@ -203,6 +205,30 @@
   </section>
 {{/each}}
 </script>
+
+
+<!-- 타임라인 카드 모달창 Handlebars -->
+<script id="card-template" type="text/x-handlebars-template">
+            <!--The Modal POST 시작-->
+            <div id="sh-tl-myModal" class="sh-tl-modal">
+              <!-- modal content -->
+              <section class="sh-tl-modal-content sh-tl-card-primary sh-tl-card-header sh-tl-review-hidden">
+                <div class="sh-tl-user">
+                  <span class="sh-tl-modal-close">&times;</span>
+                  <i class="sh-tl-user-circle fas fa-user-circle"></i>
+                  <h1 class="tl-user-name-json sh-tl-user-name"></h1>
+                </div>
+                <div class="sh-tl-review-write">
+                  <input id="sh_tl_post_photo" type="hidden"> 
+                  <textarea id="sh_tl_post_write" class="sh-tl-review-title sh-tl-textarea" placeholder="무슨 생각을 하고 계신가요?" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+                </div>
+                <div id='images-div'></div>
+                <button id="sh-tl-post-btn" type="submit" name="button" onclick="postBtnClicked()">게시</button>
+                <div class="sh-tl-post-img-upload"><label id="sh-tl-post-img-btn" for="sh_tl_upload" style="cursor:pointer"><i class="far fa-images"><input id="sh_tl_upload" accept="video/*,  video/x-m4v, video/webm, video/x-ms-wmv, video/x-msvideo, video/3gpp, video/flv, video/x-flv, video/mp4, video/quicktime, video/mpeg, video/ogv, .ts, .mkv, image/*"  name="files" title="사진 또는 동영상 첨부" type="file" style="display:none"></i></label></div>
+              </section>
+            </div><!--The Modal POST 종료-->
+</script>
+
 
   <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>

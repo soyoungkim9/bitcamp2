@@ -17,24 +17,6 @@ $(document).ready(function() {
 		infiniteScroll();
 	});
 	
-	/*
-	$(document).on("hover", '.sh-tl-cmt-hover',function(e) {
-		console.log("yo ~")
-		console.log($('.sh-tl-cmt-hover'));
-		  if (e.type == "mouseenter") {
-		        console.log("one");   
-		        $(this).attr("style","display:inline-block;");
-		    }
-		    else { // mouseleave
-		        console.log("two");   
-		    }
-	});
-	*/
-	
-	// 댓글 mouseover 이벤트
-
-
-//	$('.sh-tl-review-content').hover(function(event){}, function(event){});
 	
 	function infiniteScroll() {
 		var documentHeight = $(document).height();
@@ -70,17 +52,6 @@ function loadCards(pageCount) {
 		}
 	});
 }
-/*
-function loadImgs(picPath) {
-	
-	if (파일이 있으면) {
-		$("#img" + cardNo).append("<img src='../../../files/" + 파일네임 + "_600x600.jpg'>");
-		$("#img" + cardNo).attr("src", "../../../files/" + 파일네임 + "_600x600.jpg");
-	} else {
-		$("#img" + cardNo).show();
-	}
-}
-*/
 
 // 댓글 JSON 리스트 가져와서 댓글 붙이기(handleBars) 
 function loadComments(cardNo) {

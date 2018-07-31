@@ -13,8 +13,6 @@
 
   <resultMap type="ProgramMember" id="ProgramMemberMap">
     <id column="pno" property="no"/>
-    <result column="payday" property="paymentDay"/>
-    
     <result column="pname" property="name"/>
     <result column="sdt" property="startDate"/>
     <result column="edt" property="endDate"/>
@@ -119,12 +117,6 @@
     inner join PROG p on pm.PNO = p.PNO
     where u.uno = #{value};
   </select>
-  
-  <insert id="insert" parameterType="ProgramMember">
-        
-    insert into PMEMB(uno,pno,payday)
-    values(#{uno},#{pno},now())
-       
-  </insert>
+
   
 </mapper>

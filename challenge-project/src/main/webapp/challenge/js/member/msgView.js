@@ -14,7 +14,7 @@ if (location.href.split("?").length > 1) {
 	
 
 	$.getJSON(serverRoot + "/json/message/" + msgno, function(data) {
-		// console.log(data);
+		console.log(data);
 		$("#mName").append(data.trainer.name);
         $("#mDate").append(data.msgDate);
         $("#mTitl").append(data.title);

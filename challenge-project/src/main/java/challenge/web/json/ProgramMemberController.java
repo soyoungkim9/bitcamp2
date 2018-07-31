@@ -47,11 +47,7 @@ public class ProgramMemberController {
             @PathVariable int userNo) throws Exception {
         return programMemberService.getWithUserNo(userNo);
     }
-    @RequestMapping("add")
-    
-     public void add(ProgramMember programMember) throws Exception {
-             programMemberService.add(programMember);
-     }
+   
 }
 
 //ver 55 - JSON 데이터를 출력하는 페이지 컨트롤러 생성
