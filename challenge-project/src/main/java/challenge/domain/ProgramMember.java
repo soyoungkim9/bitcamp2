@@ -19,7 +19,7 @@ public class ProgramMember extends Program implements Serializable {
     
     private User users;
     private Diary diarys;
-    
+   
     
     public int getUserType() {
         return userType;
@@ -63,4 +63,5 @@ public class ProgramMember extends Program implements Serializable {
     public void setReviewDate(Date reviewDate) {
         this.reviewDate = reviewDate;
     }
+    
 }

@@ -1,11 +1,12 @@
 
 
 if (location.href.split("?").length > 1) {
-	
+		
 	var no = location.href.split("?")[1].split("=")[1];
+	
 	$.getJSON(serverRoot + "/json/program/" + no, (data) => {
 
-
+	
 		$('.project-title').append("<b>"+data.name+"</b>");
 		function addComma(num) {
 			var regexp = /\B(?=(\d{3})+(?!\d))/g;
@@ -29,8 +30,6 @@ if (location.href.split("?").length > 1) {
 	function AddClick() {
 		$.getJSON(serverRoot + "/json/program/" + no, (data) => {
 
-
-			console.log(no.split("#")[0]);
 			Clicks = Clicks + 1;
 			document.getElementById('p-value').innerHTML = Clicks ;
 
@@ -91,6 +90,8 @@ function requestPay() {
 		}
 		, function(rsp) {
 			if ( rsp.success ) {
+				console.log(obj.userNo);
+				console.log(no.split("#")[0]);
 				$.ajax({ 
 					type: "POST",  
 					url: serverRoot + '/json/programMember/add', 

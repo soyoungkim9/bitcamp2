@@ -47,5 +47,10 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
         return programMemberDao.selectListWithUno(userNo);
     }
 
+    @Override
+    public int add(ProgramMember programMember) {
+        return programMemberDao.insert(programMember);
+    }
+
    
 }

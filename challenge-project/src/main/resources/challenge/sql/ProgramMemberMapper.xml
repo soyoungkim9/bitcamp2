@@ -53,7 +53,12 @@
        스프링 프레임워크와 연동할 때 DAO객체를 자동생성하고
        그 메서드를 자동생성할 때 사용할 수 있다.
   -->
-  
+  <insert id="insert" parameterType="ProgramMember">
+    insert into PMEMB(pno,uno,payday) 
+    values(#{pno},#{uno},now())
+    
+   </insert>
+   
   <select id="pNameList" parameterType="int" resultMap="ProgramMemberMap">
   	SELECT p.pno, p.trnno, p.pname
 	FROM PROG p 
