@@ -3,22 +3,20 @@
 <head>
 <meta charset='UTF-8'>
 <title>트레이너페이지</title>
-<link rel="stylesheet" href="../../css/trainer/template/sm-trainerPage.css">
-<link rel="stylesheet" href="../../css/trainer/trainerPage-report.css">
+<link rel="stylesheet" href="../../css/member/sm-memberPage.css">
+<link rel="stylesheet" href="../../css/member/trainerReportList.css">
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
 <link rel="stylesheet" href="../../css/pagination.css">
 <!-- datepicker 사용을 위한 import 파일 -->
 <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
-
-
-
 </head>
 <body>
-<div id="subMenu"></div>
+<div id="header"></div><!-- 헤더 종료-->
+<div id="mb-menu"></div><!-- 상단 메뉴바 종료 -->
 <div id="sm-back">
 <div class="sm-container">
-  <h2>프로그램 운동일지</h2>
+  <h2>서비스 관리</h2>
 
 <div class="sm-mypage">
   <div class="sm-profile">
@@ -126,8 +124,8 @@
 <script src="../../js/common.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../../js/footer/footer.js"></script>
-<script src="../../js/trainer/trainer-template.js"></script>  
-
+<script src="../../js/header/header_white.js"></script>
+<script src="../../js/member/mb-menu.js"></script>  
 <script id="program-template" type="text/x-handlebars-template">
 <div class="challengeBox1">
           <h3 id="programName">{{name}}</h3>
@@ -162,9 +160,9 @@
 	{{/if}}
 {{/each}}
 </script>
-<script src="../../js/trainer/reportList.js"></script>
+<!-- <script src="../../js/member/trainerReportList.js"></script> -->
 <!-- datepicker 사용을 위한 import 파일 -->
- <script src="//code.jquery.com/jquery-1.12.4.js"></script>
-  <script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="//code.jquery.com/jquery-1.12.4.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 </body>
 </html>
