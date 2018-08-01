@@ -1,21 +1,8 @@
 //div#header 태그에 /html/header.html 내용을 삽입한다.
 $.get(serverRoot + "/challenge/html/header/header_white.html", (data) => {
 	$("#header").html(data);
-});
-
-function expand() {
-	$('.sh-input').attr("placeholder","");
-	$(".sh-searchBtn").toggleClass("sh-close");
-	$(".sh-input").toggleClass("sh-square");
-	if ($('.sh-searchBtn').hasClass('sh-close')) {
-		$('sh-input').focus();
-		$('.sh-input').attr("placeholder","지역,프로그램명");
-	} else {
-		$('sh-input').blur();
-	}
-}
-$('.sh-searchBtn').on('click', expand);
-
+}).done(function() {
+	
 //USER 객체 정보 저장
 var userInfo
 $.ajax({
@@ -44,3 +31,18 @@ if(userInfo != null) {
 } else {
 	$(".login_menu_after").attr("style", "display:none")
 }
+});
+
+function expand() {
+	$('.sh-input').attr("placeholder","");
+	$(".sh-searchBtn").toggleClass("sh-close");
+	$(".sh-input").toggleClass("sh-square");
+	if ($('.sh-searchBtn').hasClass('sh-close')) {
+		$('sh-input').focus();
+		$('.sh-input').attr("placeholder","지역,프로그램명");
+	} else {
+		$('sh-input').blur();
+	}
+}
+$('.sh-searchBtn').on('click', expand);
+
