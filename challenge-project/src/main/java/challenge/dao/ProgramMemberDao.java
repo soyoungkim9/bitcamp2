@@ -8,6 +8,7 @@ import challenge.domain.ProgramMember;
 // 트레이너 - 회원관리
 public interface ProgramMemberDao {
     List<ProgramMember> pNameList(int trnNo); // 프로그램 이름 리스트
+    List<ProgramMember> lectList(int uno); // 회원이 수강중인 프로그램 이름 리스트
     List<ProgramMember> selectList(int trnNo); // 전체 리스트
     List<ProgramMember> selectListWithProgram(int pno, int trnNo); // 프로그램에 속한 회원 목록 뽑기
     List<ProgramMember> selectOne(int pno, int userNo); // 한명만 선택해서 보기

@@ -24,6 +24,11 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
     }
     
     @Override
+    public List<ProgramMember> listWithLect(int uno) {
+        return programMemberDao.lectList(uno);
+    }
+    
+    @Override
     public List<ProgramMember> list(int trnNo) {
 //        HashMap<String,Object> params = new HashMap<>();
 //        params.put("startRowNo", (pageNo - 1) * pageSize);

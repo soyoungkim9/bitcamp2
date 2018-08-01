@@ -11,7 +11,7 @@
 </head>
 <body>
 
-  <div class="sm-top-bar-white" style="z-index: 2;">
+  <div class="sm-top-bar-white" style="z-index: 9999;">
     <div class="sm-container">
       <div id="header"></div><!-- 헤더 종료-->
       <div id="mb-menu"></div><!-- 상단 메뉴바 종료 -->
@@ -73,9 +73,6 @@
         <ul id="planList" class="dayList">
         </ul>
         -->
-        <div class="bottomMenu">
-            <button type="button" id="addPlan">새 글</button>
-        </div>
       </div>
 	  
 	  <div id="myModal" class="modal">
@@ -96,9 +93,6 @@
 				</div>
 		    	<div id="modalViewContent">
 			    	<textarea></textarea>
-		    	</div>
-		    	<div id="updatePlan">
-            		<button type="button" id="updatePlanButton">수정</button>
 		    	</div>
 		    </form>
 		    <!-- 일지 등록 관련 -->
@@ -171,11 +165,14 @@
 {{#each list}}
 	{{#if @last}}
 		<li class="programTab tabSelect active">
-			<a data-no='{{program.no}}' data-last='{{program.no}}' data-sdt='{{program.startDate}}' data-edt='{{program.endDate}}'>
-		{{program.name}}</a></li>
+			<a data-no='{{program.no}}' data-trnNo='{{program.trainerNo}}'
+			data-sdt='{{program.startDate}}' data-edt='{{program.endDate}}'>
+				{{program.name}}</a></li>
 	{{else}}
 		<li class="programTab tabSelect">
-			<a data-no='{{program.no}}' data-sdt='{{program.startDate}}' data-edt='{{program.endDate}}'>{{program.name}}</a></li>
+			<a data-no='{{program.no}}' data-trnNo='{{program.trainerNo}}'
+		data-sdt='{{program.startDate}}' data-edt='{{program.endDate}}'>
+			{{program.name}}</a></li>
 	{{/if}}
 {{/each}}
 </script>
