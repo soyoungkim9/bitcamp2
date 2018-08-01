@@ -112,12 +112,13 @@ $(document.body).on('click', '.editIcon', function(event) {
    $('#addForm').css("display", "none");
    $('#viewForm').css("display", "block");
    $('#updatePlan button').css("display", "block");
-    
+   
+   $('#modalViewTitle input').attr("readonly", true);
+   $('#modalViewContent textarea').attr("readonly", true);
    $.ajax(serverRoot + "/json/plan/" + plno, {
       dataType: "json",
        success(data) {
-         console.log(data[0].planDate);
-         $("#dayFont").html("Day" + data[0].planTurn);
+           $("#dayFont").html("Day" + data[0].planTurn);
            $("#dateFont").html("(" + data[0].planDate + ")");
            $("#modalViewTitle input").val(data[0].planTitl);
            $("#modalViewContent textarea").val(data[0].planContent);
