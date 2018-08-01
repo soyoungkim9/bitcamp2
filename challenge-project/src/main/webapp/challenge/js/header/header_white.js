@@ -3,34 +3,34 @@ var userInfo
 $.get(serverRoot + "/challenge/html/header/header_white.html", (data) => {
 	$("#header").html(data);
 }).done(function() {
-	
-//USER 객체 정보 저장
-$.ajax({
-    method: "GET",
-    dataType: "json",
-    url: serverRoot + "/json/auth/loginUser",
-    async: false
-  })
-  .done(function(data) {
-	  userInfo = data;
-  });
-console.log("============================userInfo 객체=======================================");
-console.log(userInfo);
-console.log("================================================================================");
 
-//로그인 여부(obj객체 유무에 따라)에 따른 헤더 Nav 메뉴 변경
-if(userInfo != null) {
-	$(".login_menu_before").attr("style", "display:none")
-	$("#sh-user-name").html(userInfo.name)
-	$("#logoutBtn").click((e) => {
-		e.preventDefault(); // 클릭했을 때 원래 하던 일이 있는데 그것을 하지 말라!
-		$.get(serverRoot + "/json/auth/logout", () => {
-			location.href = serverRoot + "/challenge/html/login/login.html";
-		}); 
+//	USER 객체 정보 저장
+	$.ajax({
+		method: "GET",
+		dataType: "json",
+		url: serverRoot + "/json/auth/loginUser",
+		async: false
+	})
+	.done(function(data) {
+		userInfo = data;
 	});
-} else {
-	$(".login_menu_after").attr("style", "display:none")
-}
+	console.log("============================userInfo 객체=======================================");
+	console.log(userInfo);
+	console.log("================================================================================");
+
+//	로그인 여부(obj객체 유무에 따라)에 따른 헤더 Nav 메뉴 변경
+	if(userInfo != null) {
+		$(".login_menu_before").attr("style", "display:none")
+		$("#sh-user-name").html(userInfo.name)
+		$("#logoutBtn").click((e) => {
+			e.preventDefault(); // 클릭했을 때 원래 하던 일이 있는데 그것을 하지 말라!
+			$.get(serverRoot + "/json/auth/logout", () => {
+				location.href = serverRoot + "/challenge/html/login/login.html";
+			}); 
+		});
+	} else {
+		$(".login_menu_after").attr("style", "display:none")
+	}
 });
 
 function expand() {

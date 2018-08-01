@@ -33,7 +33,7 @@ $.get(serverRoot + "/challenge/html/header/header_bg_black.html", (data) => {
 	console.log("================================================================================");
 
 	//로그인 여부(obj객체 유무에 따라)에 따른 헤더 Nav 메뉴 변경
-	/*
+	
 	if(userInfo != null) {
 		$(".login_menu_before").attr("style", "display:none")
 		$("#sh-user-name").html(userInfo.name)
@@ -47,7 +47,7 @@ $.get(serverRoot + "/challenge/html/header/header_bg_black.html", (data) => {
 		$(".login_menu_after").attr("style", "display:none")
 	}
 
-	*/
+	
 });
 
 function expand() {
