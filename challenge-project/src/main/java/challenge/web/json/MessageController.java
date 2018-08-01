@@ -37,12 +37,12 @@ public class MessageController {
        messageService.delete(no);
     }
     
-    @RequestMapping("list/{no}")
+    @RequestMapping("list/{userNo}")
     public Object list(
-        @PathVariable int no,
+        @PathVariable int userNo,
         @MatrixVariable(defaultValue="1") int pageNo,
         @MatrixVariable(defaultValue="5") int pageSize) {
-        return messageService.list(no, pageNo, pageSize);
+        return messageService.list(userNo, pageNo, pageSize);
     }
     /*
     @RequestMapping("list/{no}/{page}")
