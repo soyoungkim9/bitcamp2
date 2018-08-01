@@ -5,30 +5,28 @@ var programNum;
 //li-template 트레이너가 관리하는 프로그램 이름 목록
 var liTemplateSrc = $("#li-template").html();
 var templateFn = Handlebars.compile(liTemplateSrc);
-$(document).ready(function() {
-	/* userInfo로 수정할것!! */
-	$.ajax(serverRoot + "/json/programMember/pList/" + userInfo.userNo, {
-		dataType: "json",
-	    success(data) {
-			$('#programList').html(templateFn({list:data}));
-			trainerNum = $(".tabSelect").find("a").attr("data-trnNo");
-			console.log("a뭥밍"+ trainerNum);
-			// 담당 트레이너 회원 전체리스트 보여주기(default page)
-			$.ajax(serverRoot + "/json/programMember/list/" + trainerNum, {
-				dataType: "json",	
-			    success(data) {
-					 $('#memberList').html(membTemplateFn({
-						 list:data}));
-			    },
-			    error() {
-			        window.alert("프로그램 등록 후 이용해 주세요!");
-			    }	
-			});
-		},
-	    error() {
-	        window.alert("memberList.js li-template default list 실행 오류!");
-	    }
-	});
+/* userInfo로 수정할것!! */
+$.ajax(serverRoot + "/json/programMember/pList/" + userInfo.userNo, {
+	dataType: "json",
+    success(data) {
+		$('#programList').html(templateFn({list:data}));
+		trainerNum = $(".tabSelect").find("a").attr("data-trnNo");
+		console.log("a뭥밍"+ trainerNum);
+		// 담당 트레이너 회원 전체리스트 보여주기(default page)
+		$.ajax(serverRoot + "/json/programMember/list/" + trainerNum, {
+			dataType: "json",	
+		    success(data) {
+				 $('#memberList').html(membTemplateFn({
+					 list:data}));
+		    },
+		    error() {
+		        window.alert("프로그램 등록 후 이용해 주세요!");
+		    }	
+		});
+	},
+    error() {
+        window.alert("memberList.js li-template default list 실행 오류!");
+    }
 });
 
 var membTemplateSrc = $("#member-template").html();
