@@ -142,7 +142,7 @@ $("#msgBtn-del").click(function(){
     }else{
         confirm('정말 삭제하시겠습니까?', '삭제확인', function(r) {
             if(r==true) {
-                for(j=0; j < checked; j++) {
+                for(j = 1; j <= checked; j++) {
                     $.get("../../json/message/delete", {"no": no}, () => {
                         location.href = "member-msg.html";
                     });
