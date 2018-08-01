@@ -2,7 +2,7 @@ var userInfo
 //div#header 태그에 /html/header.html 내용을 삽입한다.
 $.ajax({
 	method: "GET",
-	url : serverRoot + "/challenge/html/header/header_white.html",
+	url : serverRoot + "/challenge/html/header/header_black.html",
 	async: false
 }).done(function(data) {
 	$("#header").html(data);
