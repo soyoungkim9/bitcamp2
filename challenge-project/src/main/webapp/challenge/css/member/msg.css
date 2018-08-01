@@ -19,14 +19,3 @@ input[type=checkbox] {
     text-align: left;
 }
 
-h3 a {
-    color:black;
-}
-
-.hr_menu {
-  border: 1px solid gray; width: 150px; float: left;
-}
-
-.hr-body {
-  margin-bottom: 30px;
-}
