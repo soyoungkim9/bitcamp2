@@ -75,7 +75,6 @@ $('#sh_tl_upload').fileupload({
 			}
 			$('#sh-tl-post-btn').attr("disabled", true);
 			$('#sh-tl-post-btn').html("업로드 중...");
-//			data.submit();
 		}, 
 		submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
 			console.log('submit()...');
@@ -101,8 +100,8 @@ function postBtnClicked(picData) {
 		data: {
 			picture: imgName,
 			content: $('#sh_tl_post_write').val(),
-			"progMemb.no" : objPmemb[0].no,
-			"progMemb.users.userNo" : obj.userNo
+			"progMemb.programNo" : userInfo.programs[0].no,
+			"progMemb.user.userNo" : userInfo.userNo
 		}
 	}).done(function() { 
 		modal.attr("style","display:none;");
@@ -145,14 +144,13 @@ function cmtFunction(no) {
 		data: {
 			content: $('#' + no).val(),
 			timelineNo: no,
-			"progMemb.no" : objPmemb[0].no,
-			"progMemb.users.userNo" : obj.userNo
+			"progMemb.programNo" : userInfo.programs[0].no,
+			"progMemb.user.userNo" : userInfo.userNo
 		}
 	}).done(function() {
 		loadComments(cmtNo);
 		$('.sh-tl-cmt' + cmtNo).val('');
 		$('.sh-tl-cmt' + cmtNo).attr("style","");
-//		location.href = "timeline.html";
 	});
 
 }
@@ -164,9 +162,9 @@ function TlAddClick(postNo) {
 		type: "POST",
 		url: "../../../json/timeline/timelineLike",
 		data: {
-			pno: objPmemb[0].no,
+			pno: userInfo.programs[0].no,
 			pono: postNo,
-			uno: obj.userNo
+			uno: userInfo.userNo
 		}
 
 	// 성공시 좋아요 갯수 불러오기
@@ -220,7 +218,7 @@ function cmtEditClick(no) {
 		} 
 	}).done(function() {
 		$.getJSON(serverRoot + "/json/comment/" + cmtEditNo).done(function(data) {
-			$('.sh-tl-cmt' + cmtEditNo).parent().first().prepend(' <div readonly class="sh-tl-review-content  sh-tl-reply-content"><span class="sh-cmt-name" >' + data.progMemb.users.name + '</span><span>' + data.content + '</span></div>');
+			$('.sh-tl-cmt' + cmtEditNo).parent().first().prepend(' <div readonly class="sh-tl-review-content  sh-tl-reply-content"><span class="sh-cmt-name" >' + data.progMemb.user.name + '</span><span>' + data.content + '</span></div>');
 			$('.sh-tl-cmt' + cmtEditNo).parent().attr("onmouseover","showCmtMenu(this)");
 			$('.sh-tl-cmt' + cmtEditNo).parent().attr("onmouseout","hideCmtMenu(this)");
 
@@ -265,27 +263,29 @@ var modal = $('#sh-tl-myModal');
 var btn = $('#sh-tl-myModalBtn');
 
 var span = $(".sh-tl-modal-close");
-console.log("span은" + span);
+console.log("span은=======>");
+console.log(span[0]);
 
 //글 추가할 때 모달 이벤트
 btn.on("click", function() {
 	modal.attr("style","display:block;");
 });
 
-span.on("click", function() {
-	modal.attr("style","display:none;");
-	$('#sh_tl_post_write').val('');
-	$('#images-div').children().remove();
-})
 
 $(document).on("click", function(e) {
 	if (e.target == modal[0]) { // js객체로 만들어서 동등비교
 		modal.attr("style","display:none;");
 		$('#sh_tl_post_write').val('');
 		$('#images-div').children().remove();
-	}
+	} 
 })
 
+// 모달 닫기 함수 x표 눌렀을 때
+function closeModal() {
+	modal.attr("style","display:none;");
+	$('#sh_tl_post_write').val('');
+	$('#images-div').children().remove();
+}
 
 //-------------------------Modal-------------------------------------//
 function postAdd() {
@@ -315,18 +315,6 @@ function postEdit(e) {
 
 	})
 
-//	console.log("글사진은 : " + $('.sh-tl-card-modal' + $(e).attr("name")).children('#img' + $(e).attr("name")).children().attr("src"));
-//	var content = $('.sh-tl-card-modal' + $(e).attr("name")).children('.sh-tl-card-content-inside').text();
-//	var picPath =$('.sh-tl-card-modal' + $(e).attr("name")).children('#img' + $(e).attr("name")).children().attr("src"); 
-
-//	console.log($('#sh_tl_post_write'))
-//	$('#sh_tl_post_write').val(content); // 글 끌어오기
-
-//	if (picPath != null) {
-//	$('#images-div').html("<img src=" + picPath + ">");
-//	}
-
-//	modal.attr("style", "display:block;");
 }
 
 //-------------------------------------------PostEditClicked--------------
@@ -362,7 +350,7 @@ function postEditClick(no) {
 		} 
 	}).done(function() {
 		$.getJSON(serverRoot + "/json/comment/" + cmtEditNo).done(function(data) {
-			$('.sh-tl-cmt' + cmtEditNo).parent().first().prepend(' <div readonly class="sh-tl-review-content  sh-tl-reply-content"><span class="sh-cmt-name" >' + data.progMemb.users.name + '</span><span>' + data.content + '</span></div>');
+			$('.sh-tl-cmt' + cmtEditNo).parent().first().prepend(' <div readonly class="sh-tl-review-content  sh-tl-reply-content"><span class="sh-cmt-name" >' + data.progMemb.user.name + '</span><span>' + data.content + '</span></div>');
 			$('.sh-tl-cmt' + cmtEditNo).parent().attr("onmouseover","showCmtMenu(this)");
 			$('.sh-tl-cmt' + cmtEditNo).parent().attr("onmouseout","hideCmtMenu(this)");
 

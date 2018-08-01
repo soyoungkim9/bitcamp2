@@ -2,7 +2,7 @@
 var addedPostCount = 0;
 $(document).ready(function() {
 	// 글쓰기 모달에 글쓴이 이름 출력
-	$(".tl-user-name-json").html(obj.name);
+	$(".tl-user-name-json").html(userInfo.name);
 	
 	// 강의이름 출력
 	$(".sh-Class-Title").html()
@@ -71,9 +71,9 @@ function timelineLikeChecked(cardNo) {
 	$.post({
 		url: "../../../json/timeline/isChecked",
 		data: {
-			pno: userInfo.no,
+			pno: userInfo.programs[0].no,
 			pono: cardNo,
-			uno: obj.userNo
+			uno: userInfo.userNo
 		},
 		async: false
 	}).done(function(isChecked) {
