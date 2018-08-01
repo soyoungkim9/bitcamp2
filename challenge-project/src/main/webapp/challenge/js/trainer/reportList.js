@@ -8,7 +8,7 @@ var endDate;
 var liTemplateSrc = $("#li-template").html();
 var templateFn = Handlebars.compile(liTemplateSrc);
 $(document).ready(function() {
-	$.ajax(serverRoot + "/json/plan/pList/" + obj.userNo, {
+	$.ajax(serverRoot + "/json/plan/pList/" + userInfo, {
 		dataType: "json",
 	    success(data) {
 			$('#programList').html(templateFn({list:data}));
@@ -19,7 +19,7 @@ $(document).ready(function() {
 			$.ajax(serverRoot + "/json/plan/list/" + defaultPage, {
 				dataType: "json",	
 			    success(data) {
-					 console.log(obj.userNo);
+					 console.log(userInfo);
 					 if(data.length == 0) {
 						 $('#programBox').append('<h4>기간: <span id="sdt">' +
 								 startDate + '</span> ~ <span id="edt">' +

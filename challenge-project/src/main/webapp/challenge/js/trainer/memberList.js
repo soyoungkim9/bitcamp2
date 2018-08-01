@@ -6,8 +6,8 @@ var programNum;
 var liTemplateSrc = $("#li-template").html();
 var templateFn = Handlebars.compile(liTemplateSrc);
 $(document).ready(function() {
-	/* obj.userNo로 수정할것!! */
-	$.ajax(serverRoot + "/json/programMember/pList/3", {
+	/* userInfo로 수정할것!! */
+	$.ajax(serverRoot + "/json/programMember/pList/" + userInfo, {
 		dataType: "json",
 	    success(data) {
 			$('#programList').html(templateFn({list:data}));
