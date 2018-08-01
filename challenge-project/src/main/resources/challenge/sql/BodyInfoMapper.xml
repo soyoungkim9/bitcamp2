@@ -28,6 +28,10 @@
        스프링 프레임워크와 연동할 때 DAO객체를 자동생성하고 
        그 메서드를 자동생성할 때 사용할 수 있다.
   -->
+  <insert id="insert" parameterType="BodyInfo">
+  insert into BINFO (uno,bdate,weight,muscle,fat)
+  values (#{userNo}, #{bdate}, #{weight},#{muscle},#{fat})
+  </insert>
   <select id="selectList" 
           resultMap="BodyInfoMap" 
           parameterType="map">
