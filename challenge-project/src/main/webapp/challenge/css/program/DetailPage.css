@@ -841,7 +841,10 @@ star-input>.input.focus {
 }
 
 .lectBox {
-	padding: 0 6%;
+    padding: 0 6%;
+    height: 360px;
+    overflow-y: scroll;
+    width: 380px;
 }
 
 .lectList {
@@ -929,7 +932,15 @@ star-input>.input.focus {
 	padding: 10px 0px;
 	text-align: center;
 	cursor: pointer;
+	font-weight:normal;
 }
+.asideCost h2 span:first-child {
+    font-size:22px;
+}
+.asideCost h2 span {
+    font-size:20px;
+}
+
 
 /* 장소 */
 .asidePosition, .asideDate {

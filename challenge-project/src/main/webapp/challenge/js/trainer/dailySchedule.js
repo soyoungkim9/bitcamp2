@@ -11,7 +11,7 @@
   }
 
   DayScheduleSelector.DEFAULTS = {
-    days        : [0, 1, 2, 3, 4, 5, 6],  // Sun - Sat
+    days        : [0, 1, 2, 3, 4, 5, 6],  // Mon - Sun
     startTime   : '00:00',                // HH:mm format
     endTime     : '24:00',                // HH:mm format
     interval    : 30,                     // minutes
@@ -298,7 +298,7 @@
 })(jQuery);
 
 $("#weekly-schedule").dayScheduleSelector({
-  // Sun - Sat
+  // Mon - Sun
   days        : [0, 1, 2, 3, 4, 5, 6],
 
   // HH:mm format
@@ -310,7 +310,7 @@ $("#weekly-schedule").dayScheduleSelector({
   // minutes
   interval    : 30,
 
-  stringDays  : ['일', '월', '화', '수', '목', '금', '토'],
+  stringDays  : ['월', '화', '수', '목', '금', '토', '일'],
 
   // Custom template
   template    : '<div class="day-schedule-selector">'         +

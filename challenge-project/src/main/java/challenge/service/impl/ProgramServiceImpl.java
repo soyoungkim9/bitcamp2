@@ -9,7 +9,6 @@ import org.springframework.stereotype.Service;
 import challenge.dao.ProgramDao;
 import challenge.dao.ProgramMediaDao;
 import challenge.domain.Program;
-import challenge.domain.ProgramMember;
 import challenge.service.ProgramService;
 
 

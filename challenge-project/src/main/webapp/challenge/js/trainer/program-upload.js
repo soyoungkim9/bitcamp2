@@ -221,7 +221,7 @@ $('#fileupload2').fileupload({
             proDay: proDay,
             proTime: proTime,
             challengeNo: $(chalTab).val(),
-            "trainerNo.userNo": obj.userNo
+            "trainerNo": obj.userNo
         }
         data.submit();
       });
