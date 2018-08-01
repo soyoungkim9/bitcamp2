@@ -10,6 +10,7 @@
 	    <result column="uname" property="name"/>
 	    <result column="upath" property="userPath"/>
 	    <result column="uphon" property="userPhone" />
+	    <result column="utype" property="userType" />
 	    <collection property="programs" ofType="Program">
 	        <id column="pno" property="no"/>
 	        <result column="pname" property="name"/>
