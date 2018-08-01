@@ -24,16 +24,12 @@ if (location.href.split("?").length > 1) {
     $(fchallengeNo).val(data.challengeNo);
     $(fmainImg).val(data.mainImg);*/
     //$(ftrainerNo).val(data.trainerNo.userNo);
-    $(ftrainerName).append(data.trainerNo.name);
-    $(ftrainerTime).append(data.trainerNo.time);
-    $('<img/>')
-    .attr('src', '../../../files/'+data.trainerNo.userPath+'_100x100.jpg')
-    .appendTo($(ftrainerImg));
+    console.log(data.medias[0].path)
     $('<img/>')
     .attr('src', '../../../files/'+data.medias[0].path+'_600x600.jpg')
     .appendTo($(fprogramImg));
   }).done(function(data) {
-    programList(data.trainerNo.userNo) // 다른 프로그램
+    programList(data.trainerNo) // 다른 프로그램
     plan(data.proDay, data.proTime) // 일정
 
     // 날짜 간격 구하기(D-day)
@@ -78,7 +74,7 @@ var trTemplateSrc = $("#detail-image").html();
 var templateFn = Handlebars.compile(trTemplateSrc);
 $.getJSON(serverRoot + "/json/programMedia/list?no=" + no, (data) => {
   $(detailImg).html(templateFn({list:data}));
-  $(slideLen).append(data.length)
+  $(slideLen).append(data.length);
   showSlides(1);
 }).done(function(data) {
   var i;
@@ -129,7 +125,7 @@ function programList(trainerNo) {
 //일정 데이터 가져오기
 function plan(proDay, proTime) {
 
-  var inputTimeString;
+  var inputTimeString='';
   var mo, tu, we, th, fr, sa, su;
   var pDay = proDay.split(" ");
   var dayTime = proTime.split(" ");
@@ -195,10 +191,10 @@ function plan(proDay, proTime) {
         inputTimeString += (", " + dayTime[temp + 1] + " ~ " + timePlus(dayTime[i]));
         temp = i;
       } else if (i == calculated.length - 1 && count == 0) {
-        inputTimeString += (dayTime[temp + 1] + " ~ " + timePlus(dayTime[dayTime.length - 2]))
+        inputTimeString += (dayTime[0] + " ~ " + timePlus(dayTime[dayTime.length - 2]))
       } else if (i == calculated.length - 1) {
         inputTimeString += (", " + dayTime[temp + 1] + " ~ " + timePlus(dayTime[dayTime.length - 2]))
-      }
+      } 
     }
 
     function timePlus(time) {

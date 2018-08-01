@@ -1,16 +1,17 @@
-var cardBody1 = $("#cardBody1").html();
-var cardBodyFn = Handlebars.compile(cardBody1);
-$.getJSON(serverRoot + "/json/program/listProgram/" + userInfor.userNo, (data) => {
-  
-  $(cardWide).html(cardBodyFn({list:data}));
-}).done(function(data) {
-  $('.trainer-img').attr('src', '../../../files/'+userInfo.userPath+'_50x50.jpg');
-  var i;
-  for (i = 0; i < data.length; i++) {
-    dday(data[i].startDate, i);
-  }
-});
+$(document).ready(function() {
+  var cardBody1 = $("#cardBody1").html();
+  var cardBodyFn = Handlebars.compile(cardBody1);
+  $.getJSON(serverRoot + "/json/program/listProgram/" + userInfo.userNo, (data) => {
 
+    $(cardWide).html(cardBodyFn({list:data}));
+  }).done(function(data) {
+    $('.trainer-img').attr('src', '../../../files/'+userInfo.userPath+'_50x50.jpg');
+    var i;
+    for (i = 0; i < data.length; i++) {
+      dday(data[i].startDate, i);
+    }
+  });
+});
 
 //날짜 간격 구하기(D-day)
 function dday(startDate, i) {
