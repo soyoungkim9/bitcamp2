@@ -71,7 +71,7 @@ function timelineLikeChecked(cardNo) {
 	$.post({
 		url: "../../../json/timeline/isChecked",
 		data: {
-			pno: objPmemb[0].no,
+			pno: userInfo.no,
 			pono: cardNo,
 			uno: obj.userNo
 		},

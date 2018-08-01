@@ -4,6 +4,20 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <mapper namespace="challenge.dao.UserDao">
+	  <resultMap type="Member" id="MemberMap">
+	    <id column="uno" property="userNo"/>
+	    <result column="mail" property="email"/>
+	    <result column="uname" property="name"/>
+	    <result column="upath" property="userPath"/>
+	    <collection property="programs" ofType="Program">
+	        <id column="pno" property="no"/>
+	        <result column="pname" property="name"/>
+	        <result column="pth" property="proTh"/>
+	        <result column="ptover" property="proTurn"/>
+	    </collection>
+	  </resultMap>
+
+
     <resultMap type="User" id="UserMap">
         <id column="uno" property="userNo" />
         <result column="uname" property="name" />
@@ -36,11 +50,12 @@
     </select>
 
     <select id="selectOneWithId" parameterType="String"
-        resultMap="UserMap">
-        select uno, uname, sex, mail, pwd, uphon, upath, utype
-        from
-        USER
-        where mail=#{value}
+        resultMap="MemberMap">
+            select u.uno, u.uname, u.mail, u.upath, pm.uno, pm.pno, pm.ptype, p.pname, p.pth, p.ptover
+		    from USER u
+		    left outer join PMEMB pm on u.uno = pm.uno
+		    left outer join PROG p on pm.pno = p.pno
+		    where u.mail = #{value};
     </select>
 
 

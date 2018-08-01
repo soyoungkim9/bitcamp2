@@ -22,7 +22,9 @@ $.ajax({
   .done(function(data) {
 	  userInfo = data;
   });
+console.log("============================userInfo 객체=======================================");
 console.log(userInfo);
+console.log("================================================================================");
 
 //로그인 여부(obj객체 유무에 따라)에 따른 헤더 Nav 메뉴 변경
 if(userInfo != null) {
@@ -34,8 +36,6 @@ if(userInfo != null) {
 			location.href = serverRoot + "/challenge/html/login/login.html";
 		}); 
 	});
-
-	console.log("OKOK!")
 } else {
 	$(".login_menu_after").attr("style", "display:none")
 }
