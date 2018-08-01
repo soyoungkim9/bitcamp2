@@ -17,7 +17,7 @@ body:not(#footer) {
   display: inline-block;
 }
 
-.sh-slide-edit-btn{
+.sh-slide-edit-btn {
   /* 빨간색 버튼 */
   width: 67px;
   background-color: #DD1F26;
@@ -38,23 +38,23 @@ body:not(#footer) {
   border-radius: 10px;
 }
 
-
 .sh-tl-reply-btn {
-      /* 빨간색 버튼 */
-      width: 67px;
-      background-color: #DD1F26;
-      border: none;
-      color: #fff;
-      padding: 5px 0;
-      float: right;
-      margin: 20px;
-      text-decoration: none;
-      font-size: 12px;
-      margin: 3px;
-      cursor: pointer;
-      border-radius: 10px;
-          margin-bottom: 8px;
+  /* 빨간색 버튼 */
+  width: 67px;
+  background-color: #DD1F26;
+  border: none;
+  color: #fff;
+  padding: 5px 0;
+  float: right;
+  margin: 20px;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 3px;
+  cursor: pointer;
+  border-radius: 10px;
+  margin-bottom: 8px;
 }
+
 }
 
 .sh-program-img {
@@ -204,9 +204,8 @@ body:not(#footer) {
 #shClassDiv {
   /*   border:1px solid black; */
   text-align: center;
-
-     background-color: rgba(0,0,0,0.85);
-  color:#fff;
+  background-color: rgba(0, 0, 0, 0.85);
+  color: #fff;
   padding: 3px;
 }
 
@@ -227,12 +226,12 @@ body:not(#footer) {
 /* right sideMenu CSS 시작*/
 
 #sh-sideMenu {
-    border: 1px solid green;
-    width: 200px;
-    min-height: 300px;
-    position: fixed;
-    overflow: hidden;
-    margin-left: 734px;
+  border: 1px solid green;
+  width: 200px;
+  min-height: 300px;
+  position: fixed;
+  overflow: hidden;
+  margin-left: 734px;
 }
 
 #sh-sideMenu-item {}
@@ -291,10 +290,8 @@ body:not(#footer) {
 }
 
 .sh-tl-card-reply-load {
-    border: 1px solid rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.05);
 }
-
-
 
 .sh-tl-card-header {
   display: inline-block -webkit-box-align: center;
@@ -311,11 +308,9 @@ body:not(#footer) {
   padding: 0px 59px 20px 21px;
 }
 
-
 .sh-tl-card-content-inside {
-  margin: 0
-      overflow: hidden;
-    word-wrap: break-word;
+  margin: 0 overflow: hidden;
+  word-wrap: break-word;
 }
 
 .sh-tl-card-header .sh-tl-card-content {
@@ -342,20 +337,20 @@ body:not(#footer) {
   top: 9px;
   left: 32px;
   width: 100%;
-  cursor:pointer;
+  cursor: pointer;
 }
 
 /* 글작성 히든 CSS 시작 */
 
 .sh-tl-review-write {
- width: 91%;
- /* float: right; */
- position: relative;
- overflow: hidden;
- display: inline-block;
+  width: 91%;
+  /* float: right; */
+  position: relative;
+  overflow: hidden;
+  display: inline-block;
 }
 
-.sh_tl_reply_textarea{
+.sh_tl_reply_textarea {
   margin-left: 15px !important;
   border: 1px solid gray !important;
   border-radius: 18px;
@@ -364,13 +359,13 @@ body:not(#footer) {
 }
 
 .sh-tl-reply-content {
-      margin-left: 15px !important;
+  margin-left: 15px !important;
   border: 1px solid gray !important;
   border-radius: 18px;
   padding-left: 17px !important;
   padding-right: 17px;
   padding-top: 10px;
-  display:inline-block;
+  display: inline-block;
 }
 
 .sh-tl-replay-textarea:focus {
@@ -398,7 +393,7 @@ textarea:focus {
 }
 
 .sh-tl-review-content {
-      font-family: "NanumSquareRound";
+  font-family: "NanumSquareRound";
   font-size: 16px;
   font-weight: 500;
   letter-spacing: normal;
@@ -411,8 +406,6 @@ textarea:focus {
 }
 
 /* 글작성 히든 CSS 종료 */
-
-
 
 .sh-tl-user {
   position: relative;
@@ -439,12 +432,12 @@ textarea:focus {
 }
 
 .sh-tl-post-date {
-        margin-bottom: 0px;
-    margin-left: 13px;
-    margin-top: 0px;
-    display: inline-block;
-    position: relative;
-    bottom: 6px;
+  margin-bottom: 0px;
+  margin-left: 13px;
+  margin-top: 0px;
+  display: inline-block;
+  position: relative;
+  bottom: 6px;
 }
 
 .sh-tl-like-count a, .sh-tl-card-bottom div a {
@@ -452,33 +445,30 @@ textarea:focus {
   text-decoration: none;
 }
 
-
-
-
 .sh-tl-post-edit {
-	display: none;
-    /*display: inline-block;*/
-    right: 48px;
-    position: absolute;
-    top: 16px;
-    font-size: 12px;
-    font-weight: 100;
-    color: #666666;
-    margin-left: 8px;
-    margin-right: 8px;
-        cursor: pointer;
+  display: none;
+  /*display: inline-block;*/
+  right: 48px;
+  position: absolute;
+  top: 16px;
+  font-size: 12px;
+  font-weight: 100;
+  color: #666666;
+  margin-left: 8px;
+  margin-right: 8px;
+  cursor: pointer;
 }
 
 .sh-tl-post-delete {
-	display: none;
-    /*display: inline-block;*/
-    position: absolute;
-    right: 11px;
-    top: 16px;
-    font-size: 12px;
-    font-weight: 100;
-    color: #666666;
-    cursor: pointer;
+  display: none;
+  /*display: inline-block;*/
+  position: absolute;
+  right: 11px;
+  top: 16px;
+  font-size: 12px;
+  font-weight: 100;
+  color: #666666;
+  cursor: pointer;
 }
 
 /* 카드 공통 CSS 종료 */
@@ -511,22 +501,22 @@ textarea:focus {
 }
 
 #images-div img {
-	    width: 100%;
+  width: 100%;
 }
 
 #images-div-edit img {
-        width: 100%;
+  width: 100%;
 }
 
 /* Modal Content/Box */
 
 .sh-tl-modal-content {
-    background-color: #fefefe;
-    margin: 15% 25.2% auto;
-    padding: 20px;
-    border: 1px solid #888;
-    width: 34.6%;
-    display: inline-block;
+  background-color: #fefefe;
+  margin: 15% 25.2% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 34.6%;
+  display: inline-block;
   /* Could be more or less, depending on screen size */
 }
 
@@ -586,7 +576,7 @@ textarea:focus {
   /* display:inline-block; */
 }
 
-.sh-tl-reply-write{
+.sh-tl-reply-write {
   position: absolute;
   color: #666666;
   top: -4px;
@@ -601,8 +591,8 @@ textarea:focus {
 }
 
 .sh-tl-user-img {
-    border-radius:50%; 
-    width:48px;
+  border-radius: 50%;
+  width: 48px;
 }
 
 [contenteditable=true]:empty:before {
@@ -619,47 +609,48 @@ div[contenteditable=true] {
   padding: 5px;
 }
 
-#sh-tl-post-btn {
-    padding-top: 6px!important;
-    margin-top: 9px!important;
-    float: right;
-    /* display: inline-block; */
-    /* margin-left: 32px; */
-    width: 60px;
-    background-color: #DD1F26;
-    border: none;
-    color: #fff;
-    margin-top: 10px;
-    padding: 6px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 13px;
-    margin: 3px;
-    cursor: pointer;
-    /* height: 34px; */
-    border-radius: 10px;
+#sh-tl-post-btn, #sh-tl-edit-btn {
+  padding-top: 6px !important;
+  margin-top: 9px !important;
+  float: right;
+  /* display: inline-block; */
+  /* margin-left: 32px; */
+  width: 60px;
+  background-color: #DD1F26;
+  border: none;
+  color: #fff;
+  margin-top: 10px;
+  padding: 6px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 13px;
+  margin: 3px;
+  cursor: pointer;
+  /* height: 34px; */
+  border-radius: 10px;
 }
 
 #sh-tl-upload {
-  padding:9px;
-  font-size:31px;
+  padding: 9px;
+  font-size: 31px;
 }
 
 #sh-tl-post-img-btn {
-    float: right;
-    font-size: 25px;
-    margin-right: 16px;
-    margin-top: 10px;
+  float: right;
+  font-size: 25px;
+  margin-right: 16px;
+  margin-top: 10px;
 }
 
 .sh-tl-img-upload-lb {
-          position: relative;
-    margin-right: 10px;
-    cursor: pointer;
+  position: relative;
+  margin-right: 10px;
+  cursor: pointer;
 }
+
 .sh-tl-img-upload-lb {
-  padding:6px;
+  padding: 6px;
   display: inline-block;
   position: relative;
   font-size: 26px;
@@ -672,7 +663,6 @@ div[contenteditable=true] {
   font-size: 26px;
 }
 
-
 .sh-tl-review-load-cont {
   margin-left: 15px !important;
   border: 1px solid gray !important;
@@ -682,68 +672,68 @@ div[contenteditable=true] {
 }
 
 .sh-tl-review-load {
-    width: 86%;
-    position: relative;
-    display: inline-block;
+  width: 86%;
+  position: relative;
+  display: inline-block;
 }
 
 .sh-cmt-name {
-    color:blue;
+  color: blue;
 }
 
 .sh-cmt-date {
- font-size: 9px;
-    position: relative;
-    left: 68px;
-    display: block;
-        bottom: 8px;
+  font-size: 9px;
+  position: relative;
+  left: 68px;
+  display: block;
+  bottom: 8px;
 }
 
-
 .sh-tl-cmt-edit {
-	display: none;
-	position: relative;
-    top: -12px;
-    font-size: 12px;
-    font-weight: 100;
-    color: #666666;
-    margin-left: 8px;
-    margin-right: 8px;
-    cursor: pointer;
+  display: none;
+  position: relative;
+  top: -12px;
+  font-size: 12px;
+  font-weight: 100;
+  color: #666666;
+  margin-left: 8px;
+  margin-right: 8px;
+  cursor: pointer;
 }
 
 .sh-tl-cmt-delete {
-	display: none;
-	position: relative;
-    top: -12px;
-    font-size: 12px;
-    font-weight: 100;
-    color: #666666;
-    cursor: pointer;
+  display: none;
+  position: relative;
+  top: -12px;
+  font-size: 12px;
+  font-weight: 100;
+  color: #666666;
+  cursor: pointer;
 }
 
 .sh-tl-cmt-edit-btn {
-    width: 67px;
-    background-color: #DD1F26;
-    border: none;
-    color: #fff;
-    padding: 5px 0;
-    float: right;
-    position: relative;
-    margin: 20px;
-    display: inline-block;
-    text-decoration: none;
-    font-size: 12px;
-    margin: 3px;
-    cursor: pointer;
-    right: 29px;
-    top: 4px;
-    border-radius: 10px;
+  width: 67px;
+  background-color: #DD1F26;
+  border: none;
+  color: #fff;
+  padding: 5px 0;
+  float: right;
+  position: relative;
+  margin: 20px;
+  display: inline-block;
+  text-decoration: none;
+  font-size: 12px;
+  margin: 3px;
+  cursor: pointer;
+  right: 29px;
+  top: 4px;
+  border-radius: 10px;
 }
 
 .sh-cmt-content {
-    margin-left: 2px;
+  margin-left: 2px;
 }
+
 /* 대댓글 CSS 종료 */
 
 /* 타임라인 끝*/

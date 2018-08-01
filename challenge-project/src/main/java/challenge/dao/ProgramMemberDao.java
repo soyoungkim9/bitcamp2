@@ -13,6 +13,7 @@ public interface ProgramMemberDao {
     List<ProgramMember> selectOne(int pno, int userNo); // 한명만 선택해서 보기
     Member selectListWithUno(int userNo); // 유저가 듣는 프로그램 모든 정보 받아오기
     int insert(ProgramMember programMember);
+    int updateReview(ProgramMember programMember);
 }
 
 
