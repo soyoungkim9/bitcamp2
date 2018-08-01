@@ -34,7 +34,7 @@ $(document).ready(function() {
 });
 
 
-// 타임라인 카드 불러오기
+// 타임라인 카드리스트 불러오기
 function loadCards(pageCount) {
   var trTemplateSrc = $("#tr-template").html();
   var templateFn = Handlebars.compile(trTemplateSrc);
@@ -54,6 +54,27 @@ function loadCards(pageCount) {
     }
   });
 }
+
+// 타임라인 카드 하나 불러오기 (EDITED)
+function loadOneCard(postNo) {
+	  console.log("불렸음.")
+	  var trTemplateSrc = $("#tr-edited-template").html();
+	  var templateFn = Handlebars.compile(trTemplateSrc);
+
+	  $.getJSON(serverRoot + "/json/timeline/" + postNo, (data) => {
+	    $('.sh-tl-card-modal' + postNo).after(templateFn({data}));
+	    $('.sh-tl-card-modal' + postNo).remove();
+	  }).done(function(data) {
+		  console.log(data.no)
+		  loadComments(data.no);
+		  timelineLikeCount(data.no);
+		  if(data.picture) {
+			  $("#img" + data.no).append("<img src='../../../files/" + data.picture + "_600x600.jpg'>");
+		  }
+		  
+		  $('.sh-tl-card-modal').attr("class","sh-tl-card-modal" + postNo);
+	  });
+	}
 
 // 댓글 JSON 리스트 가져와서 댓글 붙이기(handleBars)
 function loadComments(cardNo) {

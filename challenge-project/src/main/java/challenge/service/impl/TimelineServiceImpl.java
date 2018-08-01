@@ -68,7 +68,8 @@ public class TimelineServiceImpl implements TimelineService {
 
     @Override
     public int delete(int no) {
-        return timelineDao.delete(no);
+        timelineDao.delete(no);
+        return postDao.delete(no);
     }
 
     @Override

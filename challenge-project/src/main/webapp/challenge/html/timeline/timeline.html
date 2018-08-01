@@ -200,6 +200,68 @@
     {{/each}}
   </script>
 
+<script id="tr-edited-template" type="text/x-handlebars-template">
+    {{#data}}
+    <!-- 타임라인 카드 시작 -->
+    <div class="sh-tl-card-modal sh-tl-card sh-card">
+      <!--글쓴이 시작 -->
+      <section class="sh-tl-card-primary">
+        <div onmouseover=showPostMenu(this) onmouseout=hidePostMenu(this) class="sh-tl-user">
+          <img class="sh-tl-user-img" src="../../img/timeline/sh_profile.jpg">
+          <h1 class="sh-tl-user-name">{{progMemb.user.name}} @글번호{{no}}</h1>
+          <h6 class="sh-tl-post-date">{{createdDate}}</h6>
+          <div onclick=postEdit(this) name={{no}} class="sh-tl-post-edit"><i class="fas fa-pen">수정</i></div>
+          <div onclick=postDelete(this) name={{no}} class="sh-tl-post-delete"><i class="fas fa-trash-alt">삭제</i></div>
+        </div>
+      </section>
+      <!-- 글쓴이 종료-->
+      <!-- 글내용 시작-->
+      <div class="sh-tl-card-content">
+        <p class="sh-tl-card-content-inside">{{content}}</p>
+      </div>
+      <div id="img{{no}}"></div>
+      <!-- 글내용 종료 -->
+      <!-- 좋아요/댓글 시작-->
+      <section class="sh-tl-card-actions">
+        <div class="sh-tl-like-count">
+          <a class="sh-like-clicked lk-clicked{{no}}" href="#!"><i class="far fa-thumbs-up"></i></a>
+          <a class="sh-like-clicked lk-clicked{{no}}" id="sh-tl-CountedClicks" href="#!"><span data-no="okok" class="lk{{no}} hi" >{{no}}</span> 명이 좋아합니다.</a>
+          <a href="#!"></a>
+        </div>
+        <div class="sh-tl-card-bottom">
+          <div class="sh-tl-like sh-tl-card-bottom-items">
+            <a onclick="TlAddClick({{no}})" class="sh-like-clicked lk-thumbs{{no}}" href="#!"><i class="far fa-thumbs-up"></i><span>     좋아요</span></a>
+          </div>
+          <div class="sh-tl-comment sh-tl-card-bottom-items">
+            <a href="#!"><i class="far fa-comments"></i>     댓글달기</a>
+          </div>
+        </div>
+      </section>
+      <!-- 좋아요/댓글 종료-->
+
+      <!-- 댓글쓰기 시작-->
+      <section class="sh-tl-card-reply-write">
+        <div class="sh-tl-reply-user">
+          <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
+          <div class="sh-tl-review-write">
+            <textarea id="{{no}}" class="sh-tl-cmt{{no}} sh-tl-review-title  sh_tl_reply_textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
+            <div class="sh-tl-img-upload"><button onclick="cmtFunction({{no}})" class="sh-tl-reply-btn" type="submit">게시</button> </div>
+          </div>
+        </div>
+      </section>
+      <!-- 댓글쓰기 종료 -->
+      <!-- 대댓글 불러오기-->
+      <div class="cm{{no}}">{{no}}</div>
+
+      <!-- 대댓글 불러오기 종료-->
+      <div style="clear:both;"></div>
+    </div>
+    </div>
+    <!-- 타임라인 카드 하나 종료 -->
+    {{/data}}
+  </script>
+
+
   <!-- 대댓글 Handlebars -->
   <script id="cm-template" type="text/x-handlebars-template">
     {{#each list}}

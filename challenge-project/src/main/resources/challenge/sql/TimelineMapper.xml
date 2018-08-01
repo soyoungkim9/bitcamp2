@@ -61,11 +61,12 @@
 		이름을 마음대로 해도 된다. -->
 	<select id="selectOne" parameterType="int"
 		resultMap="TimelineMap">
-		select p.pono, p.pocont, p.podate, t.tmlpath, u.uname, u.upath
-        from TML t
-        inner join POST p on p.pono = t.tmlno
-        inner join PMEMB pm on pm.pno = t.pno and pm.uno = t.UNO
-        inner join USER u on pm.uno = u.uno
+           select pono, pocont, podate, t.tmlpath, pro.pno, pro.pname, u.uno, u.uname
+               from TML t
+               inner join POST p on t.tmlno=p.pono
+               inner join PMEMB pm on t.uno = pm.uno and t.pno = pm.pno
+               inner join PROG pro on pro.pno = pm.pno
+               inner join USER u on pm.uno = u.uno
         where p.pono=#{value}
 	</select>
 
@@ -102,7 +103,7 @@
 	</update>
 
 	<delete id="delete" parameterType="int">
-		delete from POST where
-		pono=#{value}
+		delete from TML where
+		tmlno=#{value}
 	</delete>
 </mapper>
