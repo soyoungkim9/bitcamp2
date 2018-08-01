@@ -10,6 +10,7 @@
 	    <result column="uname" property="name"/>
 	    <result column="upath" property="userPath"/>
 	    <result column="uphon" property="userPhone" />
+	    <result column="utype" property="userType" />
 	    <collection property="programs" ofType="Program">
 	        <id column="pno" property="no"/>
 	        <result column="pname" property="name"/>
@@ -20,7 +21,7 @@
 
 
     <resultMap type="User" id="UserMap">
-        <id column="uno" property="userNo" />
+        <id column="uno" property="userNo" /> 
         <result column="uname" property="name" />
         <result column="sex" property="sex" />
         <result column="mail" property="email" />
