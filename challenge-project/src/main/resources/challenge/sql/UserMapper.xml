@@ -9,6 +9,7 @@
 	    <result column="mail" property="email"/>
 	    <result column="uname" property="name"/>
 	    <result column="upath" property="userPath"/>
+	    <result column="uphon" property="userPhone" />
 	    <collection property="programs" ofType="Program">
 	        <id column="pno" property="no"/>
 	        <result column="pname" property="name"/>
