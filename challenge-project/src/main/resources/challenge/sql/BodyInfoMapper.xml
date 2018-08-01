@@ -16,6 +16,7 @@
     <result column="weight" property="weight"/>
     <result column="muscle" property="muscle"/>
     <result column="fat" property="fat"/>
+    <result column="uno" property="userNo"/>
     
     
   </resultMap>
@@ -46,9 +47,9 @@
  -->
   <select id="selectOne" parameterType="int" resultMap="BodyInfoMap">
 
-    SELECT u.uno,bdate,weight,muscle,fat,bno FROM BINFO b
+   SELECT u.uno,b.uno,bdate,weight,muscle,fat,bno FROM BINFO b
     INNER JOIN USER u ON u.uno=b.uno
-    where u.uno=#{uno}
+    where u.uno= #{no}
   </select>
   
    <update id="update" parameterType="BodyInfo">

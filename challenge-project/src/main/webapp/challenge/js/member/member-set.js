@@ -1,9 +1,9 @@
 //회원정보 읽어오기
 $(document).ready(function () {
 	
-	$('#email').val(obj.email);
-	$('#phone').val(obj.userPhone);
-	$("<img>").attr('src', '../../../files/'+ obj.userPath+'_200x200.jpg').css('border-radius', '50%').appendTo('#images-div');
+	$('#email').val(userInfo.email);
+	$('#phone').val(userInfo.userPhone);
+	$("<img>").attr('src', '../../../files/'+ userInfo.userPath+'_200x200.jpg').css('border-radius', '50%').appendTo('#images-div');
 
 
 
@@ -73,7 +73,7 @@ $("#upload-btn").click(() => {
 				email: $('#email').val(),
 				userPhone: $('#phone').val(),
 				userPath: dbimg,
-				userNo: obj.userNo
+				userNo: userInfo.userNo
 
 			}, 
 		}).done(function() {
@@ -91,7 +91,7 @@ $("#upload-btn").click(() => {
 
 				email: $('#email').val(),
 				userPhone: $('#phone').val(),
-				userNo: obj.userNo
+				userNo: userInfo.userNo
 
 			}, 
 		}).done(function() {
@@ -118,7 +118,7 @@ $(document).ready(function () {
 					userPhone: $('#phone').val(),
 					password: $('.pwd').val(),
 
-					userNo: obj.userNo
+					userNo: userInfo.userNo
 
 				}, 
 			}).done(function() {

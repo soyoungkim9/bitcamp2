@@ -1,5 +1,7 @@
 package challenge.web.json;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -47,7 +49,7 @@ public class BodyInfoController {
     }
     
     @RequestMapping("{no}")
-    public BodyInfo view(@PathVariable int no) throws Exception {
+    public List<BodyInfo> view(@PathVariable int no) throws Exception {
         return bodyInfoService.get(no);
     }
     
