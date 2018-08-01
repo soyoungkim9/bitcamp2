@@ -1,13 +1,13 @@
 var cardBody1 = $("#cardBody1").html();
 var cardBodyFn = Handlebars.compile(cardBody1);
-$.getJSON(serverRoot + "/json/program/listProgram/" + 2, (data) => {
+$.getJSON(serverRoot + "/json/program/listProgram/" + userInfor.userNo, (data) => {
   
   $(cardWide).html(cardBodyFn({list:data}));
 }).done(function(data) {
+  $('.trainer-img').attr('src', '../../../files/'+userInfo.userPath+'_50x50.jpg');
   var i;
   for (i = 0; i < data.length; i++) {
     dday(data[i].startDate, i);
-    console.log(data[i].startDate)
   }
 });
 

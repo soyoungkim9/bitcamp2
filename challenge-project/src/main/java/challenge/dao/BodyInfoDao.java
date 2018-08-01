@@ -9,5 +9,5 @@ public interface BodyInfoDao {
     List<BodyInfo> selectList();
     int insert(BodyInfo bodyInfo);
     int update(BodyInfo bodyInfo);
-    BodyInfo selectOne(int no);
+    List<BodyInfo> selectOne(int no);
 }

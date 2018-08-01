@@ -5,7 +5,7 @@ import java.sql.Date;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
-public class BodyInfo extends Member implements Serializable {
+public class BodyInfo extends User implements Serializable {
     private static final long serialVersionUID = 1L;
 
    

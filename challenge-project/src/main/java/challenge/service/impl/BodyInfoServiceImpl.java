@@ -36,9 +36,8 @@ public class BodyInfoServiceImpl implements BodyInfoService {
     }
 
     @Override
-    public BodyInfo get(int no) {
-        BodyInfo bodyInfo = bodyInfoDao.selectOne(no);
-        return bodyInfo;
+    public List<BodyInfo> get(int no) {
+        return bodyInfoDao.selectOne(no);
     }
     
     @Override

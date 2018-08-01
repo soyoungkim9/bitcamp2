@@ -1,18 +1,3 @@
-/* 일정 div 이벤트 */
-function openDay(evt, dayName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent2");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks2");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    //document.getElementById(dayName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-document.getElementById("defaultOpen2").click();
 
 /* 본문 따라다니는 navbar 이벤트*/
 window.onscroll = function() {myFunction()};
@@ -27,6 +12,10 @@ function myFunction() {
     navbar.classList.remove("sticky");
   }
 }
+
+$('.navLink').click(function() {
+  openNav(event)
+})
 
 function openNav(evt) {
     var navLinks;

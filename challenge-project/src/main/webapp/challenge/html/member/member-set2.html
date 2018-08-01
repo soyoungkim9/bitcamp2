@@ -173,52 +173,25 @@ function openCity(evt, cityName) {
     <script src="../../js/footer/footer.js"></script>
     <script src="../../js/member/mb-menu.js"></script>
 <script>
-       /* $.getJSON(serverRoot + "/json/bodyInfo/list", (data) => {
-            console.log(data);
-            $(setmdate).val(data[0].bdate);
-            $(setweight).val(data[0].weight);
-            $(setmuscle).val(data[0].muscle);
-            $(setfat).val(data[0].fat);
-           }); */
-     var no = 1;
-   
-    
-    
-        $.getJSON(serverRoot + "/json/bodyInfo/" + no, (data) => {
-            console.log(data);
-            $(setmdate).val(data.bdate);
-            $(setweight).val(data.weight);
-            $(setmuscle).val(data.muscle);
-            $(setfat).val(data.fat);
-        }); 
-        
-        $("#updBtn").click(() => {
-            $.post(serverRoot + "/json/bodyInfo/update", {
-                mdate: $(setmdate).val(),
-                weight: $(setweight).val(),
-                muscle: $(setmuscle).val(),
-                fat: $(setfat).val()
-            }, () => {
-                location.href = "member-set2.html";
-            });
-        });
-        
-        
-        
-     /* else { // 새 글 등록
-        var tags = $(".detail-view");
-        tags.css("display", "none");
-        
-        $("#addBtn").click(() => {
-            $.post(serverRoot + "/json/board/add", {
-                title: $(fTitle).val(),
-                content: $(fContent).val()
-            }, () => {
-                location.href = "list.html";
-            });
-        });
-    } */
-    
+$.getJSON(serverRoot + "/json/bodyInfo/" + userInfo.userNo, (data) => {
+    console.log(data);
+    $(setmdate).val(data.bdate);
+    $(setweight).val(data.weight);
+    $(setmuscle).val(data.muscle);
+    $(setfat).val(data.fat);
+}); 
+
+$("#updBtn").click(() => {
+    $.post(serverRoot + "/json/bodyInfo/update", {
+        mdate: $(setmdate).val(),
+        weight: $(setweight).val(),
+        muscle: $(setmuscle).val(),
+        fat: $(setfat).val()
+    }, () => {
+        location.href = "member-set2.html";
+    });
+});
+
 </script>
 
 
