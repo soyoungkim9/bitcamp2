@@ -93,7 +93,7 @@
   transition: background .5s ease-in-out;
 }
 
-.sm-timeline ul li.in-view::after {
+.sm-timeline ul li.view::after {
   background: #1B3453;
 }
 
@@ -104,16 +104,14 @@
 }
 
 .sm-timeline ul li:nth-child(odd) div {
-	transform: all;
-  transform: translateX(200px);
+  transform: translate3d(200px, 0, 0);
 }
 
 .sm-timeline ul li:nth-child(even) div {
-	transform: all;
-  transform: translateX(-200px);
+  transform: translate3d(-200px, 0, 0);
 }
 
-.sm-timeline ul li.in-view div {
+.sm-timeline ul li.view div {
   transform: none;
   visibility: visible;
   opacity: 1;

@@ -154,8 +154,8 @@
               </ul>
               
 						<ul id="cccc">
-						<li id="cccc"></li>
-						<li id="dddd">{{>script}}</li>
+						<!-- <li id="cccc"></li> -->
+						<!-- <li id="dddd">{{>script}}</li> -->
 						</ul>
 							<!-- <li>
 								<div class="sm-time-div">
@@ -237,7 +237,7 @@
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each list}}
 {{#if @first}}
-<li class="in-view">
+<li class="view">
 <div class="sm-time-div">
 <span class="sm-time">{{startDate}}</span>
 <p class="sm-time-p">
@@ -247,7 +247,7 @@
 </div>
 </li>
 
-<li class="in-view">
+<li class="view">
 <div class="sm-time-div">
 <span class="sm-time">{{endDate}}</span>
 <p class="sm-time-p">
@@ -259,7 +259,7 @@
 
 
 {{else if @last}}
-<li class="in-view">
+<li class="view">
 <div class="sm-time-div">
 <span class="sm-time">{{startDate}}</span>
 <p class="sm-time-p">
@@ -269,7 +269,7 @@
 </div>
 </li>
 
-<li class="in-view">
+<li class="view">
 <div class="sm-time-div">
 <span class="sm-time">{{endDate}}</span>
 <p class="sm-time-p">
@@ -280,7 +280,7 @@
 </li>
 
 {{else}}
-<li class="in-view">
+<li class="view">
 <div class="sm-time-div">
 <span class="sm-time">{{startDate}}</span>
 <p class="sm-time-p">
@@ -290,7 +290,7 @@
 </div>
 </li>
 
-<li class="in-view">
+<li class="view">
 <div class="sm-time-div">
 <span class="sm-time">{{endDate}}</span>
 <p class="sm-time-p">
@@ -305,7 +305,7 @@
 
 <script id="tr-template2" type="text/x-handlebars-template">
 {{#each list2}}
-<li class="in-view">
+<li class="view">
 {{#if @first}}
 <div class="sm-time-div">
 <span class="sm-time">{{endDate}}</span>
