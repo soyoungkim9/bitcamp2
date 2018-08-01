@@ -17,7 +17,7 @@
     <result column="pldt" property="planDate"/>
     <result column="pltitl" property="planTitl"/>
     <result column="plcont" property="planContent"/>
-    <association property="program" javaType="Program">
+    <association property="program" javaType="Program"> 
         <id column="pno" property="no"/>
         <result column="pname" property="name"/>
         <result column="sdt" property="startDate"/>
