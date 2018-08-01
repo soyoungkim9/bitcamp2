@@ -5,7 +5,6 @@ $.ajax({
 	url : serverRoot + "/challenge/html/header/header_white.html",
 	async: false
 }).done(function(data) {
-	console.log(data);
 	$("#header").html(data);
 	
 	$.ajax({
