@@ -12,6 +12,18 @@ h3 {
   border-bottom: none!important;
 }
 
+.hr_menu {
+  border: 1px solid gray; width: 150px; float: left;
+}
+
+.hr-body {
+  margin-bottom: 30px;
+}
+
+h3 a {
+    color:black;
+}
+
 #subName {
    font-size: 22px;
    margin-bottom: 5px;
