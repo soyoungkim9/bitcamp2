@@ -18,12 +18,12 @@ $('.navLink').click(function() {
 })
 
 function openNav(evt) {
-    var navLinks;
-    navLinks = document.getElementsByClassName("navLink");
-    for (i = 0; i < navLinks.length; i++) {
-        navLinks[i].className = navLinks[i].className.replace(" active", "");
-    }
-    evt.currentTarget.className += " active";
+  var navLinks;
+  navLinks = document.getElementsByClassName("navLink");
+  for (i = 0; i < navLinks.length; i++) {
+    navLinks[i].className = navLinks[i].className.replace(" active", "");
+  }
+  evt.currentTarget.className += " active";
 }
 
 
@@ -45,40 +45,42 @@ function moreFunction() {
 
 
 
-// 평점 점수 올라는 쿼리문
-var starRating = function(){
-var $star = $(".star-input"),
-    $result = $star.find("output>b");
+//평점 점수 올라는 쿼리문
+/*var starRating = function(){
+  var $star = $(".star-input"),
+  $result = $star.find("output>b");
 
-  	$(document)
-	.on("focusin", ".star-input>.input",
-		function(){
-   		 $(this).addClass("focus");
- 	})
+  $(document)
+  .on("focusin", ".star-input>.input",
+      function(){
+    $(this).addClass("focus");
+  })
 
-   	.on("focusout", ".star-input>.input", function(){
-    	var $this = $(this);
-    	setTimeout(function(){
-      		if($this.find(":focus").length === 0){
-       			$this.removeClass("focus");
-     	 	}
-   		}, 100);
- 	 })
+  .on("focusout", ".star-input>.input", function(){
+    var $this = $(this);
+    setTimeout(function(){
+      if($this.find(":focus").length === 0){
+        $this.removeClass("focus");
+      }
+    }, 100);
+  })
 
-    .on("change", ".star-input :radio", function(){
-    	$result.text($(this).next().text());
-  	})
-    .on("mouseover", ".star-input label", function(){
-    	$result.text($(this).text());
-    })
-    .on("mouseleave", ".star-input>.input", function(){
-    	var $checked = $star.find(":checked");
-    		if($checked.length === 0){
-     	 		$result.text("0");
-   		 	} else {
-     	 		$result.text($checked.next().text());
-    		}
-  	});
+  .on("change", ".star-input :radio", function(){
+    $result.text($(this).next().text());
+  })
+  .on("mouseover", ".star-input label", function(){
+    $result.text($(this).text());
+    console.log($result.text())
+  })
+  .on("mouseleave", ".star-input>.input", function(){
+    var $checked = $star.find(":checked");
+    if($checked.length === 0){
+      $result.text("0");
+    } else {
+      $result.text($checked.next().text());
+    }
+  });
+  
 };
 
-starRating();
+starRating();*/

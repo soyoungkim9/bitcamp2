@@ -61,4 +61,9 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
     public int updateReview(ProgramMember programMember) {
         return programMemberDao.updateReview(programMember);
     }
+    
+    @Override
+    public List<ProgramMember> reviewList(int pno) {
+        return programMemberDao.reviewList(pno);
+    }
 }

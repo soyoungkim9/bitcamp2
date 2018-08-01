@@ -66,6 +66,13 @@ public class ProgramMemberController {
     public void updateReview(ProgramMember programMember) throws Exception {
         programMemberService.updateReview(programMember);
     }
+    
+    
+    @RequestMapping("reviewList/{pno}")
+    @ResponseStatus(HttpStatus.OK) // 기본 값이 OK이다.
+    public List<ProgramMember> reviewList(@PathVariable int pno) throws Exception {
+        return programMemberService.reviewList(pno);
+    }
 }
 
 //ver 55 - JSON 데이터를 출력하는 페이지 컨트롤러 생성

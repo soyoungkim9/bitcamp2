@@ -15,4 +15,5 @@ public interface ProgramMemberService {
     Member getWithUserNo(int userNo);
     int add(ProgramMember programMember);
     int updateReview(ProgramMember programMember);
+    List<ProgramMember> reviewList(int pno);
 }

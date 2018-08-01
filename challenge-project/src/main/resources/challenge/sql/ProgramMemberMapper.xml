@@ -13,7 +13,9 @@
   <resultMap type="ProgramMember" id="ProgramMemberMap">
     <id column="pno" property="programNo"/>
     <id column="uno" property="userNo"/>
-    <result column="payday" property="paymentDay"/>
+    <result column="pgrade" property="grade"/>
+    <result column="prv" property="review"/>
+    <result column="prvdt" property="reviewDate"/>
     
     <association property="program" javaType="Program">
         <id column="pno" property="no"/>
@@ -30,6 +32,7 @@
         <result column="uname" property="name"/>
         <result column="sex" property="sex"/>
         <result column="uphon" property="userPhone"/>
+        <result column="upath" property="userPath"/>
     </association>
     <collection property="diarys" ofType="Diary">
         <id column="dno" property="dno"/>
@@ -129,5 +132,14 @@
 		prvdt=now()
 		where pno=#{programNo} and uno=#{userNo}
 	</update>
-  
+
+	<select id="reviewList" parameterType="map" resultMap="ProgramMemberMap">
+		<if test="grade != null">
+		SELECT pm.pno, pm.uno, pm.pgrade, pm.prv, pm.prvdt,
+		       u.uname, u.upath
+		FROM PMEMB pm
+            INNER JOIN USER u ON pm.uno = u.uno
+		WHERE pm.pno = #{programNo}
+		</if>
+	</select>
 </mapper>

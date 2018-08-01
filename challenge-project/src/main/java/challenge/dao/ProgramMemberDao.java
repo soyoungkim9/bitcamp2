@@ -15,6 +15,7 @@ public interface ProgramMemberDao {
     Member selectListWithUno(int userNo); // 유저가 듣는 프로그램 모든 정보 받아오기
     int insert(ProgramMember programMember);
     int updateReview(ProgramMember programMember);
+    List<ProgramMember> reviewList(int pno);
 }
 
 
