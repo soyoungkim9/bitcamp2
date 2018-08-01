@@ -21,7 +21,7 @@
 
 
     <resultMap type="User" id="UserMap">
-        <id column="uno" property="userNo" />
+        <id column="uno" property="userNo" /> 
         <result column="uname" property="name" />
         <result column="sex" property="sex" />
         <result column="mail" property="email" />
