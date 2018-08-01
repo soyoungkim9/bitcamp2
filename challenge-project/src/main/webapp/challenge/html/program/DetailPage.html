@@ -383,17 +383,17 @@
 <script id="commentList" type="text/x-handlebars-template">
 {{#each list}}
  <li>
-  <div class="commentImg"></div>
+  <div class="commentImg"><img src="../../../files/{{user.userPath}}_50x50.jpg"></div>
   <div class="commentDate">
-   18.09.20 20:28 <span>｜</span>
+   {{reviewDate}} <span>｜</span>
   </div>
-  <div class="commentEval">
+  <div class="commentEval">{{grade}}
    <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
     class="fas fa-star"></i> <i class="fas fa-star"></i> <i
     class="fas fa-star"></i>
   </div>
-  <div class="commentContent">3개월동안 고생하셨어요 감사합니다~!</div>
-  <div class="commentName">lsl******</div>
+  <div class="commentContent">{{review}}</div>
+  <div class="commentName">{{user.name}}</div>
  </li>
 {{/each}}
 </script>

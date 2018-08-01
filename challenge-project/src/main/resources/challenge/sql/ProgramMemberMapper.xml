@@ -134,12 +134,10 @@
 	</update>
 
 	<select id="reviewList" parameterType="map" resultMap="ProgramMemberMap">
-		<if test="grade != null">
 		SELECT pm.pno, pm.uno, pm.pgrade, pm.prv, pm.prvdt,
 		       u.uname, u.upath
 		FROM PMEMB pm
             INNER JOIN USER u ON pm.uno = u.uno
 		WHERE pm.pno = #{programNo}
-		</if>
 	</select>
 </mapper>
