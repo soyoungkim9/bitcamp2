@@ -52,5 +52,8 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
         return programMemberDao.insert(programMember);
     }
 
-   
+    @Override
+    public int updateReview(ProgramMember programMember) {
+        return programMemberDao.updateReview(programMember);
+    }
 }

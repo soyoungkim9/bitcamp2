@@ -54,7 +54,12 @@ public class ProgramMemberController {
             @PathVariable int userNo) throws Exception {
         return programMemberService.getWithUserNo(userNo);
     }
-
+    
+    @RequestMapping("update")
+    @ResponseStatus(HttpStatus.OK) // 기본 값이 OK이다.
+    public void updateReview(ProgramMember programMember) throws Exception {
+        programMemberService.updateReview(programMember);
+    }
 }
 
 //ver 55 - JSON 데이터를 출력하는 페이지 컨트롤러 생성
