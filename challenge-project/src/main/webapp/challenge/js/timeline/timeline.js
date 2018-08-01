@@ -268,20 +268,29 @@ console.log(span[0]);
 
 //글 추가할 때 모달 이벤트
 btn.on("click", function() {
+	console.log("리뷰 작성하기 버튼 클릭!")
 	modal.attr("style","display:block;");
 });
 
-
+// 윈도우 창 클릭했을 경우
 $(document).on("click", function(e) {
 	if (e.target == modal[0]) { // js객체로 만들어서 동등비교
+		console.log("리뷰 작성하기 클릭시 발생!")
+		console.log(modal[0])
 		modal.attr("style","display:none;");
 		$('#sh_tl_post_write').val('');
-		$('#images-div').children().remove();
+		console.log($('#images-div').children());
+		if ($('#images-div').children() != null) {
+			// 이미지 객체 지운다!
+			$('#images-div').children().remove();
+		}
+//		$('#images-div').children().remove();
 	} 
 })
 
 // 모달 닫기 함수 x표 눌렀을 때
 function closeModal() {
+	console.log("글 x 눌렀을 때 function 발생!")
 	modal.attr("style","display:none;");
 	$('#sh_tl_post_write').val('');
 	$('#images-div').children().remove();
