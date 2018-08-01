@@ -55,7 +55,7 @@ public class ProgramMemberController {
         return programMemberService.getWithUserNo(userNo);
     }
     
-    @RequestMapping("update")
+    @RequestMapping("updateReview")
     @ResponseStatus(HttpStatus.OK) // 기본 값이 OK이다.
     public void updateReview(ProgramMember programMember) throws Exception {
         programMemberService.updateReview(programMember);

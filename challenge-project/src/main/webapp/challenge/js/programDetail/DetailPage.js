@@ -269,6 +269,15 @@ function openDay(evt, dayName) {
 }
 
 
+$("#updBtn").click(() => {
+  $.post(serverRoot + "/json/programMember/update", {
+      title: $(fTitle).val(),
+      content: $(fContent).val(),
+      no: $(fNo).val()
+  }, () => {
+      location.href = "list.html";
+  });
+});
 
 
 
