@@ -4,7 +4,7 @@ $.ajax({
 	url : serverRoot + "/challenge/html/header/header_bg_black.html",
 	async: false
 }).done(function(data) {
-	$("#header").html(data);
+	$("#header").html(data);	
 	
 	//USER 객체 정보 저장
 	$.ajax({

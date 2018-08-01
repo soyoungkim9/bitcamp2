@@ -38,6 +38,94 @@
        스프링 프레임워크와 연동할 때 DAO객체를 자동생성하고 
        그 메서드를 자동생성할 때 사용할 수 있다.
   -->
+  
+    <select id="selectList" 
+          resultMap="MessageMap" 
+          parameterType="map">
+   select msgno, mstitl, msdir, u.utype, mscont, uname, msdate, t.trnno, ms.uno
+   from MSG ms
+     inner join MEMB m on m.uno = ms.uno
+     inner join TRN t on t.trnno = ms.trnno
+
+     <choose>
+         <when test="utype == 1">
+     left outer join USER u on ms.uno = u.uno 
+            where u.uno = #{userNo}
+            AND msdir = 2
+         </when>
+         <otherwise>
+         <!-- 여기꺼만 제대로 되고 위에꺼는 실행안됨 -->
+     left outer join USER u on ms.trnno = u.uno 
+            where u.uno = #{userNo}
+            AND msdir = 1
+         </otherwise>
+     </choose>
+   order by msgno desc
+   limit #{startRowNo}, #{pageSize}
+  </select>
+  
+  <!--
+  <select id="selectList" 
+          resultMap="MessageMap" 
+          parameterType="map">
+   select msgno, mstitl, msdir, u.utype, mscont, uname, msdate, t.trnno, ms.uno
+   from MSG ms
+     inner join MEMB m on m.uno = ms.uno
+     inner join TRN t on t.trnno = ms.trnno
+
+     <choose>
+         <when test="utype == 1">
+     left outer join USER u on ms.uno = u.uno 
+            where u.uno = #{userNo}
+            AND msdir = 2
+         </when>
+         <otherwise>
+         
+     left outer join USER u on ms.trnno = u.uno 
+            where u.uno = #{userNo}
+            AND msdir = 1
+            
+         </otherwise>
+     </choose>
+   order by msgno desc
+   limit #{startRowNo}, #{pageSize}
+  </select>
+  -->
+  
+  
+  
+  
+  <!-- 
+    <select id="selectList" 
+          resultMap="MessageMap" 
+          parameterType="map">
+   select msgno, mstitl, msdir, u.utype, mscont, uname, msdate, t.trnno, ms.uno
+   from MSG ms
+     inner join MEMB m on m.uno = ms.uno
+     inner join TRN t on t.trnno = ms.trnno
+     inner join USER u on u.uno = t.trnno
+     inner join USER u on u.uno = m.uno
+     
+     <choose>
+         <when test="utype == 1">
+            where u.uno = #{userNo}
+            AND msdir = 2
+         </when>
+         <otherwise>
+            where u.uno = #{userNo}
+            AND msdir = 1
+         </otherwise>
+     </choose>
+  
+   order by msgno desc
+   limit #{startRowNo}, #{pageSize}
+  </select>
+  
+  
+  
+  
+  
+  
   <select id="selectList" 
           resultMap="MessageMap" 
           parameterType="map">
@@ -50,25 +138,12 @@
    order by msgno desc
    limit #{startRowNo}, #{pageSize}
   </select>
-  
-  <!-- 
-  <select id="selectList" 
-          resultMap="MessageMap" 
-          parameterType="map">
-   select msgno, mstitl, u.utype, mscont, uname, msdate, t.trnno, ms.uno
-   from USER u, TRN t, MSG ms, MEMB m
-   where u.uno = t.trnno 
-   AND m.uno = ms.uno
-   AND t.trnno = ms.trnno
-   order by msgno desc
-   limit #{startRowNo}, #{pageSize}
-  </select>
    -->
   
   <insert id="insert" parameterType="Message"
           useGeneratedKeys="true" keyColumn="msgno" keyProperty="msgno">
     insert into MSG(msgno, mstitl, msdir, mscont, msdate, trnno, uno) 
-    values(#{no}, #{title}, #{direct}, #{content}, now(), ${trainer.userNo}, ${member.userNo});
+    values(#{no}, #{title}, #{direct}, #{content}, now(), #{trainer.userNo}, #{member.userNo});
   </insert>
   
   <!-- 파라미터의 타입이 primitive type이나 wrapper 클래스, String 클래스인 경우
