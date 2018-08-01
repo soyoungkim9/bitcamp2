@@ -47,8 +47,11 @@ public class TimelineController {
 
     @RequestMapping("update")
     @ResponseStatus(HttpStatus.OK)
-    public void update(Timeline timeline) throws Exception {
-        timelineService.update(timeline);
+    public void update(
+            @RequestParam("content") String content,
+            @RequestParam("picture") String picture,
+            @RequestParam("no") int no) throws Exception {
+        timelineService.update(content, picture, no);
     }
 
     @RequestMapping("{no}")

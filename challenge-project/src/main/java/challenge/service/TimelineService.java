@@ -12,7 +12,7 @@ public interface TimelineService {
     List<Timeline> list(int pageNo, int pageSize);
     Timeline get(int no);
     int add(Timeline timeline);
-    int update(Timeline timeline);
+    int update(String content, String picture, int no);
     int delete(int no);
     int timelineLikeCount(int no);
     boolean isChecked(int pno, int pono, int uno);

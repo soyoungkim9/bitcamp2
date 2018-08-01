@@ -510,6 +510,10 @@ textarea:focus {
   /* Black w/ opacity */
 }
 
+#images-div img {
+	    width: 100%;
+}
+
 /* Modal Content/Box */
 
 .sh-tl-modal-content {

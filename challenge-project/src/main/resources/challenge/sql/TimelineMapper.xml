@@ -58,9 +58,12 @@
 		이름을 마음대로 해도 된다. -->
 	<select id="selectOne" parameterType="int"
 		resultMap="TimelineMap">
-		select pono, pocont, podate
-		from TML t
-		where pono=#{value}
+		select p.pono, p.pocont, p.podate, t.tmlpath, u.uname, u.upath
+        from TML t
+        inner join POST p on p.pono = t.tmlno
+        inner join PMEMB pm on pm.pno = t.pno and pm.uno = t.UNO
+        inner join USER u on pm.uno = u.uno
+        where p.pono=#{value}
 	</select>
     
     <!-- 좋아요 개수 카운트 -->
@@ -89,11 +92,10 @@
         where pno=#{pno} and pono=#{pono} and uno=#{uno}
     </delete>
 
-	<update id="update" parameterType="Timeline">
-		update POST set
-		pocont=#{content},
-		podate=now()
-		where pono=#{no}
+	<update id="update" parameterType="map">
+		update TML t set
+		tmlpath=#{picture}
+		where tmlno=#{no}
 	</update>
 
 	<delete id="delete" parameterType="int">

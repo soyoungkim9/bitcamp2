@@ -39,12 +39,12 @@ public class PostController {
         return postService.list();
     }
     
-    @RequestMapping("update")
-    @ResponseStatus(HttpStatus.OK)
-    public void update(Post post) throws Exception {
-        postService.update(post);
-    }
-    
+//    @RequestMapping("update")
+//    @ResponseStatus(HttpStatus.OK)
+//    public void update(Post post) throws Exception {
+//        postService.update(post);
+//    }
+//    
     @RequestMapping("{no}")
     public Post view(@PathVariable int no) throws Exception {
         return postService.get(no);

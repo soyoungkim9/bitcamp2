@@ -83,8 +83,18 @@ public class TimelineServiceImpl implements TimelineService {
         return timelineDao.insert(timeline);
     }
 
-    public int update(Timeline timeline) {
-        return timelineDao.update(timeline);
+    public int update(String content, String picture, int no) {
+        HashMap<String, Object> paramsPost = new HashMap<>();
+        HashMap<String, Object> paramsTimeline = new HashMap<>();
+        
+        paramsPost.put("content", content);
+        paramsPost.put("no", no);
+        
+        paramsTimeline.put("picture", picture);
+        paramsTimeline.put("no", no);
+        
+        postDao.update(paramsPost);
+        return timelineDao.update(paramsTimeline);
     }
 
     @Override
