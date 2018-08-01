@@ -12,6 +12,11 @@ h3 {
   border-bottom: none!important;
 }
 
+#subName {
+   font-size: 22px;
+   margin-bottom: 5px;
+}
+
 a {
   text-decoration:none;
 }

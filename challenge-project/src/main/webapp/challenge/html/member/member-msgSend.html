@@ -49,7 +49,7 @@
         </div>
         <!-- .profile -->
         <div class="sm-mypage-body">
-          <h3 class="sm-margin-none" style="color: #666666;">전체메시지</h3>
+          <h3 class="sm-margin-none" style="color: #666666;">보낸메시지</h3>
           <hr class="hr-body">
           <div class="sm-msgBox">
             <form name="msgForm" method="post">
@@ -154,44 +154,6 @@ $("#msgBtn-del").click(function(){
 });
 
 
-/*
-
- 삭제하기 버튼 구현하기----------------------------------
-1.
-$("#msgBtn-del").click(() => {
-    if (window.confirm("삭제하시겠습니까?") == false)
-       return;
-    $.get("../../json/message/delete", {"no": no}, () => {
-         location.href = "member-msg.html";
-  });
-});
-
-2.
-
-function fchk() {
-      var chk = document.getElementsByName("checkOne");
-      var chk_leng = chk.length;
-      var checked = 0;
-      for (i=0; i < chk_leng; i++) {
-          if (chk[i].checked == true) {
-              checked += 1;
-          }
-      }
-    }
-    
-$("#msgBtn-del").click(function(){
-    if($("input[name=checkOne]:checkbox:checked").length == 0){
-        alert('하나 이상 선택해 주세요', '경고메시지');
-    }else{
-        confirm('삭제된 메시지는 복구되지 않습니다. 삭제하시겠습니까?', '삭제확인', function(r) {
-            if(r==true) {
-                $.get("../../json/message/delete", {"no": no}, () => {
-                    location.href = "member-msg.html";
-            })};
-        });
-    }
-});    
- */
 </script>
 
   <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>

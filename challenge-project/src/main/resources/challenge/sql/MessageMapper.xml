@@ -41,6 +41,20 @@
   <select id="selectList" 
           resultMap="MessageMap" 
           parameterType="map">
+   select msgno, mstitl, msdir, mscont, uname, msdate, t.trnno, ms.uno
+   from USER u, TRN t, MSG ms, MEMB m
+   where u.uno = t.trnno 
+   AND m.uno = ms.uno
+   AND t.trnno = ms.trnno
+   AND ms.uno = #{userNo}
+   order by msgno desc
+   limit #{startRowNo}, #{pageSize}
+  </select>
+  
+  <!-- 
+  <select id="selectList" 
+          resultMap="MessageMap" 
+          parameterType="map">
    select msgno, mstitl, u.utype, mscont, uname, msdate, t.trnno, ms.uno
    from USER u, TRN t, MSG ms, MEMB m
    where u.uno = t.trnno 
@@ -49,6 +63,7 @@
    order by msgno desc
    limit #{startRowNo}, #{pageSize}
   </select>
+   -->
   
   <insert id="insert" parameterType="Message"
           useGeneratedKeys="true" keyColumn="msgno" keyProperty="msgno">
