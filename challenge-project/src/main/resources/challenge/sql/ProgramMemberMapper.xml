@@ -51,17 +51,11 @@
     </collection>
   </resultMap>
 
-  <!-- SQL 문 id를 설정할 때 SQL문을 사용하는 메서드 이름과 같게하면
-       유지보수할 때 알아보기 쉽다.
-       알아보기 쉬울 뿐만 아니라
-       스프링 프레임워크와 연동할 때 DAO객체를 자동생성하고
-       그 메서드를 자동생성할 때 사용할 수 있다.
-  -->
   <insert id="insert" parameterType="ProgramMember">
     insert into PMEMB(pno,uno,payday) 
     values(#{pno},#{uno},now())
-    
    </insert>
+   
    
   <select id="pNameList" parameterType="int" resultMap="ProgramMemberMap">
   	SELECT p.pno, p.trnno, p.pname
@@ -140,5 +134,12 @@
     where u.uno = #{value};
   </select>
 
+	<update id="updateReview" parameterType="ProgramMember">
+		update PMEMB set
+		pgrade=#{grade},
+		prv=#{review},
+		prvdt=now()
+		where pno=#{programNo} and uno=#{userNo}
+	</update>
   
 </mapper>

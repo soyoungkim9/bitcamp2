@@ -13,5 +13,5 @@ public interface ProgramMemberService {
     List<ProgramMember> get(int pno, int userNo); // 한 회원의 정보 상세보기
     Member getWithUserNo(int userNo);
     int add(ProgramMember programMember);
-
+    int updateReview(ProgramMember programMember);
 }

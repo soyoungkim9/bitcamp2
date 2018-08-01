@@ -24,7 +24,6 @@ if (location.href.split("?").length > 1) {
     $(fchallengeNo).val(data.challengeNo);
     $(fmainImg).val(data.mainImg);*/
     //$(ftrainerNo).val(data.trainerNo.userNo);
-    console.log(data.medias[0].path)
     $('<img/>')
     .attr('src', '../../../files/'+data.medias[0].path+'_600x600.jpg')
     .appendTo($(fprogramImg));
@@ -268,6 +267,7 @@ function openDay(evt, dayName) {
   document.getElementById(dayName).style.display = "block";
   evt.currentTarget.className += " active";
 }
+
 
 
 
