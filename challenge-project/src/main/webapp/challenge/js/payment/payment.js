@@ -75,7 +75,7 @@ if (location.href.split("?").length > 1) {
 			
 			IMP.init("imp63287981"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
 			IMP.request_pay({
-
+				
 				pg : 'kakaopay',
 				pay_method : 'card',
 				merchant_uid : 'merchant_' + new Date().getTime(),
@@ -98,8 +98,8 @@ if (location.href.split("?").length > 1) {
 						dataType: 'json',
 						data: {
 
-							uno: userInfo.userNo,
-							pno: no.split("#")[0]
+							programNo: userInfo.userNo,
+							userNo: no.split("#")[0]
 						}, 
 						success: function(result) { 
 							console.log(result);  

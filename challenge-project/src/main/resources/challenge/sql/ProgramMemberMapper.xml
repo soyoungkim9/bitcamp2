@@ -53,7 +53,7 @@
 
   <insert id="insert" parameterType="ProgramMember">
     insert into PMEMB(pno,uno,payday) 
-    values(#{pno},#{uno},now())
+    values(#{programNo},#{userNo},now())
    </insert>
    
    
