@@ -8,7 +8,7 @@ var endDate;
 var liTemplateSrc = $("#li-template").html();
 var templateFn = Handlebars.compile(liTemplateSrc);
 $(document).ready(function() {
-	$.ajax(serverRoot + "/json/plan/pList/" + userInfo, {
+	$.ajax(serverRoot + "/json/plan/pList/" + userInfo.userNo, {
 		dataType: "json",
 	    success(data) {
 			$('#programList').html(templateFn({list:data}));

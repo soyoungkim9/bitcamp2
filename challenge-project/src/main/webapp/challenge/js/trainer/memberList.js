@@ -7,7 +7,7 @@ var liTemplateSrc = $("#li-template").html();
 var templateFn = Handlebars.compile(liTemplateSrc);
 $(document).ready(function() {
 	/* userInfo로 수정할것!! */
-	$.ajax(serverRoot + "/json/programMember/pList/" + userInfo, {
+	$.ajax(serverRoot + "/json/programMember/pList/" + userInfo.userNo, {
 		dataType: "json",
 	    success(data) {
 			$('#programList').html(templateFn({list:data}));
