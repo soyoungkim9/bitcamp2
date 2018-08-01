@@ -268,29 +268,21 @@ console.log(span[0]);
 
 //글 추가할 때 모달 이벤트
 btn.on("click", function() {
-	console.log("리뷰 작성하기 버튼 클릭!")
 	modal.attr("style","display:block;");
 });
 
-// 윈도우 창 클릭했을 경우
+
 $(document).on("click", function(e) {
+	console.log("글 바깥 눌렀을 때 function 발생!")
 	if (e.target == modal[0]) { // js객체로 만들어서 동등비교
-		console.log("리뷰 작성하기 클릭시 발생!")
-		console.log(modal[0])
 		modal.attr("style","display:none;");
 		$('#sh_tl_post_write').val('');
-		console.log($('#images-div').children());
-		if ($('#images-div').children() != null) {
-			// 이미지 객체 지운다!
-			$('#images-div').children().remove();
-		}
-//		$('#images-div').children().remove();
+		$('#images-div').children().remove();
 	} 
 })
 
 // 모달 닫기 함수 x표 눌렀을 때
 function closeModal() {
-	console.log("글 x 눌렀을 때 function 발생!")
 	modal.attr("style","display:none;");
 	$('#sh_tl_post_write').val('');
 	$('#images-div').children().remove();
@@ -309,6 +301,8 @@ function postEdit(e) {
 	console.log("postEdit 이벤트 발생")
 //	console.log($(e).attr("name")); // 카드 번호임.
 //	console.log($('.sh-tl-card-modal' + $(e).attr("name")))
+	
+	
 
 	var cardModalTemplateSrc = $('#card-modal-template').html();
 	var templateFn = Handlebars.compile(cardModalTemplateSrc);
@@ -328,7 +322,7 @@ function postEdit(e) {
 
 //-------------------------------------------PostEditClicked--------------
 function postEditClicked(picData) {
-	console.log("postEditClicked의 picture : " + $("#images-div").children().attr("src").split("/").pop());
+	console.log("postEditClicked의 picture : " + $("#images-div-edit").children().attr("src").split("/").pop());
 	console.log("postEditClicked의 content : " + $('#sh_tl_post_write').val());
 	console.log("postEditClicked의 no와 tmlno (같아야함) : " + $('#sh-tl-post-btn').attr("name"));
 
@@ -339,7 +333,7 @@ function postEditClicked(picData) {
 		data: {
 			no : $('#sh-tl-post-btn').attr("name"),
 			content: $('#sh_tl_post_write').val(),
-			picture: $("#images-div").children().attr("src").split("/").pop()
+			picture: $("#images-div-edit").children().attr("src").split("/").pop()
 		}
 	}).done(function() { 
 		console.log("POST 수정 완료!")

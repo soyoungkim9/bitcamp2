@@ -514,6 +514,10 @@ textarea:focus {
 	    width: 100%;
 }
 
+#images-div-edit img {
+        width: 100%;
+}
+
 /* Modal Content/Box */
 
 .sh-tl-modal-content {

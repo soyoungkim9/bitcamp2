@@ -1,9 +1,12 @@
 //div#header 태그에 /html/header.html 내용을 삽입한다.
-var userInfo
-$.get(serverRoot + "/challenge/html/header/header_bg_black.html", (data) => {
+$.ajax({
+	method: "GET",
+	url : serverRoot + "/challenge/html/header/header_white.html",
+	async: false
+}).done(function(data) {
+	console.log(data);
 	$("#header").html(data);
-}).done(function() {
-
+	
 	//USER 객체 정보 저장
 	$.ajax({
 	    method: "GET",

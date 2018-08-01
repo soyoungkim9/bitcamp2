@@ -91,6 +91,8 @@
       <div class="sh-tl-post-img-upload"><label id="sh-tl-post-img-btn" for="sh_tl_upload" style="cursor:pointer"><i class="far fa-images"><input id="sh_tl_upload" accept="video/*,  video/x-m4v, video/webm, video/x-ms-wmv, video/x-msvideo, video/3gpp, video/flv, video/x-flv, video/mp4, video/quicktime, video/mpeg, video/ogv, .ts, .mkv, image/*"  name="files" title="사진 또는 동영상 첨부" type="file" style="display:none"></i></label></div>
     </section>
             </div><!--The Modal POST 종료-->
+            
+            <div id="sh-tl-editModal" class="sh-tl-modal-edit"></div>
             <!-- SHOW -->
             
             
@@ -225,7 +227,7 @@
         <input id="sh_tl_post_photo" type="hidden"> 
         <textarea id="sh_tl_post_write" class="sh-tl-review-title sh-tl-textarea" onkeydown="resize(this)" onkeyup="resize(this)">{{content}}</textarea>
       </div>
-      <div id='images-div'><img src="../../../files/{{picture}}"></div>
+      <div id='images-div-edit'><img src="../../../files/{{picture}}"></div>
       <button id="sh-tl-post-btn" type="submit" onclick="postEditClicked()" name="{{no}}">수정</button>
       <div class="sh-tl-post-img-upload"><label id="sh-tl-post-img-btn" for="sh_tl_upload" style="cursor:pointer"><i class="far fa-images"><input id="sh_tl_upload" accept="video/*,  video/x-m4v, video/webm, video/x-ms-wmv, video/x-msvideo, video/3gpp, video/flv, video/x-flv, video/mp4, video/quicktime, video/mpeg, video/ogv, .ts, .mkv, image/*"  name="files" title="사진 또는 동영상 첨부" type="file" style="display:none"></i></label></div>
     </section>
@@ -243,9 +245,9 @@
   <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
   <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script> 
   <script src="../../js/common.js"></script>
-  <script src="../../js/header/header_bg_black.js"></script>
   <script src="../../js/timeline/handlebars.js"></script>
   <script src="../../js/timeline/timeline.js"></script>
+  <script src="../../js/header/header_bg_black.js"></script>
   <script src="../../js/footer/footer.js"></script>
   <!-- <script src="../../js/timeline/tlimage.js"></script> -->
   
