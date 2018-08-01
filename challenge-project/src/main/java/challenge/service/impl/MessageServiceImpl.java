@@ -21,11 +21,11 @@ public class MessageServiceImpl implements MessageService {
     }
     
     @Override
-    public List<Message> list(int pageNo, int pageSize) {
+    public List<Message> list(int no, int pageNo, int pageSize) {
         HashMap<String,Object> params = new HashMap<>();
         params.put("startRowNo", (pageNo - 1) * pageSize);
         params.put("pageSize", pageSize);
-        
+        params.put("userNo", no);
         return MessageDao.selectList(params);
     }
     

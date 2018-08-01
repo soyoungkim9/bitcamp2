@@ -10,7 +10,7 @@ if (location.href.split("?").length > 1) {
 	$.getJSON(serverRoot + "/json/message/" + msgno, function(data) {
 		console.log(data);
 		console.log(data.trainer.uesrNo);
-		$("#mName").append(obj.name);
+		$("#mName").append(userInfo.name);
         $("#mName-send").append(data.trainer.name);
 	}).done(function(data){
 		$("#addBtn").click(() => {
@@ -20,8 +20,8 @@ if (location.href.split("?").length > 1) {
 		        data:{
 		            title: $(fTitle).val(),
 		            content:$(fContent).val(),
-		            direct:obj.userType,
-		            "member.userNo":obj.userNo,
+		            direct:userInfo.userType,
+		            "member.userNo":userInfo.userNo,
 		            "trainer.userNo":data.trainer.userNo
 		        },
 		        success:function(result){
@@ -32,50 +32,6 @@ if (location.href.split("?").length > 1) {
 		});
 	});
 }
-
-
-/*
-var receiverNo; 
-if (location.href.split("?").length > 1) {
-	// var msgno = location.href.split("?")[1].split("&")[0].split("=")[1];
-	var msgno = location.href.split("?")[1];
-	
-
-	$.getJSON(serverRoot + "/json/message/" + msgno, function(data) {
-		console.log(data);
-		console.log(data.trainer.uesrNo);
-		$("#mName").append(obj.name);
-        $("#mName-send").append(data.trainer.name);
-        receiverNo = data.trainer.uesrNo;
-	});
-
-}
-
-$("#addBtn").click(() => {
-
-	$.ajax({
-	    type: 'POST',
-        url: '../../../json/message/add',
-        data:{
-            title: $(fTitle).val(),
-            content:$(fContent).val(),
-            direct:obj.userType,
-            "member.userNo":obj.userNo,
-            "trainer.userNo":trainer.userNo
-        }
-	}).done(function(){
-		alert("okok");
-		location.href="member-msg.html"
-	});
-});
-
-*/
-
-
-
-
-
-
 
 
 /*
