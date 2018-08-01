@@ -395,6 +395,7 @@ function postEditClick(no) {
 function postDelete(e) {
 	console.log("postDelete 이벤트 발생")
 	console.log($(e).attr("name"))
+	console.log($('.sh-tl-card-modal' + $(e).attr("name")))
 	
 	$.post(serverRoot + "/json/timeline/delete", {no : $(e).attr("name")})
 			.done(function () {
