@@ -71,7 +71,8 @@ if (location.href.split("?").length > 1) {
 	function requestPay() {
 
 		$.getJSON(serverRoot + "/json/program/" + no, (data) => {
-
+			console.log(no.split("#")[0]);
+			
 			IMP.init("imp63287981"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
 			IMP.request_pay({
 
@@ -82,7 +83,7 @@ if (location.href.split("?").length > 1) {
 				amount : data.price * document.getElementById('p-value').innerHTML ,
 				buyer_email : userInfo.email,
 				buyer_name : userInfo.name,
-				buyer_tel : userInfo.phone,
+				buyer_tel : userInfo.userPhone,
 				buyer_addr : '서울특별시 강남구 삼성동',
 				buyer_postcode : '123-456',
 				kakaoOpenApp : true
@@ -90,15 +91,14 @@ if (location.href.split("?").length > 1) {
 			}
 			, function(rsp) {
 				if ( rsp.success ) {
-					console.log(obj.userNo);
-					console.log(no.split("#")[0]);
+					
 					jQuery.ajax({ 
 						type: "POST",  
 						url: serverRoot + '/json/programMember/add', 
 						dataType: 'json',
 						data: {
 
-							uno: obj.userNo,
+							uno: userInfo.userNo,
 							pno: no.split("#")[0]
 						}, 
 						success: function(result) { 

@@ -23,6 +23,7 @@ public class ProgramMember implements Serializable {
     private User user;
     private Program program;
     private Diary diarys;
+    
     public int getProgramNo() {
         return programNo;
     }
