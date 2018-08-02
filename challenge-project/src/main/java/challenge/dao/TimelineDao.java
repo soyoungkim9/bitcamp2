@@ -16,5 +16,6 @@ public interface TimelineDao {
     int timelineLikeCheck(Map<String,Object> params);
     int timelineLike(Map<String,Object> params);
     int timelineLikeCancle(Map<String,Object> params);
+    int timelineLikeDeleteWithtmlNo(int no);
     int update(HashMap<String, Object> paramsTimeline);
 }

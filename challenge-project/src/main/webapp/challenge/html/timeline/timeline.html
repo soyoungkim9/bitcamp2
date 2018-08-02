@@ -40,7 +40,7 @@
           <div id="sh-Class-Daily-item">
             <div class="sh-Class-Contents">
 
-              <h1 id="sh-Class-Title">Day-5 하비탈출</h1>
+              <h1 id="sh-Class-Title">하비탈출!</h1>
               <span id="sh-class-dots"></span>
               <span id="sh-class-more">
                   1. 물 500ml 마시고 시작합니다<br>
@@ -143,11 +143,12 @@
     {{#each list}}
     <!-- 타임라인 카드 시작 -->
     <div class="sh-tl-card-modal{{no}} sh-tl-card sh-card">
+<input id="userInfo{{no}}" class="userInfoInput" data-cardNo="{{no}}" data-userNo="{{progMemb.user.userNo}}" data-userName="{{progMemb.user.name}}"/>
       <!--글쓴이 시작 -->
       <section class="sh-tl-card-primary">
-        <div onmouseover=showPostMenu(this) onmouseout=hidePostMenu(this) class="sh-tl-user">
+        <div data-cardNo={{no}} onmouseover=showPostMenu(this) onmouseout=hidePostMenu(this) class="sh-tl-user">
           <img class="sh-tl-user-img" src="../../img/timeline/sh_profile.jpg">
-          <h1 class="sh-tl-user-name">{{progMemb.user.name}} @글번호{{no}}</h1>
+          <h1 class="sh-tl-user-name">{{progMemb.user.name}}</h1>
           <h6 class="sh-tl-post-date">{{createdDate}}</h6>
           <div onclick=postEdit(this) name={{no}} class="sh-tl-post-edit"><i class="fas fa-pen">수정</i></div>
           <div onclick=postDelete(this) name={{no}} class="sh-tl-post-delete"><i class="fas fa-trash-alt">삭제</i></div>
@@ -204,11 +205,12 @@
     {{#data}}
     <!-- 타임라인 카드 시작 -->
     <div class="sh-tl-card-modal sh-tl-card sh-card">
+    <input id="userInfo{{no}}" class="userInfoInput" data-no="{{no}}" data-userNo="{{progMemb.user.userNo}}" data-name="{{progMemb.user.name}}"/> 
       <!--글쓴이 시작 -->
       <section class="sh-tl-card-primary">
-        <div onmouseover=showPostMenu(this) onmouseout=hidePostMenu(this) class="sh-tl-user">
+                <div data-cardNo={{no}} onmouseover=showPostMenu(this) onmouseout=hidePostMenu(this) class="sh-tl-user">
           <img class="sh-tl-user-img" src="../../img/timeline/sh_profile.jpg">
-          <h1 class="sh-tl-user-name">{{progMemb.user.name}} @글번호{{no}}</h1>
+          <h1 class="sh-tl-user-name">{{progMemb.user.name}}</h1>
           <h6 class="sh-tl-post-date">{{createdDate}}</h6>
           <div onclick=postEdit(this) name={{no}} class="sh-tl-post-edit"><i class="fas fa-pen">수정</i></div>
           <div onclick=postDelete(this) name={{no}} class="sh-tl-post-delete"><i class="fas fa-trash-alt">삭제</i></div>
@@ -268,7 +270,7 @@
     <section class="sh-tl-cmt-section{{no}} sh-tl-card-reply-load">
       <div class="sh-tl-reply-user">
         <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
-        <div onmouseover=showCmtMenu(this) onmouseout=hideCmtMenu(this) class="sh-tl-review-write">
+        <div data-userNo="{{progMemb.user.userNo}}" onmouseover=showCmtMenu(this) onmouseout=hideCmtMenu(this) class="sh-tl-review-write">
           <div readonly class="sh-tl-review-content  sh-tl-reply-content">
             <span class="sh-cmt-name">{{progMemb.user.name}}</span><span class="sh-cmt-content"> {{content}}</span>
           </div>
@@ -296,9 +298,9 @@
         <input id="sh_tl_post_photo" type="hidden">
         <textarea id="sh_tl_post_write_edit" class="sh-tl-review-title sh-tl-textarea" onkeydown="resize(this)" onkeyup="resize(this)">{{content}}</textarea>
       </div>
-      <div id='images-div'><img id='edit-modal-img' src="../../../files/{{picture}}"></div>
+      <div id='images-div-edit'><img id='edit-modal-img' src="../../../files/{{picture}}"></div>
       <button id="sh-tl-edit-btn" name="{{no}}" type="button" onclick="postEditClicked()" >수정</button>
-      <div class="sh-tl-post-img-upload"><label id="sh-tl-post-img-btn" for="sh_tl_upload" style="cursor:pointer"><i class="far fa-images"><input id="sh_tl_upload" accept="video/*,  video/x-m4v, video/webm, video/x-ms-wmv, video/x-msvideo, video/3gpp, video/flv, video/x-flv, video/mp4, video/quicktime, video/mpeg, video/ogv, .ts, .mkv, image/*"  name="files" title="사진 또는 동영상 첨부" type="file" style="display:none"></i></label></div>
+      <div class="sh-tl-post-img-upload"><label id="sh-tl-post-img-btn" for="sh_tl_upload_edit" style="cursor:pointer"><i class="far fa-images"><input id="sh_tl_upload_edit" accept="video/*,  video/x-m4v, video/webm, video/x-ms-wmv, video/x-msvideo, video/3gpp, video/flv, video/x-flv, video/mp4, video/quicktime, video/mpeg, video/ogv, .ts, .mkv, image/*"  name="files" title="사진 또는 동영상 첨부" type="file" style="display:none"></i></label></div>
     </section>
     {{/data}}
   </script>

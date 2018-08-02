@@ -40,7 +40,7 @@
 	</select>
 
 	<select id="listWithNo" resultMap="CommentMap" parameterType="int">
-        select pono, uname, cm.pno, pocont, podate 
+        select pono, uname, cm.pno, pocont, podate, u.uno
         from CMT cm
         inner join POST p on p.pono = cm.cmtno
         inner join PMEMB pm on pm.uno = cm.uno
@@ -67,14 +67,14 @@
 		이름을 마음대로 해도 된다. -->
 	<select id="selectOne" parameterType="int"
 		resultMap="CommentMap">
-		select p.pono, uname, p.pocont, p.podate
+		select p.pono, uname, p.pocont, p.podate, pm.uno
 		from CMT cm
 		inner join POST p on p.pono = cm.cmtno 
 		inner join PMEMB pm on pm.uno = cm.uno
         inner join USER u on pm.uno = u.UNO
 		where cmtno=#{value}
 	</select>
-
+	
 	<update id="update" parameterType="Comment">
 		update POST set
 		pocont=#{content}
@@ -87,7 +87,8 @@
 	</delete>
 	
 	<delete id="deleteAllWithTMLNo" parameterType="int">
-        delete * from CMT 
+        delete from CMT 
         where tmlno=#{value}
     </delete>
+    
 </mapper>

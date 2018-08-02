@@ -57,4 +57,14 @@
   <delete id="delete" parameterType="int">
     delete from POST where pono=#{value}
   </delete>
+  
+      <!-- deleteAllinTML -->
+      <delete id="deleteAllComments" parameterType="java.util.HashMap">
+        delete from POST
+        where pono in 
+        <foreach collection="comments_list" item="item" index="index" separator="," open="(" close=")">
+            #{item}
+        </foreach>
+    </delete>
+     
 </mapper>

@@ -96,6 +96,12 @@
         where pno=#{pno} and pono=#{pono} and uno=#{uno}
     </delete>
 
+    <!-- 타임라인 카드 모두 삭제시 타임라인 좋아요 해제 -->
+    <delete id="timelineLikeDeleteWithtmlNo" parameterType="int">
+        delete from TML_LK
+        where pono=#{value}
+    </delete>
+
 	<update id="update" parameterType="map">
 		update TML t set
 		tmlpath=#{picture}

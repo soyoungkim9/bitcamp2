@@ -72,7 +72,7 @@ function loadOneCard(postNo) {
 			  $("#img" + data.no).append("<img src='../../../files/" + data.picture + "_600x600.jpg'>");
 		  }
 		  
-		  $('.sh-tl-card-modal').attr("class","sh-tl-card-modal" + postNo);
+		  $('.sh-tl-card-modal').attr("class","sh-tl-card-modal" + postNo + " sh-tl-card sh-card");
 	  });
 	}
 
