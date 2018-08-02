@@ -20,7 +20,7 @@ if (location.href.split("?").length > 1) {
 		        data:{
 		            title: $(fTitle).val(),
 		            content:$(fContent).val(),
-		            direct: 2,
+		            direct: 1,
 		            "member.userNo":userInfo.userNo,
 		            "trainer.userNo":data.trainer.userNo
 		        },

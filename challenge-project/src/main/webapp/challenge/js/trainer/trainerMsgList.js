@@ -24,25 +24,25 @@ $pageClick.on('click', function (evt) {
 
 
 $("#page-1").click(function() {
-	$.getJSON(serverRoot + "/json/message/list/"+ userInfo.userNo + "/" + userInfo.userType + ";pageNo=1", (data) => {
+	$.getJSON(serverRoot + "/json/message/list/"+ userInfo.userNo + ";pageNo=1", (data) => {
 	    $(listbody).html(templateFn({list:data}));
 	});
 });
 
 $("#page-2").click(function() {
-	$.getJSON(serverRoot + "/json/message/list/"+ userInfo.userNo + "/" + userInfo.userType + ";pageNo=2", (data) => {
+	$.getJSON(serverRoot + "/json/message/list/"+ userInfo.userNo + ";pageNo=2", (data) => {
 	    $(listbody).html(templateFn({list:data}));
 	});
 });
 
 $("#page-3").click(function() {
-	$.getJSON(serverRoot + "/json/message/list/"+ userInfo.userNo + "/" + userInfo.userType + ";pageNo=3", (data) => {
+	$.getJSON(serverRoot + "/json/message/list/"+ userInfo.userNo + ";pageNo=3", (data) => {
 	    $(listbody).html(templateFn({list:data}));
 	});
 });
 
 $("#page-4").click(function() {
-	$.getJSON(serverRoot + "/json/message/list/"+ userInfo.userNo + "/" + userInfo.userType + ";pageNo=4", (data) => {
+	$.getJSON(serverRoot + "/json/message/list/"+ userInfo.userNo + ";pageNo=4", (data) => {
 	    $(listbody).html(templateFn({list:data}));
 	});
 });
