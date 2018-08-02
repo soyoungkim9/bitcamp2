@@ -20,11 +20,12 @@
 		<result column="sdt" property="startDate"/>
 		<result column="edt" property="endDate"/>
 		<result column="pname" property="name"/>
+		<result column="ptover" property="proTurn"/>
 	</association>
   </resultMap>
 
   <select id="selectList" parameterType="map" resultMap="DiaryMap">
-	SELECT p.pname, p.sdt, p.edt, p.ptover, pl.pno, pl.plno, pl.pltover,
+	SELECT p.pname, p.sdt, p.edt, p.ptover, pl.pno, pl.plno, pl.pldt, pl.pltover,
 		   d.dno, d.dcont, d.dchek, d.uno
     FROM PLAN pl
 		INNER JOIN PROG p
@@ -38,8 +39,8 @@
   
   <insert id="insert" parameterType="Diary" 
   	useGeneratedKeys="true" keyColumn="dno" keyProperty="dno">
-  	INSERT INTO DIARY (dno, plno, pno, dcont, dchek, uno) 
-	VALUES (#{dno}, #{no}, #{program.no}, #{content},
+  	INSERT INTO DIARY (dcont, dchek, plno, pno, uno) 
+	VALUES (#{content}, #{no}, #{program.no},
 			#{dcheck}, #{uno})
   </insert>
 
