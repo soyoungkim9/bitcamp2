@@ -33,6 +33,7 @@
 		on pl.plno = d.plno
 	WHERE p.pno = #{arg0}
 		AND d.uno = #{arg1}
+	ORDER BY pl.pltover
   </select>
   
   <insert id="insert" parameterType="Diary" 

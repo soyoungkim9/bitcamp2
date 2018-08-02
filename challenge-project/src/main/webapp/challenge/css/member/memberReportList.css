@@ -476,38 +476,99 @@
     border-radius:10px;
 }
 
+/* 출석 관련 토글 */
+#toggle,
+#toggle::before,
+#toggle::after,
+#toggleBox,
+#toggleBox::before,
+#toggleBox::after {
+  transition: 400ms all ease-in-out 50ms;
+  box-sizing: border-box;
+  backface-visibility: hidden;
+}
 
+#toggle[type="checkbox"] {
+  display: none;
+}
 
+#toggle[type="checkbox"]:checked ~ div {
+  background: rgba(73,168,68,1);
+  box-shadow: 0 0 2px rgba(73,168,68,1);
+}
 
+#toggle[type="checkbox"]:checked ~ div label {
+  left: 110px;
+  transform: rotate(360deg);
+}
 
+#toggleBox,
+#toggleBox > label {
+  border-radius: 50px;
+}
 
+#toggleBox {
+  height: 100px;
+  width: 200px;
+  background: rgba(43, 43, 43, 1);
+  position: relative;
+  top: calc(50vh - 50px);
+  left: calc(50vw - 100px);
+  
+  box-shadow: 0 0 2px rgba(43,43,43,1);
+  
+}
 
+#toggleBox > label {
+  height: 80px;
+  width: 80px;
+  background: rgba(255, 255, 255, 1);
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  cursor: pointer;
+}
 
+#toggleBox > label::before {
+  content: '';
+  height: 60px;
+  width: 5px;
+  position: absolute;
+  top: calc(50% - 30px);
+  left: calc(50% - 2.5px);
+  transform: rotate(45deg);
+}
 
+#toggleBox > label::after {
+  content: '';
+  height: 5px;
+  width: 60px;
+  position: absolute;
+  top: calc(50% - 2.5px);
+  left: calc(50% - 30px);
+  transform: rotate(45deg);
+}
 
+#toggleBox > label::before,
+#toggleBox > label::after{
+  background: rgba(43,43,43,1);
+  border-radius: 5px;
+}
 
+/* pesduo class on toggle */
+#toggle[type="checkbox"]:checked ~ div label::before{
+  height: 50px;
+  top: calc(55% - 25px);
+  left: calc(60% - 2.5px);
+  background: rgba(73,168,68,1);
+}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
+#toggle[type="checkbox"]:checked ~ div label::after{
+  width: 20px;
+  top: calc(95% - 25px);
+  left: calc(22.5% - 2.5px);
+  background: rgba(73,168,68,1);
+}
 
 
 

@@ -1,4 +1,4 @@
-var plano;
+var dno;
 var pno;
 var defaultPage;
 var startDate;
@@ -15,10 +15,11 @@ $(document).ready(function() {
          defaultPage = $('.active').find('a').attr('data-no');
          startDate = $('.active').find('a').attr('data-sdt');
          endDate = $('.active').find('a').attr('data-edt');
-         // 운동일지 default page 설정
-         $.ajax(serverRoot + "/json/plan/list/" + defaultPage, {
+         // 운동계획서 default page 설정
+         $.ajax(serverRoot + "/json/diary/list/" + defaultPage + "/" + userInfo.userNo, {
             dataType: "json",   
              success(data) {
+            	console.log(data);
             	if(data.length == 0) {
                    $('#programBox').append('<h4>기간: <span id="sdt">' +
                          startDate + '</span> ~ <span id="edt">' +
@@ -44,7 +45,7 @@ $(document).ready(function() {
 });
 
 
-// 운동일지 리스트 보기
+// 운동계획서 리스트 보기
 var programTemplateSrc = $("#program-template").html();
 var programTemplateFn = Handlebars.compile(programTemplateSrc);
 
@@ -61,8 +62,8 @@ $(document.body).on('click', '.programTab', function(event) {
     
    startDate = $('.active').find('a').attr('data-sdt');
    endDate = $('.active').find('a').attr('data-edt');
-    // 운동일지 리스트 보기
-   $.ajax(serverRoot + "/json/plan/list/" + pno, {
+    // 운동계획서 리스트 보기
+   $.ajax(serverRoot + "/json/diary/list/" + pno + "/" + userInfo.userNo, {
       dataType: "json",   
        success(data) {
          if(data.length == 0) {
@@ -89,6 +90,7 @@ $(document.body).on('click', '.programTab', function(event) {
    });
 });
 
+
 // 모달 관련 이벤트
 var modal = document.getElementById('myModal');
 var span = document.getElementsByClassName("close")[0];
@@ -103,29 +105,57 @@ window.onclick = function(event) {
     }
 }
 
-//원하는 회차의 운동일지 확대 해서 보기!
+//원하는 회차의 운동계획서 확대 해서 보기!
 $(document.body).on('click', '.editIcon', function(event) {
    event.preventDefault();
-   plno = $(this).find('a').attr('data-no');
+   dno = $(this).find('a').attr('data-dno');
+   pno = $(this).find('a').attr('data-pno');
    
    $('.modal').css("display", "block");
    $('#addForm').css("display", "none");
    $('#viewForm').css("display", "block");
-   $('#updatePlan button').css("display", "block");
-    
-   $.ajax(serverRoot + "/json/plan/" + plno, {
+   $('#modalViewTitle input').attr("readonly", true);
+
+   $.ajax(serverRoot + "/json/diary/" + dno, {
       dataType: "json",
        success(data) {
-         console.log(data[0].planDate);
          $("#dayFont").html("Day" + data[0].planTurn);
            $("#dateFont").html("(" + data[0].planDate + ")");
            $("#modalViewTitle input").val(data[0].planTitl);
-           $("#modalViewContent textarea").val(data[0].planContent);
+           $("#modalViewContent textarea").val(data[0].content);
        },
        error() {
            window.alert("report.js editIcon 실행 오류!");
        }   
    });
+});
+
+
+//수정 버튼 눌렀을 경우 쿼리
+$("#updatePlanButton").click(() => {
+	$.post(serverRoot + "/json/diary/update/", {
+		content: $("#modalViewContent textarea").val(),
+		"dno": dno
+	}, () => {
+		modal.style.display = "none";
+		
+		/* 업데이트한 상태에서 이전 화면으로 돌아가기 위한 코드임... 뭔가 이상 */
+		$.ajax(serverRoot + "/json/diary/list/" + pno + "/" + userInfo.userNo, {
+			dataType: "json",	
+		    success(data) {
+				 console.log("반영이 된것인가?" + pno);
+				 $('#programBox').html(programTemplateFn({
+					 name: data[0].program.name,
+					 startDate: data[0].program.startDate,
+					 endDate: data[0].program.endDate,
+					 list:data}));
+		    },
+		    error() {
+		        window.alert("report.js view list 실행 오류!");
+		    }	
+		});
+		
+	});
 });
 
 

@@ -21,7 +21,7 @@
 
 <div id="sm-back">
 <div class="sm-container">
-  <h2 id="subName">프로그램 운동일지</h2>
+  <h2 id="subName">운동계획</h2>
 
 <div class="sm-mypage">
   <div class="sm-profile">
@@ -156,17 +156,24 @@
 {{#each list}}
   <li>
     <div class="dayContent">
-      <h4 class="time">Day{{planTurn}}</h4>
-      <pre>{{planContent}}</pre>
+      <h4 class="time">Day{{planTurn}}
+	  </h4>
+      <pre>{{content}}</pre>
     </div>
     <div class="editIcon">
-      <a data-no="{{no}}" data-pno="{{program.no}}" class="viewNum"><i class="fas fa-plus-circle"></i></a>
+      <a data-dno="{{dno}}" data-pno="{{program.no}}" class="viewNum"><i class="fas fa-plus-circle"></i></a>
     </div>
   </li>
 {{/each}}
 </ul>
 </script>
+<!-- 
+	  <input type="checkbox" id="toggle"/>
+	  <div id="toggleBox">
+  		<label for="toggle"></label>
+	  </div>
 
+ -->
 <script id="li-template" type="text/x-handlebars-template">
 {{#each list}}
 	{{#if @last}}
