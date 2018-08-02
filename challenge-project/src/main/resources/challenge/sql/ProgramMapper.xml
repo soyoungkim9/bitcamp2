@@ -70,11 +70,10 @@
   
   <select id="mainList"
           resultMap="ProgramMap" parameterType="map">
-    SELECT p.pname,p.ptype,pm.ppath FROM PROG p
-    inner join PMED pm on p.pno = pm.pno
-    limit 0, 6
-  
-    <!-- limit #{startRowNo}, #{pageSize} -->
+    select p.pname,p.ptype,pm.pmedno,Max(pm.ppath),p.pno,pm.pno,pm.ppath FROM PROG p 
+    inner join PMED pm on p.pno = pm.pno 
+    Group By p.pname,p.pno,pm.pno
+    order by pm.pmedno desc limit 6
   </select>
 
   <insert id="insert" parameterType="Object"
