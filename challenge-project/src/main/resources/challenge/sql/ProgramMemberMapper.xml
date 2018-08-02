@@ -16,6 +16,7 @@
     <result column="pgrade" property="grade"/>
     <result column="prv" property="review"/>
     <result column="prvdt" property="reviewDate"/>
+    <result column="payday" property="paymentDay"/>
     
     <association property="program" javaType="Program">
         <id column="pno" property="no"/>
@@ -42,8 +43,8 @@
 
   
    <insert id="insert" parameterType="ProgramMember">
-    insert into PMEMB(pno,uno) 
-    values(#{programNo},#{userNo})
+    INSERT INTO PMEMB (pno,uno,payday) 
+    VALUES (#{programNo},userNo,now())
   </insert>
   
    

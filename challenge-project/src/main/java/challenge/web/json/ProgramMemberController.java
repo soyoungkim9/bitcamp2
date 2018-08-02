@@ -3,17 +3,21 @@ package challenge.web.json;
 import java.util.List;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import challenge.domain.Member;
 import challenge.domain.ProgramMember;
+import challenge.domain.User;
 import challenge.service.ProgramMemberService;
 
 @RestController
 @RequestMapping("/programMember")
+@SessionAttributes("loginUser")
 public class ProgramMemberController {
 
     ProgramMemberService programMemberService;
@@ -23,7 +27,8 @@ public class ProgramMemberController {
     }
     @RequestMapping("add")
     @ResponseStatus(HttpStatus.CREATED)
-    public void add(ProgramMember programMember) throws Exception {
+    public void add(@ModelAttribute User loginUser,ProgramMember programMember) throws Exception {
+        programMember.setUserNo(loginUser.getUserNo());
         programMemberService.add(programMember);
     }
     
