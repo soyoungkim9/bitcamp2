@@ -17,14 +17,10 @@ public class DiaryController {
         this.diaryService = diaryService;
     }
         
-    @RequestMapping("pList/{trnno}")
-    public Object list (@PathVariable int trnno){
-        return diaryService.list(trnno);
-    }
-    
-    @RequestMapping("list/{pno}")
-    public Object diaryList (@PathVariable int pno){
-        return diaryService.getDiaryList(pno);
+    @RequestMapping("list/{pno}/{uno}")
+    public Object list (@PathVariable int pno,
+                        @PathVariable int uno){
+        return diaryService.list(pno, uno);
     }
     
     @RequestMapping("add")
@@ -33,9 +29,9 @@ public class DiaryController {
         return "diary add success!";
 
     }
-    @RequestMapping("{plno}")
-    public Object view(@PathVariable int plno) throws Exception {
-        return diaryService.get(plno);
+    @RequestMapping("{dno}")
+    public Object view(@PathVariable int dno) throws Exception {
+        return diaryService.get(dno);
     }    
     
     @RequestMapping("update")

@@ -18,25 +18,22 @@ public class DiaryServiceImpl implements DiaryService {
     }
     
     @Override
-    public List<Diary> list(int trnno) {
+    public List<Diary> list(int pno, int uno) {
 //        HashMap<String,Object> params = new HashMap<>();
 //        params.put("startRowNo", (pageNo - 1) * pageSize);
 //        params.put("pageSize", pageSize);
         
-        return diaryDao.selectList(trnno);
+        return diaryDao.selectList(pno, uno);
     }
 
     @Override
     public int add(Diary diary) {
         return diaryDao.insert(diary);
     }
+    
     @Override
-    public List<Object> getDiaryList(int pno) {
-        return diaryDao.selectDiaryList(pno);
-    }
-    @Override
-    public List<Object> get(int plno) {
-        return diaryDao.selectOne(plno);
+    public List<Object> get(int dno) {
+        return diaryDao.selectOne(dno);
     }
     
     @Override
