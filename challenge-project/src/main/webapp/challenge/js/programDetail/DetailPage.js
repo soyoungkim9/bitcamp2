@@ -1,4 +1,4 @@
-// 프로그램 데이터 불러오기
+//프로그램 데이터 불러오기
 if (location.href.split("?").length > 1) {
   var no = location.href.split("?")[1].split("=")[1];
 
@@ -53,7 +53,9 @@ if (location.href.split("?").length > 1) {
     $('.PriceContentSub2 > h4').click(() => {
       location.href = "../payment/payment.html?no="+data.no
     });
-    
+
+
+    // 트레이너 정보 가져오기
     $.getJSON(serverRoot + "/json/trainer/" + data.trainerNo, function(data) {
       $(ftrainerName).append(data.name);
       $(ftrainerTime).append(data.time);
@@ -269,15 +271,72 @@ function openDay(evt, dayName) {
 }
 
 
-$("#updBtn").click(() => {
-  $.post(serverRoot + "/json/programMember/update", {
-      title: $(fTitle).val(),
-      content: $(fContent).val(),
-      no: $(fNo).val()
-  }, () => {
-      location.href = "list.html";
+$(document).ready(function() {
+  // 댓글에 필요한 사용자 정보 가져오기
+  $('<img/>')
+  .attr('src', '../../../files/'+userInfo.userPath+'_50x50.jpg')
+  .appendTo($('.userNameCircle'));
+  $(uName).append(userInfo.name);
+  
+  starRating();
+  //댓글달기
+  $(updBtn).click(() => {
+    $.post(serverRoot + "/json/programMember/updateReview", {
+      grade: starRating(),
+      review: $(fContent).val(),
+      programNo: no,
+      userNo: userInfo.userNo
+    }, () => {
+      console.log('댓글등록')
+    });
   });
-});
+  
+  //댓글리스트
+  var trTemplateSrc3 = $("#commentList").html();
+  var templateFn3 = Handlebars.compile(trTemplateSrc3);
+
+  $.getJSON(serverRoot + "/json/programMember/reviewList/" + no, (data) => {
+    $('#comment1').append(templateFn3({list: data}));
+  })
+})
+
+// 댓글 카운팅
+function starRating(){
+  var $star = $(".star-input"),
+  $result = $star.find("output>b");
+
+  $(document)
+  .on("focusin", ".star-input>.input",
+      function(){
+    $(this).addClass("focus");
+  })
+
+  .on("focusout", ".star-input>.input", function(){
+    var $this = $(this);
+    setTimeout(function(){
+      if($this.find(":focus").length === 0){
+        $this.removeClass("focus");
+      }
+    }, 100);
+  })
+
+  .on("change", ".star-input :radio", function(){
+    $result.text($(this).next().text());
+  })
+  .on("mouseover", ".star-input label", function(){
+    $result.text($(this).text());
+  })
+  .on("mouseleave", ".star-input>.input", function(){
+    var $checked = $star.find(":checked");
+    if($checked.length === 0){
+      $result.text("0");
+    } else {
+      $result.text($checked.next().text());
+    }
+  });
+  return $result.text()
+} 
+
 
 
 

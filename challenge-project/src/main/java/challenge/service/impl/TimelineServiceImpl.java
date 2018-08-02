@@ -1,15 +1,14 @@
 // 업무로직 구현체 - 고객사 마다 다른 구현을 할 수 있다.
 package challenge.service.impl;
 
-import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import challenge.dao.CommentDao;
 import challenge.dao.PostDao;
 import challenge.dao.TimelineDao;
-import challenge.domain.Comment;
 import challenge.domain.Timeline;
 import challenge.service.TimelineService;
 
@@ -18,6 +17,7 @@ import challenge.service.TimelineService;
 public class TimelineServiceImpl implements TimelineService {
 
     PostDao postDao;
+    CommentDao commentDao;
     TimelineDao timelineDao;
 
 
@@ -68,7 +68,9 @@ public class TimelineServiceImpl implements TimelineService {
 
     @Override
     public int delete(int no) {
-        return timelineDao.delete(no);
+//        commentDao.deleteAllWithTMLNo(no);
+        timelineDao.delete(no);
+        return postDao.delete(no);
     }
 
     @Override

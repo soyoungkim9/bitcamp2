@@ -85,4 +85,9 @@
 		delete from CMT 
 		where cmtno=#{value}
 	</delete>
+	
+	<delete id="deleteAllWithTMLNo" parameterType="int">
+        delete * from CMT 
+        where tmlno=#{value}
+    </delete>
 </mapper>

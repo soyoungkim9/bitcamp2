@@ -183,10 +183,10 @@
 
         <div class="userName">
           <div class="userNameCircle"></div>
-          <div class="userNameContent"><b>홍길동</b></div>
+          <div id="uName" class="userNameContent"></div>
         </div>
         <div class="userContent">
-          <textarea rows="5" cols="82" placeholder="정직한 프로그램 후기를 남겨주세요^^"></textarea>
+          <textarea id="fContent" rows="5" cols="82" placeholder="정직한 프로그램 후기를 남겨주세요^^"></textarea>
         </div>
         <div class="formInput">
           <div class="starInput">
@@ -212,89 +212,22 @@
       <!-- 댓글 리스트 -->
       <div class="EvalContent2">
         <div>
-          <ul>
+          <ul id="comment1">
             <li>
-              <div class="commentImg"></div>
-              <div class="commentDate">
-                18.09.20 20:28
-                <span>｜</span>
-              </div>
-              <div class="commentEval">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <div class="commentContent">
-                3개월동안 고생하셨어요 감사합니다~!
-              </div>
-              <div class="commentName">
-                lsl******
-              </div>
-            </li>
-            <li>
-              <div class="commentImg"></div>
-              <div class="commentDate">
-                18.09.20 20:28
-                <span>｜</span>
-              </div>
-              <div class="commentEval">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <div class="commentContent">
-                3개월동안 고생하셨어요 감사합니다~!
-              </div>
-              <div class="commentName">
-                lyk******
-              </div>
-            </li>
-            <li>
-              <div class="commentImg"></div>
-              <div class="commentDate">
-                18.09.20 20:28
-                <span>｜</span>
-              </div>
-              <div class="commentEval">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <div class="commentContent">
-                정말 힘들었습니다. ㅠㅠ
-              </div>
-              <div class="commentName">
-                abc******
-              </div>
-            </li>
+  <div class="commentImg"></div>
+  <div class="commentDate">
+   18.09.20 20:28 <span>｜</span>
+  </div>
+  <div class="commentEval">
+   <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+    class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+    class="fas fa-star"></i>
+  </div>
+  <div class="commentContent">3개월동안 고생하셨어요 감사합니다~!</div>
+  <div class="commentName">lsl******</div>
+ </li>
             <!-- 숨겨진 더보기 -->
-            <span id="more">
-            <li>
-              <div class="commentImg"></div>
-              <div class="commentDate">
-                18.09.20 20:28
-                <span>｜</span>
-              </div>
-              <div class="commentEval">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <div class="commentContent">
-                강추하는 수업입니다!
-              </div>
-              <div class="commentName">
-                doc******
-              </div>
-            </li>
+            <!-- <span id="more">
             <li>
               <div class="commentImg"></div>
               <div class="commentDate">
@@ -315,67 +248,7 @@
                 lyk******
               </div>
             </li>
-            <li>
-              <div class="commentImg"></div>
-              <div class="commentDate">
-                18.09.20 20:28
-                <span>｜</span>
-              </div>
-              <div class="commentEval">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <div class="commentContent">
-                3개월동안 고생하셨어요 감사합니다~!
-              </div>
-              <div class="commentName">
-                lyk******
-              </div>
-            </li>
-            <li>
-              <div class="commentImg"></div>
-              <div class="commentDate">
-                18.09.20 20:28
-                <span>｜</span>
-              </div>
-              <div class="commentEval">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <div class="commentContent">
-                3개월동안 고생하셨어요 감사합니다~!
-              </div>
-              <div class="commentName">
-                lyk******
-              </div>
-            </li>
-            <li>
-              <div class="commentImg"></div>
-              <div class="commentDate">
-                18.09.20 20:28
-                <span>｜</span>
-              </div>
-              <div class="commentEval">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <div class="commentContent">
-                3개월동안 고생하셨어요 감사합니다~!
-              </div>
-              <div class="commentName">
-                lyk******
-              </div>
-            </li>
-            </span>
+            </span> -->
             <!-- 숨겨진 더보기 끝 -->
           </ul>
         </div>
@@ -505,6 +378,23 @@
   <h6 class="tapMargin">가능 시간</h6>
   <h5 class="tapMargin">{{time}}</h5>
 </div>
+{{/each}}
+</script>
+<script id="commentList" type="text/x-handlebars-template">
+{{#each list}}
+ <li>
+  <div class="commentImg"><img src="../../../files/{{user.userPath}}_50x50.jpg"></div>
+  <div class="commentDate">
+   {{reviewDate}} <span>｜</span>
+  </div>
+  <div class="commentEval">{{grade}}
+   <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+    class="fas fa-star"></i> <i class="fas fa-star"></i> <i
+    class="fas fa-star"></i>
+  </div>
+  <div class="commentContent">{{review}}</div>
+  <div class="commentName">{{user.name}}</div>
+ </li>
 {{/each}}
 </script>
 <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>

@@ -314,10 +314,6 @@ function postAdd() {
 
 function postEdit(e) {
   console.log("postEdit 이벤트 발생")
-  //	console.log($(e).attr("name")); // 카드 번호임.
-  //	console.log($('.sh-tl-card-modal' + $(e).attr("name")))
-
-
 
   var cardModalTemplateSrc = $('#card-modal-template').html();
   var templateFn = Handlebars.compile(cardModalTemplateSrc);
@@ -343,7 +339,6 @@ function postEditClicked() {
   console.log("postEditClicked의 content : " + $('#sh_tl_post_write_edit').val());
   console.log("postEditClicked의 no와 tmlno (같아야함) : " + $('#sh-tl-edit-btn').attr("name"));
 
-
   $.ajax({
     type: 'POST',
     url: '../../../json/timeline/update',
@@ -355,14 +350,18 @@ function postEditClicked() {
   }).done(function() {
     console.log("POST 수정 완료!")
     
+    var selectedCard = $('.sh-tl-card-modal' + $('#sh-tl-edit-btn').attr("name"));
+    var trTemplateSrc = $("#tr-edited-template").html();
+    var templateFn = Handlebars.compile(trTemplateSrc);
+    
+    // 비동기로 지금 선택한 애들 갈아끼우기.
+    loadOneCard($('#sh-tl-edit-btn').attr("name"));
+    console.log(selectedCard)
+    
     // modal close
 	  $("#sh-tl-editModal").attr("style", "display:none;");
 	  $("#sh-tl-editModal").html("")
-	  
-	  
-	  // 비동기로 지금 선택한 애들 갈아끼우기.
-	  
-	  
+	 
   });
 
 };
@@ -389,6 +388,21 @@ function postEditClick(no) {
       $('.sh-tl-cmt' + cmtEditNo).remove();
     })
   });
+}
+
+//---------------------------------------postDelete
+
+function postDelete(e) {
+	console.log("postDelete 이벤트 발생")
+	console.log($(e).attr("name"))
+	console.log($('.sh-tl-card-modal' + $(e).attr("name")))
+	
+	$.post(serverRoot + "/json/timeline/delete", {no : $(e).attr("name")})
+			.done(function () {
+				$('.sh-tl-card-modal' + $(e).attr("name")).remove();
+			})
+	
+
 }
 
 var postNo;

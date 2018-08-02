@@ -26,11 +26,17 @@ public class ProgramMemberController {
     public void add(ProgramMember programMember) throws Exception {
         programMemberService.add(programMember);
     }
+    
     @RequestMapping("pList/{trnNo}")
     public List<ProgramMember> listWithPname(@PathVariable int trnNo) throws Exception {
         return programMemberService.listWithPname(trnNo);
     }
 
+    @RequestMapping("lList/{uno}")
+    public List<ProgramMember> listWithLect(@PathVariable int uno) throws Exception {
+        return programMemberService.listWithLect(uno);
+    }
+    
     @RequestMapping("list/{trnNo}")
     public List<ProgramMember> list(@PathVariable int trnNo) throws Exception {
         return programMemberService.list(trnNo);
@@ -59,6 +65,13 @@ public class ProgramMemberController {
     @ResponseStatus(HttpStatus.OK) // 기본 값이 OK이다.
     public void updateReview(ProgramMember programMember) throws Exception {
         programMemberService.updateReview(programMember);
+    }
+    
+    
+    @RequestMapping("reviewList/{pno}")
+    @ResponseStatus(HttpStatus.OK) // 기본 값이 OK이다.
+    public List<ProgramMember> reviewList(@PathVariable int pno) throws Exception {
+        return programMemberService.reviewList(pno);
     }
 }
 

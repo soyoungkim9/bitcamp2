@@ -1,8 +1,8 @@
-;(function($) {
+(function() {
 	"use strict";
 
   // define variables
-  var items = document.querySelectorAll(".sm-timeline > ul > li");
+  var items = document.querySelectorAll("li");
 
   // check if an element is in viewport
   // http://stackoverflow.com/questions/123999/how-to-tell-if-a-dom-element-is-visible-in-the-current-viewport
@@ -17,9 +17,9 @@
   }
 
   function callbackFunc() {
-    for (var i = 0; i < items.length; i++) {
-      if (isElementInViewport(items[i])) {
-        items[i].classList.add("in-view");
+ for (var li = 0; li < items.length; li++) {
+      if (isElementInViewport(items[li])) {
+        items[li].classList.add("view");
       }
     }
   }
@@ -29,4 +29,4 @@
   window.addEventListener("resize", callbackFunc);
   window.addEventListener("scroll", callbackFunc);
 
-})(jQuery);
+})();

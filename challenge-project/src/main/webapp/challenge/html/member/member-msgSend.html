@@ -67,8 +67,7 @@
                       <th width="10%">선택</th>
                       <th width="20%">보낸사람</th>
                       <th width="40%">제목</th>
-                      <th width="20%">날짜</th>
-                      <th width="10%">답장</th>
+                      <th width="30%">날짜</th>
                     </tr>
                   </thead>
                   <tbody id="listbody" class="chall-tbody">
@@ -110,10 +109,9 @@
               <td>
                 <input type="checkbox" name="checkOne" id="{{no}}">
               </td>
-              <td>{{trainer.name}}</td>
+              <td>{{userInfo.name}}</td>
               <td><a href='member-msgView.html?{{no}}'>{{title}}</a></td>
               <td>{{msgDate}}</td>
-              <td><a href='member-msgRe.html?{{no}}'>답장하기</a></td>
             </tr>
 {{/each}}
 </script>

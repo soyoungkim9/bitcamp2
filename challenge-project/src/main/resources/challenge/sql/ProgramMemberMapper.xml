@@ -10,24 +10,12 @@
      스프링 프레임워크와 연동할 때 DAO 객체를 자동 생성할 수 있다.
 -->
 <mapper namespace="challenge.dao.ProgramMemberDao">
-  <resultMap type="Member" id="MemberMap">
-    <id column="uno" property="userNo"/>
-    <result column="mail" property="email"/>
-    <result column="uname" property="name"/>
-    <result column="upath" property="userPath"/>
-    <result column="uphon" property="userPhone" />
-    <collection property="programs" ofType="Program">
-        <id column="pno" property="no"/>
-        <result column="pname" property="name"/>
-        <result column="pth" property="proTh"/>
-        <result column="ptover" property="proTurn"/>
-    </collection>
-  </resultMap>
-
   <resultMap type="ProgramMember" id="ProgramMemberMap">
     <id column="pno" property="programNo"/>
     <id column="uno" property="userNo"/>
-    <result column="payday" property="paymentDay"/>
+    <result column="pgrade" property="grade"/>
+    <result column="prv" property="review"/>
+    <result column="prvdt" property="reviewDate"/>
     
     <association property="program" javaType="Program">
         <id column="pno" property="no"/>
@@ -44,6 +32,7 @@
         <result column="uname" property="name"/>
         <result column="sex" property="sex"/>
         <result column="uphon" property="userPhone"/>
+        <result column="upath" property="userPath"/>
     </association>
     <collection property="diarys" ofType="Diary">
         <id column="dno" property="dno"/>
@@ -57,6 +46,10 @@
     values(#{programNo},#{userNo})
   </insert>
   
+  <insert id="insert" parameterType="ProgramMember">
+    insert into PMEMB(pno,uno,payday) 
+    values(#{programNo},#{userNo},now()) 
+   </insert>
    
    
   <select id="pNameList" parameterType="int" resultMap="ProgramMemberMap">
@@ -65,6 +58,15 @@
     WHERE p.trnno = #{value}
   </select>
   
+  <!-- 회원이 수강중인 프로그램 목록 -->
+  <select id="lectList" parameterType="int" resultMap="ProgramMemberMap">
+  	SELECT pm.pno, pm.uno, p.pname, p.trnno, p.sdt, p.edt 
+	FROM PMEMB pm 
+		INNER JOIN PROG p 
+		ON pm.pno = p.pno 
+	WHERE pm.uno = #{value}
+  </select>
+    
   <select id="selectList" parameterType="int" resultMap="ProgramMemberMap">
 	SELECT u.uno, p.pno, pm.uno, u.mail, u.uname, u.sex, p.pname, p.trnno
 	FROM PMEMB pm 
@@ -128,13 +130,6 @@
 	    AND p.pno = #{arg1}
   </select>
   -->
-  <select id="selectListWithUno" parameterType="int" resultMap="MemberMap">  
-    select u.uno, u.uname, u.mail, u.upath, pm.uno, pm.pno, pm.ptype, p.pname, p.pth, p.ptover
-	from USER u
-	left outer join PMEMB pm on u.uno = pm.uno
-	left outer join PROG p on pm.pno = p.pno
-    where u.uno = #{value};
-  </select>
 
 	<update id="updateReview" parameterType="ProgramMember">
 		update PMEMB set
@@ -143,5 +138,12 @@
 		prvdt=now()
 		where pno=#{programNo} and uno=#{userNo}
 	</update>
-  
+
+	<select id="reviewList" parameterType="map" resultMap="ProgramMemberMap">
+		SELECT pm.pno, pm.uno, pm.pgrade, pm.prv, pm.prvdt,
+		       u.uname, u.upath
+		FROM PMEMB pm
+            INNER JOIN USER u ON pm.uno = u.uno
+		WHERE pm.pno = #{programNo} and length(pm.prvdt) > 0
+	</select>
 </mapper>
