@@ -70,7 +70,10 @@
   
   <select id="mainList"
           resultMap="ProgramMap" parameterType="map">
-    SELECT * FROM PROG limit 0, 2
+    SELECT p.pname,p.ptype,pm.ppath FROM PROG p
+    inner join PMED pm on p.pno = pm.pno
+    limit 0, 6
+  
     <!-- limit #{startRowNo}, #{pageSize} -->
   </select>
 

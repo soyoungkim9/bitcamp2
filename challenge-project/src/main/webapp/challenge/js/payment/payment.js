@@ -69,8 +69,28 @@ if (location.href.split("?").length > 1) {
 
 
 	function requestPay() {
-
 		$.getJSON(serverRoot + "/json/program/" + no, (data) => {
+			console.log(no.split("#")[0]);
+			jQuery.ajax({ 
+				type: "POST",  
+				url: serverRoot + '/json/programMember/add', 
+				dataType: 'json',
+				data: {
+
+					programNo: 4,
+					userNo: 9
+				}, 
+				success: function(result) { 
+					console.log("보내기 성공");
+					console.log(result);  
+				} 
+			})
+				
+		
+			
+		});
+
+		/*$.getJSON(serverRoot + "/json/program/" + no, (data) => {
 			console.log(no.split("#")[0]);
 			
 			IMP.init("imp63287981"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
@@ -134,7 +154,7 @@ if (location.href.split("?").length > 1) {
 					alert(msg);
 				}
 			});
-		}); 
+		}); */
 	}
 
 
