@@ -474,6 +474,31 @@ span.star-prototype > * {
 }
 
 
+span.star-prototype2, span.star-prototype2 > * {
+    height: 16px; 
+    background: url(http://i.imgur.com/YsyS5y8.png) 0 -16px repeat-x;
+    width: 80px;
+    display: inline-block;
+}
+ 
+span.star-prototype2 > * {
+    background-position: 0 0;
+    max-width:80px; 
+}
+
+span.star-prototype3, span.star-prototype3 > * {
+    height: 16px; 
+    background: url(http://i.imgur.com/YsyS5y8.png) 0 -16px repeat-x;
+    width: 80px;
+    display: inline-block;
+}
+ 
+span.star-prototype3 > * {
+    background-position: 0 0;
+    max-width:80px; 
+}
+
+
 /* 프로그램 평가 댓글 입력창 star */
 .star-input>.input, .star-input>.input>label:hover, .star-input>.input>input:focus+label,
 	.star-input>.input>input:checked+label {
@@ -620,6 +645,24 @@ star-input>.input.focus {
 	cursor: pointer;
 }
 
+/* 댓글 더보기 관련 */
+.cm-load {
+    display: none;
+}
+.cm-load.active {
+    display: block;
+}
+.is_comp.cm-load:after {
+    display: none;
+}
+.btn-wrap {
+    display: block;
+}
+.btn-wrap {
+    text-align: center;
+}
+
+
 /* 프로그램 평가*/
 .six {
 	margin-top: 25px;
@@ -703,6 +746,7 @@ star-input>.input.focus {
 
 .commentName {
 	padding-left: 20px;
+	position: relative;
 }
 
 .EvalContent2 ul {
@@ -722,17 +766,37 @@ star-input>.input.focus {
 }
 
 .commentPlus a {
-	border-top: 1px solid #e6e6e6;
+	border-bottom: 1px solid #e6e6e6;
 	padding-top: 8px;
 	font-size: 15px;
 	color: #5e5e5e;
 	font-weight: bold;
 }
-
-/* 프로그램 평가 댓글 입력창 */
-#more {
-	display: none;
+.cmt-edit {
+    /* display: none; */
+    position: absolute;
+    font-size: 12px;
+    font-weight: 100;
+    color: #666666;
+    margin-left: 8px;
+    margin-right: 8px;
+    cursor: pointer;
+    top: 3px;
+    width: 38px;
+    left: 125px;
 }
+.cmt-delete {
+    /* display: none; */
+    position: absolute;
+    font-size: 12px;
+    font-weight: 100;
+    color: #666666;
+    cursor: pointer;
+    top: 3px;
+    left: 184px;
+    width: 38px;
+}
+
 
 /* aside 부분 */
 .aside {

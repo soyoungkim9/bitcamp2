@@ -1,4 +1,3 @@
-
 /* 본문 따라다니는 navbar 이벤트*/
 window.onscroll = function() {myFunction()};
 
@@ -29,17 +28,9 @@ function openNav(evt) {
 
 
 
-/* 더보기 임시 */
-function moreFunction() {
-  var moreText = document.getElementById("more");
-  var btnText = document.getElementById("moreBtn");
 
-  if (moreText.style.display === "none") {
-    moreText.style.display = "none";
-  } else {
-    moreText.style.display = "inline";
-  }
-}
+
+
 
 
 
