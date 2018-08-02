@@ -1,6 +1,7 @@
 // 업무로직 구현체 - 고객사 마다 다른 구현을 할 수 있다.
 package challenge.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -27,11 +28,12 @@ public class MessageServiceImpl implements MessageService {
         params.put("startRowNo", (pageNo - 1) * pageSize);
         params.put("pageSize", pageSize);
         params.put("userNo", userNo);
-        return MessageDao.selectList(params);
+        return MessageDao.sendMsgList(params);
     }
     
     @Override
     public int delete(int no) {
+
         return MessageDao.delete(no);
     }
 
