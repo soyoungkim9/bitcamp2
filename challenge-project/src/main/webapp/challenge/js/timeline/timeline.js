@@ -1,3 +1,4 @@
+
 window.onscroll = function() {
 	myFunction()
 };
@@ -521,3 +522,15 @@ function cmtDelete(e) {
 		$('.sh-tl-cmt-section' + cmtNo).remove();
 	})
 }
+
+//--------------------------------------sideMenu js---------------------------//
+$('#MOVE_TOP_BTN').click(function () {
+    $('body,html').animate({
+            scrollTop: 0
+    }, 100);
+});
+
+
+
+//---------------------리뷰 작성자-------------------
+$('.sh-tl-user-img-load').attr("src", "../../../files/" + userInfo.userPath);
