@@ -34,13 +34,9 @@
   </div>
   <div class="middle two">
   <div class="alineCenter">
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <i class="fas fa-star"></i>
-    <p class="evalNum"><b><span>5</span>점</b></p>
-    <p class="evalEnp">(<span>11</span>개의 평가)</p>
+    <span id="reviewScore" class="star-prototype"></span>
+    <p class="evalNum"><b><span id="reviewScore"></span>점</b></p>
+    <p class="evalEnp">(<span id="reviewCount"></span>개의 평가)</p>
   </div>
   </div>
 
@@ -167,15 +163,9 @@
     </div>
     <div>
       <div class="EvalContent1">
-      <div class="EvalContent1-star">
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-        <i class="fas fa-star"></i>
-      </div>
+      <span id="reviewScore" class="star-prototype"></span>
       <div class="EvalContent1-score">
-        <p class="evalEnp"><span>11</span>개의 평가</p>
+        <p class="evalEnp"><span id="reviewCount"></span>개의 평가</p>
       </div>
       </div>
       <!-- 댓글입력 창 -->
@@ -212,45 +202,7 @@
       <!-- 댓글 리스트 -->
       <div class="EvalContent2">
         <div>
-          <ul id="comment1">
-            <li>
-  <div class="commentImg"></div>
-  <div class="commentDate">
-   18.09.20 20:28 <span>｜</span>
-  </div>
-  <div class="commentEval">
-   <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
-    class="fas fa-star"></i> <i class="fas fa-star"></i> <i
-    class="fas fa-star"></i>
-  </div>
-  <div class="commentContent">3개월동안 고생하셨어요 감사합니다~!</div>
-  <div class="commentName">lsl******</div>
- </li>
-            <!-- 숨겨진 더보기 -->
-            <!-- <span id="more">
-            <li>
-              <div class="commentImg"></div>
-              <div class="commentDate">
-                18.09.20 20:28
-                <span>｜</span>
-              </div>
-              <div class="commentEval">
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-                <i class="fas fa-star"></i>
-              </div>
-              <div class="commentContent">
-                3개월동안 고생하셨어요 감사합니다~!
-              </div>
-              <div class="commentName">
-                lyk******
-              </div>
-            </li>
-            </span> -->
-            <!-- 숨겨진 더보기 끝 -->
-          </ul>
+          <ul id="comment1"></ul>
         </div>
         <div class="commentPlus">
           <a onclick="moreFunction()" id="moreBtn">+ 더보기</a>
@@ -387,10 +339,8 @@
   <div class="commentDate">
    {{reviewDate}} <span>｜</span>
   </div>
-  <div class="commentEval">{{grade}}
-   <i class="fas fa-star"></i> <i class="fas fa-star"></i> <i
-    class="fas fa-star"></i> <i class="fas fa-star"></i> <i
-    class="fas fa-star"></i>
+  <div class="commentEval">
+   <span class="star-prototype">{{grade}}</span> ({{grade}})
   </div>
   <div class="commentContent">{{review}}</div>
   <div class="commentName">{{user.name}}</div>

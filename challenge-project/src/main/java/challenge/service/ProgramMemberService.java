@@ -16,4 +16,6 @@ public interface ProgramMemberService {
     int add(ProgramMember programMember);
     int updateReview(ProgramMember programMember);
     List<ProgramMember> reviewList(int pno);
+    int reviewCount(int no);
+    int reviewScore(int no);
 }

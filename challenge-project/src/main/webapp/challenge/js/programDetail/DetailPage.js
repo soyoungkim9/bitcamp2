@@ -277,7 +277,7 @@ $(document).ready(function() {
   .attr('src', '../../../files/'+userInfo.userPath+'_50x50.jpg')
   .appendTo($('.userNameCircle'));
   $(uName).append(userInfo.name);
-  
+
   starRating();
   //댓글달기
   $(updBtn).click(() => {
@@ -290,17 +290,47 @@ $(document).ready(function() {
       console.log('댓글등록')
     });
   });
-  
+
   //댓글리스트
   var trTemplateSrc3 = $("#commentList").html();
   var templateFn3 = Handlebars.compile(trTemplateSrc3);
 
   $.getJSON(serverRoot + "/json/programMember/reviewList/" + no, (data) => {
     $('#comment1').append(templateFn3({list: data}));
+  }).done(function(data) {
+    //숫자 평점을 별로 변환하도록 호출하는 함수
+    $('.star-prototype').generateStars();
   })
+
+
+  //리뷰 개수 카운트
+  $.get(serverRoot + "/json/programMember/reviewCount/" + no, function(data) {
+    $(reviewCount).append(data);
+    var count = data;
+
+    // 리뷰  점수
+    $.get(serverRoot + "/json/programMember/reviewScore/" + no, function(data) {
+      var score = data;
+      var cal = (score / count).toFixed(1);
+      $(reviewScore).append(cal);
+      $('.star-prototype').generateStars2();
+    })
+  }).done(function() {
+    
+  })
+
 })
 
-// 댓글 카운팅
+//숫자를 별로 변환
+$.fn.generateStars = function() {
+  return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+};
+//숫자를 별로 변환 2
+$.fn.generateStars2 = function() {
+  return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+};
+
+//댓글 입력 별점 카운팅
 function starRating(){
   var $star = $(".star-input"),
   $result = $star.find("output>b");
@@ -336,8 +366,6 @@ function starRating(){
   });
   return $result.text()
 } 
-
-
 
 
 

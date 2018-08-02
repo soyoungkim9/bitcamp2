@@ -136,10 +136,22 @@
 	</update>
 
 	<select id="reviewList" parameterType="map" resultMap="ProgramMemberMap">
-		SELECT pm.pno, pm.uno, pm.pgrade, pm.prv, pm.prvdt,
+		SELECT pm.pgrade, pm.prv, pm.prvdt,
 		       u.uname, u.upath
 		FROM PMEMB pm
             INNER JOIN USER u ON pm.uno = u.uno
 		WHERE pm.pno = #{programNo} and length(pm.prvdt) > 0
 	</select>
+	
+	<select id="reviewCount" parameterType="int" resultType="int">
+         select count(*)
+         from PMEMB
+         where pno=#{programNo} and length(prvdt) > 0
+    </select>
+    
+    <select id="reviewScore" parameterType="int" resultType="int">
+         select sum(pgrade)
+         from PMEMB
+         where pno=#{programNo} and length(prvdt) > 0
+    </select>
 </mapper>

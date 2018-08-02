@@ -66,4 +66,14 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
     public List<ProgramMember> reviewList(int pno) {
         return programMemberDao.reviewList(pno);
     }
+    
+    @Override
+    public int reviewCount(int pno) {
+        return programMemberDao.reviewCount(pno);
+    }
+    
+    @Override
+    public int reviewScore(int pno) {
+        return programMemberDao.reviewScore(pno);
+    }
 }

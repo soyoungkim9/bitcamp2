@@ -73,6 +73,16 @@ public class ProgramMemberController {
     public List<ProgramMember> reviewList(@PathVariable int pno) throws Exception {
         return programMemberService.reviewList(pno);
     }
+    
+    @RequestMapping("reviewCount/{pno}")
+    public int reviewCount(@PathVariable int pno) throws Exception {
+        return programMemberService.reviewCount(pno);
+    }
+    
+    @RequestMapping("reviewScore/{pno}")
+    public int reviewScore(@PathVariable int pno) throws Exception {
+        return programMemberService.reviewScore(pno);
+    }
 }
 
 //ver 55 - JSON 데이터를 출력하는 페이지 컨트롤러 생성
