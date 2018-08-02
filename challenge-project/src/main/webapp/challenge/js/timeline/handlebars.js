@@ -49,7 +49,8 @@ function loadCards(pageCount) {
       loadComments(data[i].no);
       timelineLikeCount(data[i].no);
       if (data[i].picture) {
-//        $("#img" + data[i].no).append("<img src='../../../files/" + data[i].picture + "_600x600.jpg'>");
+    	  // 얘는 타임라인 카드의 이미지임.
+        $("#img" + data[i].no).append("<img src='../../../files/" + data[i].picture + "_600x600.jpg'>");
       } 
     }
   });
