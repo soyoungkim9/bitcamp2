@@ -138,6 +138,6 @@
 		       u.uname, u.upath
 		FROM PMEMB pm
             INNER JOIN USER u ON pm.uno = u.uno
-		WHERE pm.pno = #{programNo}
+		WHERE pm.pno = #{programNo} and length(pm.prvdt) > 0
 	</select>
 </mapper>
