@@ -157,6 +157,7 @@
 						<!-- <li id="cccc"></li> -->
 						<!-- <li id="dddd">{{>script}}</li> -->
 						</ul>
+						<ul id="dddd"></ul>
 							<!-- <li>
 								<div class="sm-time-div">
 									<span class="sm-time">2011-02-03</span>
@@ -231,13 +232,13 @@
 <script src="../../js/member/sm-following.js"></script>
 <script src="../../js/member/mb-menu.js"></script> -->
 <script>
-    $("#toryBtn").click(() => { location.href="member-history4.html"});
+    $("#toryBtn").click(() => { location.href="member-history4.html?no=1"});
     </script>
 <script src="../../js/member/history2.js"></script>
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each list}}
 {{#if @first}}
-<li class="view">
+<li>
 <div class="sm-time-div">
 <span class="sm-time">{{startDate}}</span>
 <p class="sm-time-p">
@@ -247,7 +248,7 @@
 </div>
 </li>
 
-<li class="view">
+<li>
 <div class="sm-time-div">
 <span class="sm-time">{{endDate}}</span>
 <p class="sm-time-p">
@@ -259,7 +260,7 @@
 
 
 {{else if @last}}
-<li class="view">
+<li>
 <div class="sm-time-div">
 <span class="sm-time">{{startDate}}</span>
 <p class="sm-time-p">
@@ -269,7 +270,7 @@
 </div>
 </li>
 
-<li class="view">
+<li>
 <div class="sm-time-div">
 <span class="sm-time">{{endDate}}</span>
 <p class="sm-time-p">
@@ -280,7 +281,7 @@
 </li>
 
 {{else}}
-<li class="view">
+<li>
 <div class="sm-time-div">
 <span class="sm-time">{{startDate}}</span>
 <p class="sm-time-p">
@@ -290,7 +291,7 @@
 </div>
 </li>
 
-<li class="view">
+<li>
 <div class="sm-time-div">
 <span class="sm-time">{{endDate}}</span>
 <p class="sm-time-p">
@@ -305,7 +306,7 @@
 
 <script id="tr-template2" type="text/x-handlebars-template">
 {{#each list2}}
-<li class="view">
+<li>
 {{#if @first}}
 <div class="sm-time-div">
 <span class="sm-time">{{endDate}}</span>
@@ -335,6 +336,6 @@
 {{/if}}
 {{/each}}
 </script>
-<!-- <script src="member-history4.js"></script>  -->
+<script src="member-history4.js"></script>
 </body>
 </html>

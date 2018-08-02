@@ -39,8 +39,8 @@ var ul = document.querySelector("#ul1234");
                     // tr 태그를 만든다.
                     var li = document.createElement("li");
                     var li2 = document.createElement("li");
-                    li.className = "view";
-                    li2.className = "view";
+                    /*li.className = "view";
+                    li2.className = "view";*/
                     /*var liText = document.createTextNode('view');*/
                     
                     // tr 태그에 게시물 데이터를 넣는다.
@@ -51,7 +51,7 @@ var ul = document.querySelector("#ul1234");
                     
                     li2.innerHTML ="<div class='sm-time-div'>" +
              	   "<span class='sm-time'>" + b.endDate + "</span>" +
-             	   "<p class='sm-time-p'>" + b.name +"</p>" +
+             	   "<p class='sm-time-p'>" + b.name+ '을 마쳤습니다.' + "</p>" +
              	   "</div>";
                     
                     // tr 태그를 tbody의 자식 태그로 붙인다.
@@ -62,6 +62,6 @@ var ul = document.querySelector("#ul1234");
             }
      }
    };
-    xhr.open("GET", "http://localhost:8888/challenge-project/json/program/list", true);
+    xhr.open("GET",  serverRoot + "/json/programMember/lList/", true);
     xhr.send();
  })();
