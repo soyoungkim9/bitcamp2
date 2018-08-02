@@ -51,10 +51,12 @@
     </collection>
   </resultMap>
 
-  <insert id="insert" parameterType="ProgramMember">
-    insert into PMEMB(pno,uno,payday) 
-    values(#{programNo},#{userNo},now())
-   </insert>
+  
+   <insert id="insert" parameterType="ProgramMember">
+    insert into PMEMB(pno,uno) 
+    values(#{programNo},#{userNo})
+  </insert>
+  
    
    
   <select id="pNameList" parameterType="int" resultMap="ProgramMemberMap">
