@@ -124,6 +124,12 @@
          left outer join USER u on t.TRNNO = u.UNO
     where p.pno=#{value}
   </select>
+  
+  <select id="selectRecent" resultMap="ProgramMap">
+    select pno, trnno
+    from PROG 
+    order by pno desc limit 1 
+  </select>
 
   <update id="update" parameterType="Program">
     update pms2_program set
@@ -144,4 +150,6 @@
       stat=#{state}
     where tano=#{no}
   </update>
+  
+  
 </mapper>

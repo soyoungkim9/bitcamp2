@@ -8,7 +8,9 @@ import org.springframework.stereotype.Service;
 
 import challenge.dao.ProgramDao;
 import challenge.dao.ProgramMediaDao;
+import challenge.dao.ProgramMemberDao;
 import challenge.domain.ProgramMedia;
+import challenge.domain.ProgramMember;
 import challenge.service.ProgramMediaService;
 
 
@@ -16,11 +18,13 @@ import challenge.service.ProgramMediaService;
 public class ProgramMediaServiceImpl implements ProgramMediaService {
     ProgramDao programDao;
     ProgramMediaDao programMediaDao;
+    ProgramMemberDao programMemberDao;
     
     public ProgramMediaServiceImpl(ProgramMediaDao programMediaDao,
-            ProgramDao programDao) {
+            ProgramDao programDao, ProgramMemberDao programMemberDao) {
         this.programMediaDao = programMediaDao;
         this.programDao = programDao;
+        this.programMemberDao = programMemberDao;
     }
     
     @Override
@@ -46,6 +50,15 @@ public class ProgramMediaServiceImpl implements ProgramMediaService {
     @Override
     public int add(ProgramMedia programMedia, ArrayList<String> medias) {
         programDao.insert(programMedia);
+        
+        int pno = programDao.selectRecent().getNo();
+        int uno = programDao.selectRecent().getTrainerNo();
+
+        ProgramMember programMember = new ProgramMember();
+        programMember.setProgramNo(pno);
+        programMember.setUserNo(uno);
+        programMember.setUserType(2);
+        programMemberDao.insert(programMember);
         
         for (int i = 0; i < medias.size(); i++) {
             programMedia.setPath(medias.get(i));

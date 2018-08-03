@@ -15,5 +15,5 @@ public interface ProgramDao {
     public Program selectOne(int no);
     public List<Program> mainList();
     public Program selectOneWithMedia(int no);
-
+    Program selectRecent();
 }

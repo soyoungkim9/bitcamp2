@@ -106,7 +106,8 @@ if (location.href.split("?").length > 1) {
 						dataType:"json",
 						data:{
 							programNo: data.no,
-							userNo: userInfo.userNo
+							userNo: userInfo.userNo,
+							userType: 1
 						},
 						complete: function(data){
 							
