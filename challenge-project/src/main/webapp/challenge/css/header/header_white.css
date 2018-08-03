@@ -86,11 +86,12 @@
   margin-left: 6px;
 }
 
-#sh-user-icon {
-  height: 10px;
-  font-size: 36px;
-  color: #666666;
+#sh-user-img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
 }
+
 
 #sh-user-icon-tri {
   color: #666666;

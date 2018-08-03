@@ -40,8 +40,8 @@
   <insert id="insert" parameterType="Diary" 
   	useGeneratedKeys="true" keyColumn="dno" keyProperty="dno">
   	INSERT INTO DIARY (dcont, dchek, plno, pno, uno) 
-	VALUES (#{content}, #{no}, #{program.no},
-			#{dcheck}, #{uno})
+	VALUES (#{content}, #{dcheck}, #{no},
+			#{program.no}, #{uno})
   </insert>
 
   <select id="selectOne" parameterType="int" resultMap="DiaryMap">

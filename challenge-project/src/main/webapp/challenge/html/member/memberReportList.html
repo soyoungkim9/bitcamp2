@@ -94,7 +94,7 @@
 		    	<div class="checkIconBox">
 		    	  <h4 class="daycheckFont">출석여부</h4>
 				  <label>
-					 <input type="checkbox" class="option-input checkbox" checked />
+					 <input type="checkbox" class="option-input checkbox"/>
 				  </label>
 				</div>
 		    	<div id="modalViewTitle">
@@ -112,7 +112,7 @@
 		    	<div class="checkIconBox addPart">
 		    	  <h4 class="daycheckFont">출석여부</h4>
 				  <label>
-					 <input id="checkType" type="checkbox" class="option-input checkbox" checked />
+					 <input id="checkType" type="checkbox" data-check="1" class="option-input checkbox" checked/>
 				  </label>
 				</div>
 		    	<div id="modalTitle">
@@ -173,7 +173,7 @@
       <pre>{{content}}</pre>
     </div>
       <div class="editIcon">
-        <a data-dno="{{dno}}" data-pno="{{program.no}}" class="viewNum checkInOut">
+        <a id="viewCheck" data-ch="1" data-dno="{{dno}}" data-pno="{{program.no}}" class="viewNum checkInOut">
 			<i class="far fa-check-circle"></i></a>
         <a data-dno="{{dno}}" data-pno="{{program.no}}" class="viewNum">
 			<i class="fas fa-plus-circle"></i></a>

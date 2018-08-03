@@ -4,6 +4,7 @@ var defaultPage;
 var startDate;
 var endDate;
 var plno;
+var onOff;
 
 // li-template 트레이너가 관리하는 프로그램 이름 목록
 var liTemplateSrc = $("#li-template").html();
@@ -32,6 +33,28 @@ $(document).ready(function() {
                       startDate: data[0].program.startDate,
                       endDate: data[0].program.endDate,
                       list:data}));
+                   // 출결여부 0인지 1인지를 알아내기 위한 로직
+                   var checkInOut = $.makeArray($(".checkInOut").map(function(){
+                	   // 이렇게 배열로 받아와야 함 attr만 쓰면 그 속성의 첫번째 값만 들고온다! 
+                	   return $(this).attr("data-dno"); 
+                   }));
+                   for(var i = 0; i < data.length; i++) {
+                	   if(data[i].dcheck == 0) {
+                		   for(j = 0; j < checkInOut.length; j++) {
+                			   if(checkInOut[j] == data[i].dno) {
+                				   var temp = checkInOut[j]; // i + 1;
+                				   console.log($(".editIcon").find('a').attr('data-ch'));
+                				   console.log($("#planList li").eq(i).html());
+                				   // 그에 해당하는 data-ch를 0으로 바꿔서
+                				   // data-ch가 0인 아이만 display none을 한다.
+                				   //$('.viewNum').css("display", "none");
+                			   }
+                		   }
+                	   }
+                	   continue;
+                   }
+                   
+                  
                 }
              },
              error() {
@@ -165,7 +188,6 @@ $("#addPlan").click(() => {
     $.ajax(serverRoot + "/json/diary/list/" + pno + "/" + userInfo.userNo, {
     	dataType: "json",
 	    success(data) {
-    		console.log(data);
     	   $("option").remove();
     	   var count = data.length + 1;
     	   var turn;
@@ -183,10 +205,20 @@ $("#addPlan").click(() => {
 	       $.ajax(serverRoot + "/json/plan/list/" + pno, {
 	          dataType: "json",   
 	           success(data) {
+	        	  console.log(data);
+	        	  if(data.length == 0) {
+	        		  alert('작성할 수 있는 운동계획서가 없습니다. \n트레이너에게 문의해 주세요.')
+	        		  return;
+	        	  }
+	        	  plno = data[index].no;
 	   	       	  $("#mDate").val(data[index].planDate);
 		          $("#mTitle").val(data[index].planTitl);
 		          $("#mDate").attr("readonly", true);
 		          $("#mTitle").attr("readonly", true);
+		          
+		          $('.modal').css("display", "block");
+		          $('#viewForm').css("display", "none");
+		          $('#addForm').css("display", "block");
 	           },
 	           error() {
 	               window.alert("plan에서 mDate와 mTitle을 불러 오기 실행 오류!");
@@ -194,29 +226,36 @@ $("#addPlan").click(() => {
 	       });
 	       
 	       $("#mContent").val('');
-	       plno = data[index-1].no;
+	       //plno = data[index-1].no;
 	    },
 	    error() {
-	        window.alert("report.js addPlan 실행 오류!");
+	        window.alert("addPlan 실행 오류!");
 	    }
     });
-    
-    $('.modal').css("display", "block");
-    $('#viewForm').css("display", "none");
-    $('#addForm').css("display", "block");
 });
 
-//등록 버튼 눌렀을 시
+// 출석체크 여부 조절
+$("#checkType").click(() => {
+	//$('.active').find('a').attr('data-no');
+	console.log($("#checkType").attr("data-check"));
+
+	if($("#checkType").attr("data-check") == 1) {
+		$("#checkType").attr("data-check", "0");
+	} else {
+		$("#checkType").attr("data-check", "1");
+	}
+});
+
+// 등록 버튼 눌렀을 시
 $("#registerPlan").click(() => {
-	var onOff;
-	if($("#checkType").val() == 'on') {
+	if($("#checkType").attr("data-check") == 1) {
 		onOff = 1;
 	} else {
 		onOff = 0;
 	}
 	$.post(serverRoot + "/json/diary/add", {
-		dcheck: onOff,
 		content: $("#mContent").val(),
+		dcheck: onOff,
 		"no": plno,
 		"program.no": pno,
 		"uno": userInfo.userNo
@@ -226,7 +265,6 @@ $("#registerPlan").click(() => {
 		$.ajax(serverRoot + "/json/diary/list/" + pno + "/" + userInfo.userNo, {
 			dataType: "json",	
 		    success(data) {
-				 console.log("반영이 된것인가?" + pno);
 				 $('#programBox').html(programTemplateFn({
 					 name: data[0].program.name,
 					 startDate: data[0].program.startDate,
@@ -234,7 +272,7 @@ $("#registerPlan").click(() => {
 					 list:data}));
 		    },
 		    error() {
-		        window.alert("report.js view list 실행 오류!");
+		        window.alert("registerPlan 실행 오류!");
 		    }	
 		});
 	});

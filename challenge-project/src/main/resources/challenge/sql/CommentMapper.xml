@@ -23,6 +23,7 @@
                 <result column="uname" property="name"/>
                 <result column="sex" property="sex"/>
                 <result column="uphon" property="userPhone"/>
+                <result column="upath" property="userPath"/>
             </association>
         </association>
 	</resultMap>
