@@ -90,10 +90,10 @@
   margin-left: 6px;
 }
 
-#sh-user-icon {
-  height: 10px;
-  font-size: 36px;
-  color: #EEEEEE;
+#sh-user-img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
 }
 
 #sh-user-icon-tri {
@@ -422,6 +422,7 @@ a.sh_after:hover:after {
 }
 
 /* search button CSS 종료*/
+
 
 /*헤더 CSS 종료*/
 
