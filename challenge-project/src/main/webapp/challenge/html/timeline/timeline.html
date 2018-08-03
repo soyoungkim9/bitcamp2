@@ -187,7 +187,8 @@
       <!-- 댓글쓰기 시작-->
       <section class="sh-tl-card-reply-write">
         <div class="sh-tl-reply-user">
-          <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
+          <img class="sh-tl-user-img sh-tl-user-img-load">
+          <!--<i class="sh-tl-reply-user-circle fas fa-user-circle"></i>-->
           <div class="sh-tl-review-write">
             <textarea id="{{no}}" class="sh-tl-cmt{{no}} sh-tl-review-title  sh_tl_reply_textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
             <div class="sh-tl-img-upload"><button onclick="cmtFunction({{no}})" class="sh-tl-reply-btn" type="submit">게시</button> </div>

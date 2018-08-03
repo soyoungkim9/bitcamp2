@@ -60,7 +60,10 @@
  });
 
  $("#addBtn").click(() => {
-
+	 var userPic = $("#fPath").val(); 
+	if (userPic == "") {
+		userPic = "default.jpeg"
+	}
    $.post(serverRoot + "/json/member/add", {
      name: $("#fName").val(),
      sex: $('input[name]:checked').val(),
@@ -68,7 +71,7 @@
      //	      + '@' + $("#fid2 option:selected").val(),
      password: $("#pwd").val(),
      userPhone: $("#fPhone1").val() + '-' + $("#fPhone2").val() + '-' + $("#fPhone3").val(),
-     userPath: $("#fPath").val(),
+     userPath: userPic,
      userType: '1'
    })
    /*.done(() => {

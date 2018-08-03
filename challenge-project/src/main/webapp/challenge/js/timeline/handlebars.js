@@ -53,6 +53,7 @@ function loadCards(pageCount) {
         $("#img" + data[i].no).append("<img src='../../../files/" + data[i].picture + "_600x600.jpg'>");
       } 
     }
+    $('.sh-tl-user-img-load').attr("src", "../../../files/" + userInfo.userPath);
   });
 }
 
