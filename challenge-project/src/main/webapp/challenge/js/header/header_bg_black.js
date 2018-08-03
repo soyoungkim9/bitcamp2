@@ -1,4 +1,7 @@
 //div#header 태그에 /html/header.html 내용을 삽입한다.
+
+var userInfo;
+
 $.ajax({
 	method: "GET",
 	url : serverRoot + "/challenge/html/header/header_bg_black.html",

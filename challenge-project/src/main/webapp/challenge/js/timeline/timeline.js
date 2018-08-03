@@ -20,10 +20,21 @@ function myFunction() {
 
 /* 강의계획서 더보기 */
 function shClassFunction() {
-	var dots = document.getElementById("sh-class-dots");
-	var moreText = document.getElementById("sh-class-more");
-	var divText = document.getElementById("shClassDiv");
-
+	var dots = $("#sh-class-dots");
+	var moreText = $("#sh-class-more");
+	var divText = $("#shClassDiv");
+	
+	if (dots.css("display") === "none") {
+		dots.css("display", "inline");
+		divText.html("운동일정 보기");
+		moreText.css("display","none");
+	} else {
+		dots.css("display", "none");
+		divText.html("닫기");
+		moreText.css("display","inline");
+	}
+	
+	/*
 	if (dots.style.display === "none") {
 		dots.style.display = "inline";
 		divText.innerHTML = "운동일정 보기";
@@ -31,8 +42,10 @@ function shClassFunction() {
 	} else {
 		dots.style.display = "none";
 		divText.innerHTML = "닫기";
+		
 		moreText.style.display = "inline";
 	}
+	*/
 }
 
 /* 타임라인 글 작성 textarea auto-growing / self-resizing */
@@ -329,8 +342,6 @@ var modal = $('#sh-tl-myModal');
 var btn = $('#sh-tl-myModalBtn');
 
 var span = $(".sh-tl-modal-close");
-console.log("span은=======>");
-console.log(span[0]);
 
 //글 추가할 때 모달 이벤트
 btn.on("click", function() {
