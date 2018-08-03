@@ -142,6 +142,7 @@
 		FROM PMEMB pm
             INNER JOIN USER u ON pm.uno = u.uno
 		WHERE pm.pno = #{programNo} and length(pm.prvdt) > 0
+		ORDER BY pm.prvdt desc;
 	</select>
 	
 	<select id="reviewCount" parameterType="int" resultType="int">

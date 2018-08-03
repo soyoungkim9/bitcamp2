@@ -1,5 +1,9 @@
 $("#addBtn").click(() => {	
-	
+	 var userPic = $("#fPath").val(); 
+		if (userPic == "") {
+			console.log("uPath가 비어있다.")
+			userPic = "default.jpeg"
+		}
     $.post(serverRoot + "/json/trainer/add", {
       name: $("#fName").val(),
       sex: $('input[name]:checked').val(),

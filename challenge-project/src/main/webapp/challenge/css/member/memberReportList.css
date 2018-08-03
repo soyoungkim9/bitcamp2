@@ -282,7 +282,7 @@
     padding: 20px;
     border: 1px solid #888;
     width: 700px;
-    height: 500px;
+    height: 530px;
 }
 
 /* The Close Button */
@@ -304,16 +304,16 @@
 	margin-bottom: 0 !important;
 }
 #addForm {
-	margin: 40px 25px;
+	margin: 28px 22px;
 	margin-left: 5px;
 	text-align: center;
 }
 
 #addForm div {
-	margin-bottom: 25px;
+	margin-bottom: 22px;
 }
 
-#addForm label {
+#addForm .addLabel {
 	margin-right: 10px;
 	display: inline-block;
 	width: 50px;
@@ -321,10 +321,11 @@
 	font-weight: bold;
 }
 
-#addForm input {
+#addForm .addInput {
 	padding: 5px;
 	border: 1px solid #d7d7d7;
 	font-size: 15px;
+	padding-left: 10px;
 }
 
 #addForm select {
@@ -346,10 +347,12 @@
 }
 
 #addTop2 input {
-	width: 203px;
+	width: 197px;
 	height: 25px;
 }
-
+#mTitle {
+	padding: 5px;
+}
 #mDate {
 	height: 22.2px !important; 
 }
@@ -411,7 +414,7 @@
 }
 
 #modalViewTitle {
-	margin-top: 20px;
+	margin-top: 5px;
 }
 
 #modalViewContent {
@@ -477,97 +480,73 @@
 }
 
 /* 출석 관련 토글 */
-#toggle,
-#toggle::before,
-#toggle::after,
-#toggleBox,
-#toggleBox::before,
-#toggleBox::after {
-  transition: 400ms all ease-in-out 50ms;
-  box-sizing: border-box;
-  backface-visibility: hidden;
+.checkIconBox {
+	display: inline-block;
+	width: 500px;
+	margin-top: 15px;
+	margin-bottom: 10px !important;	
 }
 
-#toggle[type="checkbox"] {
-  display: none;
+.daycheckFont {
+	float: left;
+	margin: 0;
+	margin-top: 6px;
+	margin-right: 10px;
 }
 
-#toggle[type="checkbox"]:checked ~ div {
-  background: rgba(73,168,68,1);
-  box-shadow: 0 0 2px rgba(73,168,68,1);
+.checkIconBox label {
+	margin-top: 9px;
+	display: inline-block !important;
+	float: left;
+	margin: 0;
 }
 
-#toggle[type="checkbox"]:checked ~ div label {
-  left: 110px;
-  transform: rotate(360deg);
-}
-
-#toggleBox,
-#toggleBox > label {
-  border-radius: 50px;
-}
-
-#toggleBox {
-  height: 100px;
-  width: 200px;
-  background: rgba(43, 43, 43, 1);
-  position: relative;
-  top: calc(50vh - 50px);
-  left: calc(50vw - 100px);
-  
-  box-shadow: 0 0 2px rgba(43,43,43,1);
-  
-}
-
-#toggleBox > label {
-  height: 80px;
-  width: 80px;
-  background: rgba(255, 255, 255, 1);
-  position: absolute;
-  top: 10px;
-  left: 10px;
+.option-input {
+  -webkit-appearance: none;
+  appearance: none;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  height: 22px;
+  width: 22px;
+  transition: all 0.15s ease-out 0s;
+  background: #cbd1d8;
+  border: none;
+  color: #fff;
   cursor: pointer;
-}
-
-#toggleBox > label::before {
-  content: '';
-  height: 60px;
-  width: 5px;
-  position: absolute;
-  top: calc(50% - 30px);
-  left: calc(50% - 2.5px);
-  transform: rotate(45deg);
-}
-
-#toggleBox > label::after {
-  content: '';
-  height: 5px;
-  width: 60px;
-  position: absolute;
-  top: calc(50% - 2.5px);
-  left: calc(50% - 30px);
-  transform: rotate(45deg);
-}
-
-#toggleBox > label::before,
-#toggleBox > label::after{
-  background: rgba(43,43,43,1);
+  display: inline-block;
+  outline: none;
   border-radius: 5px;
+  margin: 0;
+  margin-top: 3px;
+  margin-bottom: -5px;
+  
+}
+.option-input:hover {
+  background: #9faab7;
+}
+.option-input:checked {
+  background: #DD1F26;
+}
+.option-input:checked::before {
+  height: 22px;
+  width: 22px;
+  content: '✔';
+  display: inline-block;
+  font-size: 15.66667px;
+  text-align: center;
+}
+.option-input:checked::after {
+  -webkit-animation: click-wave 0.65s;
+  -moz-animation: click-wave 0.65s;
+  animation: click-wave 0.65s;
+  background: #40e0d0;
+  content: '';
+  display: block;
 }
 
-/* pesduo class on toggle */
-#toggle[type="checkbox"]:checked ~ div label::before{
-  height: 50px;
-  top: calc(55% - 25px);
-  left: calc(60% - 2.5px);
-  background: rgba(73,168,68,1);
-}
-
-#toggle[type="checkbox"]:checked ~ div label::after{
-  width: 20px;
-  top: calc(95% - 25px);
-  left: calc(22.5% - 2.5px);
-  background: rgba(73,168,68,1);
+.addPart {
+	width: 560px;
 }
 
 

@@ -44,9 +44,6 @@
         values (#{title}, #{content}, 0)
   </insert>
   
-  <!-- 파라미터의 타입이 primitive type이나 wrapper 클래스, String 클래스인 경우
-       값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
-  -->
   <select id="selectOne" parameterType="int" resultMap="ChallengeMap">
     select chtitl, chcont, chpath 
     from CHAL

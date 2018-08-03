@@ -80,14 +80,18 @@ $(function() {
 
 
 $("#addBtn").click(() => {	
-	
+	 var userPic = $("#fPath").val(); 
+		if (userPic == "") {
+			userPic = "default.jpeg"
+		}
+		
     $.post(serverRoot + "/json/trainer/add", {
       name: $("#fName").val(),
       sex: $('input[name]:checked').val(),
-      email: $("#fId").val() + '@' + $("#fid2 option:selected").val(),
+      email: $("#fId").val(),
       password: $("#pwd").val(),
       userPhone: $("#fPhone1").val() + '-' + $("#fPhone2").val() + '-' + $("#fPhone3").val(),
-      userPath: $("#fPath").val(),
+      userPath: userPic,
       userType: '2',
       
       introduce: $("#fTrnint").val(),

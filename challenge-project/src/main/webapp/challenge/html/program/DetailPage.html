@@ -16,7 +16,7 @@
 <h2 id="fName" class="challengeName"></h2>
 <div class="challengeSub">
   <p><span id="Dday">Start D</span></p>
-  <p><span id="fStartDate">( </span> )</p>
+  <p><span id="fDate">( </span> )</p>
   <p><span id="fminQty">참여인원 </span><span id="fmaxQty"> / </span></p>
 </div>
 </div>
@@ -28,13 +28,13 @@
    <span id="fName"></span>
    <span id="fproType">운동종목: </span>
    </h3>
-    <p><span><a class="far fa-heart"></a></span>
+    <p><span id="fchalName"></span>
     <span id="fprice">￦ </span></p>
   </div>
   </div>
   <div class="middle two">
   <div class="alineCenter">
-    <span id="reviewScore" class="star-prototype"></span>
+    <span id="reviewScore" class="star-prototype3"></span>
     <p class="evalNum"><b><span id="reviewScore"></span>점</b></p>
     <p class="evalEnp">(<span id="reviewCount"></span>개의 평가)</p>
   </div>
@@ -201,13 +201,11 @@
       </div>
       <!-- 댓글 리스트 -->
       <div class="EvalContent2">
-        <div>
+        <div id="cm-load">
           <ul id="comment1"></ul>
+          <div id="cm-btn-wrap" class="btn-wrap commentPlus">
+          <a id="moreBtn" class="button">더보기</a> </div>
         </div>
-        <div class="commentPlus">
-          <a onclick="moreFunction()" id="moreBtn">+ 더보기</a>
-        </div>
-
       </div>
     </div>
   </div>
@@ -334,16 +332,21 @@
 </script>
 <script id="commentList" type="text/x-handlebars-template">
 {{#each list}}
- <li>
-  <div class="commentImg"><img src="../../../files/{{user.userPath}}_50x50.jpg"></div>
+ <li class="cm-load">
+  <div class="commentImg"><img id="cmImg-{{@key}}" src="../../../files/{{user.userPath}}_50x50.jpg"></div>
   <div class="commentDate">
    {{reviewDate}} <span>｜</span>
   </div>
   <div class="commentEval">
-   <span class="star-prototype">{{grade}}</span> ({{grade}})
+   <span class="star-prototype2">{{grade}}</span> ({{grade}})
   </div>
   <div class="commentContent">{{review}}</div>
-  <div class="commentName">{{user.name}}</div>
+  <div class="commentName">{{user.name}}
+    <div class="cmt-edit">
+     <i class="fas fa-pen">수정</i></div>
+    <div class="cmt-delete">
+     <i class="fas fa-trash-alt">삭제</i></div>
+  </div>
  </li>
 {{/each}}
 </script>

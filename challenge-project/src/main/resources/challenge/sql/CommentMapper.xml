@@ -40,7 +40,7 @@
 	</select>
 
 	<select id="listWithNo" resultMap="CommentMap" parameterType="int">
-        select pono, uname, cm.pno, pocont, podate, u.uno
+        select pono, uname, cm.pno, pocont, podate, u.uno, u.upath
         from CMT cm
         inner join POST p on p.pono = cm.cmtno
         inner join PMEMB pm on pm.uno = cm.uno

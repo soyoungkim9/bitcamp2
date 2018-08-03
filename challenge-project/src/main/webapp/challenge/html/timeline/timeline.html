@@ -28,8 +28,11 @@
         <!-- sideMenu 시작 -->
         <div id="sh-sideMenu">
 
+
           <div id="sh-sideMenu-item">
-            <a href="#">TOP</a>
+           <a id="MOVE_TOP_BTN" href="#">
+             <i class="fas fa-arrow-alt-circle-up"></i>
+          </a>
           </div>
 
         </div>
@@ -66,7 +69,8 @@
             <!-- Trigger/Open The Modal -->
             <section id="sh-tl-myModalBtn" class="sh-tl-card-primary sh-tl-card-header">
               <div class="sh-tl-user">
-                <i class="sh-tl-user-circle fas fa-user-circle"></i>
+                <img class="sh-tl-user-img sh-tl-user-img-load">
+                <!-- <i class="sh-tl-user-circle fas fa-user-circle"></i>  -->
                 <h2 class="sh-tl-subtitle">리뷰 작성 하기...</h2>
               </div>
             </section>
@@ -77,7 +81,8 @@
               <section class="sh-tl-modal-content sh-tl-card-primary sh-tl-card-header sh-tl-review-hidden">
                 <div class="sh-tl-user">
                   <span onclick="closeModal()" class="sh-tl-modal-close">&times;</span>
-                  <i class="sh-tl-user-circle fas fa-user-circle"></i>
+                  <img class="sh-tl-user-img sh-tl-user-img-load">
+                  <!-- <i class="sh-tl-user-circle fas fa-user-circle"></i> -->
                   <h1 class="tl-user-name-json sh-tl-user-name"></h1>
                 </div>
                 <div class="sh-tl-review-write">
@@ -147,7 +152,7 @@
       <!--글쓴이 시작 -->
       <section class="sh-tl-card-primary">
         <div data-cardNo={{no}} onmouseover=showPostMenu(this) onmouseout=hidePostMenu(this) class="sh-tl-user">
-          <img class="sh-tl-user-img" src="../../img/timeline/sh_profile.jpg">
+          <img class="sh-tl-user-img" src="../../../files/{{progMemb.user.userPath}}">
           <h1 class="sh-tl-user-name">{{progMemb.user.name}}</h1>
           <h6 class="sh-tl-post-date">{{createdDate}}</h6>
           <div onclick=postEdit(this) name={{no}} class="sh-tl-post-edit"><i class="fas fa-pen">수정</i></div>
@@ -182,7 +187,8 @@
       <!-- 댓글쓰기 시작-->
       <section class="sh-tl-card-reply-write">
         <div class="sh-tl-reply-user">
-          <i class="sh-tl-reply-user-circle fas fa-user-circle"></i>
+          <img class="sh-tl-user-img sh-tl-user-img-load">
+          <!--<i class="sh-tl-reply-user-circle fas fa-user-circle"></i>-->
           <div class="sh-tl-review-write">
             <textarea id="{{no}}" class="sh-tl-cmt{{no}} sh-tl-review-title  sh_tl_reply_textarea" placeholder="댓글을 입력하세요" onkeydown="resize(this)" onkeyup="resize(this)"></textarea>
             <div class="sh-tl-img-upload"><button onclick="cmtFunction({{no}})" class="sh-tl-reply-btn" type="submit">게시</button> </div>
@@ -316,9 +322,9 @@
   <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script>
   <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
   <script src="../../js/common.js"></script>
+  <script src="../../js/header/header_bg_black.js"></script>
   <script src="../../js/timeline/handlebars.js"></script>
   <script src="../../js/timeline/timeline.js"></script>
-  <script src="../../js/header/header_bg_black.js"></script>
   <script src="../../js/footer/footer.js"></script>
   <!-- <script src="../../js/timeline/tlimage.js"></script> -->
 
