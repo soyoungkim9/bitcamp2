@@ -1,3 +1,9 @@
+h3 a {
+    color: black;
+}
+a {
+    text-decoration: none;
+}
 .row {
   display: -ms-flexbox; /* IE10 */
   display: flex;
