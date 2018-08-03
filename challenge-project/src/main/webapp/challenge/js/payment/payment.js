@@ -13,6 +13,7 @@ if (location.href.split("?").length > 1) {
 		
 	var no = location.href.split("?")[1].split("=")[1];
 	$.getJSON(serverRoot + "/json/program/" + no, (data) => {
+		$("<img>").attr('src','../../../files/'+ data.medias[0].path+'_600x600.jpg').appendTo('#program-img');
 		$('.project-title').append("<b>"+data.name+"</b>");
 		function addComma(num) {
 			var regexp = /\B(?=(\d{3})+(?!\d))/g;
