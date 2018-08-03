@@ -20,12 +20,12 @@ if (location.href.split("?").length > 1) {
     $('<img/>')
     .attr('src', '../../../files/'+data.medias[0].path+'_600x600.jpg')
     .appendTo($(fprogramImg));
-    
+
     // 챌린지 정보 가져오기
     $.getJSON(serverRoot + "/json/challenge/" + data.challengeNo, function(data) {
       $(fchalName).append(data.title);
     })
-    
+
     //트레이너 정보 가져오기
     $.getJSON(serverRoot + "/json/trainer/" + data.trainerNo, function(data) {
       $(ftrainerName).append(data.name);
@@ -34,9 +34,9 @@ if (location.href.split("?").length > 1) {
       .attr('src', '../../../files/'+data.userPath+'_100x100.jpg')
       .appendTo($(ftrainerImg));
     })
-    
+
   }).done(function(data) {
-  
+
     programList(data.trainerNo) // 다른 프로그램
     plan(data.proDay, data.proTime) // 일정
     dayInterval(data.startDate) // D-day
@@ -48,12 +48,30 @@ if (location.href.split("?").length > 1) {
     $('.PriceContentSub2 > h4').click(() => {
       location.href = "../payment/payment.html?no="+data.no
     });
-    
+
     no = data.no;
     loadComment(data.no); // 댓글
   })
-  
-  
+
+
+  //리뷰 개수 카운트
+  $.get(serverRoot + "/json/programMember/reviewCount/" + no, function(data) {
+    $(reviewCount).append(data);
+    var count = data;
+
+    // 리뷰  점수
+    $.get(serverRoot + "/json/programMember/reviewScore/" + no, function(data) {
+      var score = data;
+      var cal = (score / count).toFixed(1);
+      $(reviewScore).append(cal);
+      $('.star-prototype').generateStars();
+      $('.star-prototype3').generateStars();
+    })
+  }).done(function() {
+    starRating();
+  })
+
+
 }
 
 
@@ -97,22 +115,7 @@ function loadCommentAfter(no) {
   })
 }
 
-//리뷰 개수 카운트
-$.get(serverRoot + "/json/programMember/reviewCount/" + no, function(data) {
-  $(reviewCount).append(data);
-  var count = data;
 
-  // 리뷰  점수
-  $.get(serverRoot + "/json/programMember/reviewScore/" + no, function(data) {
-    var score = data;
-    var cal = (score / count).toFixed(1);
-    $(reviewScore).append(cal);
-    $('.star-prototype').generateStars();
-    $('.star-prototype3').generateStars();
-  })
-}).done(function() {
-  starRating();
-})
 
 
 $(document).ready(function() {
@@ -242,7 +245,6 @@ function plan(proDay, proTime) {
       break;
     case '4': 
       timeCal(dayTime[i])
-      console.log(inputTimeString)
       fr = inputTimeString
       inputTimeString='';
       break;
@@ -359,19 +361,19 @@ function openDay(evt, dayName) {
 
 
 
-// 댓글 더보기
+//댓글 더보기
 $(moreBtn).on("click", function () {
-    load('#cm-load', '3', '#cm-btn-wrap');
+  load('#cm-load', '3', '#cm-btn-wrap');
 })
 function load(id, cnt, btn) {
   var comment_list = id + " .cm-load:not(.active)";
   var comment_length = $(comment_list).length;
   var comment_total_cnt;
   if (cnt < comment_length) {
-      comment_total_cnt = cnt;
+    comment_total_cnt = cnt;
   } else {
-      comment_total_cnt = comment_length;
-      $(moreBtn).hide();
+    comment_total_cnt = comment_length;
+    $(moreBtn).hide();
   }
   $(comment_list + ":lt(" + comment_total_cnt + ")").addClass("active");
 }
