@@ -63,7 +63,7 @@
 }
 /* 스크롤바 표현 위아래*/
 .user-listform{
-height: 250px;
+height: 100px;
 background-color: #ecf0f1;
     overflow-y: auto;
     overflow-x: hidden;
@@ -154,7 +154,7 @@ body {
   display: inline-block;
   cursor: pointer;
   width: 198px;
-  height: 130px;
+  height: 143px;
   -moz-border-radius: 5px;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -191,8 +191,8 @@ body {
 
 }
 #card-user .avatar img {
-
-  width: 100%;
+width: 100%;
+    height: 100%;
 }
 #card-user .text {
   padding: 0 8%;
