@@ -44,7 +44,8 @@ $("#page-4").click(function() {
 	});
 });
 
-// view
+
+//view
 
 var viewTemplateSrc = $("#view-template").html();
 var viewtemplateFn = Handlebars.compile(viewTemplateSrc);
@@ -58,8 +59,9 @@ $(document.body).on('click','.viewSelect', function(event){
 		url: serverRoot + "/json/message/" + msgno,  
 		dataType: "json",	
 	    success: function(data) {
+	    	console.log(data)
 			 $('.view-body').html(viewtemplateFn({
-				 trainer: data.trainer.name,
+				 userName: userInfo.name,
 				 title: data.title,
 				 content: data.content,
 				 msgDate: data.msgDate,
@@ -78,97 +80,5 @@ $(document.body).on('click','.viewSelect', function(event){
 		$('#myModal').css("display", "none");
 	})
 });
-
-
-
-//add
-
-var addTemplateSrc = $("#add-template").html();
-var addtemplateFn = Handlebars.compile(addTemplateSrc);
-
-$(document.body).on('click','.addModal', function(event){
-	event.preventDefault();
-	
-	var msgno = $(this).attr("data-msgno");
-	$.getJSON(serverRoot + "/json/message/" + msgno, function(data) {
-		$('.add-body').html(addtemplateFn({
-			 trainer: data.trainer.name,
-			 title: data.title,
-			 content: data.content,
-			 msgDate: data.msgDate,
-			 member: userInfo.name,
-			 }));
-		$('#myAddModal').css("display", "block");
-	}).done(function(data){
-		$("#addBtn").click(() => {
-			$.ajax({
-			    type: 'POST',
-		        url: '../../../json/message/add',
-		        data:{
-		            title: $(fTitle).val(),
-		            content:$(fContent).val(),
-		            direct: 1,
-		            "member.userNo":userInfo.userNo,
-		            "trainer.userNo":data.trainer.userNo
-		        },
-		        success:function(result){
-		    		alert("답장이 전송되었습니다.");
-		    		location.href="member-msg.html"
-		        }
-			})
-		});
-	});
-	
-	$(document.body).on('click','.close', function(){
-		$('#myAddModal').css("display", "none");
-	})
-	$(document.body).on('click','#msg-ok', function(){
-		$('#myModal').css("display", "none");
-	})
-});
-
-
-
-/*
- 
- var viewTemplateSrc = $("#view-template").html();
-var viewtemplateFn = Handlebars.compile(viewTemplateSrc);
-
-$(document.body).on('click','.viewSelect', function(event){
-	event.preventDefault();
-
-	var msgno = $(this).attr("data-msgno");
-	console.log(msgno)
-	$.ajax(serverRoot + "/json/message/" + msgno, {
-		dataType: "json",	
-	    success(data) {
-			 $('.view-body').html(viewtemplateFn({
-				 console.log(data)
-				 "trainer.name": data.trainer.name,
-				 title: data.title,
-				 content: data.content,
-				 msgDate: data.msgDate
-				 }));
-			$('#myModal').css("display", "block");
-	    },
-	    error() {
-	        window.alert("실행 오류!");
-	    }	
-	});
-	
-	$(document.body).on('click','.close', function(){
-		$('#myModal').css("display", "none");
-	})
-});
-
- */
-
-
-
-
-
-
-
-
 
 

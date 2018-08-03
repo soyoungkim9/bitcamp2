@@ -22,15 +22,24 @@ public class MessageServiceImpl implements MessageService {
     }
     
     @Override
-    public List<Message> list(int userNo,int utype, int pageNo, int pageSize) {
+    public List<Message> sendMsgList(int userNo, int utype, int pageNo, int pageSize) {
         HashMap<String,Object> params = new HashMap<>();
-        params.put("utype", utype);
         params.put("startRowNo", (pageNo - 1) * pageSize);
         params.put("pageSize", pageSize);
         params.put("userNo", userNo);
+        params.put("utype", utype);
         return MessageDao.sendMsgList(params);
     }
     
+    @Override
+    public List<Message> receiveMsgList(int userNo, int utype, int pageNo, int pageSize) {
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("startRowNo", (pageNo - 1) * pageSize);
+        params.put("pageSize", pageSize);
+        params.put("userNo", userNo);
+        params.put("utype", utype);
+        return MessageDao.receiveMsgList(params);
+    }
     @Override
     public int delete(int no) {
 

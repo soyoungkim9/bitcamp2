@@ -1,11 +1,9 @@
-console.log(userInfo)
-var receiveMsgTemplateSrc = $("#receiveMsg-template").html();
-var templateFn = Handlebars.compile(receiveMsgTemplateSrc);
+
+var sendMsgTemplateSrc = $("#sendMsg-template").html();
+var sendMsgtemplateFn = Handlebars.compile(sendMsgTemplateSrc);
 $.getJSON(serverRoot + "/json/message/list1/" + userInfo.userNo + "/" + userInfo.userType, (data) => {
-    $(listbody).html(templateFn({list:data}));
+    $(listbody).html(sendMsgtemplateFn({list:data}));
 });
-
-
 
 
 var $pageClick = $('.sm-pagination a');
@@ -21,7 +19,7 @@ $pageClick.on('click', function (evt) {
 
 
 $("#page-1").click(function() {
-	$.getJSON(serverRoot + "/json/message/list1/"+ userInfo.userNo + "/" + userInfo.userType + ";pageNo=1", (data) => {
+	$.getJSON(serverRoot + "/json/message/list1/"+ userInfo.userNo + "/" + userInfo.userType +  ";pageNo=1", (data) => {
 	    $(listbody).html(templateFn({list:data}));
 	});
 });
@@ -55,13 +53,13 @@ $(document.body).on('click','.viewSelect', function(event){
 	event.preventDefault();
 
 	var msgno = $(this).attr("data-msgno");
+	console.log(msgno)
 	$.ajax({
 		url: serverRoot + "/json/message/" + msgno,  
 		dataType: "json",	
 	    success: function(data) {
-	    	console.log(data)
 			 $('.view-body').html(viewtemplateFn({
-				 member: data.member.name,
+				 userName: userInfo.name,
 				 title: data.title,
 				 content: data.content,
 				 msgDate: data.msgDate,
@@ -80,52 +78,3 @@ $(document.body).on('click','.viewSelect', function(event){
 		$('#myModal').css("display", "none");
 	})
 });
-
-
-
-//add
-
-var addTemplateSrc = $("#add-template").html();
-var addtemplateFn = Handlebars.compile(addTemplateSrc);
-
-$(document.body).on('click','.addModal', function(event){
-	event.preventDefault();
-	
-	var msgno = $(this).attr("data-msgno");
-	$.getJSON(serverRoot + "/json/message/" + msgno, function(data) {
-		$('.add-body').html(addtemplateFn({
-			 member: data.member.name,
-			 title: data.title,
-			 content: data.content,
-			 msgDate: data.msgDate,
-			 trainer: userInfo.name,
-			 }));
-		$('#myAddModal').css("display", "block");
-	}).done(function(data){
-		$("#addBtn").click(() => {
-			$.ajax({
-			    type: 'POST',
-		        url: '../../../json/message/add',
-		        data:{
-		            title: $(fTitle).val(),
-		            content:$(fContent).val(),
-		            direct: 2,
-		            "member.userNo":userInfo.userNo,
-		            "trainer.userNo":data.trainer.userNo
-		        },
-		        success:function(result){
-		    		alert("답장이 전송되었습니다.");
-		    		location.href="member-msg.html"
-		        }
-			})
-		});
-	});
-	
-	$(document.body).on('click','.close', function(){
-		$('#myAddModal').css("display", "none");
-	})
-	$(document.body).on('click','#msg-ok', function(){
-		$('#myModal').css("display", "none");
-	})
-});
-

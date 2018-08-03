@@ -39,13 +39,22 @@ public class MessageController {
             messageService.delete(no);
     }
     
-    @RequestMapping("list/{userNo}/{utype}")
-    public Object list(
+    @RequestMapping("list1/{userNo}/{utype}")
+    public Object sendMsgList(
         @PathVariable int userNo,
         @PathVariable int utype,
         @MatrixVariable(defaultValue="1") int pageNo,
         @MatrixVariable(defaultValue="5") int pageSize) {
-        return messageService.list(userNo,utype, pageNo, pageSize);
+        return messageService.sendMsgList(userNo, utype, pageNo, pageSize);
+    }
+    
+    @RequestMapping("list2/{userNo}/{utype}")
+    public Object receiveMsgList(
+        @PathVariable int userNo,
+        @PathVariable int utype,
+        @MatrixVariable(defaultValue="1") int pageNo,
+        @MatrixVariable(defaultValue="5") int pageSize) {
+        return messageService.receiveMsgList(userNo, utype, pageNo, pageSize);
     }
     
     @RequestMapping("{no}")

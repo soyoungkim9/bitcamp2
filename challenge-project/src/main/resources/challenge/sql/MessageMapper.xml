@@ -17,17 +17,17 @@
     <result column="mscont" property="content"/>
     <result column="msdate" property="msgDate"/>
     
-        <association property="trainer" javaType="Trainer">
-            <id column="trnno" property="userNo" />
-            <result column="utype" property="userType" />
-            <!-- "trnno" 메시지 방향에 따라 달라질 수 있음 -->
-            <result column="uname" property="name" />
-        </association>
-        <association property="member" javaType="Member">
-            <id column="uno" property="userNo" />
-            <result column="utype" property="userType" />
-            <result column="uname" property="name" />
-        </association>
+    <association property="trainer" javaType="Trainer">
+        <id column="t_uno" property="userNo" />
+        <result column="utype" property="userType" />
+        <!-- utype? msdir이 1번일 때, userNo를 t.uno/u.uno 두 가지 경우로 받아야해서 -->
+        <result column="t_uname" property="name" />
+    </association>
+    <association property="member" javaType="Member">
+        <id column="u_uno" property="userNo" />
+        <result column="utype" property="userType" />
+        <result column="u_uname" property="name" />
+    </association>
     
   </resultMap>
     
@@ -38,41 +38,8 @@
        스프링 프레임워크와 연동할 때 DAO객체를 자동생성하고 
        그 메서드를 자동생성할 때 사용할 수 있다.
   -->
-  
 
-  
-  <!-- 
-          <select id="sendMsgList" 
-          resultMap="MessageMap" 
-          parameterType="map">
-   select msgno, mstitl, msdir, u.utype, mscont, uname, msdate, t.trnno, ms.uno
-   from MSG ms
-     inner join MEMB m on m.uno = ms.uno
-     inner join TRN t on t.trnno = ms.trnno
-
-     <choose>
-         <when test="utype == 1 and msdir == 2"> 회원 받은메시지 
-            left outer join USER u on ms.uno = u.uno 
-            where u.uno = #{userNo}
-         </when>
-         <when test="utype == 2 and msdir == 1"> 트레이너 받은메시지 
-            left outer join USER u on ms.trnno = u.uno 
-            where u.uno = #{userNo}
-         </when>
-         <when test="utype == 1 and msdir == 1"> 회원 보낸메시지 
-            left outer join USER u on ms.uno = u.uno 
-            where u.uno = #{userNo}
-         </when>
-         <otherwise> 트레이너 보낸메시지 
-            left outer join USER u on ms.trnno = u.uno 
-            where u.uno = #{userNo}
-            AND msdir = 2
-         </otherwise>
-     </choose>
-   order by msgno desc
-   limit #{startRowNo}, #{pageSize}
-  </select>
-   -->
+  <!--  
   <select id="sendMsgList" 
           resultMap="MessageMap" 
           parameterType="map">
@@ -96,6 +63,70 @@
    order by msgno desc
    limit #{startRowNo}, #{pageSize}
   </select>
+  -->
+  <select id="sendMsgList" 
+          resultMap="MessageMap" 
+          parameterType="map">
+	select 
+	  ms.msgno, 
+	  ms.mstitl, 
+	  ms.mscont, 
+	  ms.msdir,
+	  ms.msdate, 
+	  u.utype,
+	  u.uno as u_uno,
+	  u.uname as u_uname, 
+	  t.uno as t_uno, 
+	  t.uname as t_uname
+	from MSG ms
+	left outer join USER u on ms.uno = u.uno
+	left outer join USER t on ms.trnno = t.uno
+   <!-- 방향1번: 멤버는 보낸메시지, 트레이너는 받은메시지 -->
+     <choose>
+         <when test="utype == 1"> <!-- 멤버의 보낸메시지 -->
+           where u.uno = #{userNo}
+           and ms.msdir = 1
+         </when>
+         <otherwise>  <!-- 트레이너의 받은 메시지 -->
+           where t.uno = #{userNo}
+           and ms.msdir = 1
+         </otherwise>
+     </choose>
+   order by msgno desc
+   limit #{startRowNo}, #{pageSize}
+  </select>
+  
+    <select id="receiveMsgList" 
+          resultMap="MessageMap" 
+          parameterType="map">
+    select 
+      ms.msgno, 
+      ms.mstitl, 
+      ms.mscont, 
+      ms.msdir,
+      ms.msdate, 
+      u.uno as u_uno, 
+      u.uname as u_uname, 
+      t.uno as t_uno, 
+      t.uname as t_uname
+    from MSG ms
+    left outer join USER u on ms.uno = u.uno
+    left outer join USER t on ms.trnno = t.uno
+   <!-- 방향2번: 멤버는 받은메시지, 트레이너는 보낸메시지 -->
+        <choose>
+         <when test="utype == 1"> <!-- 멤버의 받은메시지 -->
+           where u.uno = #{userNo}
+           and ms.msdir = 2
+         </when>
+         <otherwise>  <!-- 트레이너의 보낸 메시지 -->
+           where t.uno = #{userNo}
+           and ms.msdir = 2
+         </otherwise>
+     </choose>
+   order by msgno desc
+   limit #{startRowNo}, #{pageSize}
+  </select>
+  
   
   <insert id="insert" parameterType="Message"
           useGeneratedKeys="true" keyColumn="msgno" keyProperty="msgno">
@@ -107,11 +138,19 @@
        값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
   -->
   <select id="selectOne" parameterType="int" resultMap="MessageMap">
-   select msgno, mstitl, msdir, mscont, uname, msdate, t.trnno, ms.uno
-   from MSG ms
-     inner join TRN t on t.trnno = ms.trnno
-     inner join MEMB m on m.uno = ms.uno
-     right join USER u on u.uno = ms.trnno
+select 
+      ms.msgno, 
+      ms.mstitl, 
+      ms.mscont, 
+      ms.msdate, 
+      ms.msdir,
+      u.uno as u_uno, 
+      u.uname as u_uname, 
+      t.uno as t_uno, 
+      t.uname as t_uname
+    from MSG ms
+    left outer join USER u on ms.uno = u.uno
+    left outer join USER t on ms.trnno = t.uno
    where msgno = #{value}
   </select>
   
