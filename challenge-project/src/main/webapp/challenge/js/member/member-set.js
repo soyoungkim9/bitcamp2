@@ -117,14 +117,13 @@ $(document).ready(function () {
 					email: $('#email').val(),
 					userPhone: $('#phone').val(),
 					password: $('.pwd').val(),
-
 					userNo: userInfo.userNo
 
 				}, 
 			}).done(function() {
 
 				alert('비밀번호 변경 완료');
-				location.href = "http://localhost:8888/challenge-project/challenge/html/member/member-set.html";
+				location.href = "member-set.html";
 			});
 
 		}
