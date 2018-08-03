@@ -1,25 +1,28 @@
 
+swal({ 
+  title: "완료되었습니다",
+   text: "화이또",
+    type: "success" 
+  },
+  function(){
+    window.location.href = '../main/main.html';
+});
 
+/*swal("결제가 완료되었습니다.", "화이또", "success");
+
+location.href="../main/main.html"*/
 if (location.href.split("?").length > 1) {
 
 	var no = location.href.split("?")[1].split("=")[1];
-
 	$.getJSON(serverRoot + "/json/program/" + no, (data) => {
-
-
 		$('.project-title').append("<b>"+data.name+"</b>");
 		function addComma(num) {
 			var regexp = /\B(?=(\d{3})+(?!\d))/g;
 			return num.toString().replace(regexp, ',');
 		}
 		var num = data.price;
-
-
-
 		$('.p-price').append(addComma(num)+" 원");
 		$('.p-trainer').append(data.trainerNo.name);
-
-
 	}); 
 
 //	------------------------- 수량 증가 ---------------------------//
@@ -66,14 +69,18 @@ if (location.href.split("?").length > 1) {
 
 
 //	--------------------------카카오페이 api--------------------------//
-
+	
 
 	function requestPay() {
 		
-					
-				
+			
+
+
+
+	
+
 		$.getJSON(serverRoot + "/json/program/" + no, (data) => {
-			console.log(no.split("#")[0]);
+			
 			
 			IMP.init("imp63287981"); // "imp00000000" 대신 발급받은 "가맹점 식별코드"를 사용합니다.
 			IMP.request_pay({
@@ -93,41 +100,25 @@ if (location.href.split("?").length > 1) {
 			}
 			, function(rsp) {
 				if ( rsp.success ) {
-					
-					jQuery.ajax({ 
-						type: "POST",  
-						url: serverRoot + '/json/programMember/add', 
-						dataType: 'json',
-						data: {
-
-							programNo: no.split("#")[0],
+					$.ajax({
+						url: serverRoot + '/json/programMember/add',
+						type:"post",
+						dataType:"json",
+						data:{
+							programNo: data.no,
+							userNo: userInfo.userNo
+						},
+						complete: function(data){
 							
-						}, 
-						success: function(result) { 
-							console.log(result);  
-						} 
-					})
-					.done(function(data) {
-
-
-						//[2] 서버에서 REST API로 결제정보확인 및 서비스루틴이 정상적인 경우
-						if ( everythings_fine ) {
-							var msg = '결제가 완료되었습니다.';
-							msg += '\n고유ID : ' + rsp.imp_uid;
+							var msg =  '\n고유ID : ' + rsp.imp_uid;
 							msg += '\n상점 거래ID : ' + rsp.merchant_uid;
-							msg += '\결제 금액 : ' + rsp.paid_amount;
-							msg += '카드 승인번호 : ' + rsp.apply_num;
-
-							alert(msg);
-
-
-
-
-
-						} else {
-							//[3] 아직 제대로 결제가 되지 않았습니다.
-							//[4] 결제된 금액이 요청한 금액과 달라 결제를 자동취소처리하였습니다.
+							msg += '\n결제 금액 : ' + rsp.paid_amount;
+							msg += '\n카드 승인번호 : ' + rsp.apply_num;
+							swal("결제가 완료되었습니다.", msg, "success");
+							location.href="../main/main.html";
 						}
+					}).done(function(data) {
+							
 					});
 				} else {
 					var msg = '결제에 실패하였습니다.';

@@ -20,7 +20,8 @@
     "jquery": "^1.12.4",
     "jquery-ui": "^1.12.1",
     "lightbox2": "^2.10.0",
-    "popper.js": "^1.14.3"
+    "popper.js": "^1.14.3",
+    "sweetalert": "^2.1.0"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0"
