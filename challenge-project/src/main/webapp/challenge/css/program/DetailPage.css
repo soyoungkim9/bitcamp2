@@ -124,7 +124,7 @@ ul {
 }
 
 .alineCenter {
-	width: 350px;
+	width: 219px;
 	height: 42px;
 	margin: 0 auto;
 }
@@ -151,7 +151,6 @@ ul {
 	border-top: 1px solid #e6e6e6;
 	border-right: 1px solid #e6e6e6;
 	box-sizing: border-box;
-	width: 649.5px;
 	background: #fafafa;
 	margin-bottom: 50px;
 	z-index: 100;
@@ -163,7 +162,7 @@ ul {
 	color: #999;
 	font-weight: bold;
 	text-align: center;
-	padding: 14px 46.3px;
+	padding: 14px 47.6px;
 	text-decoration: none;
 	font-size: 15px;
 	border-left: 1px solid #e6e6e6;
@@ -215,7 +214,6 @@ ul {
 }
 
 #examContent [class^=p]:not(a) {
-	width: 647px;
 	margin-bottom: 25px;
 }
 
@@ -228,7 +226,6 @@ ul {
 
 .ExamImage {
 	margin-bottom: 0px;
-	width: 649px;
 }
 
 .mySlides {
@@ -324,7 +321,7 @@ to {
 
 /* 가격 정보 */
 .four {
-	width: 649px;
+	margin-top: 30px;
 }
 
 .checkbox {
@@ -444,6 +441,7 @@ thead {
 
 .five table, tr, td, th {
 	border-collapse: collapse;
+	width: inherit;
 }
 
 th, td {
@@ -456,7 +454,7 @@ th, td {
 	display: inline-block;
 	border: 1px solid #e0dbdb;
 	box-sizing: border-box;
-	width: 649px;
+	width: -webkit-fill-available;
 }
 
 
@@ -666,7 +664,6 @@ star-input>.input.focus {
 /* 프로그램 평가*/
 .six {
 	margin-top: 25px;
-	width: 649px;
 }
 
 .navEvalSub {
@@ -675,8 +672,7 @@ star-input>.input.focus {
 
 .EvalContent1 {
 	background-color: #f5f5f5;
-	padding: 2% 30%;
-	padding-top: 3%;
+	padding: 4% 43%;
 }
 
 .EvalContent1-star {
@@ -688,12 +684,9 @@ star-input>.input.focus {
 	font-size: 25px;
 }
 
-.EvalContent1-score {
-	padding: 0 28%;
-}
-
 .EvalContent1-score .evalEnp {
 	font-size: 14px;
+	margin-left: 10px;
 }
 
 .EvalContent2 {
@@ -717,7 +710,7 @@ star-input>.input.focus {
 	width: 75px;
 	height: 75px;
 	margin: 0;
-	margin-top: 4px;
+	margin-left: 12px;
 	overflow: hidden;
 }
 
@@ -773,7 +766,7 @@ star-input>.input.focus {
 	font-weight: bold;
 }
 .cmt-edit {
-    /* display: none; */
+    display: none;
     position: absolute;
     font-size: 12px;
     font-weight: 100;
@@ -786,7 +779,7 @@ star-input>.input.focus {
     left: 125px;
 }
 .cmt-delete {
-    /* display: none; */
+    display: none;
     position: absolute;
     font-size: 12px;
     font-weight: 100;
