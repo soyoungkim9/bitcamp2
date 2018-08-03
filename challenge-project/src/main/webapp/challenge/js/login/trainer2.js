@@ -80,11 +80,15 @@ $(function() {
 
 
 $("#addBtn").click(() => {	
-	 var userPic = $("#fPath").val(); 
+	 var userPic = $("#fPath").val();
+	 
 		if (userPic == "") {
 			userPic = "default.jpeg"
+				console.log("사진은 등록 안됨")
+		} else {
+			userPic = userPic.split('\\')[2];
+			console.log(userPic)
 		}
-		
     $.post(serverRoot + "/json/trainer/add", {
       name: $("#fName").val(),
       sex: $('input[name]:checked').val(),

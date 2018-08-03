@@ -75,6 +75,7 @@ function loadOneCard(postNo) {
 		  }
 		  
 		  $('.sh-tl-card-modal').attr("class","sh-tl-card-modal" + postNo + " sh-tl-card sh-card");
+		  
 	  });
 	}
 
@@ -89,6 +90,7 @@ function loadComments(cardNo) {
       list: data
     }));
   });
+	$("#commentUser").attr("src","../../../files/" + userInfo.userPath);
 }
 
 // 좋아요 체크 여부

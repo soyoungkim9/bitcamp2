@@ -27,6 +27,7 @@
      -->
     
     
+      <!-- 
     <mvc:interceptors>
         <mvc:interceptor>
             <mvc:mapping path="/**"/>
@@ -34,7 +35,7 @@
             <bean class="challenge.web.interceptor.AuthCheckInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
-     
+      -->
 </beans>
 
 

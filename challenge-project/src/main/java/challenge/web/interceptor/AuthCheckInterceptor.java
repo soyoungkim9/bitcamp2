@@ -15,13 +15,15 @@ public class AuthCheckInterceptor implements HandlerInterceptor {
             HttpServletRequest request,
             HttpServletResponse response, 
             Object handler) throws Exception {
+        System.out.println("들어는 오는거니?");
         HttpSession session = request.getSession();
         User loginUser = (User) session.getAttribute("loginUser");
 //        if (loginUser == null) { // 로그인을 하지 않았으면 로그인 폼으로 보낸다.
+//            System.out.println(request.getContextPath());
 //            response.sendRedirect(request.getContextPath() + "/app/auth/form");
 //            return false;
 //        }
-//        
+        
         // 로그인 했으면 다음 인터셉터나 페이지 컨트롤러를 실행한다.
         return true;
     }

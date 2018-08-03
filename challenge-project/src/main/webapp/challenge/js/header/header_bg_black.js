@@ -19,6 +19,14 @@ $.ajax({
 	  .done(function(data) {
 		  userInfo = data;
 		  if(userInfo != null) {
+			  
+			  	if (userInfo.userType == 1) { // 회원
+			  		
+			  	} else if (userInfo.userType == 2) { // 트레이너
+			  		
+			  	}
+			  
+			  
 			  	$("#sh-user-img").attr("src","../../../files/" + userInfo.userPath);
 				$(".login_menu_before").attr("style", "display:none")
 				$("#sh-user-name").html(userInfo.name)
