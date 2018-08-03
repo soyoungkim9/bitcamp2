@@ -114,8 +114,17 @@ $(document.body).on('click','.addModal', function(event){
 		            "trainer.userNo":data.trainer.userNo
 		        },
 		        success:function(result){
-		    		alert("답장이 전송되었습니다.");
-		    		location.href="member-msg.html"
+		        	$('#myAddModal').css("display", "none");
+		        	swal({
+		        		type: 'success',
+		        		  title: '전송 완료!',
+		        		  showConfirmButton: false,
+		        		  timer: 1500,
+                        preConfirm: () => {
+                        	location.href="trainer-receiveMsg.html"
+                              }
+                      })
+		    		
 		        }
 			})
 		});
