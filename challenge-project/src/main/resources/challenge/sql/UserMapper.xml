@@ -16,6 +16,7 @@
 	        <result column="pname" property="name"/>
 	        <result column="pth" property="proTh"/>
 	        <result column="ptover" property="proTurn"/>
+	        <result column="pdesc" property="description"/>
 	    </collection>
 	  </resultMap>
 
@@ -53,7 +54,7 @@
 
     <select id="selectOneWithId" parameterType="String"
         resultMap="MemberMap">
-            select u.uno, u.uname, u.mail, u.upath,u.uphon, u.utype, pm.uno, pm.pno, pm.ptype, p.pname, p.pth, p.ptover
+            select u.uno, u.uname, u.mail, u.upath,u.uphon, u.utype, pm.uno, pm.pno, pm.ptype, p.pname, p.pth, p.ptover, p.pdesc
 		    from USER u
 		    left outer join PMEMB pm on u.uno = pm.uno
 		    left outer join PROG p on pm.pno = p.pno
