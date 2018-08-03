@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="../../css/common.css">
   <!-- <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css"> -->
   <link rel="stylesheet" href="../../css/timeline/timeline.css">
+  <link rel="stylesheet" href="../../css/timeline/sideMenu.css">
 </head>
 
 <body>
@@ -28,12 +29,14 @@
         <!-- sideMenu 시작 -->
         <div id="sh-sideMenu">
 
-
+        <div id="sh-sideMenu-item"></div>
+          <!-- 
           <div id="sh-sideMenu-item">
            <a id="MOVE_TOP_BTN" href="#">
              <i class="fas fa-arrow-alt-circle-up"></i>
           </a>
           </div>
+           -->
 
         </div>
         <!-- sideMenu 종료 -->
@@ -46,12 +49,14 @@
               <h1 id="sh-Class-Title">하비탈출!</h1>
               <span id="sh-class-dots"></span>
               <span id="sh-class-more">
-                 zzzzzzzzzzzzzzzz<br>
-                 zzzzzzzzz<br>
+                  1. 물 500ml 마시고 시작합니다<br>
+                  2. 줄넘기 2분씩 5세트<br>
+                  3. 스트레칭<br>
+                  <br>
               </span>
             </div>
 
-            <div onclick="shClassFunction()" id="shClassDiv">운동일정 보기</div>
+            <div onclick="shClassFunction()" id="shClassDiv">▼</div>
           </div>
         </div>
         <!-- 강의계획서 종료-->
@@ -320,6 +325,7 @@
   <script src="../../js/header/header_bg_black.js"></script>
   <script src="../../js/timeline/handlebars.js"></script>
   <script src="../../js/timeline/timeline.js"></script>
+  <script src="../../js/timeline/sideMenu.js"></script>
   <script src="../../js/footer/footer.js"></script>
   <!-- <script src="../../js/timeline/tlimage.js"></script> -->
 

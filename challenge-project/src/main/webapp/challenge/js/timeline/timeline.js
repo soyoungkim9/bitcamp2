@@ -26,11 +26,11 @@ function shClassFunction() {
 	
 	if (dots.css("display") === "none") {
 		dots.css("display", "inline");
-		divText.html("운동일정 보기");
+		divText.html("▼");
 		moreText.css("display","none");
 	} else {
 		dots.css("display", "none");
-		divText.html("닫기");
+		divText.html("▲");
 		moreText.css("display","inline");
 	}
 	

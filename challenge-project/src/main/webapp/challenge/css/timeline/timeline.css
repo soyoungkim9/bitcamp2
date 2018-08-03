@@ -199,7 +199,7 @@ body:not(#footer) {
 
 #shClassDiv {
   text-align: center;
-  background-color: rgba(0, 0, 0, 0.85);
+  background-color: rgba(0, 0, 0, 0.75);
   color: #fff;
   padding: 3px;
 }
@@ -221,7 +221,7 @@ body:not(#footer) {
 /* right sideMenu CSS 시작*/
 
 #sh-sideMenu {
-  border: 1px solid green;
+  top: 217px;
   width: 200px;
   min-height: 300px;
   position: fixed;
@@ -241,6 +241,8 @@ body:not(#footer) {
 
 .sh-Class-Contents {
   padding: 20px 20px 0px 20px;
+  background-color: black;
+    opacity: 0.6;
 }
 
 #sh-Class-Title {
@@ -248,10 +250,9 @@ body:not(#footer) {
 }
 
 #sh-Class-Daily {
-  background-color: #EEEEEE;
-  width: 700px;
-  z-index: 1000;
-  border-radius: 2px;
+    width: 936px;
+    z-index: 1000;
+    border-radius: 2px;
 }
 
 .sh_class_daily_sticky {
@@ -261,6 +262,7 @@ body:not(#footer) {
 }
 
 #sh-Class-Daily-item * :not(#shClassDiv) {
+	    color: white;
   margin: 0;
   padding-bottom: 13px;
 }
@@ -580,8 +582,8 @@ textarea:focus {
 
 .sh-tl-user-img {
   border-radius: 50%;
- width: 50px;
-    height: 50px;
+ width: 45px;
+    height: 45px;
 }
 
 [contenteditable=true]:empty:before {
