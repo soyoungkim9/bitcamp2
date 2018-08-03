@@ -137,7 +137,7 @@
 	</update>
 
 	<select id="reviewList" parameterType="map" resultMap="ProgramMemberMap">
-		SELECT pm.pgrade, pm.prv, pm.prvdt,
+		SELECT pm.pno, pm.pgrade, pm.prv, pm.prvdt, pm.uno,
 		       u.uname, u.upath
 		FROM PMEMB pm
             INNER JOIN USER u ON pm.uno = u.uno

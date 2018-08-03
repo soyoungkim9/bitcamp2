@@ -732,14 +732,14 @@ star-input>.input.focus {
 }
 
 .commentContent {
-	width: 550px;
+	width: 530px;
 	margin: 10px 0 13px 0;
-	padding-left: 20px;
+	padding: 0 20px;
 }
 
 .commentName {
 	padding-left: 20px;
-	position: relative;
+	
 }
 
 .EvalContent2 ul {
@@ -767,27 +767,25 @@ star-input>.input.focus {
 }
 .cmt-edit {
     display: none;
-    position: absolute;
     font-size: 12px;
     font-weight: 100;
     color: #666666;
-    margin-left: 8px;
-    margin-right: 8px;
+    margin: 3px 8px 0 8px;
     cursor: pointer;
-    top: 3px;
     width: 38px;
-    left: 125px;
+    height: 20px;
+    float: left;
 }
 .cmt-delete {
     display: none;
-    position: absolute;
     font-size: 12px;
     font-weight: 100;
     color: #666666;
+    margin: 3px 0px 0 0px;
     cursor: pointer;
-    top: 3px;
-    left: 184px;
     width: 38px;
+    height: 20px;
+    float: left;
 }
 
 
