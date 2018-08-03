@@ -1,18 +1,16 @@
 
-swal({ 
-  title: "완료되었습니다",
-   text: "화이또",
-    type: "success" 
-  },
-  function(){
-    window.location.href = '../main/main.html';
-});
+
 
 /*swal("결제가 완료되었습니다.", "화이또", "success");
 
 location.href="../main/main.html"*/
 if (location.href.split("?").length > 1) {
-
+	
+	
+		
+	
+		
+		
 	var no = location.href.split("?")[1].split("=")[1];
 	$.getJSON(serverRoot + "/json/program/" + no, (data) => {
 		$('.project-title').append("<b>"+data.name+"</b>");
@@ -110,13 +108,16 @@ if (location.href.split("?").length > 1) {
 							userType: 1
 						},
 						complete: function(data){
-							
-							var msg =  '\n고유ID : ' + rsp.imp_uid;
-							msg += '\n상점 거래ID : ' + rsp.merchant_uid;
-							msg += '\n결제 금액 : ' + rsp.paid_amount;
-							msg += '\n카드 승인번호 : ' + rsp.apply_num;
-							swal("결제가 완료되었습니다.", msg, "success");
-							location.href="../main/main.html";
+
+							swal({
+								  title: "결제가 완료되었습니다.",
+								  text: "확인을 누르시면 메인화면으로 이동합니다",
+								  type: "success",
+									 
+								  preConfirm: () => {
+									  location.href='../main/main.html'
+										  }
+								})
 						}
 					}).done(function(data) {
 							
