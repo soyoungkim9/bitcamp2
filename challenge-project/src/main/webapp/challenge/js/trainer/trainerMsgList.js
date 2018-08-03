@@ -110,8 +110,8 @@ $(document.body).on('click','.addModal', function(event){
 		            title: $(fTitle).val(),
 		            content:$(fContent).val(),
 		            direct: 2,
-		            "member.userNo":userInfo.userNo,
-		            "trainer.userNo":data.trainer.userNo
+		            "trainer.userNo":userInfo.userNo,
+		            "member.userNo":data.member.userNo
 		        },
 		        success:function(result){
 		        	$('#myAddModal').css("display", "none");

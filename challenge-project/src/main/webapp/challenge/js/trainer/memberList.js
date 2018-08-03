@@ -72,6 +72,8 @@ $(document.body).on('click','.tabSelect', function(event){
 // 회원정보 보기 
 var viewTemplateSrc = $("#view-template").html();
 var viewtemplateFn = Handlebars.compile(viewTemplateSrc);
+var addTemplateSrc = $("#add-template").html();
+var addtemplateFn = Handlebars.compile(addTemplateSrc);
 
 $(document.body).on('click','.trSelect', function(event){
 	event.preventDefault();
@@ -95,10 +97,65 @@ $(document.body).on('click','.trSelect', function(event){
 	        window.alert("report.js programTab AllList 실행 오류!");
 	    }	
 	});
-	
 	$(document.body).on('click','.close', function(){
 		$('#myModal').css("display", "none");
 	})
+	$(document.body).on('click','.msgSend', function(){
+		$('#myModal').css("display", "none"); // 원래 있던 모달 창 지우기
+		
+		event.preventDefault();
+		$.ajax(serverRoot + "/json/programMember/" + userNo + "/" + programNum, {
+			dataType: "json",	
+			success(data) {
+				$('.add-body').html(addtemplateFn({
+				 member:  data[0].user.name,
+				 /*
+				 title: data.title,
+				 content: data.content,
+				 msgDate: data.msgDate,
+				 */
+				 trainer: userInfo.name,
+				 }));
+				$('#myAddModal').css("display", "block");
+			}
+		}).done(function(data){
+			$("#addBtn").click(() => {
+				console.log(data)
+				$.ajax({
+				    type: 'POST',
+			        url: '../../../json/message/add',
+			        data:{
+			            title: $(fTitle).val(),
+			            content:$(fContent).val(),
+			            direct: 2,
+			            "trainer.userNo":userInfo.userNo,
+			            "member.userNo":data[0].user.userNo,
+			        },
+			        success:function(result){
+			        	$('#myAddModal').css("display", "none");
+			        	swal({
+			        		type: 'success',
+			        		  title: '전송 완료!',
+			        		  showConfirmButton: false,
+			        		  timer: 1500,
+	                        preConfirm: () => {
+	                        	location.href="trainer-receiveMsg.html"
+	                              }
+	                      })
+			    		
+			        }
+				})
+			});
+		});
+		$(document.body).on('click','.addClose', function(){
+			$('#myAddModal').css("display", "none");
+		});
+		$(document.body).on('click','#resetBtn', function(){
+			$('#myAddModal').css("display", "none");
+		});
+	});
+	
+
 });
 
 // 회원정보 보기
