@@ -21,7 +21,6 @@ $(document).ready(function() {
          $.ajax(serverRoot + "/json/diary/list/" + defaultPage + "/" + userInfo.userNo, {
             dataType: "json",   
              success(data) {
-            	console.log(data);
             	if(data.length == 0) {
                    $('#programBox').append('<h4>기간: <span id="sdt">' +
                          startDate + '</span> ~ <span id="edt">' +
@@ -42,9 +41,8 @@ $(document).ready(function() {
                 	   if(data[i].dcheck == 0) {
                 		   for(j = 0; j < checkInOut.length; j++) {
                 			   if(checkInOut[j] == data[i].dno) {
-                				   var temp = checkInOut[j]; // i + 1;
-                				   console.log($(".editIcon").find('a').attr('data-ch'));
-                				   console.log($("#planList li").eq(i).html());
+                				   $("#planList li").eq(i).find('#viewCheck').attr('data-ch', 0);
+                				   $("[data-ch=0]").css("display", "none");
                 				   // 그에 해당하는 data-ch를 0으로 바꿔서
                 				   // data-ch가 0인 아이만 display none을 한다.
                 				   //$('.viewNum').css("display", "none");
@@ -53,8 +51,6 @@ $(document).ready(function() {
                 	   }
                 	   continue;
                    }
-                   
-                  
                 }
              },
              error() {
@@ -106,6 +102,26 @@ $(document.body).on('click', '.programTab', function(event) {
                 startDate: data[0].program.startDate,
                 endDate: data[0].program.endDate,
                 list:data}));
+             
+             // 출결여부 0인지 1인지를 알아내기 위한 로직
+             var checkInOut = $.makeArray($(".checkInOut").map(function(){
+          	   // 이렇게 배열로 받아와야 함 attr만 쓰면 그 속성의 첫번째 값만 들고온다! 
+          	   return $(this).attr("data-dno"); 
+             }));
+             for(var i = 0; i < data.length; i++) {
+          	   if(data[i].dcheck == 0) {
+          		   for(j = 0; j < checkInOut.length; j++) {
+          			   if(checkInOut[j] == data[i].dno) {
+          				   $("#planList li").eq(i).find('#viewCheck').attr('data-ch', 0);
+          				   $("[data-ch=0]").css("display", "none");
+          				   // 그에 해당하는 data-ch를 0으로 바꿔서
+          				   // data-ch가 0인 아이만 display none을 한다.
+          				   //$('.viewNum').css("display", "none");
+          			   }
+          		   }
+          	   }
+          	   continue;
+             }
           }
        },
        error() {
@@ -143,10 +159,19 @@ $(document.body).on('click', '.editIcon', function(event) {
    $.ajax(serverRoot + "/json/diary/" + dno, {
       dataType: "json",
        success(data) {
-         $("#dayFont").html("Day" + data[0].planTurn);
-           $("#dateFont").html("(" + data[0].planDate + ")");
-           $("#modalViewTitle input").val(data[0].planTitl);
-           $("#modalViewContent textarea").val(data[0].content);
+    	 // 출결여부 보여주기
+         if(data[0].dcheck == 1) { // add 클래스 사용
+        	 $('.checkIconBox').find('input').prop("checked", true);
+        	 onOff = 1;
+         } else {
+        	 $('.checkIconBox').find('input').prop("checked", false);
+        	 onOff = 0;
+         }
+         
+    	 $("#dayFont").html("Day" + data[0].planTurn);
+         $("#dateFont").html("(" + data[0].planDate + ")");
+         $("#modalViewTitle input").val(data[0].planTitl);
+         $("#modalViewContent textarea").val(data[0].content);
        },
        error() {
            window.alert("report.js editIcon 실행 오류!");
@@ -154,24 +179,52 @@ $(document.body).on('click', '.editIcon', function(event) {
    });
 });
 
-//수정 버튼 눌렀을 경우 쿼리 ********** 수정봐야됨 출석체크 여부
+//수정 버튼 눌렀을 경우 쿼리 
 $("#updatePlanButton").click(() => {
+	// 출석여부 수정!
+    if($('.checkIconBox').find('input').prop("checked", true)) {
+   	  onOff = 1;
+    } else {
+   	  onOff = 0;
+    }
+    
 	$.post(serverRoot + "/json/diary/update/", {
+		dcheck: onOff,
 		content: $("#modalViewContent textarea").val(),
 		"dno": dno
 	}, () => {
 		modal.style.display = "none";
+		console.log(onOff);
 		
 		/* 업데이트한 상태에서 이전 화면으로 돌아가기 위한 코드임... 뭔가 이상 */
 		$.ajax(serverRoot + "/json/diary/list/" + pno + "/" + userInfo.userNo, {
 			dataType: "json",	
 		    success(data) {
-				 console.log("반영이 된것인가?" + pno);
 				 $('#programBox').html(programTemplateFn({
 					 name: data[0].program.name,
 					 startDate: data[0].program.startDate,
 					 endDate: data[0].program.endDate,
 					 list:data}));
+				 
+	             // 출결여부 0인지 1인지를 알아내기 위한 로직
+	             var checkInOut = $.makeArray($(".checkInOut").map(function(){
+	          	   // 이렇게 배열로 받아와야 함 attr만 쓰면 그 속성의 첫번째 값만 들고온다! 
+	          	   return $(this).attr("data-dno"); 
+	             }));
+	             for(var i = 0; i < data.length; i++) {
+	          	   if(data[i].dcheck == 0) {
+	          		   for(j = 0; j < checkInOut.length; j++) {
+	          			   if(checkInOut[j] == data[i].dno) {
+	          				   $("#planList li").eq(i).find('#viewCheck').attr('data-ch', 0);
+	          				   $("[data-ch=0]").css("display", "none");
+	          				   // 그에 해당하는 data-ch를 0으로 바꿔서
+	          				   // data-ch가 0인 아이만 display none을 한다.
+	          				   //$('.viewNum').css("display", "none");
+	          			   }
+	          		   }
+	          	   }
+	          	   continue;
+	             }
 		    },
 		    error() {
 		        window.alert("report.js view list 실행 오류!");
@@ -181,9 +234,10 @@ $("#updatePlanButton").click(() => {
 	});
 });
 
-//새글 관련 이벤트
+//새글 관련 이벤트  ********* 출석체크 이전에 남는 데이터 지우기
 $("#addPlan").click(() => {
 	pno = $('.active').find('a').attr('data-no');
+	$("#checkType").attr("data-check", "1");
     // 프로그램 회차 관련
     $.ajax(serverRoot + "/json/diary/list/" + pno + "/" + userInfo.userNo, {
     	dataType: "json",
@@ -210,6 +264,13 @@ $("#addPlan").click(() => {
 	        		  alert('작성할 수 있는 운동계획서가 없습니다. \n트레이너에게 문의해 주세요.')
 	        		  return;
 	        	  }
+	        	  if(data.length <= index) {
+	        		  alert('트레이너가 운동일지를 ' + index + '일차 까지 등록하여' 
+	        				  + '\n더 이상 운동계획서를 등록 할 수 없습니다!'
+	        				  + '\n문의 사항은 트레이너에게 연락해 주세요.')
+	        		  return;
+	        	  }
+	        	  console.log(index);
 	        	  plno = data[index].no;
 	   	       	  $("#mDate").val(data[index].planDate);
 		          $("#mTitle").val(data[index].planTitl);
@@ -236,9 +297,6 @@ $("#addPlan").click(() => {
 
 // 출석체크 여부 조절
 $("#checkType").click(() => {
-	//$('.active').find('a').attr('data-no');
-	console.log($("#checkType").attr("data-check"));
-
 	if($("#checkType").attr("data-check") == 1) {
 		$("#checkType").attr("data-check", "0");
 	} else {
@@ -270,6 +328,26 @@ $("#registerPlan").click(() => {
 					 startDate: data[0].program.startDate,
 					 endDate: data[0].program.endDate,
 					 list:data}));
+				 
+	             // 출결여부 0인지 1인지를 알아내기 위한 로직
+	             var checkInOut = $.makeArray($(".checkInOut").map(function(){
+	          	   // 이렇게 배열로 받아와야 함 attr만 쓰면 그 속성의 첫번째 값만 들고온다! 
+	          	   return $(this).attr("data-dno"); 
+	             }));
+	             for(var i = 0; i < data.length; i++) {
+	          	   if(data[i].dcheck == 0) {
+	          		   for(j = 0; j < checkInOut.length; j++) {
+	          			   if(checkInOut[j] == data[i].dno) {
+	          				   $("#planList li").eq(i).find('#viewCheck').attr('data-ch', 0);
+	          				   $("[data-ch=0]").css("display", "none");
+	          				   // 그에 해당하는 data-ch를 0으로 바꿔서
+	          				   // data-ch가 0인 아이만 display none을 한다.
+	          				   //$('.viewNum').css("display", "none");
+	          			   }
+	          		   }
+	          	   }
+	          	   continue;
+	             }
 		    },
 		    error() {
 		        window.alert("registerPlan 실행 오류!");
@@ -278,3 +356,6 @@ $("#registerPlan").click(() => {
 	});
 });
 
+
+/* 출석체크 해제 하고나서 남는 데이터 처리 */
+/* 수정 제대로 반영 안되는 부분 처리*/
