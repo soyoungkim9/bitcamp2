@@ -342,11 +342,10 @@
    <span class="star-prototype2">{{grade}}</span> ({{grade}})
   </div>
   <div class="commentContent">{{review}}</div>
-  <div class="commentName">{{user.name}}
-  </div>
-    <div onclick=cmtEdit(this) name={{no}} class="cmt-edit">
+  <div class="commentName">{{user.name}}</div>
+  <div onclick=cmtEdit(this) name={{programNo}} class="cmt-edit">
      <i class="fas fa-pen">수정</i></div>
-    <div onclick=cmtDelete(this) name={{no}} class="cmt-delete">
+  <div onclick=cmtDelete(this) name={{programNo}} class="cmt-delete">
      <i class="fas fa-trash-alt">삭제</i></div>
  </li>
 {{/each}}
