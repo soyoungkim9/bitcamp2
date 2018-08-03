@@ -2,17 +2,21 @@ package challenge.web.json;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.MatrixVariable;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import challenge.domain.Program;
+import challenge.domain.User;
 import challenge.service.ProgramService;
 
 @RestController
 @RequestMapping("/program")
+@SessionAttributes("loginUser")
 public class ProgramController {
 
     ProgramService programService;
@@ -43,8 +47,9 @@ public class ProgramController {
     }
 
     @RequestMapping("listCard")
-    public Object list(
+    public Object list(@ModelAttribute User loginUser
             ) {
+        System.out.println("gkgkgk" + loginUser.getUserNo());
         return programService.listCard();
     }
     

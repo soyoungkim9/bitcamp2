@@ -58,6 +58,7 @@
          right outer join PROG p on m.pno=p.pno
          left outer join TRN t on p.trnno=t.trnno
     where t.trnno=#{value}
+    order by pno desc
     <!-- limit #{startRowNo}, #{pageSize} -->
   </select>
 
