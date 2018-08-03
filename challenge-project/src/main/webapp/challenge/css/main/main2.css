@@ -1,6 +1,32 @@
 @charset "UTF-8";
 
+.main-card {
+    position: relative;
+    margin: 10px;
+    height: 300px;
+    width: 346px;
+    display: inline-block;
+    float: left;
+    overflow: hidden;
+}
 
+.main-card:hover {
+    
+}
+
+.main-card img {
+    height: 100%;
+    width: 500px;
+}
+
+.main-card .content {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 10px;
+}
 #sm-btn-1 { /* 남색 버튼 */
   width:100px;
     background-color: #1B3453;
