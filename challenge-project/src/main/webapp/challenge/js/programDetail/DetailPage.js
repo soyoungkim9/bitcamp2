@@ -98,7 +98,7 @@ function loadComment(no) {
 
 function loadCommentAfter(no) {
   var trTemplateSrc3 = $("#commentList").html();
-  var templateFn3 = Handlebars.compile(trTemplateSrc3);
+  var templateFn3 = Handlebars.compile(trTemplateSrc3); 
   $.getJSON(serverRoot + "/json/programMember/reviewList/" + no, (data) => {
     $('#comment1').html(templateFn3({list: data}));
   }).done(function(data) {
