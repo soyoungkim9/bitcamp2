@@ -10,12 +10,14 @@
 <link rel="stylesheet" href="../../css/member/ksy-settings.css">
 <link rel="stylesheet" href="../../css/member/msg.css">
 <link rel="stylesheet" href="../../css/member/msg-modal.css">
+<link rel="stylesheet" href="../../node_modules/sweetalert2/dist/sweetalert2.min.css">
 <link rel="stylesheet"
   href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
 <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900"
   rel="stylesheet">
   <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+  <script src="../../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
 </head>
 <body>
 <div id="subMenu"></div>
@@ -138,49 +140,12 @@
                 </div>
                 </div>
 </script>
-<script>
-// 전체선택 버튼 구현하기
-$('#checkAll').click(function() {
-        $('input[name=checkOne]:checkbox').prop('checked', function() {
-            return !$(this).prop('checked');
-        });
-    });
-   
-</script>
-<script>
-// 체크된 것만 삭제하기 버튼 구현하기
-  var chk = document.getElementsByName("checkOne");
-  var chk_leng = chk.length;
-  var checked = 0;
-  for (i=0; i < chk_leng; i++) {
-      if (chk[i].checked == true) {
-          checked += 1;
-      }
-  }
-$("#msgBtn-del").click(function(){
-    if($("input[name=checkOne]:checkbox:checked").length == 0){
-        alert('하나 이상 선택해 주세요', '경고메시지');
-    }else{
-        confirm('정말 삭제하시겠습니까?', '삭제확인', function(r) {
-            if(r==true) {
-                for(j = 1; j <= checked; j++) {
-                    $.get("../../json/message/delete", {"no": no}, () => {
-                        location.href = "member-msg.html";
-                    });
-                }
-                alert('삭제되었습니다!');
-            }
-        });
-    }
-});
-
-</script>
-
   <script src="../../js/common.js"></script>
   <script src="../../js/header/header_white.js"></script>
   <script src="../../js/footer/footer.js"></script>
 <script src="../../js/trainer/trainer-template.js"></script>
   <script src="../../js/trainer/trainerMsgList-send.js"></script>
+  <script src="../../js/member/msgButton.js"></script>
 
 </body>
 </html>
