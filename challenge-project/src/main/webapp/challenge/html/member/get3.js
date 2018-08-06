@@ -57,7 +57,7 @@ if (location.href.split("?").length > 1) {
 					
 				});
 				console.log(data);
-				$('#ul1234').append(html);
+				$("#history").append(html);
 				return false;
 			}
 		});
