@@ -1,11 +1,13 @@
 //회원정보 읽어오기
-
+$("#upload-btn").click(function (data) { 
+	updateUserInfo(data); 
+	}); 
 $.ajax({
 	type: 'GET',
 	async: false,
 	traditional : true,
 	url: serverRoot + '/json/user/list' ,
-	data:userInfo , 
+	data:userInfo,
 }).done(function() {
 	
 	$('#email').val(userInfo.email);
@@ -13,6 +15,9 @@ $.ajax({
 	$("<img>").attr('src', '../../../files/'+ userInfo.userPath+'_200x200.jpg').css('border-radius', '50%').appendTo('#images-div');
 
 });
+
+
+
 
 "use strict"
 

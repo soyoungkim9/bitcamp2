@@ -11,7 +11,11 @@ h3 {
 #sh_top_layout {
   border-bottom: none!important;
 }
-
+#images-div img {
+	width:120px;
+	height:120px;
+	
+}
 .hr_menu {
   border: 1px solid gray; width: 150px; float: left;
 }
