@@ -63,7 +63,7 @@
   <!-- 회원이 수강중인 프로그램 목록 -->
   <select id="lectList" parameterType="int" resultMap="ProgramMemberMap">
   	SELECT pm.pno, pm.uno, 
-  	       p.pname, p.trnno, p.sdt, p.edt, p.bas_addr, p.maxqty, p.pprice, p.pth,
+  	       p.pname, p.trnno, p.sdt, p.edt, payday, p.bas_addr, p.maxqty, p.pprice, p.pth,
   	       u.upath
 	FROM PMEMB pm 
 		INNER JOIN USER u ON pm.uno = u.uno

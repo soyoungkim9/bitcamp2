@@ -34,23 +34,23 @@ if (location.href.split("?").length > 1) {
 			success: function(data) {
 				var html ='';
 				$.each(data, function(Index, entry) {
-					/*html += '<li>';
+					html += '<li>';
 					html += '<div class="sm-time-div">';
-					html += '<span id="aaaa" class="sm-time">' + entry.paymentDay  + '</span>';
-					html += '<p class="sm-time-p">' + entry.program.name + '를 마쳤습니다.' + '</p>';
+					html += '<span id="aaaa" class="sm-time">' + '결제일 : ' + entry.paymentDay  + '</span>';
+					html += '<p class="sm-time-p">' + entry.program.name + '를 결제 했습니다.' + '</p>';
 					html += '</div>';
-					html += '</li>';*/
+					html += '</li>';
 					
 					html += '<li>';
 					html += '<div class="sm-time-div">';
-					html += '<span id="aaaa" class="sm-time">' + entry.program.startDate + '</span>';
+					html += '<span id="aaaa" class="sm-time">' + '시작일 : ' + entry.program.startDate + '</span>';
 					html += '<p class="sm-time-p">' + entry.program.name + '를 시작했습니다.' + '</p>';
 					html += '</div>';
 					html += '</li>';
 
 					html += '<li>';
 					html += '<div class="sm-time-div">';
-					html += '<span id="aaaa" class="sm-time">' + entry.program.endDate + '</span>';
+					html += '<span id="aaaa" class="sm-time">' + '종료일 : ' + entry.program.endDate + '</span>';
 					html += '<p class="sm-time-p">' + entry.program.name + '를 마쳤습니다.' + '</p>';
 					html += '</div>';
 					html += '</li>';
