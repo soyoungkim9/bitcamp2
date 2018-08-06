@@ -1,28 +1,18 @@
 //회원정보 읽어오기
 
-		$.ajax({
-			type: 'GET',
-			async: false,
-			traditional : true,
-			url: serverRoot + '/json/user/list' ,
-			data:userInfo , 
-		}).done(function() {
-			
-			$('#email').val(userInfo.email);
-			$('#phone').val(userInfo.userPhone);
-			$("<img>").attr('src', '../../../files/'+ userInfo.userPath+'_200x200.jpg').css('border-radius', '50%').appendTo('#images-div');
-
-		});
+$.ajax({
+	type: 'GET',
+	async: false,
+	traditional : true,
+	url: serverRoot + '/json/user/list' ,
+	data:userInfo , 
+}).done(function() {
 	
-<<<<<<< HEAD
-		
-=======
 	$('#email').val(userInfo.email);
 	$('#phone').val(userInfo.userPhone);
-	$("<img>").attr('src', '../../../files/'+ userInfo.userPath).css('border-radius', '50%').appendTo('#images-div');
->>>>>>> branch 'master' of https://github.com/pparksuuu/bitcamp2.git
+	$("<img>").attr('src', '../../../files/'+ userInfo.userPath+'_200x200.jpg').css('border-radius', '50%').appendTo('#images-div');
 
-
+});
 
 "use strict"
 
