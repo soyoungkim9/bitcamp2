@@ -98,7 +98,7 @@ public class Fileupload {
                 .outputFormat("jpg")
                 .toFile(path.getCanonicalFile() + "_50x50");
                 Thumbnails.of(path)
-                .size(200,200)
+                .size(125,125)
                 .outputFormat("jpg")
                 .toFile(path.getCanonicalFile() + "_200x200");
 

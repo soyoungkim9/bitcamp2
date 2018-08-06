@@ -1,13 +1,22 @@
 //회원정보 읽어오기
-$(document).ready(function () {
+
+		$.ajax({
+			type: 'GET',
+			async: false,
+			traditional : true,
+			url: serverRoot + '/json/user/list' ,
+			data:userInfo , 
+		}).done(function(data) {
+			console.log(data);
+			$('#email').val(userInfo.email);
+			$('#phone').val(userInfo.userPhone);
+			$("<img>").attr('src', '../../../files/'+ userInfo.userPath+'_200x200.jpg').css('border-radius', '50%').appendTo('#images-div');
+
+		});
 	
-	$('#email').val(userInfo.email);
-	$('#phone').val(userInfo.userPhone);
-	$("<img>").attr('src', '../../../files/'+ userInfo.userPath+'_200x200.jpg').css('border-radius', '50%').appendTo('#images-div');
+		
 
 
-
-});
 
 "use strict"
 
