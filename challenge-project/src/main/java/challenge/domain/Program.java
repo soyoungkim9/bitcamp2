@@ -36,6 +36,14 @@ public class Program implements Serializable {
     private int trainerNo; // 트레이너번호
 
     private List<ProgramMedia> medias; // 프로그램 미디어
+    User user;
+    
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public int getNo() {
         return no;

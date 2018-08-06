@@ -38,6 +38,12 @@
         <result column="ppath" property="path"/>
         <result column="pmtype" property="state"/>
     </collection>
+    <collection property="user" ofType="User">
+        <id column="uno" property="userNo" />
+        <result column="uname" property="name"/>
+        
+    </collection>
+    
   </resultMap>
 
   <select id="selectListCard"
@@ -122,7 +128,7 @@
     from PMED m 
          right outer join PROG p on m.pno = p.pno
          left outer join TRN t on p.TRNNO = t.TRNNO
-         left outer join USER u on t.TRNNO = u.UNO
+         right outer join USER u on t.TRNNO = u.UNO
     where p.pno=#{value}
   </select>
   

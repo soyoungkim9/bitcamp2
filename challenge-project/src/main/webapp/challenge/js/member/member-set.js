@@ -6,8 +6,8 @@
 			traditional : true,
 			url: serverRoot + '/json/user/list' ,
 			data:userInfo , 
-		}).done(function(data) {
-			console.log(data);
+		}).done(function() {
+			
 			$('#email').val(userInfo.email);
 			$('#phone').val(userInfo.userPhone);
 			$("<img>").attr('src', '../../../files/'+ userInfo.userPath+'_200x200.jpg').css('border-radius', '50%').appendTo('#images-div');

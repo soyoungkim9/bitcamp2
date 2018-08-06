@@ -8,6 +8,7 @@ if (location.href.split("?").length > 1) {
 
 	var no = location.href.split("?")[1].split("=")[1];
 	$.getJSON(serverRoot + "/json/program/" + no, (data) => {
+		console.log(data);
 		$("<img>").attr('src','../../../files/'+ data.medias[0].path).appendTo('#program-img');
 		$('.project-title').append("<b>"+data.name+"</b>");
 		function addComma(num) {
@@ -16,7 +17,7 @@ if (location.href.split("?").length > 1) {
 		}
 		var num = data.price;
 		$('.p-price').append(addComma(num)+" 원");
-		$('.p-trainer').append(data.trainerNo.name);
+		$('.p-trainer').append(data.name);
 	}); 
 
 //	------------------------- 수량 증가 ---------------------------//
