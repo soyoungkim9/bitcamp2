@@ -6,17 +6,26 @@ $(document).ready(function() {
   }).done(function(data) {
     var i;
     for (i = 0; i < data.length; i++) {
-      console.log(data[i].programNo)
-      $.getJSON(serverRoot + "/json/programMedia/list?no=" + data[i].programNo, (data) => {
-        console.log(data[i].path)
-        var cardImg = document.getElementById("cardImg-"+i)
-        console.log(cardImg)
-        cardImg.attr('src', '../../../files/'+data[i].path+'_200x200.jpg');
-      })
+      proImg(data[i].programNo, i);
+      trImg(data[i].program.trainerNo, i);
       dday(data[i].program.startDate, i);
     }
   });
 });
+
+function proImg(no, i) {
+  $.getJSON(serverRoot + "/json/programMedia/list?no=" + no, (data) => {
+    $("<img/>").attr('src', '../../../files/'+data[0].path+'_200x200.jpg')
+    .appendTo('.ch-'+i+'').addClass('card-img');
+  })
+}
+
+function trImg(no, i) {
+  $.getJSON(serverRoot + "/json/trainer/" + no, (data) => {
+    $("<img/>").attr('src', '../../../files/'+data.userPath+'_50x50.jpg')
+    .appendTo('.tr-'+i+'').addClass('trainer-img');
+  })
+}
 
 //날짜 간격 구하기(D-day)
 function dday(startDate, i) {

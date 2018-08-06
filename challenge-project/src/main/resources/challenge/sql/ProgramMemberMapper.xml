@@ -31,6 +31,7 @@
         <result column="maxqty" property="maxQty"/>
         <result column="pprice" property="price"/>
         <result column="pth" property="proTh"/>
+        <result column="trnno" property="trainerNo"/>
     </association>
     <association property="user" javaType="User">
         <id column="uno" property="userNo"/>
@@ -63,10 +64,8 @@
   <!-- 회원이 수강중인 프로그램 목록 -->
   <select id="lectList" parameterType="int" resultMap="ProgramMemberMap">
   	SELECT pm.pno, pm.uno, 
-  	       p.pname, p.trnno, p.sdt, p.edt, payday, p.bas_addr, p.maxqty, p.pprice, p.pth,
-  	       u.upath
+  	       p.pname, p.trnno, p.sdt, p.edt, payday, p.bas_addr, p.maxqty, p.pprice, p.pth
 	FROM PMEMB pm 
-		INNER JOIN USER u ON pm.uno = u.uno
 		INNER JOIN PROG p ON pm.pno = p.pno
 	WHERE pm.uno = #{value}
   </select>
