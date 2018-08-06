@@ -1,13 +1,23 @@
 //회원정보 읽어오기
-$(document).ready(function () {
+$("#upload-btn").click(function (data) { 
+	updateUserInfo(data); 
+	}); 
+$.ajax({
+	type: 'GET',
+	async: false,
+	traditional : true,
+	url: serverRoot + '/json/user/list' ,
+	data:userInfo,
+}).done(function() {
 	
 	$('#email').val(userInfo.email);
 	$('#phone').val(userInfo.userPhone);
-	$("<img>").attr('src', '../../../files/'+ userInfo.userPath).css('border-radius', '50%').appendTo('#images-div');
-
-
+	$("<img>").attr('src', '../../../files/'+ userInfo.userPath+'_200x200.jpg').css('border-radius', '50%').appendTo('#images-div');
 
 });
+
+
+
 
 "use strict"
 
@@ -117,14 +127,13 @@ $(document).ready(function () {
 					email: $('#email').val(),
 					userPhone: $('#phone').val(),
 					password: $('.pwd').val(),
-
 					userNo: userInfo.userNo
 
 				}, 
 			}).done(function() {
 
 				alert('비밀번호 변경 완료');
-				location.href = "http://localhost:8888/challenge-project/challenge/html/member/member-set.html";
+				location.href = "member-set.html";
 			});
 
 		}

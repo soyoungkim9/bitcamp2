@@ -15,6 +15,7 @@ public interface ProgramMemberService {
     Member getWithUserNo(int userNo);
     int add(ProgramMember programMember);
     int updateReview(ProgramMember programMember);
+    int deleteReview(ProgramMember programMember);
     List<ProgramMember> reviewList(int pno);
     int reviewCount(int no);
     int reviewScore(int no);
