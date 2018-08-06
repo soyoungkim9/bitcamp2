@@ -11,22 +11,9 @@
 <link rel="stylesheet"
 	href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
 
-
-
 <!-- 사용자 정의 CSS -->
-
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet" href="../../css/login/trainer2.css">
-
-<!-- jQuery Framework 참조하기 -->
-<script src="../../js/login/member-login.js"></script>
-
-<script
-	src="../../node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
-
-
-
-
 </head>
 
 <body>
@@ -102,10 +89,12 @@
 
 					<tr>
 						<td><label for="fPath">사진</label>
-						<td><input id="fPath" type="file" name="file"
-							placeholder="file" class="file"></td>
+						<td><input id="fPath" type="file" name="files" multiple></td>
 					</tr>
-
+					<tr>
+			            <td></td>
+			            <td id='images-Td'></td>
+			        </tr>
 					<tr>
 						<td><label for="fTrnint">자기소개 *</label></td>
 						<td><textarea id="fTrnint" cols="40" rows="5" name="fTrnint"
@@ -171,9 +160,23 @@
 		</div>
 	</div>
 	<footer id="footer"></footer>
-	<script src="../../js/login/trainer2.js"></script>
-	<script src="../../js/common.js"></script>
-	<script src="../../js/header/header_white.js"></script>
-	<script src="../../js/footer/footer.js"></script>
+	      <!-- 파일 업로드 관련 스크립트  -->
+  <script src="../../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+  <script src="../../node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+  <script src="../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+  <script src="../../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+  <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+  <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
+  <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+	
+  <script src="../../js/common.js"></script>
+  <script src="../../js/header/header_white.js"></script>
+  <script src="../../js/login/trainer2.js"></script>
+  <script src="../../js/footer/footer.js"></script>
+	
+  <!-- jQuery Framework 참조하기 -->
+  <script src="../../js/login/member-login.js"></script>
+  <script src="../../node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
 </body>
 </html>

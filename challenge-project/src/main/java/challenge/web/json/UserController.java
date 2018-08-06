@@ -13,7 +13,6 @@ import challenge.service.UserService;
 @RestController
 @RequestMapping("/user")
 public class UserController {
-
     UserService userService;
 
     public UserController(UserService userService) {
@@ -23,7 +22,7 @@ public class UserController {
    @RequestMapping("add")
    @ResponseStatus(HttpStatus.CREATED)
     public void add(User user) throws Exception {
-            userService.add(user);
+       userService.add(user);
     }
     
     @RequestMapping("delete")

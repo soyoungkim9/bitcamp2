@@ -16,11 +16,6 @@
   <link rel="stylesheet" href="../../css/common.css">
   <link rel="stylesheet" href="../../css/login/member3.css">
 
-  <!-- jQuery Framework 참조하기 -->
-  <script src="../../js/login/member-login.js"></script>
-  <script src="../../js/login/member3.js"></script>
-  <script src="../../node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
-
 
 
 
@@ -87,10 +82,15 @@
           </tr>
 
           <tr>
-            <td><label for="fPath">사진</label>
-              <td><input id="fPath" type="file" name="file" placeholder="file" class="file"></td>
+            <td><label for="fPath">사진</label></td>
+              <td><input id="fPath" type="file" name="files" multiple></td>
           </tr>
-
+			
+		  <tr>
+            <td></td>
+              <td id='images-Td'></td>
+          </tr>
+          
           <tr>
             <td>이용약관</td>
 
@@ -125,10 +125,24 @@
     </div>
   </div>
   <footer id="footer"></footer>
-  <script src="../../js/login/member3.js"></script>
+      <!-- 파일 업로드 관련 스크립트  -->
+  <script src="../../node_modules/jquery/dist/jquery.js"></script>
+  <script src="../../node_modules/blueimp-file-upload/js/vendor/jquery.ui.widget.js"></script>
+  <script src="../../node_modules/blueimp-load-image/js/load-image.all.min.js"></script>
+  <script src="../../node_modules/blueimp-canvas-to-blob/js/canvas-to-blob.js"></script>
+  <script src="../../node_modules/blueimp-file-upload/js/jquery.iframe-transport.js"></script>
+  <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload.js"></script>
+  <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-process.js"></script> 
+  <script src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
+  
   <script src="../../js/common.js"></script>
   <script src="../../js/header/header_white.js"></script>
+  <script src="../../js/login/member3.js"></script>
   <script src="../../js/footer/footer.js"></script>
+	<!-- 유효성 검사 -->  
+    <!-- jQuery Framework 참조하기 -->
+  <script src="../../js/login/member-login.js"></script>
+  <script src="../../node_modules/jquery-validation/dist/jquery.validate.min.js"></script>
 </body>
 
 </html>
