@@ -61,7 +61,7 @@ $(document.body).on('click','.viewSelect', function(event){
 	    success: function(data) {
 	    	console.log(data)
 			 $('.view-body').html(viewtemplateFn({
-				 userName: userInfo.name,
+				 userName: data.member.name,
 				 title: data.title,
 				 content: data.content,
 				 msgDate: data.msgDate,

@@ -181,20 +181,21 @@ $(document.body).on('click', '.editIcon', function(event) {
 
 //수정 버튼 눌렀을 경우 쿼리 
 $("#updatePlanButton").click(() => {
-	// 출석여부 수정!
-    if($('.checkIconBox').find('input').prop("checked", true)) {
-   	  onOff = 1;
-    } else {
-   	  onOff = 0;
-    }
+    console.log(onOff);
     
 	$.post(serverRoot + "/json/diary/update/", {
-		dcheck: onOff,
 		content: $("#modalViewContent textarea").val(),
+		dcheck: onOff,
 		"dno": dno
 	}, () => {
+		swal({
+			  position: 'center',
+			  type: 'success',
+			  title: '수정완료!',
+			  showConfirmButton: false,
+			  timer: 1500
+			})
 		modal.style.display = "none";
-		console.log(onOff);
 		
 		/* 업데이트한 상태에서 이전 화면으로 돌아가기 위한 코드임... 뭔가 이상 */
 		$.ajax(serverRoot + "/json/diary/list/" + pno + "/" + userInfo.userNo, {
@@ -237,7 +238,6 @@ $("#updatePlanButton").click(() => {
 //새글 관련 이벤트  ********* 출석체크 이전에 남는 데이터 지우기
 $("#addPlan").click(() => {
 	pno = $('.active').find('a').attr('data-no');
-	$("#checkType").attr("data-check", "1");
     // 프로그램 회차 관련
     $.ajax(serverRoot + "/json/diary/list/" + pno + "/" + userInfo.userNo, {
     	dataType: "json",
@@ -255,25 +255,38 @@ $("#addPlan").click(() => {
 	       }
 	       
 	       var index = data.length;
-	       // plan에서 mDate와 mTitle을 불러 오기 위함!
+	       // plan에서 mDate와 mTitle, mContent을 불러 오기 위함!
 	       $.ajax(serverRoot + "/json/plan/list/" + pno, {
 	          dataType: "json",   
 	           success(data) {
 	        	  console.log(data);
 	        	  if(data.length == 0) {
-	        		  alert('작성할 수 있는 운동계획서가 없습니다. \n트레이너에게 문의해 주세요.')
+	        			swal({
+	        				  position: 'center',
+	        				  type: 'warning',
+	        				  html: '<h3 class="swalFont">작성할 수 있는 운동계획서가 없습니다.</h3>',
+	        				  timer: 2000,
+	        				  showConfirmButton: false,
+	        				})
 	        		  return;
 	        	  }
 	        	  if(data.length <= index) {
-	        		  alert('트레이너가 운동일지를 ' + index + '일차 까지 등록하여' 
-	        				  + '\n더 이상 운동계획서를 등록 할 수 없습니다!'
-	        				  + '\n문의 사항은 트레이너에게 연락해 주세요.')
+	        			swal({
+	        				  position: 'center',
+	        				  type: 'warning',
+	        				  html: '<h3 class="swalFont">더 이상 운동계획서를 등록 할 수 없습니다!</h3>',
+	        				  timer: 2000,
+	        				  showConfirmButton: false,
+	        				})
 	        		  return;
 	        	  }
 	        	  console.log(index);
 	        	  plno = data[index].no;
 	   	       	  $("#mDate").val(data[index].planDate);
 		          $("#mTitle").val(data[index].planTitl);
+		          $("#mContent").val(data[index].planContent 
+		        		  + "\n오늘 수행한 운동들만 기록해 주세요^^"
+		        		  + "\n현재 내용을 클릭하면 수정이 가능합니다.");
 		          $("#mDate").attr("readonly", true);
 		          $("#mTitle").attr("readonly", true);
 		          
@@ -299,11 +312,24 @@ $("#addPlan").click(() => {
 $("#checkType").click(() => {
 	if($("#checkType").attr("data-check") == 1) {
 		$("#checkType").attr("data-check", "0");
+		$("#checkType").removeAttr("checked");
 	} else {
 		$("#checkType").attr("data-check", "1");
+		$("#checkType").attr("checked", true);
 	}
 });
 
+$("#checkUpdateType").click(() => {
+	if($("#checkUpdateType").attr("data-check") == 1) {
+		$("#checkUpdateType").attr("data-check", "0");
+		$("#checkUpdateType").removeAttr("checked");
+		onOff = 0;
+	} else {
+		$("#checkUpdateType").attr("data-check", "1");
+		$("#checkUpdateType").attr("checked", true);
+		onOff = 1;
+	}
+});
 // 등록 버튼 눌렀을 시
 $("#registerPlan").click(() => {
 	if($("#checkType").attr("data-check") == 1) {
@@ -318,6 +344,13 @@ $("#registerPlan").click(() => {
 		"program.no": pno,
 		"uno": userInfo.userNo
 	}, () => {
+		swal({
+			  position: 'center',
+			  type: 'success',
+			  title: '등록완료!',
+			  showConfirmButton: false,
+			  timer: 1500
+			})
 		modal.style.display = "none";
 		/* 업데이트한 상태에서 이전 화면으로 돌아가기 위한 코드임... 뭔가 이상 */
 		$.ajax(serverRoot + "/json/diary/list/" + pno + "/" + userInfo.userNo, {
@@ -342,7 +375,6 @@ $("#registerPlan").click(() => {
 	          				   $("[data-ch=0]").css("display", "none");
 	          				   // 그에 해당하는 data-ch를 0으로 바꿔서
 	          				   // data-ch가 0인 아이만 display none을 한다.
-	          				   //$('.viewNum').css("display", "none");
 	          			   }
 	          		   }
 	          	   }
@@ -356,6 +388,4 @@ $("#registerPlan").click(() => {
 	});
 });
 
-
-/* 출석체크 해제 하고나서 남는 데이터 처리 */
 /* 수정 제대로 반영 안되는 부분 처리*/

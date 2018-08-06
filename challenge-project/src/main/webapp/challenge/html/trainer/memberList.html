@@ -4,10 +4,14 @@
 <meta charset='UTF-8'>
 <title>트레이너페이지</title>
 <link rel="stylesheet" href="../../css/trainer/template/sm-trainerPage.css">
+<link rel="stylesheet" href="../../node_modules/sweetalert2/dist/sweetalert2.min.css">
 <link rel="stylesheet" href="../../css/trainer/trainerPage-memberManage.css">
+<link rel="stylesheet" href="../../css/member/msgAddModal.css">
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
 <link rel="stylesheet" href="../../css/pagination.css">
+<style type="text/css">
+</style>
 </head>
 <body>
 <div id="subMenu"></div>
@@ -80,11 +84,26 @@
             <div class="modal-body"></div>
           </div>
       </div>
+      
+        <!-- add 모달 -->
+        <div id="myAddModal" class="sm-modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="addClose"><i
+                class="far fa-times-circle"></i></span>
+            </div>
+            <div class="add-body"></div>
+          </div>
+        </div>
+        <!-- add 모달 끝! -->
+      
+      
     </div><!-- mypage-body -->
 </div><!-- mypage -->
 </div><!--.container-->
 </div><!-- back -->
 <div id="footer"></div>
+  <script src="../../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
 <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="../../js/common.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
@@ -167,10 +186,39 @@
   </div>
 <div class="memberButtons">
         <ul>
-          <li><a>메시지</a></li>
+          <li><a class="msgSend">메시지</a></li>
         </ul>
       </div>
 </div>
+</script>
+
+
+<!-- add -->
+  <script id="add-template" type="text/x-handlebars-template">
+  <div>
+  <div class="modal-body">
+    <div class="originalImg"></div>
+    <ul class="msgInfoList">
+      <li class="modalName">
+        <div class="contentName">이름</div>
+        <div id="mName" class="modalContent">{{trainer}}</div>
+      </li>
+      <li class="modaPhone">
+        <div class="contentName">받는사람</div>
+        <div id="mName-send" class="modalContent">{{member}}</div>
+      </li>
+    </ul>
+  </div>
+  <div class="modal-body2">
+  <input id="fTitle" class="modalContent-titl" type="text" placeholder="제목을 입력하세요."><br>
+  <textarea id="fContent" class="modalContent-cont" placeholder="내용을 입력하세요."></textarea>
+  
+    <span class="modal-ok">
+    <button id="addBtn" class="sm-btn-1">보내기</button>
+    <button id="resetBtn" class="sm-btn-1">취소하기</button>
+    </span>
+  </div>
+  </div>
 </script>
 <script src="../../js/trainer/memberList.js"></script>
 </body>

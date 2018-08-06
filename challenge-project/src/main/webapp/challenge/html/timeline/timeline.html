@@ -29,8 +29,8 @@
         <!-- sideMenu 시작 -->
         <div id="sh-sideMenu">
 
-        <div id="sh-sideMenu-item"></div>
-          <!-- 
+          <div id="sh-sideMenu-item"></div>
+          <!--
           <div id="sh-sideMenu-item">
            <a id="MOVE_TOP_BTN" href="#">
              <i class="fas fa-arrow-alt-circle-up"></i>
@@ -96,12 +96,12 @@
               </section>
             </div>
             <!--The Modal POST 종료-->
-            
+
             <!--The Modal EDIT 시작-->
             <div id="sh-tl-editModal" class="sh-tl-modal">
             </div>
             <!--The Modal EDIT 시작-->
-            
+
             <!-- SHOW -->
 
 
@@ -149,7 +149,7 @@
     {{#each list}}
     <!-- 타임라인 카드 시작 -->
     <div class="sh-tl-card-modal{{no}} sh-tl-card sh-card">
-<input id="userInfo{{no}}" class="userInfoInput" data-cardNo="{{no}}" data-userNo="{{progMemb.user.userNo}}" data-userName="{{progMemb.user.name}}"/>
+      <input id="userInfo{{no}}" class="userInfoInput" data-cardNo="{{no}}" data-userNo="{{progMemb.user.userNo}}" data-userName="{{progMemb.user.name}}" />
       <!--글쓴이 시작 -->
       <section class="sh-tl-card-primary">
         <div data-cardNo={{no}} onmouseover=showPostMenu(this) onmouseout=hidePostMenu(this) class="sh-tl-user">
@@ -207,14 +207,14 @@
     {{/each}}
   </script>
 
-<script id="tr-edited-template" type="text/x-handlebars-template">
+  <script id="tr-edited-template" type="text/x-handlebars-template">
     {{#data}}
     <!-- 타임라인 카드 시작 -->
     <div class="sh-tl-card-modal sh-tl-card sh-card">
-    <input id="userInfo{{no}}" class="userInfoInput" data-no="{{no}}" data-userNo="{{progMemb.user.userNo}}" data-name="{{progMemb.user.name}}"/> 
+      <input id="userInfo{{no}}" class="userInfoInput" data-no="{{no}}" data-userNo="{{progMemb.user.userNo}}" data-name="{{progMemb.user.name}}" />
       <!--글쓴이 시작 -->
       <section class="sh-tl-card-primary">
-                <div data-cardNo={{no}} onmouseover=showPostMenu(this) onmouseout=hidePostMenu(this) class="sh-tl-user">
+        <div data-cardNo={{no}} onmouseover=showPostMenu(this) onmouseout=hidePostMenu(this) class="sh-tl-user">
           <img class="sh-tl-user-img" src="../../../files/{{progMemb.user.userPath}}">
           <h1 class="sh-tl-user-name">{{progMemb.user.name}}</h1>
           <h6 class="sh-tl-post-date">{{createdDate}}</h6>
@@ -305,7 +305,7 @@
         <textarea id="sh_tl_post_write_edit" class="sh-tl-review-title sh-tl-textarea" onkeydown="resize(this)" onkeyup="resize(this)">{{content}}</textarea>
       </div>
       <div id='images-div-edit'><img id='edit-modal-img' src="../../../files/{{picture}}"></div>
-      <button id="sh-tl-edit-btn" name="{{no}}" type="button" onclick="postEditClicked()" >수정</button>
+      <button id="sh-tl-edit-btn" name="{{no}}" type="button" onclick="postEditClicked()">수정</button>
       <div class="sh-tl-post-img-upload"><label id="sh-tl-post-img-btn" for="sh_tl_upload_edit" style="cursor:pointer"><i class="far fa-images"><input id="sh_tl_upload_edit" accept="video/*,  video/x-m4v, video/webm, video/x-ms-wmv, video/x-msvideo, video/3gpp, video/flv, video/x-flv, video/mp4, video/quicktime, video/mpeg, video/ogv, .ts, .mkv, image/*"  name="files" title="사진 또는 동영상 첨부" type="file" style="display:none"></i></label></div>
     </section>
     {{/data}}

@@ -48,13 +48,10 @@
         <!-- profile 시작 -->
         <div class="sm-profile">
           <div style="text-align: center;">
-            <img src="../../img/member/img1.jpg"
-              style="margin-left: 30px; border-radius: 60px; width: 120px; height: 120px;">
-            <button class="sm-btn-2" type="button"
-              style="position: relative; top: -10px; right: 40px; width: 30px; height: 30px; border-radius: 15px; padding: 0px; font-size: 14px;">
-              <span>2</span>
-            </button>
-            <br> 사용자이름<br>
+            <img id="profile-photo"
+              style="border-radius: 60px; width: 120px; height: 120px;">
+
+            <p id="profile-name" style="margin: 8px 0px 3px 0px;"></p>
             <button id="myBtn" class="sm-fw-btn"
               style="margin-top: 10px; margin-bottom: 20px;">나의
               팔로잉</button>
@@ -102,7 +99,7 @@
             </div>
 
           </div>
-          <a class="sm-a-none" href="member-history.html">
+          <a class="sm-a-none" href="#" onclick=" location.href = 'member-history.html?no=' + userInfo.userNo; return false;">
             <div class="sm-menu" style="border-left: none;">
               <i class="fas fa-history"></i><br>히스토리
             </div>
@@ -131,7 +128,7 @@
 
           <!-- 이 부분이 운동일지 부분임! -->
           <section id="sm-section" class="sm-timeline">
-            <ul>
+            <!-- <ul>
               <li>
                 <div class="sm-time-div">
                   <span class="sm-time">2011-02-03</span>
@@ -189,7 +186,9 @@
                   <p class="sm-time-p">'3개월 하비탈출!' 챌린지 시작!</p>
                 </div>
               </li>
-            </ul>
+            </ul> -->
+            
+            <ul id="history"></ul>
           </section>
         </div>
 
@@ -212,7 +211,7 @@
 <script src="../../js/member/history.js"></script>
 <script src="../../js/member/sm-following.js"></script>
 <script src="../../js/member/mb-menu.js"></script>
-
+<script src="get3.js"></script>
 
 
 

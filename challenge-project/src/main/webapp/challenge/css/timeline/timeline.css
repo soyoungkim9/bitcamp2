@@ -177,13 +177,6 @@ body:not(#footer) {
 
 /* image slide CSS 종료*/
 
-#sh-mainContainer {
-  border: 1px solid rgba(0, 0, 0, 0.12);
-  float: none;
-  min-height: 600px;
-  position: relative;
-  background-color: #fff;
-}
 
 #sh-mainContainer:not(#sh-mainContainer *) {
   background-color: gray;
@@ -202,6 +195,7 @@ body:not(#footer) {
   background-color: rgba(0, 0, 0, 0.75);
   color: #fff;
   padding: 3px;
+  cursor: pointer;
 }
 
 /* content CSS 시작*/
@@ -242,17 +236,17 @@ body:not(#footer) {
 .sh-Class-Contents {
   padding: 20px 20px 0px 20px;
   background-color: black;
-    opacity: 0.6;
+  opacity: 0.6;
 }
 
 #sh-Class-Title {
-	    text-align: center;
+  text-align: center;
 }
 
 #sh-Class-Daily {
-    width: 936px;
-    z-index: 1000;
-    border-radius: 2px;
+  width: 936px;
+  z-index: 1000;
+  border-radius: 2px;
 }
 
 .sh_class_daily_sticky {
@@ -262,7 +256,7 @@ body:not(#footer) {
 }
 
 #sh-Class-Daily-item * :not(#shClassDiv) {
-	    color: white;
+  color: white;
   margin: 0;
   padding-bottom: 13px;
 }
@@ -582,8 +576,8 @@ textarea:focus {
 
 .sh-tl-user-img {
   border-radius: 50%;
- width: 45px;
-    height: 45px;
+  width: 45px;
+  height: 45px;
 }
 
 [contenteditable=true]:empty:before {
@@ -726,15 +720,14 @@ div[contenteditable=true] {
 }
 
 .userInfoInput {
-	display: none;
+  display: none;
 }
-
 
 .sh-tl-user-circle {
-	display: "none";
+  display: "none";
 }
-/* 대댓글 CSS 종료 */
 
+/* 대댓글 CSS 종료 */
 
 /* 타임라인 끝*/
 

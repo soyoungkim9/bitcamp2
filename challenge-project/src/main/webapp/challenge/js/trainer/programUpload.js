@@ -211,7 +211,7 @@ $('#fileupload2').fileupload({
             endDate: $(fEndDate).val(),
             minQty: $(fminQty).val(),
             maxQty: $(fmaxQty).val(),
-            price: $(fprice).val(),
+            price: $(fprice).val().replace(",",""),
             description: $(fdescription).val(),
             proType: $(ftype).val(),
             proGoal: $(fprgoal).val(),

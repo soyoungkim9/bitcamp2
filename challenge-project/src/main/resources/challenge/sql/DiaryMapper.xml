@@ -55,9 +55,9 @@
   
   <update id="update" parameterType="Diary">
   	UPDATE DIARY SET
-		dcont=#{planTitl},
-		dchek=#{planContent}
-	WHERE dno=#{no}
+		dcont=#{content},
+		dchek=#{dcheck}
+	WHERE dno=#{dno}
   </update>
   
 </mapper>

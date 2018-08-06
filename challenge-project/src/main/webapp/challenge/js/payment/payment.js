@@ -105,7 +105,7 @@ if (location.href.split("?").length > 1) {
 						dataType:"json",
 						data:{
 							programNo: data.no,
-							userNo: userInfo.userNo,
+							/*userNo: userInfo.userNo,*/
 							userType: 1
 						},
 						complete: function(data){
@@ -123,7 +123,7 @@ if (location.href.split("?").length > 1) {
 					}).done(function(data) {
 							
 					});
-				} else {
+			} else {
 					var msg = '결제에 실패하였습니다.';
 					msg += '에러내용 : ' + rsp.error_msg;
 

@@ -17,7 +17,7 @@ import challenge.service.ProgramMemberService;
 
 @RestController
 @RequestMapping("/programMember")
-/*@SessionAttributes("loginUser")*/
+@SessionAttributes("loginUser")
 public class ProgramMemberController {
 
     ProgramMemberService programMemberService;
@@ -27,8 +27,11 @@ public class ProgramMemberController {
     }
     @RequestMapping("add")
     @ResponseStatus(HttpStatus.CREATED)
-    public void add(/*@ModelAttribute User loginUser,*/ProgramMember programMember) throws Exception {
-       /* programMember.setUserNo(loginUser.getUserNo());*/
+    public void add(
+            @ModelAttribute("loginUser") User loginUser,
+            ProgramMember programMember) throws Exception {
+        programMember.setUserNo(loginUser.getUserNo());
+        
         programMemberService.add(programMember);
     }
     
@@ -70,6 +73,12 @@ public class ProgramMemberController {
     @ResponseStatus(HttpStatus.OK) // 기본 값이 OK이다.
     public void updateReview(ProgramMember programMember) throws Exception {
         programMemberService.updateReview(programMember);
+    }
+    
+    @RequestMapping("deleteReview")
+    @ResponseStatus(HttpStatus.OK) // 기본 값이 OK이다.
+    public void deleteReview(ProgramMember programMember) throws Exception {
+        programMemberService.deleteReview(programMember);
     }
     
     

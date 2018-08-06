@@ -17,6 +17,12 @@ public class User implements Serializable {
     private List<Program> programs;
     
     
+    @Override
+    public String toString() {
+        return "User [userNo=" + userNo + ", name=" + name + ", sex=" + sex + ", email=" + email + ", password="
+                + password + ", userPath=" + userPath + ", userPhone=" + userPhone + ", userType=" + userType
+                + ", programs=" + programs + "]";
+    }
     public List<Program> getPrograms() {
         return programs;
     }

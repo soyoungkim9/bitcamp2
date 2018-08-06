@@ -95,7 +95,7 @@
 						</div>
 
 					</div>
-					<a class="sm-a-none">
+					<a class="sm-a-none" href="#" onclick=" location.href = 'member-history4.html?userInfo=' + 1; return false;">
 						<div id="toryBtn" class="sm-menu" style="border-left: none;">
 							<i class="fas fa-history"></i><br>히스토리
 						</div>
@@ -134,7 +134,7 @@
                   <p class="sm-time-p">'3개월 하비탈출!' 결제를 완료했습니다!</p> 
                 </div> 
               </li> -->
-              <ul><li><div class="sm-time-div">
+             <!--  <ul><li><div class="sm-time-div">
                                     <span id="aaaa" class="sm-time"></span>
                                     <p class="sm-time-p">
                                         <img class="sm-time-img" src="../../img/member/img1.jpg">
@@ -151,13 +151,13 @@
                                     </p>
                                 </div>
                                 </li>
-              </ul>
+              </ul> -->
               
 						<ul id="cccc">
 						<!-- <li id="cccc"></li> -->
 						<!-- <li id="dddd">{{>script}}</li> -->
 						</ul>
-						<ul id="dddd"></ul>
+						<!-- <ul id="dddd"></ul> -->
 							<!-- <li>
 								<div class="sm-time-div">
 									<span class="sm-time">2011-02-03</span>
@@ -227,33 +227,33 @@
 <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../../js/common.js"></script>
-<!-- <script src="../../js/header/header_white.js"></script>
+<script src="../../js/header/header_white.js"></script>
 <script src="../../js/footer/footer.js"></script>
 <script src="../../js/member/sm-following.js"></script>
-<script src="../../js/member/mb-menu.js"></script> -->
-<script>
+<script src="../../js/member/mb-menu.js"></script>
+<!-- <script>
     $("#toryBtn").click(() => { location.href="member-history4.html?no=1"});
-    </script>
+    </script> -->
 <script src="../../js/member/history2.js"></script>
 <script id="tr-template" type="text/x-handlebars-template">
 {{#each list}}
 {{#if @first}}
 <li>
 <div class="sm-time-div">
-<span class="sm-time">{{startDate}}</span>
+<span class="sm-time">{{program.startDate}}</span>
 <p class="sm-time-p">
 <img class="sm-time-img" src="../../img/member/img1.jpg">
-{{name}} 프로그램을 시작했습니다.
+{{program.name}} 프로그램을 시작했습니다.
 </p>
 </div>
 </li>
 
 <li>
 <div class="sm-time-div">
-<span class="sm-time">{{endDate}}</span>
+<span class="sm-time">{{program.endDate}}</span>
 <p class="sm-time-p">
 <img class="sm-time-img" src="../../img/member/img1.jpg">
-{{name}} 프로그램을 마쳤습니다.
+{{program.name}} 프로그램을 마쳤습니다.
 </p>
 </div>
 </li>
@@ -262,20 +262,20 @@
 {{else if @last}}
 <li>
 <div class="sm-time-div">
-<span class="sm-time">{{startDate}}</span>
+<span class="sm-time">{{program.startDate}}</span>
 <p class="sm-time-p">
 <img class="sm-time-img" src="../../img/member/img1.jpg">
-{{name}} 프로그램을 시작했습니다.
+{{program.name}} 프로그램을 시작했습니다.
 </p>
 </div>
 </li>
 
 <li>
 <div class="sm-time-div">
-<span class="sm-time">{{endDate}}</span>
+<span class="sm-time">{{program.endDate}}</span>
 <p class="sm-time-p">
 <img class="sm-time-img" src="../../img/member/img1.jpg">
-{{name}} 프로그램을 마쳤습니다.
+{{program.name}} 프로그램을 마쳤습니다.
 </p>
 </div>
 </li>
@@ -283,20 +283,20 @@
 {{else}}
 <li>
 <div class="sm-time-div">
-<span class="sm-time">{{startDate}}</span>
+<span class="sm-time">{{program.startDate}}</span>
 <p class="sm-time-p">
 <img class="sm-time-img" src="../../img/member/img1.jpg">
-{{name}} 프로그램을 시작했습니다.
+{{program.name}} 프로그램을 시작했습니다.
 </p>
 </div>
 </li>
 
 <li>
 <div class="sm-time-div">
-<span class="sm-time">{{endDate}}</span>
+<span class="sm-time">{{program.endDate}}</span>
 <p class="sm-time-p">
 <img class="sm-time-img" src="../../img/member/img1.jpg">
-{{name}} 프로그램을 마쳤습니다.
+{{program.name}} 프로그램을 마쳤습니다.
 </p>
 </div>
 </li>
@@ -309,7 +309,7 @@
 <li>
 {{#if @first}}
 <div class="sm-time-div">
-<span class="sm-time">{{endDate}}</span>
+<span class="sm-time">{{program.endDate}}</span>
 <p class="sm-time-p">
 <img class="sm-time-img" src="../../img/member/img1.jpg">
 '1개월만에 다리라인 만들기' 태권도 챌린지를 시작헀습니다!

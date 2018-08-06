@@ -14,6 +14,11 @@ public class Trainer extends User implements Serializable {
     private String bank; // 은행명
     private int coin; // 수익금
     
+    @Override
+    public String toString() {
+        return "Trainer [introduce=" + introduce + ", career=" + career + ", time=" + time + ", account=" + account
+                + ", programs=" + programs + ", bank=" + bank + ", coin=" + coin + "]";
+    }
     public List<Program> getPrograms() {
         return programs;
     }

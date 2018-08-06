@@ -14,7 +14,13 @@
 
 		});
 	
+<<<<<<< HEAD
 		
+=======
+	$('#email').val(userInfo.email);
+	$('#phone').val(userInfo.userPhone);
+	$("<img>").attr('src', '../../../files/'+ userInfo.userPath).css('border-radius', '50%').appendTo('#images-div');
+>>>>>>> branch 'master' of https://github.com/pparksuuu/bitcamp2.git
 
 
 

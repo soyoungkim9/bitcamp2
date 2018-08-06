@@ -12,9 +12,8 @@
   href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
 <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900"
   rel="stylesheet">
-<style type="text/css">
-
-</style>
+    <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 </head>
 <body>
 
@@ -35,10 +34,10 @@
         <!-- profile 시작 -->
         <div class="sm-profile">
           <div style="text-align: center;">
-            <img src="../../img/member/img1.jpg"
+            <img id="profile-photo"
               style="border-radius: 60px; width: 120px; height: 120px;">
 
-            <p style="margin: 8px 0px 3px 0px;">사용자이름</p>
+            <p id="profile-name" style="margin: 8px 0px 3px 0px;"></p>
             <button id="myBtn" class="sm-fw-btn"
               style="margin-top: 10px; margin-bottom: 20px;">나의
               팔로잉</button>
@@ -129,7 +128,7 @@
                   </td>
                 </tr>
                 <tr>
-                  <td>태권도로 다리라인 만들기 프로젝트 마감 2일 전입니다! 서둘러주세용!</td>
+                  <td style="padding-left: 34px;">태권도로 다리라인 만들기 프로젝트 마감 2일 전입니다! 서둘러주세용!</td>
                 </tr>
               </table>
             </div>
@@ -178,7 +177,7 @@
   <script id="my-template" type="text/x-handlebars-template">
 {{#each list}}
             <tr style="color:gray; height:10px;">
-              <td rowspan="2">{{user}}</td>
+              <td>{{type}}</td>
               <td colspan="2"><i class="fas fa-angle-right" style="margin:10px; color:gray;"></i>
                 <span>{{createdDate}}</span>
               </td>
@@ -190,8 +189,7 @@
 {{/each}}
 </script>
 
-  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
-  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+
   <script src="../../js/common.js"></script>
   <script src="../../js/header/header_white.js"></script>
   <script src="../../js/footer/footer.js"></script>

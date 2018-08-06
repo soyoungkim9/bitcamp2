@@ -14,7 +14,6 @@
 input[type=checkbox] {
   transform: scale(1.5);
 }
-
 .chall-table td:nth-child(3) {
     text-align: left;
 }

@@ -169,6 +169,13 @@ $("#updatePlanButton").click(() => {
 		planContent: $("#modalViewContent textarea").val(),
 		"no": plno
 	}, () => {
+		swal({
+			  position: 'center',
+			  type: 'success',
+			  title: '수정완료!',
+			  showConfirmButton: false,
+			  timer: 1500
+			})
 		modal.style.display = "none";
 		
 		/* 업데이트한 상태에서 이전 화면으로 돌아가기 위한 코드임... 뭔가 이상 */
@@ -198,6 +205,13 @@ $("#registerPlan").click(() => {
 		planContent: $("#mContent").val(),
 		"program.no": pno
 	}, () => {
+		swal({
+			  position: 'center',
+			  type: 'success',
+			  title: '등록완료!',
+			  showConfirmButton: false,
+			  timer: 1500
+			})
 		modal.style.display = "none";
 		/* 업데이트한 상태에서 이전 화면으로 돌아가기 위한 코드임... 뭔가 이상 */
 		$.ajax(serverRoot + "/json/plan/list/" + pno, {

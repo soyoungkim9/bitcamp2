@@ -27,6 +27,11 @@
 	    <result column="pgoal" property="proGoal"/>
 	    <result column="pgoal_n" property="proGoalNum"/>
         <result column="trnno" property="trainerNo"/>
+        <result column="bas_addr" property="address"/>
+        <result column="maxqty" property="maxQty"/>
+        <result column="pprice" property="price"/>
+        <result column="pth" property="proTh"/>
+        <result column="trnno" property="trainerNo"/>
     </association>
     <association property="user" javaType="User">
         <id column="uno" property="userNo"/>
@@ -58,10 +63,10 @@
   
   <!-- 회원이 수강중인 프로그램 목록 -->
   <select id="lectList" parameterType="int" resultMap="ProgramMemberMap">
-  	SELECT pm.pno, pm.uno, p.pname, p.trnno, p.sdt, p.edt 
+  	SELECT pm.pno, pm.uno, 
+  	       p.pname, p.trnno, p.sdt, p.edt, payday, p.bas_addr, p.maxqty, p.pprice, p.pth
 	FROM PMEMB pm 
-		INNER JOIN PROG p 
-		ON pm.pno = p.pno 
+		INNER JOIN PROG p ON pm.pno = p.pno
 	WHERE pm.uno = #{value}
   </select>
     
@@ -77,7 +82,7 @@
   </select>
   
   <select id="selectListWithProgram" parameterType="map" resultMap="ProgramMemberMap">
-	SELECT u.uno, p.pno, u.mail, u.uname, u.sex, p.pname 
+	SELECT u.uno, p.pno, u.mail, u.uname, u.sex, p.pname, u.upath
 	FROM PMEMB pm 
 		INNER JOIN USER u 
 	    ON pm.uno = u.uno 
@@ -136,6 +141,14 @@
 		prvdt=now()
 		where pno=#{programNo} and uno=#{userNo}
 	</update>
+	
+	<update id="deleteReview" parameterType="ProgramMember">
+        update PMEMB set
+        pgrade=null,
+        prv=null,
+        prvdt=null
+        where pno=#{programNo} and uno=#{userNo}
+    </update>
 
 	<select id="reviewList" parameterType="map" resultMap="ProgramMemberMap">
 		SELECT pm.pno, pm.pgrade, pm.prv, pm.prvdt, pm.uno,
