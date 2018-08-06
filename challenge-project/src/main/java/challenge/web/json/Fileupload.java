@@ -112,6 +112,11 @@ public class Fileupload {
 
 
 
+
+
+
+
+
 /*
     @PostMapping("upload")
     public Object upload( // 썸네일
