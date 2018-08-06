@@ -1,6 +1,7 @@
 // 로그인 폼 출력과 사용자 인증처리 서블릿
 package challenge.web.json;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 import javax.servlet.http.Cookie;
@@ -9,8 +10,10 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
@@ -28,7 +31,21 @@ public class AuthController {
     public AuthController(UserService userService) {
         this.userService = userService;
     }
-
+  
+    
+    /*
+    @CrossOrigin
+    @RequestMapping(value= {"/form"}, method=RequestMethod.GET)
+    public String form() throws IOException {
+        System.out.println("form으로 들어옴.");
+        return "http://localhost:8888/challenge-project/challenge/html/login/login.html";
+//        response.sendRedirect("http://localhost:8888/challenge-project/challenge/html/login/login.html"); 
+        
+//        response.sendRedirect(request.getContextPath() + "/challenge/html/login/login.html");
+//        return "http://localhost:8888/challenge-project/challenge/html/main/main.html";
+    }
+    */
+    
     @GetMapping("/loginUser")
     public User loginUser(HttpSession session) {
         return (User) session.getAttribute("loginUser");

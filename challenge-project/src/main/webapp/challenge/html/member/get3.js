@@ -57,7 +57,7 @@ if (location.href.split("?").length > 1) {
 					
 				});
 				console.log(data);
-				$("#history").append(html);
+				$('#history').append(html);
 				return false;
 			}
 		});

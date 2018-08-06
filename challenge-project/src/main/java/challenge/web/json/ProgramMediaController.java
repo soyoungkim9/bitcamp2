@@ -32,7 +32,7 @@ public class ProgramMediaController {
     
    @RequestMapping("add")
    @ResponseStatus(HttpStatus.CREATED)
-    public void add(ProgramMedia programMedia, MultipartFile[] files) throws Exception {
+    public Object add(ProgramMedia programMedia, MultipartFile[] files) throws Exception {
        String filesDir = sc.getRealPath("/files");
        
        ArrayList<String> medias = new ArrayList<>();
@@ -63,6 +63,7 @@ public class ProgramMediaController {
        }
        
        programMediaService.add(programMedia, medias);
+       return medias;
     }
     
     @RequestMapping("delete")

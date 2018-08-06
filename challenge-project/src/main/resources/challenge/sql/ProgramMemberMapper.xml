@@ -141,6 +141,14 @@
 		prvdt=now()
 		where pno=#{programNo} and uno=#{userNo}
 	</update>
+	
+	<update id="deleteReview" parameterType="ProgramMember">
+        update PMEMB set
+        pgrade=null,
+        prv=null,
+        prvdt=null
+        where pno=#{programNo} and uno=#{userNo}
+    </update>
 
 	<select id="reviewList" parameterType="map" resultMap="ProgramMemberMap">
 		SELECT pm.pno, pm.pgrade, pm.prv, pm.prvdt, pm.uno,
@@ -158,7 +166,7 @@
     </select>
     
     <select id="reviewScore" parameterType="int" resultType="int">
-         select sum(pgrade)
+         select COALESCE(sum(pgrade), 0)
          from PMEMB
          where pno=#{programNo} and length(prvdt) > 0
     </select>

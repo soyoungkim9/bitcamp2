@@ -211,7 +211,7 @@ $('#fileupload2').fileupload({
             endDate: $(fEndDate).val(),
             minQty: $(fminQty).val(),
             maxQty: $(fmaxQty).val(),
-            price: $(fprice).val().replace(",",""),
+            price: $(fprice).val(),
             description: $(fdescription).val(),
             proType: $(ftype).val(),
             proGoal: $(fprgoal).val(),
@@ -228,10 +228,11 @@ $('#fileupload2').fileupload({
     }, 
     submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
       console.log('submit2()...');
+      location.href = 'programList.html';
     }, 
     done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
       console.log('done2()...');
-      location.href = 'programList.html';
+      //location.href = 'programList.html';
     }
 });
 function delImg(event){

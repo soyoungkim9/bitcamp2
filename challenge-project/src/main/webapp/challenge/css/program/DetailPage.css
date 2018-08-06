@@ -7,7 +7,9 @@ body {
 
 a {
 	cursor: pointer;
+	color: black;
 }
+
 
 #container {
 	width: 1200px;
@@ -110,11 +112,24 @@ ul {
 	margin: 0;
 }
 
+.oneName p span:nth-child(2) {
+    float: left;
+    display: inline-block;
+    margin: 0 10px;;
+}
+
+.oneName p span:nth-child(5) {
+	font-size: 20px;
+    float: right;
+    display: inline-block;
+    margin: 0;
+}
+
 .oneName p span:last-child {
 	font-size: 20px;
 	float: right;
 	display: inline-block;
-	margin: 0;
+	margin: 0 5px 0 0;
 	padding: 0;
 }
 
@@ -495,6 +510,7 @@ span.star-prototype3 > * {
     background-position: 0 0;
     max-width:80px; 
 }
+
 
 
 /* 프로그램 평가 댓글 입력창 star */
@@ -980,12 +996,9 @@ star-input>.input.focus {
 	float: left;
 	margin: 2px;
 	font-size: 13px;
-	padding-left: 5px;
 }
-
-.evalBox .fas {
-	font-size: 14px;
-	color: #ffd400;
+.evalBox span:first-child {
+	margin-right: 10px;
 }
 
 .priceBox {

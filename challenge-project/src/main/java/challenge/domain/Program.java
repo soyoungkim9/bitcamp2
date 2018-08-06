@@ -20,7 +20,7 @@ public class Program implements Serializable {
     private Date endDate;
     private int minQty;
     private int maxQty;
-    private String price;
+    private int price;
     private String description;
     private String proType; // 종목
     private String proGoal; // 목표
@@ -36,6 +36,14 @@ public class Program implements Serializable {
     private int trainerNo; // 트레이너번호
 
     private List<ProgramMedia> medias; // 프로그램 미디어
+    User user;
+    
+    public User getUser() {
+        return user;
+    }
+    public void setUser(User user) {
+        this.user = user;
+    }
 
     public int getNo() {
         return no;
@@ -109,11 +117,11 @@ public class Program implements Serializable {
         this.maxQty = maxQty;
     }
 
-    public String getPrice() {
+    public int getPrice() {
         return price;
     }
 
-    public void setPrice(String price) {
+    public void setPrice(int price) {
         this.price = price;
     }
 

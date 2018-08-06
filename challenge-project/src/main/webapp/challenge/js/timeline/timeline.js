@@ -3,20 +3,24 @@ window.onscroll = function() {
 	myFunction()
 };
 
-var sh_Class_Daily = document.getElementById("sh-Class-Daily");
-var diff = document.getElementById("sh-mainContainer");
-var sticky = (diff.offsetTop + 27 + 76);
 /*
 1. offsetTop => sh-mainContainer부터 top까지 거리
 2.sh-contentCol의 padding값(27)만큼 더함
  */
+
+
+var sh_Class_Daily = document.getElementById("sh-Class-Daily");
+var diff = document.getElementById("sh-mainContainer");
+var sticky = (diff.offsetTop + 104);
 function myFunction() {
 	if (window.pageYOffset >= sticky) {
 		sh_Class_Daily.classList.add("sh_class_daily_sticky")
 	} else {
 		sh_Class_Daily.classList.remove("sh_class_daily_sticky");
 	}
+
 }
+
 
 /* 강의계획서 더보기 */
 function shClassFunction() {

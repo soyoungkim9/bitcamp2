@@ -39,31 +39,7 @@
        그 메서드를 자동생성할 때 사용할 수 있다.
   -->
 
-  <!--  
-  <select id="sendMsgList" 
-          resultMap="MessageMap" 
-          parameterType="map">
-   select msgno, mstitl, msdir, u.utype, mscont, msdate, uname, t.trnno, ms.uno
-   from MSG ms
-     inner join MEMB m on m.uno = ms.uno
-     inner join TRN t on t.trnno = ms.trnno
 
-     <choose>
-         <when test="utype == 1">
-     right outer join USER u on ms.uno = u.uno 
-            where u.uno = #{userNo}
-            AND msdir = 2
-         </when>
-         <otherwise>
-     right outer join USER u on ms.trnno = u.uno 
-            where u.uno = #{userNo}
-            AND msdir = 1
-         </otherwise>
-     </choose>
-   order by msgno desc
-   limit #{startRowNo}, #{pageSize}
-  </select>
-  -->
   <select id="sendMsgList" 
           resultMap="MessageMap" 
           parameterType="map">
