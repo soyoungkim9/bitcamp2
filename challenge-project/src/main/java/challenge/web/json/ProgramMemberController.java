@@ -75,6 +75,12 @@ public class ProgramMemberController {
         programMemberService.updateReview(programMember);
     }
     
+    @RequestMapping("deleteReview")
+    @ResponseStatus(HttpStatus.OK) // 기본 값이 OK이다.
+    public void deleteReview(ProgramMember programMember) throws Exception {
+        programMemberService.deleteReview(programMember);
+    }
+    
     
     @RequestMapping("reviewList/{pno}")
     @ResponseStatus(HttpStatus.OK) // 기본 값이 OK이다.

@@ -63,6 +63,12 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
     }
     
     @Override
+    public int deleteReview(ProgramMember programMember) {
+        System.out.println("작동중?");
+        return programMemberDao.deleteReview(programMember);
+    }
+    
+    @Override
     public List<ProgramMember> reviewList(int pno) {
         return programMemberDao.reviewList(pno);
     }
