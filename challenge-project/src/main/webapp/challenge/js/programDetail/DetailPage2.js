@@ -249,11 +249,6 @@ function openDay(evt, dayName) {
   evt.currentTarget.className += " active";
 }
 
-//금액 콤마
-$(".numberic").each(function(){
-  $(this).number(true);
-});
-
 
 
 //날짜 간격 구하기(D-day)

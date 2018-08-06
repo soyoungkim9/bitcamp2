@@ -51,6 +51,12 @@ if (location.href.split("?").length > 1) {
 
     no = data.no;
     loadComment(data.no); // 댓글
+    
+    //금액 콤마
+    $(".numberic").each(function(){
+      $(this).number(true);
+    });
+
   })
 
 

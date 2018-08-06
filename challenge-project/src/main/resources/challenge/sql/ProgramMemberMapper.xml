@@ -166,7 +166,7 @@
     </select>
     
     <select id="reviewScore" parameterType="int" resultType="int">
-         select sum(pgrade)
+         select COALESCE(sum(pgrade), 0)
          from PMEMB
          where pno=#{programNo} and length(prvdt) > 0
     </select>

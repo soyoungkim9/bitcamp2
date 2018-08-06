@@ -11,32 +11,32 @@ import challenge.service.ProgramMemberService;
 
 @Service
 public class ProgramMemberServiceImpl implements ProgramMemberService {
-    
+
     ProgramMemberDao programMemberDao;
-    
+
     public ProgramMemberServiceImpl(ProgramMemberDao programMemberDao) {
         this.programMemberDao = programMemberDao;
     }
-    
+
     @Override
     public List<ProgramMember> listWithPname(int trnNo) {
         return programMemberDao.pNameList(trnNo);
     }
-    
+
     @Override
     public List<ProgramMember> listWithLect(int uno) {
         return programMemberDao.lectList(uno);
     }
-    
+
     @Override
     public List<ProgramMember> list(int trnNo) {
-//        HashMap<String,Object> params = new HashMap<>();
-//        params.put("startRowNo", (pageNo - 1) * pageSize);
-//        params.put("pageSize", pageSize);
-        
+        //        HashMap<String,Object> params = new HashMap<>();
+        //        params.put("startRowNo", (pageNo - 1) * pageSize);
+        //        params.put("pageSize", pageSize);
+
         return programMemberDao.selectList(trnNo);
     }
-    
+
     @Override
     public List<ProgramMember> list(int pno, int trnNo) {
         return programMemberDao.selectListWithProgram(pno, trnNo);
@@ -46,7 +46,7 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
     public List<ProgramMember> get(int pno, int userNo) {
         return programMemberDao.selectOne(pno, userNo);
     }
-    
+
     @Override
     public Member getWithUserNo(int userNo) {
         return programMemberDao.selectListWithUno(userNo);
@@ -61,25 +61,26 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
     public int updateReview(ProgramMember programMember) {
         return programMemberDao.updateReview(programMember);
     }
-    
+
     @Override
     public int deleteReview(ProgramMember programMember) {
         System.out.println("작동중?");
         return programMemberDao.deleteReview(programMember);
     }
-    
+
     @Override
     public List<ProgramMember> reviewList(int pno) {
         return programMemberDao.reviewList(pno);
     }
-    
+
     @Override
     public int reviewCount(int pno) {
         return programMemberDao.reviewCount(pno);
     }
-    
+
     @Override
     public int reviewScore(int pno) {
         return programMemberDao.reviewScore(pno);
+
     }
 }
