@@ -82,7 +82,7 @@
   </select>
   
   <select id="selectListWithProgram" parameterType="map" resultMap="ProgramMemberMap">
-	SELECT u.uno, p.pno, u.mail, u.uname, u.sex, p.pname 
+	SELECT u.uno, p.pno, u.mail, u.uname, u.sex, p.pname, u.upath
 	FROM PMEMB pm 
 		INNER JOIN USER u 
 	    ON pm.uno = u.uno 
