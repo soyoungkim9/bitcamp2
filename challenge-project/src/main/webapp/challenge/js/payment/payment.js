@@ -17,7 +17,9 @@ if (location.href.split("?").length > 1) {
 		}
 		var num = data.price;
 		$('.p-price').append(addComma(num)+" 원");
-		$('.p-trainer').append(data.name);
+		$('.p-trainer').append(data.user.name);
+		$("<img>").attr('src','../../../files/'+ data.user.userPath+'_50x50.jpg').appendTo('#trainer-img');
+		
 	}); 
 
 //	------------------------- 수량 증가 ---------------------------//
