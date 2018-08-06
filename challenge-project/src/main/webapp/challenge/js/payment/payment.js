@@ -1,6 +1,9 @@
 
 
-
+function addComma(num) {
+				var regexp = /\B(?=(\d{3})+(?!\d))/g;
+				return num.toString().replace(regexp, ',');
+			}
 /*swal("결제가 완료되었습니다.", "화이또", "success");
 
 location.href="../main/main.html"*/
@@ -11,10 +14,10 @@ if (location.href.split("?").length > 1) {
 		console.log(data);
 		$("<img>").attr('src','../../../files/'+ data.medias[0].path).appendTo('#program-img');
 		$('.project-title').append("<b>"+data.name+"</b>");
-		function addComma(num) {
+		/*function addComma(num) {
 			var regexp = /\B(?=(\d{3})+(?!\d))/g;
 			return num.toString().replace(regexp, ',');
-		}
+		}*/
 		var num = data.price;
 		$('.p-price').append(addComma(num)+" 원");
 		$('.p-trainer').append(data.user.name);
@@ -33,12 +36,11 @@ if (location.href.split("?").length > 1) {
 			Clicks = Clicks + 1;
 			document.getElementById('p-value').innerHTML = Clicks ;
 
-			function addComma(num) {
+			/*function addComma(num) {
 				var regexp = /\B(?=(\d{3})+(?!\d))/g;
 				return num.toString().replace(regexp, ',');
-			}
+			}*/
 			var num = data.price * document.getElementById('p-value').innerHTML;
-//			$('.p-price').html(data.price * document.getElementById('p-value').innerHTML  +' 원');
 			$('.p-price').html(addComma(num)  +' 원');
 
 		}); 
@@ -50,10 +52,10 @@ if (location.href.split("?").length > 1) {
 
 			Clicks = Clicks - 1;
 			document.getElementById('p-value').innerHTML = Clicks ;
-			function addComma(num) {
+			/*function addComma(num) {
 				var regexp = /\B(?=(\d{3})+(?!\d))/g;
 				return num.toString().replace(regexp, ',');
-			}
+			}*/
 			var num = data.price * document.getElementById('p-value').innerHTML;
 			$('.p-price').html(addComma(num)  +' 원');
 
