@@ -17,7 +17,7 @@ import challenge.service.ProgramMemberService;
 
 @RestController
 @RequestMapping("/programMember")
-/*@SessionAttributes("loginUser")*/
+@SessionAttributes("loginUser")
 public class ProgramMemberController {
 
     ProgramMemberService programMemberService;
@@ -27,8 +27,11 @@ public class ProgramMemberController {
     }
     @RequestMapping("add")
     @ResponseStatus(HttpStatus.CREATED)
-    public void add(/*@ModelAttribute User loginUser,*/ProgramMember programMember) throws Exception {
-       /* programMember.setUserNo(loginUser.getUserNo());*/
+    public void add(
+            @ModelAttribute("loginUser") User loginUser,
+            ProgramMember programMember) throws Exception {
+        programMember.setUserNo(loginUser.getUserNo());
+        
         programMemberService.add(programMember);
     }
     

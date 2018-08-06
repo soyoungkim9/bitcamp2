@@ -7,11 +7,11 @@ $(document).ready(function() {
     var i;
     for (i = 0; i < data.length; i++) {
       console.log(data[i].programNo)
-      $.getJSON(serverRoot + "/json/programMedia/" + data[i].programNo, (data) => {
-        /*console.log(data.path)
+      $.getJSON(serverRoot + "/json/programMedia/list?no=" + data[i].programNo, (data) => {
+        console.log(data[i].path)
         var cardImg = document.getElementById("cardImg-"+i)
         console.log(cardImg)
-        cardImg.attr('src', '../../../files/'+data.path+'_200x200.jpg');*/
+        cardImg.attr('src', '../../../files/'+data[i].path+'_200x200.jpg');
       })
       dday(data[i].program.startDate, i);
     }

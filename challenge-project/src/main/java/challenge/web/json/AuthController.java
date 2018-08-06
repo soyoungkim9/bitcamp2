@@ -8,16 +8,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import challenge.domain.User;
 import challenge.service.UserService;
 
 @RestController
 @RequestMapping("/auth")
+@SessionAttributes("loginUser")
 public class AuthController {
 
     UserService userService;
@@ -38,7 +41,8 @@ public class AuthController {
             @RequestParam(value="saveId",required=false) String saveId,
             HttpServletRequest request,
             HttpServletResponse response,
-            HttpSession session) throws Exception {
+            HttpSession session,
+            Model model) throws Exception {
 
         Cookie cookie = null;
         if (saveId != null) {
@@ -56,7 +60,9 @@ public class AuthController {
         HashMap<String, Object> result = new HashMap<>();
 
         if (userService.isExist(email, password)) { // 로그인 성공!
-            session.setAttribute("loginUser", userService.getWithId(email));
+            System.out.println("gggg");
+//            session.setAttribute("loginUser", userService.getWithId(email));
+            model.addAttribute("loginUser", userService.getWithId(email));
             // If 로그인한 유저가 유저?회원?트레이너?피멤브? 어떤거냐에 따라 세션에 넣어주기. 유형
             result.put("state", "success");
         } else { // 로그인 실패!
