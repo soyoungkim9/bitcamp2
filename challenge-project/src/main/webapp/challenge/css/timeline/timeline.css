@@ -183,8 +183,7 @@ body:not(#footer) {
 }
 
 #sh-mainContainer:after {
-  content: "가상이벤트";
-  background-color: red;
+  background-color: white;
   text-align: center;
   display: block;
   clear: both;
@@ -196,6 +195,7 @@ body:not(#footer) {
   color: #fff;
   padding: 3px;
   cursor: pointer;
+      font-size: 13px;
 }
 
 /* content CSS 시작*/
@@ -247,6 +247,11 @@ body:not(#footer) {
   width: 936px;
   z-index: 1000;
   border-radius: 2px;
+  
+}
+
+#sh-class-more {
+    width: 100%;
 }
 
 .sh_class_daily_sticky {

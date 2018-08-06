@@ -5,8 +5,11 @@ $(document).ready(function() {
   $(".tl-user-name-json").html(userInfo.name);
 
   // 강의이름 출력
-  $(".sh-Class-Title").html()
-
+  console.log(userInfo.programs[0].name)
+  $("#sh-Class-Title").html(userInfo.programs[0].name);
+  
+  $("#sh-class-more").html(userInfo.programs[0].description);
+  
   // 스크롤 위치 맨 위로 고정
   $("body").scrollTop(0);
 
