@@ -51,7 +51,6 @@ if (location.href.split("?").length > 1) {
 
     no = data.no;
     loadComment(data.no); // 댓글
-    
     //금액 콤마
     $(".numberic").each(function(){
       $(this).number(true);
@@ -74,7 +73,7 @@ if (location.href.split("?").length > 1) {
       $('.star-prototype3').generateStars();
     })
   }).done(function() {
-    starRating();
+    
   })
 
 
@@ -126,10 +125,13 @@ function loadCommentAfter(no) {
 
 $(document).ready(function() {
   // 댓글에 필요한 사용자 정보 가져오기
-  $('<img/>')
-  .attr('src', '../../../files/'+userInfo.userPath+'_50x50.jpg')
-  .appendTo($('.userNameCircle'));
-  $(uName).append(userInfo.name);
+  
+  if (userInfo != undefined) {
+    $('<img/>')
+    .attr('src', '../../../files/'+userInfo.userPath+'_50x50.jpg')
+    .appendTo($('.userNameCircle'));
+    $(uName).append(userInfo.name);
+  }
 
   starRating();
   //댓글달기
@@ -141,7 +143,8 @@ $(document).ready(function() {
       userNo: userInfo.userNo
     }, () => {
       loadCommentAfter(no);
-      $('.commentInput').css('display', 'none');
+      //$('.commentInput').css('display', 'none');
+      $(fContent).val('');
     })
   });
 
@@ -192,11 +195,15 @@ function showSlides(n) {
 
 //다른 프로그램 가져오기
 function programList(trainerNo) {
+
   var trTemplateSrc1 = $("#lectList").html();
   var templateF1 = Handlebars.compile(trTemplateSrc1);
   $.getJSON(serverRoot + "/json/program/listProgram/" + trainerNo, (data) => {
     $(lectBox).html(templateF1({list:data}));
   }).done(function(data) {
+    $(".numberic").each(function(){
+      $(this).number(true);
+    });
     for(var i = 0; i < data.length; i++) {
       programListScore(data[i].no, i);
     }
@@ -211,7 +218,9 @@ function programListScore(no, i){
     $.get(serverRoot + "/json/programMember/reviewScore/" + no, function(data) {
       var score = data;
       var cal = (score / count).toFixed(1);
-      $('.score-'+i+'').append(cal)
+      if(!(isNaN(cal))) {
+        $('.score-'+i+'').append(cal + '점')
+      }
     })
   })
 }

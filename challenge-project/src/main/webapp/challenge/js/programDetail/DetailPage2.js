@@ -44,62 +44,65 @@ function hideCmtMenu(e) {
   }
 }
 
+
 function cmtEdit(e) {
   $(e).parent().attr("onmouseover", "");
   $(e).parent().attr("onmouseout", "");
 
   $(e).one().siblings('.cmt-delete').css("display", "none");
   $(e).one().css("display", "none");
+  $(fContent).focus();
+  $(fContent).append($(e).siblings('.commentContent').last().html());
+  $('output b').html($(e).siblings('.commentEval').children('.grade').last().html());
 
-  $(e).parent().append('<textarea class="sh-tl-cmt' 
+  
+  /*$(e).parent().append('<textarea class="sh-tl-cmt' 
       + $(e).attr("name") 
       + ' sh-tl-review-title  sh_tl_reply_textarea">' 
       + $(e).siblings('.commentContent').last().html() 
       + '</textarea><button onclick=cmtEditClick(' 
       + $(e).attr("name") 
       + ') class="sh-tl-cmt-edit-btn" type="submit">수정</button>');
-  $(e).siblings('.commentContent').remove();
+  //$(e).siblings('.commentEval').remove();
+  $(e).siblings('.commentContent').remove();*/
 
+  
+//댓글 입력 별점 카운팅
+  function starRating(){
+    var $star = $(".star-input"),
+    $result = $star.find("output>b");
+    $result.text();
+    return $result.text($(e).siblings('.grade').last().html())
+  } 
 }
 
-var cmtEditNo;
+/*var cmtEditNo;
 
 function cmtEditClick(no) {
   cmtEditNo = no;
   $.post({
     url: serverRoot + "/json/programMember/updateReview",
     data: {
-      no: no,
-      content: $('.sh-tl-cmt' + no).val()
+      grade: 4,
+      review: $('.sh-tl-cmt' + no).val(),
+      programNo: no,
+      userNo: userInfo.userNo
     }
   }).done(function() {
-    $.getJSON(serverRoot + "/json/comment/" + cmtEditNo).done(function(data) {
-      $('.sh-tl-cmt' + cmtEditNo)
-      .parent().first()
-      .prepend(' <div readonly class="sh-tl-review-content  sh-tl-reply-content"><span class="sh-cmt-name" >' 
-          + data.progMemb.user.name 
-          + '</span><span>' + data.content + '</span></div>');
-      $('.sh-tl-cmt' + cmtEditNo).parent().attr("onmouseover", "showCmtMenu(this)");
-      $('.sh-tl-cmt' + cmtEditNo).parent().attr("onmouseout", "hideCmtMenu(this)");
-
-
-      $('.sh-tl-cmt-edit-btn').remove();
-      $('.sh-tl-cmt' + cmtEditNo).remove();
-    })
+    loadCommentAfter(cmtEditNo)
   });
-}
+}*/
 
 var cmtNo;
 
 function cmtDelete(e) {
-  console.log("cmtDelete 이벤트 발생! 번호 : " + $(e).attr("name"))
   cmtNo = $(e).attr("name");
   
   $.post(serverRoot + "/json/programMember/deleteReview", {
     programNo: $(e).attr("name"),
     userNo: userInfo.userNo
   }).done(function() {
-    $('.sh-tl-cmt-section' + cmtNo).remove();
+    loadCommentAfter(cmtNo)
   })
 }
 

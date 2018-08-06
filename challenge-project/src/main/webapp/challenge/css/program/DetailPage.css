@@ -7,7 +7,9 @@ body {
 
 a {
 	cursor: pointer;
+	color: black;
 }
+
 
 #container {
 	width: 1200px;
@@ -116,11 +118,18 @@ ul {
     margin: 0 10px;;
 }
 
+.oneName p span:nth-child(5) {
+	font-size: 20px;
+    float: right;
+    display: inline-block;
+    margin: 0;
+}
+
 .oneName p span:last-child {
 	font-size: 20px;
 	float: right;
 	display: inline-block;
-	margin: 0;
+	margin: 0 5px 0 0;
 	padding: 0;
 }
 

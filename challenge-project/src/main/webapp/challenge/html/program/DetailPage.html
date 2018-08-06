@@ -31,7 +31,8 @@
     <p><span id="fchalName">챌린지:</span>
     <span id="fproGoal">목표:</span><span id="fproGoalNum"></span>
     <span id="fproTurn">운동회수:</span>
-    <span id="fprice" class="numberic">￦ </span></p>
+    <span id="fprice" class="numberic"></span>
+    <span>￦ </span></p>
   </div>
   </div>
   <div class="middle two">
@@ -82,7 +83,7 @@
                 <span><b>1</b></span>
                 <a class="numPlus"><b>↑</b></a>-->
               </div>
-              <div class="priceSubRight"><b id="fprice"></b> 원</div>
+              <div class="priceSubRight"><b id="fprice" class="numberic"></b> 원</div>
             </div>
           </div>
         </li>
@@ -121,7 +122,7 @@
         <h4>
         <span>결제하기 </span>
         <span>( </span>
-        <span id="fprice"></span>
+        <span id="fprice" class="numberic"></span>
         <span>원</span>
         <span> )</span>
       </h4>
@@ -257,7 +258,7 @@
  <!-- 결제하기 -->
  <div class="asideCost">
  <h2 id="payment">
- <span>결제하기</span><span id="fprice" class="numberic"> ( </span><span>원 )</span>
+ <span>결제하기</span>( <span id="fprice" class="numberic"></span><span>원 )</span>
  </h2>
  </div>
  <!-- 강의 장소 -->
@@ -310,12 +311,12 @@
   <div class="evalBox">
    <p><span class="startDate">
     {{startDate}} 시작</span>
-    <span class="score-{{@key}}"></span>점
+    <span class="score-{{@key}}"></span>
    </p>
   </div>
   <div class="priceBox">
    <p>
-    <span>{{price}}</span>원
+    <span class="numberic">{{price}}</span>원
    </p>
   </div>
  </div>
@@ -332,14 +333,14 @@
 </script>
 <script id="commentList" type="text/x-handlebars-template">
 {{#each list}}
- <li class="cm-load" data-userNo="{{user.userNo}}"
+ <li class="cm-load cmt-section-{{user.userNo}}" data-userNo="{{user.userNo}}"
     onmouseover=showCmtMenu(this) onmouseout=hideCmtMenu(this)>
   <div class="commentImg">
     <img id="cmImg-{{@key}}" src="../../../files/{{user.userPath}}_50x50.jpg"></div>
   <div class="commentDate">
    {{reviewDate}} <span>｜</span> </div>
   <div class="commentEval">
-   <span class="star-prototype2">{{grade}}</span> ({{grade}})
+   <span class="star-prototype2">{{grade}}</span> (<span class="grade">{{grade}}</span>)
   </div>
   <div class="commentContent">{{review}}</div>
   <div class="commentName">{{user.name}}</div>
