@@ -105,6 +105,11 @@ div p {
 	border-radius: 0 5px 5px 0;
 	position: relative;
 }
+
+.title {
+	margin-bottom:10px;
+}
+
 .card-body-title {
 	font-weight: 700;
 	font-size: 1.2em;

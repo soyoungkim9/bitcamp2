@@ -1,25 +1,25 @@
 var cardBody1 = $("#cardBody1").html();
 var cardBodyFn = Handlebars.compile(cardBody1);
 $.getJSON(serverRoot + "/json/program/listProgram/" + userInfo.userNo, (data) => {
-
   $(cardWide).html(cardBodyFn({list:data}));
 }).done(function(data) {
-
+  
   $('.trainer-img').attr('src', '../../../files/'+userInfo.userPath+'_50x50.jpg');
+
   var i;
   for (i = 0; i < data.length; i++) {
     dday(data[i].startDate, i); //D-day
     reviewScore(data[i].no, i); //별점,리뷰 개수
+    var price = addComma($(".numberic-"+i+"").html())
+    var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
+    $(".numberic-"+i+"").html(price)
+    $(".card-body-local-"+i+"").html(place)
   }
 
-  $(".card-body").each(function(index){
-    var price = addComma($(".numberic-"+index+"").html())
-    var place = ($(".card-body-local-"+index+"").html()).substring(3, 6);
-    $(".numberic-"+index+"").html(price)
-    $(".card-body-local-"+index+"").html(place)
-  });
+  $.fn.generateStars = function() {
+    return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+  };
 
-  $('.star-prototype').generateStars();
 });
 
 function reviewScore(no, i) {
@@ -32,28 +32,25 @@ function reviewScore(no, i) {
       var score = data;
       var cal = (score / count).toFixed(1);
       if(!(isNaN(cal))) {
-        $('.score-'+i+'').append(cal)
+        $('.score-'+i+'').html(cal)
       }
     }).done(function(data) {
-
+      $('.score-'+i+'').generateStars();
     })
   })
+  
 }
 
-$(document).ready(function() {
 //숫자를 별로 변환
-  $.fn.generateStars = function() {
-    return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
-  };
-});
+$.fn.generateStars = function() {
+  return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+};
 
 //금액 콤마
 function addComma(num) {
   var regexp = /\B(?=(\d{3})+(?!\d))/g;
   return num.toString().replace(regexp, ',');
 }
-
-
 
 //날짜 간격 구하기(D-day)
 function dday(startDate, i) {
