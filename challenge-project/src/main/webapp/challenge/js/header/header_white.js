@@ -54,7 +54,7 @@ $.ajax({
 
    
 });
-function updateUserInfo(data) {
+/*function updateUserInfo(data) {
 	
 $.ajax({
     method: "GET",
@@ -83,7 +83,7 @@ $.ajax({
   });
 console.log("update 성공!");
 console.log(data);
-}
+}*/
 
 function expand() {
    $('.sh-input').attr("placeholder","");

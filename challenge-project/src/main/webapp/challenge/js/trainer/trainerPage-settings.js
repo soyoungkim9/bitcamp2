@@ -89,7 +89,7 @@ $("#upload-btn").click(() => {
 		}).done(function() {
 
 			alert('회원님 정보가 수정되었습니다');
-			location.href = "member-set.html";
+			location.href = "http://localhost:8888/challenge-project/challenge/html/member/member-set.html";
 		});
 	}else{ //이미지 수정을 안하고 다른것만 수정했을때
 		$.ajax({
@@ -138,18 +138,4 @@ $(document).ready(function () {
 
 		}
 	});
-});
-
-$("#exitButton").click(function() {
-	$.ajax({
-		type:'POST',
-		url: serverRoot + '/json/user/delete',
-		data:{
-			userNo : userInfo.userNo
-		},
-	}).done(function() {
-		console.log('하이연');
-		userInfo = null;
-		window.location.href = "/challenge-project/challenge/html/main/main.html";
-	})
 });
