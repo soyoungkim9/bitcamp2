@@ -170,9 +170,14 @@ a.sh_after:hover:after {
   margin-top: 10px;
 }
 
+
+/*
 .sh_dropdown:hover .sh_dropdown-content {
   display: block;
 }
+*/
+
+
 
 .sh_dropdown-content a {
   color: #666666;
@@ -420,6 +425,7 @@ a.sh_after:hover:after {
   -ms-transform: translate(-100%, -50%);
   transform: translate(-100%, -50%);
 }
+
 
 /* search button CSS 종료*/
 
