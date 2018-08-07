@@ -25,11 +25,22 @@
 	width: 346px;
 	display: inline-block;
 	float: left;
+    border-radius: 0.66em;
 	overflow: hidden;
+  background: #000000;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+
 }
 
-.main-card img:hover {
-    background-color: red;
+.main-card:hover img {
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+}
+.main-card * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.45s ease-in-out;
+  transition: all 0.45s ease-in-out;
 }
 
 .main-card img {
@@ -48,6 +59,7 @@
   border-bottom-left-radius: 0.66em;
     border-bottom-right-radius: 0.66em;
 }
+
 </style>
 </head>
 
@@ -488,7 +500,7 @@
 	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../../js/common.js"></script>
 	<script src="../../js/main/main.js"></script>
-	<script src="../../js/header/header_bg_black.js"></script>
+	<script src="../../js/header/header.js"></script>
 	<script src="../../js/footer/footer.js"></script>
 	<!-- 부트스트랩 js 시작 -->
 	<script
