@@ -3,6 +3,15 @@
 body {
   margin: 0;
 }
+
+.sm-menu {
+	cursor: pointer;
+}
+
+.sm-menu a{
+	color: black;
+	text-decoration: none;
+}
 .sm-container { /* 전체 틀 */
     width: 1200px;
     margin: 0 auto;
