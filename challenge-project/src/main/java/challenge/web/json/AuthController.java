@@ -1,7 +1,6 @@
 // 로그인 폼 출력과 사용자 인증처리 서블릿
 package challenge.web.json;
 
-import java.io.IOException;
 import java.util.HashMap;
 
 import javax.servlet.http.Cookie;
@@ -10,13 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
+import org.springframework.web.bind.support.SessionStatus;
 
 import challenge.domain.User;
 import challenge.service.UserService;
@@ -91,7 +89,10 @@ public class AuthController {
     }
 
     @RequestMapping("/logout")
-    public void logout(HttpSession session) throws Exception {  
+    public void logout(HttpSession session, SessionStatus status) throws Exception {
+        
+        status.setComplete();
+        
         // 세션을 꺼내 무효화시킨다.
         session.invalidate();
     }

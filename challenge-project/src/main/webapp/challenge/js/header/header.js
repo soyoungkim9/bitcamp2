@@ -30,7 +30,6 @@ $.ajax({
 	.done(function(data) {
 		userInfo = data;
 		if(userInfo != null) {
-
 			// userType에 따른 hover eventListener 등록
 			if (userInfo.userType == 1) { // 회원
 				// 회원으로 들어옴
@@ -53,19 +52,19 @@ $.ajax({
 			$("#sh-user-img").attr("src","../../../files/" + userInfo.userPath);
 
 			//로그인 여부(obj객체 유무에 따라)에 따른 헤더 Nav 메뉴 변경
-			$(".login_menu_before").attr("style", "display:none")
-			$("#sh-user-name").html(userInfo.name)
+			$(".login_menu_before").attr("style", "display:none");
+			$("#sh-user-name").html(userInfo.name);
 			$("#logoutBtn").click((e) => {
+				console.log("로그아웃버튼 클릭됨")
 				e.preventDefault(); // 클릭했을 때 원래 하던 일이 있는데 그것을 하지 말라!
 				$.get(serverRoot + "/json/auth/logout", () => {
 					location.href = serverRoot + "/challenge/html/login/login.html";
 				}); 
 			});
-		} else {
-			$(".login_menu_after").attr("style", "display:none")
-		}
-
-
+		} 
+	})
+	.error(function() { // 로그인 하지 않았을 경우
+		$(".login_menu_after").attr("style", "display:none")
 	});
 	console.log("============================userInfo 객체=======================================");
 	console.log(userInfo);
