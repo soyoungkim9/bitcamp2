@@ -167,10 +167,6 @@ a.sh_after:hover:after {
   margin-top: 10px;
 }
 
-.sh_dropdown:hover .sh_dropdown-content {
-  display: block;
-}
-
 .sh_dropdown-content a {
   color: #666666;
   padding: 12px 0px;

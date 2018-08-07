@@ -33,6 +33,7 @@ $.ajax({
 
 			// userType에 따른 hover eventListener 등록
 			if (userInfo.userType == 1) { // 회원
+				// 회원으로 들어옴
 				$("#sh_top_menu_user").hover(
 						function() {
 							$("#member-mypage").css("display", "block");
