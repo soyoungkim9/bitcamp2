@@ -140,6 +140,8 @@ $(document).ready(function () {
 	});
 });
 
+
+// 회원 삭제
 $("#exitButton").click(function() {
 	$.ajax({
 		type:'POST',
@@ -148,8 +150,17 @@ $("#exitButton").click(function() {
 			userNo : userInfo.userNo
 		},
 	}).done(function() {
-		console.log('하이연');
-		userInfo = null;
-		window.location.href = "/challenge-project/challenge/html/main/main.html";
+		$.get(serverRoot + "/json/auth/logout", () => {
+			swal({
+				  title: "계정 탈퇴 하였습니다",
+				  text: "확인을 누르시면 메인화면으로 이동합니다",
+				  type: "success",
+					 
+				  preConfirm: () => {
+					  location.href=serverRoot + "/challenge/html/login/login.html";
+						  }
+				})
+           
+         }); 
 	})
 });

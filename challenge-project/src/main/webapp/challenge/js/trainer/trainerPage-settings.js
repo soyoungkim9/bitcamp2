@@ -139,3 +139,26 @@ $(document).ready(function () {
 		}
 	});
 });
+//회원 삭제
+$("#exitButton").click(function() {
+	$.ajax({
+		type:'POST',
+		url: serverRoot + '/json/user/delete',
+		data:{
+			userNo : userInfo.userNo
+		},
+	}).done(function() {
+		$.get(serverRoot + "/json/auth/logout", () => {
+			swal({
+				  title: "계정 탈퇴 하였습니다",
+				  text: "확인을 누르시면 메인화면으로 이동합니다",
+				  type: "success",
+					 
+				  preConfirm: () => {
+					  location.href=serverRoot + "/challenge/html/login/login.html";
+						  }
+				})
+           
+         }); 
+	})
+});
