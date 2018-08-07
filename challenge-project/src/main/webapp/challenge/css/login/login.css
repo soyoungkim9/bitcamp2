@@ -1,15 +1,15 @@
-* {
+.omb_login * {
   box-sizing: border-box;
   text-decoration: none;
 }
-a:link {
+.login-aa a:link {
   color: black;
 }
 
-input {
+.omb_login input {
 	padding: 0 10px;
 }
-hr {
+.omb_login hr {
     border: none;
     width: 45px;
     height: 2px;
