@@ -97,6 +97,7 @@ $(document.body).on('click','.trSelect', function(event){
 		dataType: "json",	
 	    success(data) {
 			 $('.modal-body').html(viewtemplateFn({
+				 usersPath: data[0].user.userPath,
 				 usersName: data[0].user.name,
 				 usersSex: data[0].user.sex,
 				 usersphon: data[0].user.userPhone,
