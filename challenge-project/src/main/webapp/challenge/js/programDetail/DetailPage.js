@@ -68,7 +68,12 @@ if (location.href.split("?").length > 1) {
     $.get(serverRoot + "/json/programMember/reviewScore/" + no, function(data) {
       var score = data;
       var cal = (score / count).toFixed(1);
-      $(reviewScore).append(cal);
+      if(!(isNaN(cal))) {
+        $(reviewScore).append(cal);
+      } else {
+        $(reviewScore).append(0)
+      }
+      
       $('.star-prototype').generateStars();
       $('.star-prototype3').generateStars();
     })
