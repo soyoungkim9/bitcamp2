@@ -18,6 +18,7 @@ $.ajax({
 		$('#header').html(data).find('#header-type').attr("href", "../../css/header/header_bg_black.css")
 	} else {
 		$('#header').html(data).find('#header-type').attr("href", "../../css/header/header_white.css")
+		$('#sh_logo').attr("src", "../../img/header/red-logo.png");
 	}
 
 	//USER 객체 정보 저장
