@@ -31,6 +31,14 @@ $.ajax({
 	.done(function(data) {
 		userInfo = data;
 		if(userInfo != null) {
+			
+			// alarm hover eventListener 등록
+			$("#sh-alarm").hover(function() {
+				$("#sh-msg-dropdown-content").css("display", "block");
+			}, function() {
+				$("#sh-msg-dropdown-content").css("display", "none");
+			});
+			
 			// userType에 따른 hover eventListener 등록
 			if (userInfo.userType == 1) { // 회원
 				// 회원으로 들어옴
