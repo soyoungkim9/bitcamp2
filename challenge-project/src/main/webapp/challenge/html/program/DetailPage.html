@@ -7,6 +7,8 @@
 <link rel="stylesheet" href="../../css/program/DetailPage.css">
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+<link rel="stylesheet" href="../../node_modules/sweetalert2/dist/sweetalert2.min.css">
+<link rel="stylesheet" href="../../css/member/msg-modal.css">
 
 </head>
 <body>
@@ -232,7 +234,7 @@
     <div class="proCommuni">
     <div class="CommuniDiv">
       <div class="follow box"><a class="fas fa-user-plus redColor" onclick="colorRedFunction();"></a></div>
-      <div class="inq box"><a class="far fa-envelope"></a></div>
+      <div class="inq box"><a id="msgBtn" class="far fa-envelope"></a></div>
     </div>
     </div>
     <div class="proInfo">
@@ -287,6 +289,21 @@
    <div id="day"></div>
  </div>
 </div>
+
+        <!-- add 모달 -->
+        <div id="myAddModal" class="modal">
+          <div class="modal-content">
+            <div class="modal-header">
+              <span class="close"><i
+                class="far fa-times-circle"></i></span>
+            </div>
+            <div class="add-body"></div>
+          </div>
+        </div>
+        <!-- add 모달 끝! -->
+
+
+
 </div>
 <div id="footer"></div>
 
@@ -351,7 +368,37 @@
  </li>
 {{/each}}
 </script>
+
+
+
+<!-- add -->
+  <script id="add-template" type="text/x-handlebars-template">
+                <div>
+                <div class="modal-body">
+                  <div class="originalImg"></div>
+                  <ul class="memberInfoList" style="margin-left:20px;">
+                    <li class="modalName">
+                      <div class="contentName">이름</div>
+                      <div id="mName" class="modalContent">{{member}}</div>
+                    </li>
+                    <li class="modaPhone">
+                      <div class="contentName">받는사람</div>
+                      <div id="mName-send" class="modalContent">{{trainer}}</div>
+                    </li>
+                  </ul>
+                </div>
+                <div class="modal-body2">
+                <input id="fTitle" class="modalContent-titl" type="text" placeholder="제목을 입력하세요."><br>
+                <textarea id="fContent" class="modalContent-cont" placeholder="내용을 입력하세요."></textarea>
+                
+                  <span class="modal-ok">
+                  <button id="addBtn" class="sm-btn-1">보내기</button>
+                  </span>
+                </div>
+                </div>
+</script>
 <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+  <script src="../../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
 <script src="../../js/common.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 <script src="../../js/trainer/jquery.number.js"></script>
