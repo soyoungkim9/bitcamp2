@@ -69,4 +69,12 @@
   <delete id="delete" parameterType="int">
     delete from POST where pono=#{value}
   </delete>  -->
+  
+  
+    <!-- 목표달성률 구할 때 사용 제어는 js에서 목표/실적*100, 마지막bno 처음 bno기준 -->
+  <select id="selectListWithGoal" parameterType="int" resultMap="BodyInfoMap">
+	  SELECT bno, bdate, weight, muscle, fat
+	  FROM BINFO 
+	  WHERE uno = #{value}
+  </select>
 </mapper>

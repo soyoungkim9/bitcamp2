@@ -105,35 +105,6 @@
 	WHERE u.uno = #{arg0}
 	AND p.pno = #{arg1}
   </select>
-  
-  <!-- 출석률 합 js파일에서 목표가 출석일 경우 회차랑 나눠서 출석률 평균 나타낼 것임 -->
-  <!-- 보류 한 mapper에 여러개 dao 연결 가능한지 알아보기 
-  <select id="selectListWithDcheck" parameterType="map" resultMap="ProgramMemberMap">
-	  SELECT u.uno, p.pno, d.dno, SUM(d.dchek)
-	  FROM PMEMB pm
-		INNER JOIN USER u
-		ON pm.uno = u.uno
-	    INNER JOIN PROG p
-		ON pm.pno = p.pno
-	    INNER JOIN DIARY d
-		ON pm.uno = d.uno
-	  WHERE u.uno = #{arg0}
-	  AND p.trnno = #{arg1}
-  </select>
-  -->
-  <!-- 목표달성률 구할 때 사용 제어는 js에서 목표/실적*100, 마지막bno 처음 bno기준 -->
-  <!-- 보류 한 mapper에 여러개 dao 연결 가능한지 알아보기
-  <select id="selectListWithGoal" parameterType="map" resultMap="ProgramMemberMap">
-	  SELECT DISTINCT u.uno, b.bno, b.bdate, b.weight, b.muscle, b.fat, p.pno
-		FROM USER u
-		INNER JOIN MEMB m
-	    INNER JOIN BINFO b
-	    INNER JOIN PMEMB p
-		WHERE u.uno = #{arg0}
-	    AND p.pno = #{arg1}
-  </select>
-  -->
-
 	<update id="updateReview" parameterType="ProgramMember">
 		update PMEMB set
 		pgrade=#{grade},

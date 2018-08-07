@@ -53,4 +53,9 @@ public class BodyInfoController {
         return bodyInfoService.get(no);
     }
     
+    @RequestMapping("list/{no}")
+    public Object list(@PathVariable int uno) {
+        return bodyInfoService.listWithGoal(uno);
+    }
+    
 }
