@@ -23,6 +23,18 @@ $.ajax(serverRoot + "/json/programMember/pList/" + userInfo.userNo, {
 		        window.alert("프로그램 등록 후 이용해 주세요!");
 		    }	
 		});
+		
+		// 프로필 관련 이미지와 사용자 이름 불러오기
+		$.ajax(serverRoot + "/json/trainer/" + userInfo.userNo, {
+			dataType: "json",	
+		    success(data) {
+				 $('#fPath').attr('src', '../../../files/' + data.userPath);
+				 $('#tName').html(data.name);
+		    },
+		    error() {
+		        window.alert("트레이너 정보 불러오기 실패!");
+		    }	
+		});
 	},
     error() {
         window.alert("memberList.js li-template default list 실행 오류!");
@@ -82,7 +94,9 @@ $(document.body).on('click','.trSelect', function(event){
 	$.ajax(serverRoot + "/json/programMember/" + userNo + "/" + programNum, {
 		dataType: "json",	
 	    success(data) {
+			 console.log(data);
 			 $('.modal-body').html(viewtemplateFn({
+				 usersPath: data[0].user.userPath,
 				 usersName: data[0].user.name,
 				 usersSex: data[0].user.sex,
 				 usersphon: data[0].user.userPhone,

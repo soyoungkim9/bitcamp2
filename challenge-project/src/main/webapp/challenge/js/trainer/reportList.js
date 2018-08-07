@@ -42,6 +42,18 @@ $(document).ready(function() {
 	        window.alert("report.js li-template list 실행 오류!");
 	    }
 	});
+	
+	// 프로필 관련 이미지와 사용자 이름 불러오기
+	$.ajax(serverRoot + "/json/trainer/" + userInfo.userNo, {
+		dataType: "json",	
+	    success(data) {
+			 $('#fPath').attr('src', '../../../files/' + data.userPath);
+			 $('#tName').html(data.name);
+	    },
+	    error() {
+	        window.alert("트레이너 정보 불러오기 실패!");
+	    }	
+	});
 });
 
 // 운동일지 리스트 보기

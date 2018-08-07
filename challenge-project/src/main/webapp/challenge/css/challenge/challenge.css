@@ -1,6 +1,6 @@
 *	{	margin: 0; padding: 0;
 }
-p {margin: 0 0 9.5px 0;
+p {margin: 0 0 4.5px 0;
 color: #666666;
 }
 a {
@@ -8,6 +8,10 @@ a {
 }
 ul {
   list-style: none;
+}
+div p {
+  
+  margin-bottom: 4px;
 }
 .challenge-top {
 }
@@ -22,6 +26,10 @@ ul {
 }
 .chal-ds {
   margin-top: 30px;
+}
+.chal-ds1 {
+      border-bottom: 1px solid #666;
+    margin-bottom: 30px;
 }
 .chal-back1 {
   margin-top: 30px;
@@ -78,7 +86,7 @@ ul {
   margin-top: 30px;
 }
 .chal-search-filter {
-  background-color: #eeeeee;
+     border-bottom: 1px solid #666;
 	height: 20px;
   padding: 5px 10px;
 }
