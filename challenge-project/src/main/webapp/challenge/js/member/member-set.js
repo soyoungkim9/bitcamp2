@@ -1,17 +1,17 @@
 //회원정보 읽어오기
-$("#upload-btn").click(function (data) { 
+/*$("#upload-btn").click(function (data) { 
 	updateUserInfo(data); 
-	}); 
+	}); */
 $.ajax({
 	type: 'GET',
 	async: false,
 	traditional : true,
-	url: serverRoot + '/json/user/list' ,
+	url: serverRoot + '/json/auth/loginUser' ,
 	data:userInfo,
-}).done(function() {
-	
-	$('#email').val(userInfo.email);
-	$('#phone').val(userInfo.userPhone);
+}).done(function(data) {
+	console.log(data);
+	$('#email').val(data.email);
+	$('#phone').val(data.userPhone);
 	$("<img>").attr('src', '../../../files/'+ userInfo.userPath+'_200x200.jpg').css('border-radius', '50%').appendTo('#images-div');
 
 });
@@ -107,7 +107,7 @@ $("#upload-btn").click(() => {
 		}).done(function() {
 
 			alert('회원님 정보가 수정되었습니다');
-			location.href = "http://localhost:8888/challenge-project/challenge/html/member/member-set.html";
+			location.href = "member-set.html";
 		});
 	}
 });
