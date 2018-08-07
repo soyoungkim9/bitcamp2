@@ -96,7 +96,7 @@
        값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
   -->
   <select id="selectOne" parameterType="map" resultMap="ProgramMemberMap">
-	SELECT u.uno, u.utype, u.uname, u.uphon, u.sex, p.pno, p.pname, p.sdt, p.edt, p.pgoal
+	SELECT u.uno, u.upath, u.utype, u.uname, u.uphon, u.sex, p.pno, p.pname, p.sdt, p.edt, p.pgoal
 	FROM PMEMB pm
 		INNER JOIN USER u
 		ON pm.uno = u.uno

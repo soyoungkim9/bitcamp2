@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+#tName {
+	display: inline-block;
+	margin-top: 10px;
+}
+
 /* 프로젝트 선택 서브메뉴*/
 .tabbed {
   max-width: 880px;
@@ -266,6 +271,11 @@
   height: 120px;
   border-radius: 60px;
   margin: 0 auto;
+}
+
+.originalImg img{
+	width: inherit;
+	border-radius: 60px;
 }
 
 .memberId {

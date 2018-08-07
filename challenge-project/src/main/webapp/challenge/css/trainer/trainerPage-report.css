@@ -5,6 +5,10 @@
   margin-bottom: 100px;
 }
 
+#tName {
+	margin-top: 10px;
+	display: inline-block;
+}
 /* 프로젝트 등록 서브 메뉴 */
 
 /* 이 부분은 임시 나중에 삭제 10~13*/
