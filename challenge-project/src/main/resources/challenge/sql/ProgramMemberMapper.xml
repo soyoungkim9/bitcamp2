@@ -141,4 +141,10 @@
          from PMEMB
          where pno=#{programNo} and length(prvdt) > 0
     </select>
+    
+    <select id="pmemberCount" parameterType="int" resultType="int">
+         select count(*)
+         from PMEMB
+         where pno=#{programNo}
+    </select>
 </mapper>

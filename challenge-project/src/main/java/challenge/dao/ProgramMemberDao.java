@@ -19,6 +19,7 @@ public interface ProgramMemberDao {
     List<ProgramMember> reviewList(int pno);
     int reviewCount(int no);
     int reviewScore(int no);
+    int pmemberCount(int no);
 }
 
 

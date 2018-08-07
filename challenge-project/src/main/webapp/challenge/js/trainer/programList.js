@@ -10,6 +10,7 @@ $.getJSON(serverRoot + "/json/program/listProgram/" + userInfo.userNo, (data) =>
   for (i = 0; i < data.length; i++) {
     dday(data[i].startDate, i); //D-day
     reviewScore(data[i].no, i); //별점,리뷰 개수
+    pmemberCount(data[i].no, i);
     var price = addComma($(".numberic-"+i+"").html())
     var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
     $(".numberic-"+i+"").html(price)
@@ -21,6 +22,14 @@ $.getJSON(serverRoot + "/json/program/listProgram/" + userInfo.userNo, (data) =>
   };
 
 });
+
+
+function pmemberCount(no, i) {
+  $.get(serverRoot + "/json/programMember/pmemberCount/" + no, function(data) {
+    $(".pnum-"+i+"").append(data - 1);
+  })
+}
+
 
 function reviewScore(no, i) {
 //리뷰 개수 카운트
