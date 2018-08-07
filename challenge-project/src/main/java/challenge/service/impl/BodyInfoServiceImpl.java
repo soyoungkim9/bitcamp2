@@ -46,7 +46,17 @@ public class BodyInfoServiceImpl implements BodyInfoService {
         return bodyInfoDao.insert(bodyInfo);
     }
     
+    @Override
     public int update(BodyInfo bodyInfo) {
         return bodyInfoDao.update(bodyInfo);
     }
+    
+    @Override
+    public List<BodyInfo> listWithGoal(int uno) {
+        return bodyInfoDao.selectListWithGoal(uno);
+    }
+    
+    
+    
+
 }

@@ -40,6 +40,10 @@ public class DiaryController {
         return "diary update success!";
     }
     
+    @RequestMapping("list/{uno}")
+    public Object list (@PathVariable int uno) {
+        return diaryService.listWithGoal(uno);
+    }
 }
 
 //ver 55 - JSON 데이터를 출력하는 페이지 컨트롤러 생성
