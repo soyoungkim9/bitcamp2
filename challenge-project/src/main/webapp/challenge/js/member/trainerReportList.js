@@ -41,6 +41,18 @@ $(document).ready(function() {
            window.alert("report.js li-template list 실행 오류!");
        }
    });
+   
+	// 프로필 관련 이미지와 사용자 이름 불러오기
+	$.ajax(serverRoot + "/json/member/" + userInfo.userNo, {
+		dataType: "json",	
+	    success(data) {
+			 $('#fPath').attr('src', '../../../files/' + data.userPath);
+			 $('#mName').html(data.name);
+	    },
+	    error() {
+	        window.alert("회원 정보 불러오기 실패!");
+	    }	
+	});
 });
 
 
