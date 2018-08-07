@@ -35,6 +35,7 @@
 .main-card img {
 	height: 100%;
 	width: 500px;
+    border-radius: 0.66em;
 }
 
 .main-card .content {
@@ -44,6 +45,8 @@
 	color: #f1f1f1;
 	width: 100%;
 	padding: 10px;
+  border-bottom-left-radius: 0.66em;
+    border-bottom-right-radius: 0.66em;
 }
 </style>
 </head>
@@ -447,8 +450,8 @@
 				})
 	</script>
 	<script id="tr-template" type="text/x-handlebars-template">
-		{{#each list}}
-
+{{#each list}}
+      <a href='../challenge/challenge.html'> 
 		<div class="main-card">
            <img src="../../img/{{path}}" alt="Notebook"
                 style="width: 100%;">
@@ -458,8 +461,9 @@
                </h3>
                  
             </div>
-         </div>
-		{{/each}}
+        </div>
+       </a>
+{{/each}}
 
 	</script>
 	<script id="pr-template" type="text/x-handlebars-template">
