@@ -34,7 +34,6 @@ public class TrainerController {
     @ResponseStatus(HttpStatus.CREATED)
     public void add(Trainer trainer,
             MultipartFile files) throws Exception {
-        
         HashMap<String, Object> jsonData = new HashMap<>();
 
         String filesDir = sc.getRealPath("/files");  // 진짜 Real Path (사진이 저장되는 폴더명)
@@ -95,7 +94,6 @@ public class TrainerController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
         trainer.setUserPath(filename);
         trainerService.add(trainer);
     }

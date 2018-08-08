@@ -258,6 +258,8 @@
 /* 모달창 본문 내용 */
 .memberInfo1 {
   float: left;
+  width: 110px;
+  text-align: center;
 }
 .memberInfo2 {
   float: left;
@@ -348,7 +350,7 @@
 }
 .memberButtons ul {
 	display: inline-block;
-	width: 551px;
+	width: 540px;
 	margin: 0;
 	margin-bottom: 20px;
 }

@@ -169,6 +169,7 @@ ul {
 	background: #fafafa;
 	margin-bottom: 50px;
 	z-index: 100;
+	width: 660px;
 }
 
 #navbar .navLink {

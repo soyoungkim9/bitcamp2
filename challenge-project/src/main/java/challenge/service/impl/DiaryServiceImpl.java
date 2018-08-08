@@ -42,7 +42,7 @@ public class DiaryServiceImpl implements DiaryService {
     }
     
     @Override
-    public Diary listWithDcheck(int uno, int pno) {
+    public List<Diary> listWithDcheck(int uno, int pno) {
         return diaryDao.selectListWithDcheck(uno, pno);
     }
 }

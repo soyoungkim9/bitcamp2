@@ -71,6 +71,8 @@ $('#fPath').fileupload({
   disableImageResize: /Android(?!.*Chrome)|Opera/
     .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
 
+    imageMaxWidth: 500,
+    imageMaxHeight: 500,
     imageCrop: true,
 
     previewMaxWidth: 200,   // 미리보기 이미지 너비
