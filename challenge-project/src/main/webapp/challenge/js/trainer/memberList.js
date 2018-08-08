@@ -115,7 +115,7 @@ $(document.body).on('click','.trSelect', function(event){
 	    }	
 	});
 	
-	// 회원 출석률 관련 **** 고치기..4              
+	// 회원 출석률 관련               
 	$.ajax(serverRoot + "/json/diary/dList/" + userNo + "/" + programNum, {
 		dataType: "json",	
 	    success(data) {

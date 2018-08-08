@@ -258,6 +258,8 @@
 /* 모달창 본문 내용 */
 .memberInfo1 {
   float: left;
+  width: 100px;
+  text-align: center;
 }
 .memberInfo2 {
   float: left;
