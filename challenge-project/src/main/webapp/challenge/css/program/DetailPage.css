@@ -115,7 +115,7 @@ ul {
 .oneName p span:nth-child(2) {
     float: left;
     display: inline-block;
-    margin: 0 10px;;
+    margin: 0 0 0 10px;;
 }
 
 .oneName p span:nth-child(5) {
@@ -621,6 +621,7 @@ star-input>.input.focus {
 
 .userNameCircle img {
 	width: 100%;
+	height: 30px;
 }
 
 .userNameContent {
@@ -846,6 +847,10 @@ star-input>.input.focus {
 	overflow: hidden;
 }
 
+.imgCircle img {
+width: 100%;
+height: 100px;
+}
 .proName {
 	margin-top: 8px;
 	margin-bottom: 12px;
@@ -980,6 +985,7 @@ star-input>.input.focus {
 }
 .imgBox img {
 	width: 100%;
+	height: 70px;
 }
 
 .evalBox {

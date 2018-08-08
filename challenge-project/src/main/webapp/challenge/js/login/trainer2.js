@@ -87,6 +87,7 @@ $('#fPath').fileupload({
 	   autoUpload: false,        // 파일을 추가할 때 자동 업로딩 하지 않도록 설정.
 	   disableImageResize: /Android(?!.*Chrome)|Opera/
 	         .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
+	   imageCrop: true,      
 	   previewMaxWidth: 200,   // 미리보기 이미지 너비
 	   previewMaxHeight: 200,  // 미리보기 이미지 높이 
 	   previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기

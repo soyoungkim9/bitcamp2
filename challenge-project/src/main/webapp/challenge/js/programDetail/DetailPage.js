@@ -8,7 +8,7 @@ if (location.href.split("?").length > 1) {
     $(faddress).append(data.address + ' ' + data.addDetail);
     $(fName).append(data.name);
     $(fDate).append(data.startDate + ' ~ ' + data.endDate);
-    $(fminQty).append(data.minQty);
+    //$(fminQty).append(data.minQty);
     $(fmaxQty).append(data.maxQty);
     $(fprice).append(data.price);
     $(fdescription).append(data.description);
@@ -21,6 +21,11 @@ if (location.href.split("?").length > 1) {
     .attr('src', '../../../files/'+data.medias[0].path+'_600x600.jpg')
     .appendTo($(fprogramImg));
 
+    // 참여인원 정보 가져오기
+    $.get(serverRoot + "/json/programMember/pmemberCount/" + data.no, function(data) {
+      $(fpmemCount).append(data - 1);
+    })
+    
     // 챌린지 정보 가져오기
     $.getJSON(serverRoot + "/json/challenge/" + data.challengeNo, function(data) {
       $(fchalName).append(data.title);
