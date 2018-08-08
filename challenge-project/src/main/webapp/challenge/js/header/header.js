@@ -8,6 +8,7 @@ $.ajax({
 	url : serverRoot + "/challenge/html/header/header.html",
 	async: false
 }).done(function(data) {
+	
 	// URL 저장
 	var pathName = $(location).attr('pathname').split('/')[4];
 	

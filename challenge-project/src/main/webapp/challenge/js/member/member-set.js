@@ -1,7 +1,9 @@
+//업데이트된 회원정보 읽어오기
+$("#upload-btn").click(function (data) { 
+	updateUserInfo(data);
+	
+	}); 
 //회원정보 읽어오기
-/*$("#upload-btn").click(function (data) { 
-	updateUserInfo(data); 
-	}); */
 $.ajax({
 	type: 'GET',
 	async: false,
