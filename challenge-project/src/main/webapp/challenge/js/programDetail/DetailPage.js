@@ -25,7 +25,7 @@ if (location.href.split("?").length > 1) {
     $.get(serverRoot + "/json/programMember/pmemberCount/" + data.no, function(data) {
       $(fpmemCount).append(data - 1);
     })
-    
+
     // 챌린지 정보 가져오기
     $.getJSON(serverRoot + "/json/challenge/" + data.challengeNo, function(data) {
       $(fchalName).append(data.title);
@@ -35,54 +35,56 @@ if (location.href.split("?").length > 1) {
     $.getJSON(serverRoot + "/json/trainer/" + data.trainerNo, function(data) {
       $(ftrainerName).append(data.name);
       $(ftrainerTime).append(data.time);
-      $('<img/>')
-      .attr('src', '../../../files/'+data.userPath+'_100x100.jpg')
-      .appendTo($(ftrainerImg));
+      
+      $(ftrainerImg).append('<a href="../trainer/trainer.html?no='
+          +data.userNo+'"><img src="../../../files/'
+          +data.userPath+'_100x100.jpg"></a>')
+      
     }).done(function(data){ // 메시지 보내기---------------------------------------------------------
-    	var addTemplateSrc = $("#add-template").html();
-    	var addtemplateFn = Handlebars.compile(addTemplateSrc);
-    	$(document.body).on('click','#msgBtn', function(event){
-    		event.preventDefault();
-    		
-    			$('#myAddModal').css("display", "block");
-    			$('.add-body').html(addtemplateFn({
-    				 trainer: data.name,
-    				 member: userInfo.name,
-    				 }));
-    			$("#addBtn").click(() => {
-    				$.ajax({
-    				    type: 'POST',
-    			        url: '../../../json/message/add',
-    			        data:{
-    			            title: $(fTitle).val(),
-    			            content:$(fContent).val(),
-    			            direct: 1,
-    			            "member.userNo":userInfo.userNo,
-    			            "trainer.userNo":data.userNo
-    			        },
-    			        success:function(result){
-    			        	$('#myAddModal').css("display", "none");
-    			        	swal({
-    			        		type: 'success',
-    			        		  title: '전송 완료!',
-    			        		  showConfirmButton: false,
-    			        		  timer: 1500,
-    	                        preConfirm: () => {
-    	                        	location.href="member-msg.html"
-    	                              }
-    	                      })
-    			    		
-    			        }
-    				})
-    			});
-    		
-    		$(document.body).on('click','.close', function(){
-    			$('#myAddModal').css("display", "none");
-    		})
-    		$(document.body).on('click','#msg-ok', function(){
-    			$('#myModal').css("display", "none");
-    		})
-    	});
+      var addTemplateSrc = $("#add-template").html();
+      var addtemplateFn = Handlebars.compile(addTemplateSrc);
+      $(document.body).on('click','#msgBtn', function(event){
+        event.preventDefault();
+
+        $('#myAddModal').css("display", "block");
+        $('.add-body').html(addtemplateFn({
+          trainer: data.name,
+          member: userInfo.name,
+        }));
+        $("#addBtn").click(() => {
+          $.ajax({
+            type: 'POST',
+            url: '../../../json/message/add',
+            data:{
+              title: $(fTitle).val(),
+              content:$(fContent).val(),
+              direct: 1,
+              "member.userNo":userInfo.userNo,
+              "trainer.userNo":data.userNo
+            },
+            success:function(result){
+              $('#myAddModal').css("display", "none");
+              swal({
+                type: 'success',
+                title: '전송 완료!',
+                showConfirmButton: false,
+                timer: 1500,
+                preConfirm: () => {
+                  location.href="member-msg.html"
+                }
+              })
+
+            }
+          })
+        });
+
+        $(document.body).on('click','.close', function(){
+          $('#myAddModal').css("display", "none");
+        })
+        $(document.body).on('click','#msg-ok', function(){
+          $('#myModal').css("display", "none");
+        })
+      });
     }); // 메시지 끝!
 
   }).done(function(data) {
@@ -106,6 +108,7 @@ if (location.href.split("?").length > 1) {
       $(this).number(true);
     });
 
+    map(data.address); // 지도
   })
 
 
@@ -123,12 +126,12 @@ if (location.href.split("?").length > 1) {
       } else {
         $(reviewScore).append(0)
       }
-      
+
       $('.star-prototype').generateStars();
       $('.star-prototype3').generateStars();
     })
   }).done(function() {
-    
+
   })
 
 
@@ -136,7 +139,7 @@ if (location.href.split("?").length > 1) {
 
 
 /*
- 
+
 //add
 
 var addTemplateSrc = $("#add-template").html();
@@ -144,7 +147,7 @@ var addtemplateFn = Handlebars.compile(addTemplateSrc);
 
 $(document.body).on('click','.addModal', function(event){
 	event.preventDefault();
-	
+
 	var msgno = $(this).attr("data-msgno");
 	$.getJSON(serverRoot + "/json/message/" + msgno, function(data) {
 		$('.add-body').html(addtemplateFn({
@@ -178,12 +181,12 @@ $(document.body).on('click','.addModal', function(event){
                         	location.href="member-msg.html"
                               }
                       })
-		    		
+
 		        }
 			})
 		});
 	});
-	
+
 	$(document.body).on('click','.close', function(){
 		$('#myAddModal').css("display", "none");
 	})
@@ -240,7 +243,7 @@ function loadCommentAfter(no) {
 
 $(document).ready(function() {
   // 댓글에 필요한 사용자 정보 가져오기
-  
+
   if (userInfo != undefined) {
     $('<img/>')
     .attr('src', '../../../files/'+userInfo.userPath+'_50x50.jpg')
@@ -329,7 +332,7 @@ function programListScore(no, i){
 //리뷰 개수 카운트
   $.get(serverRoot + "/json/programMember/reviewCount/" + no, function(data) {
     var count = data;
-//리뷰  점수
+//  리뷰  점수
     $.get(serverRoot + "/json/programMember/reviewScore/" + no, function(data) {
       var score = data;
       var cal = (score / count).toFixed(1);

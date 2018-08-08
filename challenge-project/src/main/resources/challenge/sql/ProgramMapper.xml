@@ -193,5 +193,4 @@
     where tano=#{no}
   </update>
   
-  
 </mapper>
