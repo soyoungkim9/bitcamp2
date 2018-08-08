@@ -1,6 +1,10 @@
 @charset "UTF-8";
 
-
+/* #footer {
+	margin-bottom: 0px;
+	position: inherit;
+	width: 100%;
+} */
 
 /* 여기서 부터 본격 타임라인 */
 #sm-section {
