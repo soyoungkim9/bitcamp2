@@ -89,9 +89,11 @@ var addtemplateFn = Handlebars.compile(addTemplateSrc);
 
 $(document.body).on('click','.trSelect', function(event){
 	event.preventDefault();
-
+	
+	var proTurn;
 	var userNo = $(this).attr("data-uno");
 	programNum = $(this).attr("data-pno");
+		
 	/* 전체는 못보고 탭에 있는 애들만 선택해서 볼 수 있다.*/
 	$.ajax(serverRoot + "/json/programMember/" + userNo + "/" + programNum, {
 		dataType: "json",	
@@ -104,27 +106,38 @@ $(document.body).on('click','.trSelect', function(event){
 				 name: data[0].program.name, 
 				 startDate: data[0].program.startDate,
 				 endDate: data[0].program.endDate}));
-			 	 console.log(data[0]);
 			 	 userNo = data[0].userNo;
+			 	 proTurn = data[0].program.proTurn;
+			 	
 	    },
 	    error() {
 	        window.alert("meberList.js 회원정보 보기 관련 실행 오류!");
 	    }	
 	});
 	
-	// 회원 출석률 관련
+	// 회원 출석률 관련 **** 고치기..4              
 	$.ajax(serverRoot + "/json/diary/dList/" + userNo + "/" + programNum, {
 		dataType: "json",	
 	    success(data) {
 			console.log(data);
+			var dSum = 0;
+			var dAver = 0;
+			for(var i = 0; i < data.length; i++) {
+				if(data[i].dcheck == 1) {
+					dSum += parseInt(data[i].dcheck);
+				}
+			}
+			dAver = (dSum/proTurn)*100;
+			console.log(dAver);
 			
-			
+			$('#mAttend').append(Math.floor(dAver) + '%');
 			$('#myModal').css("display", "block");
 	    },
 	    error() {
 	        window.alert("meberList.js 출석률 관련 실행 오류!");
 	    }	
 	});
+	
 	
 	$(document.body).on('click','.close', function(){
 		$('#myModal').css("display", "none");
