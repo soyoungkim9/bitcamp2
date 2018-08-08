@@ -9,5 +9,6 @@ public interface DiaryService {
     int add(Diary diary); // 운동계획서 등록
     List<Object> get(int dno); // 해당 회차 일지 선택해서 보기
     int update(Diary diary); // 운동계획서 수정
+    Diary listWithDcheck(int uno); // 출석률
 }
 

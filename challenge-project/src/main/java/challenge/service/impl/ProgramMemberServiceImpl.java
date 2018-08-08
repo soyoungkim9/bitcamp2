@@ -83,4 +83,9 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
         return programMemberDao.reviewScore(pno);
 
     }
+    
+    @Override
+    public int pmemberCount(int pno) {
+        return programMemberDao.pmemberCount(pno);
+    }
 }

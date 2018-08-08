@@ -155,8 +155,19 @@ a.sh_after:hover:after {
   position: relative;
 }
 
+#sh-msg-dropdown-content {
+    display: none;
+}
+
+#member-mypage {
+      display: none;
+}
+
+#trainer-mypage {
+      display: none;
+}
+
 .sh_dropdown-content {
-  display: none;
   position: absolute;
   background-color: #FFFFFF;
   border: 1px solid rgb(102, 102, 102, 0.2);

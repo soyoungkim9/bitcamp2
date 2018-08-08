@@ -40,4 +40,9 @@ public class DiaryServiceImpl implements DiaryService {
     public int update(Diary diary) {
         return diaryDao.update(diary);
     }
+    
+    @Override
+    public Diary listWithDcheck(int uno) {
+        return diaryDao.selectListWithDcheck(uno);
+    }
 }

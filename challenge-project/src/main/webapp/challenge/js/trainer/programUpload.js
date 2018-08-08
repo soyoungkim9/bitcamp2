@@ -21,7 +21,6 @@ document.getElementById("next3").onclick = function() {
 }
 document.getElementById("next4").onclick = function() {
   openCity(event, 'sm-tab2')
-  document.getElementById("next2").style.backgroundColor = "#1B3453";
 }
 document.getElementById("next5").onclick = function() {
   openCity(event, 'sm-tab1')

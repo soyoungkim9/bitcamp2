@@ -92,23 +92,27 @@
       </div>
 
      </div>
-     <a class="sm-a-none" href="member-history.html">
-      <div class="sm-menu" style="border-left: none;">
-       <i class="fas fa-history"></i><br>히스토리
-      </div>
-     </a> <a class="sm-a-none" href="member-h-day.html">
-      <div class="sm-menu">
-       <i class="fas fa-edit"></i><br>운동일지 관리
-      </div>
-     </a> <a class="sm-a-none" href="member-h-ing.html">
-      <div class="sm-menu" style="border-left: none;">
-       <i class="fas fa-file-alt"></i><br>진행중인 운동
-      </div>
-     </a> <a class="sm-a-none" href="member-h-pay.html">
-      <div class="sm-menu" style="border-bottom: none;">
-       <i class="far fa-credit-card"></i><br>구매내역
-      </div>
-     </a>
+          <a class="sm-a-none" href="member-history.html">
+            <div class="sm-menu" style="border-left: none;">
+              <i class="fas fa-history"></i><br>히스토리
+            </div>
+          </a><a class="sm-a-none" href="memberReportList.html">
+            <div class="sm-menu" style="border-bottom: none;">
+              <i class="far fa-credit-card"></i><br>운동계획
+            </div>
+          </a><a class="sm-a-none" href="trainerReportList.html">
+            <div class="sm-menu" style="border-left: none">
+              <i class="fas fa-edit"></i><br>운동일지
+            </div>
+          </a> <a class="sm-a-none" href="programList.html">
+            <div class="sm-menu" style="border-bottom: 1px solid gray;">
+              <i class="fas fa-file-alt"></i><br>진행중인 운동
+            </div>
+          </a> <a class="sm-a-none" href="member-h-pay.html">
+            <div class="sm-menu" style="border-left: none; border-right: 1px solid gray;">
+              <i class="far fa-credit-card"></i><br>구매내역
+            </div>
+          </a>
     </div>
     <!-- profile 끝 -->
 
@@ -161,13 +165,14 @@
     <div class="card-body">
       <span class="card-body-title">{{program.name}}</span>
       <span class="card-body-degree">[{{program.proTh}}기]</span>
-      <p class="card-body-price">{{program.price}}원</p>
-      <span class="card-body-local">{{program.address}}</span>
-      <span class="card-body-number">/{{program.maxQty}}명</span>
-      <p class="card-body-score"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></p>
+      <p class="card-body-price">
+         <span class="numberic-{{@key}}">{{program.price}}</span>원</p>
+      <span class="card-body-local-{{@key}}">{{program.address}}</span>
+      <span class="card-body-number"><span class="pnum-{{@key}}"></span>/{{program.maxQty}}명</span>
+      <p><span class="star-prototype score-{{@key}}"></span></p>
       <!--  카드 바디 푸터 -->
       <div class="card-footer">
-      <span class="card-footer-review">리뷰 개</span>
+      <span class="card-footer-review">리뷰 <span class="review-{{@key}}"></span>개</span>
       <span class="card-footer-date">{{program.startDate}} (D<span id="dday-{{@key}}"></span>)</span>
     </div>
     </a> 
@@ -179,7 +184,7 @@
  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
  <script src="../../js/common.js"></script>
- <script src="../../js/header/header_white.js"></script>
+ <script src="../../js/header/header.js"></script>
  <script src="../../js/footer/footer.js"></script>
  <script src="../../js/member/programList.js"></script>
  <script src="../../js/member/sm-following.js"></script>

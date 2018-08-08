@@ -49,7 +49,7 @@
 
   <select id="selectListCard"
           resultMap="ProgramMap" parameterType="map">
-    select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt,
+    select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno,
            m.pmedno, m.ppath, m.pmtype
     from PMED m
          right outer join PROG p on m.pno=p.pno

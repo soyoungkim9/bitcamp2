@@ -13,4 +13,5 @@ public interface BodyInfoService {
     int add(BodyInfo bodyInfo);
     int update(BodyInfo bodyInfo);
     int delete(int no);
+    List<BodyInfo> listWithGoal(int uno); // 목표달성
 }

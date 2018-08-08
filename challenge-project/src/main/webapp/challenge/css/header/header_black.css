@@ -152,8 +152,19 @@ a.sh_after:hover:after {
   position: relative;
 }
 
+#sh-msg-dropdown-content {
+	display: none;
+}
+
+#member-mypage {
+	  display: none;
+}
+
+#trainer-mypage {
+      display: none;
+}
+
 .sh_dropdown-content {
-  display: none;
   position: absolute;
   background-color: #FFFFFF;
   border: 1px solid rgb(102, 102, 102, 0.2);
@@ -168,6 +179,7 @@ a.sh_after:hover:after {
 }
 
 
+
 .sh_dropdown-content a {
   color: #666666;
   padding: 12px 0px;
@@ -177,6 +189,8 @@ a.sh_after:hover:after {
 .sh_dropdown-content a:hover {
   background-color: #FFFFFF;
 }
+
+
 
 #sh_sub-menu-ul {
   padding-left: 0px;

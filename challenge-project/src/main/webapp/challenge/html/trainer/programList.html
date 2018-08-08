@@ -84,15 +84,16 @@
     </div>
     <!--  카드 바디 -->
     <div class="card-body">
-      <span class="card-body-title">{{name}}</span>
-      <span class="card-body-degree">[{{proTh}}기]</span>
-      <p class="card-body-price">{{price}}원</p>
-      <span class="card-body-local">{{address}}</span>
-      <span class="card-body-number">/{{maxQty}}명</span>
-      <p class="card-body-score"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></p>
+      <p class="title"><span class="card-body-title">{{name}}</span>
+      <span class="card-body-degree">[{{proTh}}기]</span></p>
+      <p class="card-body-price">
+         <span class="numberic-{{@key}}">{{price}}</span>원</p>
+      <span class="card-body-local-{{@key}}">{{address}}</span>
+      <span class="card-body-number"><span class="pnum-{{@key}}"></span>/{{maxQty}}명</span>
+      <p><span class="star-prototype score-{{@key}}"></span></p>
       <!--  카드 바디 푸터 -->
       <div class="card-footer">
-      <span class="card-footer-review">리뷰 개</span>
+      <span class="card-footer-review">리뷰 <span class="review-{{@key}}"></span>개</span>
       <span class="card-footer-date">{{startDate}} (D<span id="dday-{{@key}}"></span>)</span>
     </div>
     </a> 
@@ -103,10 +104,10 @@
 </script>
  
  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
- <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
  <script src="../../js/common.js"></script>
- <script src="../../js/header/header_white.js"></script>
+ <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
  <script src="../../js/trainer/trainer-template.js"></script>
+ <script src="../../js/header/header.js"></script>
  <script src="../../js/footer/footer.js"></script>
  <script src="../../js/trainer/programList.js"></script>
 </body>

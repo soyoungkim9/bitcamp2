@@ -10,4 +10,5 @@ public interface BodyInfoDao {
     int insert(BodyInfo bodyInfo);
     int update(BodyInfo bodyInfo);
     List<BodyInfo> selectOne(int no);
+    List<BodyInfo> selectListWithGoal(int uno); // 목표달성
 }

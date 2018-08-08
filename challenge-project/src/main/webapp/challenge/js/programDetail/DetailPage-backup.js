@@ -33,52 +33,7 @@ if (location.href.split("?").length > 1) {
       $('<img/>')
       .attr('src', '../../../files/'+data.userPath+'_100x100.jpg')
       .appendTo($(ftrainerImg));
-    }).done(function(data){ // 메시지 보내기---------------------------------------------------------
-    	var addTemplateSrc = $("#add-template").html();
-    	var addtemplateFn = Handlebars.compile(addTemplateSrc);
-    	$(document.body).on('click','#msgBtn', function(event){
-    		event.preventDefault();
-    		
-    			$('#myAddModal').css("display", "block");
-    			$('.add-body').html(addtemplateFn({
-    				 trainer: data.name,
-    				 member: userInfo.name,
-    				 }));
-    			$("#addBtn").click(() => {
-    				$.ajax({
-    				    type: 'POST',
-    			        url: '../../../json/message/add',
-    			        data:{
-    			            title: $(fTitle).val(),
-    			            content:$(fContent).val(),
-    			            direct: 1,
-    			            "member.userNo":userInfo.userNo,
-    			            "trainer.userNo":data.userNo
-    			        },
-    			        success:function(result){
-    			        	$('#myAddModal').css("display", "none");
-    			        	swal({
-    			        		type: 'success',
-    			        		  title: '전송 완료!',
-    			        		  showConfirmButton: false,
-    			        		  timer: 1500,
-    	                        preConfirm: () => {
-    	                        	location.href="member-msg.html"
-    	                              }
-    	                      })
-    			    		
-    			        }
-    				})
-    			});
-    		
-    		$(document.body).on('click','.close', function(){
-    			$('#myAddModal').css("display", "none");
-    		})
-    		$(document.body).on('click','#msg-ok', function(){
-    			$('#myModal').css("display", "none");
-    		})
-    	});
-    }); // 메시지 끝!
+    })
 
   }).done(function(data) {
 
