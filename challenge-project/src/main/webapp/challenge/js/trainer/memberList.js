@@ -91,6 +91,7 @@ $(document.body).on('click','.trSelect', function(event){
 	event.preventDefault();
 	
 	var proTurn;
+	var proGoal;
 	var userNo = $(this).attr("data-uno");
 	programNum = $(this).attr("data-pno");
 		
@@ -105,9 +106,11 @@ $(document.body).on('click','.trSelect', function(event){
 				 usersphon: data[0].user.userPhone,
 				 name: data[0].program.name, 
 				 startDate: data[0].program.startDate,
-				 endDate: data[0].program.endDate}));
+				 endDate: data[0].program.endDate,
+				 proGoal: data[0].program.proGoal}));
 			 	 userNo = data[0].userNo;
 			 	 proTurn = data[0].program.proTurn;
+			 	 proGoal = data[0].program.proGoal;
 			 	
 	    },
 	    error() {
@@ -116,12 +119,12 @@ $(document.body).on('click','.trSelect', function(event){
 	});
 	
 	// 회원 출석률 관련               
+	var dSum = 0;
+	var dAver = 0;
 	$.ajax(serverRoot + "/json/diary/dList/" + userNo + "/" + programNum, {
 		dataType: "json",	
 	    success(data) {
 			console.log(data);
-			var dSum = 0;
-			var dAver = 0;
 			for(var i = 0; i < data.length; i++) {
 				if(data[i].dcheck == 1) {
 					dSum += parseInt(data[i].dcheck);
@@ -136,10 +139,27 @@ $(document.body).on('click','.trSelect', function(event){
 			} else {
 				$('.attend').css("width", Math.floor(dAver) + "%");
 			}
-			$('#myModal').css("display", "block");
 	    },
 	    error() {
 	        window.alert("meberList.js 출석률 관련 실행 오류!");
+	    }	
+	});
+	
+	// 회원 목표달성률 관련               
+	$.ajax(serverRoot + "/json/bodyInfo/list/" + userNo, {
+		dataType: "json",	
+	    success(data) {
+			console.log(data);
+			console.log(proGoal);
+			console.log(dAver);
+			// 체중, 근력, 체지방, 출석
+			
+			
+
+			$('#myModal').css("display", "block");
+	    },
+	    error() {
+	        window.alert("meberList.js 목표달성률 관련 실행 오류!");
 	    }	
 	});
 	
