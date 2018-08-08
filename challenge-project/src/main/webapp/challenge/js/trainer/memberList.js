@@ -131,6 +131,11 @@ $(document.body).on('click','.trSelect', function(event){
 			console.log(dAver);
 			
 			$('#mAttend').append(Math.floor(dAver) + '%');
+			if(Math.floor(dAver) == 100) {
+				$('.attend').css("width", "80%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
+			} else {
+				$('.attend').css("width", Math.floor(dAver) + "%");
+			}
 			$('#myModal').css("display", "block");
 	    },
 	    error() {
