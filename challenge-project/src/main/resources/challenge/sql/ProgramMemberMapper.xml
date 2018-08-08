@@ -98,7 +98,7 @@
   -->
   <select id="selectOne" parameterType="map" resultMap="ProgramMemberMap">
 	SELECT u.uno, u.upath, u.utype, u.uname, u.uphon, u.sex, p.pno, p.pname, 
-	p.sdt, p.edt, p.pgoal, p.ptover
+	p.sdt, p.edt, p.pgoal, p.ptover, p.pgoal_n
 	FROM PMEMB pm
 		INNER JOIN USER u
 		ON pm.uno = u.uno
