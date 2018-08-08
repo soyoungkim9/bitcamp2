@@ -40,9 +40,10 @@ public class DiaryController {
         return "diary update success!";
     }
     
-    @RequestMapping("list/{uno}")
-    public Object list (@PathVariable int uno) {
-        return diaryService.listWithDcheck(uno);
+    @RequestMapping("dList/{uno}/{pno}")
+    public Object dList (@PathVariable int uno,
+                         @PathVariable int pno) {
+        return diaryService.listWithDcheck(uno, pno);
     }
 }
 

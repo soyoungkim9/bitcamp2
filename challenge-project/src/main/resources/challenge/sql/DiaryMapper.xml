@@ -62,7 +62,7 @@
   
     <!-- 출석률 합 js파일에서 목표가 출석일 경우 회차랑 나눠서 출석률 평균 나타낼 것임 -->
   <select id="selectListWithDcheck" parameterType="map" resultMap="DiaryMap">
-	  SELECT uno, pno, dno, SUM(dchek)
+	  SELECT uno, pno, SUM(dchek)
 	  FROM DIARY
 	  WHERE uno = #{arg0}
       AND pno = #{arg1}
