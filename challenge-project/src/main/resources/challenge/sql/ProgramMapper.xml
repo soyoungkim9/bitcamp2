@@ -56,6 +56,16 @@
          left outer join TRN t on p.trnno=t.trnno
     <!-- limit #{startRowNo}, #{pageSize} -->
   </select>
+  <select id="selectPrice"
+          resultMap="ProgramMap" parameterType="map">
+    select p.pname,p.pprice,p.ptype,pm.pmedno,Max(pm.ppath),p.pno,pm.pno,pm.ppath FROM PROG p 
+    inner join PMED pm on p.pno = pm.pno 
+    Group By p.pname,p.pno,pm.pno
+    having p.pprice BETWEEN #{minPrice} AND #{maxPrice} 
+    order by p.pprice asc
+    
+          
+  </select>
 
   <select id="selectTrainerProgram"
           resultMap="ProgramMap" parameterType="map">

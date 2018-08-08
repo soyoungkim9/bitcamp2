@@ -194,15 +194,15 @@
 	<script src="../../js/footer/footer.js"></script>
 	<script src="../../js/search/multirange.js"></script>
 	<script>
-$('#priceSearch').click(function() {
-    $.getJson(serverRoot + "program/pList"), 
-    { 
-        minPrice : $('#price-min').val(),
-        maxPrice : $('#price-max').val()
-    }
-}).done(function(data) {
-	console.log(data);
-});
+$('#priceSearch').click(() => {
+	$.ajax
+	    $.(serverRoot + "program/pList"), 
+	    { 
+	        minPrice : $('#price-min').val(),
+	        maxPrice : $('#price-max').val()
+	    }
+	
+})
 </script>
 </body>
 
