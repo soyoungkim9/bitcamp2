@@ -18,4 +18,6 @@ public interface ProgramDao {
     public Program selectOneWithMedia(int no);
     Program selectRecent();
     public List<Program> selectPrice(Map<String,Object> prams);
+//	public List<Program> selectListWithKeyword(String keyword);
+//  public List<Integer> countCardsWithProgramGoal(Map<String, Object> param);
 }

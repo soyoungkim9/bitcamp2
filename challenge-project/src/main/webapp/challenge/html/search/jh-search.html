@@ -7,11 +7,11 @@
 
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet" href="../../css/pagination.css">
-<link rel="stylesheet" href="../../css/search/search.css">
+<link rel="stylesheet" href="../../css/search/jh-search.css">
 <link rel="stylesheet" href="../../css/program/card1.css">
 <link rel="stylesheet"
 	href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
-<link rel="stylesheet" href="../../css/search/multirange.css">
+<link rel="stylesheet" href="../../css/search/jh-multirange.css">
 
 </head>
 
@@ -55,12 +55,18 @@
 
 			<div class="search-price">
 				<div class="search-title">가격필터</div>
-				<div>
+				    <div data-role="rangeslider">
+	                    <label for="range-1a">가격</label>
+				        <label for="range-1b">가격</label>
+				        <input type="range" name="range-1a" id="range-1a" min="0" max="95000" value="0" data-popup-enabled="true" data-show-value="true">
+				        <input type="range" name="range-1b" id="range-1b" min="0" max="100000" value="10000" data-popup-enabled="true" data-show-value="true">
+                    </div>
+				<!-- <div>
 					<input type="range" multiple value="0,100" />
 				</div>
 				<div class="price-label">
 					<span class="from">30,000원</span>-<span class="to">100,000원</span>
-				</div>
+				</div> -->
 				<button class="ch-btn">Filter</button>
 				<!-- <input type="range" min="1" max="300,000" value="0" step="1"> -->
 			</div>
@@ -156,28 +162,29 @@
 	<script id="cardBody2" type="text/x-handlebars-template">
 {{#each list}}
 
+
 <div class="card" id="card">
-    <a href="../programDetail/programDetailPage.html">
+    <a href="../program/DetailPage.html?no={{no}}">
     <!-- 카드 헤더 -->
     <div class="card-header">
-      <img class="card-img" src="../../img/program/{{medias.[0].path}}"/>
+      <img class="card-img" src="../../../files/{{medias.[0].path}}_200x200.jpg"/>
       <div class="ribbon"><span>성공 %</span></div>
-      <div class="card-trainer">
-        <img class="trainer-img" src="../../img/trainer/{{trainerNo.userPath}}"/>
+      <div class="card-trainer tr-{{@key}}">
       </div>
     </div>
     <!--  카드 바디 -->
     <div class="card-body">
-      <span class="card-body-title">{{name}}</span>
-      <span class="card-body-degree">[{{proTh}}기]</span>
-      <p class="card-body-price">{{price}}원</p>
-      <span class="card-body-local">{{address}}</span>
-      <span class="card-body-number">/{{maxQty}}명</span>
-      <p class="card-body-score"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i><i class="far fa-star"></i></p>
+      <p class="title"><span class="card-body-title">{{name}}</span>
+      <span class="card-body-degree">[{{proTh}}기]</span></p>
+      <p class="card-body-price">
+         <span class="numberic-{{@key}}">{{price}}</span>원</p>
+      <span class="card-body-local-{{@key}}">{{address}}</span>
+      <span class="card-body-number"><span class="pnum-{{@key}}"></span>/{{maxQty}}명</span>
+      <p><span class="star-prototype score-{{@key}}"></span></p>
       <!--  카드 바디 푸터 -->
       <div class="card-footer">
-      <span class="card-footer-review">리뷰 개</span>
-      <span class="card-footer-date">{{startDate}}(D- )</span>
+      <span class="card-footer-review">리뷰 <span class="review-{{@key}}"></span>개</span>
+      <span class="card-footer-date">{{startDate}} (D<span id="dday-{{@key}}"></span>)</span>
     </div>
     </a>
 </div>
@@ -189,29 +196,49 @@
 	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../../js/common.js"></script>
-	<script src="../../js/trainer/card-test.js"></script>
+	<script src="../../js/search/jh-search.js"></script>
 	<script src="../../js/header/header.js"></script>
 	<script src="../../js/footer/footer.js"></script>
-	<script src="../../js/search/multirange.js"></script>
-	<script>
+	<script src="../../js/search/jh-multirange.js"></script>
+<script>
+
 $('#priceSearch').click(() => {
-	console.log($('#price-min').val());
-	console.log($('#price-max').val());
-	$.ajax({
-		dataType : 'json',
-		type: 'POST',
-		async: false,
+    console.log($('#price-min').val());
+    console.log($('#price-max').val());
+    $.ajax({
+        dataType : 'json',
+        type: 'POST',
+        async: false,
         traditional : true,
         url: serverRoot + '/json/program/pList',
         data: {
-        	minPrice : $('#price-min').val(),
+            minPrice : $('#price-min').val(),
             maxPrice : $('#price-max').val()
         }
-	}).done(function(data){
-		console.log(data);
-	})
-	
-})
+    }).done(function(data){
+    	$(aaa).html(cardBodyFn({list:data}));
+            }).done(function(data) {
+              
+              var i;
+              for (i = 0; i < data.length; i++) {
+                dday(data[i].startDate, i); //D-day
+                reviewScore(data[i].no, i); //별점,리뷰 개수
+                trImg(data[i].trainerNo, i);
+                pmemberCount(data[i].no, i);
+                var price = addComma($(".numberic-"+i+"").html())
+                var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
+                $(".numberic-"+i+"").html(price)
+                $(".card-body-local-"+i+"").html(place)
+              }
+
+              $.fn.generateStars = function() {
+                return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+              };
+
+            });
+    });
+    
+
 </script>
 </body>
 

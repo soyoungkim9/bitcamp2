@@ -24,7 +24,7 @@ public class Program implements Serializable {
     private String description;
     private String proType; // 종목
     private String proGoal; // 목표
-    private double proGoalNum; // 목표수치
+    private String proGoalNum; // 목표수치
     private int proTh; // 기수
     private int proTurn; // 회차
     private String proDay; // 수업요일
@@ -149,11 +149,11 @@ public class Program implements Serializable {
         this.proGoal = proGoal;
     }
 
-    public double getProGoalNum() {
+    public String getProGoalNum() {
         return proGoalNum;
     }
 
-    public void setProGoalNum(double proGoalNum) {
+    public void setProGoalNum(String proGoalNum) {
         this.proGoalNum = proGoalNum;
     }
 

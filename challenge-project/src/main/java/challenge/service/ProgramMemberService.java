@@ -20,4 +20,6 @@ public interface ProgramMemberService {
     int reviewCount(int no);
     int reviewScore(int no);
     int pmemberCount(int no);
+    int trainerReviewCount(int uno);
+    int trainerReviewScore(int uno);
 }

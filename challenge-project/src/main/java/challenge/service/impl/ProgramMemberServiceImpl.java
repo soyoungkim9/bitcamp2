@@ -4,8 +4,10 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import challenge.dao.ProgramDao;
 import challenge.dao.ProgramMemberDao;
 import challenge.domain.Member;
+import challenge.domain.Program;
 import challenge.domain.ProgramMember;
 import challenge.service.ProgramMemberService;
 
@@ -13,9 +15,11 @@ import challenge.service.ProgramMemberService;
 public class ProgramMemberServiceImpl implements ProgramMemberService {
 
     ProgramMemberDao programMemberDao;
+    ProgramDao programDao;
 
-    public ProgramMemberServiceImpl(ProgramMemberDao programMemberDao) {
+    public ProgramMemberServiceImpl(ProgramMemberDao programMemberDao, ProgramDao programDao) {
         this.programMemberDao = programMemberDao;
+        this.programDao = programDao;
     }
 
     @Override
@@ -88,4 +92,30 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
     public int pmemberCount(int pno) {
         return programMemberDao.pmemberCount(pno);
     }
+    
+    @Override
+    public int trainerReviewCount(int uno) {
+        List<Program> program = programDao.selectTrainerProgram(uno);
+        int count = 0;
+        for (int i = 0; i < program.size(); i++) {
+            int programNo = program.get(i).getNo();
+            int a = programMemberDao.reviewCount(programNo);
+            count += a;
+        }
+        return count;
+    }
+    
+    @Override
+    public int trainerReviewScore(int uno) {
+        List<Program> program = programDao.selectTrainerProgram(uno);
+        int count = 0;
+        for (int i = 0; i < program.size(); i++) {
+            int programNo = program.get(i).getNo();
+            int a = programMemberDao.reviewScore(programNo);
+            count += a;
+        }
+        return count;
+    }
+    
+   
 }

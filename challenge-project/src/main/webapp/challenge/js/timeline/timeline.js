@@ -38,20 +38,6 @@ function shClassFunction() {
 		moreText.css("display","inline");
 	}
 	
-	/*
-	if (dots.style.display === "none") {
-		dots.style.display = "inline";
-		divText.innerHTML = "운동일정 보기";
-		moreText.style.display = "none";
-	} else {
-		dots.style.display = "none";
-		divText.innerHTML = "닫기";
-		
-		moreText.style.display = "inline";
-	}
-	*/
-}
-
 /* 타임라인 글 작성 textarea auto-growing / self-resizing */
 function resizeFunction() {
 	$('.sh-tl-reply-content').css('height', 'auto');
@@ -437,11 +423,8 @@ function postEditClicked() {
 		// modal close
 		$("#sh-tl-editModal").attr("style", "display:none;");
 		$("#sh-tl-editModal").html("")
-
 	});
-
 };
-
 
 var postEditNo;
 
@@ -454,9 +437,6 @@ function postEditClick(no) {
 			content: $('.sh-tl-cmt' + no).val()
 		}
 	}).done(function() {
-
-
-
 		$.getJSON(serverRoot + "/json/comment/" + cmtEditNo).done(function(data) {
 			$('.sh-tl-cmt' + cmtEditNo).parent().first().prepend(' <div readonly class="sh-tl-review-content  sh-tl-reply-content"><span class="sh-cmt-name" >' + data.progMemb.user.name + '</span><span>' + data.content + '</span></div>');
 			$('.sh-tl-cmt' + cmtEditNo).parent().attr("onmouseover", "showCmtMenu(this)");
@@ -480,8 +460,6 @@ function postDelete(e) {
 	.done(function () {
 		$('.sh-tl-card-modal' + $(e).attr("name")).remove();
 	})
-
-
 }
 
 var postNo;
@@ -505,7 +483,6 @@ $('#MOVE_TOP_BTN').click(function () {
             scrollTop: 0
     }, 100);
 });
-
 
 
 //---------------------리뷰 작성자-------------------

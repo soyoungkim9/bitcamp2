@@ -36,7 +36,7 @@
 	</insert>
 
 	<select id="selectOne" parameterType="int" resultMap="TrainerMap">
-		select uno, trntime,
+		select uno, trntime, trncar, trnint,
 		uname, sex, mail, pwd, uphon, upath, utype
 		from USER 
 		 inner join TRN on uno = trnno

@@ -1043,6 +1043,14 @@ height: 100px;
 }
 
 
+/* 지도 */
+#map {
+	width: 400px;
+	height: 300px;
+	margin: auto 0;
+}
+
+
 /* 장소 */
 .asidePosition, .asideDate {
 	width: 400px;

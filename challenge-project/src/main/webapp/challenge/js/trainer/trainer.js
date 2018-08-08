@@ -1,3 +1,26 @@
+if (location.href.split("?").length > 1) {
+  var no = location.href.split("?")[1].split("=")[1];
+  
+  $.getJSON(serverRoot + "/json/trainer/" + no, function(data) {
+    $(fname).append(data.name);
+    $('<img/>')
+    .attr('src', '../../../files/'+data.userPath+'_100x100.jpg')
+    .attr('class', 'tr1-img')
+    .appendTo($(fuserPath));
+    $(fintroduce).append(data.introduce);
+    $(fcareer).append(data.career);
+    $(ftime).append(data.time);
+  })
+  
+  $.getJSON(serverRoot + "/json/programMember/trainerReviewCount/" + no, function(data) {
+  })
+  
+}
+
+
+
+
+
 var cardBody1 = $("#cardBody2").html();
 
 var cardBodyFn = Handlebars.compile(cardBody1);

@@ -48,8 +48,18 @@ public class ProgramController {
 
     @RequestMapping("listCard")
     public Object list(@ModelAttribute User loginUser) {
-        System.out.println("gkgkgk" + loginUser.getUserNo());
         return programService.listCard();
+    }
+    
+    @RequestMapping("listCardWithKeyword/{keyword}")
+    public Object list(@PathVariable String keyword) {
+        System.out.println(keyword);
+        return programService.listCardWithKeyword(keyword);
+    }
+    
+    @RequestMapping("countCardsWithProgramGoal")
+    public Object list(@RequestParam(value="programGoals[]") String[] programGoals) {
+        return programService.countCardsWithProgramGoal(programGoals);
     }
     
     @RequestMapping("listProgram/{trainerNo}")

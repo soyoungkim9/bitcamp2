@@ -14,12 +14,9 @@
   color: #FFFFFF;
 }
 
-#tr-img {
+.tr1-img {
   font-size: 100px;
   margin-bottom: 10px;
-  background-image: url('../../img/trainer/main.jpg');
-  background-size: 100px 100%;
-  background-repeat: no-repeat;
   display: inline-block;
   width: 100px;
   height: 100px;
@@ -155,6 +152,10 @@
 }
 
 .tr4-intro {
+  padding: 0 10px 20px 10px;
+}
+
+.tr4-career {
   padding: 0 10px 20px 10px;
 }
 

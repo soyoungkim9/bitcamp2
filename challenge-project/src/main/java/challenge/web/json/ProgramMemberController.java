@@ -100,6 +100,15 @@ public class ProgramMemberController {
     public int pmemberCount(@PathVariable int pno) throws Exception {
         return programMemberService.pmemberCount(pno);
     }
+    
+    @RequestMapping("trainerReviewCount/{uno}")
+    public int trainerReviewCount(@PathVariable int uno) throws Exception {
+        return programMemberService.trainerReviewCount(uno);
+    }
+    @RequestMapping("trainerReviewScore/{uno}")
+    public int trainerReviewScore(@PathVariable int uno) throws Exception {
+        return programMemberService.trainerReviewScore(uno);
+    }
 }
 
 //ver 55 - JSON 데이터를 출력하는 페이지 컨트롤러 생성
