@@ -3,6 +3,7 @@ package challenge.service.impl;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -31,9 +32,11 @@ public class ProgramServiceImpl implements ProgramService {
         return programDao.selectList();
     }
     @Override
-    public List<Program> priceList() {
-        
-        return programDao.selectPrice();
+    public List<Program> priceList(int min, int max) {
+        Map<String,Object> params = new HashMap<>();
+        params.put("minPrice",min);
+        params.put("maxPrice",max);
+        return programDao.selectPrice(params);
     }
     @Override
     public List<Program> listCard() {

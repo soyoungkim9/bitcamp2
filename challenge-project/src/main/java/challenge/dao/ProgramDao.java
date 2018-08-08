@@ -1,6 +1,7 @@
 package challenge.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import challenge.domain.Program;
 
@@ -16,5 +17,5 @@ public interface ProgramDao {
     public List<Program> mainList();
     public Program selectOneWithMedia(int no);
     Program selectRecent();
-    public List<Program> selectPrice();
+    public List<Program> selectPrice(Map<String,Object> prams);
 }

@@ -195,12 +195,21 @@
 	<script src="../../js/search/multirange.js"></script>
 	<script>
 $('#priceSearch').click(() => {
-	$.ajax
-	    $.(serverRoot + "program/pList"), 
-	    { 
-	        minPrice : $('#price-min').val(),
-	        maxPrice : $('#price-max').val()
-	    }
+	console.log($('#price-min').val());
+	console.log($('#price-max').val());
+	$.ajax({
+		dataType : 'json',
+		type: 'POST',
+		async: false,
+        traditional : true,
+        url: serverRoot + '/json/program/pList',
+        data: {
+        	minPrice : $('#price-min').val(),
+            maxPrice : $('#price-max').val()
+        }
+	}).done(function(data){
+		console.log(data);
+	})
 	
 })
 </script>

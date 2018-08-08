@@ -87,7 +87,7 @@
   </select>
   
   <select id="mainList"
-          resultMap="ProgramMap" parameterType="map">
+          resultMap="ProgramMap">
     select p.pname,p.ptype,pm.pmedno,Max(pm.ppath),p.pno,pm.pno,pm.ppath FROM PROG p 
     inner join PMED pm on p.pno = pm.pno 
     Group By p.pname,p.pno,pm.pno

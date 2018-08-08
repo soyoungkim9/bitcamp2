@@ -64,9 +64,9 @@ public class ProgramController {
         return programService.mainList();
     }
     
-    @RequestMapping("pList")  // 프로그램 가격 검색 
-    public Object priceList() {
-        return programService.priceList();
+    @RequestMapping("/pList")  // 프로그램 가격 검색 
+    public Object priceList(@RequestParam("minPrice") int min,@RequestParam("maxPrice") int max) {
+        return programService.priceList(min,max);
     }
 
     @RequestMapping("update")
