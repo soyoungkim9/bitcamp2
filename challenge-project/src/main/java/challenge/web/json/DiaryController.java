@@ -42,7 +42,7 @@ public class DiaryController {
     
     @RequestMapping("list/{uno}")
     public Object list (@PathVariable int uno) {
-        return diaryService.listWithGoal(uno);
+        return diaryService.listWithDcheck(uno);
     }
 }
 
