@@ -47,8 +47,7 @@ public class ProgramController {
     }
 
     @RequestMapping("listCard")
-    public Object list(@ModelAttribute User loginUser
-            ) {
+    public Object list(@ModelAttribute User loginUser) {
         System.out.println("gkgkgk" + loginUser.getUserNo());
         return programService.listCard();
     }
@@ -63,6 +62,11 @@ public class ProgramController {
             ) {
         System.out.println("mainList 실행");
         return programService.mainList();
+    }
+    
+    @RequestMapping("pList")  // 프로그램 가격 검색 
+    public Object priceList() {
+        return programService.priceList();
     }
 
     @RequestMapping("update")

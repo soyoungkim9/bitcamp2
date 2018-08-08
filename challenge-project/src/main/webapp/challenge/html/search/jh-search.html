@@ -68,10 +68,10 @@
 			<div class="search-price2">
 				<div class="search-title">가격</div>
 				<div class="price-label">
-					<input type="text" class="price-min"> ~ <input type="text"
-						class="price-max">
+					<input type="text" id="price-min"class="price-min"> ~ <input type="text"
+						id="price-max" class="price-max">
 				</div>
-				<button class="ch-btn">가격적용</button>
+				<button id="priceSearch"class="ch-btn">가격적용</button>
 				<!-- <input type="range" min="1" max="300,000" value="0" step="1"> -->
 			</div>
 
@@ -185,6 +185,7 @@
 
 {{/each}}
 </script>
+
 	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../../js/common.js"></script>
@@ -192,6 +193,17 @@
 	<script src="../../js/header/header.js"></script>
 	<script src="../../js/footer/footer.js"></script>
 	<script src="../../js/search/multirange.js"></script>
+	<script>
+$('#priceSearch').click(function() {
+    $.getJson(serverRoot + "program/pList"), 
+    { 
+        minPrice : $('#price-min').val(),
+        maxPrice : $('#price-max').val()
+    }
+}).done(function(data) {
+	console.log(data);
+});
+</script>
 </body>
 
 </html>

@@ -18,6 +18,7 @@ public interface ProgramService {
     int update(Program program);
     int delete(int no);
     List<Program> mainList();
+    List<Program> priceList();
     
     //boolean isMember(String programName, String memberId);
     //int addMember(String programName, String memberId);

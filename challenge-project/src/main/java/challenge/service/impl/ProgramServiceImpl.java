@@ -30,7 +30,11 @@ public class ProgramServiceImpl implements ProgramService {
         params.put("pageSize", pageSize);
         return programDao.selectList();
     }
-    
+    @Override
+    public List<Program> priceList() {
+        
+        return programDao.selectPrice();
+    }
     @Override
     public List<Program> listCard() {
         return programDao.selectListCard();
@@ -82,6 +86,8 @@ public class ProgramServiceImpl implements ProgramService {
     public Program get(int no) {
         return programDao.selectOne(no);
     }
+
+    
 
 
     /*@Override

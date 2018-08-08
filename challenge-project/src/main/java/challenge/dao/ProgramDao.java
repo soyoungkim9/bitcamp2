@@ -16,4 +16,5 @@ public interface ProgramDao {
     public List<Program> mainList();
     public Program selectOneWithMedia(int no);
     Program selectRecent();
+    public List<Program> selectPrice();
 }
