@@ -153,7 +153,7 @@ $(document.body).on('click','.trSelect', function(event){
 			console.log(proGoal);
 			console.log(dAver);
 			// 체중, 근력, 체지방, 출석
-			
+			if(체중)
 			
 
 			$('#myModal').css("display", "block");
