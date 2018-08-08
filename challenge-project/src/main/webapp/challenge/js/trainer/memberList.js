@@ -168,14 +168,29 @@ $(document.body).on('click','.trSelect', function(event){
 				}
 			} else {
 				if(proGoal == '체중') {
-					first = data[0].weight;
-					last = data[lastIndex].weight;
+					if(data.length == 0) {
+						first = 0;
+						last = 0;
+					} else {
+						first = data[0].weight;
+						last = data[lastIndex].weight;
+					}
 				} else if(proGoal == '근력') {
-					first = data[0].muscle;
-					last = data[lastIndex].muscle;
+					if(data.length == 0) {
+						first = 0;
+						last = 0;
+					} else {
+						first = data[0].muscle;
+						last = data[lastIndex].muscle;
+					}
 				} else if(proGoal == '체지방') {
-					first = data[0].fat;
-					last = data[lastIndex].fat;
+					if(data.length == 0) {
+						first = 0;
+						last = 0;
+					} else {
+						first = data[0].fat;
+						last = data[lastIndex].fat;
+					}
 				}
 				
 				// proGoalNum이 -냐 +냐를 구분해서
