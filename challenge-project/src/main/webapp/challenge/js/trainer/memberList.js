@@ -92,6 +92,7 @@ $(document.body).on('click','.trSelect', function(event){
 	
 	var proTurn;
 	var proGoal;
+	var proGoalNum;
 	var userNo = $(this).attr("data-uno");
 	programNum = $(this).attr("data-pno");
 		
@@ -99,6 +100,7 @@ $(document.body).on('click','.trSelect', function(event){
 	$.ajax(serverRoot + "/json/programMember/" + userNo + "/" + programNum, {
 		dataType: "json",	
 	    success(data) {
+			 console.log(data);
 			 $('.modal-body').html(viewtemplateFn({
 				 usersPath: data[0].user.userPath,
 				 usersName: data[0].user.name,
@@ -111,6 +113,7 @@ $(document.body).on('click','.trSelect', function(event){
 			 	 userNo = data[0].userNo;
 			 	 proTurn = data[0].program.proTurn;
 			 	 proGoal = data[0].program.proGoal;
+			 	 proGoalNum = data[0].program.proGoalNum;
 			 	
 	    },
 	    error() {
@@ -150,12 +153,59 @@ $(document.body).on('click','.trSelect', function(event){
 		dataType: "json",	
 	    success(data) {
 			console.log(data);
-			console.log(proGoal);
-			console.log(dAver);
-			// 체중, 근력, 체지방, 출석
+			var first;
+			var last;
+			var diff;
+			var lastIndex = data.length - 1;
+			var targetNum;
+			var targetResult;
 			
-
+			if(proGoal == '출석') {
+				$('#mTargetPer').append(Math.floor(dAver) + '%');
+				$('.target').css("width", Math.floor(dAver) + "%");
+				if(Math.floor(targetResult) == 100) {
+					$('.target').css("width", "80%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
+				}
+			} else {
+				if(proGoal == '체중') {
+					first = data[0].weight;
+					last = data[lastIndex].weight;
+				} else if(proGoal == '근력') {
+					first = data[0].muscle;
+					last = data[lastIndex].muscle;
+				} else if(proGoal == '체지방') {
+					first = data[0].fat;
+					last = data[lastIndex].fat;
+				}
+				
+				// proGoalNum이 -냐 +냐를 구분해서
+				// -이면 diff는 first - last --> 근데 diff의 결과가 -이면 달성률을 0으로 만든다
+				// +이면 diff는 last - first --> 근데 diff의 결과가 -이면 달성률을 0으로 만든다
+				if(proGoalNum.split('-').length == 2) {
+					targetNum = parseInt(proGoalNum.split('-')[1]);
+					diff = first - last;
+					
+				} else {
+					targetNum = parseInt(proGoalNum);
+					diff = last - first;
+				}
+				
+				if(proGoalNum.split('-')[0] == '-') {
+					targetResult = 0;
+					$('#mTargetPer').append(targetResult + '%');
+					$('.target').css("width", targetResult + "%");
+				} else {
+					targetResult = (diff/targetNum)*100;
+					$('#mTargetPer').append(Math.floor(targetResult) + '%');
+					$('.target').css("width", Math.floor(targetResult) + "%");
+					if(Math.floor(targetResult) == 100) {
+						$('.target').css("width", "80%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
+					}
+				}
+			}
+			
 			$('#myModal').css("display", "block");
+			
 	    },
 	    error() {
 	        window.alert("meberList.js 목표달성률 관련 실행 오류!");
