@@ -109,6 +109,13 @@ public class ProgramMemberController {
     public int trainerReviewScore(@PathVariable int uno) throws Exception {
         return programMemberService.trainerReviewScore(uno);
     }
+    
+    @RequestMapping("trainerReviewList/{uno}")
+    @ResponseStatus(HttpStatus.OK) // 기본 값이 OK이다.
+    public List<ProgramMember> trainerReviewList(@PathVariable int uno) throws Exception {
+        return programMemberService.trainerReviewList(uno);
+    }
+    
 }
 
 //ver 55 - JSON 데이터를 출력하는 페이지 컨트롤러 생성

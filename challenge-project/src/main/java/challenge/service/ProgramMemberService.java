@@ -22,4 +22,5 @@ public interface ProgramMemberService {
     int pmemberCount(int no);
     int trainerReviewCount(int uno);
     int trainerReviewScore(int uno);
+    List<ProgramMember> trainerReviewList(int uno);
 }

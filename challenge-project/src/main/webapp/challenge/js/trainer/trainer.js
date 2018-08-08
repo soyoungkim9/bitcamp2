@@ -12,16 +12,57 @@ if (location.href.split("?").length > 1) {
     $(ftime).append(data.time);
   })
   
+  //숫자를 별로 변환
+$.fn.generateStars = function() {
+  return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+};
+  
   $.getJSON(serverRoot + "/json/programMember/trainerReviewCount/" + no, function(data) {
+    $(freviewCount).append(data);
+    var count = data;
+    $.getJSON(serverRoot + "/json/programMember/trainerReviewScore/" + no, function(data) {
+      $('.star-prototype').append(data / count);
+    }).done(function() {
+      $('.star-prototype').generateStars(); 
+    })
   })
   
+  
+  var trTemplateSrc3 = $("#commentList").html();
+  var templateFn3 = Handlebars.compile(trTemplateSrc3);
+  $.getJSON(serverRoot + "/json/programMember/trainerReviewList/" + no, function(data) {
+    $('#comment').append(templateFn3({list: data}));
+  })
+  
+}
+
+
+//댓글리스트
+function loadComment(no) {
+  var trTemplateSrc3 = $("#commentList").html();
+  var templateFn3 = Handlebars.compile(trTemplateSrc3);
+  $.getJSON(serverRoot + "/json/programMember/reviewList/" + no, (data) => {
+    $('#comment1').append(templateFn3({list: data}));
+  }).done(function(data) {
+    // 유저 이미지 널값 보류!
+    for (var i = 0; i < data.length; i++) {
+      if (data[i].user.userPath == "") {
+        $('#cmImg-' + i)
+        .attr('src', '../../../files/3a1987ec-885f-4ea3-8508-5872700e953c_50x50.jpg')
+      }
+    }
+    //숫자 평점을 별로 변환하도록 호출하는 함수
+    $('.star-prototype2').generateStars();
+    load('#cm-load', '3');
+  })
 }
 
 
 
 
 
-var cardBody1 = $("#cardBody2").html();
+
+/*var cardBody1 = $("#cardBody2").html();
 
 var cardBodyFn = Handlebars.compile(cardBody1);
 
@@ -62,4 +103,4 @@ function load(id, cnt, btn) {
         $('#tr-plus-btn').hide();
     }
     $(eval_list + ":lt(" + eval_total_cnt + ")").addClass("active");
-}
+}*/

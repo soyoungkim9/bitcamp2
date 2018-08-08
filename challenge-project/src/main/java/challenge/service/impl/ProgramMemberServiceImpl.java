@@ -1,5 +1,6 @@
 package challenge.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -99,8 +100,7 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
         int count = 0;
         for (int i = 0; i < program.size(); i++) {
             int programNo = program.get(i).getNo();
-            int a = programMemberDao.reviewCount(programNo);
-            count += a;
+            count += programMemberDao.reviewCount(programNo);
         }
         return count;
     }
@@ -111,11 +111,23 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
         int count = 0;
         for (int i = 0; i < program.size(); i++) {
             int programNo = program.get(i).getNo();
-            int a = programMemberDao.reviewScore(programNo);
-            count += a;
+            count += programMemberDao.reviewScore(programNo);
         }
         return count;
     }
     
-   
+    @Override
+    public List<ProgramMember> trainerReviewList(int uno) {
+        List<Program> program = programDao.selectTrainerProgram(uno);
+        ArrayList<ProgramMember> reviewList = new ArrayList<>();
+        for (int i = 0; i < program.size(); i++) {
+            int programNo = program.get(i).getNo();
+            programMemberDao.reviewList(programNo);
+            for (int x = 0; x < programMemberDao.reviewList(programNo).size(); x++) {
+                ProgramMember prograMember = programMemberDao.reviewList(programNo).get(x);
+                reviewList.add(prograMember);
+            }
+        }
+        return reviewList;
+    }
 }
