@@ -1,6 +1,7 @@
 package challenge.dao;
 
 import java.util.List;
+import java.util.Map;
 
 import challenge.domain.Program;
 
@@ -9,6 +10,8 @@ public interface ProgramDao {
     public int delete(int no);
     public List<Program> selectList();
     public List<Program> selectListCard();
+    public List<Program> selectListWithKeyword(String keyword);
+    public List<Integer> countCardsWithProgramGoal(Map<String, Object> param);
     public List<Program> selectTrainerProgram(int no);
     public int insert(Program program);
     public int update(Program program);

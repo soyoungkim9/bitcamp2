@@ -11,6 +11,7 @@ public interface ProgramService {
     // 업무 용어를 사용하라!
     List<Program> list(int pageNo, int pageSize);
     List<Program> listCard();
+    List<Program> listCardWithKeyword(String keyword);
     List<Program> listProgram(int trainerNo);
     Program get(int no);
     Program getWithMedia(int no);
@@ -19,6 +20,7 @@ public interface ProgramService {
     int delete(int no);
     List<Program> mainList();
     List<Program> priceList();
+    Object countCardsWithProgramGoal(String[] programGoals);
     
     //boolean isMember(String programName, String memberId);
     //int addMember(String programName, String memberId);

@@ -1,8 +1,10 @@
 // 업무로직 구현체 - 고객사 마다 다른 구현을 할 수 있다.
 package challenge.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import org.springframework.stereotype.Service;
 
@@ -38,6 +40,11 @@ public class ProgramServiceImpl implements ProgramService {
     @Override
     public List<Program> listCard() {
         return programDao.selectListCard();
+    }
+    
+    @Override
+    public List<Program> listCardWithKeyword(String keyword) {
+        return programDao.selectListWithKeyword(keyword);
     }
     
     @Override
@@ -85,6 +92,19 @@ public class ProgramServiceImpl implements ProgramService {
     @Override
     public Program get(int no) {
         return programDao.selectOne(no);
+    }
+
+    @Override
+    public List<Integer> countCardsWithProgramGoal(String[] programGoals) {
+        // TODO Auto-generated method stub
+        List<String> proGoals = new ArrayList<String>();
+        for (int i = 0; i < programGoals.length; i++) {
+            proGoals.add(programGoals[i]);
+        }
+        
+        Map<String, Object> param = new HashMap<String, Object>();
+        param.put("programGoals_list", proGoals);
+        return programDao.countCardsWithProgramGoal(param);
     }
 
     
