@@ -16,7 +16,12 @@ div#foo {
 .slider .to:not(:first-child) input,
 
 .slider .max {
-      float: left;
+
+}
+
+#price-input {
+    margin-left: 40px;
+    margin-right: 10px;
 }
 .slider .from label,
 .slider .to label{
@@ -65,15 +70,15 @@ div#foo {
   margin: 4px 0 0 10px;
 }
 .slider.range .ui-slider {
-  background: -webkit-linear-gradient(left, #ccc calc(var(--from) * 1%), #195695 0, #195695 calc(var(--to) * 1%), #ccc 0) !important;
-  background: linear-gradient(to right, #ccc calc(var(--from) * 1%), #195695 0, #195695 calc(var(--to) * 1%), #ccc 0) !important;
+  background: -webkit-linear-gradient(left, #ccc calc(var(--from) * 1%), #1B3453 0, #195695 calc(var(--to) * 1%), #ccc 0) !important;
+  background: linear-gradient(to right, #ccc calc(var(--from) * 1%), #1B3453 0, #195695 calc(var(--to) * 1%), #ccc 0) !important;
 }
 .slider.range.error .ui-slider {
-  background: -webkit-linear-gradient(left, #ccc calc(var(--from) * 1%), #D53636 0, #D53636 calc(var(--to) * 1%), #ccc 0) !important;
-  background: linear-gradient(to right, #ccc calc(var(--from) * 1%), #D53636 0, #D53636 calc(var(--to) * 1%), #ccc 0) !important;
+  background: -webkit-linear-gradient(left, #ccc calc(var(--from) * 1%), #1B3453 0, #D53636 calc(var(--to) * 1%), #ccc 0) !important;
+  background: linear-gradient(to right, #ccc calc(var(--from) * 1%), #1B3453 0, #D53636 calc(var(--to) * 1%), #ccc 0) !important;
 }
 .slider .ui-slider .ui-slider-handle {
-  background: #195695;
+  background: #1B3453;
   border: none;
   margin-top: 2px;
   border-radius: 50%;
