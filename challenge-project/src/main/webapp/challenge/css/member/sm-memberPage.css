@@ -45,11 +45,6 @@ a {
   color: #666666;
 }
 
-
-button:focus, #sm-btn-1:focus, #sm-btn-2:focus,
- #sm-btn-1-small:focus, #sm-btn-2-small:focus {
-  outline: none;
-}
 .sm-btn-1 { /* 남색 버튼 */
   width:100px;
     background-color: #1B3453;
