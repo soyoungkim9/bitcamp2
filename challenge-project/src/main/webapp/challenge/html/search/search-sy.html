@@ -78,12 +78,12 @@
 			<div class="search-cp">
 				<div class="search-title">운동종목</div>
 				<ul>
-					<li class="a"><input type="checkbox" class="cp-base" value="헬스">헬스</li>
-					<li class="a"><input type="checkbox" class="cp-base" value="수영">수영</li>
-					<li class="a"><input type="checkbox" class="cp-base" value="필라테스">필라테스</li>
-					<li class="a"><input type="checkbox" class="cp-base" value="댄스">댄스</li>
-					<li class="a"><input type="checkbox" class="cp-base" value="복싱">복싱</li>
-					<li class="a"><input type="checkbox" class="cp-base" value="기타">기타</li>
+					<li class="a"><label><input type="checkbox" class="cp-base" value="헬스">헬스</label></li>
+					<li class="a"><label><input type="checkbox" class="cp-base" value="수영">수영</label></li>
+					<li class="a"><label><input type="checkbox" class="cp-base" value="필라테스">필라테스</label></li>
+					<li class="a"><label><input type="checkbox" class="cp-base" value="댄스">댄스</label></li>
+					<li class="a"><label><input type="checkbox" class="cp-base" value="복싱">복싱</label></li>
+					<li class="a"><label><input type="checkbox" class="cp-base" value="기타">기타</label></li>
 				</ul>
 				<div class="cp-more">
 					<a><button class="ch-btn">운동종목 더보기 +</button></a>
@@ -146,14 +146,14 @@
 	<footer id="footer"></footer>
 
 
-    <script id="proGoalList" type="text/x-handlebars-template">
+<script id="proGoalList" type="text/x-handlebars-template">
 {{#each list}}
 <li class="challenge-li"><a href="">{{}}</a> <span
                         class="count">({{}})</span></li>
 {{/each}}
 </script>
 
-	<script id="cardBody2" type="text/x-handlebars-template">
+<script id="cardBody2" type="text/x-handlebars-template">
 {{#each list}}
 
 <div class="card" id="card">

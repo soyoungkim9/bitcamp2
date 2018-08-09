@@ -84,3 +84,31 @@ function dday(startDate, i) {
   var dd = document.getElementById("dday-"+i);
   dd.append(interval)
 }
+
+// 운동종목 Search Event
+var checked = new Array;
+$('input:checkbox').on('click', function() {
+	$(this).addClass("checked");
+	if ($('input:checkbox').find(".checked")) {
+		conso
+	}
+	console.log($(this).attr("checked", "checked"));
+	checked.push($(this).val());		
+//	for(var i = 0; i < checked.length; i++) {
+//		if(checked[i] == $(this).val()) {
+//			checked.pop($(this).val());
+//		}
+//	}
+	
+	var pType = checked;
+	$.ajax({
+		url: serverRoot + "/json/program/typeList",
+		data: {"pType": pType}
+	}).done(function(data) {
+		console.log(data);
+	});
+
+});
+
+
+
