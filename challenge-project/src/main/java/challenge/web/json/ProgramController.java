@@ -69,6 +69,16 @@ public class ProgramController {
         return programService.listWithProgramType(pType);
     }
     
+    @RequestMapping("priceList")
+    public Object priceList() {
+        return programService.listWithPrice();
+    }
+    
+    @RequestMapping("dateList")
+    public Object dateList() {
+        return programService.listWithStartDate();
+    }
+    
     @RequestMapping("mainList")
     public Object mainList(
             ) {
