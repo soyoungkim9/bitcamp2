@@ -102,13 +102,17 @@ $.ajax({
 
 
 //검색 function
-var searchEvent = function searchEvent() {
+var searchEvent = function searchEvent(e) {
 	var keyword = $('#keyword').val();
+	
+	// 프로그램 목표 sideMenu 클릭시 검색 이벤트
+	if (e != null) { 
+		keyword = $(e).attr("data-pgoal");
+	}
 
 	$.getJSON(serverRoot + "/json/program/listCardWithKeyword/" + keyword, (data) => {
 		$(aaa).html(cardBodyFn({list:data}));
 	}).done(function(data) {
-		console.log(data);
 
 		var i;
 		for (i = 0; i < data.length; i++) {

@@ -8,7 +8,6 @@ window.onscroll = function() {
 2.sh-contentCol의 padding값(27)만큼 더함
  */
 
-
 var sh_Class_Daily = document.getElementById("sh-Class-Daily");
 var diff = document.getElementById("sh-mainContainer");
 var sticky = (diff.offsetTop + 104);
@@ -37,6 +36,7 @@ function shClassFunction() {
 		divText.html("▲");
 		moreText.css("display","inline");
 	}
+}
 	
 /* 타임라인 글 작성 textarea auto-growing / self-resizing */
 function resizeFunction() {

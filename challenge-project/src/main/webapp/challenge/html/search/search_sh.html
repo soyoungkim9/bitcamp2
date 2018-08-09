@@ -137,7 +137,7 @@
 
 <script id="proGoalList" type="text/x-handlebars-template">
 {{#each list}}
-<li class="challenge-li" onclick=search(this) >{{pgoal}} <span class="count">({{count}})</span></li>
+<li data-pgoal="{{pgoal}}" class="challenge-li" onclick=searchEvent(this) >{{pgoal}} <span class="count">({{count}})</span></li>
 {{/each}}
 </script>
 
