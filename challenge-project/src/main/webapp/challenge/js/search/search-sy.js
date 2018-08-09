@@ -161,10 +161,6 @@ $.getJSON(serverRoot + "/json/program/priceList", (data) => {
 	  };
 
 	});
-	
-	
-	
-		  
 });
 
 // 최신순 Search
@@ -190,12 +186,6 @@ $.getJSON(serverRoot + "/json/program/dateList", (data) => {
 	  };
 
 	});
-	
-	
-	
-	
-		  
-
 });
 
 
