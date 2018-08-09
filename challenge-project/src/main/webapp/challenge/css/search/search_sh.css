@@ -123,9 +123,49 @@ a {
 .search-cp {
     
 }
+.a {
+	height: 35px;
+}
 
+#aStyle {
+	margin-top: 22px;
+}
 .cp-base {
     margin-top: 10px;
+    margin-bottom: 10px;
+    margin-right: 6px;
+}
+.ckName {
+	display: inline-block;
+	margin-left: 10px;
+	position: absolute;
+}
+input[class="cp-base"] + label {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 1px solid #bcbcbc;
+  cursor: pointer;
+  font-size: 10px;
+  text-align: center;
+}
+.checked + label:after {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+  border: 1px solid #bcbcbc;
+  cursor: pointer;
+  content: '\2714';
+  font-size: 10px;
+  text-align: center;
+}
+
+input[class="cp-base"] {
+  display: none;
+}
+
+.checked {
+  display: none;
 }
 
 .cp-more {
@@ -211,6 +251,10 @@ a {
 
 .sm-pagination-button {
     height: 36px;
+}
+
+#priceList, #popularList {
+	cursor: pointer;
 }
 
 /* .search-nav {
