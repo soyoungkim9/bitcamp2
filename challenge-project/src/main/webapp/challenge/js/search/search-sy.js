@@ -133,6 +133,10 @@ $(document.body).on('click', 'input:checkbox', function() {
 		    $(".numberic-"+i+"").html(price)
 		    $(".card-body-local-"+i+"").html(place)
 		  }
+		  
+		  $.fn.generateStars = function() {
+			    return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+			  };
 		
 	});
 
