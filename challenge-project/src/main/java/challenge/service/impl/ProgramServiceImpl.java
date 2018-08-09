@@ -55,6 +55,11 @@ public class ProgramServiceImpl implements ProgramService {
     }
     
     @Override
+    public List<Program> listWithProgramType(String pType) {
+        return programDao.selectListWithProgramType(pType);
+    }
+    
+    @Override
     public List<Program> mainList() {
         return programDao.mainList();
     }

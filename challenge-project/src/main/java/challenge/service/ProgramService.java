@@ -13,6 +13,7 @@ public interface ProgramService {
     List<Program> listCard();
     List<Program> listCardWithKeyword(String keyword);
     List<Program> listProgram(int trainerNo);
+    List<Program> listWithProgramType(String pType);
     Program get(int no);
     Program getWithMedia(int no);
     int add(Program program);
