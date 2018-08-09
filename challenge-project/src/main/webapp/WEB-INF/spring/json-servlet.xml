@@ -18,15 +18,15 @@
     
     <mvc:annotation-driven enable-matrix-variables="true"/>
     
-    <!-- 
+    
     <mvc:interceptors>
         <mvc:interceptor>
-            <mvc:mapping path="/**"/>
+            <mvc:mapping path="/timeline/**"/>
             <mvc:exclude-mapping path="/auth/**"/>
             <bean class="challenge.web.interceptor.AuthCheckInterceptor"/>
         </mvc:interceptor>
     </mvc:interceptors>
-      -->
+     
 </beans>
 
 
