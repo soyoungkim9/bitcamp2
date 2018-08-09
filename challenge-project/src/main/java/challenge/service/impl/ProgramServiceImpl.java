@@ -61,6 +61,17 @@ public class ProgramServiceImpl implements ProgramService {
         return programDao.selectListWithProgramType(param);
     }
     
+    
+    @Override
+    public List<Program> listWithPrice() {
+        return programDao.selectListWithPrice();
+    }
+    
+    @Override
+    public List<Program> listWithStartDate() {
+        return programDao.selectListWithStartDate();
+    }
+    
     @Override
     public List<Program> mainList() {
         return programDao.mainList();
