@@ -2,7 +2,6 @@ package challenge.web.json;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.MatrixVariable;
-import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -11,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.bind.annotation.SessionAttributes;
 
 import challenge.domain.Program;
-import challenge.domain.User;
 import challenge.service.ProgramService;
 
 @RestController
@@ -47,7 +45,7 @@ public class ProgramController {
     }
 
     @RequestMapping("listCard")
-    public Object list(@ModelAttribute User loginUser) {
+    public Object list() {
         return programService.listCard();
     }
     

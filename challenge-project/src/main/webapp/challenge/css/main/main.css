@@ -58,6 +58,48 @@
       color: #303030;
       font-weight: 400;
   }
+
+  .main-card {
+    position: relative;
+    margin: 10px;
+    height: 300px;
+    width: 346px;
+    display: inline-block;
+    float: left;
+    border-radius: 0.66em;
+    overflow: hidden;
+  background: #000000;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+
+}
+
+.main-card:hover img {
+  -webkit-transform: scale(1.15);
+  transform: scale(1.15);
+}
+.main-card * {
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box;
+  -webkit-transition: all 0.45s ease-in-out;
+  transition: all 0.45s ease-in-out;
+}
+
+.main-card img {
+    height: 100%;
+    width: 500px;
+    border-radius: 0.66em;
+}
+
+.main-card .content {
+    position: absolute;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+    color: #f1f1f1;
+    width: 100%;
+    padding: 10px;
+  border-bottom-left-radius: 0.66em;
+    border-bottom-right-radius: 0.66em;
+}
   
   .person {
       border: 10px solid transparent;
@@ -96,10 +138,6 @@
       text-align: center;
   }
 
-  #sh_top_layout {
-      background-color: rgba(56, 235, 184, 0) !important;
-  }
-
   .sm-f-size {
       color: white;
     position: relative;
@@ -119,7 +157,7 @@
   #header {
       position: absolute;
       top: 0px;
-      left: 15%;
+      left: 21.5%;
   }
 
   .parallax {
@@ -328,3 +366,17 @@ padding-top: 10px;
         font-size: 150px;
     }
   }
+  
+  @media screen and ( max-width: 2000px ) {
+    #header {
+      position: absolute;
+      top: 0px;
+      left: 10.2%;
+  }
+  @media screen and ( max-width: 800px ) {
+    #header {
+      position: absolute;
+      top: 0px;
+      left: 0%;
+  }
+}

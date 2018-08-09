@@ -64,6 +64,9 @@
          <div class="ucContet">
           <div class="challengeSelect">
            <select name="subjectSelect" class="selectTab1" id="chalTab"></select>
+           <select name="programSelect" class="reProgram" id="proTab">
+           <option value="">프로그램 재등록</option>
+           </select>
           </div>
          </div>
         </li>
@@ -288,9 +291,14 @@
   </div>
   <!-- back -->
 
-  <script id="proInsert" type="text/x-handlebars-template">
+  <script id="chalInsert" type="text/x-handlebars-template">
 {{#each list}}
 <option id="fchno" value="{{no}}">{{title}}</option>
+{{/each}}
+</script>
+  <script id="proInsert" type="text/x-handlebars-template">
+{{#each list}}
+<option id="fReProName" value="{{name}}">{{title}}</option>
 {{/each}}
 </script>
 
@@ -316,10 +324,11 @@
   <script
    src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
 
+  <script src="../../js/trainer/trainer-template.js"></script>
   <script src="../../js/trainer/dailySchedule.js"></script>
   <script src="../../js/trainer/jquery.number.js"></script>
-  <script src="../../js/trainer/trainer-template.js"></script>
   <script src="../../js/trainer/programUpload.js"></script>
+  <script src="../../js/trainer/programUpload2.js"></script>
   <script src="../../js/footer/footer.js"></script>
 </body>
 
