@@ -8,330 +8,50 @@
 <!-- 아래는 부트스트랩 -->
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet" href="../../css/main/challenge-card.css">
-<link rel="stylesheet"
-	href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
-<script
-	src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-<script
-	src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" href="../../css/main/main.css">
+<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 
 <style type="text/css">
-.main-card {
-	position: relative;
-	margin: 10px;
-	height: 300px;
-	width: 346px;
-	display: inline-block;
-	float: left;
-    border-radius: 0.66em;
-	overflow: hidden;
-  background: #000000;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-
-}
-
-.main-card:hover img {
-  -webkit-transform: scale(1.15);
-  transform: scale(1.15);
-}
-.main-card * {
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box;
-  -webkit-transition: all 0.45s ease-in-out;
-  transition: all 0.45s ease-in-out;
-}
-
-.main-card img {
-	height: 100%;
-	width: 500px;
-    border-radius: 0.66em;
-}
-
-.main-card .content {
-	position: absolute;
-	bottom: 0;
-	background: rgba(0, 0, 0, 0.5);
-	color: #f1f1f1;
-	width: 100%;
-	padding: 10px;
-  border-bottom-left-radius: 0.66em;
-    border-bottom-right-radius: 0.66em;
-}
-
 </style>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar"
-	data-offset="60">
-	<div class="sm-black-top text-center">
+  data-offset="60">
+  <div class="sm-black-top text-center">
 
-		<div id="myCarousel" class="carousel slide" data-ride="carousel">
-			<!-- 동그라미 아이콘 -->
-			<ol class="carousel-indicators">
-				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-				<li data-target="#myCarousel" data-slide-to="1"></li>
+    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+      <!-- 동그라미 아이콘 -->
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        <li data-target="#myCarousel" data-slide-to="1"></li>
 
-			</ol>
+      </ol>
 
-			<!-- 상단 이미지 슬라이드 -->
-			<div class="carousel-inner" role="listbox" style="height: 600px;">
-				<div class="item active">
-					<img src="../../img/main/hong.png" alt="1" style="height: 800px;">
-					<div class="carousel-caption"></div>
-				</div>
-				<div class="item">
-					<img src="../../img/main/hong3.png" alt="3" style="height: 850px;">
-					<div class="carousel-caption"></div>
-				</div>
-			</div>
-		</div>
+      <!-- 상단 이미지 슬라이드 -->
+      <div class="carousel-inner" role="listbox" style="height: 600px;">
+        <div class="item active">
+          <img src="../../img/main/hong.png" alt="1"
+            style="height: 800px;">
+          <div class="carousel-caption"></div>
+        </div>
+        <div class="item">
+          <img src="../../img/main/hong3.png" alt="3"
+            style="height: 850px;">
+          <div class="carousel-caption"></div>
+        </div>
+      </div>
+    </div>
 
-	</div>
-
-
-	<div id="header"></div>
-	<div class="sm-container">
-
-		<!-- 부트스트랩 바디코드 시작 -->
+  </div>
 
 
+  <div class="sm-container">
+  <div id="header"></div>
 
-
-
-
-
-		<!-- 내용 첫번째 부분 시작! -->
-		<div class="container-1200">
-			<div id="about" class="container-fluid text-center">
-				<div class="row">
-                    <h2>새로운 챌린지</h2>
-                    <br>
-					<div id="new-challenge" class="col-sm-12">
-						<!-- <div class="main-card">
-							<img src="../../img/challenge/bodybuilding.jpg" alt="Notebook"
-								style="width: 100%;">
-							<div class="content">
-								<h3>
-									<b>멋쟁이 신사 할아버지</b>
-								</h3>
-								<p>ohora~~</p>
-							</div>
-						</div>
-						<div class="main-card">
-							<img src="../../img/member/user01.jpg" alt="Notebook"
-								style="width: 100%;">
-							<div class="content">
-								<h3>
-									<b>남자 바지핏, 가지고싶지?</b>
-								</h3>
-								<p>cheers</p>
-							</div>
-						</div>
-						<div class="main-card">
-							<img src="../../img/member/user02.jpg" alt="Notebook"
-								style="width: 100%;">
-							<div class="content">
-								<h3>
-									<b>여름, 주인공은 너야너</b>
-								</h3>
-								<p>cheers</p>
-							</div>
-						</div>
-						<div class="main-card">
-							<img src="../../img/challenge/ch2.jpg" alt="Notebook"
-								style="width: 100%;">
-							<div class="content">
-								<h3>
-									<b>비키니몸매 만들기 프로젝트</b>
-								</h3>
-								<p>cheers</p>
-							</div>
-						</div>
-						<div class="main-card">
-							<img src="../../img/member/img1.jpg" alt="Notebook"
-								style="width: 100%;">
-							<div class="content">
-								<h3>
-									<b>여름, 주인공은 너야너</b>
-								</h3>
-								<p>cheers</p>
-							</div>
-						</div>
-						<div class="main-card">
-							<img src="../../img/main/1111.jpg" alt="Notebook"
-								style="width: 100%;">
-							<div class="content">
-								<h3>
-									<b>여름, 주인공은 너야너</b>
-								</h3>
-								<p>cheers</p>
-							</div>
-						</div> -->
-
-
-
-					</div>
-
-				</div>
-			</div>
-		</div>
-
-		<div class="container-fluid bg-grey">
-			<div class="row">
-				<div class="col-sm-4">
-					<span class="glyphicon glyphicon-globe logo slideanim"></span>
-				</div>
-				<div class="col-sm-8">
-					<h2>타임라인에서 다른 사람의 챌린지 소식을 받아보세요!</h2>
-					<br>
-					<h4 style="margin: 0;">
-						<strong>STEP 1</strong> 챌린지 테마를 선택합니다!
-					</h4>
-					<br>
-					<h4 style="margin: 0;">
-						<strong>STEP 2</strong> 도전하고 싶은 종목의 프로그램을 신청합니다!
-					</h4>
-					<br>
-					<h4 style="margin: 0;">
-						<strong>STEP 3</strong> 마이페이지에서 해당 프로그램만의 타임라인을 확인하세요!
-					</h4>
-					<br>
-
-				</div>
-			</div>
-		</div>
-
-		<!-- Container (Services Section) -->
-		<div id="services" class="container-1200 text-center"
-			style="margin-bottom: 30px;">
-			<h2>카테고리</h2>
-			<h4>원하는 종목별로 프로그램을 한 눈에 확인할 수 있습니다.</h4>
-			<br>
-			<div class="row slideanim sm-red-i">
-				<div class="col-sm-4">
-					<i class="fas fa-dumbbell"></i>
-					<h4>헬스</h4>
-				</div>
-				<div class="col-sm-4">
-					<i class="fas fa-swimmer"></i>
-					<h4>수영</h4>
-				</div>
-				<div class="col-sm-4">
-					<i class="fas fa-music"></i>
-					<h4>댄스</h4>
-				</div>
-			</div>
-			<br> <br>
-			<div class="row slideanim sm-red-i">
-				<div class="col-sm-4">
-					<i class="fas fa-child"></i>
-					<h4>태권도</h4>
-				</div>
-				<div class="col-sm-4">
-					<i class="fas fa-basketball-ball"></i>
-					<h4>농구/축구/배구</h4>
-				</div>
-				<div class="col-sm-4">
-					<i class="fas fa-ellipsis-h"></i>
-					<h4 style="color: #303030;">기타</h4>
-				</div>
-			</div>
-		</div>
-
-
-
-		<!-- 뒷 이미지 보기 -->
-
-		<div class="parallax">
-			<div id="sm-back-title">
-				<h1 style="font-weight: 800; font-size: 40px;">
-<!--         지금 바로 챌린지를 시작하시겠습니까? -->
-                  당신의 변신에 지금 바로 도전하세요!
-          </h1>
-				<br>
-				<button id="sm-btn-2" type="button"
-					style="width: 200px; height: 50px; font-size: 15px;">도전하기</button>
-			</div>
-		</div>
-
-		<!-- 뒷 이미지 보기 -->
-
-
-
-
-
-
-		<!-- Container  (Pricing Section) -->
-		<div id="pricing" class="container-fluid" style="margin: 2%;">
-			<div class="text-center">
-				<h2>명예의 전당</h2>
-				<h4 style="margin: 20px 0;">올해 가장 인기있었던 프로그램을 소개합니다!</h4>
-			</div>
-			<div class="row slideanim" id="program-list"
-				style="text-align: center;"></div>
-		</div>
-
-
-		<div class="text-center"
-			style="background-color: black; padding: 5px 0px;">
-			<div class="row text-center sm-f-size sm-white-i">
-				<div class="col-sm-4">
-					<i class="fas fa-burn"></i>
-					<p>현재까지 프로그램</p>
-					<span>722</span>
-				</div>
-				<div class="col-sm-4">
-					<i class="fas fa-walking"></i>
-					<p>참여중인 챌린저</p>
-					<span>1431</span>
-				</div>
-				<div class="col-sm-4">
-					<i class="far fa-address-card"></i>
-					<p>등록된 리뷰</p>
-					<span>2684</span>
-				</div>
-			</div>
-			<br>
-		</div>
-
-		<div id="about" class="container-fluid text-center">
-			<div class="row">
-				<h2 style="align: center;"></h2>
-				<br>
-				<div class="col-sm-5" style="margin-left: 12%">
-					<div style="float: left;">
-						<h2>운동을 가르치고 싶다면,</h2>
-						<p>
-							챌린지 테마에 맞는 나만의 프로그램 생성<br> 체계적인 수익관리<br> 프로 트레이너가 되기 위한
-							디딤돌
-						</p>
-
-						<input type="button" id="sm-btn-1" value="트레이너로 시작하기"
-							style="width: 160px; font-size: 14px;"
-							onclick="location.href='../login/trainerform.html'">
-					</div>
-				</div>
-				<div class="col-sm-5">
-					<div style="float: left; margin: 0px 50px 50px 80px;">
-						<h2>운동을 배우고 싶다면,</h2>
-						<p>
-							나에게 맞는 운동테마로 내가 원하는 몸매 만들기<br> 타임라인으로 다른 챌린저들과 소통하기<br>
-							실시간으로 트레이너에게 내 몸을 관리받기
-						</p>
-						<input type="button" id="sm-btn-1" value="회원으로 시작하기"
-							style="width: 160px; font-size: 14px;"
-							onclick="location.href='../login/member.html'">
-					</div>
-				</div>
-			</div>
-		</div>
-
-
-
-
-		<!-- 부트스트랩 바디코드 끝 -->
+    <!-- 부트스트랩 바디코드 시작 -->
 
 
 
@@ -339,90 +59,189 @@
 
 
 
-	</div>
-	<!-- sm-container -->
+    <!-- 내용 첫번째 부분 시작! -->
+    <div class="container-1200">
+      <div id="about" class="container-fluid text-center">
+        <div class="row">
+          <h2>새로운 챌린지</h2>
+          <br>
+          <div id="new-challenge" class="col-sm-12"></div>
 
-	<footer class="container-fluid text-center">
-		<a href="#myPage" title="To Top"> <span
-			class="glyphicon glyphicon-chevron-up"></span>
-		</a>
-		<p>
-			challenge top <a href="#" title="callenge address">www.challenge.com</a>
-		</p>
-	</footer>
-	<!-- 푸터 시작 -->
-	<div id="footer"></div>
-	<!-- 푸터 종료 -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid bg-grey">
+      <div class="row">
+        <div class="col-sm-4">
+          <span class="glyphicon glyphicon-globe logo slideanim"></span>
+        </div>
+        <div class="col-sm-8">
+          <h2>타임라인에서 다른 사람의 챌린지 소식을 받아보세요!</h2>
+          <br>
+          <h4 style="margin: 0;">
+            <strong>STEP 1</strong> 챌린지 테마를 선택합니다!
+          </h4>
+          <br>
+          <h4 style="margin: 0;">
+            <strong>STEP 2</strong> 도전하고 싶은 종목의 프로그램을 신청합니다!
+          </h4>
+          <br>
+          <h4 style="margin: 0;">
+            <strong>STEP 3</strong> 마이페이지에서 해당 프로그램만의 타임라인을 확인하세요!
+          </h4>
+          <br>
+
+        </div>
+      </div>
+    </div>
+
+    <!-- Container (Services Section) -->
+    <div id="services" class="container-1200 text-center"
+      style="margin-bottom: 30px;">
+      <h2>카테고리</h2>
+      <h4>원하는 종목별로 프로그램을 한 눈에 확인할 수 있습니다.</h4>
+      <br>
+      <div class="row slideanim sm-red-i">
+        <div class="col-sm-4">
+          <i class="fas fa-dumbbell"></i>
+          <h4>헬스</h4>
+        </div>
+        <div class="col-sm-4">
+          <i class="fas fa-swimmer"></i>
+          <h4>수영</h4>
+        </div>
+        <div class="col-sm-4">
+          <i class="fas fa-music"></i>
+          <h4>댄스</h4>
+        </div>
+      </div>
+      <br> <br>
+      <div class="row slideanim sm-red-i">
+        <div class="col-sm-4">
+          <i class="fas fa-child"></i>
+          <h4>태권도</h4>
+        </div>
+        <div class="col-sm-4">
+          <i class="fas fa-basketball-ball"></i>
+          <h4>농구/축구/배구</h4>
+        </div>
+        <div class="col-sm-4">
+          <i class="fas fa-ellipsis-h"></i>
+          <h4 style="color: #303030;">기타</h4>
+        </div>
+      </div>
+    </div>
+
+
+
+    <!-- 뒷 이미지 보기 -->
+
+    <div class="parallax">
+      <div id="sm-back-title">
+        <h1 style="font-weight: 800; font-size: 40px;">
+          <!--         지금 바로 챌린지를 시작하시겠습니까? -->
+          자신을 향한 도전은 삶의 질을 바꿔줍니다
+        </h1>
+        <br>
+        <button id="sm-btn-2" type="button"
+          style="width: 200px; height: 50px; font-size: 15px;">시작하기</button>
+      </div>
+    </div>
+
+    <!-- 뒷 이미지 보기 -->
 
 
 
 
-	<!-- 카카오 지도API
-	<script type="text/javascript"
-		src="//dapi.kakao.com/v2/maps/sdk.js?appkey=952b22a683523a137feaf2c7d49f44e9"></script>
-	<script>
-		var container = document.getElementById('map');
-		var options = {
-			center : new daum.maps.LatLng(33.450701, 126.570667),
-			level : 3
-		};
 
-		var map = new daum.maps.Map(container, options);
-	</script>
-   -->
 
-<!-- 
-	<script>
-		function myMap() {
-			var myCenter = new google.maps.LatLng(41.878114, -87.629798);
-			var mapProp = {
-				center : myCenter,
-				zoom : 12,
-				scrollwheel : false,
-				draggable : false,
-				mapTypeId : google.maps.MapTypeId.ROADMAP
-			};
-			var map = new google.maps.Map(document.getElementById("googleMap"),
-					mapProp);
-			var marker = new google.maps.Marker({
-				position : myCenter
-			});
-			marker.setMap(map);
-		}
-	</script>
- -->
-	<script>
-		$(document).ready(
-				function() {
-					$(".navbar a, footer a[href='#myPage']").on('click',
-							function(event) {
-								if (this.hash !== "") {
-									event.preventDefault();
+    <!-- Container  (Pricing Section) -->
+    <div id="pricing" class="container-fluid" style="margin: 2%;">
+      <div class="text-center">
+        <h2>명예의 전당</h2>
+        <h4 style="margin: 20px 0;">올해 가장 인기있었던 프로그램을 소개합니다!</h4>
+      </div>
+      <div class="row slideanim" id="program-list"
+        style="text-align: center;"></div>
+    </div>
 
-									var hash = this.hash;
 
-									$('html, body').animate({
-										scrollTop : $(hash).offset().top
-									}, 900, function() {
+    <div class="text-center"
+      style="background-color: black; padding: 5px 0px;">
+      <div class="row text-center sm-f-size sm-white-i" style="margin-right:0">
+        <div class="col-sm-4">
+          <i class="fas fa-burn"></i>
+          <p>현재까지 프로그램</p>
+          <span>722</span>
+        </div>
+        <div class="col-sm-4">
+          <i class="fas fa-walking"></i>
+          <p>참여중인 챌린저</p>
+          <span>1431</span>
+        </div>
+        <div class="col-sm-4">
+          <i class="far fa-address-card"></i>
+          <p>등록된 리뷰</p>
+          <span>2684</span>
+        </div>
+      </div>
+      <br>
+    </div>
 
-										window.location.hash = hash;
-									});
-								} // End if
-							});
+    <div id="about" class="container-fluid text-center">
+      <div class="row">
+        <h2 style="align: center;"></h2>
+        <br>
+        <div class="col-sm-5" style="margin-left: 12%">
+          <div style="float: left;">
+            <h2>운동을 가르치고 싶다면,</h2>
+            <p>
+              챌린지 테마에 맞는 나만의 프로그램 생성<br> 체계적인 수익관리<br> 프로
+              트레이너가 되기 위한 디딤돌
+            </p>
 
-					$(window).scroll(function() {
-						$(".slideanim").each(function() {
-							var pos = $(this).offset().top;
+            <input type="button" id="sm-btn-1" value="트레이너로 시작하기"
+              style="width: 160px; font-size: 14px;"
+              onclick="location.href='../login/trainerform.html'">
+          </div>
+        </div>
+        <div class="col-sm-5">
+          <div style="float: left; margin: 0px 50px 50px 80px;">
+            <h2>운동을 배우고 싶다면,</h2>
+            <p>
+              나에게 맞는 운동테마로 내가 원하는 몸매 만들기<br> 타임라인으로 다른 챌린저들과 소통하기<br>
+              실시간으로 트레이너에게 내 몸을 관리받기
+            </p>
+            <input type="button" id="sm-btn-1" value="회원으로 시작하기"
+              style="width: 160px; font-size: 14px;"
+              onclick="location.href='../login/member.html'">
+          </div>
+        </div>
+      </div>
+    </div>
 
-							var winTop = $(window).scrollTop();
-							if (pos < winTop + 600) {
-								$(this).addClass("slide");
-							}
-						});
-					});
-				})
-	</script>
-	<script id="tr-template" type="text/x-handlebars-template">
+    <!-- 부트스트랩 바디코드 끝 -->
+
+  </div>
+  <!-- sm-container -->
+
+  <footer class="container-fluid text-center">
+    <a href="#myPage" title="To Top"> <span
+      class="glyphicon glyphicon-chevron-up"></span>
+    </a>
+    <p>
+      challenge top <a href="#" title="callenge address">www.challenge.com</a>
+    </p>
+  </footer>
+  <div id="footer"></div>
+
+
+  <script>
+
+
+</script>
+  <script id="tr-template" type="text/x-handlebars-template">
 {{#each list}}
       <a href='../challenge/challenge.html'> 
 		<div class="main-card">
@@ -439,7 +258,7 @@
 {{/each}}
 
 	</script>
-	<script id="pr-template" type="text/x-handlebars-template">
+  <script id="pr-template" type="text/x-handlebars-template">
 	{{#each list}}
 
 	<div class="challenge">
@@ -458,17 +277,17 @@
 
 	{{/each}}
 	</script>
-	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
-	<script src="../../js/common.js"></script>
-	<script src="../../js/main/main.js"></script>
-	<script src="../../js/header/header.js"></script>
-	<script src="../../js/footer/footer.js"></script>
-	<!-- 부트스트랩 js 시작 -->
-	<script
-		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-	<script
-		src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-	<!-- 부트스트랩 js 끝 -->
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  <script src="../../js/common.js"></script>
+  <script src="../../js/main/main.js"></script>
+  <script src="../../js/header/header.js"></script>
+  <script src="../../js/footer/footer.js"></script>
+  <!-- 부트스트랩 js 시작 -->
+  <script
+    src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script
+    src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!-- 부트스트랩 js 끝 -->
 </body>
 
 </html>
