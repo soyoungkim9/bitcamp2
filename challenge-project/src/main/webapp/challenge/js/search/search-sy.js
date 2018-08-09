@@ -86,19 +86,30 @@ function dday(startDate, i) {
 }
 
 // 운동종목 Search Event
+// checkbox가 체크되어 있으면 운동항목리스트에 저장
+// 운동항목 리스트에 저장하기 전에 내가 현재 클릭한 항목이
+// 이미 존재 하는지의 여부를 체크한다.
+// 이미 존재한다면 운동항목 리스트에 추가하지 말고
+// 존재하지 않는다면 운동항목 리스트에 추가한다.
+// 그 후에 들어있는 운동항목 리스트를 불러온다.
 var checked = new Array;
-$('input:checkbox').on('click', function() {
-	$(this).addClass("checked");
-	if ($('input:checkbox').find(".checked")) {
-		conso
+$(document.body).on('click', 'input:checkbox', function() {
+	$(this).toggleClass("checked"); // 토글 클래스는 해결
+	if($(this).hasClass('checked')) {
+		checked.push($(this).val());
+		console.log("push");
+	} else {
+		checked.pop($(this).val());
+		console.log("pop");
 	}
-	console.log($(this).attr("checked", "checked"));
-	checked.push($(this).val());		
-//	for(var i = 0; i < checked.length; i++) {
-//		if(checked[i] == $(this).val()) {
-//			checked.pop($(this).val());
-//		}
-//	}
+
+	for(var i = 0; i < checked.length; i++) {
+		for(var j = 0; j < i; j++) {
+			if(checked[i] == checked[j]) {
+				checked.pop($(this).val());
+			}
+		}
+	}
 	
 	var pType = checked;
 	$.ajax({
@@ -106,6 +117,9 @@ $('input:checkbox').on('click', function() {
 		data: {"pType": pType}
 	}).done(function(data) {
 		console.log(data);
+		for(var i = 0; i < da)
+		
+		$('#aaa').html(cardBodyFn({list:data}));
 	});
 
 });
