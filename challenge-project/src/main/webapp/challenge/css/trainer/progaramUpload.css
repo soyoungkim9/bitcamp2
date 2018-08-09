@@ -88,9 +88,19 @@ select {
 	overflow: hidden;
 	width: 600px;
 	display: inline-block;
+	
 }
 
 /* 챌린지 주제, 종목 */
+.reProgram {
+	width: 150px!important;
+	background: #d7d7d7;
+	height: 35px;
+	box-sizing: border-box;
+	float: right;
+}
+
+
 .ucChallenge select, .ucProgram select {
 	width: 200px;
 }

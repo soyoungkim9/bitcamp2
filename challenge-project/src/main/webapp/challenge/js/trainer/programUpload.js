@@ -1,5 +1,5 @@
 //챌린지 가져오기
-var chalBody = $("#proInsert").html();
+var chalBody = $("#chalInsert").html();
 
 var chalBodyFn = Handlebars.compile(chalBody);
 
