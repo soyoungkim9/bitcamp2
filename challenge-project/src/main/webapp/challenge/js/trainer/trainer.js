@@ -1,6 +1,6 @@
 if (location.href.split("?").length > 1) {
   var no = location.href.split("?")[1].split("=")[1];
-  
+
   $.getJSON(serverRoot + "/json/trainer/" + no, function(data) {
     $(fname).append(data.name);
     $('<img/>')
@@ -10,13 +10,15 @@ if (location.href.split("?").length > 1) {
     $(fintroduce).append(data.introduce);
     $(fcareer).append(data.career);
     $(ftime).append(data.time);
+  }).done(function() {
+    console.log('트레이너')
   })
-  
+
   //숫자를 별로 변환
-$.fn.generateStars = function() {
-  return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
-};
-  
+  $.fn.generateStars = function() {
+    return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+  };
+
   $.getJSON(serverRoot + "/json/programMember/trainerReviewCount/" + no, function(data) {
     $(freviewCount).append(data);
     var count = data;
@@ -24,16 +26,12 @@ $.fn.generateStars = function() {
       $('.star-prototype').append(data / count);
     }).done(function() {
       $('.star-prototype').generateStars(); 
+      console.log('평점')
+      
     })
   })
-  
-  
-  var trTemplateSrc3 = $("#commentList").html();
-  var templateFn3 = Handlebars.compile(trTemplateSrc3);
-  $.getJSON(serverRoot + "/json/programMember/trainerReviewList/" + no, function(data) {
-    $('#comment').append(templateFn3({list: data}));
-  })
-  
+
+  loadComment(no);
 }
 
 
@@ -41,66 +39,129 @@ $.fn.generateStars = function() {
 function loadComment(no) {
   var trTemplateSrc3 = $("#commentList").html();
   var templateFn3 = Handlebars.compile(trTemplateSrc3);
-  $.getJSON(serverRoot + "/json/programMember/reviewList/" + no, (data) => {
-    $('#comment1').append(templateFn3({list: data}));
+  $.getJSON(serverRoot + "/json/programMember/trainerReviewList/" + no, (data) => {
+    $('#tr3-ul').append(templateFn3({list: data}));
   }).done(function(data) {
-    // 유저 이미지 널값 보류!
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].user.userPath == "") {
-        $('#cmImg-' + i)
-        .attr('src', '../../../files/3a1987ec-885f-4ea3-8508-5872700e953c_50x50.jpg')
-      }
-    }
     //숫자 평점을 별로 변환하도록 호출하는 함수
     $('.star-prototype2').generateStars();
-    load('#cm-load', '3');
+    load('#tr3-eval', '3');
+    console.log('댓글가져오기')
   })
 }
 
 
-
-
-
-
-/*var cardBody1 = $("#cardBody2").html();
-
-var cardBodyFn = Handlebars.compile(cardBody1);
-
-$.getJSON(serverRoot + "/json/program/listCard", (data) => {
-	$(aaa).html(cardBodyFn({list:data}));
-});
-
-$(document).ready(function() {
-	$("#lista1").als({
-		visible_items: 2,
-		scrolling_items: 1,
-		orientation: "horizontal",
-		circular: "yes",
-		autoscroll: "yes",
-		interval: 5000,
-		speed: 500,
-		easing: "linear",
-		direction: "left",
-		start_from: 0
-	});
-});
-
-$(window).on('load', function () {
-    load('#tr3-eval', '2');
-    $("#tr-plus-btn .button").on("click", function () {
-        load('#tr3-eval', '5', '#tr-plus-btn');
-    })
-});
-
+//댓글 더보기
+$(moreBtn).on("click", function () {
+  load('#tr3-eval', '5', '#tr-plus-btn');
+})
 function load(id, cnt, btn) {
-    var eval_list = id + " .tr3-li:not(.active)";
-    var eval_length = $(eval_list).length;
-    var eval_total_cnt;
-    if (cnt < eval_length) {
-        eval_total_cnt = cnt;
-    } else {
-        eval_total_cnt = eval_length;
-        $('#tr-plus-btn').hide();
+  var comment_list = id + " .tr3-li:not(.active)";
+  var comment_length = $(comment_list).length;
+  var comment_total_cnt;
+  if (cnt < comment_length) {
+    comment_total_cnt = cnt;
+  } else {
+    comment_total_cnt = comment_length;
+    $('#tr-plus-btn').hide();
+  }
+  $(comment_list + ":lt(" + comment_total_cnt + ")").addClass("active");
+}
+
+// 프로그램 가져오기
+var cardBody1 = $("#cardBody1").html();
+var cardBodyFn = Handlebars.compile(cardBody1);
+$.getJSON(serverRoot + "/json/program/listProgram/" + no, (data) => {
+  $(program).html(cardBodyFn({list:data}));
+}).done(function(data) {
+  console.log('프로그램')
+  var i;
+  for (i = 0; i < data.length; i++) {
+    trImg(i); // 트레이너 이미지
+    dday(data[i].startDate, i); //D-day
+    reviewScore(data[i].no, i); //별점,리뷰 개수
+    pmemberCount(data[i].no, i);
+    var price = addComma($(".numberic-"+i+"").html())
+    var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
+    $(".numberic-"+i+"").html(price)
+    $(".card-body-local-"+i+"").html(place)
+  }
+
+  function trImg(i) {
+    $.getJSON(serverRoot + "/json/trainer/" + no, (data) => {
+      $("<img/>").attr('src', '../../../files/'+data.userPath+'_50x50.jpg')
+      .appendTo('.tr-'+i+'').addClass('trainer-img');
+    })
+  }
+
+  $.fn.generateStars = function() {
+    return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+  };
+ 
+});
+
+function als() {
+  $("#lista1").als({
+    visible_items: 2,
+    scrolling_items: 1,
+    orientation: "horizontal",
+    circular: "yes",
+    autoscroll: "yes",
+    interval: 5000,
+    speed: 10000,
+    easing: "linear",
+    direction: "left",
+    start_from: 0
+    });
+    console.log('als')
+}
+
+function pmemberCount(no, i) {
+  $.get(serverRoot + "/json/programMember/pmemberCount/" + no, function(data) {
+    $(".pnum-"+i+"").append(data - 1);
+  })
+}
+
+function reviewScore(no, i) {
+//리뷰 개수 카운트
+  $.get(serverRoot + "/json/programMember/reviewCount/" + no, function(data) {
+    $(".review-"+i+"").append(data);
+    var count = data;
+    // 리뷰  점수
+    $.get(serverRoot + "/json/programMember/reviewScore/" + no, function(data) {
+      var score = data;
+      var cal = (score / count).toFixed(1);
+      if(!(isNaN(cal))) {
+        $('.score-'+i+'').html(cal)
+      }
+    }).done(function(data) {
+      $('.score-'+i+'').generateStars();
+    })
+  })
+}
+
+//금액 콤마
+function addComma(num) {
+  var regexp = /\B(?=(\d{3})+(?!\d))/g;
+  return num.toString().replace(regexp, ',');
+}
+
+//날짜 간격 구하기(D-day)
+function dday(startDate, i) {
+  var now = new Date();
+  var start = new Date(startDate)
+  var interval = now.getTime() - start.getTime();
+  interval = Math.floor(interval / (1000 * 60 * 60 * 24));
+  if (interval == 0) {
+    interval = "-day"
+  } else {
+    var str = Number(interval)
+    if (str) {
+      if (0 < str) {
+        interval = "+" + interval;
+      } 
     }
-    $(eval_list + ":lt(" + eval_total_cnt + ")").addClass("active");
-}*/
+  }
+  var dd = document.getElementById("dday-"+i);
+  dd.append(interval)
+}
+

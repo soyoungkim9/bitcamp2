@@ -28,19 +28,22 @@ function openNav(evt) {
 
 
 function showCmtMenu(e) {
-  var userNoOfComment = $(e).attr("data-userNo");
-  if (userNoOfComment == userInfo.userNo) {
-    $(e).children('.cmt-edit').css("display", "block");
-    $(e).children('.cmt-delete').css("display", "block");
+  if (userInfo != undefined) {
+    var userNoOfComment = $(e).attr("data-userNo");
+    if (userNoOfComment == userInfo.userNo) {
+      $(e).children('.cmt-edit').css("display", "block");
+      $(e).children('.cmt-delete').css("display", "block");
+    }
   }
 }
 
 function hideCmtMenu(e) {
   var userNoOfComment = $(e).attr("data-userNo");
-
-  if (userNoOfComment == userInfo.userNo) {
-    $(e).children('.cmt-edit').css("display", "none");
-    $(e).children('.cmt-delete').css("display", "none");
+  if (userInfo != undefined) {
+    if (userNoOfComment == userInfo.userNo) {
+      $(e).children('.cmt-edit').css("display", "none");
+      $(e).children('.cmt-delete').css("display", "none");
+    }
   }
 }
 

@@ -205,13 +205,6 @@ function loadComment(no) {
   $.getJSON(serverRoot + "/json/programMember/reviewList/" + no, (data) => {
     $('#comment1').append(templateFn3({list: data}));
   }).done(function(data) {
-    // 유저 이미지 널값 보류!
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].user.userPath == "") {
-        $('#cmImg-' + i)
-        .attr('src', '../../../files/3a1987ec-885f-4ea3-8508-5872700e953c_50x50.jpg')
-      }
-    }
     //숫자 평점을 별로 변환하도록 호출하는 함수
     $('.star-prototype2').generateStars();
     load('#cm-load', '3');

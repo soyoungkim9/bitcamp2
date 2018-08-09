@@ -1,6 +1,9 @@
-@charset "UTF-8";
 .container {
   position: relative;
+}
+
+.trBody {
+	min-height: 400px;
 }
 
 .tr1 {
@@ -23,39 +26,13 @@
   border-radius: 50%;
 }
 
-.tr-table {
-  display: inline-block;
-  width: 500px;
-}
-
 .tr-name {
   margin-bottom: 10px;
 }
 
-.tr1-co-left {
-  box-sizing: border-box;
-  padding-top: 60px;
-  float: left;
-  text-align: right;
-  width: 25%;
-  height: 100%;
-}
-
 .tr1-co-center {
   box-sizing: border-box;
-  float: left;
   text-align: center;
-  width: 50%;
-  height: 100%;
-}
-
-.tr1-co-right {
-  box-sizing: border-box;
-  padding-top: 60px;
-  float: left;
-  text-align: left;
-  width: 25%;
-  height: 100%;
 }
 
 .tr1:after {
@@ -123,6 +100,7 @@
   box-sizing: border-box;
   float: right;
   width: 25%;
+  padding-left: 10px;
   border-left: 1px solid #eeeeee;
 }
 
@@ -133,6 +111,7 @@
 .tr3-evaluation {
   width: 100%;
   overflow: hidden;
+  margin-bottom: 70px;
 }
 
 .tr3-left {
@@ -144,6 +123,32 @@
 .tr3-right {
   float: right;
   width: 85%;
+}
+
+.commentImg {
+    border: 1px solid #e6e6e6;
+    box-sizing: border-box;
+    background-color: #e6e6e6;
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    border-radius: 50px;
+    width: 75px;
+    height: 75px;
+    margin: 0;
+    margin-left: 12px;
+    overflow: hidden;
+}
+
+.commentImg img {
+    width: 100%;
+}
+
+.tr3-right div {
+	margin-bottom: 7px; 
+}
+
+#tr-plus-btn {
+	cursor: pointer;
 }
 
 .tr4 {
@@ -227,6 +232,18 @@ span.star-prototype, span.star-prototype > * {
 }
  
 span.star-prototype > * {
+    background-position: 0 0;
+    max-width:80px; 
+}
+
+span.star-prototype2, span.star-prototype2 > * {
+    height: 16px; 
+    background: url(http://i.imgur.com/YsyS5y8.png) 0 -16px repeat-x;
+    width: 80px;
+    display: inline-block;
+}
+ 
+span.star-prototype2 > * {
     background-position: 0 0;
     max-width:80px; 
 }
