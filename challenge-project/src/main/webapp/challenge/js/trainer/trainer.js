@@ -75,6 +75,8 @@ $.getJSON(serverRoot + "/json/program/listProgram/" + no, (data) => {
 }).done(function(data) {
   console.log('프로그램')
   var i;
+  $(fproCount).append(data.length + '개');
+  $(fproType).append(data[0].proType);
   for (i = 0; i < data.length; i++) {
     trImg(i); // 트레이너 이미지
     dday(data[i].startDate, i); //D-day
@@ -164,4 +166,5 @@ function dday(startDate, i) {
   var dd = document.getElementById("dday-"+i);
   dd.append(interval)
 }
+
 

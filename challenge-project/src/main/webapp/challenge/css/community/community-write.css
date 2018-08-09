@@ -214,3 +214,15 @@ main {
 background-color:#495164;
 color:white;
 }
+
+.input-view {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 10px;
+    border-radius:5px;
+    border-style:none;
+    background-color:#495164;
+    color:white;
+    border: 1px solid #d7d5d5;
+    line-height: 180%;
+}

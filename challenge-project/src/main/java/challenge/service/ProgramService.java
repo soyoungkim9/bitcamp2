@@ -4,7 +4,6 @@ package challenge.service;
 import java.util.List;
 
 import challenge.domain.Program;
-import challenge.domain.ProgramMember;
 
 public interface ProgramService {
     // 서비스 컴포넌트에서 메서드명을 지을 때는 
@@ -13,7 +12,7 @@ public interface ProgramService {
     List<Program> listCard();
     List<Program> listCardWithKeyword(String keyword);
     List<Program> listProgram(int trainerNo);
-    List<Program> listWithProgramType(String pType);
+    List<Program> listWithProgramType(String[] pType);
     Program get(int no);
     Program getWithMedia(int no);
     int add(Program program);

@@ -477,7 +477,7 @@ th, td {
 /* 숫자를 별로 변환 */
 span.star-prototype, span.star-prototype > * {
     height: 16px; 
-    background: url(http://i.imgur.com/YsyS5y8.png) 0 -16px repeat-x;
+    background: url(../../img/program/star.png) 0 -16px repeat-x;
     width: 80px;
     display: inline-block;
 }
@@ -490,7 +490,7 @@ span.star-prototype > * {
 
 span.star-prototype2, span.star-prototype2 > * {
     height: 16px; 
-    background: url(http://i.imgur.com/YsyS5y8.png) 0 -16px repeat-x;
+    background: url(../../img/program/star.png) 0 -16px repeat-x;
     width: 80px;
     display: inline-block;
 }
@@ -502,7 +502,7 @@ span.star-prototype2 > * {
 
 span.star-prototype3, span.star-prototype3 > * {
     height: 16px; 
-    background: url(http://i.imgur.com/YsyS5y8.png) 0 -16px repeat-x;
+    background: url(../../img/program/star.png) 0 -16px repeat-x;
     width: 80px;
     display: inline-block;
 }

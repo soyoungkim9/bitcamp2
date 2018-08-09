@@ -32,26 +32,21 @@
       <button id="myBtn" class="sm-fw-btn" style="margin-top: 10px; 
       margin-bottom: 20px;">나의  팔로잉</button>
 		</div>
-    <!-- ************* 이부분만 템플릿에서 다르니까 이것만 짤라서 쓰면된다!!!! ********************************************* -->
-          <a class="sm-a-none" href="member-history.html">
+          <a class="sm-a-none" href="#" onclick=" location.href = 'member-history.html?no=' + userInfo.userNo; return false;">
             <div class="sm-menu" style="border-left: none;">
               <i class="fas fa-history"></i><br>히스토리
             </div>
-          </a><a class="sm-a-none" href="memberReportList.html">
-            <div class="sm-menu" style="border-bottom: none;">
-              <i class="far fa-credit-card"></i><br>운동계획
+          </a> <a class="sm-a-none" href="memberReportList.html">
+            <div class="sm-menu">
+              <i class="fas fa-file-alt"></i><br>운동계획
             </div>
-          </a><a class="sm-a-none" href="trainerReportList.html">
-            <div class="sm-menu" style="border-left: none">
-              <i class="fas fa-edit"></i><br>운동일지
+          </a> <a class="sm-a-none" href="trainerReportList.html">
+            <div class="sm-menu" style="border-left: none;">
+              <i class="fas fa-edit"></i><br>운동일지 관리
             </div>
           </a> <a class="sm-a-none" href="programList.html">
-            <div class="sm-menu" style="border-bottom: 1px solid gray;">
-              <i class="fas fa-file-alt"></i><br>진행중인 운동
-            </div>
-          </a> <a class="sm-a-none" href="member-h-pay.html">
-            <div class="sm-menu" style="border-left: none; border-right: 1px solid gray;">
-              <i class="far fa-credit-card"></i><br>구매내역
+            <div class="sm-menu" style="border-bottom: none;">
+              <i class="fas fa-child"></i><br>나의 운동
             </div>
           </a>
 	</div><!-- .profile -->

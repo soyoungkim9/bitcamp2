@@ -55,8 +55,10 @@ public class ProgramServiceImpl implements ProgramService {
     }
     
     @Override
-    public List<Program> listWithProgramType(String pType) {
-        return programDao.selectListWithProgramType(pType);
+    public List<Program> listWithProgramType(String[] pType) {
+        Map<String, Object> param = new HashMap<String, Object>();
+        param.put("programTypeList", pType);
+        return programDao.selectListWithProgramType(param);
     }
     
     @Override
