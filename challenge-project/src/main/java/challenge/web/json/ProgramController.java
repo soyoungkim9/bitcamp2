@@ -53,7 +53,6 @@ public class ProgramController {
     
     @RequestMapping("listCardWithKeyword/{keyword}")
     public Object list(@PathVariable String keyword) {
-        System.out.println(keyword);
         return programService.listCardWithKeyword(keyword);
     }
     
@@ -70,7 +69,6 @@ public class ProgramController {
     @RequestMapping("mainList")
     public Object mainList(
             ) {
-        System.out.println("mainList 실행");
         return programService.mainList();
     }
     

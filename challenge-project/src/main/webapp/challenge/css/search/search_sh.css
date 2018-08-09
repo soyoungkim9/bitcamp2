@@ -32,6 +32,7 @@ a {
 .challenge-li {
 	padding: 7px 0;
 	border-bottom: 1px solid #eeeeee;
+	cursor: pointer;
 }
 .challenge-li > a {
 	color: black;

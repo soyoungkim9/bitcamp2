@@ -86,31 +86,30 @@ function dday(startDate, i) {
 }
 
 
-// 프로그램 목표 count
+//프로그램 목표 count
 var programGoalsList = $("#proGoalList").html();
 var programGoalsListFn = Handlebars.compile(programGoalsList);
 
-var programGoals = ['체중', '근력', '체지방', '출석'];
+//사전 순서로 배치해야 한다.
+var programGoals = ['근력', '체중', '체지방', '출석'];
 $.ajax({
 	url: serverRoot + "/json/program/countCardsWithProgramGoal",
 	data: {"programGoals": programGoals}
 }).done(function(data) {
-	console.log(data)
 	$('#programGoal-sideMenu').html(programGoalsListFn({list:data}));
 });
-	
 
 
-// 검색 function
+
+//검색 function
 var searchEvent = function searchEvent() {
 	var keyword = $('#keyword').val();
-	console.log("키워드는 : " + keyword);
-	
+
 	$.getJSON(serverRoot + "/json/program/listCardWithKeyword/" + keyword, (data) => {
 		$(aaa).html(cardBodyFn({list:data}));
 	}).done(function(data) {
 		console.log(data);
-		
+
 		var i;
 		for (i = 0; i < data.length; i++) {
 			dday(data[i].startDate, i); //D-day
@@ -122,23 +121,23 @@ var searchEvent = function searchEvent() {
 			$(".numberic-"+i+"").html(price)
 			$(".card-body-local-"+i+"").html(place)
 		}
-		
+
 		$.fn.generateStars = function() {
 			return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
 		};
 	})
 }
 
-// enter 쳤을 시 searchEvent()
+//enter 쳤을 시 searchEvent()
 $('#keyword').keypress(function(event) {
 	if(event.keyCode ===13) {
 		event.preventDefault();
 		searchEvent();
-		
+
 	}
 })
 
-//  button 클릭시 searchEvent()
+//button 클릭시 searchEvent()
 $('#keyword-search-button').click(function() {
 	searchEvent();
 });
