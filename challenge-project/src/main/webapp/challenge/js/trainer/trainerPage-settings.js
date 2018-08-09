@@ -2,12 +2,12 @@
 $("#upload-btn").click(function (data) { 
 	updateUserInfo(data); 
 	}); 
+//회원정보 읽어오기
 $.ajax({
 	type: 'GET',
 	async: false,
 	traditional : true,
 	url: serverRoot + '/json/user/list' ,
-	data:userInfo,
 }).done(function() {
 	
 	$('#email').val(userInfo.email);
@@ -16,7 +16,7 @@ $.ajax({
 
 });
 
-
+ 
 
 
 "use strict"

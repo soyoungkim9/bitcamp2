@@ -7,11 +7,13 @@
 
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet" href="../../css/pagination.css">
-<link rel="stylesheet" href="../../css/search/jh-search.css">
+<link rel="stylesheet" href="../../css/search/search.css">
 <link rel="stylesheet" href="../../css/program/card1.css">
 <link rel="stylesheet"
 	href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
-<link rel="stylesheet" href="../../css/search/jh-multirange.css">
+<link rel="stylesheet" href="../../css/search/rangeSlider.css">
+<link rel="stylesheet"
+	href="https://code.jquery.com/ui/1.12.0/themes/smoothness/jquery-ui.css">
 
 </head>
 
@@ -25,59 +27,51 @@
 
 			<div class="search-program">
 				<div class="search-title">검색</div>
-				<form class="form-wrapper cf">
-					<input type="text" name="search" placeholder="검색어를 입력하세요" required>
-					<button type="submit">검색</button>
-				</form>
+                <form class="form-wrapper cf">
+                    <input id="keyword" type="text" name="search" placeholder="검색어를 입력하세요" autocomplete=off>
+                    <button id="keyword-search-button" type="button">검색</button>
+                </form>
 			</div>
 
 
 			<div class="search-challenge">
 				<div class="search-title">프로그램 목표</div>
-				<ul class="challenge-ul">
-					<li class="challenge-li"><a href="">근력강화</a> <span
-						class="count">(3)</span></li>
-					<li class="challenge-li"><a href="">다이어트</a> <span
-						class="count">(3)</span></li>
-					<li class="challenge-li"><a href="">지구력강화</a> <span
-						class="count">(3)</span></li>
-					<li class="challenge-li"><a href="">유연성증진</a> <span
-						class="count">(3)</span></li>
-					<li class="challenge-li"><a href="">체형교정</a> <span
-						class="count">(3)</span></li>
-					<li class="challenge-li"><a href="">노인건강</a> <span
-						class="count">(3)</span></li>
-				</ul>
+				<ul id="programGoal-sideMenu" class="challenge-ul">
+                  
+                </ul>
 				<div class="challenge-more">
 					<button class="ch-btn">챌린지 더보기 +</button>
 				</div>
 			</div>
 
-			<div class="search-price">
-				<div class="search-title">가격필터</div>
-				    <div data-role="rangeslider">
-	                    <label for="range-1a">가격</label>
-				        <label for="range-1b">가격</label>
-				        <input type="range" name="range-1a" id="range-1a" min="0" max="95000" value="0" data-popup-enabled="true" data-show-value="true">
-				        <input type="range" name="range-1b" id="range-1b" min="0" max="100000" value="10000" data-popup-enabled="true" data-show-value="true">
-                    </div>
-				<!-- <div>
-					<input type="range" multiple value="0,100" />
-				</div>
-				<div class="price-label">
-					<span class="from">30,000원</span>-<span class="to">100,000원</span>
-				</div> -->
-				<button class="ch-btn">Filter</button>
-				<!-- <input type="range" min="1" max="300,000" value="0" step="1"> -->
-			</div>
+			
+				
+
+				
+			
 
 			<div class="search-price2">
-				<div class="search-title">가격</div>
-				<div class="price-label">
-					<input type="text" id="price-min"class="price-min"> ~ <input type="text"
-						id="price-max" class="price-max">
+			 <div class="search-title">가격필터</div>
+				<div id="foo" class="slider range" data-range-limit="3">
+
+					<div class="ui"></div>
+					<div class="labels">
+						<label class="min"> 0 </label> 
+						<label class="max"> 100000 </label>
+					</div>
+					<div class="labels">
+						<div class="from">
+							<label for="from_id"> </label> <input type="text" id="from_id" />
+						</div>
+						<div class="to">
+							<label for="to_id"> <span>~</span>
+							</label> <input type="text" id="to_id" />
+						</div>
+					</div>
 				</div>
-				<button id="priceSearch"class="ch-btn">가격적용</button>
+
+
+				<button id="priceSearch" class="ch-btn">가격적용</button>
 				<!-- <input type="range" min="1" max="300,000" value="0" step="1"> -->
 			</div>
 
@@ -120,18 +114,6 @@
 
 			<div class="search-flex">
 				<div class="search-row" id="aaa"></div>
-
-				<!-- <div class="search-nav">
-            <nav aria-label="Page navigation">
-              <ul class="pagination">
-                <li class="page-item"><a class="page-link" href="#">Previous</a></li>
-                <li class="page-item"><a class="page-link" href="#">1</a></li>
-                <li class="page-item"><a class="page-link" href="#">2</a></li>
-                <li class="page-item"><a class="page-link" href="#">3</a></li>
-                <li class="page-item"><a class="page-link" href="#">Next</a></li>
-              </ul>
-            </nav>
-          </div> -->
 			</div>
 			<div class="sm-pagination">
 				<a class="sm-pagination-button sm-pagination-side" href="#"><i
@@ -152,10 +134,9 @@
 	<footer id="footer"></footer>
 
 
-    <script id="proGoalList" type="text/x-handlebars-template">
+	<script id="proGoalList" type="text/x-handlebars-template">
 {{#each list}}
-<li class="challenge-li"><a href="">{{}}</a> <span
-                        class="count">({{}})</span></li>
+<li data-pgoal="{{pgoal}}" class="challenge-li" onclick=searchEvent(this) >{{pgoal}} <span class="count">({{count}})</span></li>
 {{/each}}
 </script>
 
@@ -192,54 +173,16 @@
 
 {{/each}}
 </script>
-
 	<script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 	<script src="../../node_modules/jquery/dist/jquery.min.js"></script>
 	<script src="../../js/common.js"></script>
 	<script src="../../js/search/jh-search.js"></script>
 	<script src="../../js/header/header.js"></script>
 	<script src="../../js/footer/footer.js"></script>
-	<script src="../../js/search/jh-multirange.js"></script>
-<script>
-
-$('#priceSearch').click(() => {
-    console.log($('#price-min').val());
-    console.log($('#price-max').val());
-    $.ajax({
-        dataType : 'json',
-        type: 'POST',
-        async: false,
-        traditional : true,
-        url: serverRoot + '/json/program/pList',
-        data: {
-            minPrice : $('#price-min').val(),
-            maxPrice : $('#price-max').val()
-        }
-    }).done(function(data){
-    	$(aaa).html(cardBodyFn({list:data}));
-            }).done(function(data) {
-              
-              var i;
-              for (i = 0; i < data.length; i++) {
-                dday(data[i].startDate, i); //D-day
-                reviewScore(data[i].no, i); //별점,리뷰 개수
-                trImg(data[i].trainerNo, i);
-                pmemberCount(data[i].no, i);
-                var price = addComma($(".numberic-"+i+"").html())
-                var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
-                $(".numberic-"+i+"").html(price)
-                $(".card-body-local-"+i+"").html(place)
-              }
-
-              $.fn.generateStars = function() {
-                return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
-              };
-
-            });
-    });
-    
-
-</script>
+	<script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
+	<script src="../../js/search/rangeSlider.js"></script>
 </body>
 
 </html>
