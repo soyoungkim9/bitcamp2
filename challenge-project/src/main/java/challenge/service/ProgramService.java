@@ -10,6 +10,7 @@ public interface ProgramService {
     // 업무 용어를 사용하라!
     List<Program> list(int pageNo, int pageSize);
     List<Program> listCard();
+    List<Program> selectListChallenge(int cno);
     List<Program> listCardWithKeyword(String keyword);
     List<Program> listWithPrice();
     List<Program> listWithStartDate();

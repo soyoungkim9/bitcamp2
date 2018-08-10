@@ -45,6 +45,11 @@ public class ProgramServiceImpl implements ProgramService {
     }
     
     @Override
+    public List<Program> selectListChallenge(int cno) {
+        return programDao.selectListChallenge(cno);
+    }
+    
+    @Override
     public List<Program> listCardWithKeyword(String keyword) {
         return programDao.selectListWithKeyword(keyword);
     }

@@ -27,14 +27,6 @@ public class ChallengeServiceImpl implements ChallengeService {
         
         return challengeDao.selectList();
     }
-    @Override
-    public List<Challenge> mainList() {
-//        HashMap<String,Object> params = new HashMap<>();
-//        params.put("startRowNo", (pageNo - 1) * pageSize);
-//        params.put("pageSize", pageSize);
-        
-        return challengeDao.mainList();
-    }
     
     @Override
     public int delete(int no) {

@@ -1,6 +1,7 @@
 package challenge.service.impl;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 import org.springframework.stereotype.Service;
@@ -40,6 +41,15 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
         //        params.put("pageSize", pageSize);
 
         return programMemberDao.selectList(trnNo);
+    }
+    
+    @Override
+    public List<ProgramMember> listWithSearch(int pno, int trnNo, String uName) {
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("pno", pno);
+        params.put("trnNo", trnNo);
+        params.put("uName", uName);
+        return programMemberDao.searchList(params);
     }
 
     @Override
