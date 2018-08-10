@@ -5,7 +5,7 @@
     	  var min, max;
 
     	  $input.keyup(_.debounce(function(e) {
-    	    $(e.target).change();
+    	    $(e.target).change(); 
     	  }, 100));
 
     	  // update event for case when user need to change the values from R - he call js code that
