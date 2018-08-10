@@ -183,7 +183,17 @@
 {{/each}}
 </script>
 	<script>
-    $("#writeBtn").click(() => { location.href="community-write.html"});
+    $("#writeBtn").click(() => {
+            if (userInfo == null) {
+            	alert("로그인후 등록해 주세요");
+                location.href = "../login/login.html";
+            } else { location.href="community-write.html";}
+    });
+    /* if (data == null) {
+        location.href = "../login/login.html";
+    } else
+    { location.href="community-write.html";}
+    ); */
     </script>
 	<script src="../../js/header/header.js"></script>
 	<script src="../../js/footer/footer.js"></script>

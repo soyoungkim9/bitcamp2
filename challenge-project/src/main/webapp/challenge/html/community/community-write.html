@@ -170,55 +170,29 @@
 <script>
 
 $("#addBtn").click(() => { 
-	
-	/*  var data = {
-	            email : $("#fId").val(),
-	            password: $("#fPassword").val()
-	        };
-	        
-	        }
-	        $.post("../../../json/auth/login", data, (result) => {
-	            if (result.state == "success")
-	                location.href = "../main/main.html";
-	            else 
-	                window.alert("로그인 실패!");
-	        }, "json");
-	    }); */
-	    console.log(userInfo);
 	    var z = document.insertForm;
 	    /* var select_name = $('#CMU_TYPE option'); */
-	var xhr = new window.XMLHttpRequest();    
-	var request = $.ajax({
+	 $.ajax({
 	    type: 'POST',
         url: '../../../json/community/add',
 	    async : false,
         data:{
-            type: $("#CMU_TYPE option:selected").val(),
+            type: $(CMU_TYPE).val(),
             title: $(fTitle).val(),
             /* type: $(CMU_TYPE).val(), */
             content:$(fContent).val(),
             "user.userNo":userInfo.userNo
-        },
-        success:function(data){
-        if ($("#CMU_TYPE option:selected").val() == ""){
-        	    alert("말머리 선택");
-        	    z.category.focus();
-        	    return false;
-        	   }
-        }
-        	/* if(Trim(z.category.value == "")){
-        	    alert("말머리를 선택해 주세요.");
-        	    z.category.focus();
-        	    return false;
-            } else {
-            	location.href = "community-list.html";
-            } */
-	});
-        xhr.abort();
-});
-            	
-         
+        }})
+        .done(() => {
+            alert("회원 등록 완료!");
+        })
+        .fail(() => {
+            alert("회원 등록 실패!")
+        });
+    });
 console.log("hey");
+
+
 
 </script>
 </body>
