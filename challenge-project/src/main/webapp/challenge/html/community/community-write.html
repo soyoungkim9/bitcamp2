@@ -169,27 +169,34 @@
 <script src="../../js/footer/footer.js"></script>
 <script>
 
-$("#addBtn").click(() => { 
-	    var z = document.insertForm;
-	    /* var select_name = $('#CMU_TYPE option'); */
-	 $.ajax({
-	    type: 'POST',
-        url: '../../../json/community/add',
-	    async : false,
-        data:{
-            type: $(CMU_TYPE).val(),
-            title: $(fTitle).val(),
-            /* type: $(CMU_TYPE).val(), */
-            content:$(fContent).val(),
-            "user.userNo":userInfo.userNo
-        }})
-        .done(() => {
-            alert("회원 등록 완료!");
-        })
-        .fail(() => {
-            alert("회원 등록 실패!")
-        });
-    });
+$("#addBtn").click(() => {    
+	 var data = {
+		            type: $("#CMU_TYPE option:selected").val(),
+		            title: $(fTitle).val(),
+		            /* type: $(CMU_TYPE).val(), */
+		            content:$(fContent).val(),
+		            "user.userNo":userInfo.userNo
+	        };
+	        
+	        $.post("../../../json/community/add", data, (result) => {
+	            if (result.state == "success")
+	                location.href = "../main/main.html";
+	            else 
+	                window.alert("로그인 실패!");
+	        }, "json");
+	    });
+
+/*         success : function(data) {
+        	  if(data.type == null || data.type == '' ){
+        		  ajaxStop(data);
+        		  location.href = "community-list.html";
+        	  }
+        	  else {
+        		  alert("머리말을 선택해 주세요.");
+        		  
+        	  }
+        	
+        } */
 console.log("hey");
 
 
