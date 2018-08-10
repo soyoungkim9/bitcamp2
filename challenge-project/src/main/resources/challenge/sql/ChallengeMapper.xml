@@ -30,13 +30,6 @@
     select chno, chtitl, chcont, chpath
     from CHAL
   </select>
-  <select id="mainList" 
-          resultMap="ChallengeMap" 
-          parameterType="map">
-          select * from CHAL
-          limit 0,2
-    
-  </select>
   
   <insert id="insert" parameterType="Challenge"
           useGeneratedKeys="true" keyColumn="chno" keyProperty="no">

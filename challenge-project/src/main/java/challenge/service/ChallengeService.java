@@ -13,5 +13,4 @@ public interface ChallengeService {
     int add(Challenge challenge);
     int update(Challenge challenge);
     int delete(int no);
-    List<Challenge> mainList();
 }
