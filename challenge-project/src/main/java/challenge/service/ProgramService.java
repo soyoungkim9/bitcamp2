@@ -11,6 +11,8 @@ public interface ProgramService {
     List<Program> list(int pageNo, int pageSize);
     List<Program> listCard();
     List<Program> listCardWithKeyword(String keyword);
+    List<Program> listWithPrice();
+    List<Program> listWithStartDate();
     List<Program> listProgram(int trainerNo);
     List<Program> listWithProgramType(String[] pType);
     Program get(int no);

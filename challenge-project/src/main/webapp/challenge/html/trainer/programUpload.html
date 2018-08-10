@@ -59,6 +59,15 @@
      <div id="sm-tab1" class="sm-tabcontent sm-current">
       <div class="uploadContent">
        <ul>
+       <li class="ucChallenge" id="reProgram">
+         <div class="contentName">프로그램 재등록</div>
+         <div class="ucContet">
+          <div class="challengeSelect">
+           <select name="programSelect" class="reProgram" id="proTab">
+           </select>
+          </div>
+         </div>
+        </li>
         <li class="ucChallenge" id="notPadding">
          <div class="contentName">챌린지 주제</div>
          <div class="ucContet">
@@ -83,12 +92,12 @@
           <div class="programTurnName">
            <h5>기수</h5>
            <div class="programTurnBox">
-            <input id="fth" type="number" min="1" max="999">
+            <input id="fth" type="number" min="1" max="999" value="1" readOnly>
            </div>
           </div>
           <div class="challengeProgram">
            <h5>이름</h5>
-           <input id="fname" type="text"
+           <input id="fname" type="text" 
             placeholder="프로그램 이름을 20자 이내로 입력해 주세요.">
           </div>
          </div>
@@ -288,9 +297,14 @@
   </div>
   <!-- back -->
 
-  <script id="proInsert" type="text/x-handlebars-template">
+  <script id="chalInsert" type="text/x-handlebars-template">
 {{#each list}}
 <option id="fchno" value="{{no}}">{{title}}</option>
+{{/each}}
+</script>
+  <script id="proInsert" type="text/x-handlebars-template">
+{{#each list}}
+<option id="fReProName" value="{{no}}">{{name}} [{{proTh}}기]</option>
 {{/each}}
 </script>
 
@@ -316,10 +330,12 @@
   <script
    src="../../node_modules/blueimp-file-upload/js/jquery.fileupload-image.js"></script>
 
+  <script src="../../js/header/header.js"></script>
+  <script src="../../js/trainer/trainer-template.js"></script>
   <script src="../../js/trainer/dailySchedule.js"></script>
   <script src="../../js/trainer/jquery.number.js"></script>
-  <script src="../../js/trainer/trainer-template.js"></script>
   <script src="../../js/trainer/programUpload.js"></script>
+  <script src="../../js/trainer/programUpload2.js"></script>
   <script src="../../js/footer/footer.js"></script>
 </body>
 

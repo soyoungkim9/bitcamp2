@@ -1,5 +1,5 @@
 //챌린지 가져오기
-var chalBody = $("#proInsert").html();
+var chalBody = $("#chalInsert").html();
 
 var chalBodyFn = Handlebars.compile(chalBody);
 
@@ -20,16 +20,16 @@ document.getElementById("next3").onclick = function() {
   openCity(event, 'sm-tab3')
 }
 document.getElementById("next4").onclick = function() {
-  openCity(event, 'sm-tab2')
+  openCity2('next2','sm-tab2')
 }
 document.getElementById("next5").onclick = function() {
-  openCity(event, 'sm-tab1')
+  openCity2('next1','sm-tab1')
 }
 document.getElementById("next6").onclick = function() {
-  openCity(event, 'sm-tab3')
+  openCity2('next3','sm-tab3')
 }
 document.getElementById("next7").onclick = function() {
-  openCity(event, 'sm-tab2')
+  openCity2('next2','sm-tab2')
 }
 
 function openCity(evt, cityName) {
@@ -46,6 +46,19 @@ function openCity(evt, cityName) {
   evt.currentTarget.className += " active";
 }
 
+function openCity2(city,cityName) {
+  var i, tabcontent, tablinks;
+  tabcontent = document.getElementsByClassName("sm-tabcontent");
+  for (i = 0; i < tabcontent.length; i++) {
+    tabcontent[i].style.display = "none";
+  }
+  tablinks = document.getElementsByClassName("sm-tablinks");
+  for (i = 0; i < tablinks.length; i++) {
+    tablinks[i].className = tablinks[i].className.replace(" active", "");
+  }
+  document.getElementById(cityName).style.display = "block";
+  document.getElementById(city).className += " active";
+}
 
 
 //주소검색

@@ -92,8 +92,9 @@
   </select>
 
   <!-- 운동 종목 search -->
-  <select id="selectListWithProgramType" resultType="java.util.HashMap" parameterType="java.util.HashMap">
-  	select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno,
+  <select id="selectListWithProgramType" resultMap="ProgramMap"
+  		resultType="java.util.HashMap" parameterType="java.util.HashMap">
+  	select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.minqty, p.maxqty, p.sdt, p.trnno,
            m.pmedno, m.ppath, m.pmtype
     from PMED m
          right outer join PROG p on m.pno=p.pno
@@ -102,6 +103,26 @@
     <foreach collection="programTypeList" item="item" index="index" separator="," open="(" close=")">
             #{item}
     </foreach>
+  </select>
+  
+    <!-- 가격순 search -->
+  <select id="selectListWithPrice" resultMap="ProgramMap">
+  	select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.minqty, p.maxqty, p.sdt, p.trnno,
+           m.pmedno, m.ppath, m.pmtype
+    from PMED m
+         right outer join PROG p on m.pno=p.pno
+         left outer join TRN t on p.trnno=t.trnno
+    order by p.pprice asc
+  </select>
+  
+    <!-- 최신순 search -->
+  <select id="selectListWithStartDate" resultMap="ProgramMap">
+  	select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.minqty, p.maxqty, p.sdt, p.trnno,
+           m.pmedno, m.ppath, m.pmtype
+    from PMED m
+         right outer join PROG p on m.pno=p.pno
+         left outer join TRN t on p.trnno=t.trnno
+    order by p.sdt asc
   </select>
   
   <select id="selectTrainerProgram"
