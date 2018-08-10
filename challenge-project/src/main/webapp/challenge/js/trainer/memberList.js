@@ -286,3 +286,26 @@ $(document.body).on('click','.trSelect', function(event){
 		});
 	});
 });
+
+// 회원명으로 검색
+var uName;
+$(document.body).on('click','#searchButton', function(event){
+	console.log("클릭했다");
+	uName = $('#userName').val();
+	console.log(programNum);
+	console.log(userInfo.userNo);
+	console.log(uName);
+	
+	$.ajax(serverRoot + "/json/programMember/sList/" + programNum + "/" 
+			+ userInfo.userNo + "/" + uName, {
+		dataType: "json",	
+	    success(data) {
+			 $('#memberList').html(membTemplateFn({
+				 list:data}));
+	    },
+	    error() {
+	        window.alert("프로그램 등록 후 이용해 주세요!");
+	    }	
+	});
+});
+
