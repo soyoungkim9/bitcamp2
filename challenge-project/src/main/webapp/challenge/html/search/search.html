@@ -159,15 +159,14 @@
 {{/each}}
 </script>
 
-    <script id="cardBody2" type="text/x-handlebars-template">
+ <script id="cardBody2" type="text/x-handlebars-template">
 {{#each list}}
-
 <div class="card" id="card">
     <a href="../program/DetailPage.html?no={{no}}">
     <!-- 카드 헤더 -->
     <div class="card-header">
       <!--<img class="card-img" src="../../../files/{{medias.[0].path}}_200x200.jpg"/>-->
-      <div class="ribbon"><span>성공 %</span></div>
+      <div id="card-{{@key}}" class="ribbon"></div>
       <div class="card-trainer tr-{{@key}}">
       </div>
     </div>
@@ -191,6 +190,7 @@
 
 {{/each}}
 </script>
+
     <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
     <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../js/common.js"></script>

@@ -61,6 +61,10 @@ a {
     margin-bottom: 35px;
 }
 
+.ribbon {
+   display: none;
+}
+
 .challenge-ul {
     display: block;
 }

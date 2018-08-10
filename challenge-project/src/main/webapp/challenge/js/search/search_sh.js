@@ -11,6 +11,7 @@ $.getJSON(serverRoot + "/json/program/listCard", (data) => {
   for (i = 0; i < data.length; i++) {
     dday(data[i].startDate, i); //D-day
     reviewScore(data[i].no, i); //별점,리뷰 개수
+    countScore(data[i].no, i);
     trImg(data[i].trainerNo, i);
     pmemberCount(data[i].no, i);
     var price = addComma($(".numberic-"+i+"").html())
@@ -94,6 +95,30 @@ function reviewScore(no, i) {
     })
   })
   
+}
+
+//별점 점수 계산
+function countScore(no, i) {
+   var score;
+   var cal;
+   $.get(serverRoot + "/json/programMember/reviewCount/" + no, function(data) {
+      var count = data;
+      // 리뷰  점수
+      $.get(serverRoot + "/json/programMember/reviewScore/" + no, function(data) {
+         score = data;
+         cal = (score / count).toFixed(1);
+      }).done(function(data) {
+         if (cal >= 4) {
+            //display block
+            var displayNo = (cal / 5) * 100; // 백분율
+            $("#card-" + i).css("display", "block");
+            $("#card-" + i).append("<span>만족도 "+ displayNo+ "%</span>")
+         } else {
+            // display hidden
+         }
+         
+      })
+   })
 }
 
 //숫자를 별로 변환
