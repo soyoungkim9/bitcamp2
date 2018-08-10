@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-<html lang="en">
 
 <head>
   <meta charset="utf-8">
@@ -127,11 +126,11 @@
 
                 <tr>
                   <th>머리말</th>
-                  <td><select name="category" id="CMU_TYPE">
+                  <td><form method="action" name="insertForm"><select name="category" id="CMU_TYPE">
                         <option value="">게시판 선택</option>
-                        <option value="1">비포&애프터</option>
-                        <option value="2">자유게시판</option>
-                      </select></td>
+                        <option value="비포&애프터">비포&애프터</option>
+                        <option value="자유게시판">자유게시판</option>
+                      </select></form></td>
 
                 </tr>
                 <tr>
@@ -170,20 +169,56 @@
 <script src="../../js/footer/footer.js"></script>
 <script>
 
-$("#addBtn").click(() => {
-	$.ajax({
+$("#addBtn").click(() => { 
+	
+	/*  var data = {
+	            email : $("#fId").val(),
+	            password: $("#fPassword").val()
+	        };
+	        
+	        }
+	        $.post("../../../json/auth/login", data, (result) => {
+	            if (result.state == "success")
+	                location.href = "../main/main.html";
+	            else 
+	                window.alert("로그인 실패!");
+	        }, "json");
+	    }); */
+	    console.log(userInfo);
+	    var z = document.insertForm;
+	    /* var select_name = $('#CMU_TYPE option'); */
+	var xhr = new window.XMLHttpRequest();    
+	var request = $.ajax({
 	    type: 'POST',
         url: '../../../json/community/add',
+	    async : false,
         data:{
+            type: $("#CMU_TYPE option:selected").val(),
             title: $(fTitle).val(),
-            type: $(CMU_TYPE).val(),
+            /* type: $(CMU_TYPE).val(), */
             content:$(fContent).val(),
+            "user.userNo":userInfo.userNo
+        },
+        success:function(data){
+        if ($("#CMU_TYPE option:selected").val() == ""){
+        	    alert("말머리 선택");
+        	    z.category.focus();
+        	    return false;
+        	   }
         }
-	}).done(function(){
-		location.href="community-list.html"
+        	/* if(Trim(z.category.value == "")){
+        	    alert("말머리를 선택해 주세요.");
+        	    z.category.focus();
+        	    return false;
+            } else {
+            	location.href = "community-list.html";
+            } */
 	});
+        xhr.abort();
 });
-console.log("Hey")
+            	
+         
+console.log("hey");
 
 </script>
 </body>

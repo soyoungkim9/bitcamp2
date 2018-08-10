@@ -11,7 +11,7 @@
 a {
     text-decoration: none;
 }
-
+ 
 .sidenav {
     margin-left: 30px;
     padding: 10px;
@@ -59,6 +59,10 @@ a {
 
 .search-challenge {
     margin-bottom: 35px;
+}
+
+.ribbon {
+   display: none;
 }
 
 .challenge-ul {
