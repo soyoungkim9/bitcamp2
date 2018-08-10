@@ -23,10 +23,9 @@ public class AuthCheckInterceptor implements HandlerInterceptor {
         
         
         if (loginUser == null) { // 로그인을 하지 않았으면 로그인 폼으로 보낸다.
-            System.out.println("로그인 폼으로 보내야 한다.");
-            System.out.println(request.getContextPath());
+//            System.out.println("로그인 폼으로 보내야 한다.");
+//            System.out.println(request.getContextPath());
             response.sendRedirect(request.getContextPath() + "/json/auth/form");
-//            response.sendRedirect("http://localhost:8888/challenge-project/challenge/html/login/login.html");
             return false;
         }
         

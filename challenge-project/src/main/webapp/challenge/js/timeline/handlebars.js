@@ -1,4 +1,34 @@
-//위에서 준비한 템플릿 데이터를 가지고 HTML을 생성할 템플릿 엔진 준비
+// 로그인이 필요한 페이지일 때 interceptor로 튕겨내기.
+  $.getJSON(serverRoot + "/json/timeline/list/1/6", (data) => {
+    }).done(function(data) {
+    }).fail(function(data) {
+    	console.log(data);
+    	
+    	if (userInfo == null) {
+    		console.log("여기는 로그인 페이지로 보내야지")
+    	}
+    	
+    	
+    	
+    	swal({
+    		title: '프로그램 멤버 전용 타임라인',
+    		text: '프로그램 참여 후 이용 가능합니다.',
+    		type: 'error',
+    		confirmButtonText: '로그인 페이지로'
+    	}).then(function (result) {
+    		if (result.value) {
+    			location.href = "../login/login.html" 
+    		}
+    	})
+    	
+//    	, function() {
+//    		if(data.responseText == "loginNeed") {
+//    		}
+//    	})
+    	
+    	
+    });
+
 var addedPostCount = 0;
 $(document).ready(function() {
   // 글쓰기 모달에 글쓴이 이름 출력

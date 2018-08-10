@@ -21,6 +21,7 @@ function myFunction() {
 }
 
 
+
 /* 강의계획서 더보기 */
 function shClassFunction() {
 	var dots = $("#sh-class-dots");

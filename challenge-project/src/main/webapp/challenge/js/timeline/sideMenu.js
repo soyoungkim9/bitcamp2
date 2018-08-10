@@ -17,8 +17,6 @@ $.ajax({
 
 
 // 회원 리스트
-
-
 var mlTemplateSrc = $("#ml-template").html();
 var mltemplateFn = Handlebars.compile(mlTemplateSrc);
 

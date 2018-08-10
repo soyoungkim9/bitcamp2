@@ -31,18 +31,13 @@ public class AuthController {
     }
   
     
-    /*
-    @CrossOrigin
-    @RequestMapping(value= {"/form"}, method=RequestMethod.GET)
-    public String form() throws IOException {
+    
+    @RequestMapping("/form")
+    public String form() {
         System.out.println("form으로 들어옴.");
-        return "http://localhost:8888/challenge-project/challenge/html/login/login.html";
-//        response.sendRedirect("http://localhost:8888/challenge-project/challenge/html/login/login.html"); 
-        
-//        response.sendRedirect(request.getContextPath() + "/challenge/html/login/login.html");
-//        return "http://localhost:8888/challenge-project/challenge/html/main/main.html";
+        return "loginNeed";
     }
-    */
+    
     
     @GetMapping("/loginUser")
     public User loginUser(HttpSession session) {

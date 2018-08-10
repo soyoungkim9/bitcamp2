@@ -10,6 +10,10 @@
       right: 30px;
     }
 */
+
+#header {
+  border-bottom: solid 1px rgb(102, 102, 102, 0.2);
+}
     .local-video {
       margin-top: 20px;
       margin-bottom: 20px;
