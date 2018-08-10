@@ -114,10 +114,13 @@ if (location.href.split("?").length > 1) {
 							
 					});
 			} else {
-					var msg = '결제에 실패하였습니다.';
-					msg += '에러내용 : ' + rsp.error_msg;
-
-					alert(msg);
+	        	console.log(rsp.error_msg)
+	        	swal({
+	      		  type: 'error',
+	      		  title: '결제가 취소되었습니다',
+	      		  confirmButtonColor: '#1B3453',
+	      		  confirmButtonText: '확인'
+	      		})
 				}
 			});
 		}); 
@@ -171,10 +174,14 @@ function danalPay() {
 	                    }
 	                });
 	        } else {
-	            var msg = '결제에 실패하였습니다.';
-	            msg += '에러내용 : ' + rsp.error_msg;
+	        	console.log(rsp.error_msg)
+	        	swal({
+	      		  type: 'error',
+	      		  title: '결제가 취소되었습니다',
+	      		  confirmButtonColor: '#1B3453',
+	      		  confirmButtonText: '확인'
+	      		})
 	            
-	            alert(msg);
 	        }
 	    });
 	  });
