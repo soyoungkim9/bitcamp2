@@ -122,8 +122,60 @@ if (location.href.split("?").length > 1) {
 			});
 		}); 
 	}
-
-
-
-
 }
+
+
+
+
+//-------------------------------------핸드폰 소액결제---------------------------
+
+function danalPay() {
+	$.getJSON(serverRoot + "/json/program/" + no, (data) => {
+	      
+	  var IMP = window.IMP;
+	  IMP.init("imp16964915");
+	  
+
+	    IMP.request_pay({
+	        pg : 'danal',
+	        pay_method : 'phone',
+	        merchant_uid : 'merchant_' + new Date().getTime(),
+	        name : data.name,
+	        amount : data.price * document.getElementById('p-value').innerHTML ,
+	        buyer_email : userInfo.email,
+	        buyer_name : userInfo.name,
+	        buyer_tel : userInfo.userPhone,
+	        buyer_addr : '서울특별시 강남구 삼성동',
+	        buyer_postcode : '123-456'
+	    }, function(rsp) {
+	        if ( rsp.success ) {
+	            $.ajax({
+	                url: serverRoot + '/json/programMember/add',
+	                type: 'POST',
+	                dataType: 'json',
+	                data: {
+	                    programNo: data.no,
+	                    userType: 1
+	                },
+	                complete: function(data){
+
+	                    swal({
+	                          title: "결제가 완료되었습니다.",
+	                          text: "확인을 누르시면 메인화면으로 이동합니다",
+	                          type: "success",
+	                             
+	                          preConfirm: () => {
+	                              location.href='../main/main.html'
+	                                  }
+	                        })
+	                    }
+	                });
+	        } else {
+	            var msg = '결제에 실패하였습니다.';
+	            msg += '에러내용 : ' + rsp.error_msg;
+	            
+	            alert(msg);
+	        }
+	    });
+	  });
+	}

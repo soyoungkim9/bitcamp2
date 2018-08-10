@@ -22,7 +22,7 @@
     "jquery-validation": "^1.17.0",
     "lightbox2": "^2.10.0",
     "popper.js": "^1.14.3",
-    "sweetalert2": "^7.26.10"
+    "sweetalert2": "^7.26.11"
   },
   "devDependencies": {
     "@fortawesome/fontawesome-free": "^5.2.0"

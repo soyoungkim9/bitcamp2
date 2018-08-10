@@ -27,10 +27,11 @@ public class ProgramMemberController {
     }
     @RequestMapping("add")
     @ResponseStatus(HttpStatus.CREATED)
-    public void add(@ModelAttribute("loginUser") User loginUser,
+    public Object add(@ModelAttribute("loginUser") User loginUser,
             ProgramMember programMember) throws Exception {
         programMember.setUserNo(loginUser.getUserNo());
         programMemberService.add(programMember);
+        return programMember;
     }
     
     @RequestMapping("pList/{trnNo}")
