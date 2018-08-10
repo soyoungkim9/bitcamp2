@@ -27,7 +27,7 @@
   <insert id="insert" parameterType="Challenge"
           useGeneratedKeys="true" keyColumn="chno" keyProperty="no">
     insert into CHAL(chtitl, chcont, chpath) 
-        values (#{title}, #{content}, 0)
+        values (#{title}, #{content}, #{path})
   </insert>
   
   <select id="selectOne" parameterType="int" resultMap="ChallengeMap">

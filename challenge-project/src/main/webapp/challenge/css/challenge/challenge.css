@@ -139,6 +139,17 @@ div p {
 	clear: both;
 }
 
+.program {
+	padding: 30px 60px;
+	display: flex;
+	flex-wrap: wrap;
+	justify-content: space-between;
+}
+
+.program .card {
+	margin-bottom: 40px;
+}
+
 .chal-nav {
   display: table;
   margin: 0 auto;
