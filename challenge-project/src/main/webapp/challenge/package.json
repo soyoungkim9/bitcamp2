@@ -11,6 +11,7 @@
     "@ckeditor/ckeditor5-adapter-ckfinder": "^10.0.2",
     "@ckeditor/ckeditor5-build-classic": "^10.1.0",
     "@fortawesome/fontawesome": "^1.1.8",
+    "amcharts": "^3.14.5",
     "blueimp-canvas-to-blob": "^3.14.0",
     "blueimp-file-upload": "^9.22.0",
     "blueimp-load-image": "^2.19.0",

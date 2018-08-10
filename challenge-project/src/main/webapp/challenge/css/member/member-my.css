@@ -5,7 +5,7 @@
   width: 882px;
   margin: 0 auto;
   margin-left: 0;
-  border-bottom: 1px solid gray;
+  border-bottom: 4px solid #1B3453;
   overflow: hidden;
   transition: border 250ms ease;
 }
@@ -124,7 +124,6 @@ b {
     text-align: center;
     margin-bottom: 30px;
     display: none;
-    border-bottom:1px solid gray;
 }
 .sm-tabcontent.sm-current {display: inline;}
 .sm-tabcontent {

@@ -101,7 +101,7 @@
 
    </div>
 
-   <div id="progaram"></div>
+   <div id="program" class="program"></div>
 
    <div style="margin: 100px 0px;">
     <div class="chal-row">
@@ -129,37 +129,31 @@
    <script id="cardBody1" type="text/x-handlebars-template">
 {{#each list}}
 <div class="card" id="card">
-    <a href="../program/DetailPage.html?no={{programNo}}"> <!-- 카드 헤더 -->
-     <div class="card-header ch-{{@key}}">
-      {{!-- <img class="card-img" id="cardImg-{{@key}}" /> --}}
-      <div class="ribbon">
-       <span>성공 %</span>
-      </div>
+    <a href="../program/DetailPage.html?no={{no}}">
+    <!-- 카드 헤더 -->
+    <div class="card-header">
+      <img class="card-img" src="../../../files/{{medias.[0].path}}_200x200.jpg"/>
+      <div class="ribbon"><span>성공 %</span></div>
       <div class="card-trainer tr-{{@key}}">
-       {{!--<img class="trainer-img" />--}}
       </div>
-     </div> <!--  카드 바디 -->
-     <div class="card-body">
-      <span class="card-body-title">{{program.name}}</span> <span
-       class="card-body-degree">[{{program.proTh}}기]</span>
+    </div>
+    <!--  카드 바디 -->
+    <div class="card-body">
+      <p class="title"><span class="card-body-title">{{name}}</span>
+      <span class="card-body-degree">[{{proTh}}기]</span></p>
       <p class="card-body-price">
-       <span class="numberic-{{@key}}">{{program.price}}</span>원
-      </p>
-      <span class="card-body-local-{{@key}}">{{program.address}}</span>
-      <span class="card-body-number"><span class="pnum-{{@key}}"></span>/{{program.maxQty}}명</span>
-      <p>
-       <span class="star-prototype score-{{@key}}"></span>
-      </p>
+         <span class="numberic-{{@key}}">{{price}}</span>원</p>
+      <span class="card-body-local-{{@key}}">{{address}}</span>
+      <span class="card-body-number"><span class="pnum-{{@key}}"></span>/{{maxQty}}명</span>
+      <p><span class="star-prototype score-{{@key}}"></span></p>
       <!--  카드 바디 푸터 -->
       <div class="card-footer">
-       <span class="card-footer-review">리뷰 <span
-        class="review-{{@key}}"></span>개
-       </span> <span class="card-footer-date">{{program.startDate}} (D<span
-        id="dday-{{@key}}"></span>)
-       </span>
-      </div></a>
-   </div>
-  </div>
+      <span class="card-footer-review">리뷰 <span class="review-{{@key}}"></span>개</span>
+      <span class="card-footer-date">{{startDate}} (D<span id="dday-{{@key}}"></span>)</span>
+    </div>
+    </a>
+</div>
+</div>
 {{/each}}
 </script>
    
