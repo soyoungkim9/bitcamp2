@@ -44,6 +44,8 @@ a {
   float: left;
   list-style-type: none;
   padding-left: 35px;
+  margin: 0;
+  cursor: pointer;
 }
 .tabbed ul * {
   margin: 0px;
