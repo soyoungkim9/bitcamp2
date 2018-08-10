@@ -57,6 +57,17 @@
     <!-- limit #{startRowNo}, #{pageSize} -->
   </select>
   
+  <select id="selectListChallenge"
+          resultMap="ProgramMap" parameterType="map">
+    select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno,
+           m.pmedno, m.ppath, m.pmtype
+    from PMED m
+         right outer join PROG p on m.pno=p.pno
+         left outer join TRN t on p.trnno=t.trnno
+    where p.cno = #{challengeNo}
+  </select>
+  
+  
     <select id="selectListWithKeyword"
           resultMap="ProgramMap" parameterType="string">
     select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno, p.ptype, p.det_addr, p.pgoal,

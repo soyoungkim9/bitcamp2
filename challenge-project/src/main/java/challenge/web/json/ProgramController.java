@@ -49,6 +49,11 @@ public class ProgramController {
         return programService.listCard();
     }
     
+    @RequestMapping("listCard/{cno}")
+    public Object listCh(@PathVariable int cno) {
+        return programService.selectListChallenge(cno);
+    }
+    
     @RequestMapping("listCardWithKeyword/{keyword}")
     public Object list(@PathVariable String keyword) {
         return programService.listCardWithKeyword(keyword);

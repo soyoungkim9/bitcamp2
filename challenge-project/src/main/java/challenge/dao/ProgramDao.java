@@ -10,6 +10,7 @@ public interface ProgramDao {
     public int delete(int no);
     public List<Program> selectList();
     public List<Program> selectListCard();
+    public List<Program> selectListChallenge(int cno);
     public List<Program> selectListWithPrice();
     public List<Program> selectListWithStartDate();
     public List<Program> selectTrainerProgram(int no);

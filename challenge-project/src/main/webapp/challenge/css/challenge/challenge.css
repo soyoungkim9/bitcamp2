@@ -17,7 +17,8 @@ div p {
 }
 .ch-top-img {
   height: auto;
-  max-width:100%
+  width:1200px;
+  height: 600px;
 }
 .chal-title {
   color: #1B3453;
