@@ -1,24 +1,4 @@
-function openCity(evt, cityName) {
-    var i, tabcontent, tablinks;
-    tabcontent = document.getElementsByClassName("tabcontent");
-    for (i = 0; i < tabcontent.length; i++) {
-        tabcontent[i].style.display = "none";
-    }
-    tablinks = document.getElementsByClassName("tablinks");
-    for (i = 0; i < tablinks.length; i++) {
-        tablinks[i].className = tablinks[i].className.replace(" active", "");
-    }
-    document.getElementById(cityName).style.display = "block";
-    evt.currentTarget.className += " active";
-}
-$.getJSON(serverRoot + "/json/bodyInfo/" + userInfo.userNo, (data) => {
-	console.log(data[data.length-1]);
-    var lastData = data[data.length-1];
-    $(setmdate).val(lastData.bdate);
-    $(setweight).val(lastData.weight);
-    $(setmuscle).val(lastData.muscle);
-    $(setfat).val(lastData.fat);
-}); 
+
 
 $("#updBtn").click(() => {
 	$.ajax({
@@ -26,16 +6,56 @@ $("#updBtn").click(() => {
         url: serverRoot + '/json/bodyInfo/add',
         data: {
             userNo: userInfo.userNo,
-        	bdate: $(setmdate).val(),
-            weight: $(setweight).val(),
-            muscle: $(setmuscle).val(),
-            fat: $(setfat).val()
+        	bdate: $('#setmdate').val(),
+            weight: $('#setweight').val(),
+            muscle: $('#setmuscle').val(),
+            fat: $('#setfat').val()
 
         }, 
     }).done(function() {
-    	location.href = "member-set2.html";
+		swal({
+			  position: 'center',
+			  type: 'success',
+			  title: '등록완료!',
+			  showConfirmButton: false,
+			  timer: 1500
+			})
+			
+	    var updateLocation = $('.active').attr("data-name");
+		if(updateLocation == 'weightTab') {
+			$.get(serverRoot + "/json/bodyInfo/list/" + userInfo.userNo, function(data) {
+				for (var i = 0; i < data.length; i++) {
+					weightInfo.push({
+						"date" : data[i].bdate,
+						"value" : data[i].weight
+					})
+				}
+			});
+		} else if(updateLocation == 'fatTab') {
+			$.get(serverRoot + "/json/bodyInfo/list/" + userInfo.userNo, function(data) {
+				for (var i = 0; i < data.length; i++) {
+					fatInfo.push({
+						"date" : data[i].bdate,
+						"value" : data[i].fat
+					})
+				}
+			});	
+		} else if(updateLocation == 'muscleTab') {
+			$.get(serverRoot + "/json/bodyInfo/list/" + userInfo.userNo, function(data) {
+				for (var i = 0; i < data.length; i++) {
+					muscleInfo.push({
+						"date" : data[i].bdate,
+						"value" : data[i].weight
+					})
+				}
+			});
+		}
+    	$('#setmdate').val('');
+    	$('#setweight').val('');
+    	$('#setmuscle').val('');
+    	$('#setfat').val('');
+    	location.href = "member-my.html";
     });
-  
 });
 
 $(function() {
