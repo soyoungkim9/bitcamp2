@@ -151,6 +151,8 @@
             </div>
             <div class="btnArea">
               <button id="addBtn" type="button" class="input-view">등록</button>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+              <a href="community-list.html"><button id="addBtn" type="button" class="input-view">취소</button></a>
             </div>
           </div>
 
@@ -169,22 +171,21 @@
 <script src="../../js/footer/footer.js"></script>
 <script>
 
-$("#addBtn").click(() => {    
-	 var data = {
-		            type: $("#CMU_TYPE option:selected").val(),
-		            title: $(fTitle).val(),
-		            /* type: $(CMU_TYPE).val(), */
-		            content:$(fContent).val(),
-		            "user.userNo":userInfo.userNo
-	        };
-	        
-	        $.post("../../../json/community/add", data, (result) => {
-	            if (result.state == "success")
-	                location.href = "../main/main.html";
-	            else 
-	                window.alert("로그인 실패!");
-	        }, "json");
-	    });
+$("#addBtn").click(() => {
+    $.ajax({
+        type: 'POST',
+        url: '../../../json/community/add',
+        data:{
+            title: $(fTitle).val(),
+            type: $(CMU_TYPE).val(),
+            content:$(fContent).val(),
+            "user.userNo":userInfo.userNo
+        }
+    }).done(function(){
+        location.href="community-list.html"
+    });
+});
+console.log("Hey")
 
 /*         success : function(data) {
         	  if(data.type == null || data.type == '' ){
@@ -202,6 +203,7 @@ console.log("hey");
 
 
 </script>
+<script></script>
 </body>
 
 </html>

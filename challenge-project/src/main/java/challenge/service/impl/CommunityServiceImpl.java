@@ -33,7 +33,8 @@ public class CommunityServiceImpl implements CommunityService {
     
     @Override
     public int delete(int no) {
-        return communityDao.delete(no);
+        communityDao.delete(no);
+        return postDao.delete(no);
     }
 
     @Override

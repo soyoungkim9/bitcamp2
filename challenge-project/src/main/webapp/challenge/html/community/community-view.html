@@ -146,7 +146,7 @@
 							src="http://placehold.it/348x200" alt="업로드 사진"> <img
 							src="http://placehold.it/348x200" alt="업로드 사진"> <img
 							src="http://placehold.it/348x200" alt="업로드 사진">
-						<textarea id='fContent' name="name" rows="20" cols="100">
+						<textarea id='fContent' name="name" rows="20" cols="100" readonly>
 
             </textarea>
 
@@ -155,10 +155,10 @@
 								<thead>
 									<tr>
 										<td style="border: none;"><span style='float: right'>
-												<button type="button" id="list" class="btn btn-default">목록</button>
+												<a href="community-list.html"><button type="button" id="list" class="btn btn-default">목록</button></a>
 												<button type="button" id="modify" class="btn btn-default">수정</button>
-												<button type="button" id="delete" class="btn btn-default">삭제</button>
-												<button type="button" id="write" class="btn btn-default">글쓰기</button>
+												<button type="button" id="deleteBtn" class="btn btn-default">삭제</button>
+												<button type="button" id="write" class="btn btn-default">글쓰기</button> <!--  글작성의 필요도 -->
 										</span></td>
 									</tr>
 								</thead>
@@ -257,6 +257,19 @@
 			});
 		}
 	</script>
+	
+<script>
+
+$("#deleteBtn").click(() => {
+	if (window.confirm("삭제하시겠습니까?") == false) 
+        return;
+    
+    $.get(serverRoot + "/json/community/delete", {"no": no}, () => {
+        location.href = "community-list.html";
+    });
+});
+
+</script>
 
 
 </body>

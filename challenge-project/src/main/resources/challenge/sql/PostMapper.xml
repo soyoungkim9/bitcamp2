@@ -33,7 +33,7 @@
     
   </select>
   
-  <insert id="insert" parameterType="Object"
+  <insert id="insert" parameterType="Post"
           useGeneratedKeys="true" keyColumn="pono" keyProperty="no">
     insert into POST(pocont, podate) 
     values(#{content}, now());

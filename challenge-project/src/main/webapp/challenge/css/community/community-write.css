@@ -214,3 +214,17 @@ main {
 background-color:#495164;
 color:white;
 }
+
+.input-view {
+    padding-left: 20px;
+    padding-right: 20px;
+    font-size: 10px;
+    border-radius: 5px;
+    border-style: none;
+    background-color: #495164;
+    color: white;
+    -webkit-appearance: button;
+    height: 30px;
+    width: 64px;
+    cursor:pointer;
+}

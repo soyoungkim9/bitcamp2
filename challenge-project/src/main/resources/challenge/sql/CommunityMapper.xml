@@ -48,7 +48,8 @@
     
   </select>
   
-  <insert id="insert" parameterType="Community">
+  <insert id="insert" parameterType="Community"
+  useGeneratedKeys="true" keyColumn="pono" keyProperty="no">
     insert into CMU(cmuno, cmut, cmu_cnt, cmu_type, cmu_lk, uno) 
     values (#{no}, #{title}, 0, #{type}, 0, #{user.userNo})
   </insert>
@@ -72,6 +73,6 @@
   </update>
   
   <delete id="delete" parameterType="int">
-    delete from POST where pono=#{value}
+    delete from CMU where cmuno=#{value}
   </delete>
 </mapper>
