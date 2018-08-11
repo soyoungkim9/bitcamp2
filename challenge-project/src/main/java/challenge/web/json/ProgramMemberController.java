@@ -46,6 +46,13 @@ public class ProgramMemberController {
             @PathVariable String uname) throws Exception {
         return programMemberService.listWithSearch(pno, trnNo, uname);
     }
+    
+    @RequestMapping("sList/{trnNo}/{uname}")
+    public List<ProgramMember> listWithSearchAll(
+            @PathVariable int trnNo,
+            @PathVariable String uname) throws Exception {
+        return programMemberService.listWithSearchAll(trnNo, uname);
+    }
 
     @RequestMapping("lList/{uno}")
     public List<ProgramMember> listWithLect(@PathVariable int uno) throws Exception {
