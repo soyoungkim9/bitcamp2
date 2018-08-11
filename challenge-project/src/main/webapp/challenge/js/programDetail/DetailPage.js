@@ -130,11 +130,29 @@ if (location.href.split("?").length > 1) {
       $('.star-prototype').generateStars();
       $('.star-prototype3').generateStars();
     })
-  }).done(function() {
-
   })
+}
 
-
+function rewviewStar(no) {
+//리뷰 개수 카운트
+	$.get(serverRoot + "/json/programMember/reviewCount/" + no, function(data) {
+		$(reviewCount).html(data);
+		var count = data;
+		
+		// 리뷰  점수
+		$.get(serverRoot + "/json/programMember/reviewScore/" + no, function(data) {
+			var score = data;
+			var cal = (score / count).toFixed(1);
+			if(!(isNaN(cal))) {
+				$(reviewScore).html(cal);
+			} else {
+				$(reviewScore).html(0)
+			}
+			
+			$('.star-prototype').generateStars();
+			$('.star-prototype3').generateStars();
+		})
+	})
 }
 
 
@@ -218,13 +236,6 @@ function loadCommentAfter(no) {
   $.getJSON(serverRoot + "/json/programMember/reviewList/" + no, (data) => {
     $('#comment1').html(templateFn3({list: data}));
   }).done(function(data) {
-    // 유저 이미지 널값 보류!
-    for (var i = 0; i < data.length; i++) {
-      if (data[i].user.userPath == "") {
-        $('#cmImg-' + i)
-        .attr('src', '../../../files/3a1987ec-885f-4ea3-8508-5872700e953c_50x50.jpg')
-      }
-    }
     //숫자 평점을 별로 변환하도록 호출하는 함수
     $('.star-prototype2').generateStars();
     load('#cm-load', '3');
@@ -254,7 +265,7 @@ $(document).ready(function() {
       userNo: userInfo.userNo
     }, () => {
       loadCommentAfter(no);
-      //$('.commentInput').css('display', 'none');
+      rewviewStar(no);
       $(fContent).val('');
     })
   });
