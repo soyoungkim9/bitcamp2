@@ -180,35 +180,19 @@ if (location.href.split("?").length > 1) {
         $(fTitle).val(data.title);
     });
 }
-        
+
 $("#updateBtn").click(() => {
 	$.post(serverRoot + "/json/community/update", {
-            title: $(fTitle).val(),
             type: $(CMU_TYPE).val(),
+            title: $(fTitle).val(),
+            /* content: $(fContent).append(), */
             content:$(fContent).val(),
-            "user.userNo":userInfo.userNo,
-            "commuNo": '375'
+            "no":no
     }, () => {
-        location.href = "community-list.html";
+        console.log("????");
     });
 });
-
-
-/* $("#updBtn").click(() => {
-    $.post(serverRoot + "/json/board/update", {
-        title: $(fTitle).val(),
-        content: $(fContent).val(),
-        no: $(fNo).val()
-    }, () => {
-        location.href = "list.html";
-    });
-}); */
-
-
-
-
 </script>
-<script></script>
 </body>
 
 </html>
