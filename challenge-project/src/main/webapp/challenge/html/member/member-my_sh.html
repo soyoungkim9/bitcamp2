@@ -7,7 +7,6 @@
   <link rel="stylesheet" href="../../css/common.css">
   <link rel="stylesheet" href="../../css/member/ksy-mypage.css">
   <link rel="stylesheet" href="../../css/member/member-my.css">
-  <link rel="stylesheet" href="../../css/member/member-my_sh.css">
   <link rel="stylesheet" href="../../css/member/sm-memberPage.css">
   <link rel="stylesheet" href="../../css/member/sm-following.css">
   <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
@@ -58,27 +57,24 @@
             <button class="sm-tablinks" onclick="openCity(event, 'sm-tab2')" style="border-left: none;">체지방</button>
             <button class="sm-tablinks" onclick="openCity(event, 'sm-tab3')" style="border-left: none;">근력</button>
           </div>
-
+		  <!-- tab Menu -->
           <div id="sm-tab1" class="sm-tabcontent sm-current">
-            <!-- 팔로우 소식 -->
             <div class="sm-tab-down">
+            <div id="chartdiv1" class="graphBox"></div>
             </div>
           </div>
-
           <div id="sm-tab2" class="sm-tabcontent">
-            <!-- 내가 쓴 글 -->
             <div class="sm-tab-down">
+             <div id="chartdiv2" class="graphBox"></div>
             </div>
           </div>
-
           <div id="sm-tab3" class="sm-tabcontent">
-            <!-- 내가 쓴 댓글 -->
             <div class="sm-tab-down">
+             <div id="chartdiv3" class="graphBox"></div>
             </div>
           </div>
         </div>
-
-        <div id="chartdiv">ㅋㅋㅋㅋㅋ</div>
+		
       </div>
       <!-- mypage -->
     </div>
@@ -115,7 +111,6 @@
   <script src="../../js/header/header.js"></script>
   <script src="../../js/footer/footer.js"></script>
   <script src="../../js/member/mb-menu.js"></script>
-  <script src="../../js/member/my-tab.js"></script>
 
   <script src="../../node_modules/amcharts/dist/amcharts/amcharts.js"></script>
   <script src="../../node_modules/amcharts/dist/amcharts/serial.js"></script>

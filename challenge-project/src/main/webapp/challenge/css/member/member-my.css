@@ -1,6 +1,13 @@
 @charset "UTF-8";
 
 /* 바디에 있는 탭 메뉴 (트레이너:회원,수익관리/회원:알림,내가쓴글) */
+.graphBox {
+  width: 85%;
+  margin-left: 5%;
+  margin-top: 20px;
+  height: 500px;
+}
+
 .sm-tab {
   width: 882px;
   margin: 0 auto;
@@ -12,7 +19,6 @@
 
 
 .sm-tab-down {
-  height: 250px;
   width:105%;
   float: left;
   align: center;

@@ -1,6 +1,8 @@
 @charset "UTF-8";
 
-#chartdiv {
-  width: 100%;
+.graphBox {
+  width: 85%;
+  margin-left: 5%;
+  margin-top: 20px;
   height: 500px;
 }
