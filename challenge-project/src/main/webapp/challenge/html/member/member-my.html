@@ -1,23 +1,35 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-<meta charset='UTF-8'>
-<title>회원페이지</title>
-<link rel="stylesheet" href="../../css/common.css">
-<link rel="stylesheet" href="../../css/member/ksy-mypage.css">
-<link rel="stylesheet" href="../../css/member/sm-memberPage.css">
-<link rel="stylesheet" href="../../css/member/sm-following.css">
-<link rel="stylesheet"
-  href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <meta charset='UTF-8'>
+  <title>회원페이지</title>
+  <link rel="stylesheet" href="../../css/common.css">
+  <link rel="stylesheet" href="../../css/member/ksy-mypage.css">
+  <link rel="stylesheet" href="../../css/member/member-my.css">
+  <link rel="stylesheet" href="../../css/member/sm-memberPage.css">
+  <link rel="stylesheet" href="../../css/member/sm-following.css">
+  <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+  <link href="https://fonts.googleapis.com/css?family=Titillium+Web:900" rel="stylesheet">
+  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+  
+  
+  <link rel="stylesheet" href="../../node_modules/amcharts/dist/amcharts/plugins/export/export.css">
 </head>
+
 <body>
 
   <div class="sm-top-bar-white" style="z-index: 2;">
     <div class="sm-container">
-      <div id="header"></div><!-- 헤더 종료-->
-      <div id="mb-menu"></div><!-- 상단 메뉴바 종료 -->
-    </div><!-- container -->
-  </div><!-- top-bar-white -->
+      <div id="header"></div>
+      <!-- 헤더 종료-->
+      <div id="mb-menu"></div>
+      <!-- 상단 메뉴바 종료 -->
+    </div>
+    <!-- container -->
+  </div>
+  <!-- top-bar-white -->
 
 
   <div id="sm-back">
@@ -29,11 +41,10 @@
         <!-- profile 시작 -->
         <div class="sm-profile">
           <div style="text-align: center;">
-            <img id="profile-photo"
-              style="border-radius: 60px; width: 120px; height: 120px;">
+            <img id="profile-photo" style="border-radius: 60px; width: 120px; height: 120px;">
 
             <p id="profile-name" style="margin: 8px 0px 3px 0px;"></p>
-			<!-- <a href="../_chat/chat-channel.html"> -->
+            <a href="../_chat/chat-channel.html">
             <button id="myBtn" class="sm-fw-btn"
               style="margin-top: 10px; margin-bottom: 20px;">나의 팔로잉</button>
             </a>
@@ -41,17 +52,29 @@
         </div>
         <!-- profile 끝 -->
         <div class="sm-mypage-body">
-		<div class="tabbed">
-          <ul id="programTarget">
-            <li class="targetTab">근력량</li>
-            <li class="targetTab">체지방량</li>
-            <li class="targetTab active">몸무게</li>
-          </ul>
+          <div class="sm-tab">
+            <button class="sm-tablinks active" onclick="openCity(event, 'sm-tab1')">몸무게</button>
+            <button class="sm-tablinks" onclick="openCity(event, 'sm-tab2')" style="border-left: none;">체지방</button>
+            <button class="sm-tablinks" onclick="openCity(event, 'sm-tab3')" style="border-left: none;">근력</button>
+          </div>
+		  <!-- tab Menu -->
+          <div id="sm-tab1" class="sm-tabcontent sm-current">
+            <div class="sm-tab-down">
+            <div id="chartdiv1" class="graphBox"></div>
+            </div>
+          </div>
+          <div id="sm-tab2" class="sm-tabcontent">
+            <div class="sm-tab-down">
+             <div id="chartdiv2" class="graphBox"></div>
+            </div>
+          </div>
+          <div id="sm-tab3" class="sm-tabcontent">
+            <div class="sm-tab-down">
+             <div id="chartdiv3" class="graphBox"></div>
+            </div>
+          </div>
         </div>
-        </div>
-        <!-- mypage-body -->
-
-
+		
       </div>
       <!-- mypage -->
     </div>
@@ -63,12 +86,38 @@
 
   </div>
   <!-- back -->
-  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
+
+
+
+  <script id="my-template" type="text/x-handlebars-template">
+    {{#each list}}
+    <tr style="color:gray; height:10px;">
+      <td>{{type}}</td>
+      <td colspan="2"><i class="fas fa-angle-right" style="margin:10px; color:gray;"></i>
+        <span>{{createdDate}}</span>
+      </td>
+    </tr>
+    <tr>
+      <td></td>
+      <td>
+        <p>{{title}}</p>
+      </td>
+    </tr>
+    {{/each}}
+  </script>
+
+
   <script src="../../js/common.js"></script>
-  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
   <script src="../../js/header/header.js"></script>
   <script src="../../js/footer/footer.js"></script>
-  <script src="../../js/member/member-my.js"></script>
   <script src="../../js/member/mb-menu.js"></script>
+
+  <script src="../../node_modules/amcharts/dist/amcharts/amcharts.js"></script>
+  <script src="../../node_modules/amcharts/dist/amcharts/serial.js"></script>
+  <script src="../../node_modules/amcharts/dist/amcharts/themes/light.js"></script>
+  <script src="../../node_modules/amcharts/dist/amcharts/plugins/export/export.min.js"></script>
+  <script src="../../node_modules/amcharts/dist/amcharts/lang/ko.js"></script>
+  <script src="../../js/member/member-my_sh.js"></script>
 </body>
+
 </html>
