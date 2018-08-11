@@ -51,6 +51,14 @@ public class ProgramMemberServiceImpl implements ProgramMemberService {
         params.put("uName", uName);
         return programMemberDao.searchList(params);
     }
+    
+    @Override
+    public List<ProgramMember> listWithSearchAll(int trnNo, String uName) {
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("trnNo", trnNo);
+        params.put("uName", uName);
+        return programMemberDao.searchList(params);
+    }
 
     @Override
     public List<ProgramMember> list(int pno, int trnNo) {

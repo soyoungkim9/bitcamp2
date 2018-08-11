@@ -150,7 +150,7 @@
             </div>
             </div>
             <div class="btnArea">
-              <button id="addBtn" type="button" class="input-view">등록</button>
+              <button id="updateBtn" type="button" class="input-view">수정</button>
               &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <a href="community-list.html"><button id="addBtn" type="button" class="input-view">취소</button></a>
             </div>
@@ -170,35 +170,40 @@
 <script src="../../js/header/header.js"></script>
 <script src="../../js/footer/footer.js"></script>
 <script>
-
-$("#addBtn").click(() => {
-    $.ajax({
-        type: 'POST',
-        url: '../../../json/community/add',
-        data:{
+if (location.href.split("?").length > 1) {
+    var no = location.href.split("?")[1].split("=")[1];
+    
+    
+    $.getJSON("../../../json/community/" + no, function(data) {
+    	$(CMU_TYPE).val(data.type);
+        $(fContent).val(data.content);
+        $(fTitle).val(data.title);
+    });
+}
+        
+$("#updateBtn").click(() => {
+	$.post(serverRoot + "/json/community/update", {
             title: $(fTitle).val(),
             type: $(CMU_TYPE).val(),
             content:$(fContent).val(),
-            "user.userNo":userInfo.userNo
-        }
-    }).done(function(){
-        location.href="community-list.html"
+            "user.userNo":userInfo.userNo,
+            "commuNo": '375'
+    }, () => {
+        location.href = "community-list.html";
     });
 });
-console.log("Hey")
 
-/*         success : function(data) {
-        	  if(data.type == null || data.type == '' ){
-        		  ajaxStop(data);
-        		  location.href = "community-list.html";
-        	  }
-        	  else {
-        		  alert("머리말을 선택해 주세요.");
-        		  
-        	  }
-        	
-        } */
-console.log("hey");
+
+/* $("#updBtn").click(() => {
+    $.post(serverRoot + "/json/board/update", {
+        title: $(fTitle).val(),
+        content: $(fContent).val(),
+        no: $(fNo).val()
+    }, () => {
+        location.href = "list.html";
+    });
+}); */
+
 
 
 

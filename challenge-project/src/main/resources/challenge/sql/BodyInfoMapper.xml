@@ -76,5 +76,6 @@
 	  SELECT bno, bdate, weight, muscle, fat
 	  FROM BINFO 
 	  WHERE uno = #{value}
+	  order by bdate asc;
   </select>
 </mapper>

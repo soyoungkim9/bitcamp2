@@ -93,6 +93,17 @@
 	AND u.uname = #{uName}
   </select>
   
+  <select id="searchListAll" parameterType="map" resultMap="ProgramMemberMap">
+	SELECT u.uno, p.pno, u.mail, u.uname, u.sex, p.pname, u.upath
+	FROM PMEMB pm 
+		INNER JOIN USER u 
+	    ON pm.uno = u.uno 
+	    INNER JOIN PROG p 
+	    ON pm.pno = p.pno 
+	WHERE p.trnno = #{trnNo}
+	AND u.uname = #{uName}
+  </select>
+  
   <select id="selectListWithProgram" parameterType="map" resultMap="ProgramMemberMap">
 	SELECT u.uno, p.pno, u.mail, u.uname, u.sex, p.pname, u.upath
 	FROM PMEMB pm 

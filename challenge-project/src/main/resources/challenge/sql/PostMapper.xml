@@ -33,7 +33,7 @@
     
   </select>
   
-  <insert id="insert" parameterType="Object"
+  <insert id="insert" parameterType="Post"
           useGeneratedKeys="true" keyColumn="pono" keyProperty="no">
     insert into POST(pocont, podate) 
     values(#{content}, now());
@@ -48,7 +48,7 @@
     where pono=#{value}
   </select>
   
-  <update id="update" parameterType="map">
+  <update id="update" parameterType="Post">
     update POST set 
     pocont=#{content}
     where pono=#{no}

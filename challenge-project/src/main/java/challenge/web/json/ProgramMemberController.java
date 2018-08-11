@@ -27,10 +27,11 @@ public class ProgramMemberController {
     }
     @RequestMapping("add")
     @ResponseStatus(HttpStatus.CREATED)
-    public void add(@ModelAttribute("loginUser") User loginUser,
+    public Object add(@ModelAttribute("loginUser") User loginUser,
             ProgramMember programMember) throws Exception {
         programMember.setUserNo(loginUser.getUserNo());
         programMemberService.add(programMember);
+        return programMember;
     }
     
     @RequestMapping("pList/{trnNo}")
@@ -44,6 +45,13 @@ public class ProgramMemberController {
             @PathVariable int trnNo,
             @PathVariable String uname) throws Exception {
         return programMemberService.listWithSearch(pno, trnNo, uname);
+    }
+    
+    @RequestMapping("sList/{trnNo}/{uname}")
+    public List<ProgramMember> listWithSearchAll(
+            @PathVariable int trnNo,
+            @PathVariable String uname) throws Exception {
+        return programMemberService.listWithSearchAll(trnNo, uname);
     }
 
     @RequestMapping("lList/{uno}")
