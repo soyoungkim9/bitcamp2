@@ -33,10 +33,12 @@ public class ProgramServiceImpl implements ProgramService {
         return programDao.selectList();
     }
     @Override
-    public List<Program> priceList(int min, int max) {
+    public List<Program> priceList(int min, int max,int pageNo, int pageSize) {
         Map<String,Object> params = new HashMap<>();
         params.put("minPrice",min);
         params.put("maxPrice",max);
+        params.put("startRowNo", (pageNo - 1) * pageSize);
+        params.put("pageSize", pageSize);
         return programDao.selectPrice(params);
     }
     @Override

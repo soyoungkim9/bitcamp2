@@ -82,6 +82,17 @@
     or pgoal like CONCAT('%', #{keyword}, '%')
     <!-- limit #{startRowNo}, #{pageSize} -->
   </select>
+  <select id="selectPrice"
+          resultMap="ProgramMap" parameterType="map">
+     select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno, p.ptype, p.det_addr, p.pgoal,
+           m.pmedno, m.ppath, m.pmtype
+    from PMED m
+         right outer join PROG p on m.pno=p.pno
+         left outer join TRN t on p.trnno=t.trnno
+    where p.pprice BETWEEN #{minPrice} AND #{maxPrice} 
+    order by p.pprice asc
+    limit #{startRowNo}, #{pageSize}
+  </select>
   
    <select id="countCardsWithProgramGoal" resultType="java.util.HashMap" parameterType="java.util.HashMap">
        select pgoal, count(*) as count
@@ -93,14 +104,7 @@
        group by pgoal;
     </select>
   
-  <select id="selectPrice"
-          resultMap="ProgramMap" parameterType="map">
-    select p.pname,p.pprice,p.ptype,pm.pmedno,Max(pm.ppath),p.pno,pm.pno,pm.ppath FROM PROG p 
-    inner join PMED pm on p.pno = pm.pno 
-    Group By p.pname,p.pno,pm.pno
-    having p.pprice BETWEEN #{minPrice} AND #{maxPrice} 
-    order by p.pprice asc
-  </select>
+  
 
   <!-- 운동 종목 search -->
   <select id="selectListWithProgramType" resultMap="ProgramMap"

@@ -90,9 +90,14 @@ public class ProgramController {
         return programService.mainList();
     }
     
-    @RequestMapping("/pList")  // 프로그램 가격 검색 
-    public Object priceList(@RequestParam("minPrice") int min,@RequestParam("maxPrice") int max) {
-        return programService.priceList(min,max);
+    @RequestMapping("/pList/{pageNo}/{pageSize}")  // 프로그램 가격 검색 
+    public Object priceList(
+                            @RequestParam("minPrice") int min,
+                            @RequestParam("maxPrice") int max,
+                            @PathVariable int pageNo,
+                            @PathVariable int pageSize
+                            ) {
+        return programService.priceList(min,max,pageNo,pageSize);
     }
 
     @RequestMapping("update")

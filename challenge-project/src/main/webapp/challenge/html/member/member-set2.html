@@ -6,6 +6,7 @@
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet" href="../../css/member/ksy-trainerPage.css">
 <link rel="stylesheet" href="../../css/member/ksy-settings.css">
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css">
 <link rel="stylesheet" href="../../css/member/member-set2.css">
 <link rel="stylesheet" href="../../node_modules/sweetalert2/dist/sweetalert2.min.css">
 <link rel="stylesheet"
@@ -15,7 +16,7 @@
 <style type="text/css">
 #sh_top_layout {
   border-bottom: none !important;
-}
+} 
 .sm-msgBox {
   display: block;
   margin-bottom: 50px;
@@ -106,8 +107,7 @@ h3 {
                 <div class="row">
                     <div id="bodyInfo"class="col-50">
                         <p>측정일</p> 
-                        <label for="addDate">날짜</label>
-                        <input id="mDate" type="text" name="addDate">
+                        <input type="text" id="setmdate"> 
                         <p>몸무게</p>
                         <input type="text" id="setweight">
                         <p>근력량</p> 
@@ -152,13 +152,15 @@ h3 {
 
 
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="//code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 <script src="../../js/common.js"></script>
 <script src="../../js/header/header.js"></script>
 <script src="../../js/footer/footer.js"></script>
 <script src="../../js/member/mb-menu.js"></script>
+<script src="../../js/member/member-set2.js"></script>
 <script src="../../node_modules/sweetalert2/dist/sweetalert2.min.js"></script>
 
-  <script> // 탭 메뉴
+ <!--  <script> // 탭 메뉴
 function openCity(evt, cityName) {
     var i, tabcontent, tablinks;
     tabcontent = document.getElementsByClassName("tabcontent");
@@ -179,7 +181,7 @@ function openCity(evt, cityName) {
 <script>
 
 $.getJSON(serverRoot + "/json/bodyInfo/" + userInfo.userNo, (data) => {
-	console.log(data[data.length-1]);
+   console.log(data[data.length-1]);
     var lastData = data[data.length-1];
     $(setmdate).val(lastData.bdate);
     $(setweight).val(lastData.weight);
@@ -188,24 +190,24 @@ $.getJSON(serverRoot + "/json/bodyInfo/" + userInfo.userNo, (data) => {
 }); 
 
 $("#updBtn").click(() => {
-	$.ajax({
+   $.ajax({
         type: 'POST',
         url: serverRoot + '/json/bodyInfo/add',
         data: {
             userNo: userInfo.userNo,
-        	bdate: $(setmdate).val(),
+           bdate: $(setmdate).val(),
             weight: $(setweight).val(),
             muscle: $(setmuscle).val(),
             fat: $(setfat).val()
 
         }, 
     }).done(function() {
-    	location.href = "member-set2.html";
+       location.href = "member-set2.html";
     });
   
 });
 
-</script>
+</script> -->
 
 
   
