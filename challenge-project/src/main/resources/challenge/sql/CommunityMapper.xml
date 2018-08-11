@@ -66,9 +66,10 @@
   </select>
   
   <update id="update" parameterType="Community">
-    update CMU set 
+    update POST p, CMU c
+    set 
         cmut=#{title},
-        cmu_cnt=#{type}
+        cmu_type=#{type}
     where cmuno=#{no}
   </update>
   

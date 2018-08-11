@@ -48,11 +48,12 @@
     where pono=#{value}
   </select>
   
-  <update id="update" parameterType="Post">
+ <update id="update" parameterType="Post">
     update POST set 
-    pocont=#{content}
+    pocont=#{content},
+    podate=now()
     where pono=#{no}
-  </update>
+  </update> 
   
   <delete id="delete" parameterType="int">
     delete from POST where pono=#{value}
