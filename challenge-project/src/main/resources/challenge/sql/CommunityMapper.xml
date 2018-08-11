@@ -66,10 +66,10 @@
   </select>
   
   <update id="update" parameterType="Community">
-    update POST set 
-        pocont=#{content}, 
-        podate=now()
-    where pono=#{no}
+    update CMU set 
+        cmut=#{title},
+        cmu_cnt=#{type}
+    where cmuno=#{no}
   </update>
   
   <delete id="delete" parameterType="int">

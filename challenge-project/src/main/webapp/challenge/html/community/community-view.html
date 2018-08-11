@@ -156,7 +156,7 @@
 									<tr>
 										<td style="border: none;"><span style='float: right'>
 												<a href="community-list.html"><button type="button" id="list" class="btn btn-default">목록</button></a>
-												<button type="button" id="modify" class="btn btn-default">수정</button>
+												<a href="#" onclick=" location.href = 'community-modify.html?no=' + no; return false;"><button type="button" id="modify" class="btn btn-default">수정</button></a>
 												<button type="button" id="deleteBtn" class="btn btn-default">삭제</button>
 												<button type="button" id="write" class="btn btn-default">글쓰기</button> <!--  글작성의 필요도 -->
 										</span></td>
@@ -248,7 +248,7 @@
 			var no = location.href.split("?")[1].split("=")[1];
 
 			$.getJSON("../../../json/community/" + no, function(data) {
-				$(fContent).val(data.content);
+				$(fContent).append(data.content);
 				$(fTitle).append(data.title);
 				$(fUser).append(data.user.name);
 				$(fCreatedDate).append(data.createdDate);

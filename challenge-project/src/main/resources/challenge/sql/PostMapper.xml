@@ -48,7 +48,7 @@
     where pono=#{value}
   </select>
   
-  <update id="update" parameterType="map">
+  <update id="update" parameterType="Post">
     update POST set 
     pocont=#{content}
     where pono=#{no}
