@@ -43,11 +43,10 @@ public class PostServiceImpl implements PostService {
     public int add(Post post) {
         return postDao.insert(post);
     }
-//
-//    @Override
-//    public int update(Post post) {
-//        // TODO Auto-generated method stub
-//        return 0;
-//    }
+
+    @Override
+    public int update(Post post) {
+        return postDao.update(post);
+    }
     
 }

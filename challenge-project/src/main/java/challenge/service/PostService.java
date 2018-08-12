@@ -11,6 +11,6 @@ public interface PostService {
     List<Post> list();
     Post get(int no);
     int add(Post post);
-//    int update(Post post);
+    int update(Post post);
     int delete(int no);
 }
