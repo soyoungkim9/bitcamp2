@@ -172,20 +172,34 @@
 <script>
 
 $("#addBtn").click(() => {
+	var type  = $('#CMU_TYPE').val();
+	var title  = $('#fTitle').val();
+	var content  = $('#fContent').val();
+	if (type != '' & title != '' & content != '') {
     $.ajax({
         type: 'POST',
         url: '../../../json/community/add',
+        async: false,
         data:{
             title: $(fTitle).val(),
             type: $(CMU_TYPE).val(),
             content:$(fContent).val(),
             "user.userNo":userInfo.userNo
+        },success: function(data) {
+        	location.href = "community-list.html";
         }
-    }).done(function(){
-        location.href="community-list.html"
-    });
+    });  
+} else if (type == '') {
+    alert("말머리를 골라주세요.");
+    $('#CMU_TYPE').focus();
+} else if (title == '') {
+    alert("제목을  적어주세요.");
+    $('#CMU_TYPE').focus();
+} else {
+    alert("내용을 적어주세요");
+    $('#fcontent').focus();
+}
 });
-console.log("Hey")
 
 /*         success : function(data) {
         	  if(data.type == null || data.type == '' ){
@@ -198,7 +212,6 @@ console.log("Hey")
         	  }
         	
         } */
-console.log("hey");
 
 
 
