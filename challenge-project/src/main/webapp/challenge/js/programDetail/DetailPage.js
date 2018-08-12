@@ -3,8 +3,6 @@ if (location.href.split("?").length > 1) {
   var no = location.href.split("?")[1].split("=")[1];
 
   $.getJSON(serverRoot + "/json/program/" + no, function(data) {
-    /*$(fNo).append(data.no);
-    $(fpostNo).val(data.postNo);*/
     $(faddress).append(data.address + ' ' + data.addDetail);
     $(fName).append(data.name);
     $(fDate).append(data.startDate + ' ~ ' + data.endDate);
