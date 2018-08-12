@@ -185,9 +185,8 @@ $("#updateBtn").click(() => {
 	$.post(serverRoot + "/json/community/update", {
             type: $(CMU_TYPE).val(),
             title: $(fTitle).val(),
-            /* content: $(fContent).append(), */
             content:$(fContent).val(),
-            "no":no
+            "no":no,
     }, () => {
         console.log("????");
     });
