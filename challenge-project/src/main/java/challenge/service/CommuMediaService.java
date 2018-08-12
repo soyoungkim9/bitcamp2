@@ -3,14 +3,14 @@ package challenge.service;
 
 import java.util.List;
 
-import challenge.domain.Community;
+import challenge.domain.CommuMedia;
 
-public interface CommunityService {
+public interface CommuMediaService {
     // 서비스 컴포넌트에서 메서드명을 지을 때는 
     // 업무 용어를 사용하라!
-    List<Community> list();
-    Community get(int no);
-    int add(Community community);
-    int update(Community community);
+    List<CommuMedia> list();
+    CommuMedia get(int no);
+    int add(CommuMedia commuMedia);
+    int update(CommuMedia commuMedia);
     int delete(int no);
 }
