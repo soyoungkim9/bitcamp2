@@ -79,6 +79,7 @@
 	    INNER JOIN PROG p 
 	    ON pm.pno = p.pno
     WHERE p.trnno = #{value}
+    AND pm.ptype = 1
   </select>
   
   <select id="searchList" parameterType="map" resultMap="ProgramMemberMap">
