@@ -18,7 +18,6 @@ appCaller.on('connectChannel', function(channelId) {
 createChannelButton.addEventListener('click', function(event) {
   event.preventDefault();
   appCaller.createChannel();
-  $('.create').remove(); 
 	var $msg = $('<p>온라인 수업을 시작했습니다!</p>');
 	$('#createMsg').append($msg);
 }, false);
