@@ -17,4 +17,5 @@ public interface UserDao {
     User selectOneWithId(String email);
     User selectOneWithPassword(Map<String,Object> params);
     int count(Map<String,Object> params);
+    User getEmail(String user);
 }

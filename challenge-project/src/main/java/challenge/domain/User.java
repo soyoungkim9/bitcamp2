@@ -77,6 +77,10 @@ public class User implements Serializable {
     public void setUserType(int userType) {
         this.userType = userType;
     }
+    public void setSex(String string) {
+        // TODO Auto-generated method stub
+        
+    }
     
 
 

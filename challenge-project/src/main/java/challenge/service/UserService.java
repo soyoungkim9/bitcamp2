@@ -17,5 +17,6 @@ public interface UserService {
     int delete(int userNo);
     User getWithId(String id);
     boolean isExist(String id, String password);
+    User getEmail(String user);
 }
 

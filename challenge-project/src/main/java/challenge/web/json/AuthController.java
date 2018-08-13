@@ -2,12 +2,14 @@
 package challenge.web.json;
 
 import java.util.HashMap;
+import java.util.Map;
 
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -17,6 +19,8 @@ import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.bind.support.SessionStatus;
 
 import challenge.domain.User;
+import challenge.service.FacebookService;
+import challenge.service.KakaoService;
 import challenge.service.UserService;
 
 @RestController
@@ -25,6 +29,8 @@ import challenge.service.UserService;
 public class AuthController {
 
     UserService userService;
+    @Autowired KakaoService kakaoService;
+    @Autowired FacebookService facebookService;
 
     public AuthController(UserService userService) {
         this.userService = userService;
@@ -83,13 +89,176 @@ public class AuthController {
         return result;
     }
 
+    @RequestMapping(value="kakaoLogin")
+    public Object kakaoLogin(
+            String accessToken, 
+            HttpSession session,
+            Model model) {
+
+        try {
+            @SuppressWarnings("rawtypes")
+            Map koResponse = kakaoService.me(accessToken, Map.class);
+            System.out.println(koResponse);
+            System.out.println((String)(((Map<?,?>)koResponse.get("kakao_account")).get("email")));
+            
+            if (koResponse.get("error") != null) {
+                model.addAttribute("loginUser");
+                HashMap<String,Object> result = new HashMap<>();
+                result.put("status", "fail"); 
+                
+                return result;
+                
+                
+            } // 이메일로 회원 정보를 찾는다.
+            User user = userService.getEmail((String)(((Map<?,?>)koResponse.get("kakao_account")).get("email")));
+            System.out.println(user);
+            if (user == null) {
+                // 회원 정보가 없으면 카카오톡 정보를 등록한다.
+                user = new User();
+                user.setName((String)((Map<?,?>)koResponse.get("properties")).get("nickname"));
+                user.setSex((char)('M'));
+               // user.setEmail((String)("CMsf23df@naver.com"));
+                user.setEmail((String)(((Map<?,?>)koResponse.get("kakao_account")).get("email")));
+                user.setPassword("1111");
+                user.setUserPath((String)(((Map<?,?>)koResponse.get("properties")).get("profile_image")));
+                user.setUserPhone("");
+                user.setUserType(1);
+                userService.add(user);
+            }
+           // System.out.println(user.getName());
+            System.out.println(user);
+            model.addAttribute("loginUser", user); 
+            
+            
+           
+
+            HashMap<String,Object> result = new HashMap<>();
+            result.put("status", "success");
+            return result;
+        } catch (Exception e) {
+            HashMap<String,Object> result = new HashMap<>();
+            result.put("status", "fail");
+            result.put("exception", e.getStackTrace());
+            return result;
+        }
+    }
+
+    @RequestMapping(value="facebookLogin")
+    public Object facebookLogin(
+            String accessToken, 
+            HttpSession session,
+            Model model) {
+
+        try {
+            @SuppressWarnings("rawtypes")
+            Map userInfo = facebookService.me(accessToken, Map.class);
+            System.out.println(userInfo);
+            
+            if (userInfo.get("error") != null) {
+                model.addAttribute("loginUser");
+                HashMap<String,Object> result = new HashMap<>();
+                result.put("status", "fail"); 
+                
+                return result;
+            }
+           /* int no;
+            try {
+                no= userService.userNo((String)userInfo.get("id"));
+            } catch(Exception e) {
+                no = 0;
+            }*/
+//            User user = userService.get(no);
+              User user = userService.getEmail((String)userInfo.get("email"));
+              System.out.println((String)userInfo.get("email"));
+            if (user == null) { // 등록된 회원이 아니면,
+                // 페이스북에서 받은 정보로 회원을 자동 등록한다.
+                user = new User();
+                user.setName((String)userInfo.get("name"));
+                user.setSex((char)('M'));
+                //user.setSex((String)userInfo.get("gender"));
+                
+                user.setEmail((String)userInfo.get("email"));
+                user.setPassword("1111");
+                user.setUserPath((String)userInfo.get("profile_pic"));
+                user.setUserPhone("010-1111-1111");
+                user.setUserType(1);
+                
+                userService.add(user);
+            }
+            System.out.println(user);
+            // 회원 정보를 세션에 저장하여 자동 로그인 처리를 한다.
+            model.addAttribute("loginUser", user);
+
+
+            HashMap<String,Object> result = new HashMap<>();
+            result.put("status", "success");
+            return result;
+
+        } catch (Exception e) {
+            HashMap<String,Object> result = new HashMap<>();
+            result.put("status", "fail");
+            result.put("exception", e.getStackTrace());
+            return result;
+        }
+    }
+    
+    
+    @RequestMapping(value="naverLogin")
+    public Object naverLogin(
+            User naccount,
+            HttpSession session,
+            HttpServletRequest request,
+            Model model) {
+//        System.out.println(naccount);
+        try {
+            
+            System.out.println(naccount.getEmail());
+            User user = userService.getEmail(naccount.getEmail());
+            System.out.println(user);
+            
+            if (user == null) { // 등록된 회원이 아니면,
+                
+                user = new User();
+                user.setName(naccount.getName());
+                user.setEmail(naccount.getEmail());
+//                user.setName((String)("name"));
+                user.setSex((char)('M'));
+                user.setSex(naccount.getSex());
+            
+//                user.setEmail((String)userInfo.get("email"));
+                user.setPassword("1111");
+                user.setUserPath(naccount.getUserPath());
+                user.setUserPhone("");
+                user.setUserType(1);
+                userService.add(user);
+                
+            }
+
+            // 회원 정보를 세션에 저장하여 자동 로그인 처리를 한다.
+            System.out.println(user);
+            model.addAttribute("loginUser", user);
+
+            HashMap<String,Object> result = new HashMap<>();
+            result.put("status", "success");
+            return result;
+
+        } catch (Exception e) {
+            HashMap<String,Object> result = new HashMap<>();
+            result.put("status", "fail");
+            result.put("exception", e.getStackTrace());
+            return result;
+        }
+    }
+    
     @RequestMapping("/logout")
-    public void logout(HttpSession session, SessionStatus status) throws Exception {
-        
+    public Object logout(HttpSession session, SessionStatus status) {
+
         status.setComplete();
-        
-        // 세션을 꺼내 무효화시킨다.
         session.invalidate();
+
+        HashMap<String,Object> result = new HashMap<>();
+        result.put("status", "success");
+        return result;
     }
 
 }
