@@ -19,7 +19,7 @@ createChannelButton.addEventListener('click', function(event) {
   event.preventDefault();
   appCaller.createChannel();
   $('.create').remove(); 
-	var $msg = $('<p>채팅방이 개설되었습니다. 참여 버튼을 누르면 채팅이 시작됩니다!</p>');
+	var $msg = $('<p>온라인 수업을 시작했습니다!</p>');
 	$('#createMsg').append($msg);
 }, false);
 
@@ -47,8 +47,7 @@ createChannelButton.addEventListener('click', function(event) {
 	   }, function(err){
 	       swal({
 	           type: 'error',
-	           title: '잠깐!',
-	           text: '채팅방이 개설되지 않았습니다',
+	           title: '진행중인 수업이 없습니다.',
 	           confirmButtonColor: '#1B3453',
 	           confirmButtonText: '확인'
 	         })
