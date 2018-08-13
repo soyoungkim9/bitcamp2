@@ -22,7 +22,7 @@
 
     <div class="container">
         <h2>프로그램</h2>
-
+ 
         <div class="sidenav">
 
             <div class="search-program">
@@ -201,7 +201,21 @@
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script src="../../js/search/rangeSlider.js"></script>
-    
+    <script>
+    $('#priceSearch').click(() => {
+	   $.ajax({
+		   dataType: 'json',
+		   type: 'GET',
+		   url:serverRoot + '/json/program/pList/count',
+	       data: {
+	       	minPrice : $('#from_id').val(),
+            maxPrice : $('#to_id').val()
+	       }
+	   }).done(function(data){
+		   console.log(data);
+	   })
+    })
+    </script>
 </body>
 
 </html>

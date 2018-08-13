@@ -28,6 +28,7 @@ public interface ProgramService {
 
     Object countCardsWithProgramGoal(String[] programGoals);
     List<Program> listCardWithProgoal(String progoal);
+    int priceCount(int min, int max);
 
     
     //boolean isMember(String programName, String memberId);
