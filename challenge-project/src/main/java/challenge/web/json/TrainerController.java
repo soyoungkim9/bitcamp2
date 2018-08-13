@@ -83,7 +83,7 @@ public class TrainerController {
             Thumbnails.of(path)
             .size(100, 100)
             .outputFormat("jpg")
-            .toFile(path.getCanonicalFile() + "_120x120");
+            .toFile(path.getCanonicalFile() + "_100x100");
             
             Thumbnails.of(path)
             .size(120, 120)

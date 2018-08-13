@@ -137,8 +137,9 @@ $(document.body).on('click','.trSelect', function(event){
 			console.log(dAver);
 			
 			$('#mAttend').append(Math.floor(dAver) + '%');
-			if(Math.floor(dAver) == 100) {
-				$('.attend').css("width", "80%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
+			if(Math.floor(dAver) == 100 || Math.floor(dAver) > 100) {
+				$('#mTargetPer').append('100%');
+				$('.target').css("width", "95.5%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
 			} else {
 				$('.attend').css("width", Math.floor(dAver) + "%");
 			}
@@ -163,8 +164,8 @@ $(document.body).on('click','.trSelect', function(event){
 			if(proGoal == '출석') {
 				$('#mTargetPer').append(Math.floor(dAver) + '%');
 				$('.target').css("width", Math.floor(dAver) + "%");
-				if(Math.floor(targetResult) == 100) {
-					$('.target').css("width", "80%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
+				if(Math.floor(targetResult) == 100 || Math.floor(targetResult) > 100) {
+					$('.target').css("width", "95.5%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
 				}
 			} else {
 				if(proGoal == '체중') {
@@ -211,10 +212,15 @@ $(document.body).on('click','.trSelect', function(event){
 					$('.target').css("width", targetResult + "%");
 				} else {
 					targetResult = (diff/targetNum)*100;
-					$('#mTargetPer').append(Math.floor(targetResult) + '%');
-					$('.target').css("width", Math.floor(targetResult) + "%");
-					if(Math.floor(targetResult) == 100) {
-						$('.target').css("width", "80%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
+					if(Math.floor(targetResult) == 100 || Math.floor(targetResult) > 100) {
+						$('#mTargetPer').append('100%');
+						$('.target').css("width", "95.5%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
+					} else if (Math.floor(targetResult) == 0 || Math.floor(targetResult) < 100){
+						$('#mTargetPer').append('0%');
+						$('.target').css("width", "0%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
+					} else {
+						$('#mTargetPer').append(Math.floor(targetResult) + '%');
+						$('.target').css("width", Math.floor(targetResult) + "%");
 					}
 				}
 			}

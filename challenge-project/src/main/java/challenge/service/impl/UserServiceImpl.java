@@ -76,4 +76,10 @@ public class UserServiceImpl implements UserService {
     public int updateNotimg(User user) { // 회원정보 비밀번호 변경
         return userDao.updateNotimg(user);
     }
+    
+    @Override
+    public User getEmail(String user) {
+        // TODO Auto-generated method stub
+        return userDao.getEmail(user);
+    }
 }

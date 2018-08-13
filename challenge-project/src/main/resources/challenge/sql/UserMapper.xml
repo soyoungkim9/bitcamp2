@@ -119,4 +119,11 @@
         delete from USER where
         uno=#{value}
     </delete>
+    
+    <select id="getEmail" parameterType="String" resultMap="UserMap">
+        select uno, uname, sex, mail, pwd, uphon, upath, utype
+        mail
+        from USER
+        where mail=#{value}
+    </select>
 </mapper>

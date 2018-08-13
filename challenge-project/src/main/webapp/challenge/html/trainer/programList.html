@@ -8,6 +8,7 @@
 <link rel="stylesheet" href="../../css/common.css">
 <link rel="stylesheet" href="../../css/program/card2.css">
 <link rel="stylesheet" href="../../node_modules/@fortawesome/fontawesome-free/css/all.css">
+<link rel="stylesheet" href="../../css/program/card-myPage.css">
 </head>
 <body>
  <div id="subMenu"></div>
@@ -91,14 +92,19 @@
       <span class="card-body-local-{{@key}}">{{address}}</span>
       <span class="card-body-number"><span class="pnum-{{@key}}"></span>/{{maxQty}}명</span>
       <p><span class="star-prototype score-{{@key}}"></span></p>
+      
       <!--  카드 바디 푸터 -->
       <div class="card-footer">
       <span class="card-footer-review">리뷰 <span class="review-{{@key}}"></span>개</span>
       <span class="card-footer-date">{{startDate}} (D<span id="dday-{{@key}}"></span>)</span>
     </div>
     </a> 
+<a href="../chat/chat-trainer.html">
+    <button class="chat-btn" type="button">온라인 수업</button>
+</a>
 </div>
 </div>
+
 
 {{/each}}
 </script>

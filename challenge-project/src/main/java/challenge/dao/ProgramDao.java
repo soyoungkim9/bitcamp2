@@ -14,6 +14,7 @@ public interface ProgramDao {
     public List<Program> selectListWithPrice();
     public List<Program> selectListWithStartDate();
     public List<Program> selectTrainerProgram(int no);
+    public List<Program> selectTrainerProgramTurn(int no);
     public int insert(Program program);
     public int update(Program program);
     public Program selectOne(int no);

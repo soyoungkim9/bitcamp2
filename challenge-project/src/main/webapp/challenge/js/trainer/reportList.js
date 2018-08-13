@@ -3,7 +3,8 @@ var pno;
 var defaultPage;
 var startDate;
 var endDate;
-
+var pageNum = 1;
+var pageSize = 12;
 // li-template 트레이너가 관리하는 프로그램 이름 목록
 var liTemplateSrc = $("#li-template").html();
 var templateFn = Handlebars.compile(liTemplateSrc);
@@ -16,7 +17,8 @@ $(document).ready(function() {
 			startDate = $('.active').find('a').attr('data-sdt');
 			endDate = $('.active').find('a').attr('data-edt');
 			// 운동일지 default page 설정
-			$.ajax(serverRoot + "/json/plan/list/" + defaultPage, {
+			$.ajax(serverRoot + "/json/plan/list/" + defaultPage + "/"
+					+ pageNum + "/" + pageSize, {
 				dataType: "json",	
 			    success(data) {
 					 console.log(userInfo);
@@ -74,7 +76,8 @@ $(document.body).on('click', '.programTab', function(event) {
 	startDate = $('.active').find('a').attr('data-sdt');
 	endDate = $('.active').find('a').attr('data-edt');
     // 운동일지 리스트 보기
-	$.ajax(serverRoot + "/json/plan/list/" + pno, {
+	$.ajax(serverRoot + "/json/plan/list/" + pno + "/"
+			+ pageNum + "/" + pageSize, {
 		dataType: "json",	
 	    success(data) {
 			if(data.length == 0) {
@@ -116,19 +119,23 @@ window.onclick = function(event) {
 }
 
 // 새글 관련 이벤트
+var count;
+var turn;
 $("#addPlan").click(() => {
     console.log(startDate, endDate);
 	pno = $('.active').find('a').attr('data-no');
     // 프로그램 회차 관련
-    $.ajax(serverRoot + "/json/plan/list/" + pno, {
+    $.ajax(serverRoot + "/json/plan/list/" + pno + "/"
+			+ pageNum + "/" + pageSize, {
     	dataType: "json",
 	    success(data) {
     	   $("option").remove();
     	   $("#mDate").val('');
     	   $("#mTitle").val('');
     	   $("#mContent").val('');
-    	   var count = data.length + 1;
-    	   var turn;
+    	   var index = data.length - 1;
+    	   count = data[index].planTurn + 1;
+    	   turn;
     	   if(data.length == 0) { // 프로그램에 운동일지 하나도 없을 경우
     		   turn = 1;
     	   } else { // 프로그램에 운동일지 한 개 이상 있을 경우
@@ -191,7 +198,8 @@ $("#updatePlanButton").click(() => {
 		modal.style.display = "none";
 		
 		/* 업데이트한 상태에서 이전 화면으로 돌아가기 위한 코드임... 뭔가 이상 */
-		$.ajax(serverRoot + "/json/plan/list/" + pno, {
+		$.ajax(serverRoot + "/json/plan/list/" + pno + "/"
+				+ pageNum + "/" + pageSize, {
 			dataType: "json",	
 		    success(data) {
 				 $('#programBox').html(programTemplateFn({
@@ -226,7 +234,8 @@ $("#registerPlan").click(() => {
 			})
 		modal.style.display = "none";
 		/* 업데이트한 상태에서 이전 화면으로 돌아가기 위한 코드임... 뭔가 이상 */
-		$.ajax(serverRoot + "/json/plan/list/" + pno, {
+		$.ajax(serverRoot + "/json/plan/list/" + pno + "/"
+				+ pageNum + "/" + pageSize, {
 			dataType: "json",	
 		    success(data) {
 				 $('#programBox').html(programTemplateFn({
@@ -240,6 +249,47 @@ $("#registerPlan").click(() => {
 		    }	
 		});
 	});
+});
+
+// 페이징 처리
+$(document.body).on('click', '.selectedPage', function(event) {
+	event.preventDefault();
+	pageNum = $(this).attr('data-num');
+	if($(".selectedPage").hasClass("pageActive").toString()) {
+		$(".selectedPage").removeClass("pageActive")
+	}
+	$(this).addClass("pageActive");
+	if(typeof pno == "undefined") {
+		$.ajax(serverRoot + "/json/plan/list/" + defaultPage + "/"
+				+ pageNum + "/" + pageSize, {
+			dataType: "json",	
+		    success(data) {
+				 $('#programBox').html(programTemplateFn({
+					 name: data[0].program.name,
+					 startDate: data[0].program.startDate,
+					 endDate: data[0].program.endDate,
+					 list:data}));
+		    },
+		    error() {
+		        window.alert("report.js view list 실행 오류!");
+		    }	
+		});
+	} else {
+		$.ajax(serverRoot + "/json/plan/list/" + pno + "/"
+				+ pageNum + "/" + pageSize, {
+			dataType: "json",	
+		    success(data) {
+				 $('#programBox').html(programTemplateFn({
+					 name: data[0].program.name,
+					 startDate: data[0].program.startDate,
+					 endDate: data[0].program.endDate,
+					 list:data}));
+		    },
+		    error() {
+		        window.alert("report.js view list 실행 오류!");
+		    }	
+		});
+	}
 });
 
 // DatePicker
