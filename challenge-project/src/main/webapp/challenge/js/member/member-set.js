@@ -32,7 +32,7 @@ $('#fileupload').fileupload({
 		previewMaxHeight: 120,  // 미리보기 이미지 높이 
 		previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
 		processalways: function(e, data) {
-	
+
 
 			var imagesDiv = $('#images-div');
 			imagesDiv.html("");
@@ -53,6 +53,7 @@ $('#fileupload').fileupload({
 
 
 $("#upload-btn").click(() => {
+
 	var data = {
 			email: $('#email').val(),
 			userPhone: $('#phone').val(),
@@ -60,57 +61,65 @@ $("#upload-btn").click(() => {
 			userNo: userInfo.userNo,
 			password: $('.pwd').val()
 	};
+	if($('.pwd').val()=="") {
+	 alert("비밀번호를 입력해주세요");
+	}
+	else{
 	
-	if(dbimg !=null) { //이미지 수정을 했을때
+		if(dbimg !=null) { //이미지 수정을 했을때
 
-		$.ajax({
-			type: 'POST',
-			async: false,
-			traditional : true,
-			url: serverRoot + '/json/user/update2' ,
-			data: {
+			$.ajax({
+				type: 'POST',
+				async: false,
+				traditional : true,
+				url: serverRoot + '/json/user/update2' ,
+				data: {
 
-				email: $('#email').val(),
-				userPhone: $('#phone').val(),
-				userPath: dbimg,
-				userNo: userInfo.userNo,
-				password: $('.pwd').val()
+					email: $('#email').val(),
+					userPhone: $('#phone').val(),
+					userPath: dbimg,
+					userNo: userInfo.userNo,
+					password: $('.pwd').val()
 
-			}, 
-		}).done(function() {
-			alert('회원님 정보가 수정되었습니다22');
+				}, 
+			}).done(function() {
+				alert('회원님 정보가 수정되었습니다22');
 				$.post(serverRoot + "/json/auth/login", data, (result) => {
 					if (result.state == "success") {
-						alert('들어옴');
+
 						location.href = "member-set.html";
 					}
 					else
 						window.alert("로그인 실패!")
 				});
 			});
-	} else{ //이미지 수정을 안하고 다른것만 수정했을때
-		$.ajax({
-			type: 'POST',
-			async: false,
-			traditional : true,
-			url: serverRoot + '/json/user/updateNotimg' ,
-			data: {
+		} else{ //이미지 수정을 안하고 다른것만 수정했을때
+			$.ajax({
+				type: 'POST',
+				async: false,
+				traditional : true,
+				url: serverRoot + '/json/user/update3' ,
+				data: {
 
-				email: $('#email').val(),
-				userPhone: $('#phone').val(),
-				userNo: userInfo.userNo
+					email: $('#email').val(),
+					userPhone: $('#phone').val(),
+					password: $('.pwd').val(),
+					userNo: userInfo.userNo
 
-			}, 
-		}).done(function() {
+				}, 
+			}).done(function() {
 
-			alert('회원님 정보가 수정되었습니다');
-			location.href = "member-set.html";
-		});
+				alert('회원님 정보가 수정되었습니다');
+				location.href = "member-set.html";
+			});
+		}
 	}
+	
+
 });
 
 //비밀번호 갱신시 실행되는 조건문
-$(document).ready(function () {
+/*$(document).ready(function () {
 	$("#upload-btn").click(() => {
 		if ($('.pwd').val() != "") {
 			$.ajax({
@@ -135,9 +144,9 @@ $(document).ready(function () {
 		}
 	});
 });
+ */
 
-
-// 회원 삭제
+//회원 삭제
 $("#exitButton").click(function() {
 	$.ajax({
 		type:'POST',
@@ -148,15 +157,15 @@ $("#exitButton").click(function() {
 	}).done(function() {
 		$.get(serverRoot + "/json/auth/logout", () => {
 			swal({
-				  title: "계정 탈퇴 하였습니다",
-				  text: "확인을 누르시면 메인화면으로 이동합니다",
-				  type: "success",
-					 
-				  preConfirm: () => {
-					  location.href=serverRoot + "/challenge/html/login/login.html";
-						  }
-				})
-           
-         }); 
+				title: "계정 탈퇴 하였습니다",
+				text: "확인을 누르시면 메인화면으로 이동합니다",
+				type: "success",
+
+				preConfirm: () => {
+					location.href=serverRoot + "/challenge/html/login/login.html";
+				}
+			})
+
+		}); 
 	})
 });
