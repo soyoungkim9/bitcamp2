@@ -1,4 +1,5 @@
-
+// 헤더에서 들어온 Search Event 처리
+if (location.href.split("?").length > 1)
 
 
 var cardBody1 = $("#cardBody2").html();
