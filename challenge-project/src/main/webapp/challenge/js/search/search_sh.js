@@ -1,26 +1,10 @@
 var cardBody1 = $("#cardBody2").html();
 var cardBodyFn = Handlebars.compile(cardBody1);
+// 맨 처음 default 카드 로드
 $.getJSON(serverRoot + "/json/program/listCard", (data) => {
    $(aaa).html(cardBodyFn({list:data}));
 }).done(function(data) {
-
-   var i;
-   for (i = 0; i < data.length; i++) {
-      dday(data[i].startDate, i); //D-day
-      reviewScore(data[i].no, i); //별점,리뷰 개수
-      countScore(data[i].no, i);
-      trImg(data[i].trainerNo, i);
-      pmemberCount(data[i].no, i);
-      var price = addComma($(".numberic-"+i+"").html())
-      var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
-      $(".numberic-"+i+"").html(price)
-      $(".card-body-local-"+i+"").html(place)
-   } 
-
-   $.fn.generateStars = function() {
-      return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
-   };
-
+	loadCards(data);
 });
 
 //헤더에서 들어온 Search Event 처리
@@ -33,83 +17,34 @@ if (location.href.split("?").length > 1) {
       $(aaa).html(cardBodyFn({list:data}));
    }).done(function(data) {
       console.log("검색 이벤트는 실행했어용")
-      var i; 
-      for (i = 0; i < data.length; i++) {
-         dday(data[i].startDate, i); //D-day
-         reviewScore(data[i].no, i); //별점,리뷰 개수
-         trImg(data[i].trainerNo, i);
-         pmemberCount(data[i].no, i);
-         var price = addComma($(".numberic-"+i+"").html())
-         var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
-         $(".numberic-"+i+"").html(price)
-         $(".card-body-local-"+i+"").html(place)
-      }
-
-      $.fn.generateStars = function() {
-         return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
-      };
+      loadCards(data);
    })
-   
 }
 
 //검색 function
 var searchEvent = function searchEvent(e) {
    var keyword;
-
-   // 프로그램 목표 sideMenu 클릭시 검색 이벤트
-   if (e != null) { 
+  
+   if (e != null) {  // 프로그램 목표 sideMenu 클릭시 검색 이벤트 
       keyword = $(e).attr("data-pgoal");
       $.getJSON(serverRoot + "/json/program/listCardWithProgoal/" + keyword, (data) => {
           $(aaa).html(cardBodyFn({list:data}));
        }).done(function(data) {
-
-          var i;
-          for (i = 0; i < data.length; i++) {
-             dday(data[i].startDate, i); //D-day
-             reviewScore(data[i].no, i); //별점,리뷰 개수
-             trImg(data[i].trainerNo, i);
-             pmemberCount(data[i].no, i);
-             var price = addComma($(".numberic-"+i+"").html())
-             var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
-             $(".numberic-"+i+"").html(price)
-             $(".card-body-local-"+i+"").html(place)
-          }
-
-          $.fn.generateStars = function() {
-             return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
-          };
+    	   loadCards(data);
        })
-   } else {
+   } else { // 검색어로 검색 이벤트
 	  keyword = $('#keyword').val()
 	     $.getJSON(serverRoot + "/json/program/listCardWithKeyword/" + keyword, (data) => {
       $(aaa).html(cardBodyFn({list:data}));
    }).done(function(data) {
-
-      var i;
-      for (i = 0; i < data.length; i++) {
-         dday(data[i].startDate, i); //D-day
-         reviewScore(data[i].no, i); //별점,리뷰 개수
-         trImg(data[i].trainerNo, i);
-         pmemberCount(data[i].no, i);
-         var price = addComma($(".numberic-"+i+"").html())
-         var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
-         $(".numberic-"+i+"").html(price)
-         $(".card-body-local-"+i+"").html(place)
-      }
-
-      $.fn.generateStars = function() {
-         return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
-      };
+	   loadCards(data);
    });
    }
 
 }
 
-
 //가격검색
 $('#priceSearch').click(() => {
-   
-
    $.ajax({
       dataType : 'json',
       type: 'POST',
@@ -125,23 +60,11 @@ $('#priceSearch').click(() => {
       for(var i = 0; i < data.length; i++) {
          $('#aaa').html(cardBodyFn({list:data}));
       }
-        var i;
-        for (i = 0; i < data.length; i++) {
-         
-          dday(data[i].startDate, i); //D-day
-          reviewScore(data[i].no, i); //별점,리뷰 개수
-          trImg(data[i].trainerNo, i);
-          pmemberCount(data[i].no, i);
-          var price = addComma($(".numberic-"+i+"").html())
-          var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
-          $(".numberic-"+i+"").html(price)
-          $(".card-body-local-"+i+"").html(place)
-        }
+	   loadCards(data);
    })
 
 });
 
-   
 
 function trImg(no, i) {
    $.getJSON(serverRoot + "/json/trainer/" + no, (data) => {
@@ -244,15 +167,11 @@ $.ajax({
 });
 
 
-
-
-
 //enter 쳤을 시 searchEvent()
 $('#keyword').keypress(function(event) {
    if(event.keyCode ===13) {
       event.preventDefault();
       searchEvent();
-
    }
 })
 
@@ -297,23 +216,7 @@ $(document.body).on('click', 'input:checkbox', function() {
       for(var i = 0; i < data.length; i++) {
          $('#aaa').html(cardBodyFn({list:data}));
       }
-
-      var i;
-      for (i = 0; i < data.length; i++) {
-         dday(data[i].startDate, i); //D-day
-         reviewScore(data[i].no, i); //별점,리뷰 개수
-         trImg(data[i].trainerNo, i);
-         pmemberCount(data[i].no, i);
-         var price = addComma($(".numberic-"+i+"").html())
-         var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
-         $(".numberic-"+i+"").html(price)
-         $(".card-body-local-"+i+"").html(place)
-      }
-
-      $.fn.generateStars = function() {
-         return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
-      };
-
+	   loadCards(data);
    });
 
 });
@@ -323,23 +226,7 @@ $('#priceList').on('click', function() {
    $.getJSON(serverRoot + "/json/program/priceList", (data) => {
       $(aaa).html(cardBodyFn({list:data}));
    }).done(function(data) {
-
-      var i;
-      for (i = 0; i < data.length; i++) {
-         dday(data[i].startDate, i); //D-day
-         reviewScore(data[i].no, i); //별점,리뷰 개수
-         trImg(data[i].trainerNo, i);
-         pmemberCount(data[i].no, i);
-         var price = addComma($(".numberic-"+i+"").html())
-         var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
-         $(".numberic-"+i+"").html(price)
-         $(".card-body-local-"+i+"").html(place)
-      }
-
-      $.fn.generateStars = function() {
-         return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
-      };
-
+	   loadCards(data);
    });
 });
 
@@ -348,25 +235,26 @@ $('#popularList').on('click', function() {
    $.getJSON(serverRoot + "/json/program/dateList", (data) => {
       $(aaa).html(cardBodyFn({list:data}));
    }).done(function(data) {
-
-      var i;
-      for (i = 0; i < data.length; i++) {
-         dday(data[i].startDate, i); //D-day
-         reviewScore(data[i].no, i); //별점,리뷰 개수
-         trImg(data[i].trainerNo, i);
-         pmemberCount(data[i].no, i);
-         var price = addComma($(".numberic-"+i+"").html())
-         var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
-         $(".numberic-"+i+"").html(price)
-         $(".card-body-local-"+i+"").html(place)
-      }
-
-      $.fn.generateStars = function() {
-         return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
-      };
-
+	   loadCards(data);
    });
 });
 
-
-
+// 카드 불러오기 함수
+function loadCards(data) {
+	var i;
+	for (i = 0; i < data.length; i++) {
+		dday(data[i].startDate, i); //D-day
+		reviewScore(data[i].no, i); //별점,리뷰 개수
+		countScore(data[i].no, i);
+		trImg(data[i].trainerNo, i);
+		pmemberCount(data[i].no, i);
+		var price = addComma($(".numberic-"+i+"").html())
+		var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
+		$(".numberic-"+i+"").html(price)
+		$(".card-body-local-"+i+"").html(place)
+	} 
+	
+	$.fn.generateStars = function() {
+		return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+	};
+}
