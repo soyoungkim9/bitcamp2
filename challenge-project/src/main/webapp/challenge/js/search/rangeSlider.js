@@ -137,7 +137,7 @@
     	    
     	    data.values.forEach(function(value, i) {
     	      inputs.eq(i).val(value);
-    	    });
+    	    }); 
     	  }
     	  if (data.boundaryLabels != undefined) {
     	    node.find('.min').text(data.boundaryLabels[0]);

@@ -1,5 +1,5 @@
   
-
+ 
     var totalCount = 100; //전체 건수
 
     var totalPage = Math.ceil(totalCount/10);//페이지 수

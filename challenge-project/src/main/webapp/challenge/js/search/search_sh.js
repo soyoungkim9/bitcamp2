@@ -33,7 +33,7 @@ if (location.href.split("?").length > 1) {
       $(aaa).html(cardBodyFn({list:data}));
    }).done(function(data) {
       console.log("검색 이벤트는 실행했어용")
-      var i;
+      var i; 
       for (i = 0; i < data.length; i++) {
          dday(data[i].startDate, i); //D-day
          reviewScore(data[i].no, i); //별점,리뷰 개수
