@@ -146,6 +146,7 @@
 							src="http://placehold.it/348x200" alt="업로드 사진"> <img
 							src="http://placehold.it/348x200" alt="업로드 사진"> <img
 							src="http://placehold.it/348x200" alt="업로드 사진">
+						<textarea id='fContent2' name="name" rows="20" cols="100" readonly></textarea>
 						<textarea id='fContent' name="name" rows="20" cols="100" readonly>
 
             </textarea>
@@ -248,11 +249,14 @@
 			var no = location.href.split("?")[1].split("=")[1];
 
 			$.getJSON("../../../json/community/" + no, function(data) {
+				console.log(data);
 				$(fContent).append(data.content);
 				$(fTitle).append(data.title);
 				$(fUser).append(data.user.name);
 				$(fCreatedDate).append(data.createdDate);
 				$(fCnt).append(data.cnt);
+				$(fContent2).append(data.commuMedia.mediaNo);
+
 				//$(fLike).append(data.like);
 			});
 		}

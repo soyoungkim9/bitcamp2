@@ -22,7 +22,7 @@
         <id column="uno" property="userNo"/>
         <result column="uname" property="name"/>
     </association>
-    <collection property="commuMedias" ofType="CommuMedia">
+    <collection property="commuMedia" ofType="CommuMedia">
         <id column="cmedno" property="mediaNo"/>
         <result column="cpath" property="mediaPath"/>
         <result column="cmuno" property="commuNo"/>
