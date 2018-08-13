@@ -93,3 +93,19 @@ function expand() {
 	}
 }
 $('.sh-searchBtn').on('click', expand);
+
+
+
+function searchEvent() {
+	console.log("searchEvent 실행!")
+	var searchKeyword = $('#keywordHeader').val();
+	location.href = serverRoot + "/challenge/html/search/search.html?keyword=" + $('#keywordHeader').val();
+}
+
+$('#keywordHeader').keypress(function() {
+	if(event.keyCode ===13) {
+		event.preventDefault();
+		searchEvent();
+	}
+})
+
