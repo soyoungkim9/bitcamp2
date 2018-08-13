@@ -151,6 +151,19 @@
     order by pno desc
     <!-- limit #{startRowNo}, #{pageSize} -->
   </select>
+  
+  <select id="selectTrainerProgramTurn"
+          resultMap="ProgramMap" parameterType="map">
+  select p.pno, p.pname, p.pth, p.sdt, p.edt
+  from PROG p
+          inner join TRN t on p.trnno=t.trnno
+  where t.trnno=#{value} and p.pname in (
+		                   select pname
+		                   from PROG
+		                   GROUP BY pname 
+		                   having count(*) > 1 )
+  </select>
+  
 
   <select id="selectList"
           resultMap="ProgramMap" parameterType="map">

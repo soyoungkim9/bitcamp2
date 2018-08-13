@@ -210,9 +210,17 @@ $(document.body).on('click','.addModal', function(event){
 		$('#myModal').css("display", "none");
 	})
 });
-
-
  */
+
+function proTurn(no) {
+  var trTemplateSrc5 = $(turn-template).html();
+  var templateFn5 = Handlebars.compile(trTemplateSrc5);
+  $.getJSON(serverRoot + "/json/programMember/reviewList/" + no, (data) => {
+    $(turn).append(templateFn5({list: data}));
+  }).done(function(data) {
+  })
+}
+
 
 //댓글리스트
 function loadComment(no) {

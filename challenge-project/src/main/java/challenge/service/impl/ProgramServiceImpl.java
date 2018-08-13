@@ -62,6 +62,11 @@ public class ProgramServiceImpl implements ProgramService {
     }
     
     @Override
+    public List<Program> listTurnProgram(int trainerNo) {
+        return programDao.selectTrainerProgramTurn(trainerNo);
+    }
+    
+    @Override
     public List<Program> listWithProgramType(String[] pType) {
         Map<String, Object> param = new HashMap<String, Object>();
         param.put("programTypeList", pType);

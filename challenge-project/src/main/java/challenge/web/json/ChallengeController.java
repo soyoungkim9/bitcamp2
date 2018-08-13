@@ -1,6 +1,7 @@
 package challenge.web.json;
 
 import java.io.File;
+import java.util.ArrayList;
 import java.util.UUID;
 
 import javax.servlet.ServletContext;
@@ -32,19 +33,24 @@ public class ChallengeController {
     @RequestMapping("add")
     @ResponseStatus(HttpStatus.CREATED)
     public Object add(Challenge challenge, MultipartFile[] files) throws Exception {
-        
+        System.out.println(files);
+        System.out.println(files.length);
         String filesDir = sc.getRealPath("/files");
-        System.out.println(files[0]);
-
-        String filename = UUID.randomUUID().toString();
         
-        try {
-            File path = new File(filesDir + "/" + filename);
-            files[0].transferTo(path);
-        } catch (Exception e) {
-            e.printStackTrace();
+        ArrayList<String> medias = new ArrayList<>();
+        for (int i = 0; i  < files.length; i++) {
+            String filename = UUID.randomUUID().toString();
+            try {
+                File path = new File(filesDir + "/" + filename);
+                files[i].transferTo(path);
+                medias.add(filename);
+                
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
         }
-        challenge.setPath(filename);
+        
+        challenge.setPath(medias.get(0));
         challengeService.add(challenge);
         return challenge;
     }
