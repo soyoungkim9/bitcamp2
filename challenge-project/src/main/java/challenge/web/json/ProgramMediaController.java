@@ -8,19 +8,23 @@ import javax.servlet.ServletContext;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
 import org.springframework.web.multipart.MultipartFile;
 
 import challenge.domain.ProgramMedia;
+import challenge.domain.User;
 import challenge.service.ProgramMediaService;
 import net.coobird.thumbnailator.Thumbnails;
 
 @RestController
 @RequestMapping("/programMedia")
+@SessionAttributes("loginUser")
 public class ProgramMediaController {
 
     @Autowired ServletContext sc;
@@ -32,7 +36,8 @@ public class ProgramMediaController {
     
    @RequestMapping("add")
    @ResponseStatus(HttpStatus.CREATED)
-    public Object add(ProgramMedia programMedia, MultipartFile[] files) throws Exception {
+    public Object add(@ModelAttribute("loginUser") User loginUser,
+            ProgramMedia programMedia, MultipartFile[] files) throws Exception {
        String filesDir = sc.getRealPath("/files");
        
        ArrayList<String> medias = new ArrayList<>();
@@ -61,7 +66,7 @@ public class ProgramMediaController {
                e.printStackTrace();
            }
        }
-       
+       programMedia.setTrainerNo(loginUser.getUserNo());
        programMediaService.add(programMedia, medias);
        return medias;
     }
