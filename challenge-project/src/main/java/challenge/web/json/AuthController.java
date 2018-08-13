@@ -76,7 +76,7 @@ public class AuthController {
         HashMap<String, Object> result = new HashMap<>();
 
         if (userService.isExist(email, password)) { // 로그인 성공!
-            System.out.println("gggg");
+            System.out.println("존재합니다!");
 //            session.setAttribute("loginUser", userService.getWithId(email));
             model.addAttribute("loginUser", userService.getWithId(email));
             // If 로그인한 유저가 유저?회원?트레이너?피멤브? 어떤거냐에 따라 세션에 넣어주기. 유형

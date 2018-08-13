@@ -5,14 +5,14 @@ $.ajax({
 	async: false,
 	traditional : true,
 	url: serverRoot + '/json/auth/loginUser' ,
-	data:userInfo,
+	data:userInfo
 }).done(function(data) {
 	console.log(data);
 	$('#email').val(data.email);
 	$('#phone').val(data.userPhone);
-	$("<img>").attr('src', '../../../files/'+ userInfo.userPath+'_200x200.jpg').css('border-radius', '50%').appendTo('#images-div');
-
+	$("<img>").attr('src', '../../../files/'+ data.userPath+'_200x200.jpg').css('border-radius', '50%').appendTo('#images-div');
 });
+
 
 
 
@@ -20,7 +20,6 @@ $.ajax({
 "use strict"
 
 var dbimg;
-
 $('#fileupload').fileupload({
 	url: serverRoot +'/json/fileupload/upload02',        // 서버에 요청할 URL
 	dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
@@ -44,31 +43,24 @@ $('#fileupload').fileupload({
 					}
 				} catch (err) {}
 			}
-
 		}, 
 		submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
-			
-
-
 		}, 
 		done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-
-
-			
 			dbimg = data.result.files[0].filename;
-
-
-
-
-
 		}
 });
 
 
-
-
-
 $("#upload-btn").click(() => {
+	var data = {
+			email: $('#email').val(),
+			userPhone: $('#phone').val(),
+			userPath: dbimg,
+			userNo: userInfo.userNo,
+			password: $('.pwd').val()
+	};
+	
 	if(dbimg !=null) { //이미지 수정을 했을때
 
 		$.ajax({
@@ -81,15 +73,22 @@ $("#upload-btn").click(() => {
 				email: $('#email').val(),
 				userPhone: $('#phone').val(),
 				userPath: dbimg,
-				userNo: userInfo.userNo
+				userNo: userInfo.userNo,
+				password: $('.pwd').val()
 
 			}, 
 		}).done(function() {
-
-			alert('회원님 정보가 수정되었습니다');
-			location.href = "member-set.html";
-		});
-	}else{ //이미지 수정을 안하고 다른것만 수정했을때
+			alert('회원님 정보가 수정되었습니다22');
+				$.post(serverRoot + "/json/auth/login", data, (result) => {
+					if (result.state == "success") {
+						alert('들어옴');
+						location.href = "member-set.html";
+					}
+					else
+						window.alert("로그인 실패!")
+				});
+			});
+	} else{ //이미지 수정을 안하고 다른것만 수정했을때
 		$.ajax({
 			type: 'POST',
 			async: false,
@@ -111,7 +110,6 @@ $("#upload-btn").click(() => {
 });
 
 //비밀번호 갱신시 실행되는 조건문
-
 $(document).ready(function () {
 	$("#upload-btn").click(() => {
 		if ($('.pwd').val() != "") {
