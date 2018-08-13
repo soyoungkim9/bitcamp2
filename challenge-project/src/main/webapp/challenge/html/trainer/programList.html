@@ -19,13 +19,9 @@
    <div class="sm-mypage">
     <div class="sm-profile">
      <div style="text-align: center;">
-      <a href="trainer.html"><img src="../../img/member/img1.jpg"
-       style="margin-left: 30px; border-radius: 60px; width: 120px; height: 120px;"></a>
-      <button id="sm-btn-2" type="button"
-       style="position: relative; top: -10px; right: 40px; width: 30px; height: 30px; border-radius: 15px; padding: 0px; font-size: 14px;">
-       <span>2</span>
-      </button>
-      <br> 사용자이름<br>
+      <img id="fPath"
+       style="border-radius: 60px; width: 120px; height: 120px;">
+      <br> <span id="tName"></span><br>
       <button id="sm-btn-2" type="button"
        style="margin-top: 10px; margin-bottom: 20px;">프로필관리</button>
      </div>
@@ -78,7 +74,7 @@
     <!-- 카드 헤더 -->
     <div class="card-header">
       <img class="card-img" src="../../../files/{{medias.[0].path}}_200x200.jpg"/>
-      <div class="ribbon"><span>성공 %</span></div>
+      <div id="card-{{@key}}" class="ribbon"></div>
       <div class="card-trainer">
         <img class="trainer-img" />
       </div>

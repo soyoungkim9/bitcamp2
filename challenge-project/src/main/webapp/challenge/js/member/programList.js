@@ -53,6 +53,12 @@ function reviewScore(no, i) {
       if(!(isNaN(cal))) {
         $('.score-'+i+'').html(cal)
       }
+      if (cal >= 4) {
+        //display block
+        var displayNo = (cal / 5) * 100; // 백분율
+        $("#card-" + i).css("display", "block");
+        $("#card-" + i).append("<span>만족도 "+ displayNo+ "%</span>")
+      } 
     }).done(function(data) {
       $('.score-'+i+'').generateStars();
     })
