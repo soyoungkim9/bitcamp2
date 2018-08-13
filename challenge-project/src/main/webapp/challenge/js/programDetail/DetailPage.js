@@ -90,6 +90,7 @@ if (location.href.split("?").length > 1) {
     programList(data.trainerNo) // 다른 프로그램
     plan(data.proDay, data.proTime) // 일정
     dayInterval(data.startDate) // D-day
+    proTurn(data.trainerNo) // 기수 프로그램
 
     // 결제 페이지 이동
     $("#payment").click(() => {
@@ -212,12 +213,36 @@ $(document.body).on('click','.addModal', function(event){
 });
  */
 
-function proTurn(no) {
-  var trTemplateSrc5 = $(turn-template).html();
+// 기수 프로그램
+function proTurn(trainerNo) {
+  var trTemplateSrc5 = $("#turn-template").html();
   var templateFn5 = Handlebars.compile(trTemplateSrc5);
-  $.getJSON(serverRoot + "/json/programMember/reviewList/" + no, (data) => {
-    $(turn).append(templateFn5({list: data}));
+  $.getJSON(serverRoot + "/json/program/listTurnProgram/" + trainerNo, (data) => {
+    $("#turn").append(templateFn5({list: data}));
   }).done(function(data) {
+    for (var i = 0; i < data.length; i++) {
+      rewviewStar1(data[i].no)
+    }
+  })
+}
+
+// 기수 별점
+function rewviewStar1(no) {
+//리뷰 개수 카운트
+  $.get(serverRoot + "/json/programMember/reviewCount/" + no, function(data) {
+    var count = data;
+    
+    // 리뷰  점수
+    $.get(serverRoot + "/json/programMember/reviewScore/" + no, function(data) {
+      var score = data;
+      var cal = (score / count).toFixed(1);
+      if(!(isNaN(cal))) {
+        $('.score'+no).append(cal);
+      } else {
+        $('.score'+no).append(0)
+      }
+      
+    })
   })
 }
 

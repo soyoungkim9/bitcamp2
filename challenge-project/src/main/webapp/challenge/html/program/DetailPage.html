@@ -152,17 +152,10 @@
       <tr>
        <th class="firstNoline">회차</th>
        <th>기간</th>
-       <th>성공인원</th>
        <th class="lastNoline">만족도</th>
       </tr>
      </thead>
      <tbody id="turn">
-      <tr>
-       <td class="firstNoline">1</td>
-       <td>2017-02-20 ~ 2017-05-14</td>
-       <td>20/25</td>
-       <td class="lastNoline">4.5/5.0</td>
-      </tr>
      </tbody>
     </table>
    </div>
@@ -427,12 +420,13 @@
 </script>
 
 <script id="turn-template" type="text/x-handlebars-template">
+{{#each list}}
  <tr>
-  <td class="firstNoline">1</td>
-  <td>2017-02-20 ~ 2017-05-14</td>
-  <td>20/25</td>
-  <td class="lastNoline">4.5/5.0</td>
+  <td class="firstNoline">{{proTh}}</td>
+  <td>{{startDate}} ~ {{endDate}}</td>
+  <td><span class="score{{no}}"></span>/5.0</td>
  </tr>
+{{/each}}
 </script>
 
  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>

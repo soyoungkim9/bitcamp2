@@ -34,7 +34,7 @@
  <div class="container">
 
   <div id="navbar" class="line-table">
-   <div class="line-20">성공률 : 97.8%</div>
+   <div id="fscore" class="line-20">만족도 : </div>
    <div id="fproCount" class="line-20">총 프로그램 : </div>
    <div class="line-20 tr-arrow-main">
     <a href="#">메시지 보내기</a> <span class="tr-arrow"></span>
@@ -111,7 +111,7 @@
     <!-- 카드 헤더 -->
     <div class="card-header">
       <img class="card-img" src="../../../files/{{medias.[0].path}}_200x200.jpg"/>
-      <div class="ribbon"><span>성공 %</span></div>
+      <div id="card-{{@key}}" class="ribbon"></div>
       <div class="card-trainer tr-{{@key}}">
       </div>
     </div>
