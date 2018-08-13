@@ -70,11 +70,13 @@
 	where plno=#{no} 
   </update>
   
-  <select id="selectCount" parameterType="int" resultMap="PlanMap">
-	select count(pl.pldt) 
-	from PROG p, PLAN pl 
-	where p.pno = pl.pno 
-	and pl.pno = #{value}
+  <select id="selectCount" parameterType="int" resultMap="PlanMap" resultType="int">
+<!-- 	select (pltover DIV 12)+1 as plt
+	from PLAN 
+	where pno = #{value} -->
+	select (pltover DIV 12)+1 as plt
+	from PLAN 
+	where pno = #{value}
   </select>
   
 </mapper>

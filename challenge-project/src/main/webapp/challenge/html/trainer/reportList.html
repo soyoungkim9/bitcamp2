@@ -112,13 +112,13 @@
 	  </div>
     </div><!-- mypage-body -->
 	  <div class="sm-pagination" id="pagination">
-	      <a class="sm-pagination-button sm-pagination-side" href="#"><i class="fas fa-angle-left"></i></a>
-	      <a data-num="1" class="sm-pagination-button pageActive selectedPage">1</a>
-	      <a data-num="2" class="sm-pagination-button selectedPage">2</a>
-	      <a data-num="3" class="sm-pagination-button selectedPage">3</a>
-	      <a data-num="4" class="sm-pagination-button selectedPage">4</a>
-	      <a data-num="5" class="sm-pagination-button sm-pagination-button-end selectedPage" href="#">5</a>
-	      <a class="sm-pagination-button sm-pagination-side" href="#"><i class="fas fa-angle-right"></i></a>
+	  <a class="sm-pagination-button sm-pagination-side" href="#"><i class="fas fa-angle-left"></i></a>
+	  <a data-num="1" class="sm-pagination-button selectedPage pageActive">1</a>
+	  <a data-num="2" class="sm-pagination-button selectedPage">2</a>
+	  <a data-num="3" class="sm-pagination-button selectedPage">3</a>
+	  <a data-num="4" class="sm-pagination-button selectedPage">4</a>
+	  <a data-num="5" class="sm-pagination-button selectedPage">5</a>
+	  <a class="sm-pagination-button sm-pagination-side" href="#"><i class="fas fa-angle-right"></i></a>
 	  </div>
 
 </div><!-- mypage -->
@@ -164,6 +164,15 @@
 	{{/if}}
 {{/each}}
 </script>
+<!--  
+<script id="pagenationList" type="text/x-handlebars-template">
+	<a class="sm-pagination-button sm-pagination-side" href="#"><i class="fas fa-angle-left"></i></a>
+{{#each list}}
+    <a data-num="{{@key}}" class="sm-pagination-button selectedPage">{{@key}}</a>
+{{/each}}
+	<a class="sm-pagination-button sm-pagination-side" href="#"><i class="fas fa-angle-right"></i></a>
+</script>
+-->
 <script src="../../js/trainer/reportList.js"></script>
 <!-- datepicker 사용을 위한 import 파일 -->
 <script src="//code.jquery.com/jquery-1.12.4.js"></script>

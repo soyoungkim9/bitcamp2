@@ -1,5 +1,7 @@
 package challenge.web.json;
 
+import java.util.List;
+
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -45,6 +47,12 @@ public class PlanController {
     public String update(Plan plan) throws Exception {
         planService.update(plan);
         return "plan update success!";
+    }
+    
+    @RequestMapping("count/{pno}")
+    public List<Integer> getCount (@PathVariable int pno){
+        System.out.println(planService.getCount(pno));
+        return planService.getCount(pno);
     }
     
 }

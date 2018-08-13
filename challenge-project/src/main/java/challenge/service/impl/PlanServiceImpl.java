@@ -44,4 +44,9 @@ public class PlanServiceImpl implements PlanService {
     public int update(Plan plan) {
         return planDao.update(plan);
     }
+    
+    @Override
+    public List<Integer> getCount(int pno) {
+        return planDao.selectCount(pno);
+    }
 }
