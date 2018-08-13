@@ -138,7 +138,7 @@ $(document.body).on('click','.trSelect', function(event){
 			
 			$('#mAttend').append(Math.floor(dAver) + '%');
 			if(Math.floor(dAver) == 100) {
-				$('.attend').css("width", "80%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
+				$('.attend').css("width", "95%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
 			} else {
 				$('.attend').css("width", Math.floor(dAver) + "%");
 			}
@@ -164,7 +164,7 @@ $(document.body).on('click','.trSelect', function(event){
 				$('#mTargetPer').append(Math.floor(dAver) + '%');
 				$('.target').css("width", Math.floor(dAver) + "%");
 				if(Math.floor(targetResult) == 100) {
-					$('.target').css("width", "80%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
+					$('.target').css("width", "95%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
 				}
 			} else {
 				if(proGoal == '체중') {
@@ -214,7 +214,7 @@ $(document.body).on('click','.trSelect', function(event){
 					$('#mTargetPer').append(Math.floor(targetResult) + '%');
 					$('.target').css("width", Math.floor(targetResult) + "%");
 					if(Math.floor(targetResult) == 100) {
-						$('.target').css("width", "80%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
+						$('.target').css("width", "95%"); // 패딩값으로 인해 100%가 120%되는 것을 방지
 					}
 				}
 			}
