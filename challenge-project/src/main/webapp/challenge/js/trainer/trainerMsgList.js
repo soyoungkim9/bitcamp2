@@ -61,6 +61,7 @@ $(document.body).on('click','.viewSelect', function(event){
 	    success: function(data) {
 	    	console.log(data)
 			 $('.view-body').html(viewtemplateFn({
+				 imgPath: data.member.userPath,
 				 member: data.member.name,
 				 title: data.title,
 				 content: data.content,
@@ -95,9 +96,10 @@ $(document.body).on('click','.addModal', function(event){
 	$.getJSON(serverRoot + "/json/message/" + msgno, function(data) {
 		$('.add-body').html(addtemplateFn({
 			 member: data.member.name,
-			 title: data.title,
-			 content: data.content,
+			 //title: data.title,
+			 //content: data.content,
 			 msgDate: data.msgDate,
+			 imgPath: userInfo.userPath,
 			 trainer: userInfo.name,
 			 }));
 		$('#myAddModal').css("display", "block");

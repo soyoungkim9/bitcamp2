@@ -54,12 +54,13 @@ $(document.body).on('click','.viewSelect', function(event){
 	event.preventDefault();
 
 	var msgno = $(this).attr("data-msgno");
-	console.log(msgno)
 	$.ajax({
 		url: serverRoot + "/json/message/" + msgno,  
 		dataType: "json",	
 	    success: function(data) {
+	    	console.log(data)
 			 $('.view-body').html(viewtemplateFn({
+				 imgPath: data.trainer.userPath,
 				 trainer: data.trainer.name,
 				 title: data.title,
 				 content: data.content,
@@ -97,6 +98,7 @@ $(document.body).on('click','.addModal', function(event){
 			 title: data.title,
 			 content: data.content,
 			 msgDate: data.msgDate,
+			 imgPath: userInfo.userPath,
 			 member: userInfo.name,
 			 }));
 		$('#myAddModal').css("display", "block");

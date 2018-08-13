@@ -21,11 +21,13 @@
         <id column="t_uno" property="userNo" />
         <result column="utype" property="userType" />
         <!-- utype? msdir이 1번일 때, userNo를 t.uno/u.uno 두 가지 경우로 받아야해서 -->
+        <result column="t_upath" property="userPath" />
         <result column="t_uname" property="name" />
     </association>
     <association property="member" javaType="Member">
         <id column="u_uno" property="userNo" />
         <result column="utype" property="userType" />
+        <result column="u_upath" property="userPath" />
         <result column="u_uname" property="name" />
     </association>
     
@@ -51,9 +53,10 @@
 	  ms.msdate, 
 	  u.utype,
 	  u.uno as u_uno,
-	  u.uname as u_uname, 
+	  u.uname as u_uname,
+      u.upath as u_upath, 
 	  t.uno as t_uno, 
-	  t.uname as t_uname
+	  t.uname as t_uname,
 	from MSG ms
 	left outer join USER u on ms.uno = u.uno
 	left outer join USER t on ms.trnno = t.uno
@@ -83,8 +86,9 @@
       ms.msdate, 
       u.uno as u_uno, 
       u.uname as u_uname, 
+      u.upath as u_upath, 
       t.uno as t_uno, 
-      t.uname as t_uname
+      t.uname as t_uname,
     from MSG ms
     left outer join USER u on ms.uno = u.uno
     left outer join USER t on ms.trnno = t.uno
@@ -122,8 +126,10 @@ select
       ms.msdir,
       u.uno as u_uno, 
       u.uname as u_uname, 
+      u.upath as u_upath, 
       t.uno as t_uno, 
-      t.uname as t_uname
+      t.uname as t_uname,
+      t.upath as t_upath
     from MSG ms
     left outer join USER u on ms.uno = u.uno
     left outer join USER t on ms.trnno = t.uno
