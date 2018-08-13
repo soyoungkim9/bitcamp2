@@ -22,9 +22,12 @@ public class PlanController {
         return planService.list(trnno);
     }
     
-    @RequestMapping("list/{pno}")
-    public Object planList (@PathVariable int pno){
-        return planService.getPlanList(pno);
+    @RequestMapping("list/{pno}/{pageNo}/{pageSize}")
+    public Object planList (
+            @PathVariable int pno,
+            @PathVariable int pageNo,
+            @PathVariable int pageSize){
+        return planService.getPlanList(pno, pageNo, pageSize);
     }
     
     @RequestMapping("add")

@@ -36,16 +36,16 @@
   -->
   <select id="selectList" parameterType="int" resultMap="PlanMap">
 	select p.trnno, p.pno, p.pname, p.sdt, p.edt from PROG p
-	where p.trnno = #{value}
-<!--     order by pono desc -->
+	where p.trnno = #{trnno}
   </select>
 
-  <select id="selectPlanList" parameterType="int" resultMap="PlanMap">
+  <select id="selectPlanList" parameterType="map" resultMap="PlanMap">
 	select p.pname, p.sdt, p.edt, p.ptover, pl.pno, pl.plno, pl.pltover,
 		   pl.pltitl, pl.plcont, pl.pldt, p.trnno
 	from PROG p, PLAN pl
 	where p.pno = pl.pno
-	AND pl.pno = #{value}
+	AND pl.pno = #{pno}
+	limit #{startRowNo}, #{pageSize}
   </select>
   
   <insert id="insert" parameterType="Plan" 
