@@ -54,36 +54,6 @@ $.ajax({
 
    
 });
-/*function updateUserInfo(data) {
-	
-$.ajax({
-    method: "GET",
-    dataType: "json",
-    url: serverRoot + "/json/auth/loginUser",
-    async: false
-  })
-  .done(function(data) {
-	  console.log("수행함!");
-     userInfo = data;
-     if(userInfo != null) {
-           $("#sh-user-img").attr("src","../../../files/" + userInfo.userPath);
-         $(".login_menu_before").attr("style", "display:none")
-         $("#sh-user-name").html(userInfo.name)
-         $("#logoutBtn").click((e) => {
-            e.preventDefault(); // 클릭했을 때 원래 하던 일이 있는데 그것을 하지 말라!
-            $.get(serverRoot + "/json/auth/logout", () => {
-               location.href = serverRoot + "/challenge/html/login/login.html";
-            }); 
-         });
-      } else {
-         $(".login_menu_after").attr("style", "display:none")
-      }
-
-
-  });
-console.log("update 성공!");
-console.log(data);
-}*/
 
 function expand() {
    $('.sh-input').attr("placeholder","");

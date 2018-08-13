@@ -17,6 +17,7 @@
     "blueimp-load-image": "^2.19.0",
     "bootstrap": "^4.1.1",
     "handlebars": "^4.0.11",
+    "handlebars-paginate": "^0.1.0",
     "isElementInViewport": "0.0.1",
     "jquery": "^1.12.4",
     "jquery-ui": "^1.12.1",

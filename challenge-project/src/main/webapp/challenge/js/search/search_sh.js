@@ -64,7 +64,7 @@ $('#priceSearch').click(() => {
 		type: 'POST',
 		async: false,
 		traditional : true,
-		url: serverRoot + '/json/program/pList/1/12',
+		url: serverRoot + '/json/program/pList/1/9',
 		data: {
 			minPrice : $('#from_id').val(),
 			maxPrice : $('#to_id').val()
