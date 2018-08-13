@@ -82,6 +82,19 @@
     or pgoal like CONCAT('%', #{keyword}, '%')
     <!-- limit #{startRowNo}, #{pageSize} -->
   </select>
+  
+      <select id="listCardWithProgoal"
+          resultMap="ProgramMap" parameterType="string">
+    select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno, p.ptype, p.det_addr, p.pgoal,
+           m.pmedno, m.ppath, m.pmtype
+    from PMED m
+         right outer join PROG p on m.pno=p.pno
+         left outer join TRN t on p.trnno=t.trnno
+    where pgoal = #{value}
+    <!-- limit #{startRowNo}, #{pageSize} -->
+  </select>
+  
+  
   <select id="selectPrice"
           resultMap="ProgramMap" parameterType="map">
      select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno, p.ptype, p.det_addr, p.pgoal,

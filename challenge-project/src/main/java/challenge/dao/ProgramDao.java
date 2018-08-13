@@ -25,4 +25,5 @@ public interface ProgramDao {
 	public List<Program> selectListWithKeyword(String keyword);
     public List<Integer> countCardsWithProgramGoal(Map<String, Object> param);
     public List<Program> selectListWithProgramType(Map<String, Object> param);
+    public List<Program> listCardWithProgoal(String progoal);
 }

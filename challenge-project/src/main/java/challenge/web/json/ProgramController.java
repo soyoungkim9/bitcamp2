@@ -59,6 +59,11 @@ public class ProgramController {
         return programService.listCardWithKeyword(keyword);
     }
     
+    @RequestMapping("listCardWithProgoal/{progoal}")
+    public Object listCardWithProgoal(@PathVariable String progoal) {
+        return programService.listCardWithProgoal(progoal);
+    }
+    
     @RequestMapping("countCardsWithProgramGoal")
     public Object list(@RequestParam(value="programGoals[]") String[] programGoals) {
         return programService.countCardsWithProgramGoal(programGoals);

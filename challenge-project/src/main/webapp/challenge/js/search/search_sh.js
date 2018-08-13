@@ -54,14 +54,34 @@ if (location.href.split("?").length > 1) {
 
 //검색 function
 var searchEvent = function searchEvent(e) {
-   var keyword = $('#keyword').val();
+   var keyword;
 
    // 프로그램 목표 sideMenu 클릭시 검색 이벤트
    if (e != null) { 
       keyword = $(e).attr("data-pgoal");
-   } 
+      $.getJSON(serverRoot + "/json/program/listCardWithProgoal/" + keyword, (data) => {
+          $(aaa).html(cardBodyFn({list:data}));
+       }).done(function(data) {
 
-   $.getJSON(serverRoot + "/json/program/listCardWithKeyword/" + keyword, (data) => {
+          var i;
+          for (i = 0; i < data.length; i++) {
+             dday(data[i].startDate, i); //D-day
+             reviewScore(data[i].no, i); //별점,리뷰 개수
+             trImg(data[i].trainerNo, i);
+             pmemberCount(data[i].no, i);
+             var price = addComma($(".numberic-"+i+"").html())
+             var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
+             $(".numberic-"+i+"").html(price)
+             $(".card-body-local-"+i+"").html(place)
+          }
+
+          $.fn.generateStars = function() {
+             return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+          };
+       })
+   } else {
+	  keyword = $('#keyword').val()
+	     $.getJSON(serverRoot + "/json/program/listCardWithKeyword/" + keyword, (data) => {
       $(aaa).html(cardBodyFn({list:data}));
    }).done(function(data) {
 
@@ -80,8 +100,12 @@ var searchEvent = function searchEvent(e) {
       $.fn.generateStars = function() {
          return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
       };
-   })
+   });
+   }
+
 }
+
+
 //가격검색
 $('#priceSearch').click(() => {
    

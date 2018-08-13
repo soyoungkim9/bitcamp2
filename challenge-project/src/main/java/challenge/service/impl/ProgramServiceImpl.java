@@ -139,6 +139,11 @@ public class ProgramServiceImpl implements ProgramService {
         return programDao.countCardsWithProgramGoal(param);
     }
 
+    @Override
+    public List<Program> listCardWithProgoal(String progoal) {
+        return programDao.listCardWithProgoal(progoal);
+    }
+
     
 
 
