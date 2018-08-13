@@ -41,13 +41,8 @@ public class ProgramServiceImpl implements ProgramService {
         params.put("pageSize", pageSize);
         return programDao.selectPrice(params);
     }
-    @Override
-    public int priceCount(int min, int max) {
-        Map<String, Object> param = new HashMap<>();
-        param.put("minPrice", min);
-        param.put("maxPrice", max);
-        return programDao.priceCount(param);
-    }
+
+    
     @Override
     public List<Program> listCard() {
         return programDao.selectListCard();

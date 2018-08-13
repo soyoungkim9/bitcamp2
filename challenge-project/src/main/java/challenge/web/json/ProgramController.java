@@ -109,11 +109,6 @@ public class ProgramController {
                             ) {
         return programService.priceList(min,max,pageNo,pageSize);
     }
-    @RequestMapping("/pList/count")
-    public int priceCount(@RequestParam("minPrice") int min,
-                         @RequestParam("maxPrice") int max) {
-     return programService.priceCount(min,max);                        
-     }
 
     @RequestMapping("update")
     @ResponseStatus(HttpStatus.OK)

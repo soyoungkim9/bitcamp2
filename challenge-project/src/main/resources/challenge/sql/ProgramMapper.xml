@@ -106,11 +106,7 @@
     order by p.pprice asc
     limit #{startRowNo}, #{pageSize}
   </select>
-  <select id="priceCount" 
-          resultMap="programMap" parameterType="map">
-    SELECT COUNT(*) FROM PROG p
-    where p.pprice BETWEEN #{minPrice} AND #{maxPrice}     
-  </select>
+
    <select id="countCardsWithProgramGoal" resultType="java.util.HashMap" parameterType="java.util.HashMap">
        select pgoal, count(*) as count
        from PROG

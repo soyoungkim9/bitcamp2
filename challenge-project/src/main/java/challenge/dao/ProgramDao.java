@@ -21,10 +21,10 @@ public interface ProgramDao {
     public List<Program> mainList();
     public Program selectOneWithMedia(int no);
     Program selectRecent();
-    public List<Program> selectPrice(Map<String,Object> prams);
+    public List<Program> selectPrice(Map<String,Object> params);
 	public List<Program> selectListWithKeyword(String keyword);
     public List<Integer> countCardsWithProgramGoal(Map<String, Object> param);
     public List<Program> selectListWithProgramType(Map<String, Object> param);
     public List<Program> listCardWithProgoal(String progoal);
-    public int priceCount(Map<String, Object> param);
+    
 }
