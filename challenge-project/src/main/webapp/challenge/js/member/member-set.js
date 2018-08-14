@@ -148,12 +148,11 @@ $("#upload-btn").click(() => {
 
 //회원 삭제
 $("#exitButton").click(function() {
+	console.log("하이요");
+	console.log(userInfo.userNo);
 	$.ajax({
 		type:'POST',
 		url: serverRoot + '/json/user/delete',
-		data:{
-			userNo : userInfo.userNo
-		},
 	}).done(function() {
 		$.get(serverRoot + "/json/auth/logout", () => {
 			swal({
