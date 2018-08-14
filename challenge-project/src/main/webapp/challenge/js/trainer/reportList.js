@@ -3,6 +3,7 @@ var pno;
 var defaultPage;
 var startDate;
 var endDate;
+var ptover;
 var pageNum = 1;
 var pageSize = 12;
 
@@ -20,9 +21,9 @@ $(document).ready(function() {
 			defaultPage = $('.active').find('a').attr('data-last');
 			startDate = $('.active').find('a').attr('data-sdt');
 			endDate = $('.active').find('a').attr('data-edt');
+			ptover = $('.active').find('a').attr('data-ptover');
 			// 운동일지 default page 설정
-			$.ajax(serverRoot + "/json/plan/list/" + defaultPage + "/"
-					+ pageNum + "/" + pageSize, {
+			$.ajax(serverRoot + "/json/plan/list/" + defaultPage, {
 				dataType: "json",	
 			    success(data) {
 					 console.log(userInfo);
@@ -40,12 +41,24 @@ $(document).ready(function() {
 					 }
 			    },
 			    error() {
-			        window.alert("프로그램 등록 후 이용해 주세요!");
+					swal({
+						  position: 'center',
+						  type: 'error',
+						  title: '실행 오류!',
+						  showConfirmButton: false,
+						  timer: 1500
+						})
 			    }	
 			});
 		},
 	    error() {
-	        window.alert("report.js li-template list 실행 오류!");
+			swal({
+				  position: 'center',
+				  type: 'error',
+				  title: '실행 오류!',
+				  showConfirmButton: false,
+				  timer: 1500
+				})
 	    }
 	});
 	
@@ -57,7 +70,13 @@ $(document).ready(function() {
 			 $('#tName').html(data.name);
 	    },
 	    error() {
-	        window.alert("트레이너 정보 불러오기 실패!");
+			swal({
+				  position: 'center',
+				  type: 'error',
+				  title: '실행 오류!',
+				  showConfirmButton: false,
+				  timer: 1500
+				})
 	    }	
 	});
 });
@@ -80,8 +99,7 @@ $(document.body).on('click', '.programTab', function(event) {
 	startDate = $('.active').find('a').attr('data-sdt');
 	endDate = $('.active').find('a').attr('data-edt');
     // 운동일지 리스트 보기
-	$.ajax(serverRoot + "/json/plan/list/" + pno + "/"
-			+ pageNum + "/" + pageSize, {
+	$.ajax(serverRoot + "/json/plan/list/" + pno, {
 		dataType: "json",	
 	    success(data) {
 			if(data.length == 0) {
@@ -103,7 +121,13 @@ $(document.body).on('click', '.programTab', function(event) {
 			 }
 	    },
 	    error() {
-	        window.alert("report.js programTab list 실행 오류!");
+			swal({
+				  position: 'center',
+				  type: 'error',
+				  title: '실행 오류!',
+				  showConfirmButton: false,
+				  timer: 1500
+				})
 	    }	
 	});
 	
@@ -150,28 +174,37 @@ $("#addPlan").click(() => {
     console.log(startDate, endDate);
 	pno = $('.active').find('a').attr('data-no');
     // 프로그램 회차 관련
-    $.ajax(serverRoot + "/json/plan/list/" + pno + "/"
-			+ pageNum + "/" + pageSize, {
+    $.ajax(serverRoot + "/json/plan/list/" + pno, {
     	dataType: "json",
 	    success(data) {
     	   $("option").remove();
     	   $("#mDate").val('');
     	   $("#mTitle").val('');
     	   $("#mContent").val('');
-    	   var index = data.length - 1;
-    	   count = data[index].planTurn + 1;
-    	   turn;
+
+    	   var index;
     	   if(data.length == 0) { // 프로그램에 운동일지 하나도 없을 경우
     		   turn = 1;
+    		   count = 1;
+    		   turn = ptover;
     	   } else { // 프로그램에 운동일지 한 개 이상 있을 경우
+    		   index = data.length - 1;
+    		   count = data[index].planTurn + 1;
     		   turn = data[0].program.proTurn;
     	   }
-	       for (count; count <= turn; count++) {
+	       
+    	   for (count; count <= turn; count++) {
 	     	  $('#mTurn').append("<option>" + count +"</option>");
 	       }
 	    },
 	    error() {
-	        window.alert("report.js addPlan 실행 오류!");
+			swal({
+				  position: 'center',
+				  type: 'error',
+				  title: '실행 오류!',
+				  showConfirmButton: false,
+				  timer: 1500
+				})
 	    }
     });
     
@@ -201,7 +234,13 @@ $(document.body).on('click', '.editIcon', function(event) {
 	        $("#modalViewContent textarea").val(data[0].planContent);
 	    },
 	    error() {
-	        window.alert("report.js editIcon 실행 오류!");
+			swal({
+				  position: 'center',
+				  type: 'error',
+				  title: '실행 오류!',
+				  showConfirmButton: false,
+				  timer: 1500
+				})
 	    }	
 	});
 });
@@ -223,8 +262,7 @@ $("#updatePlanButton").click(() => {
 		modal.style.display = "none";
 		
 		/* 업데이트한 상태에서 이전 화면으로 돌아가기 위한 코드임... 뭔가 이상 */
-		$.ajax(serverRoot + "/json/plan/list/" + pno + "/"
-				+ pageNum + "/" + pageSize, {
+		$.ajax(serverRoot + "/json/plan/list/" + pno, {
 			dataType: "json",	
 		    success(data) {
 				 $('#programBox').html(programTemplateFn({
@@ -234,7 +272,13 @@ $("#updatePlanButton").click(() => {
 					 list:data}));
 		    },
 		    error() {
-		        window.alert("report.js view list 실행 오류!");
+				swal({
+					  position: 'center',
+					  type: 'error',
+					  title: '실행 오류!',
+					  showConfirmButton: false,
+					  timer: 1500
+					})
 		    }	
 		});
 		
@@ -259,8 +303,7 @@ $("#registerPlan").click(() => {
 			})
 		modal.style.display = "none";
 		/* 업데이트한 상태에서 이전 화면으로 돌아가기 위한 코드임... 뭔가 이상 */
-		$.ajax(serverRoot + "/json/plan/list/" + pno + "/"
-				+ pageNum + "/" + pageSize, {
+		$.ajax(serverRoot + "/json/plan/list/" + pno, {
 			dataType: "json",	
 		    success(data) {
 				 $('#programBox').html(programTemplateFn({
@@ -270,7 +313,13 @@ $("#registerPlan").click(() => {
 					 list:data}));
 		    },
 		    error() {
-		        window.alert("report.js view list 실행 오류!");
+				swal({
+					  position: 'center',
+					  type: 'error',
+					  title: '실행 오류!',
+					  showConfirmButton: false,
+					  timer: 1500
+					})
 		    }	
 		});
 	});
@@ -285,8 +334,7 @@ $(document.body).on('click', '.selectedPage', function(event) {
 	}
 	$(this).addClass("pageActive");
 	if(typeof pno == "undefined") {
-		$.ajax(serverRoot + "/json/plan/list/" + defaultPage + "/"
-				+ pageNum + "/" + pageSize, {
+		$.ajax(serverRoot + "/json/plan/list/" + defaultPage, {
 			dataType: "json",	
 		    success(data) {
 				 $('#programBox').html(programTemplateFn({
@@ -296,12 +344,17 @@ $(document.body).on('click', '.selectedPage', function(event) {
 					 list:data}));
 		    },
 		    error() {
-		        window.alert("report.js view list 실행 오류!");
+				swal({
+					  position: 'center',
+					  type: 'error',
+					  title: '실행 오류!',
+					  showConfirmButton: false,
+					  timer: 1500
+					})
 		    }	
 		});
 	} else {
-		$.ajax(serverRoot + "/json/plan/list/" + pno + "/"
-				+ pageNum + "/" + pageSize, {
+		$.ajax(serverRoot + "/json/plan/list/" + pno, {
 			dataType: "json",	
 		    success(data) {
 				 $('#programBox').html(programTemplateFn({
@@ -311,7 +364,13 @@ $(document.body).on('click', '.selectedPage', function(event) {
 					 list:data}));
 		    },
 		    error() {
-		        window.alert("report.js view list 실행 오류!");
+				swal({
+					  position: 'center',
+					  type: 'error',
+					  title: '실행 오류!',
+					  showConfirmButton: false,
+					  timer: 1500
+					})
 		    }	
 		});
 	}
