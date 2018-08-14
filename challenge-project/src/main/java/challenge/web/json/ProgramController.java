@@ -101,7 +101,7 @@ public class ProgramController {
         return programService.listWithStartDate();
     }
     
-    @RequestMapping("mainList")
+    @RequestMapping("mainList") 
     public Object mainList(
             ) {
         return programService.mainList();
