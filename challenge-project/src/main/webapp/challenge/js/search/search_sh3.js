@@ -229,9 +229,28 @@ $(document.body).on('click', 'input:checkbox', function() {
 			$('#paging').append('<a class="sm-pagination-button pageNum" href="#">' 
 					+ i + '</a>');
 		}
-		loadCards(data);
-		$('#aaa').html(cardBodyFn({list:data}));
 		
+		for(var i = 0; i < data.length; i++) {
+			$('#aaa').html(cardBodyFn({list:data}));
+			console.log(data.length);
+		}
+		
+		  var i;
+		  for (i = 0; i < data.length; i++) {
+		    dday(data[i].startDate, i); //D-day
+		    reviewScore(data[i].no, i); //별점,리뷰 개수
+		    trImg(data[i].trainerNo, i);
+		    pmemberCount(data[i].no, i);
+		    var price = addComma($(".numberic-"+i+"").html())
+		    var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
+		    $(".numberic-"+i+"").html(price)
+		    $(".card-body-local-"+i+"").html(place)
+		  }
+		  
+		  $.fn.generateStars = function() {
+			    return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+			  };
+			  
 //		$.ajax({
 //			url: serverRoot + "/json/program/listPage/" + startRowNo + "/"+ pageSize,
 //		}).done(function(data) {
