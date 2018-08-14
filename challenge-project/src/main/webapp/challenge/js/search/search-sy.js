@@ -192,4 +192,3 @@ $.getJSON(serverRoot + "/json/program/dateList", (data) => {
 	});
 });
 
-

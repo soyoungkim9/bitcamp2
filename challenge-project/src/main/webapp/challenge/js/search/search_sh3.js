@@ -1,3 +1,7 @@
+var listCount;
+var startRowNo = 1;
+var pageSize = 9;
+
 var cardBody1 = $("#cardBody2").html();
 var cardBodyFn = Handlebars.compile(cardBody1);
 
@@ -6,8 +10,13 @@ if (location.href.split("?").length <= 1) { //맨 처음 default 카드 로드
 	$.getJSON(serverRoot + "/json/program/listCard", (data) => {
 		$(aaa).html(cardBodyFn({list:data}));
 	}).done(function(data) {
-		console.log("내가 마피아다")
-		loadCards(data);
+		console.log("내가 마피아다");
+		listCount = data.length;
+		for(var i = 1; i < (listCount/pageSize) + 1; i++) {
+			console.log(i);
+			$('#paging').append('<a class="sm-pagination-button pageNum" href="#">' 
+					+ i + '</a>');
+		}
 	});
 } else if (location.href.split("?").length > 1) { //헤더에서 들어온 Search Event 처리하고 로드
 	console.log("keyword로 검색 들어옴!")
@@ -212,12 +221,26 @@ $(document.body).on('click', 'input:checkbox', function() {
 		url: serverRoot + "/json/program/typeList",
 		data: {"pType": pType}
 	}).done(function(data) {
-		console.log(data);
-		console.log(data.length);
-		for(var i = 0; i < data.length; i++) {
-			$('#aaa').html(cardBodyFn({list:data}));
+		$('.pageNum').remove();
+		listCount = data.length;
+		for(var i = 1; i < (listCount/pageSize) + 1; i++) {
+			console.log(i);
+			$('#paging').append('<a class="sm-pagination-button pageNum" href="#">' 
+					+ i + '</a>');
 		}
-		loadCards(data);
+		
+//		$.ajax({
+//			url: serverRoot + "/json/program/listPage/" + startRowNo + "/"+ pageSize,
+//		}).done(function(data) {
+//			console.log(data);
+//			console.log(data.length);
+//			console.log(startRowNo);
+//			console.log(pageSize);
+//			for(var i = 0; i < data.length; i++) {
+//				$('#aaa').html(cardBodyFn({list:data}));
+//			}
+//			loadCards(data);
+//		});
 	});
 
 });
@@ -259,3 +282,25 @@ function loadCards(data) {
 		return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
 	};
 }
+
+//페이징 처리
+//$.getJSON(serverRoot + "/json/program/listPage/", (data) => {
+//	  $(aaa).html(cardBodyFn({list:data}));
+//	}).done(function(data) {
+//	  
+//	  var i;
+//	  for (i = 0; i < data.length; i++) {
+//	    dday(data[i].startDate, i); //D-day
+//	    reviewScore(data[i].no, i); //별점,리뷰 개수
+//	    trImg(data[i].trainerNo, i);
+//	    pmemberCount(data[i].no, i);
+//	    var price = addComma($(".numberic-"+i+"").html())
+//	    var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
+//	    $(".numberic-"+i+"").html(price)
+//	    $(".card-body-local-"+i+"").html(place)
+//	  }
+//
+//	  $.fn.generateStars = function() {
+//	    return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
+//	  };
+//	});
