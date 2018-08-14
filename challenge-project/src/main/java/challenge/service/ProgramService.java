@@ -28,6 +28,7 @@ public interface ProgramService {
 
     Object countCardsWithProgramGoal(String[] programGoals);
     List<Program> listCardWithProgoal(String progoal);
+    List<Program> pList(int min, int max);
    
 
     

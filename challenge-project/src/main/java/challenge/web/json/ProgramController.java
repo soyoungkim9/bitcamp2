@@ -109,7 +109,13 @@ public class ProgramController {
                             ) {
         return programService.priceList(min,max,pageNo,pageSize);
     }
-
+    @RequestMapping("pList")  // 프로그램 가격 검색 
+    public Object priceList(
+                            @RequestParam("minPrice") int min,
+                            @RequestParam("maxPrice") int max
+                            ) {
+        return programService.pList(min,max);
+    }
     @RequestMapping("update")
     @ResponseStatus(HttpStatus.OK)
     public void update(Program program) throws Exception {

@@ -31,7 +31,6 @@ public class Program implements Serializable {
     private String proTime; // 수업시간
     private int proState; // 진행상태
     private String proResult; // 진행상태내용
-
     private int challengeNo; // 챌린지번호
     private int trainerNo; // 트레이너번호
 

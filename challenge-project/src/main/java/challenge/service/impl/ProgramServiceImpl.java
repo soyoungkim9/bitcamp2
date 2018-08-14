@@ -41,6 +41,14 @@ public class ProgramServiceImpl implements ProgramService {
         params.put("pageSize", pageSize);
         return programDao.selectPrice(params);
     }
+    
+    @Override
+    public List<Program> pList(int min, int max) {
+        Map<String,Object> params = new HashMap<>();
+        params.put("minPrice",min);
+        params.put("maxPrice",max);
+        return programDao.pList(params);
+    }
 
     
     @Override
@@ -145,6 +153,8 @@ public class ProgramServiceImpl implements ProgramService {
     public List<Program> listCardWithProgoal(String progoal) {
         return programDao.listCardWithProgoal(progoal);
     }
+
+   
 
     
 

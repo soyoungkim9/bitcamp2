@@ -45,7 +45,7 @@ var searchEvent = function searchEvent(e) {
 }
 
 //가격검색
-$('#priceSearch').click(() => {
+/*$('#priceSearch').click(() => {
 	$.ajax({
 		dataType : 'json',
 		type: 'POST',
@@ -66,7 +66,7 @@ $('#priceSearch').click(() => {
 
 });
 
-
+*/
 function trImg(no, i) {
 	$.getJSON(serverRoot + "/json/trainer/" + no, (data) => {
 		$("<img/>").attr('src', '../../../files/'+data.userPath+'_50x50.jpg')
