@@ -150,7 +150,7 @@ $('#keyword-search-button').click(function() {
 
 function trImg(no, i) {
 	$.getJSON(serverRoot + "/json/trainer/" + no, (data) => {
-		$("<img/>").attr('src', '../../../files/'+data.userPath+'_50x50.jpg')
+		$("<img/>").attr('src', '../../../files/'+data.userPath)
 		.appendTo('.tr-'+i+'').addClass('trainer-img');
 	})
 }

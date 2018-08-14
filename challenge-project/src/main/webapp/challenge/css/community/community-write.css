@@ -138,7 +138,7 @@ main {
   color: #fff;
   font-size: 14px;
   line-height: 45px;
-  background-color: #495164;
+  background-color: #1B3453;
 }
 
 .content {
@@ -211,7 +211,7 @@ main {
   font-size: 10px;
   border-radius:5px;
   border-style:none;
-background-color:#495164;
+background-color:#1B3453;
 color:white;
 }
 
@@ -221,7 +221,7 @@ color:white;
     font-size: 10px;
     border-radius: 5px;
     border-style: none;
-    background-color: #495164;
+    background-color: #1B3453;
     color: white;
     -webkit-appearance: button;
     height: 30px;

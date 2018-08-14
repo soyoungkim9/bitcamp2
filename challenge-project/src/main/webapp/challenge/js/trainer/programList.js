@@ -4,7 +4,7 @@ $.getJSON(serverRoot + "/json/program/listProgram/" + userInfo.userNo, (data) =>
   $(cardWide).html(cardBodyFn({list:data}));
 }).done(function(data) {
   
-  $('.trainer-img').attr('src', '../../../files/'+userInfo.userPath+'_50x50.jpg');
+  $('.trainer-img').attr('src', '../../../files/'+userInfo.userPath);
 
   var i;
   for (i = 0; i < data.length; i++) {
