@@ -62,7 +62,12 @@ $("#upload-btn").click(() => {
 			password: $('.pwd').val()
 	};
 	if($('.pwd').val()=="") {
-	 alert("비밀번호를 입력해주세요");
+		swal({
+		  type: 'error',
+		  title: '비밀번호를 입력해주세요!',
+		  confirmButtonColor: '#1B3453',
+		  confirmButtonText: '확인'
+		})
 	}
 	else{
 	
