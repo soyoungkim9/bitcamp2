@@ -97,11 +97,15 @@ public class Fileupload {
                 Thumbnails.of(path)
                 .size(40, 40)
                 .outputFormat("jpg")
-                .toFile(path.getCanonicalFile() + "_50x50");
+                .toFile(path.getCanonicalFile() + "_40x40");
+                Thumbnails.of(path)
+                .size(45, 45)
+                .outputFormat("jpg")
+                .toFile(path.getCanonicalFile() + "_45x45");
                 Thumbnails.of(path)
                 .size(60, 60)
                 .outputFormat("jpg")
-                .toFile(path.getCanonicalFile() + "_50x50");
+                .toFile(path.getCanonicalFile() + "_60x60");
                 Thumbnails.of(path)
                 .size(50, 50)
                 .outputFormat("jpg")
@@ -109,14 +113,18 @@ public class Fileupload {
                 Thumbnails.of(path)
                 .size(80, 80)
                 .outputFormat("jpg")
-                .toFile(path.getCanonicalFile() + "_50x50");
+                .toFile(path.getCanonicalFile() + "_80x80");
                 Thumbnails.of(path)
                 .size(120,120)
                 .outputFormat("jpg")
-                .toFile(path.getCanonicalFile() + "_50x50");
+                .toFile(path.getCanonicalFile() + "_120x120");
                 
                 Thumbnails.of(path)
                 .size(125,125)
+                .outputFormat("jpg")
+                .toFile(path.getCanonicalFile() + "_125x125");
+                Thumbnails.of(path)
+                .size(200,200)
                 .outputFormat("jpg")
                 .toFile(path.getCanonicalFile() + "_200x200");
 
