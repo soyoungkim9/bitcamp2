@@ -64,6 +64,7 @@ body {
 
 #sm-back { /* 로고 뒷배경 */
   padding-top: 130px;
+  margin-bottom: 184px;
 }
 .sm-profile {
 border:1px solid gray;
