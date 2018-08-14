@@ -34,8 +34,8 @@ $('#priceSearch').click(() => {
 			for(var i = 0; i < data.length; i++) {
 				$('#aaa').html(cardBodyFn({list:data}));
 			}
-			
-			for(pageCount = 1; pageCount < onePage+1; pageCount++){
+			$('#paging').append('<a data-no="'+pageCount+'" class="sm-pagination-button pageActive" href="#">'+pageCount+'</a>')
+			for(pageCount = 2; pageCount < onePage+1; pageCount++){
 				$('#paging').append('<a data-no="'+pageCount+'" class="sm-pagination-button" href="#">'+pageCount+'</a>')
 				
 			}
