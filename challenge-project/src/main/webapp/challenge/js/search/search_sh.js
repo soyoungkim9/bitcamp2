@@ -147,28 +147,6 @@ $('#keyword-search-button').click(function() {
 	searchEvent();
 });
 
-//가격검색
-$('#priceSearch').click(() => {
-	$.ajax({
-		dataType : 'json',
-		type: 'POST',
-		async: false,
-		traditional : true,
-		url: serverRoot + '/json/program/pList/1/12',
-		data: {
-			minPrice : $('#from_id').val(),
-			maxPrice : $('#to_id').val()
-		}
-	}).done(function(data){
-
-		for(var i = 0; i < data.length; i++) {
-			$('#aaa').html(cardBodyFn({list:data}));
-		}
-		loadCards(data);
-	})
-
-});
-
 
 function trImg(no, i) {
 	$.getJSON(serverRoot + "/json/trainer/" + no, (data) => {
