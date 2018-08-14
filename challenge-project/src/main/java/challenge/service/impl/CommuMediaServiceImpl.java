@@ -54,4 +54,10 @@ public class CommuMediaServiceImpl implements CommuMediaService {
         return commuMediaDao.delete(no);
         
     }
+
+    @Override
+    public List<CommuMedia> ListNo(int cmuno) {
+        return commuMediaDao.ListNo(cmuno);
+    }
+
 }

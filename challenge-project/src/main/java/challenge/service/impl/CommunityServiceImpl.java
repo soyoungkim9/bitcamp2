@@ -5,6 +5,7 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import challenge.dao.CommuMediaDao;
 import challenge.dao.CommunityDao;
 import challenge.dao.PostDao;
 import challenge.domain.Community;
@@ -14,10 +15,12 @@ import challenge.service.CommunityService;
 @Service
 public class CommunityServiceImpl implements CommunityService {
 
+    CommuMediaDao commuMediaDao;
     CommunityDao communityDao;
     PostDao postDao;
     
-    public CommunityServiceImpl(CommunityDao communityDao, PostDao postDao) {
+    public CommunityServiceImpl(CommuMediaDao commuMediaDao, CommunityDao communityDao, PostDao postDao) {
+        this.commuMediaDao = commuMediaDao;
         this.communityDao = communityDao;
         this.postDao = postDao;
     }

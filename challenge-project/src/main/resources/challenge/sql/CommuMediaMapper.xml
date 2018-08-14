@@ -12,8 +12,8 @@
 <mapper namespace="challenge.dao.CommuMediaDao">
   <resultMap type="CommuMedia" id="CommuMediaMap">
     <id column="cmedno" property="mediaNo"/>
-    <result column="cpath" property="mediaPath"/>
     <result column="cmuno" property="commuNo"/>
+    <result column="cpath" property="mediaPath"/>
   </resultMap>
   
   
@@ -26,15 +26,25 @@
   <select id="selectList" 
           resultMap="CommuMediaMap" 
           parameterType="map">
-    select cmedno, cpath, cmuno 
+    select cmuno, cmedno, cpath
     from CMED 
-    order by cmedno desc
+    order by cmuno desc
+    <!-- limit #{startRowNo}, #{pageSize} -->
+    
+  </select>
+  
+   <select id="ListNo" 
+          resultMap="CommuMediaMap" 
+          parameterType="int">
+    select cmuno, cmedno, cpath
+    from CMED 
+    where cmuno=#{commuNo}
     <!-- limit #{startRowNo}, #{pageSize} -->
     
   </select>
   
   <insert id="insert" parameterType="CommuMedia"
-          useGeneratedKeys="true" keyColumn="cmedno" keyProperty="mediaNo">
+  useGeneratedKeys="true" keyColumn="cmedno" keyProperty="mediaNo">
     insert into CMED(cpath, cmuno) 
     values(#{mediaPath}, #{commuNo});
   </insert>
@@ -43,12 +53,12 @@
        값을 꺼낼 때 프로퍼티 이름을 마음대로 해도 된다.
   -->
   <select id="selectOne" parameterType="int" resultMap="CommuMediaMap">
-    select cmedno, cpath, cmuno 
-    from CMED 
-    where cmedno=#{value}
+    select cmuno, cmedno, cpath
+    from CMED
+    where cmedno = #{value}
   </select>
   
- <update id="update" parameterType="CommuMedia">
+<update id="update" parameterType="CommuMedia">
     update CMED set 
     cpath=#{mediaPath},
     cmuno=#{commuNo}
@@ -57,6 +67,6 @@
   
    <delete id="delete" parameterType="int">
     delete from CMED where cmedno=#{value}
-  </delete> 
+  </delete>
      
 </mapper>

@@ -10,4 +10,5 @@ public interface CommuMediaDao {
     int insert(CommuMedia commuMedia);
     int update(CommuMedia commuMedia);
     CommuMedia selectOne(int no);
+    List<CommuMedia> ListNo(int commuNo);
 }

@@ -1,5 +1,7 @@
 package challenge.web.json;
 
+import java.util.List;
+
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +39,11 @@ public class CommuMediaController {
     public Object list(
             ) {
         return commuMediaService.list();
+    }
+    
+    @RequestMapping("ListNo/{commuNo}")
+    public List<CommuMedia> list(@PathVariable int commuNo) throws Exception {
+        return commuMediaService.ListNo(commuNo);
     }
     
     @RequestMapping("update")

@@ -178,7 +178,7 @@ $("#addBtn").click(() => {
 	if (type != '' & title != '' & content != '') {
     $.ajax({
         type: 'POST',
-        url: '../../../json/community/add',
+        url: serverRoot + '/json/community/add',
         async: false,
         data:{
             title: $(fTitle).val(),

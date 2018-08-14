@@ -174,7 +174,7 @@ if (location.href.split("?").length > 1) {
     var no = location.href.split("?")[1].split("=")[1];
     
     
-    $.getJSON("../../../json/community/" + no, function(data) {
+    $.getJSON(serverRoot + "/json/community/" + no, function(data) {
     	$(CMU_TYPE).val(data.type);
         $(fContent).val(data.content);
         $(fTitle).val(data.title);

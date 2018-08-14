@@ -142,14 +142,12 @@
 						</div>
 					</div>
 					<div class="text-content">
-						<img src="http://placehold.it/348x200" alt="업로드 사진"> <img
+						<!-- <img src="http://placehold.it/348x200" alt="업로드 사진"> <img
 							src="http://placehold.it/348x200" alt="업로드 사진"> <img
 							src="http://placehold.it/348x200" alt="업로드 사진"> <img
-							src="http://placehold.it/348x200" alt="업로드 사진">
-						<textarea id='fContent2' name="name" rows="20" cols="100" readonly></textarea>
-						<textarea id='fContent' name="name" rows="20" cols="100" readonly>
-
-            </textarea>
+							src="http://placehold.it/348x200" alt="업로드 사진"> -->
+						<!-- <textarea id='fContent2' name="name" rows="20" cols="100" readonly></textarea> -->
+						<textarea id='fContent' name="name" rows="20" cols="100" readonly></textarea>
 
 						<div class="comentTable-wrapper">
 							<table class="table table-condensed">
@@ -247,19 +245,28 @@
 	<script>
 		if (location.href.split("?").length > 1) {
 			var no = location.href.split("?")[1].split("=")[1];
-
-			$.getJSON("../../../json/community/" + no, function(data) {
+			
+			 $.getJSON(serverRoot + "/json/community/" + no, function(data) {
 				console.log(data);
 				$(fContent).append(data.content);
 				$(fTitle).append(data.title);
-				$(fUser).append(data.user.name);
 				$(fCreatedDate).append(data.createdDate);
 				$(fCnt).append(data.cnt);
-				$(fContent2).append(data.commuMedia.mediaNo);
-
-				//$(fLike).append(data.like);
+				$(fUser).append(data.user.name);
 			});
 		}
+				 /* $.each(data, function(Index, entry) {
+					 console.log(data);
+				$("#fContent2").append(entry.mediaNo);
+				 }); */
+
+				//$(fLike).append(data.like);
+			 /* $.getJSON("../../../json/commuMedia/ListNo/" + no, function(data) {
+				console.log(data);
+				$.each(data, function(Index, entry) {
+				 $(fContent2).append(entry.mediaPath);
+				});
+			});  */
 	</script>
 	
 <script>
@@ -270,7 +277,11 @@ $("#deleteBtn").click(() => {
     
     $.get(serverRoot + "/json/community/delete", {"no": no}, () => {
         location.href = "community-list.html";
-    });
+    }); 
+    
+   /*  $.get(serverRoot + "/json/commuMedia/delete", {"no": 1}, () => {
+        location.href = "community-list.html";
+    }); */
 });
 
 </script>

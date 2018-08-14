@@ -4,6 +4,7 @@ package challenge.service;
 import java.util.List;
 
 import challenge.domain.CommuMedia;
+import challenge.domain.Community;
 
 public interface CommuMediaService {
     // 서비스 컴포넌트에서 메서드명을 지을 때는 
@@ -13,4 +14,5 @@ public interface CommuMediaService {
     int add(CommuMedia commuMedia);
     int update(CommuMedia commuMedia);
     int delete(int no);
+    List<CommuMedia> ListNo(int commuNo);
 }
