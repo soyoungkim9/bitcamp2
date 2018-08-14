@@ -223,11 +223,14 @@ $(document.body).on('click', 'input:checkbox', function() {
 	}).done(function(data) {
 		$('.pageNum').remove();
 		listCount = data.length;
+		console.log(listCount);
 		for(var i = 1; i < (listCount/pageSize) + 1; i++) {
 			console.log(i);
 			$('#paging').append('<a class="sm-pagination-button pageNum" href="#">' 
 					+ i + '</a>');
 		}
+		loadCards(data);
+		$('#aaa').html(cardBodyFn({list:data}));
 		
 //		$.ajax({
 //			url: serverRoot + "/json/program/listPage/" + startRowNo + "/"+ pageSize,
