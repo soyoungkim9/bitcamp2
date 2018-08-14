@@ -136,14 +136,14 @@
             </div>
             <div class="sm-pagination">
                 <a class="sm-pagination-button sm-pagination-side" href="#"><i
-                    class="fas fa-angle-left"></i></a> <a
-                    class="sm-pagination-button pageActive" href="#">1</a> <a
-                    class="sm-pagination-button" href="#">2</a> <a
-                    class="sm-pagination-button" href="#">3</a> <a
-                    class="sm-pagination-button" href="#">4</a> <a
-                    class="sm-pagination-button sm-pagination-button-end" href="#">5</a>
-                <a class="sm-pagination-button sm-pagination-side" href="#"><i
-                    class="fas fa-angle-right"></i></a>
+                    class="fas fa-angle-left"></i></a> 
+                    <a class="sm-pagination-button pageActive" href="#">1</a> 
+                    <a class="sm-pagination-button" href="#">2</a> 
+                    <a class="sm-pagination-button" href="#">3</a> 
+                    <a class="sm-pagination-button" href="#">4</a>
+                    <a class="sm-pagination-button sm-pagination-button-end" href="#">5</a>
+                <a class="sm-pagination-button sm-pagination-side" href="#">
+                <i class="fas fa-angle-right"></i></a>
             </div>
 
         </div>
@@ -195,27 +195,13 @@
     <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
     <script src="../../js/common.js"></script>
     <script src="../../js/header/header.js"></script>
-    <script src="../../js/search/search_sh.js"></script>
+    <script src="../../js/search/search_sh2.js"></script>
     <script src="../../js/footer/footer.js"></script>
     <script src="https://code.jquery.com/ui/1.12.0/jquery-ui.min.js"></script>
     <script
         src="https://cdnjs.cloudflare.com/ajax/libs/underscore.js/1.8.3/underscore-min.js"></script>
     <script src="../../js/search/rangeSlider.js"></script>
-    <script>
-    $('#priceSearch').click(() => {
-	   $.ajax({
-		   dataType: 'json',
-		   type: 'GET',
-		   url:serverRoot + '/json/program/pList/count',
-	       data: {
-	       	minPrice : $('#from_id').val(),
-            maxPrice : $('#to_id').val()
-	       }
-	   }).done(function(data){
-		   console.log(data);
-	   })
-    })
-    </script>
+    
 </body>
 
 </html>

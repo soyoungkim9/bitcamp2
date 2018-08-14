@@ -4,6 +4,7 @@ package challenge.service;
 import java.util.List;
 
 import challenge.domain.Program;
+import challenge.domain.Timeline;
 
 public interface ProgramService {
     // 서비스 컴포넌트에서 메서드명을 지을 때는 
@@ -30,7 +31,7 @@ public interface ProgramService {
     List<Program> listCardWithProgoal(String progoal);
     List<Program> pList(int min, int max);
    
-
+    List<Program> pagingListCard(int pageNo, int pageSize);
     
     //boolean isMember(String programName, String memberId);
     //int addMember(String programName, String memberId);

@@ -59,6 +59,13 @@ public class ProgramController {
         return programService.listCardWithKeyword(keyword);
     }
     
+    @RequestMapping("pagingListCard/{pageNo}/{pageSize}")
+    public Object pagingListCard(
+            @PathVariable int pageNo,
+            @PathVariable int pageSize) {
+        return programService.pagingListCard(pageNo, pageSize);
+    }
+    
     @RequestMapping("listCardWithProgoal/{progoal}")
     public Object listCardWithProgoal(@PathVariable String progoal) {
         return programService.listCardWithProgoal(progoal);

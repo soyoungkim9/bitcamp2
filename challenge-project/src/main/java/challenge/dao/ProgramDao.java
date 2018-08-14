@@ -27,5 +27,6 @@ public interface ProgramDao {
     public List<Program> selectListWithProgramType(Map<String, Object> param);
     public List<Program> listCardWithProgoal(String progoal);
     public List<Program> pList(Map<String, Object> params);
+    public List<Program> pagingListCard(Map<String, Object> params);
     
 }
