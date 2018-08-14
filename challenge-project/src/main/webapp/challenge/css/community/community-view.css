@@ -193,6 +193,7 @@ textarea {
   border:none;
   margin: 20px auto;
   resize: none;
+  height: 200px;
 
 }
 
