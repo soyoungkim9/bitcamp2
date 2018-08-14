@@ -1,4 +1,4 @@
-var pageCount = 1 ;
+
 
 
 
@@ -30,12 +30,13 @@ $('#priceSearch').click(() => {
 			}
 		}).done(function(data){
 			$("#paging").empty();
+			var pageCount = 1 ;
 			
 			for(var i = 0; i < data.length; i++) {
 				$('#aaa').html(cardBodyFn({list:data}));
 			}
-			$('#paging').append('<a data-no="'+pageCount+'" class="sm-pagination-button pageActive" href="#">'+pageCount+'</a>')
-			for(pageCount = 2; pageCount < onePage+1; pageCount++){
+			
+			for(pageCount = 1; pageCount < onePage+1; pageCount++){
 				$('#paging').append('<a data-no="'+pageCount+'" class="sm-pagination-button" href="#">'+pageCount+'</a>')
 				
 			}
@@ -51,7 +52,7 @@ $('#priceSearch').click(() => {
 		        $('.sm-pagination-button').removeClass('pageActive');
 		        $(this).addClass('pageActive');    
 		    }
-		    var pageNum = parseInt($('.pageActive').attr("data-no"));
+		    var pageNum = $('.pageActive').attr("data-no");
 		    $.ajax({
 				dataType : 'json',
 				type: 'POST',
