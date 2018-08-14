@@ -59,7 +59,7 @@
   
     <select id="pagingListCard"
           resultMap="ProgramMap" parameterType="map">
-    select Max(m.ppath), p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno,
+    select Max(m.ppath) as ppath, p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno,
            m.pmedno, m.pmtype
     from PMED m
          right outer join PROG p on m.pno=p.pno
@@ -82,7 +82,7 @@
   
         <select id="pagingListKeyword"
           resultMap="ProgramMap" parameterType="map">
-         select Max(m.ppath), p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno, p.ptype, p.det_addr, p.pgoal, m.pmedno, m.pmtype
+         select Max(m.ppath) as ppath, p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno, p.ptype, p.det_addr, p.pgoal, m.pmedno, m.pmtype
     from PMED m
          right outer join PROG p on m.pno=p.pno
          left outer join TRN t on p.trnno=t.trnno
@@ -182,6 +182,7 @@
     <foreach collection="programTypeList" item="item" index="index" separator="," open="(" close=")">
             #{item}
     </foreach>
+    Group By p.pno
   </select>
   
     <!-- 가격순 search -->

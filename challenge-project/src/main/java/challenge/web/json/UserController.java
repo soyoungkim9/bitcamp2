@@ -1,17 +1,20 @@
 package challenge.web.json;
 
 import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.SessionAttributes;
 
 import challenge.domain.User;
 import challenge.service.UserService;
 
 @RestController
 @RequestMapping("/user")
+@SessionAttributes("loginUser")
+
 public class UserController {
     UserService userService;
 
@@ -26,9 +29,10 @@ public class UserController {
     }
     
     @RequestMapping("delete")
-    //@ResponseStatus(HttpStatus.OK) // 응답 상태 코드 값의 기본은 "200(OK)" 이다.
-    public void delete(
-            @RequestParam("userNo") int userNo) throws Exception {
+    @ResponseStatus(HttpStatus.OK) // 응답 상태 코드 값의 기본은 "200(OK)" 이다.
+    public void delete(@ModelAttribute("loginUser") User loginUser) throws Exception {
+       System.out.println(loginUser.getUserNo());
+       int userNo = loginUser.getUserNo();
        userService.delete(userNo);
     }
     

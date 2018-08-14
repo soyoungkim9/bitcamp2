@@ -117,7 +117,7 @@
 
     <delete id="delete" parameterType="int">
         delete from USER where
-        uno=#{value}
+        uno=#{userNo}
     </delete>
     
     <select id="getEmail" parameterType="String" resultMap="UserMap">

@@ -36,7 +36,7 @@ if (location.href.split("?").length > 1) {
 
 function trImg(no, i) {
   $.getJSON(serverRoot + "/json/trainer/" + no, (data) => {
-    $("<img/>").attr('src', '../../../files/'+data.userPath+'_50x50.jpg')
+    $("<img/>").attr('src', '../../../files/'+data.userPath)
     .appendTo('.tr-'+i+'').addClass('trainer-img');
   })
 }

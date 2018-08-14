@@ -27,15 +27,15 @@
      </div>
      <!-- ************* 이부분만 템플릿에서 다르니까 이것만 짤라서 쓰면된다!!!! ********************************************* -->
      <div class="sm-menu" style="border-left: none;">
-      <i class="fas fa-chalkboard"></i><br>프로그램 관리
-     </div>
+      <a href="programList.html"><i class="fas fa-chalkboard"></i><br>프로그램 관리
+     </a></div>
      <div class="sm-menu" style="border-bottom: 1px solid gray;">
-      <i class="fas fa-angle-double-up"></i><br>프로그램 등록
-     </div>
+      <a href="programUpload.html"><i class="fas fa-angle-double-up"></i><br>프로그램 등록
+     </a></div>
      <div class="sm-menu"
       style="border-left: none; border-right: 1px solid gray;">
-      <i class="fas fa-dumbbell"></i><br>프로그램 운동일지
-     </div>
+      <a href="reportList.html"><i class="fas fa-dumbbell"></i><br>프로그램 운동일지
+     </a></div>
     </div>
     <!-- .profile -->
 
@@ -73,7 +73,7 @@
     <a href="../program/DetailPage.html?no={{no}}">
     <!-- 카드 헤더 -->
     <div class="card-header">
-      <img class="card-img" src="../../../files/{{medias.[0].path}}_200x200.jpg"/>
+      <img class="card-img" src="../../../files/{{medias.[0].path}}"/>
       <div id="card-{{@key}}" class="ribbon"></div>
       <div class="card-trainer">
         <img class="trainer-img" />
