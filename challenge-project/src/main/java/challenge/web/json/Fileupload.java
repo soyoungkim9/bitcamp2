@@ -93,10 +93,28 @@ public class Fileupload {
                 files[i].transferTo(path);
                 jsonDataList.add(jsonData);
 
+               
+                Thumbnails.of(path)
+                .size(40, 40)
+                .outputFormat("jpg")
+                .toFile(path.getCanonicalFile() + "_50x50");
+                Thumbnails.of(path)
+                .size(60, 60)
+                .outputFormat("jpg")
+                .toFile(path.getCanonicalFile() + "_50x50");
                 Thumbnails.of(path)
                 .size(50, 50)
                 .outputFormat("jpg")
                 .toFile(path.getCanonicalFile() + "_50x50");
+                Thumbnails.of(path)
+                .size(80, 80)
+                .outputFormat("jpg")
+                .toFile(path.getCanonicalFile() + "_50x50");
+                Thumbnails.of(path)
+                .size(120,120)
+                .outputFormat("jpg")
+                .toFile(path.getCanonicalFile() + "_50x50");
+                
                 Thumbnails.of(path)
                 .size(125,125)
                 .outputFormat("jpg")
