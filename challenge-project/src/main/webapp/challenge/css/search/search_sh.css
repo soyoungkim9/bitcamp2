@@ -12,6 +12,10 @@ a {
     text-decoration: none;
 }
  
+#paginationLeft {
+      display: inline-block;
+}
+ 
 .sidenav {
 margin-top: 10px;
     padding: 10px;

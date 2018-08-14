@@ -135,15 +135,18 @@
           </div> -->
             </div>
             <div class="sm-pagination">
-                <a class="sm-pagination-button sm-pagination-side" href="#"><i
-                    class="fas fa-angle-left"></i></a> <a
-                    class="sm-pagination-button pageActive" href="#">1</a> <a
-                    class="sm-pagination-button" href="#">2</a> <a
-                    class="sm-pagination-button" href="#">3</a> <a
-                    class="sm-pagination-button" href="#">4</a> <a
-                    class="sm-pagination-button sm-pagination-button-end" href="#">5</a>
-                <a class="sm-pagination-button sm-pagination-side" href="#"><i
-                    class="fas fa-angle-right"></i></a>
+                <a  class="sm-pagination-button sm-pagination-side" href="#">
+                <i class="fas fa-angle-left"></i></a> 
+                <div id="paginationLeft"></div>
+                <!-- 
+                    <a class="sm-pagination-button pageActive" href="#">1</a> 
+                    <a class="sm-pagination-button" href="#">2</a> 
+                    <a class="sm-pagination-button" href="#">3</a> 
+                    <a class="sm-pagination-button" href="#">4</a>
+                    <a class="sm-pagination-button sm-pagination-button-end" href="#">5</a>
+                 -->
+                <a class="sm-pagination-button sm-pagination-side" href="#">
+                <i class="fas fa-angle-right"></i></a>
             </div>
 
         </div>
@@ -151,7 +154,6 @@
     <!--container-->
 
     <footer id="footer"></footer>
-
 
 <script id="proGoalList" type="text/x-handlebars-template">
 {{#each list}}

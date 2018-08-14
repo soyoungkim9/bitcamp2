@@ -30,6 +30,6 @@ public interface ProgramDao {
     public List<Program> selectListPage(Map<String,Object> params);
     
     public List<Program> pagingListCard(Map<String, Object> params);
-    public List<Program> pagingListChallenge(Map<String, Object> params);
+    public List<Program> pagingListProgoal(Map<String, Object> params);
     public List<Program> pagingListKeyword(Map<String, Object> params);
 }

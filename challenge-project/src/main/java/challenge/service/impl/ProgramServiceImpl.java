@@ -165,13 +165,13 @@ public class ProgramServiceImpl implements ProgramService {
     
 
     @Override
-    public List<Program> pagingListChallenge(int challengeNo, int pageNo,
+    public List<Program> pagingListProgoal(String programGoal, int pageNo,
             int pageSize) {
         HashMap<String,Object> params = new HashMap<>();
-        params.put("challengeNo", challengeNo);
+        params.put("programGoal", programGoal);
         params.put("startRowNo", (pageNo - 1) * pageSize);
         params.put("pageSize", pageSize);
-        return programDao.pagingListChallenge(params);
+        return programDao.pagingListProgoal(params);
     }
 
     @Override

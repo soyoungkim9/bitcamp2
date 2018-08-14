@@ -142,12 +142,12 @@ public class ProgramController {
         return programService.pagingListCard(pageNo, pageSize);
     }
     
-    @RequestMapping("pagingListChallenge/{challengeNo}/{pageNo}/{pageSize}")
-    public Object pagingListChallenge(
-            @PathVariable int challengeNo,
+    @RequestMapping("pagingListProgoal/{programGoal}/{pageNo}/{pageSize}")
+    public Object pagingListProgoal(
+            @PathVariable String programGoal,
             @PathVariable int pageNo,
             @PathVariable int pageSize) {
-        return programService.pagingListChallenge(challengeNo, pageNo, pageSize);
+        return programService.pagingListProgoal(programGoal, pageNo, pageSize);
     }
     
     @RequestMapping("pagingListKeyword/{keyword}/{pageNo}/{pageSize}")
