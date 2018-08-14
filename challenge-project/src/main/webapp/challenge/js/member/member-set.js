@@ -1,16 +1,16 @@
 
 //회원정보 읽어오기
 $.ajax({
-	type: 'GET',
-	async: false,
-	traditional : true,
-	url: serverRoot + '/json/auth/loginUser' ,
-	data:userInfo
+   type: 'GET',
+   async: false,
+   traditional : true,
+   url: serverRoot + '/json/auth/loginUser' ,
+   data:userInfo
 }).done(function(data) {
-	console.log(data);
-	$('#email').val(data.email);
-	$('#phone').val(data.userPhone);
-	$("<img>").attr('src', '../../../files/'+ data.userPath+'_200x200.jpg').css('border-radius', '50%').appendTo('#images-div');
+   console.log(data);
+   $('#email').val(data.email);
+   $('#phone').val(data.userPhone);
+   $("<img>").attr('src', '../../../files/'+ data.userPath+'_200x200.jpg').css('border-radius', '50%').appendTo('#images-div');
 });
 
 
@@ -21,155 +21,175 @@ $.ajax({
 
 var dbimg;
 $('#fileupload').fileupload({
-	url: serverRoot +'/json/fileupload/upload02',        // 서버에 요청할 URL
-	dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
-	sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
-	singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
+   url: serverRoot +'/json/fileupload/upload02',        // 서버에 요청할 URL
+   dataType: 'json',         // 서버가 보낸 응답이 JSON임을 지정하기
+   sequentialUploads: true,  // 여러 개의 파일을 업로드 할 때 순서대로 요청하기.
+   singleFileUploads: false, // 한 요청에 여러 개의 파일을 전송시키기.
 
-	disableImageResize: /Android(?!.*Chrome)|Opera/
-		.test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
-		previewMaxWidth: 120,   // 미리보기 이미지 너비
-		previewMaxHeight: 120,  // 미리보기 이미지 높이 
-		previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
-		processalways: function(e, data) {
+   disableImageResize: /Android(?!.*Chrome)|Opera/
+      .test(window.navigator && navigator.userAgent), // 안드로이드와 오페라 브라우저는 크기 조정 비활성 시키기
+      previewMaxWidth: 120,   // 미리보기 이미지 너비
+      previewMaxHeight: 120,  // 미리보기 이미지 높이 
+      previewCrop: true,      // 미리보기 이미지를 출력할 때 원본에서 지정된 크기로 자르기
+      processalways: function(e, data) {
 
 
-			var imagesDiv = $('#images-div');
-			imagesDiv.html("");
-			for (var i = 0; i < data.files.length; i++) {
-				try {
-					if (data.files[i].preview.toDataURL) {
-						$("<img>").attr('src', data.files[i].preview.toDataURL()).css('border-radius', '50%').appendTo(imagesDiv);
-					}
-				} catch (err) {}
-			}
-		}, 
-		submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
-		}, 
-		done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
-			dbimg = data.result.files[0].filename;
-		}
+         var imagesDiv = $('#images-div');
+         imagesDiv.html("");
+         for (var i = 0; i < data.files.length; i++) {
+            try {
+               if (data.files[i].preview.toDataURL) {
+                  $("<img>").attr('src', data.files[i].preview.toDataURL()).css('border-radius', '50%').appendTo(imagesDiv);
+               }
+            } catch (err) {}
+         }
+      }, 
+      submit: function (e, data) { // 서버에 전송하기 직전에 호출된다.
+      }, 
+      done: function (e, data) { // 서버에서 응답이 오면 호출된다. 각 파일 별로 호출된다.
+         dbimg = data.result.files[0].filename;
+      }
 });
 
 
 $("#upload-btn").click(() => {
 
-	var data = {
-			email: $('#email').val(),
-			userPhone: $('#phone').val(),
-			userPath: dbimg,
-			userNo: userInfo.userNo,
-			password: $('.pwd').val()
-	};
-	if($('.pwd').val()=="") {
+   var data = {
+         email: $('#email').val(),
+         userPhone: $('#phone').val(),
+         userPath: dbimg,
+         userNo: userInfo.userNo,
+         password: $('.pwd').val()
+   };
+   if($('.pwd').val()=="") {
 		swal({
-		  type: 'error',
-		  title: '비밀번호를 입력해주세요!',
-		  confirmButtonColor: '#1B3453',
-		  confirmButtonText: '확인'
-		})
-	}
-	else{
-	
-		if(dbimg !=null) { //이미지 수정을 했을때
+			  type: 'error',
+			  title: '비밀번호를 입력해주세요!',
+			  confirmButtonColor: '#1B3453',
+			  confirmButtonText: '확인'
+			})
+   }
+   else{
+   
+      if(dbimg !=null) { //이미지 수정을 했을때
 
-			$.ajax({
-				type: 'POST',
-				async: false,
-				traditional : true,
-				url: serverRoot + '/json/user/update2' ,
-				data: {
+         $.ajax({
+            type: 'POST',
+            async: false,
+            traditional : true,
+            url: serverRoot + '/json/user/update2' ,
+            data: {
 
-					email: $('#email').val(),
-					userPhone: $('#phone').val(),
-					userPath: dbimg,
-					userNo: userInfo.userNo,
-					password: $('.pwd').val()
+               email: $('#email').val(),
+               userPhone: $('#phone').val(),
+               userPath: dbimg,
+               userNo: userInfo.userNo,
+               password: $('.pwd').val()
 
-				}, 
-			}).done(function() {
-				alert('회원님 정보가 수정되었습니다22');
-				$.post(serverRoot + "/json/auth/login", data, (result) => {
-					if (result.state == "success") {
+            }, 
+         }).done(function() {
+            $.post(serverRoot + "/json/auth/login", data, (result) => {
+               if (result.state == "success") {
+	   	        	swal({
+		        		type: 'success',
+		        		  title: '수정이 완료되었습니다!',
+		        		  showConfirmButton: false,
+		        		  timer: 1500,
+	                 preConfirm: () => {
+	                     location.href = "member-set.html";
+	                       }
+	               })
+               }
+               else {
+           		swal({
+      			  type: 'error',
+      			  title: '로그인 실패!',
+      			  confirmButtonColor: '#1B3453',
+      			  confirmButtonText: '확인'
+      			})
+               }
+            });
+         });
+      } else{ //이미지 수정을 안하고 다른것만 수정했을때
+         $.ajax({
+            type: 'POST',
+            async: false,
+            traditional : true,
+            url: serverRoot + '/json/user/update3' ,
+            data: {
 
-						location.href = "member-set.html";
-					}
-					else
-						window.alert("로그인 실패!")
-				});
-			});
-		} else{ //이미지 수정을 안하고 다른것만 수정했을때
-			$.ajax({
-				type: 'POST',
-				async: false,
-				traditional : true,
-				url: serverRoot + '/json/user/update3' ,
-				data: {
+               email: $('#email').val(),
+               userPhone: $('#phone').val(),
+               password: $('.pwd').val(),
+               userNo: userInfo.userNo
 
-					email: $('#email').val(),
-					userPhone: $('#phone').val(),
-					password: $('.pwd').val(),
-					userNo: userInfo.userNo
+            }, 
+         }).done(function() {
 
-				}, 
-			}).done(function() {
+	        	swal({
+	        		type: 'success',
+	        		  title: '수정이 완료되었습니다!',
+	        		  showConfirmButton: false,
+	        		  timer: 1500,
+                 preConfirm: () => {
+                     location.href = "member-set.html";
+                       }
+               })
 
-				alert('회원님 정보가 수정되었습니다');
-				location.href = "member-set.html";
-			});
-		}
-	}
-	
+         });
+      }
+   }
+   
 
 });
 
 //비밀번호 갱신시 실행되는 조건문
 /*$(document).ready(function () {
-	$("#upload-btn").click(() => {
-		if ($('.pwd').val() != "") {
-			$.ajax({
-				type: 'POST',
-				async: false,
-				traditional : true,
-				url: serverRoot + '/json/user/update3' ,
-				data: {
+   $("#upload-btn").click(() => {
+      if ($('.pwd').val() != "") {
+         $.ajax({
+            type: 'POST',
+            async: false,
+            traditional : true,
+            url: serverRoot + '/json/user/update3' ,
+            data: {
 
-					email: $('#email').val(),
-					userPhone: $('#phone').val(),
-					password: $('.pwd').val(),
-					userNo: userInfo.userNo
+               email: $('#email').val(),
+               userPhone: $('#phone').val(),
+               password: $('.pwd').val(),
+               userNo: userInfo.userNo
 
-				}, 
-			}).done(function() {
+            }, 
+         }).done(function() {
 
-				alert('비밀번호 변경 완료');
-				location.href = "member-set.html";
-			});
+            alert('비밀번호 변경 완료');
+            location.href = "member-set.html";
+         });
 
-		}
-	});
+      }
+   });
 });
  */
 
 //회원 삭제
 $("#exitButton").click(function() {
-	console.log("하이요");
-	console.log(userInfo.userNo);
-	$.ajax({
-		type:'POST',
-		url: serverRoot + '/json/user/delete',
-	}).done(function() {
-		$.get(serverRoot + "/json/auth/logout", () => {
-			swal({
-				title: "계정 탈퇴 하였습니다",
-				text: "확인을 누르시면 메인화면으로 이동합니다",
-				type: "success",
+   console.log("하이요");
+   console.log(userInfo.userNo);
+   $.ajax({
+      type:'POST',
+      url: serverRoot + '/json/user/delete',
+   }).done(function() {
+      $.get(serverRoot + "/json/auth/logout", () => {
+         swal({
+            title: "계정 탈퇴 하였습니다",
+            text: "확인을 누르시면 메인화면으로 이동합니다",
+            type: "success",
 
-				preConfirm: () => {
-					location.href=serverRoot + "/challenge/html/login/login.html";
-				}
-			})
+            preConfirm: () => {
+               location.href=serverRoot + "/challenge/html/login/login.html";
+            }
+         })
 
-		}); 
-	})
+      }); 
+   })
 });
