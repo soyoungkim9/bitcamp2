@@ -289,4 +289,15 @@
     where tano=#{no}
   </update>
   
+  <!-- 검색 페이징 -->
+  <select id="selectListPage"
+          resultMap="ProgramMap" parameterType="map">
+    select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno,
+           m.pmedno, m.ppath, m.pmtype
+    from PMED m
+         right outer join PROG p on m.pno=p.pno
+         left outer join TRN t on p.trnno=t.trnno
+    limit #{startRowNo}, #{pageSize}
+  </select>
+  
 </mapper>

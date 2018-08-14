@@ -133,5 +133,12 @@ public class ProgramController {
     public Program view(@PathVariable int no) throws Exception {
         return programService.getWithMedia(no);
     }
+    
+    @RequestMapping("listPage/{pageNo}/{pageSize}")
+    public Object listPage(
+            @PathVariable int pageNo,
+            @PathVariable int pageSize) {
+        return programService.pagingListCard(pageNo, pageSize);
+    }
 
 }

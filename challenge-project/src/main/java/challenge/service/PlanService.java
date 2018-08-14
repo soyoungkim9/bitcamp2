@@ -13,4 +13,5 @@ public interface PlanService {
     int update(Plan plan); // 운동일지 수정
     List<Integer> getCount(int pno);
     
+    
 }
