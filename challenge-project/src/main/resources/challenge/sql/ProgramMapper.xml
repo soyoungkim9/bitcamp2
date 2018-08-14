@@ -182,6 +182,7 @@
     <foreach collection="programTypeList" item="item" index="index" separator="," open="(" close=")">
             #{item}
     </foreach>
+    Group By p.pno
   </select>
   
     <!-- 가격순 search -->

@@ -226,9 +226,15 @@ $(document.body).on('click', 'input:checkbox', function() {
 		console.log(listCount);
 		for(var i = 1; i < (listCount/pageSize) + 1; i++) {
 			console.log(i);
-			$('#paging').append('<a class="sm-pagination-button pageNum" href="#">' 
+			$('#paging').append('<a data-no="'+i+'" class="sm-pagination-button pageNum" href="#">'
 					+ i + '</a>');
 		}
+		
+//		if($('.pageNum').attr("data-no") == 1) {
+//			$('.pageNum').find("a[data-no=1]").addClass("pageActive");
+//			console.log($('.pageNum').find("a[data-no=1]").addClass("pageActive"));
+//			console.log($('.pageNum').attr("data-no") == 1);
+//		}
 		
 		for(var i = 0; i < data.length; i++) {
 			$('#aaa').html(cardBodyFn({list:data}));
@@ -264,6 +270,17 @@ $(document.body).on('click', 'input:checkbox', function() {
 //			loadCards(data);
 //		});
 	});
+
+});
+
+//페이징 처리
+$(document.body).on('click', '.pageNum', function(event) {
+	event.preventDefault();
+	pageNum = $(this).attr('data-num');
+	if($(".pageNum").hasClass("pageActive").toString()) {
+		$(".pageNum").removeClass("pageActive")
+	}
+	$(this).addClass("pageActive");
 
 });
 
