@@ -289,7 +289,7 @@
     where tano=#{no}
   </update>
   
-  <!-- 검색 페이징 -->
+  <!-- 검색 페이징 listPage -->
   <select id="selectListPage"
           resultMap="ProgramMap" parameterType="map">
     select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno,
