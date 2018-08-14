@@ -1,11 +1,9 @@
 
-
 function addComma(num) {
 				var regexp = /\B(?=(\d{3})+(?!\d))/g;
 				return num.toString().replace(regexp, ',');
 			}
 /*swal("결제가 완료되었습니다.", "화이또", "success");
-
 location.href="../main/main.html"*/
 if (location.href.split("?").length > 1) {
 

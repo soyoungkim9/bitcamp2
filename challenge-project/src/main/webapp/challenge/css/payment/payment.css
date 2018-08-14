@@ -185,7 +185,8 @@ li>input {
 .btn-payment {
   background-color: #DD1F26;
   color: #ffffff;
-  width: 250px; height: 50px;
+  width: 185px; height: 45px;
+  margin:15px 20px 0px 0px;
 }
 
 #footer-body>ul>li:nth-child(2n) {
@@ -206,6 +207,11 @@ input[type=radio] {
 
 .sm-btn-1-small {
   margin: 15px 3px;
+}
+
+.pay-button {
+  text-align:right;
+  margin-right: 60px;
 }
 
 .pay-nu {text-decoration: none; color:#000000;}

@@ -13,19 +13,27 @@ a {
 }
  
 .sidenav {
-    margin-left: 30px;
+margin-top: 10px;
     padding: 10px;
     float: left;
     width: 250px;
+    border: 2px solid #1B3453;
+    border-radius: 1.25em;
 }
 
 .search-program {
-    margin-bottom: 35px;
-    margin-top: 35px;
+    margin: 20px 3px;
 }
 
+.priceBar {
+  margin: 10px 0px 10px 13px;
+}
+#aStyle li, .challenge-ul li {
+  margin:0px 10px;
+}
 .form-wrapper {
     border: 1px solid #1B3453;
+    margin-left:1px;
 }
 
 #map {
@@ -55,6 +63,8 @@ a {
     font-size: 20px;
     font-weight: 800px;
     margin-bottom: 15px;
+    text-align:center;
+    
 }
 
 .search-challenge {
@@ -104,12 +114,13 @@ a {
 }
 
 .ch-btn {
-    color: white;
+color: white;
     border: none;
-    margin-top: 20px;
-    margin-left: 30px;
-    padding: 5px 10px;
+    margin-top: 5px;
+    margin-left: 140px;
+    padding: 8px 15px;
     background-color: #1B3453;
+    border-radius: 0.45em;
 }
 
 .search-price2 {
