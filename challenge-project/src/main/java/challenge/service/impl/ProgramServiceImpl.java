@@ -163,6 +163,28 @@ public class ProgramServiceImpl implements ProgramService {
         return programDao.pagingListCard(params);
     }
     
+
+    @Override
+    public List<Program> pagingListChallenge(int challengeNo, int pageNo,
+            int pageSize) {
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("challengeNo", challengeNo);
+        params.put("startRowNo", (pageNo - 1) * pageSize);
+        params.put("pageSize", pageSize);
+        return programDao.pagingListChallenge(params);
+    }
+
+    @Override
+    public List<Program> pagingListKeyword(String keyword, int pageNo,
+            int pageSize) {
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("keyword", keyword);
+        params.put("startRowNo", (pageNo - 1) * pageSize);
+        params.put("pageSize", pageSize);
+        return programDao.pagingListKeyword(params);
+    }
+
+    
     @Override
     public List<Program> getListPage(int pageNo, int pageSize) {
         HashMap<String,Object> params = new HashMap<>();

@@ -59,12 +59,6 @@ public class ProgramController {
         return programService.listCardWithKeyword(keyword);
     }
     
-    @RequestMapping("pagingListCard/{pageNo}/{pageSize}")
-    public Object pagingListCard(
-            @PathVariable int pageNo,
-            @PathVariable int pageSize) {
-        return programService.pagingListCard(pageNo, pageSize);
-    }
     
     @RequestMapping("listCardWithProgoal/{progoal}")
     public Object listCardWithProgoal(@PathVariable String progoal) {
@@ -140,5 +134,29 @@ public class ProgramController {
             @PathVariable int pageSize) {
         return programService.pagingListCard(pageNo, pageSize);
     }
+    
+    @RequestMapping("pagingListCard/{pageNo}/{pageSize}")
+    public Object pagingListCard(
+            @PathVariable int pageNo,
+            @PathVariable int pageSize) {
+        return programService.pagingListCard(pageNo, pageSize);
+    }
+    
+    @RequestMapping("pagingListChallenge/{challengeNo}/{pageNo}/{pageSize}")
+    public Object pagingListChallenge(
+            @PathVariable int challengeNo,
+            @PathVariable int pageNo,
+            @PathVariable int pageSize) {
+        return programService.pagingListChallenge(challengeNo, pageNo, pageSize);
+    }
+    
+    @RequestMapping("pagingListKeyword/{keyword}/{pageNo}/{pageSize}")
+    public Object pagingListKeyword(
+            @PathVariable String keyword,
+            @PathVariable int pageNo,
+            @PathVariable int pageSize) {
+        return programService.pagingListKeyword(keyword, pageNo, pageSize);
+    }
+    
 
 }

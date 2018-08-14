@@ -32,6 +32,9 @@ public interface ProgramService {
    
     List<Program> pagingListCard(int pageNo, int pageSize);
     List<Program> getListPage(int pageNo, int pageSize);
+    List<Program> pagingListChallenge(int challengeNo, int pageNo, int pageSize);
+    List<Program> pagingListKeyword(String keyword, int pageNo, int pageSize);
+    
     
     //boolean isMember(String programName, String memberId);
     //int addMember(String programName, String memberId);

@@ -59,12 +59,43 @@
   
     <select id="pagingListCard"
           resultMap="ProgramMap" parameterType="map">
-    select p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno,
-           m.pmedno, m.ppath, m.pmtype
+    select Max(m.ppath), p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno,
+           m.pmedno, m.pmtype
     from PMED m
          right outer join PROG p on m.pno=p.pno
          left outer join TRN t on p.trnno=t.trnno
+         Group By p.pno, p.pname
+         order by p.sdt desc
          limit #{startRowNo}, #{pageSize} 
+  </select>
+  
+      <select id="pagingListChallenge"
+          resultMap="ProgramMap" parameterType="map">
+     select Max(m.ppath), p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno,
+           m.pmedno, m.pmtype
+    from PMED m
+         right outer join PROG p on m.pno=p.pno
+         left outer join TRN t on p.trnno=t.trnno
+    where p.cno = #{challengeNo}
+    Group By p.pno, p.pname
+    order by p.sdt desc
+    limit #{startRowNo}, #{pageSize} 
+  </select>
+  
+        <select id="pagingListKeyword"
+          resultMap="ProgramMap" parameterType="map">
+         select Max(m.ppath), p.pno, p.pname, p.pth, p.pprice, p.bas_addr, p.maxqty, p.sdt, p.trnno, p.ptype, p.det_addr, p.pgoal, m.pmedno, m.pmtype
+    from PMED m
+         right outer join PROG p on m.pno=p.pno
+         left outer join TRN t on p.trnno=t.trnno
+    where pname like CONCAT('%', #{keyword}, '%')
+    or ptype like CONCAT('%', #{keyword}, '%')
+    or bas_addr like CONCAT('%', #{keyword}, '%')
+    or det_addr like CONCAT('%', #{keyword}, '%')
+    or pgoal like CONCAT('%', #{keyword}, '%')
+    Group By p.pno, p.pname
+    order by p.sdt desc
+    limit #{startRowNo}, #{pageSize}
   </select>
   
   <select id="selectListChallenge"
