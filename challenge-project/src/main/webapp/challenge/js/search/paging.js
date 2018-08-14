@@ -51,7 +51,7 @@ $('#priceSearch').click(() => {
 		        $('.sm-pagination-button').removeClass('pageActive');
 		        $(this).addClass('pageActive');    
 		    }
-		    var pageNum = $('.pageActive').attr("data-no");
+		    var pageNum = parseInt($('.pageActive').attr("data-no"));
 		    $.ajax({
 				dataType : 'json',
 				type: 'POST',
