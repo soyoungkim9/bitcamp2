@@ -1,1 +1,1 @@
-var serverRoot = "http://192.168.0.83:8888/challenge-project";
+var serverRoot = "http://localhost:8888/challenge-project";
