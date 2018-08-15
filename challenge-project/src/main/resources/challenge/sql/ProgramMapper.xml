@@ -54,7 +54,7 @@
     from PMED m
          right outer join PROG p on m.pno=p.pno
          left outer join TRN t on p.trnno=t.trnno
-    <!-- limit #{startRowNo}, #{pageSize} -->
+    limit #{startRowNo}, #{pageSize}
   </select>
   
     <select id="pagingListCard"
