@@ -16,7 +16,7 @@ if (location.href.split("?").length > 1) {
     $(fproTh).append(data.proTh);
     $(fproTurn).append(data.proTurn);
     $('<img/>')
-    .attr('src', '../../../files/'+data.medias[0].path+'_600x600.jpg')
+    .attr('src', '../../../files/'+data.medias[0].path)
     .appendTo($(fprogramImg));
 
     // 참여인원 정보 가져오기
@@ -90,7 +90,7 @@ if (location.href.split("?").length > 1) {
     programList(data.trainerNo) // 다른 프로그램
     plan(data.proDay, data.proTime) // 일정
     dayInterval(data.startDate) // D-day
-    proTurn(data.trainerNo) // 기수 프로그램
+    proTurn(data.trainerNo, data.name) // 기수 프로그램
 
     // 결제 페이지 이동
     $("#payment").click(() => {
@@ -214,10 +214,10 @@ $(document.body).on('click','.addModal', function(event){
  */
 
 // 기수 프로그램
-function proTurn(trainerNo) {
+function proTurn(trainerNo, name) {
   var trTemplateSrc5 = $("#turn-template").html();
   var templateFn5 = Handlebars.compile(trTemplateSrc5);
-  $.getJSON(serverRoot + "/json/program/listTurnProgram/" + trainerNo, (data) => {
+  $.getJSON(serverRoot + "/json/program/listTurnProgram/" + trainerNo + "/" + name, (data) => {
     $("#turn").append(templateFn5({list: data}));
   }).done(function(data) {
     for (var i = 0; i < data.length; i++) {

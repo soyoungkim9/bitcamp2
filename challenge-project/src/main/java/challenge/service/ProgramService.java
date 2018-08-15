@@ -15,7 +15,7 @@ public interface ProgramService {
     List<Program> listWithPrice();
     List<Program> listWithStartDate();
     List<Program> listProgram(int trainerNo);
-    List<Program> listTurnProgram(int trainerNo);
+    List<Program> listTurnProgram(int trainerNo, String name);
     List<Program> listWithProgramType(String[] pType);
     Program get(int no);
     Program getWithMedia(int no);

@@ -99,23 +99,17 @@ $.getJSON(serverRoot + "/json/program/listProgram/" + no, (data) => {
     return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
   };
  
+  // 슬라이드
+  $(".center").slick({
+    infinite: true,
+    centerMode: true,
+    slidesToShow: 2,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    slidesToScroll: 1
+  });
 });
 
-function als() {
-  $("#lista1").als({
-    visible_items: 2,
-    scrolling_items: 1,
-    orientation: "horizontal",
-    circular: "yes",
-    autoscroll: "yes",
-    interval: 5000,
-    speed: 10000,
-    easing: "linear",
-    direction: "left",
-    start_from: 0
-    });
-    console.log('als')
-}
 
 function pmemberCount(no, i) {
   $.get(serverRoot + "/json/programMember/pmemberCount/" + no, function(data) {

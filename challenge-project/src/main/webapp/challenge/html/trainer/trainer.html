@@ -9,14 +9,14 @@
 @import
 	url(../../node_modules/@fortawesome/fontawesome-free/css/all.css) screen
 	;
-
+ @import url(../../node_modules/slick-carousel/slick/slick.css) screen;
+@import url(../../node_modules/slick-carousel/slick/slick-theme.css) screen;
 @import url(../../css/program/card1.css) screen;
 
 @import url(../../css/trainer/trainer.css) screen;
 
 @import url(../../css/common.css) screen;
 
-@import url(../../css/trainer/als_demo.css) screen;
 </style>
 </head>
 
@@ -43,30 +43,17 @@
    <div class="line-20">최근 프로그램 : 1 개월 전</div>
   </div>
 
-  <div class="tr-title tr-body">해동근력님의 서비스</div>
+  <div class="tr-title tr-body"><span id="fname"></span>님의 서비스</div>
   <div class="trBody">
    <div class="tr-left">
     <div class="tr2">
-
-    <div class="tr2-pro">
-     <div id="lista1" class="als-container">
-      <span class="als-prev"><img
-       src="../../img/trainer/thin_left_arrow_333.png" alt="prev"
-       title="previous" /></span>
-      <div class="als-viewport">
-       <ul class="als-wrapper" id="program">
-
-       </ul>
-      </div>
-      <span class="als-next"><img
-       src="../../img/trainer/thin_right_arrow_333.png" alt="next"
-       title="next" /></span>
-     </div>
+<div class="tr2-pro">
+    <section id="program" class="center slider"></section>
     </div>
    </div>
 
     <div class="tr3">
-     <div class="tr-title inline-block">해동근력님의 받은 평가</div>
+     <div class="tr-title inline-block"><span id="fname"></span>님의 받은 평가</div>
      <div class="inline-block">
       <span class="star-prototype"></span>
      </div>
@@ -129,8 +116,8 @@
       <span class="card-footer-review">리뷰 <span class="review-{{@key}}"></span>개</span>
       <span class="card-footer-date">{{startDate}} (D<span id="dday-{{@key}}"></span>)</span>
     </div>
-    </a>
 </div>
+</a>
 </div>
 {{/each}}
 </script>
@@ -157,10 +144,10 @@
 
  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+ <script src="../../node_modules/slick-carousel/slick/slick.min.js"></script>
  <script src="../../js/common.js"></script>
  <script src="../../js/header/header.js"></script>
  <script src="../../js/trainer/trainer.js"></script>
- <script src="../../js/trainer/jquery.als-1.7.min.js"></script>
  <script src="../../js/footer/footer.js"></script>
 
 </body>

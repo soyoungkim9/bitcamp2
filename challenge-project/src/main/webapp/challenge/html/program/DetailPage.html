@@ -151,6 +151,7 @@
      <thead>
       <tr>
        <th class="firstNoline">회차</th>
+       <th>프로그램명</th>
        <th>기간</th>
        <th class="lastNoline">만족도</th>
       </tr>
@@ -334,7 +335,7 @@
 {{#each list}}
 <div class="mySlides fade">
   <div class="numbertext"><span id="slideOr-{{@key}}"></span> / <span id="slideLen"></span></div>
-  <img src="../../../files/{{path}}_600x600.jpg">
+  <img src="../../../files/{{path}}">
 </div>
 {{/each}}
 </script>
@@ -423,6 +424,7 @@
 {{#each list}}
  <tr>
   <td class="firstNoline">{{proTh}}</td>
+  <td>{{name}}</td>
   <td>{{startDate}} ~ {{endDate}}</td>
   <td><span class="score{{no}}"></span>/5.0</td>
  </tr>

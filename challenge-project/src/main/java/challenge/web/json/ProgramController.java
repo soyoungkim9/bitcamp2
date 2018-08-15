@@ -75,9 +75,10 @@ public class ProgramController {
         return programService.listProgram(trainerNo);
     }
     
-    @RequestMapping("listTurnProgram/{trainerNo}")
-    public Object listTurn(@PathVariable int trainerNo) {
-        return programService.listTurnProgram(trainerNo);
+    @RequestMapping("listTurnProgram/{trainerNo}/{name}")
+    public Object listTurn(@PathVariable int trainerNo, 
+            @PathVariable String name) {
+        return programService.listTurnProgram(trainerNo, name);
     }
     
     @RequestMapping("typeList")
