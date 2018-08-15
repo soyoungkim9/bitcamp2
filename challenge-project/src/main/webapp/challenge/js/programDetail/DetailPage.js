@@ -12,7 +12,8 @@ if (location.href.split("?").length > 1) {
     $(fdescription).append(data.description);
     $(fproType).append(data.proType);
     $(fproGoal).append(data.proGoal);
-    $(fproGoalNum).append(data.proGoalNum);
+    if(data.proGoal != '출석')
+      $(fproGoalNum).append(data.proGoalNum + 'kg');
     $(fproTh).append(data.proTh);
     $(fproTurn).append(data.proTurn);
     $('<img/>')
@@ -122,6 +123,8 @@ if (location.href.split("?").length > 1) {
       var cal = (score / count).toFixed(1);
       if(!(isNaN(cal))) {
         $(reviewScore).append(cal);
+        var scorePe = cal / 5 * 100
+        $(scorePer).append(scorePe)
       } else {
         $(reviewScore).append(0)
       }
@@ -354,6 +357,7 @@ function programList(trainerNo) {
   $.getJSON(serverRoot + "/json/program/listProgram/" + trainerNo, (data) => {
     $(lectBox).html(templateF1({list:data}));
   }).done(function(data) {
+    $(fproCount).append(data.length);
     $(".numberic").each(function(){
       $(this).number(true);
     });
