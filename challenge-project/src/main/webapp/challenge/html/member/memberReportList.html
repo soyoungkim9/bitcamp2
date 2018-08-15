@@ -167,17 +167,17 @@
 <ul id="planList" class="dayList">
 {{#each list}}
   <li>
+    <div class="editIcon">
+      <a id="viewCheck" data-ch="1" data-dno="{{dno}}" data-pno="{{program.no}}" class="viewNum checkInOut">
+		<i class="far fa-check-circle"></i></a>
+      <a data-dno="{{dno}}" data-pno="{{program.no}}" class="viewNum">
+		<i class="fas fa-search"></i></a>
+    </div>
     <div class="dayContent">
       <h4 class="time">Day{{planTurn}}
 	  </h4>
       <pre>{{content}}</pre>
     </div>
-      <div class="editIcon">
-        <a id="viewCheck" data-ch="1" data-dno="{{dno}}" data-pno="{{program.no}}" class="viewNum checkInOut">
-			<i class="far fa-check-circle"></i></a>
-        <a data-dno="{{dno}}" data-pno="{{program.no}}" class="viewNum">
-			<i class="fas fa-search"></i></a>
-      </div>
   </li>
 {{/each}}
 </ul>

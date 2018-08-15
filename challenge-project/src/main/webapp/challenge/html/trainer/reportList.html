@@ -141,12 +141,12 @@
 <ul id="planList" class="dayList">
 {{#each list}}
   <li>
+    <div class="editIcon">
+      <a data-no="{{no}}" data-pno="{{program.no}}" class="viewNum"><i class="fas fa-search"></i></a>
+    </div>
     <div class="dayContent">
       <h4 class="time">Day{{planTurn}}</h4>
       <pre>{{planContent}}</pre>
-    </div>
-    <div class="editIcon">
-      <a data-no="{{no}}" data-pno="{{program.no}}" class="viewNum"><i class="fas fa-plus-circle"></i></a>
     </div>
   </li>
 {{/each}}

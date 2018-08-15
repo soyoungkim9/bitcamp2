@@ -221,11 +221,12 @@
   margin: 10px 15px;
 }
 .dayContent {
-  height: 146px;
+  height: 198px;
   margin: 0 14px;
 }
 
 .dayContent h4 {
+	margin-top: 38px;
 	margin-bottom: 0;
 	text-align: center;
 }
@@ -233,6 +234,8 @@
 .editIcon {
   float: right;
   margin-right: 10px;
+  margin-top: 12px;
+  font-size: 18px;
 }
 
 .editIcon .far {
