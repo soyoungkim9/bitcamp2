@@ -137,7 +137,7 @@
 		  </div>
 	  </div>
     </div><!-- mypage-body -->
-	  <div class="sm-pagination" id="pagination">
+    <!-- <div class="sm-pagination" id="pagination">
 	      <a class="sm-pagination-button sm-pagination-side" href="#"><i class="fas fa-angle-left"></i></a>
 	      <a class="sm-pagination-button pageActive">1</a>
 	      <a class="sm-pagination-button">2</a>
@@ -145,11 +145,11 @@
 	      <a class="sm-pagination-button">4</a>
 	      <a class="sm-pagination-button sm-pagination-button-end" href="#">5</a>
 	      <a class="sm-pagination-button sm-pagination-side" href="#"><i class="fas fa-angle-right"></i></a>
-	  </div>
+	  </div> -->
 
 </div><!-- mypage -->
-<div id="footer"></div>
 </div><!--.container-->
+<div id="footer"></div>
 <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
 <script src="../../js/common.js"></script>
 <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
@@ -167,17 +167,17 @@
 <ul id="planList" class="dayList">
 {{#each list}}
   <li>
+    <div class="editIcon">
+      <a id="viewCheck" data-ch="1" data-dno="{{dno}}" data-pno="{{program.no}}" class="viewNum checkInOut">
+		<i class="far fa-check-circle"></i></a>
+      <a data-dno="{{dno}}" data-pno="{{program.no}}" class="viewNum">
+		<i class="fas fa-search"></i></a>
+    </div>
     <div class="dayContent">
       <h4 class="time">Day{{planTurn}}
 	  </h4>
       <pre>{{content}}</pre>
     </div>
-      <div class="editIcon">
-        <a id="viewCheck" data-ch="1" data-dno="{{dno}}" data-pno="{{program.no}}" class="viewNum checkInOut">
-			<i class="far fa-check-circle"></i></a>
-        <a data-dno="{{dno}}" data-pno="{{program.no}}" class="viewNum">
-			<i class="fas fa-search"></i></a>
-      </div>
   </li>
 {{/each}}
 </ul>

@@ -9,14 +9,15 @@
 @import
 	url(../../node_modules/@fortawesome/fontawesome-free/css/all.css) screen
 	;
-
+ @import url(../../node_modules/slick-carousel/slick/slick.css) screen;
+@import url(../../node_modules/slick-carousel/slick/slick-theme.css) screen;
 @import url(../../css/program/card1.css) screen;
 
 @import url(../../css/trainer/trainer.css) screen;
+@import url(../../css/member/msg-modal.css) screen;
 
 @import url(../../css/common.css) screen;
 
-@import url(../../css/trainer/als_demo.css) screen;
 </style>
 </head>
 
@@ -37,36 +38,23 @@
    <div id="fscore" class="line-20">만족도 : </div>
    <div id="fproCount" class="line-20">총 프로그램 : </div>
    <div class="line-20 tr-arrow-main">
-    <a href="#">메시지 보내기</a> <span class="tr-arrow"></span>
+    <a href="#" id="msgBtn">메시지 보내기</a> <span class="tr-arrow"></span>
    </div>
    <div id="fproType" class="line-20">운동 종목 : </div>
    <div class="line-20">최근 프로그램 : 1 개월 전</div>
   </div>
 
-  <div class="tr-title tr-body">해동근력님의 서비스</div>
+  <div class="tr-title tr-body"><span id="fname"></span>님의 서비스</div>
   <div class="trBody">
    <div class="tr-left">
     <div class="tr2">
-
-    <div class="tr2-pro">
-     <div id="lista1" class="als-container">
-      <span class="als-prev"><img
-       src="../../img/trainer/thin_left_arrow_333.png" alt="prev"
-       title="previous" /></span>
-      <div class="als-viewport">
-       <ul class="als-wrapper" id="program">
-
-       </ul>
-      </div>
-      <span class="als-next"><img
-       src="../../img/trainer/thin_right_arrow_333.png" alt="next"
-       title="next" /></span>
-     </div>
+<div class="tr2-pro">
+    <section id="program" class="center slider"></section>
     </div>
    </div>
 
     <div class="tr3">
-     <div class="tr-title inline-block">해동근력님의 받은 평가</div>
+     <div class="tr-title inline-block"><span id="fname"></span>님의 받은 평가</div>
      <div class="inline-block">
       <span class="star-prototype"></span>
      </div>
@@ -98,6 +86,18 @@
 
    </div>
   </div>
+  
+    <!-- add 모달 -->
+  <div id="myAddModal" class="modal">
+   <div class="modal-content">
+    <div class="modal-header">
+     <span class="close"><i class="far fa-times-circle"></i></span>
+    </div>
+    <div class="add-body"></div>
+   </div>
+  </div>
+  <!-- add 모달 끝! -->
+  
  </div>
  <!--container-->
 
@@ -129,8 +129,8 @@
       <span class="card-footer-review">리뷰 <span class="review-{{@key}}"></span>개</span>
       <span class="card-footer-date">{{startDate}} (D<span id="dday-{{@key}}"></span>)</span>
     </div>
-    </a>
 </div>
+</a>
 </div>
 {{/each}}
 </script>
@@ -154,13 +154,40 @@
  </li>
 {{/each}}
 </script>
+ <!-- add -->
+ <script id="add-template" type="text/x-handlebars-template">
+<div>
+  <div class="modal-body">
+   <div class="originalImg"></div>
+   <ul class="memberInfoList" style="margin-left: 20px;">
+    <li class="modalName">
+     <div class="contentName">이름</div>
+     <div id="mName" class="modalContent">{{member}}</div>
+    </li>
+    <li class="modaPhone">
+     <div class="contentName">받는사람</div>
+     <div id="mName-send" class="modalContent">{{trainer}}</div>
+    </li>
+   </ul>
+  </div>
+  <div class="modal-body2">
+   <input id="fTitle" class="modalContent-titl" type="text"
+    placeholder="제목을 입력하세요."><br>
+   <textarea id="fContent" class="modalContent-cont"
+    placeholder="내용을 입력하세요."></textarea>
 
+   <span class="modal-ok">
+    <button id="addBtn" class="sm-btn-1">보내기</button>
+   </span>
+  </div>
+ </div>
+</script>
  <script src="../../node_modules/handlebars/dist/handlebars.min.js"></script>
  <script src="../../node_modules/jquery/dist/jquery.min.js"></script>
+ <script src="../../node_modules/slick-carousel/slick/slick.min.js"></script>
  <script src="../../js/common.js"></script>
  <script src="../../js/header/header.js"></script>
  <script src="../../js/trainer/trainer.js"></script>
- <script src="../../js/trainer/jquery.als-1.7.min.js"></script>
  <script src="../../js/footer/footer.js"></script>
 
 </body>

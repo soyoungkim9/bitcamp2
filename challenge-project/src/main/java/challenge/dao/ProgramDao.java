@@ -1,5 +1,6 @@
 package challenge.dao;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -9,12 +10,12 @@ public interface ProgramDao {
 
     public int delete(int no);
     public List<Program> selectList();
-    public List<Program> selectListCard();
+    public List<Program> selectListCard(HashMap<String, Object> params);
     public List<Program> selectListChallenge(int cno);
     public List<Program> selectListWithPrice();
     public List<Program> selectListWithStartDate();
     public List<Program> selectTrainerProgram(int no);
-    public List<Program> selectTrainerProgramTurn(int no);
+    public List<Program> selectTrainerProgramTurn(Map<String, Object> param);
     public int insert(Program program);
     public int update(Program program);
     public Program selectOne(int no);

@@ -51,10 +51,10 @@ public class ProgramServiceImpl implements ProgramService {
     }
 
     
-    @Override
-    public List<Program> listCard() {
-        return programDao.selectListCard();
-    }
+//    @Override
+//    public List<Program> listCard() {
+//        return programDao.selectListCard();
+//    }
     
     @Override
     public List<Program> selectListChallenge(int cno) {
@@ -72,8 +72,11 @@ public class ProgramServiceImpl implements ProgramService {
     }
     
     @Override
-    public List<Program> listTurnProgram(int trainerNo) {
-        return programDao.selectTrainerProgramTurn(trainerNo);
+    public List<Program> listTurnProgram(int trainerNo, String name) {
+        Map<String,Object> params = new HashMap<>();
+        params.put("trainerNo", trainerNo);
+        params.put("name", name);
+        return programDao.selectTrainerProgramTurn(params);
     }
     
     @Override
@@ -191,6 +194,15 @@ public class ProgramServiceImpl implements ProgramService {
         params.put("startRowNo", (pageNo - 1) * pageSize);
         params.put("pageSize", pageSize);
         return programDao.selectListPage(params);
+    }
+
+    @Override
+    public List<Program> listCard(int cno, int pageNo, int pageSize) {
+        HashMap<String,Object> params = new HashMap<>();
+        params.put("cno", cno);
+        params.put("startRowNo", (pageNo - 1) * pageSize);
+        params.put("pageSize", pageSize);
+        return programDao.selectListCard(params);
     }
 
    

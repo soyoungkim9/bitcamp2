@@ -65,6 +65,7 @@
    </div>
    <!-- 프로그램 설명-->
    <div class="middle three">
+   
     <div id="navExam">
      <h3 class="subH3Font">프로그램 설명</h3>
     </div>
@@ -151,6 +152,7 @@
      <thead>
       <tr>
        <th class="firstNoline">회차</th>
+       <th>프로그램명</th>
        <th>기간</th>
        <th class="lastNoline">만족도</th>
       </tr>
@@ -246,13 +248,13 @@
      <div class="proInfo">
       <div class="left">
        <h5>
-        <span>11</span>건
+        <span id="fproCount"></span>건
        </h5>
        <h6>총작업개수</h6>
       </div>
       <div class="left">
        <h5>
-        <span>100</span>점
+        <span id="scorePer"></span>%
        </h5>
        <h6>만족도</h6>
       </div>
@@ -334,7 +336,7 @@
 {{#each list}}
 <div class="mySlides fade">
   <div class="numbertext"><span id="slideOr-{{@key}}"></span> / <span id="slideLen"></span></div>
-  <img src="../../../files/{{path}}_600x600.jpg">
+  <img src="../../../files/{{path}}">
 </div>
 {{/each}}
 </script>
@@ -423,6 +425,7 @@
 {{#each list}}
  <tr>
   <td class="firstNoline">{{proTh}}</td>
+  <td>{{name}}</td>
   <td>{{startDate}} ~ {{endDate}}</td>
   <td><span class="score{{no}}"></span>/5.0</td>
  </tr>

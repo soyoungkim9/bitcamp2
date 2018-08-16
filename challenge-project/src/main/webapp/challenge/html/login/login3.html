@@ -22,8 +22,8 @@
             <div class="login-aa">
                 <form class="omb_loginForm" action="" autocomplete="off"
                     method="POST">
-                    <input id="fId" type="text" class="form-control" name="email"
-                        placeholder="이메일 주소"> <input id="fPassword"
+                    <input id="fId" onkeyup="enterkey();" type="text" class="form-control" name="email"
+                        placeholder="이메일 주소"> <input id="fPassword" onkeyup="enterkey();"
                         type="password" class="form-control" name="password"
                         placeholder="비밀번호">
                     <div class="login-row">
@@ -46,35 +46,23 @@
                     </div>
                     <div class="oror">or</div>
                     <div class="login-row">
-                        <!-- <a href="../member/member-my.html"><div
-                                class="login-out naver">
-                                <img class="naverLogo" src="../../img/login/naver.png">
-                            </div></a> <a href="../trainer/trainerPage-importation.html"><div
-                                class="login-out facebook">
-                                <i class="fab fa-facebook-f"></i>
-                            </div></a> <a href="#"><div class="login-out google">
-                                <img class="googleLogo" src="../../img/login/google.png">
-                            </div></a> <a href="#"><div class="login-out kakao">
-                                <img class="kakaoLogo" src="../../img/login/kakao.png">
-                            </div> -->
-                            <!-- </a> -->
+                        
                             
                             
-                            <div id="naverIdLogin">
-                           
-                            </div>
-                            <!-- <div id="naverIdLogin"
-                            role="button">
-                            <img src="https://static.nid.naver.com/oauth/big_g.PNG" width="222" height="49"></div> -->
-                            
-                            
-                            
-                             <a id="kakao-login-btn" ></a> 
-                            <a href="http://developers.kakao.com/logout"></a>
-                           
+                            <!-- <div id="naverIdLogin">
+                             </div> -->
+                             <!-- <div id="naverIdLogin"> <a id="naverLogin"  href="#" role="button"><img src="https://static.nid.naver.com/oauth/big_g.PNG"
+                             width="300" height="49">
+                             </a>
+                           </div> -->
+                             <!-- <a id="kakao-login-btn1" href="#" role="button"><img src="../../img/login/kakao1.png"></a> -->
+                             <a id="kakao-login-btn">
+                             
+                            </a>
+                            <!-- <a href="http://developers.kakao.com/logout"></a> -->
                             
                             <br>
-                            <div id="fb"class="rounded fb-login-button form-group fb-custom-btn" data-width="227" data-height="300"
+                            <div id="fb"class="rounded fb-login-button form-group fb-custom-btn" data-width="300" data-height="70"
                 data-max-rows="2" data-size="large" data-button-type="login_with"
                 data-show-faces="false" data-auto-logout-link="false"
                 data-use-continue-as="false" data-scope="public_profile,email"
@@ -98,19 +86,19 @@
 
     <script src="../../js/login/login.js"></script>
     <script src="//developers.kakao.com/sdk/js/kakao.min.js"></script>
-    <script type="text/javascript" src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+    <script src="https://static.nid.naver.com/js/naveridlogin_js_sdk_2.0.0.js" charset="utf-8"></script>
+    
 
 
     <script type='text/javascript'>
-  
-        
-    
     
     // 사용할 앱의 JavaScript 키를 설정해 주세요.
       Kakao.init('6810e2ea252d47b9b3bd1d1125653956');  //여기서 아까 발급받은 키 중 javascript키를 사용해준다.
 
+      //function loginWithKakao() {
      Kakao.Auth.createLoginButton({
           container: '#kakao-login-btn',
+          size: 'large',
           success: function(authObj) {
                 console.log(authObj.access_token)
                 $.getJSON(
@@ -127,35 +115,11 @@
                     });
           }
           });
-          
-         /*     Kakao.init('6810e2ea252d47b9b3bd1d1125653956');
-          Kakao.Auth.createLoginButton({
-            container: '#kakao-login-btn',
-            success: function(authObj) {
-              // 로그인 성공시, API를 호출합니다.
-              Kakao.API.request({
-                url: '/v2/user/me',
-              //   data: {
-              //      propertyKeys: ['kaccount_email']
-              //    }, 
-                success: function(res) {
-                  alert(JSON.stringify(res));
-                  console.log('로그인 성공');
-//                   location.href = "../main/main.html" 
-                },
-                fail: function(error) {
-                  alert(JSON.stringify(error));
-                }
-              });
-            },
-            fail: function(err) {
-              alert(JSON.stringify(err));
-            }
-          });   */
+     // }
+        
     
     // 이부분 손봐야댐
      function autoServerLogin(accessToken) {
-         //container: '#facebook-login-btn'
         
          $.getJSON(
              '../../../json/auth/facebookLogin', 
@@ -167,45 +131,7 @@
                    location.href = "../main/main.html"
                } else {
             	   swal('로그인을 실패했습니다!  </code></pre> 페이스북에서 정보를 가져오지 못했습니다'); 
-            	  /*  swal.mixin({
-                       input: 'text',
-                       confirmButtonText: 'Next &rarr;',
-                       showCancelButton: true,
-                       progressSteps: ['1', '2', '3','4','5']
-                     }).queue([
-                       {
-                         title: '회원 가입시 프로필 추가입력폼입니다.',
-                         //swal2-input : result.name;
-                         
-                       },
-                       {
-                           text: '성별을 입력해주세요  ex)남:male 여자면 female'
-                         },
-                         {
-                             text: '이메일을 입력해주세요   ex)challenge@naver.com',
-                             input: 'email'
-                         },
-                           {
-                               text: '핸드폰 번호를 입력해주세요   ex)010-1111-1111'
-                             },
-                             {
-                                 text: '유형을 숫자로 입력해주세요   ex)회원:1 트레이너:2',
-                                 
-                               },
-                     ]).then((result) => {
-                       if (result.value) {
-                         swal({
-                           title: '성공!',
-                           html:
-                             '입력하신 정보입니다: <pre><code>' +
-                               JSON.stringify(result.value) +
-                             '</code></pre>',
-                           confirmButtonText: '감사합니다!'
-                         })
-                         
-                       }
-                       
-                     }) */
+            	
                      
                } //else 끝
          });
@@ -243,14 +169,8 @@
     
   };
   
- 
-
-
   
   
-   /* FB.api('/{user-id}/accounts', function(response) {                          
-	   //response handling...
-	});  */
 
   (function(d, s, id) {
     var js, fjs = d.getElementsByTagName(s)[0];
@@ -267,19 +187,20 @@
     
     
     // 네이버 아이디
-    var naverLogin = new naver.LoginWithNaverId(
+    /* var naverLogin = new naver.LoginWithNaverId(
         {
             clientId: "53ySFh6l7hMZUH4Hycd0",
-            callbackUrl: "http://localhost:8888/challenge-project/challenge/html/login/callback.html",/*콜백 url*/
-            isPopup: false, /* 팝업을 통한 연동처리 여부 */
+            callbackUrl:"http://localhost:8888/challenge-project/challenge/html/login/callback.html",
+            isPopup: false,  팝업을 통한 연동처리 여부 
             callbackHandle: true,
-            loginButton: {color: "green", type: 3, height: 50} /* 로그인 버튼의 타입을 지정 */
+             loginButton: {color: "green", type: 3, height: 63 }
         }
-    );
+    ); */
     
-    /* 설정정보를 초기화하고 연동을 준비 */
+    /* 설정정보를 초기화하고 연동을 준비 
      naverLogin.init(); 
-    
+    */
+ 
     
     
 

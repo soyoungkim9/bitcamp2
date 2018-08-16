@@ -10,9 +10,52 @@ if (location.href.split("?").length > 1) {
     $(fintroduce).append(data.introduce);
     $(fcareer).append(data.career);
     $(ftime).append(data.time);
-  }).done(function() {
-    console.log('트레이너')
-  })
+  }).done(function(data){ // 메시지 보내기---------------------------------------------------------
+      var addTemplateSrc = $("#add-template").html();
+      var addtemplateFn = Handlebars.compile(addTemplateSrc);
+      $(document.body).on('click','#msgBtn', function(event){
+        event.preventDefault();
+
+        $('#myAddModal').css("display", "block");
+        $('.add-body').html(addtemplateFn({
+          trainer: data.name,
+          member: userInfo.name
+        }));
+        $("#addBtn").click(() => {
+          $.ajax({
+            type: 'POST',
+            url: '../../../json/message/add',
+            data:{
+              title: $(fTitle).val(),
+              content:$(fContent).val(),
+              direct: 1,
+              "member.userNo":userInfo.userNo,
+              "trainer.userNo":data.userNo
+            },
+            success:function(result){
+              $('#myAddModal').css("display", "none");
+              swal({
+                type: 'success',
+                title: '전송 완료!',
+                showConfirmButton: false,
+                timer: 1500,
+                preConfirm: () => {
+                  location.href="member-msg.html"
+                }
+              })
+
+            }
+          })
+        });
+
+        $(document.body).on('click','.close', function(){
+          $('#myAddModal').css("display", "none");
+        })
+        $(document.body).on('click','#msg-ok', function(){
+          $('#myModal').css("display", "none");
+        })
+      });
+    }); // 메시지 끝!
 
   //숫자를 별로 변환
   $.fn.generateStars = function() {
@@ -99,23 +142,17 @@ $.getJSON(serverRoot + "/json/program/listProgram/" + no, (data) => {
     return this.each(function(i,e){$(e).html($('<span/>').width($(e).text()*16));});
   };
  
+  // 슬라이드
+  $(".center").slick({
+    infinite: true,
+    centerMode: true,
+    slidesToShow: 2,
+    autoplay: true,
+    autoplaySpeed: 5000,
+    slidesToScroll: 1
+  });
 });
 
-function als() {
-  $("#lista1").als({
-    visible_items: 2,
-    scrolling_items: 1,
-    orientation: "horizontal",
-    circular: "yes",
-    autoscroll: "yes",
-    interval: 5000,
-    speed: 10000,
-    easing: "linear",
-    direction: "left",
-    start_from: 0
-    });
-    console.log('als')
-}
 
 function pmemberCount(no, i) {
   $.get(serverRoot + "/json/programMember/pmemberCount/" + no, function(data) {

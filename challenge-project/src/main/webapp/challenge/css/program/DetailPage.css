@@ -89,7 +89,6 @@ ul {
 .oneImg > img {
 	width: 100%;
 	position: absolute;
-	top: -100px;
 }
 
 .oneName {
@@ -123,6 +122,10 @@ ul {
     float: right;
     display: inline-block;
     margin: 0;
+}
+
+#fproTurn {
+	margin-left: 10px;
 }
 
 .oneName p span:last-child {
@@ -461,7 +464,7 @@ thead {
 }
 
 th, td {
-	padding: 12px 38.8px;
+	padding: 12px 1px;
 	text-align: center;
 }
 /* 프로그램 평가 댓글 입력창 */

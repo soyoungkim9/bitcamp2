@@ -9,13 +9,13 @@ public interface ProgramService {
     // 서비스 컴포넌트에서 메서드명을 지을 때는 
     // 업무 용어를 사용하라!
     List<Program> list(int pageNo, int pageSize);
-    List<Program> listCard();
+    List<Program> listCard(int cno, int pageNo, int pageSize);
     List<Program> selectListChallenge(int cno);
     List<Program> listCardWithKeyword(String keyword);
     List<Program> listWithPrice();
     List<Program> listWithStartDate();
     List<Program> listProgram(int trainerNo);
-    List<Program> listTurnProgram(int trainerNo);
+    List<Program> listTurnProgram(int trainerNo, String name);
     List<Program> listWithProgramType(String[] pType);
     Program get(int no);
     Program getWithMedia(int no);

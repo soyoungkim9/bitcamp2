@@ -11,7 +11,7 @@ $("#updBtn").click(() => {
             muscle: $('#setmuscle').val(),
             fat: $('#setfat').val()
 
-        }, 
+        }
     }).done(function() {
 		swal({
 			  position: 'center',
@@ -20,7 +20,6 @@ $("#updBtn").click(() => {
 			  showConfirmButton: false,
 			  timer: 1500
 			})
-			
 	    var updateLocation = $('.active').attr("data-name");
 		if(updateLocation == 'weightTab') {
 			$.get(serverRoot + "/json/bodyInfo/list/" + userInfo.userNo, function(data) {

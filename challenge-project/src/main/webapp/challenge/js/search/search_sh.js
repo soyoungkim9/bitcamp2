@@ -304,7 +304,7 @@ function loadCards(data) {
 		trImg(data[i].trainerNo, i);
 		pmemberCount(data[i].no, i);
 		var price = addComma($(".numberic-"+i+"").html())
-		var place = ($(".card-body-local-"+i+"").html()).substring(3, 6);
+		var place = ($(".card-body-local-"+i+"").html().substring(3, 6));
 		$(".numberic-"+i+"").html(price)
 		$(".card-body-local-"+i+"").html(place)
 	} 

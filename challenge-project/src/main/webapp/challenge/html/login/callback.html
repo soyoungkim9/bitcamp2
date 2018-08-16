@@ -19,7 +19,7 @@
        var naverLogin = new naver.LoginWithNaverId(
             {
                 clientId: "53ySFh6l7hMZUH4Hycd0",
-                callbackUrl: serverRoot +"/challenge/html/login/callback.html",
+                callbackUrl: "http://localhost:8888/challenge-project/challenge/html/login/callback.html",
                 isPopup: false,
                 callbackHandle: true
                 /* callback 페이지가 분리되었을 경우에 callback 페이지에서는 callback처리를 해줄수 있도록 설정합니다. */
@@ -79,13 +79,12 @@
                   name: naver_id_login.getProfileData('name'),
                   email: naver_id_login.getProfileData('email'),
                   gender: naver_id_login.getProfileData('gender'),
-                  profileImage = naver_id_login.getProfileData('profileImage')
               }, // {“user_id”:”입력값”, “user_password”:”입력값”} 형식으로 전달 됨
               dataType:"json"
              });
              request.done(function(result){ // 전송 후, 결과 값 받아오는 부분
                  if (result.status == 'success') {
-                	 /*  window.alert('로그인 성공입니다!');  */
+                	   window.alert('로그인 성공입니다!');  
                      location.href = "../main/main.html"
                  } else {
                      window.alert('로그인 실패입니다!');

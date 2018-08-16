@@ -21,7 +21,10 @@
     border:1px solid #DD1F26;
 }
 
-
+.tr-hr {
+  background-color:black;
+  
+}
 .new-title {
     text-align:center;
     color:black;

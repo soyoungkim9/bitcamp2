@@ -54,7 +54,7 @@
     from PMED m
          right outer join PROG p on m.pno=p.pno
          left outer join TRN t on p.trnno=t.trnno
-    <!-- limit #{startRowNo}, #{pageSize} -->
+    limit #{startRowNo}, #{pageSize}
   </select>
   
     <select id="pagingListCard"
@@ -222,7 +222,7 @@
   select p.pno, p.pname, p.pth, p.sdt, p.edt
   from PROG p
           inner join TRN t on p.trnno=t.trnno
-  where t.trnno=#{value} and p.pname in (
+  where t.trnno=#{trainerNo} and p.pname=#{name} and p.pname in (
 		                   select pname
 		                   from PROG
 		                   GROUP BY pname 

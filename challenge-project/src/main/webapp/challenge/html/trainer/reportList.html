@@ -141,12 +141,12 @@
 <ul id="planList" class="dayList">
 {{#each list}}
   <li>
+    <div class="editIcon">
+      <a data-no="{{no}}" data-pno="{{program.no}}" class="viewNum"><i class="fas fa-search"></i></a>
+    </div>
     <div class="dayContent">
       <h4 class="time">Day{{planTurn}}</h4>
       <pre>{{planContent}}</pre>
-    </div>
-    <div class="editIcon">
-      <a data-no="{{no}}" data-pno="{{program.no}}" class="viewNum"><i class="fas fa-plus-circle"></i></a>
     </div>
   </li>
 {{/each}}
@@ -157,11 +157,11 @@
 {{#each list}}
 	{{#if @last}}
 		<li class="programTab tabSelect active">
-			<a data-no='{{program.no}}' data-last='{{program.no}}' data-sdt='{{program.startDate}}' data-edt='{{program.endDate}}'>
+			<a data-ptover='{{program.proTurn}}' data-no='{{program.no}}' data-last='{{program.no}}' data-sdt='{{program.startDate}}' data-edt='{{program.endDate}}'>
 		{{program.name}}</a></li>
 	{{else}}
 		<li class="programTab tabSelect">
-			<a data-no='{{program.no}}' data-sdt='{{program.startDate}}' data-edt='{{program.endDate}}'>{{program.name}}</a></li>
+			<a data-ptover='{{program.proTurn}}' data-no='{{program.no}}' data-sdt='{{program.startDate}}' data-edt='{{program.endDate}}'>{{program.name}}</a></li>
 	{{/if}}
 {{/each}}
 </script>

@@ -11,7 +11,7 @@ if (location.href.split("?").length > 1) {
   //프로그램 리스트 가져오기
   var cardBody1 = $("#cardBody1").html();
   var cardBodyFn = Handlebars.compile(cardBody1);
-  $.getJSON(serverRoot + "/json/program/listCard/" + no, (data) => {
+  $.getJSON(serverRoot + "/json/program/listCard/" + no + "/1/8", (data) => {
     $(program).html(cardBodyFn({list:data}));
   }).done(function(data) {
     
