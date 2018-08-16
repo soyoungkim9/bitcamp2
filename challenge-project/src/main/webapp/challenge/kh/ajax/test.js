@@ -1,1 +1,0 @@
-{"hacosa" : "minho" , "study" : {"ajax" : "뾰로롱","react":"reactValue"} }

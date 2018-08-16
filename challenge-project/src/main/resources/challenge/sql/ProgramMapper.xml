@@ -66,7 +66,7 @@
          left outer join TRN t on p.trnno=t.trnno
          Group By p.pno, p.pname
          order by p.sdt desc
-         limit #{challengeNo}, #{startRowNo}, #{pageSize} 
+         limit #{startRowNo}, #{pageSize} 
   </select>
   
       <select id="pagingListProgoal"
