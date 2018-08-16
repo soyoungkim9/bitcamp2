@@ -48,7 +48,7 @@ if (location.href.split("?").length > 1) {
         $('#myAddModal').css("display", "block");
         $('.add-body').html(addtemplateFn({
           trainer: data.name,
-          member: userInfo.name,
+          member: userInfo.name
         }));
         $("#addBtn").click(() => {
           $.ajax({
