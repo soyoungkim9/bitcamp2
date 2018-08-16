@@ -3,11 +3,6 @@ window.onscroll = function() {
 	myFunction()
 };
 
-/*
-1. offsetTop => sh-mainContainer부터 top까지 거리
-2.sh-contentCol의 padding값(27)만큼 더함
- */
-
 var sh_Class_Daily = document.getElementById("sh-Class-Daily");
 var diff = document.getElementById("sh-mainContainer");
 var sticky = (diff.offsetTop + 104);
