@@ -132,7 +132,7 @@ function reviewScore(no, i) {
       if (cal >= 4) {
         //display block
         var displayNo = (cal / 5) * 100; // 백분율
-        $(fscore).append(displayNo + '%')
+        //$(fscore).append(displayNo + '%')
         $("#card-" + i).css("display", "block");
         $("#card-" + i).append("<span>만족도 "+ displayNo+ "%</span>")
       } 
