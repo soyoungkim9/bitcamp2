@@ -161,7 +161,11 @@ h4 {
 #header {
 	position: absolute;
 	top: 0px;
-	left: 21.5%; 
+	left: 20%; 
+}
+
+#header i {
+	font-size: 32px;
 }
 
 .parallax {

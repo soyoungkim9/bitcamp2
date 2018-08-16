@@ -10,9 +10,52 @@ if (location.href.split("?").length > 1) {
     $(fintroduce).append(data.introduce);
     $(fcareer).append(data.career);
     $(ftime).append(data.time);
-  }).done(function() {
-    console.log('트레이너')
-  })
+  }).done(function(data){ // 메시지 보내기---------------------------------------------------------
+      var addTemplateSrc = $("#add-template").html();
+      var addtemplateFn = Handlebars.compile(addTemplateSrc);
+      $(document.body).on('click','#msgBtn', function(event){
+        event.preventDefault();
+
+        $('#myAddModal').css("display", "block");
+        $('.add-body').html(addtemplateFn({
+          trainer: data.name,
+          member: userInfo.name
+        }));
+        $("#addBtn").click(() => {
+          $.ajax({
+            type: 'POST',
+            url: '../../../json/message/add',
+            data:{
+              title: $(fTitle).val(),
+              content:$(fContent).val(),
+              direct: 1,
+              "member.userNo":userInfo.userNo,
+              "trainer.userNo":data.userNo
+            },
+            success:function(result){
+              $('#myAddModal').css("display", "none");
+              swal({
+                type: 'success',
+                title: '전송 완료!',
+                showConfirmButton: false,
+                timer: 1500,
+                preConfirm: () => {
+                  location.href="member-msg.html"
+                }
+              })
+
+            }
+          })
+        });
+
+        $(document.body).on('click','.close', function(){
+          $('#myAddModal').css("display", "none");
+        })
+        $(document.body).on('click','#msg-ok', function(){
+          $('#myModal').css("display", "none");
+        })
+      });
+    }); // 메시지 끝!
 
   //숫자를 별로 변환
   $.fn.generateStars = function() {
@@ -24,7 +67,6 @@ if (location.href.split("?").length > 1) {
     var count = data;
     $.getJSON(serverRoot + "/json/programMember/trainerReviewScore/" + no, function(data) {
       $('.star-prototype').append(data / count);
-      $(fscore).append(((data/count/5)*100).toFixed(1) + '%')
     }).done(function() {
       $('.star-prototype').generateStars(); 
       console.log('평점')
@@ -133,6 +175,7 @@ function reviewScore(no, i) {
       if (cal >= 4) {
         //display block
         var displayNo = (cal / 5) * 100; // 백분율
+        $(fscore).append(displayNo + '%')
         $("#card-" + i).css("display", "block");
         $("#card-" + i).append("<span>만족도 "+ displayNo+ "%</span>")
       } 
