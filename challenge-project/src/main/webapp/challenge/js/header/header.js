@@ -68,7 +68,7 @@ $.ajax({
 				console.log("로그아웃버튼 클릭됨")
 				e.preventDefault(); // 클릭했을 때 원래 하던 일이 있는데 그것을 하지 말라!
 				$.get(serverRoot + "/json/auth/logout", () => {
-					location.href = serverRoot + "/challenge/html/login/login.html";
+					location.href = serverRoot + "/challenge/html/login/login3.html";
 				}); 
 			});
 		} 
