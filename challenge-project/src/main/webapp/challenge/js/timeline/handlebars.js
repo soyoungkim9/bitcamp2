@@ -21,12 +21,6 @@
     		}
     	})
     	
-//    	, function() {
-//    		if(data.responseText == "loginNeed") {
-//    		}
-//    	})
-    	
-    	
     });
 
 var addedPostCount = 0;
