@@ -130,7 +130,7 @@ function reloadCard(pageCount) {
 			loadComments(data[i].no)
 			timelineLikeCount(data[i].no)
 			if (data[i].picture) {
-				$("#img" + data[i].no).append("<img src='../../../files/" + data[i].picture + "_600x600.jpg'>");
+				$("#img" + data[i].no).append("<img src='../../../files/" + data[i].picture + ".jpg'>");
 			}
 		}
 		console.log(userInfo.userPath)
