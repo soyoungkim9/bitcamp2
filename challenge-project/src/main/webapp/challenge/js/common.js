@@ -1,5 +1,7 @@
 var serverRoot = "http://localhost:8888/challenge-project";
 
+
+/*
 document.addEventListener("keydown", KeyCheck);
 
 function KeyCheck(event)
@@ -9,5 +11,5 @@ function KeyCheck(event)
 	   window.history.back();
    }
 }
-
+*/
 
