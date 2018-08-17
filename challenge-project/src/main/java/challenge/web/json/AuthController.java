@@ -47,6 +47,7 @@ public class AuthController {
     
     @GetMapping("/loginUser")
     public User loginUser(HttpSession session) {
+        System.out.println(session.getAttribute("loginUser"));
         return (User) session.getAttribute("loginUser");
     }
 

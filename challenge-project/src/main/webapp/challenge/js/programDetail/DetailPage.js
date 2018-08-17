@@ -37,7 +37,7 @@ if (location.href.split("?").length > 1) {
       
       $(ftrainerImg).append('<a href="../trainer/trainer.html?no='
           +data.userNo+'"><img src="../../../files/'
-          +data.userPath+'_100x100.jpg"></a>')
+          +data.userPath+'"></a>')
       
     }).done(function(data){ // 메시지 보내기---------------------------------------------------------
       var addTemplateSrc = $("#add-template").html();
@@ -158,64 +158,6 @@ function rewviewStar(no) {
 }
 
 
-/*
-
-//add
-
-var addTemplateSrc = $("#add-template").html();
-var addtemplateFn = Handlebars.compile(addTemplateSrc);
-
-$(document.body).on('click','.addModal', function(event){
-	event.preventDefault();
-
-	var msgno = $(this).attr("data-msgno");
-	$.getJSON(serverRoot + "/json/message/" + msgno, function(data) {
-		$('.add-body').html(addtemplateFn({
-			 trainer: data.trainer.name,
-			 title: data.title,
-			 content: data.content,
-			 msgDate: data.msgDate,
-			 member: userInfo.name,
-			 }));
-		$('#myAddModal').css("display", "block");
-	}).done(function(data){
-		$("#addBtn").click(() => {
-			$.ajax({
-			    type: 'POST',
-		        url: '../../../json/message/add',
-		        data:{
-		            title: $(fTitle).val(),
-		            content:$(fContent).val(),
-		            direct: 1,
-		            "member.userNo":userInfo.userNo,
-		            "trainer.userNo":data.trainer.userNo
-		        },
-		        success:function(result){
-		        	$('#myAddModal').css("display", "none");
-		        	swal({
-		        		type: 'success',
-		        		  title: '전송 완료!',
-		        		  showConfirmButton: false,
-		        		  timer: 1500,
-                        preConfirm: () => {
-                        	location.href="member-msg.html"
-                              }
-                      })
-
-		        }
-			})
-		});
-	});
-
-	$(document.body).on('click','.close', function(){
-		$('#myAddModal').css("display", "none");
-	})
-	$(document.body).on('click','#msg-ok', function(){
-		$('#myModal').css("display", "none");
-	})
-});
- */
-
 // 기수 프로그램
 function proTurn(trainerNo, name) {
   var trTemplateSrc5 = $("#turn-template").html();
@@ -284,7 +226,7 @@ $(document).ready(function() {
 
   if (userInfo != undefined) {
     $('<img/>')
-    .attr('src', '../../../files/'+userInfo.userPath+'_50x50.jpg')
+    .attr('src', '../../../files/'+userInfo.userPath)
     .appendTo($('.userNameCircle'));
     $(uName).append(userInfo.name);
   }

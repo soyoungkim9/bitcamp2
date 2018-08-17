@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+#mainVideo {
+	object-fit: fill;
+}
+
 #sm-btn-1 { /* 남색 버튼 */
 	width: 100px;
 	background-color: #1B3453;

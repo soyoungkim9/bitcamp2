@@ -38,6 +38,10 @@ public class ProgramMediaController {
    @ResponseStatus(HttpStatus.CREATED)
     public Object add(@ModelAttribute("loginUser") User loginUser,
             ProgramMedia programMedia, MultipartFile[] files) throws Exception {
+       
+       System.out.println("로그인된 유저는");
+       System.out.println(loginUser.toString());
+       
        String filesDir = sc.getRealPath("/files");
        
        ArrayList<String> medias = new ArrayList<>();
