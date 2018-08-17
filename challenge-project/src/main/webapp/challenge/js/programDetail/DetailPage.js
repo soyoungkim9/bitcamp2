@@ -37,7 +37,7 @@ if (location.href.split("?").length > 1) {
       
       $(ftrainerImg).append('<a href="../trainer/trainer.html?no='
           +data.userNo+'"><img src="../../../files/'
-          +data.userPath+'"></a>')
+          +data.userPath+'.jpg"></a>')
       
     }).done(function(data){ // 메시지 보내기---------------------------------------------------------
       var addTemplateSrc = $("#add-template").html();
