@@ -31,6 +31,8 @@ $.ajax({
 	})
 	.done(function(data) {
 		userInfo = data;
+		console.log("유저는")
+		console.log(userInfo)
 		if(userInfo != null) {
 			
 			// alarm hover eventListener 등록
