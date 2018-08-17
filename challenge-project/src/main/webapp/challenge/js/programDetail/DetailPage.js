@@ -55,8 +55,8 @@ if (location.href.split("?").length > 1) {
             type: 'POST',
             url: '../../../json/message/add',
             data:{
-              title: $(fTitle).val(),
-              content:$(fContent).val(),
+              title: $('#fTitle').val(),
+              content:$('#fContent2').val(),
               direct: 1,
               "member.userNo":userInfo.userNo,
               "trainer.userNo":data.userNo
