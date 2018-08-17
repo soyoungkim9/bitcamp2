@@ -309,7 +309,7 @@
 {{#each list}}
 <div class="mySlides fade">
   <div class="numbertext"><span id="slideOr-{{@key}}"></span> / <span id="slideLen"></span></div>
-  <img src="../../../files/{{path}}">
+  <img src="../../../files/{{path}}.jpg">
 </div>
 {{/each}}
 </script>
@@ -318,7 +318,7 @@
 <a href="DetailPage.html?no={{no}}">
  <div class="lectList">
   <div class="imgBox">
-    <img class="card-img" src="../../../files/{{medias.[0].path}}"/>
+    <img class="card-img" src="../../../files/{{medias.[0].path}}.jpg"/>
   </div>
   <div class="subjectBox">
    <h5>{{name}}</h5>
@@ -350,7 +350,7 @@
  <li class="cm-load cmt-section-{{user.userNo}}" data-userNo="{{user.userNo}}"
     onmouseover=showCmtMenu(this) onmouseout=hideCmtMenu(this)>
   <div class="commentImg">
-    <img id="cmImg-{{@key}}" src="../../../files/{{user.userPath}}_50x50.jpg"></div>
+    <img id="cmImg-{{@key}}" src="../../../files/{{user.userPath}}.jpg"></div>
   <div class="commentDate">
    {{reviewDate}} <span>｜</span> </div>
   <div class="commentEval">

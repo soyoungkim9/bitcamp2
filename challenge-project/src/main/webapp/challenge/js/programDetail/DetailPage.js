@@ -17,7 +17,7 @@ if (location.href.split("?").length > 1) {
     $(fproTh).append(data.proTh);
     $(fproTurn).append(data.proTurn);
     $('<img/>')
-    .attr('src', '../../../files/'+data.medias[0].path)
+    .attr('src', '../../../files/'+data.medias[0].path + '.jpg')
     .appendTo($(fprogramImg));
 
     // 참여인원 정보 가져오기
