@@ -32,7 +32,7 @@ $(document).ready(function() {
   console.log(userInfo.programs[0].name)
   $("#sh-Class-Title").html(userInfo.programs[0].name);
   
-  $("#sh-class-more").html(userInfo.programs[0].description);
+  $("#preTag").html(userInfo.programs[0].description);
   
   // 스크롤 위치 맨 위로 고정
   $("body").scrollTop(0);

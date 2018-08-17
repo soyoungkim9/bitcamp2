@@ -27,10 +27,12 @@ function shClassFunction() {
 		dots.css("display", "inline");
 		divText.html("▼");
 		moreText.css("display","none");
+		$(".sh-Class-Contents").css("padding", "20px 20px 0px 20px");
 	} else {
 		dots.css("display", "none");
 		divText.html("▲");
 		moreText.css("display","inline");
+		$(".sh-Class-Contents").css("padding", "20px 20px 20px 20px");
 	}
 }
 	

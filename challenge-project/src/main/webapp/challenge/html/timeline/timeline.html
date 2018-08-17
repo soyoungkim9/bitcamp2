@@ -47,10 +47,10 @@
         <div id="sh-Class-Daily">
           <div id="sh-Class-Daily-item">
             <div class="sh-Class-Contents">
+	              <h1 id="sh-Class-Title"></h1>
+	              <span id="sh-class-dots"></span>
 
-              <h1 id="sh-Class-Title"></h1>
-              <span id="sh-class-dots"></span>
-              <span id="sh-class-more"></span>
+	              <span id="sh-class-more"><pre id="preTag"></pre></span>
             </div>
 
             <div onclick="shClassFunction()" id="shClassDiv">▼</div>
@@ -160,7 +160,7 @@
       <!-- 글쓴이 종료-->
       <!-- 글내용 시작-->
       <div class="sh-tl-card-content">
-        <p class="sh-tl-card-content-inside">{{content}}</p>
+        <pre><p class="sh-tl-card-content-inside">{{content}}</p></pre>
       </div>
       <div id="img{{no}}"></div>
       <!-- 글내용 종료 -->
