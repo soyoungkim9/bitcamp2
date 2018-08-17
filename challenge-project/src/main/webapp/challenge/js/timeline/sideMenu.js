@@ -5,6 +5,7 @@ $.ajax({
 }).done(function(data) {
 	$("#sh-sideMenu-item").html(data);
 	$("#side-user-img").attr("src","../../../files/" + userInfo.userPath + ".jpg")
+//	$("#side-user-img").attr("src","../../../files/" + userInfo.userPath)
 })
 
   /* top 버튼*/

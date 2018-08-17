@@ -61,7 +61,7 @@ $.ajax({
 			}
 
 			// userImage
-			$("#sh-user-img").attr("src","../../../files/" + userInfo.userPath);
+			$("#sh-user-img").attr("src","../../../files/" + userInfo.userPath + ".jpg");
 
 			//로그인 여부(obj객체 유무에 따라)에 따른 헤더 Nav 메뉴 변경
 			$(".login_menu_before").attr("style", "display:none");

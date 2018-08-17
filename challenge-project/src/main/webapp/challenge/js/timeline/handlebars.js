@@ -80,7 +80,7 @@ function loadCards(pageCount) {
         $("#img" + data[i].no).append("<img src='../../../files/" + data[i].picture + "' style=\"width:600px\"'>");
       }  
     }
-    $('.sh-tl-user-img-load').attr("src", "../../../files/" + userInfo.userPath);
+    $('.sh-tl-user-img-load').attr("src", "../../../files/" + userInfo.userPath + ".jpg");
   });
 }
 

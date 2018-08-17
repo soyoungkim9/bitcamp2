@@ -484,4 +484,4 @@ $('#MOVE_TOP_BTN').click(function () {
 
 
 //---------------------리뷰 작성자-------------------
-$('.sh-tl-user-img-load').attr("src", "../../../files/" + userInfo.userPath);
+$('.sh-tl-user-img-load').attr("src", "../../../files/" + userInfo.userPath + ".jpg");
