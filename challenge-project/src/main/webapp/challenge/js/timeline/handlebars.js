@@ -77,8 +77,8 @@ function loadCards(pageCount) {
       timelineLikeCount(data[i].no);
       if (data[i].picture) {
     	  // 얘는 타임라인 카드의 이미지임.
-        $("#img" + data[i].no).append("<img src='../../../files/" + data[i].picture + ".jpg'>");
-      } 
+        $("#img" + data[i].no).append("<img src='../../../files/" + data[i].picture + "' style=\"width:600px\"'>");
+      }  
     }
     $('.sh-tl-user-img-load').attr("src", "../../../files/" + userInfo.userPath);
   });
@@ -98,7 +98,7 @@ function loadOneCard(postNo) {
 		  loadComments(data.no);
 		  timelineLikeCount(data.no);
 		  if(data.picture) {
-			  $("#img" + data.no).append("<img src='../../../files/" + data.picture + ".jpg'>");
+			  $("#img" + data.no).append("<img src='../../../files/" + data.picture + "' style=\"width:600px\"'>");
 		  }
 		  
 		  $('.sh-tl-card-modal').attr("class","sh-tl-card-modal" + postNo + " sh-tl-card sh-card");
