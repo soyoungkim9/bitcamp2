@@ -47,6 +47,7 @@ if (location.href.split("?").length > 1) {
 
         $('#myAddModal').css("display", "block");
         $('.add-body').html(addtemplateFn({
+        	usersPath: userInfo.userPath,
           trainer: data.name,
           member: userInfo.name
         }));
@@ -226,7 +227,7 @@ $(document).ready(function() {
 
   if (userInfo != undefined) {
     $('<img/>')
-    .attr('src', '../../../files/'+userInfo.userPath)
+    .attr('src', '../../../files/'+userInfo.userPath+".jpg")
     .appendTo($('.userNameCircle'));
     $(uName).append(userInfo.name);
   }

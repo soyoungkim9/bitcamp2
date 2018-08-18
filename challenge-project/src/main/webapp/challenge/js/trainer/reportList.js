@@ -63,7 +63,7 @@ $(document).ready(function() {
 	$.ajax(serverRoot + "/json/trainer/" + userInfo.userNo, {
 		dataType: "json",	
 	    success(data) {
-			 $('#fPath').attr('src', '../../../files/' + data.userPath);
+			 $('#fPath').attr('src', '../../../files/' + data.userPath+'.jpg');
 			 $('#tName').html(data.name);
 	    },
 	    error() {

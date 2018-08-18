@@ -509,6 +509,7 @@ textarea:focus {
   padding: 20px;
   border: 1px solid #888;
   width: 34.6%;
+  /*width: 503px;*/
   display: inline-block;
   /* Could be more or less, depending on screen size */
 }
