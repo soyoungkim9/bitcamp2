@@ -67,6 +67,7 @@ if (location.href.split("?").length > 1) {
     var count = data;
     $.getJSON(serverRoot + "/json/programMember/trainerReviewScore/" + no, function(data) {
       $('.star-prototype').append(data / count);
+      $(fscore).append(data / count /5 * 100 + '%')
     }).done(function() {
       $('.star-prototype').generateStars(); 
       console.log('평점')
@@ -175,7 +176,6 @@ function reviewScore(no, i) {
       if (cal >= 4) {
         //display block
         var displayNo = (cal / 5) * 100; // 백분율
-        $(fscore).append(displayNo + '%')
         $("#card-" + i).css("display", "block");
         $("#card-" + i).append("<span>만족도 "+ displayNo+ "%</span>")
       } 
